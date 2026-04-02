@@ -4,116 +4,155 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CPBL 2026 看球行程規劃器</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Microsoft JhengHei', 'Segoe UI', sans-serif; background: #f5f6fa; color: #2c3e50; min-height: 100vh; }
+body { font-family: 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; background: #faf8f5; color: #3d3529; min-height: 100vh; }
 
 .container { max-width: 1100px; margin: 0 auto; }
 
-.header { background: #fff; padding: 18px 20px; border-bottom: 1px solid #e0e4ed; }
-.header h1 { font-size: 22px; color: #1a1a2e; margin-bottom: 2px; font-weight: 700; }
-.header p { color: #7f8c9b; font-size: 13px; }
+/* ── 棒球縫線 SVG 背景 ── */
+.header {
+  background: linear-gradient(135deg, #faf8f5 0%, #f3efe8 100%);
+  padding: 28px 24px 22px;
+  border-bottom: 2px solid #e8e0d4;
+  position: relative;
+  overflow: hidden;
+}
+.header::before {
+  content: '';
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff 30%, #f5f0e8 60%, transparent 61%);
+  box-shadow: inset 0 0 0 2px #d4c9b8;
+  opacity: 0.5;
+}
+.header::after {
+  content: '';
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 70px;
+  border-right: 2px dashed #c4a882;
+  border-radius: 0 50% 50% 0;
+  opacity: 0.35;
+}
+.header h1 { font-family: 'Noto Serif TC', serif; font-size: 24px; color: #2a2318; margin-bottom: 4px; font-weight: 700; letter-spacing: 1px; position: relative; z-index: 1; }
+.header p { color: #8c7e6a; font-size: 13px; letter-spacing: 0.5px; position: relative; z-index: 1; }
 
-.filters { background: #fff; padding: 16px 20px; display: flex; flex-wrap: wrap; gap: 14px; align-items: flex-end; border-bottom: 1px solid #e0e4ed; }
+.filters { background: #fefdfb; padding: 18px 24px; display: flex; flex-wrap: wrap; gap: 14px; align-items: flex-end; border-bottom: 1px solid #e8e0d4; }
 .filter-group { display: flex; flex-direction: column; gap: 5px; }
-.filter-group > label { font-size: 12px; color: #7f8c9b; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
-.filter-group select { background: #fff; border: 1px solid #d0d5e0; color: #2c3e50; padding: 7px 12px; border-radius: 8px; font-size: 14px; min-width: 130px; cursor: pointer; }
-.filter-group select:focus { outline: none; border-color: #5b7fff; box-shadow: 0 0 0 3px rgba(91,127,255,0.12); }
+.filter-group > label { font-size: 11px; color: #a89a85; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+.filter-group select { background: #fefdfb; border: 1px solid #d9cebb; color: #3d3529; padding: 8px 12px; border-radius: 6px; font-size: 14px; min-width: 130px; cursor: pointer; font-family: 'Noto Sans TC', sans-serif; }
+.filter-group select:focus { outline: none; border-color: #b8956a; box-shadow: 0 0 0 3px rgba(184,149,106,0.15); }
 
 .cb-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
 .checkbox-group { display: flex; align-items: center; gap: 5px; }
-.checkbox-group input[type="checkbox"] { width: 16px; height: 16px; accent-color: #5b7fff; cursor: pointer; }
-.checkbox-group label { font-size: 14px; cursor: pointer; user-select: none; color: #4a5568; }
+.checkbox-group input[type="checkbox"] { width: 16px; height: 16px; accent-color: #b8956a; cursor: pointer; }
+.checkbox-group label { font-size: 14px; cursor: pointer; user-select: none; color: #5c4f3d; }
 
-.stats { background: #fff; padding: 8px 20px; display: flex; flex-wrap: wrap; gap: 12px; border-bottom: 1px solid #e0e4ed; font-size: 13px; color: #7f8c9b; }
-.stats span.num { color: #5b7fff; font-weight: 700; }
+.stats { background: #fefdfb; padding: 8px 24px; display: flex; flex-wrap: wrap; gap: 12px; border-bottom: 1px solid #e8e0d4; font-size: 13px; color: #a89a85; }
+.stats span.num { color: #b8956a; font-weight: 700; }
 
-.table-wrap { padding: 12px 20px 32px; overflow-x: auto; }
-table { width: 100%; border-collapse: separate; border-spacing: 0; background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
-thead th { background: #f8f9fc; color: #7f8c9b; padding: 10px 12px; text-align: left; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; position: sticky; top: 0; z-index: 10; white-space: nowrap; border-bottom: 1px solid #e0e4ed; }
-tbody tr { border-bottom: 1px solid #f0f1f5; transition: background 0.12s; }
-tbody tr:hover { background: #f5f7ff; }
-tbody td { padding: 8px 12px; font-size: 14px; white-space: nowrap; border-bottom: 1px solid #f0f1f5; }
+.table-wrap { padding: 16px 24px 32px; overflow-x: auto; }
+table { width: 100%; border-collapse: separate; border-spacing: 0; background: #fefdfb; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(60,45,20,0.06); }
+thead th { background: #f5f0e8; color: #a89a85; padding: 11px 12px; text-align: left; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; position: sticky; top: 0; z-index: 10; white-space: nowrap; border-bottom: 1px solid #e8e0d4; }
+tbody tr { border-bottom: 1px solid #f0ebe3; transition: background 0.15s; }
+tbody tr:hover { background: #f9f5ef; }
+tbody td { padding: 9px 12px; font-size: 14px; white-space: nowrap; border-bottom: 1px solid #f0ebe3; }
 
-.day-sat { color: #5b7fff; font-weight: 600; }
-.day-sun { color: #e55c6c; font-weight: 600; }
-.day-hol { color: #e8913a; font-weight: 600; }
+.day-sat { color: #6b8cce; font-weight: 600; }
+.day-sun { color: #c96b6b; font-weight: 600; }
+.day-hol { color: #c49a4a; font-weight: 600; }
 
-.badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 600; margin-left: 4px; vertical-align: middle; }
-.badge-sat { background: #eef2ff; color: #5b7fff; }
-.badge-sun { background: #fef2f2; color: #e55c6c; }
-.badge-hol { background: #fff7ed; color: #d97706; }
-.badge-future { background: #ecfdf5; color: #059669; }
-.badge-past { background: #f3f4f6; color: #9ca3af; }
+.badge { display: inline-block; padding: 2px 9px; border-radius: 10px; font-size: 11px; font-weight: 600; margin-left: 4px; vertical-align: middle; }
+.badge-sat { background: #eef2fa; color: #6b8cce; }
+.badge-sun { background: #faf0f0; color: #c96b6b; }
+.badge-hol { background: #faf5eb; color: #b8956a; }
+.badge-future { background: #eef6f0; color: #5a9a6b; }
+.badge-past { background: #f0ebe3; color: #b0a593; }
 
-/* 對戰組合 - 視覺化呈現 */
+/* ── 對戰組合 ── */
 .matchup { display: inline-flex; align-items: center; gap: 0; }
-.matchup-team { display: inline-flex; align-items: center; gap: 4px; padding: 4px 10px; border-radius: 8px; font-size: 13px; font-weight: 600; }
+.matchup-team { display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px; border-radius: 8px; font-size: 13px; font-weight: 600; }
 .matchup-team img { width: 22px; height: 22px; object-fit: contain; }
-.matchup-at { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background: #f0f1f5; color: #9ca3af; font-size: 11px; font-weight: 700; flex-shrink: 0; }
-.team-brothers { background: #fef9e7; color: #b7950b; border: 1px solid #f9e79f; }
-.team-lions { background: #fef5ed; color: #c0611a; border: 1px solid #fad7b0; }
-.team-monkeys { background: #fdf2f2; color: #b91c1c; border: 1px solid #f5c6c6; }
-.team-guardians { background: #eff4ff; color: #2b5fc3; border: 1px solid #bfdbfe; }
-.team-dragons { background: #f5f0ff; color: #7c3aed; border: 1px solid #ddd6fe; }
-.team-hawks { background: #ecfdf5; color: #16794a; border: 1px solid #a7f3d0; }
+.matchup-at { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background: #f0ebe3; color: #b0a593; font-size: 11px; font-weight: 700; flex-shrink: 0; font-style: italic; }
+.team-brothers { background: #fdf8ea; color: #a6880f; border: 1px solid #f0e3a8; }
+.team-lions { background: #fdf4ec; color: #b05a18; border: 1px solid #f0cfaa; }
+.team-monkeys { background: #fbefef; color: #a62020; border: 1px solid #e8bfbf; }
+.team-guardians { background: #edf2fb; color: #2e5aab; border: 1px solid #b8ccec; }
+.team-dragons { background: #f3eefb; color: #6a30c4; border: 1px solid #cfc0e8; }
+.team-hawks { background: #edf6f0; color: #1a6b3a; border: 1px solid #a8dbb8; }
 
 .filter-row { display: flex; gap: 14px; }
 
-.empty { text-align: center; padding: 48px 20px; color: #9ca3af; font-size: 16px; }
+.empty { text-align: center; padding: 48px 20px; color: #b0a593; font-size: 15px; font-family: 'Noto Serif TC', serif; }
 
 .chip-group { display: flex; flex-wrap: wrap; gap: 6px; }
-.chip { display: inline-flex; align-items: center; padding: 5px 14px; border-radius: 16px; font-size: 13px; font-weight: 600; cursor: pointer; border: 1px solid #d0d5e0; background: #fff; color: #7f8c9b; transition: all 0.15s; user-select: none; }
-.chip:hover { border-color: #5b7fff; color: #5b7fff; background: #f5f7ff; }
+.chip { display: inline-flex; align-items: center; padding: 5px 14px; border-radius: 20px; font-size: 13px; font-weight: 500; cursor: pointer; border: 1px solid #d9cebb; background: #fefdfb; color: #8c7e6a; transition: all 0.18s; user-select: none; }
+.chip:hover { border-color: #b8956a; color: #b8956a; background: #faf5ef; }
 .chip.active { color: #fff; border-color: transparent; }
-.chip.active[data-team="中信兄弟"] { background: #d4a017; }
-.chip.active[data-team="統一7-ELEVEn獅"] { background: #d97218; }
-.chip.active[data-team="樂天桃猿"] { background: #c53030; }
-.chip.active[data-team="富邦悍將"] { background: #3b73d9; }
-.chip.active[data-team="味全龍"] { background: #7c3aed; }
-.chip.active[data-team="台鋼雄鷹"] { background: #16794a; }
+.chip.active[data-team="中信兄弟"] { background: #c49a20; }
+.chip.active[data-team="統一7-ELEVEn獅"] { background: #c46a18; }
+.chip.active[data-team="樂天桃猿"] { background: #b52828; }
+.chip.active[data-team="富邦悍將"] { background: #3468c0; }
+.chip.active[data-team="味全龍"] { background: #6d30b8; }
+.chip.active[data-team="台鋼雄鷹"] { background: #1a6b3a; }
 
-.btn-reset { background: #f3f4f6; color: #4a5568; border: 1px solid #d0d5e0; padding: 7px 18px; border-radius: 8px; font-size: 14px; cursor: pointer; transition: all 0.12s; }
-.btn-reset:hover { background: #e5e7eb; border-color: #9ca3af; }
+.btn-reset { background: #f5f0e8; color: #5c4f3d; border: 1px solid #d9cebb; padding: 8px 20px; border-radius: 6px; font-size: 13px; cursor: pointer; transition: all 0.15s; font-family: 'Noto Sans TC', sans-serif; letter-spacing: 0.5px; }
+.btn-reset:hover { background: #ebe4d8; border-color: #b8956a; }
 
 /* ── 手機卡片模式 ── */
 .card-list { display: none; }
-.game-card { background: #fff; border-radius: 12px; padding: 14px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+.game-card { background: #fefdfb; border-radius: 12px; padding: 14px 16px; box-shadow: 0 2px 8px rgba(60,45,20,0.06); border: 1px solid #ece6db; }
 .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
-.card-date { font-size: 14px; font-weight: 600; color: #2c3e50; }
-.card-time { font-size: 13px; color: #7f8c9b; }
-.card-matchup { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 10px 0; }
-.card-team { display: flex; flex-direction: column; align-items: center; gap: 4px; min-width: 72px; }
-.card-team img { width: 36px; height: 36px; object-fit: contain; }
+.card-date { font-size: 14px; font-weight: 600; color: #3d3529; font-family: 'Noto Serif TC', serif; }
+.card-time { font-size: 13px; color: #a89a85; }
+.card-matchup { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 12px 0; }
+.card-team { display: flex; flex-direction: column; align-items: center; gap: 5px; min-width: 72px; }
+.card-team img { width: 38px; height: 38px; object-fit: contain; }
 .card-team-name { font-size: 13px; font-weight: 600; }
-.card-vs { font-size: 12px; color: #9ca3af; font-weight: 700; background: #f0f1f5; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
-.card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 8px; padding-top: 8px; border-top: 1px solid #f0f1f5; }
-.card-field { font-size: 12px; color: #4a5568; }
+.card-vs { font-size: 11px; color: #b0a593; font-weight: 700; font-style: italic; background: #f0ebe3; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+.card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; padding-top: 10px; border-top: 1px dashed #e8e0d4; }
+.card-field { font-size: 12px; color: #5c4f3d; }
 .card-tags { display: flex; flex-wrap: wrap; gap: 4px; }
+
+/* ── 頁尾 ── */
+.footer { text-align: center; padding: 20px; color: #c4b9a8; font-size: 12px; letter-spacing: 0.5px; }
+.footer .stitch { display: inline-block; letter-spacing: 3px; color: #d4c4ab; margin-bottom: 4px; }
 
 @media (max-width: 768px) {
   .container { max-width: 100%; }
-  .filters { padding: 12px; gap: 10px; flex-direction: column; align-items: stretch; }
+  .filters { padding: 14px; gap: 10px; flex-direction: column; align-items: stretch; }
   .filter-group { width: 100%; }
   .filter-group select { width: 100%; min-width: unset; }
   .filter-row { display: flex; gap: 10px; }
   .filter-row .filter-group { flex: 1; }
   .cb-row { gap: 10px; }
-  .header { padding: 14px 12px; }
-  .header h1 { font-size: 18px; }
+  .header { padding: 20px 16px 18px; }
+  .header h1 { font-size: 19px; }
   .header p { font-size: 12px; }
-  .stats { padding: 8px 12px; font-size: 12px; gap: 6px; }
+  .header::before { width: 60px; height: 60px; right: 16px; }
+  .header::after { right: 28px; width: 30px; height: 52px; }
+  .stats { padding: 8px 14px; font-size: 12px; gap: 6px; }
   .table-wrap { display: none; }
-  .card-list { display: flex; flex-direction: column; gap: 10px; padding: 10px 12px 28px; }
-  .chip { padding: 6px 10px; font-size: 12px; }
+  .card-list { display: flex; flex-direction: column; gap: 10px; padding: 12px 14px 28px; }
+  .chip { padding: 6px 11px; font-size: 12px; }
   .btn-reset { width: 100%; text-align: center; }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
-  .table-wrap { padding: 12px 16px 28px; }
-  .filters { padding: 14px 16px; }
-  .header { padding: 16px; }
-  .stats { padding: 8px 16px; }
+  .table-wrap { padding: 14px 18px 28px; }
+  .filters { padding: 16px 18px; }
+  .header { padding: 22px 18px 20px; }
+  .stats { padding: 8px 18px; }
 }
 </style>
 </head>
@@ -123,7 +162,7 @@ tbody td { padding: 8px 12px; font-size: 14px; white-space: nowrap; border-botto
 
 <div class="header">
   <h1>&#9918; CPBL 2026 看球行程規劃器</h1>
-  <p>中華職棒一軍例行賽 &#8212; 快速找到週末假日的精彩對戰</p>
+  <p>中華職棒一軍例行賽 &#8212; 在最好的日子，走進最好的球場</p>
 </div>
 
 <div class="filters">
@@ -178,6 +217,11 @@ tbody td { padding: 8px 12px; font-size: 14px; white-space: nowrap; border-botto
 
 <div class="card-list" id="card-list"></div>
 <div class="card-list empty" id="empty-card" style="display:none">沒有符合條件的場次</div>
+
+<div class="footer">
+  <div class="stitch">~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~</div><br>
+  CPBL 2026 &#183; 享受每一場比賽的美好時光
+</div>
 
 </div>
 
