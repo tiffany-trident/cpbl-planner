@@ -109,6 +109,9 @@ tbody td { padding: 9px 12px; font-size: 14px; white-space: nowrap; border-botto
 .btn-reset { background: #f5f0e8; color: #5c4f3d; border: 1px solid #d9cebb; padding: 8px 20px; border-radius: 6px; font-size: 13px; cursor: pointer; transition: all 0.15s; font-family: 'Noto Sans TC', sans-serif; letter-spacing: 0.5px; }
 .btn-reset:hover { background: #ebe4d8; border-color: #b8956a; }
 
+.btn-ticket { display: inline-block; padding: 4px 12px; border-radius: 14px; font-size: 12px; font-weight: 600; color: #b8956a; background: #faf5ef; border: 1px solid #d9c9ad; text-decoration: none; transition: all 0.18s; letter-spacing: 0.5px; font-family: 'Noto Sans TC', sans-serif; }
+.btn-ticket:hover { background: #b8956a; color: #fff; border-color: #b8956a; }
+
 /* ── 手機卡片模式 ── */
 .card-list { display: none; }
 .game-card { background: #fefdfb; border-radius: 12px; padding: 14px 16px; box-shadow: 0 2px 8px rgba(60,45,20,0.06); border: 1px solid #ece6db; }
@@ -208,7 +211,7 @@ tbody td { padding: 9px 12px; font-size: 14px; white-space: nowrap; border-botto
 <div class="table-wrap">
   <table>
     <thead>
-      <tr><th>日期</th><th>星期</th><th>時間</th><th>對戰組合</th><th>球場</th><th>標籤</th></tr>
+      <tr><th>日期</th><th>星期</th><th>時間</th><th>對戰組合</th><th>球場</th><th>標籤</th><th>購票</th></tr>
     </thead>
     <tbody id="tbody"></tbody>
   </table>
@@ -276,6 +279,14 @@ const TEAM_SHORT = {
   '富邦悍將': '悍將',
   '味全龍': '味全',
   '台鋼雄鷹': '台鋼',
+};
+const TEAM_TICKET = {
+  '樂天桃猿': 'https://ticket.ibon.com.tw/Index/Sport',
+  '中信兄弟': 'https://tix.brothers.tw/',
+  '統一7-ELEVEn獅': 'https://ticket.ibon.com.tw/Index/Sport',
+  '富邦悍將': 'https://guardians.fami.life/',
+  '味全龍': 'https://tix.wdragons.com/',
+  '台鋼雄鷹': 'https://ticket.tsghawks.com/',
 };
 const DAYS = ['日','一','二','三','四','五','六'];
 
@@ -420,13 +431,17 @@ function render() {
       '<span class="matchup-team ' + hc + '">' + (hLogo ? '<img src="' + hLogo + '" alt="">' : '') + hs + '</span>' +
       '</div>';
 
+    const ticketUrl = TEAM_TICKET[g.home] || '';
+    const ticketLink = ticketUrl ? '<a class="btn-ticket" href="' + ticketUrl + '" target="_blank" rel="noopener">購票</a>' : '';
+
     html += '<tr>' +
       '<td>' + g.date + '</td>' +
       '<td class="' + dc + '">' + g.dayName + '</td>' +
       '<td>' + g.time + '</td>' +
       '<td>' + matchup + '</td>' +
       '<td>' + g.field + '</td>' +
-      '<td>' + buildTags(g) + '</td></tr>';
+      '<td>' + buildTags(g) + '</td>' +
+      '<td>' + ticketLink + '</td></tr>';
   }
   tbody.innerHTML = html;
 
@@ -461,6 +476,7 @@ function render() {
         '<span class="card-field">' + g.field + '</span>' +
         '<div class="card-tags">' + buildTags(g) + '</div>' +
       '</div>' +
+      (TEAM_TICKET[g.home] ? '<div style="margin-top:10px;text-align:center"><a class="btn-ticket" href="' + TEAM_TICKET[g.home] + '" target="_blank" rel="noopener">前往購票</a></div>' : '') +
     '</div>';
   }
   cardList.innerHTML = cards;
