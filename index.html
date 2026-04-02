@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CPBL 2026 看球行程規劃器</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Microsoft JhengHei', 'Segoe UI', sans-serif; background: #f5f6fa; color: #2c3e50; min-height: 100vh; }
+
+.header { background: #fff; padding: 24px 32px; border-bottom: 1px solid #e0e4ed; }
+.header h1 { font-size: 24px; color: #1a1a2e; margin-bottom: 4px; font-weight: 700; }
+.header p { color: #7f8c9b; font-size: 14px; }
+
+.filters { background: #fff; padding: 20px 32px; display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-end; border-bottom: 1px solid #e0e4ed; }
+.filter-group { display: flex; flex-direction: column; gap: 6px; }
+.filter-group > label { font-size: 12px; color: #7f8c9b; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+.filter-group select { background: #fff; border: 1px solid #d0d5e0; color: #2c3e50; padding: 7px 12px; border-radius: 8px; font-size: 14px; min-width: 140px; cursor: pointer; }
+.filter-group select:focus { outline: none; border-color: #5b7fff; box-shadow: 0 0 0 3px rgba(91,127,255,0.12); }
+
+.cb-row { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+.checkbox-group { display: flex; align-items: center; gap: 6px; }
+.checkbox-group input[type="checkbox"] { width: 16px; height: 16px; accent-color: #5b7fff; cursor: pointer; }
+.checkbox-group label { font-size: 14px; cursor: pointer; user-select: none; color: #4a5568; }
+
+.stats { background: #fff; padding: 10px 32px; display: flex; flex-wrap: wrap; gap: 16px; border-bottom: 1px solid #e0e4ed; font-size: 13px; color: #7f8c9b; }
+.stats span.num { color: #5b7fff; font-weight: 700; }
+
+.table-wrap { padding: 16px 32px 40px; overflow-x: auto; }
+table { width: 100%; border-collapse: separate; border-spacing: 0; background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+thead th { background: #f8f9fc; color: #7f8c9b; padding: 11px 14px; text-align: left; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; position: sticky; top: 0; z-index: 10; white-space: nowrap; border-bottom: 1px solid #e0e4ed; }
+tbody tr { border-bottom: 1px solid #f0f1f5; transition: background 0.12s; }
+tbody tr:hover { background: #f5f7ff; }
+tbody td { padding: 10px 14px; font-size: 14px; white-space: nowrap; border-bottom: 1px solid #f0f1f5; }
+
+.day-sat { color: #5b7fff; font-weight: 600; }
+.day-sun { color: #e55c6c; font-weight: 600; }
+.day-hol { color: #e8913a; font-weight: 600; }
+
+.badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 600; margin-left: 4px; vertical-align: middle; }
+.badge-sat { background: #eef2ff; color: #5b7fff; }
+.badge-sun { background: #fef2f2; color: #e55c6c; }
+.badge-hol { background: #fff7ed; color: #d97706; }
+.badge-future { background: #ecfdf5; color: #059669; }
+.badge-past { background: #f3f4f6; color: #9ca3af; }
+
+.team-tag { display: inline-flex; align-items: center; padding: 3px 10px; border-radius: 12px; font-size: 13px; font-weight: 600; letter-spacing: 0.3px; }
+.team-brothers { background: #fef9e7; color: #b7950b; border: 1px solid #f9e79f; }
+.team-lions { background: #fef5ed; color: #c0611a; border: 1px solid #fad7b0; }
+.team-monkeys { background: #fdf2f2; color: #b91c1c; border: 1px solid #f5c6c6; }
+.team-guardians { background: #eff4ff; color: #2b5fc3; border: 1px solid #bfdbfe; }
+.team-dragons { background: #f5f0ff; color: #7c3aed; border: 1px solid #ddd6fe; }
+.team-hawks { background: #ecfdf5; color: #16794a; border: 1px solid #a7f3d0; }
+
+.vs { color: #9ca3af; margin: 0 6px; font-size: 12px; }
+
+.empty { text-align: center; padding: 60px 32px; color: #9ca3af; font-size: 16px; }
+
+.chip-group { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { display: inline-flex; align-items: center; padding: 5px 14px; border-radius: 16px; font-size: 13px; font-weight: 600; cursor: pointer; border: 1px solid #d0d5e0; background: #fff; color: #7f8c9b; transition: all 0.15s; user-select: none; }
+.chip:hover { border-color: #5b7fff; color: #5b7fff; background: #f5f7ff; }
+.chip.active { color: #fff; border-color: transparent; }
+.chip.active[data-team="中信兄弟"] { background: #d4a017; }
+.chip.active[data-team="統一7-ELEVEn獅"] { background: #d97218; }
+.chip.active[data-team="樂天桃猿"] { background: #c53030; }
+.chip.active[data-team="富邦悍將"] { background: #3b73d9; }
+.chip.active[data-team="味全龍"] { background: #7c3aed; }
+.chip.active[data-team="台鋼雄鷹"] { background: #16794a; }
+
+.btn-reset { background: #f3f4f6; color: #4a5568; border: 1px solid #d0d5e0; padding: 7px 18px; border-radius: 8px; font-size: 14px; cursor: pointer; transition: all 0.12s; }
+.btn-reset:hover { background: #e5e7eb; border-color: #9ca3af; }
+
+@media (max-width: 768px) {
+  .filters { padding: 14px; }
+  .table-wrap { padding: 8px; }
+  .header { padding: 16px; }
+  .header h1 { font-size: 20px; }
+  thead th, tbody td { padding: 8px 8px; font-size: 12px; }
+  .filter-group select { min-width: 110px; font-size: 13px; }
+  .stats { padding: 10px 14px; font-size: 12px; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>&#9918; CPBL 2026 看球行程規劃器</h1>
+  <p>中華職棒一軍例行賽 &#8212; 快速找到週末假日的精彩對戰</p>
+</div>
+
+<div class="filters">
+  <div class="filter-group">
+    <label>想看的隊伍</label>
+    <div class="chip-group" id="f-team1"></div>
+  </div>
+  <div class="filter-group">
+    <label>對手</label>
+    <div class="chip-group" id="f-team2"></div>
+  </div>
+  <div class="filter-group">
+    <label>球場</label>
+    <select id="f-field"><option value="">全部球場</option></select>
+  </div>
+  <div class="filter-group">
+    <label>月份</label>
+    <select id="f-month"><option value="">全部月份</option></select>
+  </div>
+  <div class="filter-group">
+    <label>日期篩選</label>
+    <div class="cb-row">
+      <div class="checkbox-group">
+        <input type="checkbox" id="f-weekend"><label for="f-weekend">週末</label>
+      </div>
+      <div class="checkbox-group">
+        <input type="checkbox" id="f-holiday"><label for="f-holiday">週末+國定假日</label>
+      </div>
+      <div class="checkbox-group">
+        <input type="checkbox" id="f-future" checked><label for="f-future">只看未來</label>
+      </div>
+    </div>
+  </div>
+  <div class="filter-group" style="justify-content:flex-end">
+    <button class="btn-reset" id="btn-reset">重設篩選</button>
+  </div>
+</div>
+
+<div class="stats" id="stats"></div>
+
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr><th>日期</th><th>星期</th><th>時間</th><th>對戰組合</th><th>球場</th><th>標籤</th></tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+  </table>
+  <div class="empty" id="empty" style="display:none">沒有符合條件的場次</div>
+</div>
+
+<script>
+// ── 台灣 2026 國定假日 ──
+const HOLIDAYS = {
+  '2026-01-01': '元旦',
+  '2026-01-02': '元旦彈性',
+  '2026-02-15': '除夕前彈性',
+  '2026-02-16': '除夕',
+  '2026-02-17': '春節',
+  '2026-02-18': '春節',
+  '2026-02-19': '春節',
+  '2026-02-20': '春節彈性',
+  '2026-02-28': '和平紀念日',
+  '2026-04-03': '兒童節',
+  '2026-04-04': '清明節',
+  '2026-04-05': '清明補假',
+  '2026-04-06': '兒童節補假',
+  '2026-05-01': '勞動節',
+  '2026-05-31': '端午節',
+  '2026-06-01': '端午補假',
+  '2026-09-25': '中秋節',
+  '2026-10-09': '國慶彈性',
+  '2026-10-10': '國慶日',
+};
+
+const TEAM_CLS = {
+  '中信兄弟': 'team-brothers',
+  '統一7-ELEVEn獅': 'team-lions',
+  '樂天桃猿': 'team-monkeys',
+  '富邦悍將': 'team-guardians',
+  '味全龍': 'team-dragons',
+  '台鋼雄鷹': 'team-hawks',
+};
+const TEAM_LOGO = {
+  '中信兄弟': 'https://cpbl.com.tw/files/atts/0L021497108709222204/logo_brothers.png',
+  '統一7-ELEVEn獅': 'https://cpbl.com.tw/files/atts/0L021496162893869773/logo_lions.png',
+  '樂天桃猿': 'https://cpbl.com.tw/files/atts/0L015574823122453305/2024_CPBL%E5%85%AD%E9%9A%8ALogo_R2_%E5%AE%98%E7%B6%B2.png',
+  '富邦悍將': 'https://cpbl.com.tw/files/atts/0L021495969510091777/logo_fubon.png',
+  '味全龍': 'https://cpbl.com.tw/files/atts/0L021497845061333235/logo_dragon.png',
+  '台鋼雄鷹': 'https://cpbl.com.tw/files/atts/0M259522048557486065/%E5%96%AE%E8%89%B2T-100x100.png',
+};
+function logoImg(team, size) {
+  const url = TEAM_LOGO[team];
+  return url ? '<img src="' + url + '" alt="" style="width:' + size + 'px;height:' + size + 'px;object-fit:contain;vertical-align:middle;margin-right:4px;">' : '';
+}
+const TEAM_SHORT = {
+  '中信兄弟': '兄弟',
+  '統一7-ELEVEn獅': '統一獅',
+  '樂天桃猿': '桃猿',
+  '富邦悍將': '悍將',
+  '味全龍': '味全',
+  '台鋼雄鷹': '台鋼',
+};
+const DAYS = ['日','一','二','三','四','五','六'];
+
+let allGames = [];
+
+// ── 賽程資料（內嵌）──
+const RAW_DATA = [["2026-03-28","17:06","中信兄弟","樂天桃猿","大巨蛋"],["2026-03-29","16:05","台鋼雄鷹","統一7-ELEVEn獅","亞太主"],["2026-03-29","17:07","味全龍","樂天桃猿","大巨蛋"],["2026-03-29","17:05","富邦悍將","中信兄弟","洲際"],["2026-03-31","18:35","味全龍","中信兄弟","洲際"],["2026-03-31","18:36","台鋼雄鷹","樂天桃猿","樂天桃園"],["2026-03-31","18:35","富邦悍將","統一7-ELEVEn獅","亞太主"],["2026-04-01","18:35","味全龍","中信兄弟","洲際"],["2026-04-01","18:35","台鋼雄鷹","樂天桃猿","樂天桃園"],["2026-04-01","18:35","富邦悍將","統一7-ELEVEn獅","亞太主"],["2026-04-03","17:05","統一7-ELEVEn獅","中信兄弟","洲際"],["2026-04-03","17:05","樂天桃猿","富邦悍將","新莊"],["2026-04-03","17:05","台鋼雄鷹","味全龍","天母"],["2026-04-04","17:05","統一7-ELEVEn獅","中信兄弟","洲際"],["2026-04-04","17:05","樂天桃猿","富邦悍將","新莊"],["2026-04-04","17:05","台鋼雄鷹","味全龍","天母"],["2026-04-05","16:05","台鋼雄鷹","味全龍","天母"],["2026-04-05","17:05","統一7-ELEVEn獅","中信兄弟","洲際"],["2026-04-05","17:05","樂天桃猿","富邦悍將","新莊"],["2026-04-06","16:05","統一7-ELEVEn獅","台鋼雄鷹","澄清湖"],["2026-04-06","16:05","樂天桃猿","味全龍","天母"],["2026-04-06","17:05","中信兄弟","富邦悍將","新莊"],["2026-04-07","18:35","統一7-ELEVEn獅","台鋼雄鷹","澄清湖"],["2026-04-07","18:35","樂天桃猿","味全龍","天母"],["2026-04-07","18:35","中信兄弟","富邦悍將","新莊"],["2026-04-10","18:35","富邦悍將","台鋼雄鷹","澄清湖"],["2026-04-10","18:35","味全龍","統一7-ELEVEn獅","亞太主"],["2026-04-10","18:35","中信兄弟","樂天桃猿","樂天桃園"],["2026-04-11","16:05","富邦悍將","台鋼雄鷹","澄清湖"],["2026-04-11","16:05","味全龍","統一7-ELEVEn獅","亞太主"],["2026-04-11","17:05","中信兄弟","樂天桃猿","樂天桃園"],["2026-04-12","16:05","富邦悍將","台鋼雄鷹","澄清湖"],["2026-04-12","16:05","味全龍","統一7-ELEVEn獅","亞太主"],["2026-04-12","17:05","中信兄弟","樂天桃猿","樂天桃園"],["2026-04-14","18:35","味全龍","富邦悍將","新莊"],["2026-04-14","18:35","台鋼雄鷹","中信兄弟","洲際"],["2026-04-15","18:35","味全龍","富邦悍將","新莊"],["2026-04-15","18:35","台鋼雄鷹","中信兄弟","洲際"],["2026-04-15","18:35","統一7-ELEVEn獅","樂天桃猿","樂天桃園"],["2026-04-16","18:35","統一7-ELEVEn獅","樂天桃猿","樂天桃園"],["2026-04-17","18:35","樂天桃猿","台鋼雄鷹","澄清湖"],["2026-04-17","18:35","統一7-ELEVEn獅","富邦悍將","新莊"],["2026-04-17","18:35","中信兄弟","味全龍","天母"],["2026-04-18","16:05","樂天桃猿","台鋼雄鷹","澄清湖"],["2026-04-18","17:05","統一7-ELEVEn獅","富邦悍將","新莊"],["2026-04-18","17:05","中信兄弟","味全龍","天母"],["2026-04-19","16:05","樂天桃猿","台鋼雄鷹","澄清湖"],["2026-04-19","16:05","中信兄弟","味全龍","天母"],["2026-04-19","17:05","統一7-ELEVEn獅","富邦悍將","新莊"],["2026-04-21","18:35","中信兄弟","統一7-ELEVEn獅","亞太主"],["2026-04-21","18:35","富邦悍將","樂天桃猿","樂天桃園"],["2026-04-22","18:35","中信兄弟","統一7-ELEVEn獅","亞太主"],["2026-04-22","18:35","富邦悍將","樂天桃猿","樂天桃園"],["2026-04-22","18:35","味全龍","台鋼雄鷹","嘉義市"],["2026-04-23","18:35","味全龍","台鋼雄鷹","澄清湖"],["2026-04-24","18:35","台鋼雄鷹","統一7-ELEVEn獅","亞太主"],["2026-04-24","18:35","富邦悍將","中信兄弟","洲際"],["2026-04-24","18:35","味全龍","樂天桃猿","樂天桃園"],["2026-04-25","16:05","台鋼雄鷹","統一7-ELEVEn獅","亞太主"],["2026-04-25","17:05","富邦悍將","中信兄弟","洲際"],["2026-04-25","17:05","味全龍","樂天桃猿","樂天桃園"],["2026-04-26","16:05","台鋼雄鷹","統一7-ELEVEn獅","亞太主"],["2026-04-26","17:05","富邦悍將","中信兄弟","洲際"],["2026-04-26","17:05","味全龍","樂天桃猿","樂天桃園"],["2026-04-28","18:35","統一7-ELEVEn獅","味全龍","天母"],["2026-04-28","18:35","台鋼雄鷹","富邦悍將","新莊"],["2026-04-29","18:35","統一7-ELEVEn獅","味全龍","天母"],["2026-04-29","18:35","台鋼雄鷹","富邦悍將","新莊"],["2026-04-29","18:35","樂天桃猿","中信兄弟","洲際"],["2026-04-30","18:35","樂天桃猿","中信兄弟","洲際"],["2026-05-01","16:05","樂天桃猿","統一7-ELEVEn獅","亞太主"],["2026-05-01","16:05","中信兄弟","台鋼雄鷹","大巨蛋"],["2026-05-01","17:05","富邦悍將","味全龍","天母"],["2026-05-02","16:05","樂天桃猿","統一7-ELEVEn獅","亞太主"],["2026-05-02","16:05","中信兄弟","台鋼雄鷹","大巨蛋"],["2026-05-02","17:05","富邦悍將","味全龍","天母"],["2026-05-03","15:05","中信兄弟","台鋼雄鷹","大巨蛋"],["2026-05-03","16:05","樂天桃猿","統一7-ELEVEn獅","亞太主"],["2026-05-03","16:05","富邦悍將","味全龍","天母"],["2026-05-05","18:35","樂天桃猿","富邦悍將","新莊"],["2026-05-05","18:35","中信兄弟","味全龍","大巨蛋"],["2026-05-06","18:35","樂天桃猿","富邦悍將","新莊"],["2026-05-06","18:35","中信兄弟","味全龍","大巨蛋"],["2026-05-06","18:35","台鋼雄鷹","統一7-ELEVEn獅","嘉義市"],["2026-05-08","18:35","味全龍","富邦悍將","新莊"],["2026-05-08","18:35","統一7-ELEVEn獅","樂天桃猿","樂天桃園"],["2026-05-08","18:35","台鋼雄鷹","中信兄弟","洲際"],["2026-05-09","17:05","味全龍","富邦悍將","新莊"],["2026-05-09","17:05","統一7-ELEVEn獅","樂天桃猿","樂天桃園"],["2026-05-09","17:05","台鋼雄鷹","中信兄弟","洲際"],["2026-05-10","17:05","味全龍","富邦悍將","新莊"],["2026-05-10","17:05","統一7-ELEVEn獅","樂天桃猿","樂天桃園"],["2026-05-10","17:05","台鋼雄鷹","中信兄弟","洲際"],["2026-05-12","18:35","味全龍","統一7-ELEVEn獅","亞太主"],["2026-05-13","18:35","味全龍","統一7-ELEVEn獅","亞太主"],["2026-05-13","18:35","富邦悍將","中信兄弟","洲際"],["2026-05-13","18:35","樂天桃猿","台鋼雄鷹","嘉義市"],["2026-05-14","18:35","樂天桃猿","台鋼雄鷹","澄清湖"],["2026-05-15","18:35","中信兄弟","統一7-ELEVEn獅","亞太主"],["2026-05-15","18:35","樂天桃猿","味全龍","天母"],["2026-05-15","18:35","台鋼雄鷹","富邦悍將","新莊"],["2026-05-16","16:05","中信兄弟","統一7-ELEVEn獅","亞太主"],["2026-05-16","17:05","樂天桃猿","味全龍","天母"],["2026-05-16","17:05","台鋼雄鷹","富邦悍將","新莊"],["2026-05-17","16:05","中信兄弟","統一7-ELEVEn獅","亞太主"],["2026-05-17","16:05","樂天桃猿","味全龍","天母"],["2026-05-17","17:05","台鋼雄鷹","富邦悍將","新莊"],["2026-05-19","18:35","台鋼雄鷹","味全龍","花蓮"],["2026-05-20","18:35","台鋼雄鷹","味全龍","花蓮"],["2026-05-20","18:35","中信兄弟","樂天桃猿","樂天桃園"],["2026-05-20","18:35","統一7-ELEVEn獅","富邦悍將","新莊"],["2026-05-21","18:35","統一7-ELEVEn獅","富邦悍將","新莊"],["2026-05-22","18:35","富邦悍將","樂天桃猿","樂天桃園"],["2026-05-22","18:35","味全龍","中信兄弟","大巨蛋"],["2026-05-22","18:35","統一7-ELEVEn獅","台鋼雄鷹","澄清湖"],["2026-05-23","16:05","統一7-ELEVEn獅","台鋼雄鷹","澄清湖"],["2026-05-23","17:05","富邦悍將","樂天桃猿","樂天桃園"],["2026-05-23","17:05","味全龍","中信兄弟","大巨蛋"],["2026-05-24","15:05","味全龍","中信兄弟","大巨蛋"],["2026-05-24","16:05","統一7-ELEVEn獅","台鋼雄鷹","澄清湖"],["2026-05-24","17:05","富邦悍將","樂天桃猿","樂天桃園"],["2026-05-26","18:35","富邦悍將","味全龍","大巨蛋"],["2026-05-26","18:35","樂天桃猿","統一7-ELEVEn獅","嘉義市"],["2026-05-27","18:35","富邦悍將","味全龍","大巨蛋"],["2026-05-27","18:35","樂天桃猿","統一7-ELEVEn獅","嘉義市"],["2026-05-27","18:35","中信兄弟","台鋼雄鷹","澄清湖"],["2026-05-28","18:35","中信兄弟","台鋼雄鷹","澄清湖"],["2026-05-29","18:35","統一7-ELEVEn獅","味全龍","天母"],["2026-05-29","18:35","中信兄弟","富邦悍將","大巨蛋"],["2026-05-29","18:35","台鋼雄鷹","樂天桃猿","樂天桃園"],["2026-05-30","17:05","統一7-ELEVEn獅","味全龍","天母"],["2026-05-30","17:05","中信兄弟","富邦悍將","大巨蛋"],["2026-05-30","17:05","台鋼雄鷹","樂天桃猿","樂天桃園"],["2026-05-31","16:05","統一7-ELEVEn獅","味全龍","天母"],["2026-05-31","16:05","中信兄弟","富邦悍將","大巨蛋"],["2026-05-31","17:05","台鋼雄鷹","樂天桃猿","樂天桃園"],["2026-06-02","18:35","統一7-ELEVEn獅","中信兄弟","大巨蛋"],["2026-06-03","18:35","統一7-ELEVEn獅","中信兄弟","大巨蛋"],["2026-06-03","18:35","味全龍","樂天桃猿","樂天桃園"],["2026-06-03","18:35","富邦悍將","台鋼雄鷹","澄清湖"],["2026-06-04","18:35","富邦悍將","台鋼雄鷹","澄清湖"],["2026-06-05","18:35","樂天桃猿","中信兄弟","洲際"],["2026-06-05","18:35","富邦悍將","統一7-ELEVEn獅","大巨蛋"],["2026-06-05","18:35","味全龍","台鋼雄鷹","澄清湖"],["2026-06-06","16:05","富邦悍將","統一7-ELEVEn獅","大巨蛋"],["2026-06-06","16:05","味全龍","台鋼雄鷹","澄清湖"],["2026-06-06","17:05","樂天桃猿","中信兄弟","洲際"],["2026-06-07","16:05","富邦悍將","統一7-ELEVEn獅","大巨蛋"],["2026-06-07","16:05","味全龍","台鋼雄鷹","澄清湖"],["2026-06-07","17:05","樂天桃猿","中信兄弟","洲際"],["2026-06-09","18:35","味全龍","富邦悍將","新莊"],["2026-06-09","18:35","台鋼雄鷹","中信兄弟","洲際"],["2026-06-10","18:35","統一7-ELEVEn獅","樂天桃猿","樂天桃園"],["2026-06-11","18:35","中信兄弟","味全龍","天母"],["2026-06-11","18:35","統一7-ELEVEn獅","富邦悍將","新莊"],["2026-06-11","18:35","樂天桃猿","台鋼雄鷹","澄清湖"],["2026-06-12","18:35","中信兄弟","味全龍","天母"],["2026-06-12","18:35","統一7-ELEVEn獅","富邦悍將","新莊"],["2026-06-12","18:35","樂天桃猿","台鋼雄鷹","澄清湖"],["2026-06-13","17:05","統一7-ELEVEn獅","味全龍","天母"],["2026-06-13","17:05","台鋼雄鷹","富邦悍將","新莊"],["2026-06-13","17:05","樂天桃猿","中信兄弟","洲際"],["2026-06-14","16:05","統一7-ELEVEn獅","味全龍","天母"],["2026-06-14","17:05","台鋼雄鷹","富邦悍將","新莊"],["2026-06-14","17:05","樂天桃猿","中信兄弟","洲際"],["2026-06-16","18:35","中信兄弟","台鋼雄鷹","澄清湖"],["2026-06-16","18:35","樂天桃猿","統一7-ELEVEn獅","亞太主"],["2026-06-17","18:35","富邦悍將","味全龍","天母"],["2026-06-18","18:35","台鋼雄鷹","統一7-ELEVEn獅","亞太主"],["2026-06-18","18:35","味全龍","樂天桃猿","樂天桃園"],["2026-06-18","18:35","富邦悍將","中信兄弟","洲際"],["2026-06-19","16:05","台鋼雄鷹","統一7-ELEVEn獅","亞太主"],["2026-06-19","17:05","味全龍","樂天桃猿","樂天桃園"],["2026-06-19","17:05","富邦悍將","中信兄弟","洲際"],["2026-06-20","16:05","中信兄弟","統一7-ELEVEn獅","亞太主"],["2026-06-20","16:05","味全龍","台鋼雄鷹","澄清湖"],["2026-06-20","17:05","富邦悍將","樂天桃猿","樂天桃園"],["2026-06-21","16:05","中信兄弟","統一7-ELEVEn獅","亞太主"],["2026-06-21","16:05","味全龍","台鋼雄鷹","澄清湖"],["2026-06-21","17:05","富邦悍將","樂天桃猿","樂天桃園"],["2026-07-03","18:35","統一7-ELEVEn獅","台鋼雄鷹","澄清湖"],["2026-07-03","18:35","富邦悍將","味全龍","天母"],["2026-07-03","18:35","樂天桃猿","中信兄弟","洲際"],["2026-07-04","16:05","統一7-ELEVEn獅","台鋼雄鷹","澄清湖"],["2026-07-04","17:05","富邦悍將","味全龍","天母"],["2026-07-04","17:05","樂天桃猿","中信兄弟","洲際"],["2026-07-05","16:05","統一7-ELEVEn獅","台鋼雄鷹","澄清湖"],["2026-07-05","16:05","富邦悍將","味全龍","天母"],["2026-07-05","17:05","樂天桃猿","中信兄弟","洲際"],["2026-07-07","18:35","樂天桃猿","富邦悍將","新莊"],["2026-07-07","18:35","中信兄弟","統一7-ELEVEn獅","亞太主"],["2026-07-08","18:35","樂天桃猿","富邦悍將","新莊"],["2026-07-08","18:35","中信兄弟","統一7-ELEVEn獅","亞太主"],["2026-07-08","18:35","台鋼雄鷹","味全龍","斗六"],["2026-07-09","18:35","台鋼雄鷹","味全龍","斗六"],["2026-07-10","18:35","中信兄弟","富邦悍將","新莊"],["2026-07-10","18:35","台鋼雄鷹","樂天桃猿","樂天桃園"],["2026-07-10","18:35","味全龍","統一7-ELEVEn獅","亞太主"],["2026-07-11","16:05","味全龍","統一7-ELEVEn獅","亞太主"],["2026-07-11","17:05","中信兄弟","富邦悍將","新莊"],["2026-07-11","17:05","台鋼雄鷹","樂天桃猿","樂天桃園"],["2026-07-12","16:05","味全龍","統一7-ELEVEn獅","亞太主"],["2026-07-12","17:05","中信兄弟","富邦悍將","新莊"],["2026-07-12","17:05","台鋼雄鷹","樂天桃猿","樂天桃園"],["2026-07-14","18:35","味全龍","中信兄弟","嘉義市"],["2026-07-14","18:35","富邦悍將","台鋼雄鷹","台東"],["2026-07-15","18:35","味全龍","中信兄弟","嘉義市"],["2026-07-15","18:35","富邦悍將","台鋼雄鷹","台東"],["2026-07-15","18:35","統一7-ELEVEn獅","樂天桃猿","樂天桃園"],["2026-07-16","18:35","統一7-ELEVEn獅","樂天桃猿","樂天桃園"],["2026-07-21","18:35","台鋼雄鷹","中信兄弟","洲際"],["2026-07-21","18:35","樂天桃猿","味全龍","大巨蛋"],["2026-07-22","18:35","台鋼雄鷹","中信兄弟","洲際"],["2026-07-22","18:35","樂天桃猿","味全龍","大巨蛋"],["2026-07-22","18:35","富邦悍將","統一7-ELEVEn獅","亞太主"],["2026-07-23","18:35","富邦悍將","統一7-ELEVEn獅","亞太主"],["2026-07-24","18:35","統一7-ELEVEn獅","中信兄弟","洲際"],["2026-07-24","18:35","味全龍","台鋼雄鷹","澄清湖"],["2026-07-24","18:35","富邦悍將","樂天桃猿","大巨蛋"],["2026-07-25","16:05","味全龍","台鋼雄鷹","澄清湖"],["2026-07-25","17:05","統一7-ELEVEn獅","中信兄弟","洲際"],["2026-07-25","17:05","富邦悍將","樂天桃猿","大巨蛋"],["2026-07-26","16:05","味全龍","台鋼雄鷹","澄清湖"],["2026-07-26","17:05","統一7-ELEVEn獅","中信兄弟","洲際"],["2026-07-26","17:05","富邦悍將","樂天桃猿","大巨蛋"],["2026-07-28","18:35","味全龍","富邦悍將","大巨蛋"],["2026-07-28","18:35","台鋼雄鷹","統一7-ELEVEn獅","亞太主"],["2026-07-29","18:35","味全龍","富邦悍將","大巨蛋"],["2026-07-29","18:35","台鋼雄鷹","統一7-ELEVEn獅","亞太主"],["2026-07-29","18:35","中信兄弟","樂天桃猿","樂天桃園"],["2026-07-30","18:35","中信兄弟","樂天桃猿","樂天桃園"],["2026-07-31","18:35","台鋼雄鷹","富邦悍將","新莊"],["2026-07-31","18:35","中信兄弟","味全龍","大巨蛋"],["2026-07-31","18:35","樂天桃猿","統一7-ELEVEn獅","亞太主"],["2026-08-01","16:05","樂天桃猿","統一7-ELEVEn獅","亞太主"],["2026-08-01","17:05","台鋼雄鷹","富邦悍將","新莊"],["2026-08-01","17:05","中信兄弟","味全龍","大巨蛋"],["2026-08-02","15:05","中信兄弟","味全龍","大巨蛋"],["2026-08-02","16:05","樂天桃猿","統一7-ELEVEn獅","亞太主"],["2026-08-02","17:05","台鋼雄鷹","富邦悍將","新莊"],["2026-08-04","18:35","樂天桃猿","台鋼雄鷹","嘉義市"],["2026-08-04","18:35","富邦悍將","中信兄弟","洲際"],["2026-08-05","18:35","樂天桃猿","台鋼雄鷹","澄清湖"],["2026-08-05","18:35","富邦悍將","中信兄弟","洲際"],["2026-08-05","18:35","統一7-ELEVEn獅","味全龍","天母"],["2026-08-06","18:35","統一7-ELEVEn獅","味全龍","天母"],["2026-08-07","18:35","中信兄弟","台鋼雄鷹","澄清湖"],["2026-08-07","18:35","味全龍","樂天桃猿","樂天桃園"],["2026-08-07","18:35","統一7-ELEVEn獅","富邦悍將","新莊"],["2026-08-08","16:05","中信兄弟","台鋼雄鷹","澄清湖"],["2026-08-08","17:05","味全龍","樂天桃猿","樂天桃園"],["2026-08-08","17:05","統一7-ELEVEn獅","富邦悍將","新莊"],["2026-08-09","16:05","中信兄弟","台鋼雄鷹","澄清湖"],["2026-08-09","17:05","味全龍","樂天桃猿","樂天桃園"],["2026-08-09","17:05","統一7-ELEVEn獅","富邦悍將","新莊"],["2026-08-11","18:35","樂天桃猿","統一7-ELEVEn獅","台東"],["2026-08-11","18:35","味全龍","台鋼雄鷹","澄清湖"],["2026-08-12","18:35","樂天桃猿","統一7-ELEVEn獅","台東"],["2026-08-12","18:35","味全龍","台鋼雄鷹","澄清湖"],["2026-08-12","18:35","中信兄弟","富邦悍將","新莊"],["2026-08-13","18:35","中信兄弟","富邦悍將","新莊"],["2026-08-14","18:35","富邦悍將","統一7-ELEVEn獅","亞太主"],["2026-08-14","18:35","樂天桃猿","味全龍","大巨蛋"],["2026-08-14","18:35","台鋼雄鷹","中信兄弟","洲際"],["2026-08-15","16:05","富邦悍將","統一7-ELEVEn獅","亞太主"],["2026-08-15","17:05","樂天桃猿","味全龍","大巨蛋"],["2026-08-15","17:05","台鋼雄鷹","中信兄弟","洲際"],["2026-08-16","15:05","樂天桃猿","味全龍","大巨蛋"],["2026-08-16","16:05","富邦悍將","統一7-ELEVEn獅","亞太主"],["2026-08-16","17:05","台鋼雄鷹","中信兄弟","洲際"],["2026-08-18","18:35","統一7-ELEVEn獅","台鋼雄鷹","台東"],["2026-08-18","18:35","富邦悍將","樂天桃猿","樂天桃園"],["2026-08-19","18:35","統一7-ELEVEn獅","台鋼雄鷹","台東"],["2026-08-19","18:35","富邦悍將","樂天桃猿","樂天桃園"],["2026-08-19","18:35","中信兄弟","味全龍","大巨蛋"],["2026-08-20","18:35","中信兄弟","味全龍","大巨蛋"],["2026-08-21","18:35","樂天桃猿","台鋼雄鷹","澄清湖"],["2026-08-21","18:35","中信兄弟","統一7-ELEVEn獅","大巨蛋"],["2026-08-21","18:35","味全龍","富邦悍將","新莊"],["2026-08-22","16:05","樂天桃猿","台鋼雄鷹","澄清湖"],["2026-08-22","16:05","中信兄弟","統一7-ELEVEn獅","大巨蛋"],["2026-08-22","17:05","味全龍","富邦悍將","新莊"],["2026-08-23","16:05","樂天桃猿","台鋼雄鷹","澄清湖"],["2026-08-23","16:05","中信兄弟","統一7-ELEVEn獅","大巨蛋"],["2026-08-23","17:05","味全龍","富邦悍將","新莊"],["2026-08-25","18:35","樂天桃猿","中信兄弟","大巨蛋"],["2026-08-25","18:35","味全龍","統一7-ELEVEn獅","亞太主"],["2026-08-26","18:35","樂天桃猿","中信兄弟","大巨蛋"],["2026-08-26","18:35","味全龍","統一7-ELEVEn獅","亞太主"],["2026-08-26","18:35","台鋼雄鷹","富邦悍將","新莊"],["2026-08-27","18:35","台鋼雄鷹","富邦悍將","新莊"],["2026-08-28","18:35","富邦悍將","中信兄弟","洲際"],["2026-08-28","18:35","統一7-ELEVEn獅","樂天桃猿","大巨蛋"],["2026-08-28","18:35","台鋼雄鷹","味全龍","天母"],["2026-08-29","17:05","富邦悍將","中信兄弟","洲際"],["2026-08-29","17:05","統一7-ELEVEn獅","樂天桃猿","大巨蛋"],["2026-08-29","17:05","台鋼雄鷹","味全龍","天母"],["2026-08-30","16:05","台鋼雄鷹","味全龍","天母"],["2026-08-30","17:05","富邦悍將","中信兄弟","洲際"],["2026-08-30","17:05","統一7-ELEVEn獅","樂天桃猿","大巨蛋"],["2026-09-01","18:35","統一7-ELEVEn獅","富邦悍將","大巨蛋"],["2026-09-01","18:35","中信兄弟","台鋼雄鷹","澄清湖"],["2026-09-02","18:35","統一7-ELEVEn獅","富邦悍將","大巨蛋"],["2026-09-02","18:35","中信兄弟","台鋼雄鷹","澄清湖"],["2026-09-02","18:35","味全龍","樂天桃猿","樂天桃園"],["2026-09-03","18:35","味全龍","樂天桃猿","樂天桃園"],["2026-09-04","18:35","樂天桃猿","富邦悍將","大巨蛋"],["2026-09-04","18:35","台鋼雄鷹","統一7-ELEVEn獅","亞太主"],["2026-09-04","18:35","味全龍","中信兄弟","洲際"],["2026-09-05","16:05","台鋼雄鷹","統一7-ELEVEn獅","亞太主"],["2026-09-05","17:05","樂天桃猿","富邦悍將","大巨蛋"],["2026-09-05","17:05","味全龍","中信兄弟","洲際"],["2026-09-06","16:05","樂天桃猿","富邦悍將","大巨蛋"],["2026-09-06","16:05","台鋼雄鷹","統一7-ELEVEn獅","亞太主"],["2026-09-06","17:05","味全龍","中信兄弟","洲際"],["2026-09-08","18:35","富邦悍將","味全龍","大巨蛋"],["2026-09-08","18:35","台鋼雄鷹","樂天桃猿","樂天桃園"],["2026-09-09","18:35","富邦悍將","味全龍","大巨蛋"],["2026-09-09","18:35","台鋼雄鷹","樂天桃猿","樂天桃園"],["2026-09-09","18:35","統一7-ELEVEn獅","中信兄弟","洲際"],["2026-09-10","18:35","統一7-ELEVEn獅","中信兄弟","洲際"],["2026-09-11","18:35","統一7-ELEVEn獅","味全龍","天母"],["2026-09-11","18:35","中信兄弟","樂天桃猿","樂天桃園"],["2026-09-11","18:35","富邦悍將","台鋼雄鷹","嘉義市"],["2026-09-12","16:05","富邦悍將","台鋼雄鷹","澄清湖"],["2026-09-12","17:05","統一7-ELEVEn獅","味全龍","天母"],["2026-09-12","17:05","中信兄弟","樂天桃猿","樂天桃園"],["2026-09-13","16:05","富邦悍將","台鋼雄鷹","澄清湖"],["2026-09-13","16:05","統一7-ELEVEn獅","味全龍","天母"],["2026-09-13","17:05","中信兄弟","樂天桃猿","樂天桃園"],["2026-09-15","18:35","中信兄弟","台鋼雄鷹","澄清湖"],["2026-09-15","18:35","樂天桃猿","統一7-ELEVEn獅","嘉義市"],["2026-09-16","18:35","富邦悍將","味全龍","天母"],["2026-09-17","18:35","統一7-ELEVEn獅","中信兄弟","大巨蛋"],["2026-09-17","18:35","樂天桃猿","富邦悍將","新莊"],["2026-09-17","18:35","台鋼雄鷹","味全龍","天母"],["2026-09-18","18:35","統一7-ELEVEn獅","中信兄弟","大巨蛋"],["2026-09-18","18:35","樂天桃猿","富邦悍將","新莊"],["2026-09-18","18:35","台鋼雄鷹","味全龍","天母"],["2026-09-19","16:05","富邦悍將","統一7-ELEVEn獅","亞太主"],["2026-09-19","17:05","味全龍","中信兄弟","大巨蛋"],["2026-09-19","17:05","台鋼雄鷹","樂天桃猿","樂天桃園"],["2026-09-20","15:05","味全龍","中信兄弟","大巨蛋"],["2026-09-20","16:05","富邦悍將","統一7-ELEVEn獅","亞太主"],["2026-09-20","17:05","台鋼雄鷹","樂天桃猿","樂天桃園"],["2026-09-24","18:35","富邦悍將","台鋼雄鷹","大巨蛋"],["2026-09-24","18:35","中信兄弟","樂天桃猿","樂天桃園"],["2026-09-24","18:35","味全龍","統一7-ELEVEn獅","亞太主"],["2026-09-25","16:05","富邦悍將","台鋼雄鷹","大巨蛋"],["2026-09-25","17:05","中信兄弟","樂天桃猿","樂天桃園"],["2026-09-25","16:05","味全龍","統一7-ELEVEn獅","亞太主"],["2026-09-26","16:05","統一7-ELEVEn獅","台鋼雄鷹","大巨蛋"],["2026-09-26","17:05","樂天桃猿","味全龍","天母"],["2026-09-26","17:05","中信兄弟","富邦悍將","新莊"],["2026-09-27","15:05","統一7-ELEVEn獅","台鋼雄鷹","大巨蛋"],["2026-09-27","16:05","樂天桃猿","味全龍","天母"],["2026-09-27","17:05","中信兄弟","富邦悍將","新莊"],["2026-09-28","17:05","台鋼雄鷹","中信兄弟","洲際"],["2026-09-28","17:05","統一7-ELEVEn獅","樂天桃猿","樂天桃園"],["2026-09-28","17:05","味全龍","富邦悍將","新莊"]];
+
+// ── 載入資料 ──
+function loadData() {
+  const today = new Date(); today.setHours(0,0,0,0);
+  allGames = RAW_DATA.map(r => {
+    const [date, time, visitor, home, field] = r;
+    const d = new Date(date + 'T00:00:00');
+    const dow = d.getDay();
+    return {
+      date, time, visitor, home, field,
+      d, dow,
+      dayName: DAYS[dow],
+      isWE: dow === 0 || dow === 6,
+      holName: HOLIDAYS[date] || '',
+      month: d.getMonth() + 1,
+      isFuture: d >= today,
+    };
+  }).sort((a,b) => a.date < b.date ? -1 : a.date > b.date ? 1 : a.time < b.time ? -1 : 1);
+  initFilters();
+  render();
+}
+
+function getSelectedTeams(containerId) {
+  return [...document.querySelectorAll('#' + containerId + ' .chip.active')].map(c => c.dataset.team);
+}
+
+function initFilters() {
+  const teams = [...new Set(allGames.flatMap(g => [g.visitor, g.home]))].sort();
+  const fields = [...new Set(allGames.map(g => g.field))].sort();
+  const months = [...new Set(allGames.map(g => g.month))].sort((a,b) => a - b);
+
+  // Team chip buttons
+  ['f-team1','f-team2'].forEach(id => {
+    const container = document.getElementById(id);
+    teams.forEach(t => {
+      const chip = document.createElement('span');
+      chip.className = 'chip';
+      chip.dataset.team = t;
+      chip.innerHTML = logoImg(t, 18) + (TEAM_SHORT[t] || t);
+      chip.addEventListener('click', () => { chip.classList.toggle('active'); render(); });
+      container.appendChild(chip);
+    });
+  });
+
+  const addOpts = (sel, items, fn) => items.forEach(i => {
+    const o = document.createElement('option');
+    o.value = i;
+    o.textContent = fn ? fn(i) : i;
+    sel.appendChild(o);
+  });
+  addOpts(document.getElementById('f-field'), fields);
+  addOpts(document.getElementById('f-month'), months, m => m + ' 月');
+}
+
+function getFiltered() {
+  const sel1 = getSelectedTeams('f-team1');
+  const sel2 = getSelectedTeams('f-team2');
+  const fld = document.getElementById('f-field').value;
+  const mon = document.getElementById('f-month').value;
+  const we = document.getElementById('f-weekend').checked;
+  const hol = document.getElementById('f-holiday').checked;
+  const fut = document.getElementById('f-future').checked;
+
+  return allGames.filter(g => {
+    // Team 1 filter: at least one selected team must be in the game (either side)
+    if (sel1.length && !sel1.includes(g.visitor) && !sel1.includes(g.home)) return false;
+    // Team 2 (opponent) filter: at least one selected opponent must be in the game
+    if (sel2.length && !sel2.includes(g.visitor) && !sel2.includes(g.home)) return false;
+    // If both filters set, the game must involve one from each group
+    if (sel1.length && sel2.length) {
+      const ok = (sel1.includes(g.visitor) && sel2.includes(g.home)) ||
+                 (sel2.includes(g.visitor) && sel1.includes(g.home));
+      if (!ok) return false;
+    }
+    if (fld && g.field !== fld) return false;
+    if (mon && g.month !== +mon) return false;
+    if (we && !g.isWE) return false;
+    if (hol && !g.isWE && !g.holName) return false;
+    if (fut && !g.isFuture) return false;
+    return true;
+  });
+}
+
+function render() {
+  const list = getFiltered();
+  const tbody = document.getElementById('tbody');
+  const empty = document.getElementById('empty');
+  const stats = document.getElementById('stats');
+
+  const weCnt = list.filter(g => g.isWE).length;
+  const holCnt = list.filter(g => g.holName && !g.isWE).length;
+  const futCnt = list.filter(g => g.isFuture).length;
+
+  stats.innerHTML =
+    '篩選結果：<span class="num">' + list.length + '</span> 場' +
+    ' | 週末：<span class="num">' + weCnt + '</span> 場' +
+    ' | 國定假日(非週末)：<span class="num">' + holCnt + '</span> 場' +
+    ' | 未來場次：<span class="num">' + futCnt + '</span> 場';
+
+  if (!list.length) { tbody.innerHTML = ''; empty.style.display = ''; return; }
+  empty.style.display = 'none';
+
+  let html = '';
+  for (const g of list) {
+    const dc = g.dow === 0 ? 'day-sun' : g.dow === 6 ? 'day-sat' : g.holName ? 'day-hol' : '';
+    const vs = TEAM_SHORT[g.visitor] || g.visitor;
+    const hs = TEAM_SHORT[g.home] || g.home;
+    const vc = TEAM_CLS[g.visitor] || '';
+    const hc = TEAM_CLS[g.home] || '';
+
+    let tags = '';
+    if (g.dow === 6) tags += '<span class="badge badge-sat">週六</span>';
+    if (g.dow === 0) tags += '<span class="badge badge-sun">週日</span>';
+    if (g.holName) tags += '<span class="badge badge-hol">' + g.holName + '</span>';
+    tags += g.isFuture ? '<span class="badge badge-future">未來</span>' : '<span class="badge badge-past">已結束</span>';
+
+    html += '<tr>' +
+      '<td>' + g.date + '</td>' +
+      '<td class="' + dc + '">' + g.dayName + '</td>' +
+      '<td>' + g.time + '</td>' +
+      '<td><span class="team-tag ' + vc + '">' + logoImg(g.visitor, 20) + vs + '</span><span class="vs">@</span><span class="team-tag ' + hc + '">' + logoImg(g.home, 20) + hs + '</span></td>' +
+      '<td>' + g.field + '</td>' +
+      '<td>' + tags + '</td></tr>';
+  }
+  tbody.innerHTML = html;
+}
+
+// ── 事件綁定 ──
+['f-field','f-month'].forEach(id =>
+  document.getElementById(id).addEventListener('change', render));
+['f-weekend','f-holiday','f-future'].forEach(id =>
+  document.getElementById(id).addEventListener('change', function() {
+    if (id === 'f-weekend' && this.checked) document.getElementById('f-holiday').checked = false;
+    if (id === 'f-holiday' && this.checked) document.getElementById('f-weekend').checked = false;
+    render();
+  }));
+
+document.getElementById('btn-reset').addEventListener('click', function() {
+  document.querySelectorAll('.chip.active').forEach(c => c.classList.remove('active'));
+  ['f-field','f-month'].forEach(id => document.getElementById(id).value = '');
+  ['f-weekend','f-holiday'].forEach(id => document.getElementById(id).checked = false);
+  document.getElementById('f-future').checked = true;
+  render();
+});
+
+loadData();
+</script>
+</body>
+</html>
