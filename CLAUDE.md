@@ -21,12 +21,25 @@
 - 只看未來場次（預設開啟）
 - 台灣 2026 國定假日內建
 
+## 設計風格
+
+- 文青暖色調：背景 `#faf8f5`、重點色 `#b8956a`（奶茶棕），避免冷色系
+- 字體：標題用 Noto Serif TC 襯線體，內文用 Noto Sans TC
+- 棒球元素：Header 右側半透明棒球圓形 + 縫線裝飾，頁尾波浪縫線
+- RWD：桌面版表格、手機版（≤768px）卡片式列表
+- 對戰組合：logo + 隊名色塊，中間圓形 `@` 分隔，非純文字
+
 ## 檔案結構
 
-- `index.html` — 部署用主檔（與 cpbl-planner.html 相同）
+- `index.html` — 部署用主檔（與 cpbl-planner.html 相同，修改後需同步）
 - `cpbl-planner.html` — 原始開發檔
 - `games_data.json` — 賽程原始資料（JSON，僅備份用，不影響網頁運作）
 
 ## 更新賽程
 
 若需更新賽程資料，重新呼叫 CPBL API 並替換 `index.html` 中的 `RAW_DATA` 變數即可。
+
+## 部署
+
+- GitHub Pages 從 `main` 分支的 `index.html` 部署
+- 修改 `cpbl-planner.html` 後需複製到 `index.html` 再 push
