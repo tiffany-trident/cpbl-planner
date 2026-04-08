@@ -1,0 +1,41 @@
+name: Update CPBL Scores
+
+on:
+  schedule:
+    # Run daily at 23:00 UTC+8 (15:00 UTC) during the season (Mar-Oct)
+    - cron: '0 15 * 3-10 *'
+  workflow_dispatch: # Allow manual trigger
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Fetch scores and update data
+        run: bash scripts/fetch-scores.sh
+
+      - name: Check for changes
+        id: changes
+        run: |
+          if git diff --quiet index.html; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and push
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add index.html cpbl-planner.html
+          git commit -m "自動更新比賽結果 $(date -u +%Y-%m-%d)"
+          git push
