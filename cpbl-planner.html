@@ -912,13 +912,16 @@ function render() {
 
   const weCnt = list.filter(g => g.isWE).length;
   const holCnt = list.filter(g => g.holName && !g.isWE).length;
-  const futCnt = list.filter(g => g.isFuture).length;
-  const doneCnt = list.filter(g => g.completed).length;
+  // 已完賽/未來/延賽 用全部資料計算，避免篩選模式下數字誤導
+  const totalDone = allGames.filter(g => g.completed).length;
+  const totalFut = allGames.filter(g => g.isFuture && !g.postponed).length;
+  const totalPostponed = allGames.filter(g => g.postponed).length;
 
   stats.innerHTML =
     '篩選結果：<span class="num">' + list.length + '</span> 場' +
-    ' | 已完賽：<span class="num">' + doneCnt + '</span> 場' +
-    ' | 未來：<span class="num">' + futCnt + '</span> 場' +
+    ' | 已完賽：<span class="num">' + totalDone + '</span> 場' +
+    ' | 未來：<span class="num">' + totalFut + '</span> 場' +
+    ' | 延賽：<span class="num">' + totalPostponed + '</span> 場' +
     ' | 週末：<span class="num">' + weCnt + '</span> 場' +
     ' | 假日(非週末)：<span class="num">' + holCnt + '</span> 場';
 
