@@ -971,7 +971,7 @@ function render() {
 
     const matchup = '<div class="matchup">' +
       '<span class="matchup-team ' + vc + '">' + (vLogo ? '<img src="' + vLogo + '" alt="">' : '') + vs + '</span>' +
-      '<span class="matchup-at">@</span>' +
+      '<span class="matchup-at">VS</span>' +
       '<span class="matchup-team ' + hc + '">' + (hLogo ? '<img src="' + hLogo + '" alt="">' : '') + hs + '</span>' +
       '</div>';
 
@@ -1024,7 +1024,7 @@ function render() {
         '<span class="card-score ' + (g.hScore > g.vScore ? 'score-win' : 'score-lose') + '">' + g.hScore + '</span>'
       : g.postponed
         ? '<span class="score-postponed" style="font-size:14px">延賽</span>'
-        : '<span class="card-vs">@</span>';
+        : '<span class="card-vs">VS</span>';
 
     const ticketUrl = g.isFuture && !g.postponed ? (TEAM_TICKET[g.home] || '') : '';
     const hsrStation = g.isFuture && !g.postponed ? (STADIUM_HSR[g.field] || '') : '';
