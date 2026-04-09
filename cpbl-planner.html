@@ -981,7 +981,7 @@ function render() {
     const ticketUrl = g.isFuture && !g.postponed ? (TEAM_TICKET[g.home] || '') : '';
     const ticketLink = ticketUrl ? '<a class="btn-ticket" href="' + ticketUrl + '" target="_blank" rel="noopener">購票</a>' : '';
     const hsrStation = g.isFuture && !g.postponed ? (STADIUM_HSR[g.field] || '') : '';
-    const hsrLink = hsrStation ? '<a class="btn-hsr" href="' + HSR_BOOKING_URL + '" target="_blank" rel="noopener" title="建議搭至高鐵' + hsrStation + '站">高鐵</a>' : '';
+    const hsrLink = hsrStation ? '<a class="btn-hsr" href="' + HSR_BOOKING_URL + '" target="_blank" rel="noopener" title="請至高鐵網站選擇到站：' + hsrStation + '">高鐵→' + hsrStation + '</a>' : '';
 
     const rowClass = g.isToday ? ' class="row-today"' : '';
 
