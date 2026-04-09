@@ -84,7 +84,10 @@ table { width: 100%; border-collapse: separate; border-spacing: 0; background: #
 thead th { background: #f5f0e8; color: #a89a85; padding: 11px 12px; text-align: left; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; position: sticky; top: 0; z-index: 10; white-space: nowrap; border-bottom: 1px solid #e8e0d4; }
 tbody tr { border-bottom: 1px solid #f0ebe3; transition: background 0.15s; }
 tbody tr:hover { background: #f9f5ef; }
+tbody tr.row-today { background: #fff8f0; }
+tbody tr.row-today:hover { background: #fff3e3; }
 tbody td { padding: 9px 12px; font-size: 14px; white-space: nowrap; border-bottom: 1px solid #f0ebe3; }
+tr.date-separator td { padding: 0; height: 6px; background: #f5f0e8; border-bottom: 1px solid #e8e0d4; }
 
 .day-sat { color: #6b8cce; font-weight: 600; }
 .day-sun { color: #c96b6b; font-weight: 600; }
@@ -120,9 +123,13 @@ tbody td { padding: 9px 12px; font-size: 14px; white-space: nowrap; border-botto
 .score-postponed { font-size: 12px; color: #9b7db8; font-weight: 600; font-family: 'Noto Sans TC', sans-serif; }
 
 /* ── 比賽詳情 ── */
-.game-detail { font-size: 12px; color: #8c7e6a; margin-top: 4px; line-height: 1.6; }
-.game-detail span { margin-right: 10px; }
-.detail-label { color: #b0a593; }
+.game-detail { font-size: 12px; color: #8c7e6a; margin-top: 4px; line-height: 1.6; display: flex; flex-wrap: wrap; gap: 4px 12px; }
+.detail-item { display: inline-flex; align-items: center; gap: 3px; white-space: nowrap; }
+.detail-label { display: inline-block; padding: 1px 6px; border-radius: 4px; font-size: 11px; font-weight: 600; line-height: 1.4; }
+.detail-label-w { background: #eef6f0; color: #5a9a6b; }
+.detail-label-l { background: #faf0f0; color: #c96b6b; }
+.detail-label-sv { background: #eef2fa; color: #6b8cce; }
+.detail-label-mvp { background: #faf5eb; color: #b8956a; }
 
 .filter-row { display: flex; gap: 14px; }
 
@@ -148,6 +155,7 @@ tbody td { padding: 9px 12px; font-size: 14px; white-space: nowrap; border-botto
 /* ── 手機卡片模式 ── */
 .card-list { display: none; }
 .game-card { background: #fefdfb; border-radius: 12px; padding: 14px 16px; box-shadow: 0 2px 8px rgba(60,45,20,0.06); border: 1px solid #ece6db; }
+.game-card.card-today { background: #fff8f0; border-color: #f0d9b5; }
 .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
 .card-date { font-size: 14px; font-weight: 600; color: #3d3529; font-family: 'Noto Serif TC', serif; }
 .card-time { font-size: 13px; color: #a89a85; }
@@ -864,10 +872,10 @@ function buildTags(g) {
   if (g.holName) tags += '<span class="badge badge-hol">' + g.holName + '</span>';
   if (g.postponed) {
     tags += '<span class="badge badge-postponed">延賽</span>';
-  } else if (g.completed) {
-    tags += '<span class="badge badge-past">已結束</span>';
-  } else {
-    tags += '<span class="badge badge-future">未來</span>';
+  } else if (statusFilter === 'all') {
+    // 只在「全部」模式下才顯示狀態 badge，避免冗餘
+    if (g.completed) tags += '<span class="badge badge-past">已結束</span>';
+    else tags += '<span class="badge badge-future">未來</span>';
   }
   return tags;
 }
@@ -887,11 +895,11 @@ function buildScore(g) {
 function buildDetail(g) {
   if (!g.completed || (!g.wp && !g.mvp)) return '';
   let parts = [];
-  if (g.wp) parts.push('<span class="detail-label">W</span> ' + g.wp);
-  if (g.lp) parts.push('<span class="detail-label">L</span> ' + g.lp);
-  if (g.sv) parts.push('<span class="detail-label">SV</span> ' + g.sv);
-  if (g.mvp) parts.push('<span class="detail-label">MVP</span> ' + g.mvp);
-  return '<div class="game-detail">' + parts.join(' ') + '</div>';
+  if (g.wp) parts.push('<span class="detail-item"><span class="detail-label detail-label-w">W</span>' + g.wp + '</span>');
+  if (g.lp) parts.push('<span class="detail-item"><span class="detail-label detail-label-l">L</span>' + g.lp + '</span>');
+  if (g.sv) parts.push('<span class="detail-item"><span class="detail-label detail-label-sv">SV</span>' + g.sv + '</span>');
+  if (g.mvp) parts.push('<span class="detail-item"><span class="detail-label detail-label-mvp">MVP</span>' + g.mvp + '</span>');
+  return '<div class="game-detail">' + parts.join('') + '</div>';
 }
 
 function render() {
@@ -926,7 +934,16 @@ function render() {
 
   // Desktop table
   let html = '';
-  for (const g of list) {
+  let prevDate = '';
+  for (let i = 0; i < list.length; i++) {
+    const g = list[i];
+    const isNewDate = g.date !== prevDate;
+    // 日期分隔列（非第一組才加）
+    if (isNewDate && prevDate !== '') {
+      html += '<tr class="date-separator"><td colspan="8"></td></tr>';
+    }
+    prevDate = g.date;
+
     const dc = g.dow === 0 ? 'day-sun' : g.dow === 6 ? 'day-sat' : g.holName ? 'day-hol' : '';
     const vs = TEAM_SHORT[g.visitor] || g.visitor;
     const hs = TEAM_SHORT[g.home] || g.home;
@@ -947,9 +964,11 @@ function render() {
     const ticketUrl = g.isFuture && !g.postponed ? (TEAM_TICKET[g.home] || '') : '';
     const ticketLink = ticketUrl ? '<a class="btn-ticket" href="' + ticketUrl + '" target="_blank" rel="noopener">購票</a>' : '';
 
-    html += '<tr>' +
-      '<td>' + g.date + '</td>' +
-      '<td class="' + dc + '">' + g.dayName + '</td>' +
+    const rowClass = g.isToday ? ' class="row-today"' : '';
+
+    html += '<tr' + rowClass + '>' +
+      '<td>' + (isNewDate ? g.date : '') + '</td>' +
+      '<td class="' + dc + '">' + (isNewDate ? g.dayName : '') + '</td>' +
       '<td>' + g.time + '</td>' +
       '<td>' + matchup + '</td>' +
       '<td>' + score + detail + '</td>' +
@@ -961,15 +980,24 @@ function render() {
 
   // Mobile cards
   let cards = '';
+  let prevCardDate = '';
   for (const g of list) {
-    const dc = g.dow === 0 ? 'day-sun' : g.dow === 6 ? 'day-sat' : g.holName ? 'day-hol' : '';
+    // 同日分組標題
+    if (g.date !== prevCardDate) {
+      const dc = g.dow === 0 ? 'day-sun' : g.dow === 6 ? 'day-sat' : g.holName ? 'day-hol' : '';
+      cards += '<div style="font-size:13px;font-weight:600;color:#8c7e6a;padding:' + (prevCardDate ? '12px' : '0') + ' 0 4px;border-top:' + (prevCardDate ? '1px solid #e8e0d4' : 'none') + '">' +
+        '<span class="' + dc + '">' + g.date + '（' + g.dayName + '）</span>' +
+        (g.holName ? ' <span class="badge badge-hol" style="margin-left:6px">' + g.holName + '</span>' : '') +
+        (g.isToday ? ' <span class="badge badge-today" style="margin-left:4px">今日</span>' : '') +
+        '</div>';
+      prevCardDate = g.date;
+    }
+
     const vs = TEAM_SHORT[g.visitor] || g.visitor;
     const hs = TEAM_SHORT[g.home] || g.home;
     const vLogo = TEAM_LOGO[g.visitor] || '';
     const hLogo = TEAM_LOGO[g.home] || '';
     const showScore = g.completed && !g.postponed;
-    const vWin = g.vScore > g.hScore;
-    const hWin = g.hScore > g.vScore;
 
     const centerPart = showScore
       ? '<span class="card-score ' + (g.vScore > g.hScore ? 'score-win' : 'score-lose') + '">' + g.vScore + '</span>' +
@@ -981,10 +1009,10 @@ function render() {
 
     const ticketUrl = g.isFuture && !g.postponed ? (TEAM_TICKET[g.home] || '') : '';
     const detail = buildDetail(g);
+    const todayClass = g.isToday ? ' card-today' : '';
 
-    cards += '<div class="game-card">' +
+    cards += '<div class="game-card' + todayClass + '">' +
       '<div class="card-header">' +
-        '<span class="card-date ' + dc + '">' + g.date + '（' + g.dayName + '）</span>' +
         '<span class="card-time">' + g.time + '</span>' +
       '</div>' +
       '<div class="card-matchup">' +
