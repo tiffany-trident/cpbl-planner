@@ -76,9 +76,17 @@
 | 味全龍 | 味全龍售票網 | https://tix.wdragons.com/ |
 | 台鋼雄鷹 | 台鋼雄鷹售票網 | https://ticket.tsghawks.com/ |
 
+## 資料正確性注意事項
+
+- **絕對不可自行編造或猜測比賽結果**（比分、投手、MVP），所有已完賽資料必須來自 CPBL 官方 API
+- 更新比賽資料時，必須以 API 回傳為唯一真實來源（single source of truth），不可從記憶或推測產生
+- 曾發生過的問題：2026-03-31 ~ 2026-04-06 期間 16 場比賽的比分、勝敗投、救援、MVP 全部錯誤，原因是資料未從 API 正確取得
+- 若需驗證資料正確性，應重新呼叫 CPBL API 比對，不可僅靠肉眼或記憶判斷
+
 ## 手動更新賽程
 
 若需手動更新，執行 `bash scripts/fetch-scores.sh`（需要 curl + node 環境），或重新呼叫 CPBL API 並替換 `index.html` 中的 `RAW_DATA` 變數。
+- 更新後務必與 API 回傳資料比對驗證，確認比分與投手資訊正確
 
 ## 部署
 
