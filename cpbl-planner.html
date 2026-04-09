@@ -151,6 +151,8 @@ tr.date-separator td { padding: 0; height: 6px; background: #f5f0e8; border-bott
 
 .btn-ticket { display: inline-block; padding: 4px 12px; border-radius: 14px; font-size: 12px; font-weight: 600; color: #b8956a; background: #faf5ef; border: 1px solid #d9c9ad; text-decoration: none; transition: all 0.18s; letter-spacing: 0.5px; font-family: 'Noto Sans TC', sans-serif; }
 .btn-ticket:hover { background: #b8956a; color: #fff; border-color: #b8956a; }
+.btn-hsr { display: inline-block; padding: 4px 12px; border-radius: 14px; font-size: 12px; font-weight: 600; color: #2b8a8a; background: #eef7f7; border: 1px solid #b0d8d8; text-decoration: none; transition: all 0.18s; letter-spacing: 0.5px; font-family: 'Noto Sans TC', sans-serif; margin-left: 6px; }
+.btn-hsr:hover { background: #2b8a8a; color: #fff; border-color: #2b8a8a; }
 
 /* ── 手機卡片模式 ── */
 .card-list { display: none; }
@@ -352,6 +354,18 @@ const TEAM_TICKET = {
   '味全龍': 'https://tix.wdragons.com/',
   '台鋼雄鷹': 'https://ticket.tsghawks.com/',
 };
+const STADIUM_HSR = {
+  '大巨蛋': '台北',
+  '天母': '台北',
+  '新莊': '板橋',
+  '樂天桃園': '桃園',
+  '洲際': '台中',
+  '嘉義市': '嘉義',
+  '亞太主': '台南',
+  '澄清湖': '左營',
+  '斗六': '雲林',
+};
+const HSR_BOOKING_URL = 'https://irs.thsrc.com.tw/IMINT/';
 const DAYS = ['日','一','二','三','四','五','六'];
 
 let allGames = [];
@@ -966,6 +980,8 @@ function render() {
 
     const ticketUrl = g.isFuture && !g.postponed ? (TEAM_TICKET[g.home] || '') : '';
     const ticketLink = ticketUrl ? '<a class="btn-ticket" href="' + ticketUrl + '" target="_blank" rel="noopener">購票</a>' : '';
+    const hsrStation = g.isFuture && !g.postponed ? (STADIUM_HSR[g.field] || '') : '';
+    const hsrLink = hsrStation ? '<a class="btn-hsr" href="' + HSR_BOOKING_URL + '" target="_blank" rel="noopener" title="建議搭至高鐵' + hsrStation + '站">高鐵</a>' : '';
 
     const rowClass = g.isToday ? ' class="row-today"' : '';
 
@@ -977,7 +993,7 @@ function render() {
       '<td>' + score + detail + '</td>' +
       '<td>' + g.field + '</td>' +
       '<td>' + buildTags(g) + '</td>' +
-      '<td>' + ticketLink + '</td></tr>';
+      '<td>' + ticketLink + hsrLink + '</td></tr>';
   }
   tbody.innerHTML = html;
 
@@ -1011,8 +1027,14 @@ function render() {
         : '<span class="card-vs">@</span>';
 
     const ticketUrl = g.isFuture && !g.postponed ? (TEAM_TICKET[g.home] || '') : '';
+    const hsrStation = g.isFuture && !g.postponed ? (STADIUM_HSR[g.field] || '') : '';
     const detail = buildDetail(g);
     const todayClass = g.isToday ? ' card-today' : '';
+
+    const cardButtons = (ticketUrl || hsrStation) ? '<div style="margin-top:10px;display:flex;justify-content:center;gap:8px">' +
+      (ticketUrl ? '<a class="btn-ticket" href="' + ticketUrl + '" target="_blank" rel="noopener">前往購票</a>' : '') +
+      (hsrStation ? '<a class="btn-hsr" href="' + HSR_BOOKING_URL + '" target="_blank" rel="noopener">高鐵訂票（' + hsrStation + '站）</a>' : '') +
+      '</div>' : '';
 
     cards += '<div class="game-card' + todayClass + '">' +
       '<div class="card-header">' +
@@ -1034,7 +1056,7 @@ function render() {
         '<span class="card-field">' + g.field + '</span>' +
         '<div class="card-tags">' + buildTags(g) + '</div>' +
       '</div>' +
-      (ticketUrl ? '<div style="margin-top:10px;text-align:center"><a class="btn-ticket" href="' + ticketUrl + '" target="_blank" rel="noopener">前往購票</a></div>' : '') +
+      cardButtons +
     '</div>';
   }
   cardList.innerHTML = cards;
