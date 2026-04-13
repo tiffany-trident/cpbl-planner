@@ -787,6 +787,32 @@ function loadData() {
 }
 
 // ── 從瀏覽器即時抓取 CPBL 最新比分（透過 CORS proxy；僅此次瀏覽有效）──
+// GET: 依序嘗試多個免費 CORS proxy
+const CORS_GET_PROXIES = [
+  (url) => 'https://api.allorigins.win/raw?url=' + encodeURIComponent(url),
+  (url) => 'https://corsproxy.io/?' + encodeURIComponent(url),
+  (url) => 'https://api.codetabs.com/v1/proxy?quest=' + encodeURIComponent(url),
+];
+// POST: 支援 POST + 自訂 header 的 proxy 較少，優先用 corsproxy.io
+const CORS_POST_PROXIES = [
+  (url) => 'https://corsproxy.io/?' + encodeURIComponent(url),
+  (url) => 'https://proxy.cors.sh/' + url,
+];
+
+async function tryProxies(proxies, target, init) {
+  const errs = [];
+  for (const p of proxies) {
+    try {
+      const res = await fetch(p(target), init);
+      if (res.ok) return res;
+      errs.push(p.name + ' HTTP ' + res.status);
+    } catch (e) {
+      errs.push(e.message);
+    }
+  }
+  throw new Error('全部 proxy 都失敗：' + errs.join(' / '));
+}
+
 async function refreshScores() {
   const btn = document.getElementById('refresh-btn');
   const msg = document.getElementById('refresh-msg');
@@ -795,21 +821,20 @@ async function refreshScores() {
   msg.className = 'refresh-msg';
   msg.textContent = '';
 
-  const proxy = (url) => 'https://corsproxy.io/?url=' + encodeURIComponent(url);
-
+  let step = '初始化';
   try {
-    // Step 1: 取得 antiforgery token
-    const pageRes = await fetch(proxy('https://www.cpbl.com.tw/schedule'), { credentials: 'include' });
-    if (!pageRes.ok) throw new Error('無法連線到 CPBL（' + pageRes.status + '）');
+    // Step 1: 取得 antiforgery token（GET CPBL /schedule 頁面）
+    step = '抓取 CPBL 頁面';
+    const pageRes = await tryProxies(CORS_GET_PROXIES, 'https://www.cpbl.com.tw/schedule');
     const pageHtml = await pageRes.text();
     const tokenMatches = [...pageHtml.matchAll(/RequestVerificationToken:\s*'([^']+)'/g)];
-    if (!tokenMatches.length) throw new Error('token 解析失敗，CPBL 頁面結構可能已變更');
+    if (!tokenMatches.length) throw new Error('找不到 token（可能被 Cloudflare 擋或頁面結構變更）');
     const token = tokenMatches[tokenMatches.length - 1][1];
 
-    // Step 2: 呼叫 API 取得賽程資料
-    const apiRes = await fetch(proxy('https://www.cpbl.com.tw/schedule/getgamedatas'), {
+    // Step 2: 呼叫 API 取得賽程資料（POST + 自訂 header）
+    step = '呼叫 CPBL API';
+    const apiRes = await tryProxies(CORS_POST_PROXIES, 'https://www.cpbl.com.tw/schedule/getgamedatas', {
       method: 'POST',
-      credentials: 'include',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
         'RequestVerificationToken': token,
@@ -817,11 +842,11 @@ async function refreshScores() {
       },
       body: 'CalendarDate=2026%2F06%2F01&GameSno=01&KindCode=A&Location='
     });
-    if (!apiRes.ok) throw new Error('API 回應失敗（' + apiRes.status + '）');
     const data = await apiRes.json();
-    if (!data.Success) throw new Error('API 回傳 Success=false');
+    if (!data.Success) throw new Error('CPBL 回傳 Success=false（token/cookie 驗證可能失敗）');
     const games = JSON.parse(data.GameDatas);
     if (!Array.isArray(games) || !games.length) throw new Error('回傳資料為空');
+    step = '解析資料';
 
     // Step 3: 轉換為 RAW_DATA 格式並覆蓋
     const newRows = games.map(g => [
@@ -867,7 +892,7 @@ async function refreshScores() {
     msg.textContent = '✓ 已更新 ' + games.length + ' 場資料（' + now + '，僅此次瀏覽）';
   } catch (e) {
     msg.className = 'refresh-msg error';
-    msg.textContent = '✗ ' + e.message + '，請稍後再試';
+    msg.textContent = '✗ [' + step + '] ' + e.message;
   } finally {
     btn.disabled = false;
     btn.textContent = '🔄 更新比分';
