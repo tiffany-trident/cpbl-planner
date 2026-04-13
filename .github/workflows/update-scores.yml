@@ -1,10 +1,9 @@
 name: Update CPBL Scores
 
 on:
-  schedule:
-    # Run daily at 23:00 UTC+8 (15:00 UTC) during the season (Mar-Oct)
-    - cron: '0 15 * 3-10 *'
-  workflow_dispatch: # Allow manual trigger
+  # 排程已移除：GitHub Actions runner 位於境外，CPBL 官網封鎖境外 IP 導致抓取失敗。
+  # 改由網頁「更新比分」按鈕從使用者瀏覽器（台灣 IP）透過 CORS proxy 取得即時資料。
+  workflow_dispatch: # 保留手動觸發（目前同樣會因 IP 封鎖而失敗，僅作保留）
 
 permissions:
   contents: write

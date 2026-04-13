@@ -26,6 +26,13 @@ body { font-family: 'Inter', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; b
 .hero h1 { font-family: 'Noto Serif TC', serif; font-size: 42px; font-weight: 700; color: #3D3122; letter-spacing: 2px; margin-bottom: 8px; }
 .hero p { font-size: 15px; color: #9B8E7E; letter-spacing: 1px; }
 .hero-deco { color: #D9CCBC; font-size: 14px; margin-top: 14px; letter-spacing: 4px; }
+.refresh-wrap { text-align: center; margin-top: 18px; }
+.refresh-btn { padding: 8px 20px; border-radius: 22px; background: #FFF; border: 1px solid #E5D9C9; color: #C2573A; font-size: 13px; cursor: pointer; transition: all 0.2s; font-family: inherit; letter-spacing: 1px; }
+.refresh-btn:hover:not(:disabled) { background: #C2573A; color: #FFF; border-color: #C2573A; }
+.refresh-btn:disabled { opacity: 0.6; cursor: wait; }
+.refresh-msg { margin-top: 8px; font-size: 12px; color: #9B8E7E; min-height: 16px; letter-spacing: 0.5px; }
+.refresh-msg.error { color: #C2573A; }
+.refresh-msg.success { color: #5A7F3E; }
 .snoopy-float { position: absolute; font-size: 64px; opacity: 0.8; }
 .snoopy-float.left { left: 80px; }
 .snoopy-float.right { right: 80px; }
@@ -224,6 +231,10 @@ body { font-family: 'Inter', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; b
     <h1>看球行程規劃器</h1>
     <p>在最好的日子，走進最好的球場</p>
     <div class="hero-deco">—— ◆ ——</div>
+    <div class="refresh-wrap">
+      <button id="refresh-btn" class="refresh-btn" onclick="refreshScores()">🔄 更新比分</button>
+      <div id="refresh-msg" class="refresh-msg"></div>
+    </div>
   </div>
   <div class="snoopy-float right">⚾</div>
 </div>
@@ -773,6 +784,94 @@ function loadData() {
   buildStandings();
   initFilters();
   render();
+}
+
+// ── 從瀏覽器即時抓取 CPBL 最新比分（透過 CORS proxy；僅此次瀏覽有效）──
+async function refreshScores() {
+  const btn = document.getElementById('refresh-btn');
+  const msg = document.getElementById('refresh-msg');
+  btn.disabled = true;
+  btn.textContent = '抓取中…';
+  msg.className = 'refresh-msg';
+  msg.textContent = '';
+
+  const proxy = (url) => 'https://corsproxy.io/?url=' + encodeURIComponent(url);
+
+  try {
+    // Step 1: 取得 antiforgery token
+    const pageRes = await fetch(proxy('https://www.cpbl.com.tw/schedule'), { credentials: 'include' });
+    if (!pageRes.ok) throw new Error('無法連線到 CPBL（' + pageRes.status + '）');
+    const pageHtml = await pageRes.text();
+    const tokenMatches = [...pageHtml.matchAll(/RequestVerificationToken:\s*'([^']+)'/g)];
+    if (!tokenMatches.length) throw new Error('token 解析失敗，CPBL 頁面結構可能已變更');
+    const token = tokenMatches[tokenMatches.length - 1][1];
+
+    // Step 2: 呼叫 API 取得賽程資料
+    const apiRes = await fetch(proxy('https://www.cpbl.com.tw/schedule/getgamedatas'), {
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'RequestVerificationToken': token,
+        'X-Requested-With': 'XMLHttpRequest'
+      },
+      body: 'CalendarDate=2026%2F06%2F01&GameSno=01&KindCode=A&Location='
+    });
+    if (!apiRes.ok) throw new Error('API 回應失敗（' + apiRes.status + '）');
+    const data = await apiRes.json();
+    if (!data.Success) throw new Error('API 回傳 Success=false');
+    const games = JSON.parse(data.GameDatas);
+    if (!Array.isArray(games) || !games.length) throw new Error('回傳資料為空');
+
+    // Step 3: 轉換為 RAW_DATA 格式並覆蓋
+    const newRows = games.map(g => [
+      g.GameDate.slice(0, 10),
+      g.GameDateTimeS.slice(11, 16),
+      g.VisitingTeamName, g.HomeTeamName, g.FieldAbbe,
+      g.VisitingScore || 0, g.HomeScore || 0,
+      g.WinningPitcherName || '', g.LoserPitcherName || '',
+      g.CloserName || '', g.MvpName || '',
+      g.GameResult == null ? '' : String(g.GameResult)
+    ]);
+    RAW_DATA.length = 0;
+    newRows.forEach(r => RAW_DATA.push(r));
+
+    // Step 4: 重建 allGames（不重建 filters 避免 chip 重複）並重新渲染
+    const today = new Date(); today.setHours(0,0,0,0);
+    const todayStr = today.toISOString().slice(0, 10);
+    allGames = RAW_DATA.map(r => {
+      const [date, time, visitor, home, field, vScore, hScore, wp, lp, sv, mvp, gr] = r;
+      const d = new Date(date + 'T00:00:00');
+      const dow = d.getDay();
+      const completed = gr === '0' && (vScore > 0 || hScore > 0 || wp !== '');
+      const postponed = gr === '1';
+      return {
+        date, time, visitor, home, field,
+        vScore, hScore, wp, lp, sv, mvp, gr,
+        d, dow,
+        dayName: DAYS[dow],
+        isWE: dow === 0 || dow === 6,
+        holName: HOLIDAYS[date] || '',
+        month: d.getMonth() + 1,
+        isFuture: d >= today,
+        isToday: date === todayStr,
+        completed,
+        postponed,
+      };
+    }).sort((a,b) => a.date < b.date ? -1 : a.date > b.date ? 1 : a.time < b.time ? -1 : 1);
+    buildStandings();
+    render();
+
+    const now = new Date().toLocaleTimeString('zh-TW', { hour: '2-digit', minute: '2-digit' });
+    msg.className = 'refresh-msg success';
+    msg.textContent = '✓ 已更新 ' + games.length + ' 場資料（' + now + '，僅此次瀏覽）';
+  } catch (e) {
+    msg.className = 'refresh-msg error';
+    msg.textContent = '✗ ' + e.message + '，請稍後再試';
+  } finally {
+    btn.disabled = false;
+    btn.textContent = '🔄 更新比分';
+  }
 }
 
 // ── 戰績計算 ──
