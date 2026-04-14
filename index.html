@@ -7,6 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body { font-family: 'Inter', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; background: #FDFCFA; color: #4A3728; min-height: 100vh; }
 .container { max-width: 1200px; margin: 0 auto; }
 
@@ -16,8 +17,8 @@ body { font-family: 'Inter', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; b
 .nav-logo .snoopy-icon { font-size: 24px; }
 .nav-title { font-size: 18px; font-weight: 700; letter-spacing: 2px; color: #4A3728; }
 .nav-links { display: flex; gap: 24px; }
-.nav-links a { font-size: 14px; color: #9B8E7E; text-decoration: none; cursor: pointer; }
-.nav-links a.active { color: #4A3728; font-weight: 600; }
+.nav-links a { font-size: 14px; color: #9B8E7E; text-decoration: none; cursor: pointer; transition: color 0.2s; }
+.nav-links a:hover { color: #C2573A; }
 
 /* ── Hero ── */
 .hero { display: flex; align-items: center; justify-content: center; padding: 48px 40px 44px; background: #FFF; position: relative; }
@@ -30,8 +31,14 @@ body { font-family: 'Inter', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; b
 .snoopy-float.left { left: 80px; }
 .snoopy-float.right { right: 80px; }
 
+/* ── Section headers ── */
+.section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+.section-header-title { font-family: 'Noto Serif TC', serif; font-size: 18px; font-weight: 700; color: #3D3122; white-space: nowrap; }
+.section-header-line { flex: 1; height: 1px; background: linear-gradient(90deg, #E0D8CC, transparent); }
+.section-header-sub { font-size: 12px; color: #B8A692; white-space: nowrap; }
+
 /* ── Standings ── */
-.standings-wrap { padding: 28px 40px 32px; background: #FDFCFA; }
+.standings-wrap { padding: 32px 40px 36px; background: #FFF; }
 .standings-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
 .standings-title { font-size: 14px; font-weight: 600; color: #4A3728; }
 .standings-sub { font-size: 12px; color: #B8A692; }
@@ -55,7 +62,10 @@ body { font-family: 'Inter', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; b
 .standing-gb-bar { position: absolute; bottom: 4px; left: 50%; transform: translateX(-50%); height: 3px; border-radius: 2px; background: #E8DFD3; }
 
 /* ── Filters ── */
-.filters { background: #FFF; padding: 24px 40px 28px; border-top: 1px solid #EEECEA; border-bottom: 1px solid #EEECEA; display: flex; flex-wrap: wrap; gap: 18px; align-items: flex-end; }
+.filters { background: #FDFCFA; padding: 28px 40px 32px; display: flex; flex-direction: column; gap: 16px; }
+.filter-card { background: #FFF; border-radius: 14px; padding: 20px 24px; box-shadow: 0 2px 8px rgba(212,196,171,0.10); }
+.filter-card-title { font-size: 13px; font-weight: 700; color: #4A3728; margin-bottom: 12px; letter-spacing: 0.5px; }
+.filter-card-row { display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-end; }
 .filter-group { display: flex; flex-direction: column; gap: 7px; }
 .filter-group > label { font-size: 12px; color: #7A6E5E; font-weight: 600; }
 .filter-group select { background: #FFF; border: 1px solid #E0D8CC; color: #4A3728; padding: 10px 16px; border-radius: 12px; font-size: 14px; min-width: 140px; cursor: pointer; font-family: 'Inter', 'Noto Sans TC', sans-serif; appearance: auto; }
@@ -94,9 +104,10 @@ body { font-family: 'Inter', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; b
 .btn-hsr:hover { background: #2B8A8A; color: #fff; border-color: #2B8A8A; }
 
 /* ── Stats ── */
-.stats { padding: 12px 40px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: 13px; color: #9B8E7E; background: #FDFCFA; }
+.stats { padding: 14px 40px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font-size: 13px; color: #7A6E5E; background: #FFF; margin: 0 40px; border-radius: 12px; box-shadow: 0 2px 8px rgba(212,196,171,0.10); }
 .stats .dot { width: 4px; height: 4px; border-radius: 50%; background: #D4C4AB; display: inline-block; }
-.stats span.num { color: #C2573A; font-weight: 700; }
+.stats span.num { color: #C2573A; font-weight: 800; font-size: 15px; }
+.stats .stat-item { display: inline-flex; align-items: center; gap: 4px; }
 
 /* ── Badges ── */
 .badge { display: inline-block; padding: 3px 10px; border-radius: 8px; font-size: 11px; font-weight: 600; margin-left: 4px; vertical-align: middle; }
@@ -118,7 +129,7 @@ body { font-family: 'Inter', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; b
 .detail-label-mvp { background: #FDF6EE; color: #C2573A; }
 
 /* ── Card Grid ── */
-.card-section { padding: 0 40px 40px; background: #FDFCFA; }
+.card-section { padding: 28px 40px 40px; background: #FDFCFA; }
 .date-group { margin-bottom: 28px; }
 .date-header { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
 .date-header-text { font-size: 15px; font-weight: 700; color: #4A3728; white-space: nowrap; }
@@ -147,10 +158,9 @@ body { font-family: 'Inter', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; b
 .score-lose { color: #B8A692; }
 .score-postponed { font-size: 13px; color: #8B6BAE; font-weight: 600; }
 .card-detail { text-align: center; padding: 8px 0 0; }
-.card-footer { display: flex; justify-content: space-between; align-items: center; padding: 12px 18px; border-top: 1px solid #F0EBDF; }
-.card-footer-field { font-size: 12px; color: #7A6E5E; }
+.card-footer { display: flex; justify-content: space-between; align-items: center; padding: 10px 18px; border-top: 1px solid #F0EBDF; }
 .card-footer-tags { display: flex; flex-wrap: wrap; gap: 4px; }
-.card-buttons { display: flex; justify-content: center; gap: 8px; padding: 0 18px 14px; }
+.card-footer-buttons { display: flex; gap: 6px; }
 .empty { text-align: center; padding: 48px 20px; color: #B8A692; font-size: 15px; }
 
 /* ── Footer ── */
@@ -181,7 +191,8 @@ body { font-family: 'Inter', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; b
   .snoopy-float { font-size: 40px; }
   .snoopy-float.left { left: 16px; }
   .snoopy-float.right { right: 16px; }
-  .standings-wrap { padding: 16px; }
+  .standings-wrap { padding: 20px 16px; }
+  .section-header-title { font-size: 16px; }
   .standings-table th { font-size: 10px; padding: 8px 6px; }
   .standings-table td { padding: 10px 6px; font-size: 13px; }
   .standing-rank { font-size: 13px; width: 28px; }
@@ -192,13 +203,16 @@ body { font-family: 'Inter', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; b
   .standing-wlt { font-size: 12px; }
   .standing-gb-cell { min-width: 50px; }
   .standing-gb-bar { display: none; }
-  .filters { padding: 16px; gap: 12px; flex-direction: column; align-items: stretch; }
+  .filters { padding: 16px; gap: 12px; }
+  .filter-card { padding: 16px; }
+  .filter-card-row { flex-direction: column; gap: 12px; align-items: stretch; }
   .filter-group { width: 100%; }
   .filter-group select { width: 100%; min-width: unset; }
   .filter-row { display: flex; gap: 10px; }
   .filter-row .filter-group { flex: 1; }
-  .stats { padding: 10px 16px; font-size: 12px; }
-  .card-section { padding: 0 16px 28px; }
+  .stats { padding: 12px 16px; font-size: 12px; margin: 0 16px; }
+  .stats span.num { font-size: 13px; }
+  .card-section { padding: 20px 16px 28px; }
   .card-grid { grid-template-columns: 1fr; gap: 12px; }
   .chip { padding: 6px 14px; font-size: 12px; }
   .btn-reset { width: 100%; text-align: center; }
@@ -213,6 +227,7 @@ body { font-family: 'Inter', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; b
   .hero { padding: 36px 24px; }
   .standings-wrap { padding: 20px 24px; }
   .filters { padding: 20px 24px; }
+  .filter-card { padding: 18px 20px; }
   .stats { padding: 10px 24px; }
   .card-section { padding: 0 24px 32px; }
 }
@@ -228,8 +243,9 @@ body { font-family: 'Inter', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; b
     <span class="nav-title">CPBL 2026</span>
   </div>
   <div class="nav-links">
-    <a class="active">賽程</a>
-    <a>戰績</a>
+    <a href="#standings-wrap">戰績</a>
+    <a href="#filters">篩選</a>
+    <a href="#games">賽程</a>
   </div>
 </div>
 
@@ -245,9 +261,10 @@ body { font-family: 'Inter', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; b
 </div>
 
 <div class="standings-wrap" id="standings-wrap">
-  <div class="standings-header">
-    <span class="standings-title">各隊戰績</span>
-    <span class="standings-sub">2026 例行賽</span>
+  <div class="section-header">
+    <span class="section-header-title">各隊戰績</span>
+    <span class="section-header-line"></span>
+    <span class="section-header-sub">2026 例行賽</span>
   </div>
   <table class="standings-table" id="standings-table">
     <thead>
@@ -258,54 +275,64 @@ body { font-family: 'Inter', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; b
   <div style="text-align:right; margin-top:8px; font-size:11px; color:#B8A692;">資料來源：<a href="https://cpbl.com.tw/standings/season" target="_blank" rel="noopener" style="color:#B8A692; text-decoration:underline;">CPBL 官網</a></div>
 </div>
 
-<div class="filters">
-  <div class="filter-group">
-    <label>想看的隊伍</label>
-    <div class="chip-group" id="f-team1"></div>
-  </div>
-  <div class="filter-group">
-    <label>對手</label>
-    <div class="chip-group" id="f-team2"></div>
-  </div>
-  <div class="filter-row">
-    <div class="filter-group">
-      <label>球場</label>
-      <select id="f-field"><option value="">全部球場</option></select>
+<div class="filters" id="filters">
+  <div class="filter-card">
+    <div class="filter-card-title">隊伍篩選</div>
+    <div class="filter-group" style="margin-bottom:12px">
+      <label>想看的隊伍</label>
+      <div class="chip-group" id="f-team1"></div>
     </div>
     <div class="filter-group">
-      <label>月份</label>
-      <select id="f-month"><option value="">全部月份</option></select>
+      <label>對手</label>
+      <div class="chip-group" id="f-team2"></div>
     </div>
   </div>
-  <div class="filter-group">
-    <label>場次狀態</label>
-    <div class="cb-row">
-      <div class="toggle-group" id="f-status">
-        <button class="toggle-btn active" data-val="future">未來場次</button>
-        <button class="toggle-btn" data-val="all">全部</button>
-        <button class="toggle-btn" data-val="past">已結束</button>
+  <div class="filter-card">
+    <div class="filter-card-title">條件篩選</div>
+    <div class="filter-card-row">
+      <div class="filter-row">
+        <div class="filter-group">
+          <label>球場</label>
+          <select id="f-field"><option value="">全部球場</option></select>
+        </div>
+        <div class="filter-group">
+          <label>月份</label>
+          <select id="f-month"><option value="">全部月份</option></select>
+        </div>
       </div>
+      <div class="filter-group">
+        <label>場次狀態</label>
+        <div class="cb-row">
+          <div class="toggle-group" id="f-status">
+            <button class="toggle-btn active" data-val="future">未來場次</button>
+            <button class="toggle-btn" data-val="all">全部</button>
+            <button class="toggle-btn" data-val="past">已結束</button>
+          </div>
+        </div>
+      </div>
+      <div class="filter-group">
+        <label>日期篩選</label>
+        <div class="cb-row">
+          <div class="checkbox-group">
+            <input type="checkbox" id="f-weekend"><label for="f-weekend">週末</label>
+          </div>
+          <div class="checkbox-group">
+            <input type="checkbox" id="f-holiday"><label for="f-holiday">週末+假日</label>
+          </div>
+        </div>
+      </div>
+      <button class="btn-reset" id="btn-reset">↺ 重設</button>
     </div>
-  </div>
-  <div class="filter-group">
-    <label>日期篩選</label>
-    <div class="cb-row">
-      <div class="checkbox-group">
-        <input type="checkbox" id="f-weekend"><label for="f-weekend">週末</label>
-      </div>
-      <div class="checkbox-group">
-        <input type="checkbox" id="f-holiday"><label for="f-holiday">週末+假日</label>
-      </div>
-    </div>
-  </div>
-  <div class="filter-group" style="justify-content:flex-end">
-    <button class="btn-reset" id="btn-reset">↺ 重設</button>
   </div>
 </div>
 
 <div class="stats" id="stats"></div>
 
-<div class="card-section">
+<div class="card-section" id="games">
+  <div class="section-header">
+    <span class="section-header-title">賽程總覽</span>
+    <span class="section-header-line"></span>
+  </div>
   <div id="card-list"></div>
   <div class="empty" id="empty-card" style="display:none">沒有符合條件的場次</div>
 </div>
@@ -974,12 +1001,17 @@ function render() {
   const totalPostponed = allGames.filter(g => g.postponed).length;
 
   stats.innerHTML =
-    '篩選結果 <span class="num">' + list.length + '</span> 場' +
-    ' <span class="dot"></span> 已完賽 <span class="num">' + totalDone + '</span> 場' +
-    ' <span class="dot"></span> 未來 <span class="num">' + totalFut + '</span> 場' +
-    ' <span class="dot"></span> 延賽 <span class="num">' + totalPostponed + '</span> 場' +
-    ' <span class="dot"></span> 週末 <span class="num">' + weCnt + '</span> 場' +
-    ' <span class="dot"></span> 假日 <span class="num">' + holCnt + '</span> 場';
+    '<span class="stat-item">篩選結果 <span class="num">' + list.length + '</span> 場</span>' +
+    '<span class="dot"></span>' +
+    '<span class="stat-item">已完賽 <span class="num">' + totalDone + '</span></span>' +
+    '<span class="dot"></span>' +
+    '<span class="stat-item">未來 <span class="num">' + totalFut + '</span></span>' +
+    '<span class="dot"></span>' +
+    '<span class="stat-item">延賽 <span class="num">' + totalPostponed + '</span></span>' +
+    '<span class="dot"></span>' +
+    '<span class="stat-item">週末 <span class="num">' + weCnt + '</span></span>' +
+    '<span class="dot"></span>' +
+    '<span class="stat-item">假日 <span class="num">' + holCnt + '</span></span>';
 
   if (!list.length) {
     tbody.innerHTML = '';
@@ -1060,13 +1092,12 @@ function render() {
         (detail ? '<div class="card-detail">' + detail + '</div>' : '') +
       '</div>' +
       '<div class="card-footer">' +
-        '<span class="card-footer-field">' + g.field + '</span>' +
         '<div class="card-footer-tags">' + buildTags(g) + '</div>' +
+        (hasButtons ? '<div class="card-footer-buttons">' +
+          (ticketUrl ? '<a class="btn-ticket" href="' + ticketUrl + '" target="_blank" rel="noopener">🎫 購票</a>' : '') +
+          (hsrStation ? '<a class="btn-hsr" href="' + HSR_BOOKING_URL + '" target="_blank" rel="noopener">🚄 ' + hsrStation + '</a>' : '') +
+        '</div>' : '') +
       '</div>' +
-      (hasButtons ? '<div class="card-buttons">' +
-        (ticketUrl ? '<a class="btn-ticket" href="' + ticketUrl + '" target="_blank" rel="noopener">🎫 購票</a>' : '') +
-        (hsrStation ? '<a class="btn-hsr" href="' + HSR_BOOKING_URL + '" target="_blank" rel="noopener">🚄 高鐵→' + hsrStation + '</a>' : '') +
-      '</div>' : '') +
     '</div>';
   }
   if (prevCardDate) cards += '</div></div>'; // close last group
