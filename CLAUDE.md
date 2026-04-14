@@ -11,6 +11,7 @@
 - 取得 token：先 GET `/schedule` 取得 cookie 與頁面內嵌 token
 - 364 場（含延賽），6 隊，11 球場，2026-03-28 ~ 2026-09-28
 - 資料內嵌於 HTML，各隊 logo 引用 cpbl.com.tw
+- 戰績區標註資料來源：https://cpbl.com.tw/standings/season
 
 ## RAW_DATA 格式
 
