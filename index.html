@@ -26,13 +26,6 @@ body { font-family: 'Inter', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; b
 .hero h1 { font-family: 'Noto Serif TC', serif; font-size: 42px; font-weight: 700; color: #3D3122; letter-spacing: 2px; margin-bottom: 8px; }
 .hero p { font-size: 15px; color: #9B8E7E; letter-spacing: 1px; }
 .hero-deco { color: #D9CCBC; font-size: 14px; margin-top: 14px; letter-spacing: 4px; }
-.refresh-wrap { text-align: center; margin-top: 18px; }
-.refresh-btn { padding: 8px 20px; border-radius: 22px; background: #FFF; border: 1px solid #E5D9C9; color: #C2573A; font-size: 13px; cursor: pointer; transition: all 0.2s; font-family: inherit; letter-spacing: 1px; }
-.refresh-btn:hover:not(:disabled) { background: #C2573A; color: #FFF; border-color: #C2573A; }
-.refresh-btn:disabled { opacity: 0.6; cursor: wait; }
-.refresh-msg { margin-top: 8px; font-size: 12px; color: #9B8E7E; min-height: 16px; letter-spacing: 0.5px; }
-.refresh-msg.error { color: #C2573A; }
-.refresh-msg.success { color: #5A7F3E; }
 .snoopy-float { position: absolute; font-size: 64px; opacity: 0.8; }
 .snoopy-float.left { left: 80px; }
 .snoopy-float.right { right: 80px; }
@@ -231,10 +224,6 @@ body { font-family: 'Inter', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; b
     <h1>看球行程規劃器</h1>
     <p>在最好的日子，走進最好的球場</p>
     <div class="hero-deco">—— ◆ ——</div>
-    <div class="refresh-wrap">
-      <button id="refresh-btn" class="refresh-btn" onclick="refreshScores()">🔄 更新比分</button>
-      <div id="refresh-msg" class="refresh-msg"></div>
-    </div>
   </div>
   <div class="snoopy-float right">⚾</div>
 </div>
@@ -784,74 +773,6 @@ function loadData() {
   buildStandings();
   initFilters();
   render();
-}
-
-// ── 從瀏覽器即時抓取 CPBL 最新比分（透過 Cloudflare Worker；僅此次瀏覽有效）──
-// Worker 部署後請把 URL 填到這裡；未設定則按鈕顯示提示訊息
-const CPBL_WORKER_URL = '';
-
-async function refreshScores() {
-  const btn = document.getElementById('refresh-btn');
-  const msg = document.getElementById('refresh-msg');
-  btn.disabled = true;
-  btn.textContent = '抓取中…';
-  msg.className = 'refresh-msg';
-  msg.textContent = '';
-
-  let step = '初始化';
-  try {
-    if (!CPBL_WORKER_URL) {
-      throw new Error('尚未設定 Worker URL（請見 scoreupdate.md）');
-    }
-
-    step = '呼叫 Worker';
-    const res = await fetch(CPBL_WORKER_URL, { cache: 'no-store' });
-    if (!res.ok) throw new Error('Worker HTTP ' + res.status);
-    const payload = await res.json();
-    if (!payload.ok) throw new Error(payload.error || 'Worker 回傳失敗');
-    const newRows = payload.rows;
-    if (!Array.isArray(newRows) || !newRows.length) throw new Error('回傳資料為空');
-
-    step = '解析資料';
-    RAW_DATA.length = 0;
-    newRows.forEach(r => RAW_DATA.push(r));
-
-    // Step 4: 重建 allGames（不重建 filters 避免 chip 重複）並重新渲染
-    const today = new Date(); today.setHours(0,0,0,0);
-    const todayStr = today.toISOString().slice(0, 10);
-    allGames = RAW_DATA.map(r => {
-      const [date, time, visitor, home, field, vScore, hScore, wp, lp, sv, mvp, gr] = r;
-      const d = new Date(date + 'T00:00:00');
-      const dow = d.getDay();
-      const completed = gr === '0' && (vScore > 0 || hScore > 0 || wp !== '');
-      const postponed = gr === '1';
-      return {
-        date, time, visitor, home, field,
-        vScore, hScore, wp, lp, sv, mvp, gr,
-        d, dow,
-        dayName: DAYS[dow],
-        isWE: dow === 0 || dow === 6,
-        holName: HOLIDAYS[date] || '',
-        month: d.getMonth() + 1,
-        isFuture: d >= today,
-        isToday: date === todayStr,
-        completed,
-        postponed,
-      };
-    }).sort((a,b) => a.date < b.date ? -1 : a.date > b.date ? 1 : a.time < b.time ? -1 : 1);
-    buildStandings();
-    render();
-
-    const now = new Date().toLocaleTimeString('zh-TW', { hour: '2-digit', minute: '2-digit' });
-    msg.className = 'refresh-msg success';
-    msg.textContent = '✓ 已更新 ' + newRows.length + ' 場資料（' + now + '，僅此次瀏覽）';
-  } catch (e) {
-    msg.className = 'refresh-msg error';
-    msg.textContent = '✗ [' + step + '] ' + e.message;
-  } finally {
-    btn.disabled = false;
-    btn.textContent = '🔄 更新比分';
-  }
 }
 
 // ── 戰績計算 ──
