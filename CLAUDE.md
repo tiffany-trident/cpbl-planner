@@ -61,13 +61,18 @@
 - `cpbl-planner.html` — 開發檔
 - `games_data.json` — 賽程原始資料備份
 - `scripts/fetch-scores.sh` — 資料抓取腳本
-- `.github/workflows/update-scores.yml` — 自動更新 workflow
+- `scripts/update-scores.ps1` — PowerShell 版抓取腳本（本機排程用）
+- `scripts/update-scores.bat` — Task Scheduler 包裝 bat
+- `.github/workflows/update-scores.yml` — 自動更新 workflow（排程已停用）
+- `scoreupdate.md` — 比分更新方案評估與進度記錄
 
 ## 自動更新
 
-- GitHub Actions 每日台灣時間 23:00（UTC 15:00）執行，也可手動觸發
-- 流程：CPBL API → RAW_DATA → 更新 index.html + cpbl-planner.html
+- 現行方案：本機 Windows Task Scheduler 每日執行 `scripts/update-scores.bat`
+- 流程：CPBL API → RAW_DATA → 更新 index.html + cpbl-planner.html → git push
 - 僅資料有變更時才 commit
+- GitHub Actions 排程已停用（CPBL 封鎖境外 IP）
+- 詳細方案評估、除錯記錄與待辦事項見 [scoreupdate.md](scoreupdate.md)
 
 ## 各隊購票連結
 
