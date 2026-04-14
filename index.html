@@ -35,13 +35,24 @@ body { font-family: 'Inter', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; b
 .standings-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
 .standings-title { font-size: 14px; font-weight: 600; color: #4A3728; }
 .standings-sub { font-size: 12px; color: #B8A692; }
-.standings-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-.standing-card { display: flex; align-items: center; gap: 10px; padding: 14px 18px; border-radius: 14px; background: #FFF; box-shadow: 0 2px 8px rgba(212,196,171,0.12); }
-.standing-card img { width: 32px; height: 32px; object-fit: contain; }
-.standing-info { display: flex; flex-direction: column; gap: 2px; }
-.standing-name { font-size: 13px; font-weight: 600; }
-.standing-record { font-size: 11px; color: #9B8E7E; }
-.standing-pct { font-size: 17px; font-weight: 700; margin-left: auto; padding-left: 8px; color: #4A3728; }
+.standings-table { width: 100%; border-collapse: separate; border-spacing: 0; background: #FFF; border-radius: 14px; box-shadow: 0 2px 8px rgba(212,196,171,0.12); overflow: hidden; }
+.standings-table th { font-size: 11px; font-weight: 600; color: #9B8E7E; text-transform: uppercase; letter-spacing: 0.5px; padding: 10px 12px; text-align: center; border-bottom: 2px solid #F0ECE6; background: #FDFCFA; }
+.standings-table th:nth-child(2) { text-align: left; }
+.standings-table td { padding: 12px 12px; text-align: center; font-size: 14px; color: #4A3728; border-bottom: 1px solid #F0ECE6; }
+.standings-table tr:last-child td { border-bottom: none; }
+.standings-table tr.standing-leader { background: linear-gradient(90deg, #FFF9EF 0%, #FFF 60%); }
+.standings-table tr:hover { background: #FDFAF5; }
+.standings-table tr.standing-leader:hover { background: linear-gradient(90deg, #FFF5E0 0%, #FDFAF5 60%); }
+.standing-rank { font-size: 15px; font-weight: 700; color: #B8A692; width: 36px; }
+.standing-leader .standing-rank { color: #C2573A; }
+.standing-team-cell { display: flex; align-items: center; gap: 10px; text-align: left; }
+.standing-team-cell img { width: 30px; height: 30px; object-fit: contain; border-radius: 50%; }
+.standing-name { font-size: 14px; font-weight: 600; }
+.standing-wlt { font-variant-numeric: tabular-nums; font-weight: 500; }
+.standing-pct { font-size: 15px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.standing-gb-cell { position: relative; min-width: 70px; }
+.standing-gb-text { font-size: 14px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.standing-gb-bar { position: absolute; bottom: 4px; left: 50%; transform: translateX(-50%); height: 3px; border-radius: 2px; background: #E8DFD3; }
 
 /* ── Filters ── */
 .filters { background: #FFF; padding: 24px 40px 28px; border-top: 1px solid #EEECEA; border-bottom: 1px solid #EEECEA; display: flex; flex-wrap: wrap; gap: 18px; align-items: flex-end; }
@@ -171,11 +182,16 @@ body { font-family: 'Inter', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; b
   .snoopy-float.left { left: 16px; }
   .snoopy-float.right { right: 16px; }
   .standings-wrap { padding: 16px; }
-  .standings-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
-  .standing-card { padding: 10px 12px; }
-  .standing-card img { width: 26px; height: 26px; }
+  .standings-table th { font-size: 10px; padding: 8px 6px; }
+  .standings-table td { padding: 10px 6px; font-size: 13px; }
+  .standing-rank { font-size: 13px; width: 28px; }
+  .standing-team-cell img { width: 24px; height: 24px; }
   .standing-name { font-size: 12px; }
-  .standing-pct { font-size: 15px; }
+  .standing-pct { font-size: 13px; }
+  .standing-gb-text { font-size: 12px; }
+  .standing-wlt { font-size: 12px; }
+  .standing-gb-cell { min-width: 50px; }
+  .standing-gb-bar { display: none; }
   .filters { padding: 16px; gap: 12px; flex-direction: column; align-items: stretch; }
   .filter-group { width: 100%; }
   .filter-group select { width: 100%; min-width: unset; }
@@ -233,7 +249,13 @@ body { font-family: 'Inter', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; b
     <span class="standings-title">各隊戰績</span>
     <span class="standings-sub">2026 例行賽</span>
   </div>
-  <div class="standings-grid" id="standings-grid"></div>
+  <table class="standings-table" id="standings-table">
+    <thead>
+      <tr><th>#</th><th>球隊</th><th>勝</th><th>敗</th><th>和</th><th>勝率</th><th>勝差</th></tr>
+    </thead>
+    <tbody id="standings-body"></tbody>
+  </table>
+  <div style="text-align:right; margin-top:8px; font-size:11px; color:#B8A692;">資料來源：<a href="https://cpbl.com.tw/standings/season" target="_blank" rel="noopener" style="color:#B8A692; text-decoration:underline;">CPBL 官網</a></div>
 </div>
 
 <div class="filters">
@@ -803,25 +825,36 @@ function buildStandings() {
     }))
     .sort((a, b) => parseFloat(b.pct) - parseFloat(a.pct));
 
-  const grid = document.getElementById('standings-grid');
+  const tbody = document.getElementById('standings-body');
   if (!sorted.length) {
     document.getElementById('standings-wrap').style.display = 'none';
     return;
   }
+  document.getElementById('standings-wrap').style.display = '';
   const leader = sorted[0];
-  grid.innerHTML = sorted.map((t, i) => {
+  const maxGb = sorted.length > 1 ? ((leader.w - sorted[sorted.length-1].w) + (sorted[sorted.length-1].l - leader.l)) / 2 : 0;
+  tbody.innerHTML = sorted.map((t, i) => {
     const logo = TEAM_LOGO[t.name] || '';
     const color = getTeamColor(t.name);
-    const gb = i === 0 ? '-' : (((leader.w - t.w) + (t.l - leader.l)) / 2).toString();
-    const gbText = ' · GB ' + gb;
-    return '<div class="standing-card">' +
-      (logo ? '<img src="' + logo + '" alt="" style="border-radius:50%">' : '') +
-      '<div class="standing-info">' +
+    const gbNum = i === 0 ? 0 : ((leader.w - t.w) + (t.l - leader.l)) / 2;
+    const gbDisplay = i === 0 ? '-' : gbNum % 1 === 0 ? gbNum.toString() : gbNum.toFixed(1);
+    const barW = maxGb > 0 ? Math.round((gbNum / maxGb) * 48) : 0;
+    const isLeader = i === 0;
+    return '<tr class="' + (isLeader ? 'standing-leader' : '') + '">' +
+      '<td class="standing-rank">' + (i + 1) + '</td>' +
+      '<td><div class="standing-team-cell">' +
+        (logo ? '<img src="' + logo + '" alt="">' : '') +
         '<span class="standing-name" style="color:' + color + '">' + (TEAM_SHORT[t.name] || t.name) + '</span>' +
-        '<span class="standing-record">' + t.w + '勝 ' + t.l + '敗' + (t.t ? ' ' + t.t + '和' : '') + gbText + '</span>' +
-      '</div>' +
-      '<span class="standing-pct">' + t.pct + '</span>' +
-    '</div>';
+      '</div></td>' +
+      '<td class="standing-wlt">' + t.w + '</td>' +
+      '<td class="standing-wlt">' + t.l + '</td>' +
+      '<td class="standing-wlt">' + t.t + '</td>' +
+      '<td class="standing-pct" style="color:' + (isLeader ? '#C2573A' : '#4A3728') + '">' + t.pct + '</td>' +
+      '<td class="standing-gb-cell">' +
+        '<span class="standing-gb-text">' + gbDisplay + '</span>' +
+        (barW > 0 ? '<div class="standing-gb-bar" style="width:' + barW + 'px"></div>' : '') +
+      '</td>' +
+    '</tr>';
   }).join('');
 }
 
