@@ -13,6 +13,7 @@
 - Git 認證(push 不需輸入密碼)已設定
 - Task Scheduler 已修正並正常運作(2026-04-14 10:52 自動執行成功)
 - ConvertTo-Json 格式問題已修正,網頁資料顯示正常(commit `c87571d`)
+- 移除網頁「🔄 更新比分」按鈕(commit `6871437`):刪除 HTML 按鈕、7 行 CSS、CPBL_WORKER_URL 常數及 refreshScores() 函式。CORS proxy / CF Worker / GAS 方案皆因 CPBL 封鎖境外 IP 失敗,比分已由本機排程自動更新,按鈕不再需要
 
 ### 🔧 已解決的問題
 
