@@ -22,7 +22,7 @@ body { font-family: 'Inter', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; b
 .nav { display: flex; justify-content: space-between; align-items: center; padding: 16px 40px; background: #FFF; border-bottom: 1px solid #EEECEA; }
 .nav-logo { display: flex; align-items: center; gap: 10px; }
 .nav-logo .snoopy-icon { font-size: 24px; }
-.nav-title { font-size: 18px; font-weight: 700; letter-spacing: 2px; color: #4A3728; }
+.nav-title { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; font-size: 18px; font-weight: 500; letter-spacing: 2px; color: #4A3728; }
 .nav-links { display: flex; gap: 24px; }
 .nav-links a { font-size: 14px; color: #9B8E7E; text-decoration: none; cursor: pointer; transition: color 0.2s; }
 .nav-links a:hover { color: #C2573A; }
@@ -38,7 +38,14 @@ body { font-family: 'Inter', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; b
 .hero-info-num { color: #C2573A; font-weight: 700; font-size: 18px; margin: 0 2px; }
 .hero-info-status { color: #C2573A; font-weight: 600; }
 .hero-deco { color: #D9CCBC; font-size: 14px; margin-top: 16px; letter-spacing: 4px; }
-.snoopy-float { position: absolute; font-size: 64px; opacity: 0.8; }
+.footer-deco-row { display: inline-flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 10px; }
+.footer-deco-row .tw-emoji { width: 20px; height: 20px; opacity: 0.85; }
+.footer-deco-row .deco-wave { width: 36px; height: 10px; opacity: 0.6; }
+.snoopy-float { position: absolute; top: 50%; transform: translateY(-50%); opacity: 0.88; line-height: 0; }
+.snoopy-float .glove-svg { width: 78px; height: 78px; display: block; }
+.snoopy-float .baseball-img { width: 72px; height: 72px; display: block; }
+.section-icon { width: 22px; height: 22px; display: inline-block; vertical-align: middle; }
+svg.section-icon { width: 28px; height: 28px; }
 .snoopy-float.left { left: 80px; }
 .snoopy-float.right { right: 80px; }
 
@@ -75,7 +82,7 @@ body { font-family: 'Inter', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; b
 /* ── Filters ── */
 .filters { background: #FDFCFA; padding: 28px 40px 32px; display: flex; flex-direction: column; gap: 16px; }
 .filter-card { background: #FFF; border-radius: 14px; padding: 20px 24px; box-shadow: 0 2px 8px rgba(212,196,171,0.10); }
-.filter-card-title { font-size: 13px; font-weight: 700; color: #4A3728; margin-bottom: 12px; letter-spacing: 0.5px; }
+.filter-card-title { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; font-size: 15px; font-weight: 500; color: #4A3728; margin-bottom: 12px; letter-spacing: 1px; }
 .filter-card-row { display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-end; }
 .filter-group { display: flex; flex-direction: column; gap: 7px; }
 .filter-group > label { font-size: 12px; color: #7A6E5E; font-weight: 600; }
@@ -175,8 +182,7 @@ body { font-family: 'Inter', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; b
 .empty { text-align: center; padding: 48px 20px; color: #B8A692; font-size: 15px; }
 
 /* ── Footer ── */
-.footer { text-align: center; padding: 40px; background: #3D3122; color: #9B8E7E; font-size: 12px; letter-spacing: 1.5px; }
-.footer-deco { color: #5E5245; margin-bottom: 10px; letter-spacing: 4px; }
+.footer { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; text-align: center; padding: 40px; background: #3D3122; color: #9B8E7E; font-size: 13px; letter-spacing: 1.5px; }
 .footer-copy { color: #6B5F50; font-size: 10px; margin-top: 6px; }
 
 /* ── Score display (table compat) ── */
@@ -202,9 +208,12 @@ body { font-family: 'Inter', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; b
   .hero-info { gap: 8px; padding: 8px 14px; margin-top: 14px; }
   .hero-info-item { font-size: 12px; }
   .hero-info-num { font-size: 15px; }
-  .snoopy-float { font-size: 40px; }
   .snoopy-float.left { left: 16px; }
   .snoopy-float.right { right: 16px; }
+  .snoopy-float .glove-svg { width: 48px; height: 48px; }
+  .snoopy-float .baseball-img { width: 44px; height: 44px; }
+  .section-icon { width: 18px; height: 18px; }
+  svg.section-icon { width: 22px; height: 22px; }
   .standings-wrap { padding: 20px 16px; }
   .section-header-title { font-size: 16px; }
   .standings-table th { font-size: 10px; padding: 8px 6px; }
@@ -264,7 +273,15 @@ body { font-family: 'Inter', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; b
 </div>
 
 <div class="hero">
-  <div class="snoopy-float left">🏏</div>
+  <div class="snoopy-float left">
+    <svg class="glove-svg" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+      <path d="M25 58 Q15 45 22 32 Q30 20 45 22 Q50 10 62 15 Q72 18 72 30 Q82 32 82 44 Q85 58 72 66 L72 82 Q50 88 28 82 Z"
+            fill="#C2573A" stroke="#8A3E26" stroke-width="2.2" stroke-linejoin="round"/>
+      <path d="M38 38 Q40 48 38 62 M52 32 Q54 48 52 66 M66 38 Q66 50 64 62" stroke="#8A3E26" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+      <circle cx="55" cy="50" r="10" fill="#FFF" stroke="#8A3E26" stroke-width="1.8"/>
+      <path d="M49 47 Q55 45 61 48 M49 53 Q55 55 61 52" stroke="#C2573A" stroke-width="1.2" fill="none"/>
+    </svg>
+  </div>
   <div class="hero-content">
     <div class="hero-eyebrow">中華職棒一軍例行賽 · 2026</div>
     <h1>進場倒數</h1>
@@ -277,11 +294,14 @@ body { font-family: 'Inter', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; b
     </div>
     <div class="hero-deco">● —— ◆ —— ●</div>
   </div>
-  <div class="snoopy-float right">⚾</div>
+  <div class="snoopy-float right">
+    <img class="baseball-img" src="https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets/Baseball/3D/baseball_3d.png" alt="">
+  </div>
 </div>
 
 <div class="standings-wrap" id="standings-wrap">
   <div class="section-header">
+    <img class="section-icon" src="https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets/Trophy/3D/trophy_3d.png" alt="">
     <span class="section-header-title">各隊戰績</span>
     <span class="section-header-line"></span>
     <span class="section-header-sub">2026 例行賽</span>
@@ -350,6 +370,21 @@ body { font-family: 'Inter', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; b
 
 <div class="card-section" id="games">
   <div class="section-header">
+    <svg class="section-icon" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+      <!-- 外野綠色扇形（從本壘向外擴） -->
+      <path d="M 50 82 L 12 44 A 52 52 0 0 1 88 44 Z" fill="#8FC271" stroke="#4A7C3E" stroke-width="1.8" stroke-linejoin="round"/>
+      <!-- 內野土黃菱形（四壘圍起） -->
+      <path d="M 50 82 L 78 54 L 50 26 L 22 54 Z" fill="#D4A574" stroke="#8A6543" stroke-width="1.8" stroke-linejoin="round"/>
+      <!-- 邊線（白線） -->
+      <path d="M 50 82 L 15 47 M 50 82 L 85 47" stroke="#FFF" stroke-width="1.6" stroke-linecap="round"/>
+      <!-- 投手丘（中央紅點） -->
+      <circle cx="50" cy="54" r="4" fill="#C2573A" stroke="#8A3E26" stroke-width="1"/>
+      <!-- 四個壘包 -->
+      <circle cx="50" cy="82" r="4" fill="#FFF" stroke="#4A3728" stroke-width="1.4"/>
+      <circle cx="78" cy="54" r="4" fill="#FFF" stroke="#4A3728" stroke-width="1.4"/>
+      <circle cx="50" cy="26" r="4" fill="#FFF" stroke="#4A3728" stroke-width="1.4"/>
+      <circle cx="22" cy="54" r="4" fill="#FFF" stroke="#4A3728" stroke-width="1.4"/>
+    </svg>
     <span class="section-header-title">賽程總覽</span>
     <span class="section-header-line"></span>
   </div>
@@ -362,7 +397,13 @@ body { font-family: 'Inter', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; b
 <div id="empty-table" style="display:none"></div>
 
 <div class="footer">
-  <div class="footer-deco">● —— ◆ —— ●</div>
+  <div class="footer-deco-row">
+    <img class="tw-emoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/2b50.svg" alt="">
+    <svg class="deco-wave" viewBox="0 0 40 10" fill="none" aria-hidden="true"><path d="M1 5 Q 5 1, 10 5 T 20 5 T 30 5 T 39 5" stroke="#8A7863" stroke-width="1.6" stroke-linecap="round"/></svg>
+    <img class="tw-emoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/26be.svg" alt="">
+    <svg class="deco-wave" viewBox="0 0 40 10" fill="none" aria-hidden="true"><path d="M1 5 Q 5 1, 10 5 T 20 5 T 30 5 T 39 5" stroke="#8A7863" stroke-width="1.6" stroke-linecap="round"/></svg>
+    <img class="tw-emoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/2b50.svg" alt="">
+  </div>
   <div>CPBL 2026 · 享受每一場比賽的美好時光</div>
   <div class="footer-copy">資料來源：中華職棒大聯盟</div>
 </div>

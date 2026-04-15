@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<title>Tabler Icons 預覽 — CPBL 2026 進場倒數</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@400;500;700;900&family=M+PLUS+Rounded+1c:wght@500;700;800;900&family=Klee+One:wght@400;600&family=Zen+Maru+Gothic:wght@500;700;900&family=Kosugi+Maru&family=Yusei+Magic&family=Hachi+Maru+Pop&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-tc-webfont/lxgwwenkaitc-regular.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-tc-webfont/lxgwwenkaitc-bold.css" rel="stylesheet">
+<style>
+  /* jf 粉圓體 · Taiwan JustFont · SIL OFL 1.1 */
+  @font-face {
+    font-family: 'jf-openhuninn';
+    src: url('https://cdn.jsdelivr.net/gh/marsnow/open-huninn-font@1.1/font/jf-openhuninn.woff2') format('woff2'),
+         url('https://cdn.jsdelivr.net/gh/marsnow/open-huninn-font@1.1/font/jf-openhuninn.woff') format('woff');
+    font-display: swap;
+  }
+</style>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', 'Noto Sans TC', sans-serif; background: #FDFCFA; color: #4A3728; padding: 40px 20px; }
+.container { max-width: 1200px; margin: 0 auto; }
+h1 { font-family: 'Noto Serif TC', serif; font-size: 32px; color: #3D3122; text-align: center; margin-bottom: 8px; letter-spacing: 2px; }
+.subtitle { text-align: center; color: #9B8E7E; font-size: 14px; margin-bottom: 40px; letter-spacing: 1px; }
+.section-header { display: flex; align-items: center; gap: 12px; margin: 36px 0 20px; }
+.section-header-title { font-family: 'Noto Serif TC', serif; font-size: 18px; font-weight: 700; color: #3D3122; white-space: nowrap; }
+.section-header-line { flex: 1; height: 1px; background: linear-gradient(90deg, #E0D8CC, transparent); }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 12px; }
+.icon-card { background: #FFF; border-radius: 14px; padding: 20px 12px; text-align: center; box-shadow: 0 2px 8px rgba(212,196,171,0.12); border: 1px solid #F0EBDF; transition: all 0.2s; cursor: pointer; }
+.icon-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(212,196,171,0.25); border-color: #E8D5B8; }
+.icon-card svg { width: 36px; height: 36px; color: #C2573A; margin-bottom: 10px; stroke-width: 1.8; }
+.icon-card .name { font-size: 11px; color: #7A6E5E; font-family: 'Inter', monospace; word-break: break-all; line-height: 1.4; }
+
+/* 顏色變化示範 */
+.color-demo { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin: 30px 0 10px; padding: 30px; background: #FFF; border-radius: 16px; box-shadow: 0 2px 8px rgba(212,196,171,0.12); }
+.demo-item { text-align: center; }
+.demo-item svg { width: 48px; height: 48px; stroke-width: 1.8; margin-bottom: 8px; }
+.demo-item .label { font-size: 11px; color: #9B8E7E; font-family: 'Inter', monospace; }
+.demo-1 svg { color: #C2573A; }
+.demo-2 svg { color: #4A3728; }
+.demo-3 svg { color: #7A6E5E; }
+.demo-4 svg { color: #B8A692; }
+.demo-5 svg { color: #2B8A8A; }
+.demo-6 svg { color: #4A8B5C; }
+
+/* 實際情境示範 */
+.demo-context { background: #FFF; border-radius: 16px; padding: 24px 28px; margin: 20px 0; box-shadow: 0 2px 8px rgba(212,196,171,0.12); }
+.demo-context-title { font-size: 13px; font-weight: 700; color: #4A3728; margin-bottom: 14px; letter-spacing: 0.5px; }
+.pill-btn { display: inline-flex; align-items: center; gap: 4px; padding: 6px 16px; border-radius: 20px; font-size: 12px; font-weight: 600; color: #C2573A; background: #FDF6EE; border: 1px solid #E8D5B8; margin: 4px; text-decoration: none; }
+.pill-btn svg { width: 14px; height: 14px; stroke-width: 2; }
+.pill-btn-hsr { color: #2B8A8A; background: #EEF7F7; border-color: #B0D8D8; }
+.stat-line { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: #7A6E5E; margin: 0 12px; }
+.stat-line svg { width: 16px; height: 16px; color: #C2573A; }
+.stat-line .num { color: #C2573A; font-weight: 800; font-size: 15px; }
+.nav-demo { display: flex; gap: 24px; align-items: center; }
+.nav-demo a { display: inline-flex; align-items: center; gap: 6px; color: #9B8E7E; font-size: 14px; text-decoration: none; }
+.nav-demo a svg { width: 16px; height: 16px; stroke-width: 2; }
+.hero-demo { text-align: center; padding: 20px; }
+.hero-demo svg { width: 48px; height: 48px; color: #C2573A; stroke-width: 1.6; margin: 0 20px; }
+
+.footer-note { margin-top: 40px; text-align: center; color: #B8A692; font-size: 12px; padding: 20px; }
+
+/* ── 字體試穿 ── */
+.font-lab { background: #FFF; border-radius: 20px; padding: 28px 32px; box-shadow: 0 4px 20px rgba(212,196,171,0.18); border: 1px solid #F0EBDF; margin: 24px 0 40px; }
+.font-lab-title { font-size: 14px; color: #7A6E5E; margin-bottom: 4px; font-weight: 600; letter-spacing: 1px; }
+.font-lab-sub { font-size: 12px; color: #B8A692; margin-bottom: 24px; }
+.font-row { display: grid; grid-template-columns: 1fr; gap: 16px; }
+.font-card { padding: 24px 24px 20px; border-radius: 14px; background: #FDFCFA; border: 2px solid #F0EBDF; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+.font-card:hover { border-color: #C2573A; background: #FFF; transform: translateY(-1px); box-shadow: 0 4px 14px rgba(194,87,58,0.1); }
+.font-card.picked { border-color: #C2573A; background: #FDF6EE; }
+.font-sample { font-size: 44px; font-weight: 700; color: #3D3122; letter-spacing: 2px; line-height: 1.1; flex: 1; min-width: 240px; }
+.font-meta { flex: 0 0 auto; text-align: right; }
+.font-name { font-family: 'Inter', monospace; font-size: 13px; color: #4A3728; font-weight: 600; margin-bottom: 4px; }
+.font-desc { font-size: 11px; color: #9B8E7E; line-height: 1.5; max-width: 260px; }
+.font-tag { display: inline-block; padding: 2px 8px; background: #EEF6F0; color: #4A8B5C; font-size: 10px; font-weight: 700; border-radius: 6px; margin-right: 4px; }
+.font-tag.tag-cute { background: #FFF3E0; color: #D48C2E; }
+.font-tag.tag-current { background: #F0EBE3; color: #B0A593; }
+.font-tag.tag-warm { background: #FDF6EE; color: #C2573A; }
+.font-tag.tag-tc { background: #EEF2FA; color: #5B7BB4; }
+
+.ff-serif { font-family: 'Noto Serif TC', serif !important; }
+.ff-sans { font-family: 'Noto Sans TC', sans-serif !important; font-weight: 900; }
+.ff-rounded { font-family: 'M PLUS Rounded 1c', 'Noto Sans TC', sans-serif !important; font-weight: 900; }
+.ff-klee { font-family: 'Klee One', 'Noto Sans TC', cursive !important; font-weight: 600; }
+.ff-zen-maru { font-family: 'Zen Maru Gothic', 'Noto Sans TC', sans-serif !important; font-weight: 900; }
+.ff-kosugi { font-family: 'Kosugi Maru', 'Noto Sans TC', sans-serif !important; }
+.ff-yusei { font-family: 'Yusei Magic', 'Noto Sans TC', sans-serif !important; }
+.ff-hachi { font-family: 'Hachi Maru Pop', 'Noto Sans TC', cursive !important; }
+.ff-lxgw { font-family: 'LXGW WenKai TC', 'Noto Sans TC', cursive !important; font-weight: 700; }
+.ff-huninn { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif !important; }
+
+/* ── Hero B 改版預覽 ── */
+.hero-preview-wrap { background: #FFF; border-radius: 20px; box-shadow: 0 4px 20px rgba(212,196,171,0.18); margin: 24px 0 40px; overflow: hidden; border: 1px solid #F0EBDF; }
+.hero-preview-label { background: linear-gradient(90deg, #FDF6EE, #FFF); padding: 10px 20px; font-size: 12px; color: #C2573A; font-weight: 600; letter-spacing: 1px; border-bottom: 1px solid #F0EBDF; display: flex; justify-content: space-between; align-items: center; }
+.hero-preview-label-old { color: #B8A692; background: #FDFCFA; }
+.hero-preview { display: flex; align-items: center; justify-content: center; padding: 56px 40px 52px; background: #FFF; position: relative; }
+.hero-preview .hero-content { text-align: center; max-width: 640px; }
+.hero-preview .hero-eyebrow { font-size: 12px; font-weight: 500; letter-spacing: 3px; color: #B8A692; margin-bottom: 10px; text-transform: none; }
+.hero-preview h1 { font-family: 'Noto Serif TC', serif; font-size: 46px; font-weight: 700; color: #3D3122; letter-spacing: 3px; margin-bottom: 18px; line-height: 1.15; }
+.hero-info { display: inline-flex; align-items: center; gap: 0; padding: 10px 22px; background: #FDF6EE; border-radius: 24px; border: 1px solid #F0E0C8; font-size: 14px; color: #4A3728; }
+.hero-info-item { display: inline-flex; align-items: center; gap: 6px; padding: 0 14px; white-space: nowrap; }
+.hero-info-item + .hero-info-item { border-left: 1px solid #E8D5B8; }
+.hero-info-item svg { width: 16px; height: 16px; color: #C2573A; stroke-width: 2; }
+.hero-info-num { color: #C2573A; font-weight: 800; font-size: 16px; font-family: 'Inter', sans-serif; }
+.hero-info-status { color: #4A8B5C; font-weight: 600; }
+.hero-preview-deco { color: #D9CCBC; font-size: 14px; margin-top: 20px; letter-spacing: 6px; }
+
+/* 舊版對照 */
+.hero-old { display: flex; align-items: center; justify-content: center; padding: 48px 40px 44px; background: #FFF; position: relative; }
+.hero-old .hero-content { text-align: center; }
+.hero-old .hero-eyebrow { font-size: 12px; font-weight: 500; letter-spacing: 3px; color: #B8A692; margin-bottom: 8px; }
+.hero-old h1 { font-family: 'Noto Serif TC', serif; font-size: 42px; font-weight: 700; color: #3D3122; letter-spacing: 2px; margin-bottom: 8px; }
+.hero-old p { font-size: 15px; color: #9B8E7E; letter-spacing: 1px; }
+.hero-old-deco { color: #D9CCBC; font-size: 14px; margin-top: 14px; letter-spacing: 4px; }
+.snoopy-float-demo { position: absolute; font-size: 64px; opacity: 0.8; }
+.snoopy-float-demo.left { left: 80px; top: 50%; transform: translateY(-50%); }
+.snoopy-float-demo.right { right: 80px; top: 50%; transform: translateY(-50%); }
+
+@media (max-width: 768px) {
+  .hero-info { flex-wrap: wrap; padding: 10px 14px; gap: 4px 0; }
+  .hero-info-item { padding: 4px 10px; }
+  .hero-info-item + .hero-info-item { border-left: none; }
+  .hero-preview h1 { font-size: 32px; }
+  .snoopy-float-demo { font-size: 40px; }
+  .snoopy-float-demo.left { left: 16px; }
+  .snoopy-float-demo.right { right: 16px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Tabler Icons 風格預覽</h1>
+  <div class="subtitle">⚾ CPBL 2026 進場倒數 · 配色風格測試</div>
+
+  <!-- 🎨 字體試穿 -->
+  <div class="section-header" style="margin-top: 20px;">
+    <div class="section-header-title">🎨 字體試穿 — 找回 Snoopy 卡通感</div>
+    <div class="section-header-line"></div>
+  </div>
+
+  <div class="font-lab">
+    <div class="font-lab-title">「進場倒數」4 個字，字體真實渲染對比</div>
+    <div class="font-lab-sub">⚠️ 老實說：日文字體（Hachi、Kosugi）不含繁中字形，之前你看到的是 Noto Sans TC fallback —「粉圓體」才是真正的 TC 卡通可愛字體</div>
+
+    <div class="font-row">
+      <!-- 新增：粉圓體（真正推薦） -->
+      <div class="font-card" onclick="this.classList.toggle('picked')" style="border-color: #C2573A; background: linear-gradient(135deg, #FDF6EE 0%, #FFF 100%);">
+        <div class="font-sample ff-huninn" style="font-weight: 500;">進場倒數</div>
+        <div class="font-meta">
+          <div class="font-name">jf 粉圓體 · open-huninn</div>
+          <div><span class="font-tag tag-cute">圓潤可愛</span><span class="font-tag tag-tc">完整 TC</span><span class="font-tag tag-warm">🏆 真正推薦</span></div>
+          <div class="font-desc" style="margin-top: 6px;"><strong>台灣 JustFont 基於 Kosugi Maru 改造的繁中版本</strong>！你喜歡 Kosugi 的感覺 — 粉圓就是它的繁中親戚，完整支援所有繁中字，SIL OFL 免費商用</div>
+        </div>
+      </div>
+
+      <div class="font-card" onclick="this.classList.toggle('picked')">
+        <div class="font-sample ff-serif">進場倒數</div>
+        <div class="font-meta">
+          <div class="font-name">Noto Serif TC</div>
+          <div><span class="font-tag tag-current">現行</span><span class="font-tag tag-tc">TC</span></div>
+          <div class="font-desc" style="margin-top: 6px;">思源宋體 · 襯線典雅 · 博物館文青感（偏離 Snoopy 方向）</div>
+        </div>
+      </div>
+
+      <div class="font-card" onclick="this.classList.toggle('picked')">
+        <div class="font-sample ff-lxgw">進場倒數</div>
+        <div class="font-meta">
+          <div class="font-name">LXGW WenKai TC · 霞鶩文楷</div>
+          <div><span class="font-tag tag-tc">完整 TC</span></div>
+          <div class="font-desc" style="margin-top: 6px;"><strong>修正描述：</strong>這是傳統「楷書」字體（類似小學課本字），不是卡通漫畫手寫字。比 Noto Serif 柔和但仍偏正式。</div>
+        </div>
+      </div>
+
+      <div class="font-card" onclick="this.classList.toggle('picked')">
+        <div class="font-sample ff-rounded">進場倒數</div>
+        <div class="font-meta">
+          <div class="font-name">M PLUS Rounded 1c</div>
+          <div><span class="font-tag tag-cute">圓潤可愛</span><span class="font-tag">🌟 推薦</span></div>
+          <div class="font-desc" style="margin-top: 6px;">日系圓潤黑體 · 胖胖可愛 · 最接近卡通感（TC 字形部分以日文漢字渲染）</div>
+        </div>
+      </div>
+
+      <div class="font-card" onclick="this.classList.toggle('picked')">
+        <div class="font-sample ff-zen-maru">進場倒數</div>
+        <div class="font-meta">
+          <div class="font-name">Zen Maru Gothic</div>
+          <div><span class="font-tag tag-cute">圓潤友善</span></div>
+          <div class="font-desc" style="margin-top: 6px;">圓角黑體 · 比 M PLUS 更纖細 · 溫柔不厚重</div>
+        </div>
+      </div>
+
+      <div class="font-card" onclick="this.classList.toggle('picked')">
+        <div class="font-sample ff-klee">進場倒數</div>
+        <div class="font-meta">
+          <div class="font-name">Klee One</div>
+          <div><span class="font-tag tag-warm">鋼筆手寫</span></div>
+          <div class="font-desc" style="margin-top: 6px;">像小學課本的鋼筆字體 · 童趣但稍偏日系</div>
+        </div>
+      </div>
+
+      <div class="font-card" onclick="this.classList.toggle('picked')">
+        <div class="font-sample ff-yusei">進場倒數</div>
+        <div class="font-meta">
+          <div class="font-name">Yusei Magic</div>
+          <div><span class="font-tag tag-warm">手繪粉筆</span></div>
+          <div class="font-desc" style="margin-top: 6px;">像粉筆／彩色筆手寫 · 活潑有個性 · 像記分板字跡</div>
+        </div>
+      </div>
+
+      <div class="font-card" onclick="this.classList.toggle('picked')">
+        <div>
+          <div class="font-sample ff-hachi" style="font-size: 36px;">Play Ball!</div>
+          <div class="font-sample ff-hachi" style="font-size: 28px; margin-top: 6px;">CPBL 2026 ⚾</div>
+        </div>
+        <div class="font-meta">
+          <div class="font-name">Hachi Maru Pop</div>
+          <div><span class="font-tag tag-cute">超萌泡泡</span><span class="font-tag" style="background:#FFE8E8;color:#C25B5B;">⚠ 無繁中</span></div>
+          <div class="font-desc" style="margin-top: 6px;"><strong>日文字體，沒有繁中字形</strong> · 適合用於英文標語、年份、球員背號等裝飾文字</div>
+        </div>
+      </div>
+
+      <div class="font-card" onclick="this.classList.toggle('picked')">
+        <div>
+          <div class="font-sample ff-kosugi" style="font-size: 36px;">Season 2026</div>
+          <div class="font-sample ff-kosugi" style="font-size: 24px; margin-top: 6px;">NEXT GAME · 09:45</div>
+        </div>
+        <div class="font-meta">
+          <div class="font-name">Kosugi Maru</div>
+          <div><span class="font-tag tag-cute">圓潤素淨</span><span class="font-tag" style="background:#FFE8E8;color:#C25B5B;">⚠ 部分繁中缺字</span></div>
+          <div class="font-desc" style="margin-top: 6px;"><strong>日文圓角黑體</strong>「數」等繁中字缺失 · 適合數字、英文、時間顯示</div>
+        </div>
+      </div>
+
+      <div class="font-card" onclick="this.classList.toggle('picked')">
+        <div class="font-sample ff-sans">進場倒數</div>
+        <div class="font-meta">
+          <div class="font-name">Noto Sans TC 900</div>
+          <div><span class="font-tag tag-tc">TC</span></div>
+          <div class="font-desc" style="margin-top: 6px;">思源黑體超粗 · 現代有力 · 安全牌但缺 Snoopy 感</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 🎪 Snoopy 卡通風 Hero -->
+  <div class="section-header" style="margin-top: 40px;">
+    <div class="section-header-title">🎪 Snoopy 卡通風 Hero × 你選的 3 種字體（已修正）</div>
+    <div class="section-header-line"></div>
+  </div>
+
+  <div style="background: #FFF3E0; border: 2px solid #F0DFB8; border-radius: 14px; padding: 16px 20px; margin-bottom: 20px; font-size: 13px; color: #4A3728; line-height: 1.7;">
+    <strong style="color: #D48C2E;">⚠️ 重要提醒 — 字體的繁體中文相容性</strong><br>
+    <strong>Hachi Maru Pop</strong> 和 <strong>Kosugi Maru</strong> 是日文字體：日文使用「<strong style="font-family: sans-serif;">数</strong>」（簡化字形），我們標題用的「<strong style="font-family: serif; color: #C2573A;">數</strong>」是繁中字形，日文字體<strong>沒有這個字</strong>，「進」「場」「倒」也可能缺字形。所以 B、C 版本會 fallback 到其他字體。<br>
+    <strong>解法</strong>：B、C 版本我改用「A 版字體（LXGW 文楷）渲染『進場倒數』主標 + 日文字體渲染次要裝飾文字（英文/數字/年份）」，讓你看到這兩個日文字體的真實質感在什麼場合能用。
+  </div>
+
+  <p style="text-align: center; color: #7A6E5E; font-size: 13px; margin: 0 0 20px; line-height: 1.7;">
+    所有變體都用 <strong style="color: #C2573A;">Twemoji 彩色 SVG 插畫</strong>（CC-BY 4.0）取代 OS 原生 emoji
+  </p>
+
+  <!-- 變體 0：jf 粉圓體（真正推薦） -->
+  <div class="hero-preview-wrap" style="border: 2px solid #C2573A;">
+    <div class="hero-preview-label" style="background: linear-gradient(90deg, #FDF6EE, #FFE8D5);">
+      <span>🏆 ① jf 粉圓體 · 真正的 Snoopy 卡通感（Kosugi Maru 繁中版）</span>
+      <span style="color: #C2573A; font-weight: 700;">NEW</span>
+    </div>
+    <div class="hero-preview" style="padding-top: 44px; padding-bottom: 44px;">
+      <div class="hero-content">
+        <div class="hero-eyebrow ff-huninn" style="font-size: 14px; letter-spacing: 2px;">中華職棒一軍例行賽 · 2026</div>
+        <h1 class="ff-huninn" style="font-size: 56px; letter-spacing: 4px; font-weight: 500;">進場倒數</h1>
+        <div class="hero-info ff-huninn" style="margin-top: 20px; background: #FFF9F0; border-color: #F0DFB8;">
+          <div class="hero-info-item">
+            <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/26be.svg" alt="⚾" style="width: 22px; height: 22px;">
+            今日 <span class="hero-info-num">3</span> 場
+          </div>
+          <div class="hero-info-item">
+            <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/1f4c5.svg" alt="📅" style="width: 22px; height: 22px;">
+            剩餘 <span class="hero-info-num">240</span> 場
+          </div>
+          <div class="hero-info-item">
+            <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/1f525.svg" alt="🔥" style="width: 22px; height: 22px;">
+            <span class="hero-info-status">賽季熱烈進行中</span>
+          </div>
+        </div>
+        <div style="margin-top: 18px; display: flex; justify-content: center; gap: 10px; align-items: center;">
+          <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/2b50.svg" style="width: 16px; height: 16px; opacity: 0.7;">
+          <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/1f3c6.svg" style="width: 20px; height: 20px;">
+          <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/2b50.svg" style="width: 16px; height: 16px; opacity: 0.7;">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 變體 1：LXGW WenKai TC -->
+  <div class="hero-preview-wrap">
+    <div class="hero-preview-label">
+      <span>② LXGW WenKai TC · 霞鶩文楷（傳統楷書風格）</span>
+      <span style="color: #C2573A; font-weight: 500;">A</span>
+    </div>
+    <div class="hero-preview" style="padding-top: 44px; padding-bottom: 44px;">
+      <div class="hero-content">
+        <div class="hero-eyebrow">中華職棒一軍例行賽 · 2026</div>
+        <h1 class="ff-lxgw" style="font-size: 52px; letter-spacing: 4px;">進場倒數</h1>
+        <div class="hero-info" style="margin-top: 20px; background: #FFF9F0; border-color: #F0DFB8;">
+          <div class="hero-info-item">
+            <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/26be.svg" alt="⚾" style="width: 22px; height: 22px;">
+            今日 <span class="hero-info-num">3</span> 場
+          </div>
+          <div class="hero-info-item">
+            <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/1f4c5.svg" alt="📅" style="width: 22px; height: 22px;">
+            剩餘 <span class="hero-info-num">240</span> 場
+          </div>
+          <div class="hero-info-item">
+            <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/1f525.svg" alt="🔥" style="width: 22px; height: 22px;">
+            <span class="hero-info-status">賽季熱烈進行中</span>
+          </div>
+        </div>
+        <div style="margin-top: 18px; display: flex; justify-content: center; gap: 10px; align-items: center;">
+          <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/2b50.svg" style="width: 16px; height: 16px; opacity: 0.7;">
+          <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/1f3c6.svg" style="width: 20px; height: 20px;">
+          <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/2b50.svg" style="width: 16px; height: 16px; opacity: 0.7;">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 變體 2：Hachi Maru Pop（用於裝飾數字/英文） -->
+  <div class="hero-preview-wrap">
+    <div class="hero-preview-label">
+      <span>② 主標 LXGW 文楷 + eyebrow 用 Hachi Maru Pop（泡泡字裝飾英數字）</span>
+      <span style="color: #C2573A; font-weight: 500;">B</span>
+    </div>
+    <div class="hero-preview" style="padding-top: 44px; padding-bottom: 44px;">
+      <div class="hero-content">
+        <div class="hero-eyebrow ff-hachi" style="font-size: 16px; letter-spacing: 2px;">CPBL 2026 SEASON</div>
+        <h1 class="ff-lxgw" style="font-size: 52px; letter-spacing: 4px;">進場倒數</h1>
+        <div class="hero-info" style="margin-top: 20px; background: #FFF9F0; border-color: #F0DFB8;">
+          <div class="hero-info-item">
+            <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/26be.svg" alt="⚾" style="width: 22px; height: 22px;">
+            今日 <span class="hero-info-num">3</span> 場
+          </div>
+          <div class="hero-info-item">
+            <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/1f4c5.svg" alt="📅" style="width: 22px; height: 22px;">
+            剩餘 <span class="hero-info-num">240</span> 場
+          </div>
+          <div class="hero-info-item">
+            <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/1f525.svg" alt="🔥" style="width: 22px; height: 22px;">
+            <span class="hero-info-status">賽季熱烈進行中</span>
+          </div>
+        </div>
+        <div style="margin-top: 18px; display: flex; justify-content: center; gap: 10px; align-items: center;">
+          <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/2b50.svg" style="width: 16px; height: 16px; opacity: 0.7;">
+          <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/1f3c6.svg" style="width: 20px; height: 20px;">
+          <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/2b50.svg" style="width: 16px; height: 16px; opacity: 0.7;">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 變體 3：Kosugi Maru -->
+  <div class="hero-preview-wrap">
+    <div class="hero-preview-label">
+      <span>③ 主標 LXGW 文楷 + 資訊列用 Kosugi Maru（圓潤日文）</span>
+      <span style="color: #C2573A; font-weight: 500;">C</span>
+    </div>
+    <div class="hero-preview" style="padding-top: 44px; padding-bottom: 44px;">
+      <div class="hero-content">
+        <div class="hero-eyebrow ff-kosugi" style="font-size: 14px;">中華職棒一軍例行賽 · 2026</div>
+        <h1 class="ff-lxgw" style="font-size: 52px; letter-spacing: 4px;">進場倒數</h1>
+        <div class="hero-info" style="margin-top: 20px; background: #FFF9F0; border-color: #F0DFB8;">
+          <div class="hero-info-item">
+            <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/26be.svg" alt="⚾" style="width: 22px; height: 22px;">
+            今日 <span class="hero-info-num">3</span> 場
+          </div>
+          <div class="hero-info-item">
+            <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/1f4c5.svg" alt="📅" style="width: 22px; height: 22px;">
+            剩餘 <span class="hero-info-num">240</span> 場
+          </div>
+          <div class="hero-info-item">
+            <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/1f525.svg" alt="🔥" style="width: 22px; height: 22px;">
+            <span class="hero-info-status">賽季熱烈進行中</span>
+          </div>
+        </div>
+        <div style="margin-top: 18px; display: flex; justify-content: center; gap: 10px; align-items: center;">
+          <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/2b50.svg" style="width: 16px; height: 16px; opacity: 0.7;">
+          <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/1f3c6.svg" style="width: 20px; height: 20px;">
+          <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/2b50.svg" style="width: 16px; height: 16px; opacity: 0.7;">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 🎨 彩色插畫資源區 -->
+  <div class="section-header" style="margin-top: 40px;">
+    <div class="section-header-title">🎨 彩色插畫資源（可取代線條圖示）</div>
+    <div class="section-header-line"></div>
+  </div>
+
+  <div class="font-lab" style="padding: 28px;">
+    <div class="font-lab-title">推薦 3 套免費彩色插畫庫</div>
+    <div class="font-lab-sub">以下都是免費可商用的彩色卡通插畫，跟 Snoopy 風最搭</div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 16px;">
+      <div style="padding: 20px; border: 2px solid #F0EBDF; border-radius: 14px; background: #FDFCFA;">
+        <div style="display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap;">
+          <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/26be.svg" style="width: 36px; height: 36px;">
+          <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/1f3c6.svg" style="width: 36px; height: 36px;">
+          <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/1f3ab.svg" style="width: 36px; height: 36px;">
+          <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/1f525.svg" style="width: 36px; height: 36px;">
+          <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/2b50.svg" style="width: 36px; height: 36px;">
+          <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/1f3af.svg" style="width: 36px; height: 36px;">
+          <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/1f389.svg" style="width: 36px; height: 36px;">
+          <img src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/1f4c5.svg" style="width: 36px; height: 36px;">
+        </div>
+        <div style="font-weight: 700; color: #4A3728; margin-bottom: 6px;">🥇 Twemoji</div>
+        <div style="font-size: 12px; color: #7A6E5E; line-height: 1.6;">
+          Twitter 開源 emoji · <strong>CC-BY 4.0</strong><br>
+          簡單、色彩統一、跨平台一致 · 載入快（CDN 單檔 ~1KB）<br>
+          最適合「取代原本 emoji」 — 風格跟你目前的 emoji 習慣最接近
+        </div>
+        <div style="margin-top: 10px; font-size: 11px; color: #B8A692;">
+          <a href="https://github.com/jdecked/twemoji" style="color: #C2573A;">github.com/jdecked/twemoji</a>
+        </div>
+      </div>
+
+      <div style="padding: 20px; border: 2px solid #F0EBDF; border-radius: 14px; background: #FDFCFA;">
+        <div style="font-size: 36px; margin-bottom: 12px;">🎨 🖌️ 🏟️ 🎟️</div>
+        <div style="font-weight: 700; color: #4A3728; margin-bottom: 6px;">🥈 Flaticon Stickers</div>
+        <div style="font-size: 12px; color: #7A6E5E; line-height: 1.6;">
+          卡通貼紙風格 · <strong>需標註來源（免費方案）</strong><br>
+          棒球貼紙包選擇多、質感精緻、各種球員姿勢都有<br>
+          缺點：風格一致性需要挑同個設計師的包
+        </div>
+        <div style="margin-top: 10px; font-size: 11px; color: #B8A692;">
+          <a href="https://www.flaticon.com/stickers/baseball" style="color: #C2573A;">flaticon.com/stickers/baseball</a>
+        </div>
+      </div>
+
+      <div style="padding: 20px; border: 2px solid #F0EBDF; border-radius: 14px; background: #FDFCFA;">
+        <div style="font-size: 36px; margin-bottom: 12px;">😀 ⚾ 🏆 ✨</div>
+        <div style="font-weight: 700; color: #4A3728; margin-bottom: 6px;">🥉 OpenMoji</div>
+        <div style="font-size: 12px; color: #7A6E5E; line-height: 1.6;">
+          開源社群維護 · <strong>CC-BY-SA 4.0</strong><br>
+          比 Twemoji 線條更細緻、有手繪感<br>
+          缺點：風格比 Twemoji 略複雜，有時候在小尺寸下不夠清楚
+        </div>
+        <div style="margin-top: 10px; font-size: 11px; color: #B8A692;">
+          <a href="https://openmoji.org/" style="color: #C2573A;">openmoji.org</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ✨ Hero B（原版線條圖示）對照 -->
+  <div class="section-header" style="margin-top: 40px;">
+    <div class="section-header-title">📎 對照：Hero B 線條圖示版（舊方向）</div>
+    <div class="section-header-line"></div>
+  </div>
+
+  <!-- 新版 Hero -->
+  <div class="hero-preview-wrap">
+    <div class="hero-preview-label">
+      <span>✦ 新版 — 加入動態資訊 + SVG 圖示</span>
+      <span style="color: #4A8B5C; font-weight: 500;">推薦</span>
+    </div>
+    <div class="hero-preview">
+      <div class="hero-content">
+        <div class="hero-eyebrow">中華職棒一軍例行賽 · 2026</div>
+        <h1>進場倒數</h1>
+        <div class="hero-info">
+          <div class="hero-info-item">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5.636 18.364a9 9 0 1 0 12.728 -12.728a9 9 0 0 0 -12.728 12.728"/><path d="M12.495 3.02a9 9 0 0 1 -9.475 9.475"/><path d="M20.98 11.505a9 9 0 0 0 -9.475 9.475"/><path d="M9 9l2 2"/><path d="M13 13l2 2"/><path d="M11 7l2 1"/><path d="M7 11l1 2"/><path d="M16 11l1 2"/><path d="M11 16l2 1"/></svg>
+            今日 <span class="hero-info-num" id="heroToday">3</span> 場
+          </div>
+          <div class="hero-info-item">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2l0 -12"/><path d="M16 3l0 4"/><path d="M8 3l0 4"/><path d="M4 11l16 0"/><path d="M8 15h2v2h-2l0 -2"/></svg>
+            剩餘 <span class="hero-info-num" id="heroLeft">240</span> 場
+          </div>
+          <div class="hero-info-item">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/><path d="M12 7v5l3 3"/></svg>
+            <span class="hero-info-status" id="heroStatus">賽季進行中</span>
+          </div>
+        </div>
+        <div class="hero-preview-deco">● —— ◆ —— ●</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 舊版對照 -->
+  <div class="hero-preview-wrap">
+    <div class="hero-preview-label hero-preview-label-old">
+      <span>◦ 目前線上版本（對照組）</span>
+      <span style="color: #B8A692; font-weight: 500;">現行</span>
+    </div>
+    <div class="hero-old">
+      <div class="snoopy-float-demo left">🏏</div>
+      <div class="hero-content">
+        <div class="hero-eyebrow">中華職棒一軍例行賽</div>
+        <h1>進場倒數</h1>
+        <p>在最好的日子，走進最好的球場</p>
+        <div class="hero-old-deco">—— ◆ ——</div>
+      </div>
+      <div class="snoopy-float-demo right">⚾</div>
+    </div>
+  </div>
+
+  <!-- 顏色示範 -->
+  <div class="color-demo">
+    <div class="demo-item demo-1"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5.636 18.364a9 9 0 1 0 12.728 -12.728a9 9 0 0 0 -12.728 12.728"/><path d="M12.495 3.02a9 9 0 0 1 -9.475 9.475"/><path d="M20.98 11.505a9 9 0 0 0 -9.475 9.475"/><path d="M9 9l2 2"/><path d="M13 13l2 2"/><path d="M11 7l2 1"/><path d="M7 11l1 2"/><path d="M16 11l1 2"/><path d="M11 16l2 1"/></svg><div class="label">#C2573A 赤陶紅</div></div>
+    <div class="demo-item demo-2"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5.636 18.364a9 9 0 1 0 12.728 -12.728a9 9 0 0 0 -12.728 12.728"/><path d="M12.495 3.02a9 9 0 0 1 -9.475 9.475"/><path d="M20.98 11.505a9 9 0 0 0 -9.475 9.475"/><path d="M9 9l2 2"/><path d="M13 13l2 2"/><path d="M11 7l2 1"/><path d="M7 11l1 2"/><path d="M16 11l1 2"/><path d="M11 16l2 1"/></svg><div class="label">#4A3728 深咖啡</div></div>
+    <div class="demo-item demo-3"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5.636 18.364a9 9 0 1 0 12.728 -12.728a9 9 0 0 0 -12.728 12.728"/><path d="M12.495 3.02a9 9 0 0 1 -9.475 9.475"/><path d="M20.98 11.505a9 9 0 0 0 -9.475 9.475"/><path d="M9 9l2 2"/><path d="M13 13l2 2"/><path d="M11 7l2 1"/><path d="M7 11l1 2"/><path d="M16 11l1 2"/><path d="M11 16l2 1"/></svg><div class="label">#7A6E5E 中咖啡</div></div>
+    <div class="demo-item demo-4"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5.636 18.364a9 9 0 1 0 12.728 -12.728a9 9 0 0 0 -12.728 12.728"/><path d="M12.495 3.02a9 9 0 0 1 -9.475 9.475"/><path d="M20.98 11.505a9 9 0 0 0 -9.475 9.475"/><path d="M9 9l2 2"/><path d="M13 13l2 2"/><path d="M11 7l2 1"/><path d="M7 11l1 2"/><path d="M16 11l1 2"/><path d="M11 16l2 1"/></svg><div class="label">#B8A692 淡米棕</div></div>
+    <div class="demo-item demo-5"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5.636 18.364a9 9 0 1 0 12.728 -12.728a9 9 0 0 0 -12.728 12.728"/><path d="M12.495 3.02a9 9 0 0 1 -9.475 9.475"/><path d="M20.98 11.505a9 9 0 0 0 -9.475 9.475"/><path d="M9 9l2 2"/><path d="M13 13l2 2"/><path d="M11 7l2 1"/><path d="M7 11l1 2"/><path d="M16 11l1 2"/><path d="M11 16l2 1"/></svg><div class="label">#2B8A8A 高鐵綠</div></div>
+    <div class="demo-item demo-6"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5.636 18.364a9 9 0 1 0 12.728 -12.728a9 9 0 0 0 -12.728 12.728"/><path d="M12.495 3.02a9 9 0 0 1 -9.475 9.475"/><path d="M20.98 11.505a9 9 0 0 0 -9.475 9.475"/><path d="M9 9l2 2"/><path d="M13 13l2 2"/><path d="M11 7l2 1"/><path d="M7 11l1 2"/><path d="M16 11l1 2"/><path d="M11 16l2 1"/></svg><div class="label">#4A8B5C 未來綠</div></div>
+  </div>
+
+  <!-- 實際情境示範 -->
+  <div class="section-header">
+    <div class="section-header-title">⚾ 實際情境預覽</div>
+    <div class="section-header-line"></div>
+  </div>
+
+  <!-- Hero 標題 -->
+  <div class="demo-context">
+    <div class="demo-context-title">① Hero 標題裝飾（取代原本的 emoji 🏏⚾）</div>
+    <div class="hero-demo">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5.636 18.364a9 9 0 1 0 12.728 -12.728a9 9 0 0 0 -12.728 12.728"/><path d="M12.495 3.02a9 9 0 0 1 -9.475 9.475"/><path d="M20.98 11.505a9 9 0 0 0 -9.475 9.475"/><path d="M9 9l2 2"/><path d="M13 13l2 2"/><path d="M11 7l2 1"/><path d="M7 11l1 2"/><path d="M16 11l1 2"/><path d="M11 16l2 1"/></svg>
+      <span style="font-family: 'Noto Serif TC'; font-size: 28px; font-weight: 700; color: #3D3122;">進場倒數</span>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 2 0 1 0 16 0a8 2 0 1 0 -16 0"/><path d="M4 12v7c0 .94 2.51 1.785 6 2v-3h4v3c3.435 -.225 6 -1.07 6 -2v-7"/><path d="M15 6h4v-3h-4v7"/><path d="M7 6h4v-3h-4v7"/></svg>
+    </div>
+  </div>
+
+  <!-- Nav -->
+  <div class="demo-context">
+    <div class="demo-context-title">② Nav 錨點導航</div>
+    <div class="nav-demo">
+      <a href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21l8 0"/><path d="M12 17l0 4"/><path d="M7 4l10 0"/><path d="M17 4v8a5 5 0 0 1 -10 0v-8"/><path d="M3 9a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M17 9a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/></svg>戰績</a>
+      <a href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16"/><path d="M6 12h12"/><path d="M8 18h8"/></svg>篩選</a>
+      <a href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2l0 -12"/><path d="M16 3l0 4"/><path d="M8 3l0 4"/><path d="M4 11l16 0"/><path d="M8 15h2v2h-2l0 -2"/></svg>賽程</a>
+    </div>
+  </div>
+
+  <!-- 統計列 -->
+  <div class="demo-context">
+    <div class="demo-context-title">③ 統計列</div>
+    <div>
+      <span class="stat-line"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2l0 -12"/><path d="M16 3l0 4"/><path d="M8 3l0 4"/><path d="M4 11l16 0"/></svg>篩選結果 <span class="num">48</span> 場</span>
+      <span class="stat-line"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26l6.91 1.01l-5 4.87l1.18 6.88l-6.18 -3.25l-6.18 3.25l1.18 -6.88l-5 -4.87l6.91 -1.01z"/></svg>週末 <span class="num">12</span> 場</span>
+      <span class="stat-line"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1.002l3.086 -6.253l3.086 6.253l6.9 1.002l-5 4.867l1.179 6.873z"/></svg>假日 <span class="num">8</span> 場</span>
+      <span class="stat-line"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5l10 -10"/></svg>已完賽 <span class="num">120</span> 場</span>
+      <span class="stat-line"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6l0 6l3 3"/><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"/></svg>未來 <span class="num">240</span> 場</span>
+    </div>
+  </div>
+
+  <!-- 購票/高鐵按鈕 -->
+  <div class="demo-context">
+    <div class="demo-context-title">④ 購票 / 高鐵 按鈕</div>
+    <a class="pill-btn" href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l0 2"/><path d="M15 11l0 2"/><path d="M15 17l0 2"/><path d="M5 5h14a2 2 0 0 1 2 2v3a2 2 0 0 0 0 4v3a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-3a2 2 0 0 0 0 -4v-3a2 2 0 0 1 2 -2"/></svg>購票</a>
+    <a class="pill-btn pill-btn-hsr" href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 16l1.293 1.293a1 1 0 0 0 .707 .293h14a1 1 0 0 0 .707 -.293l1.293 -1.293"/><path d="M7 4h10a4 4 0 0 1 4 4v8a1 1 0 0 1 -1 1h-16a1 1 0 0 1 -1 -1v-8a4 4 0 0 1 4 -4"/><path d="M3 10h18"/><path d="M7 14l.01 0"/><path d="M17 14l.01 0"/></svg>高鐵訂票</a>
+    <a class="pill-btn" href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0"/></svg>球場</a>
+    <a class="pill-btn" href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1.002l3.086 -6.253l3.086 6.253l6.9 1.002l-5 4.867l1.179 6.873z"/></svg>收藏</a>
+  </div>
+
+  <!-- 所有可用圖示 -->
+  <div class="section-header">
+    <div class="section-header-title">🎨 全部推薦圖示（點擊可直接使用 SVG）</div>
+    <div class="section-header-line"></div>
+  </div>
+
+  <div id="grid" class="grid"></div>
+
+  <div class="footer-note">
+    Tabler Icons · MIT License · 免費商用，無需標註來源<br>
+    圖示顏色使用 <code>color: #C2573A</code> 可自由調整
+  </div>
+</div>
+
+<script>
+const icons = [
+  // 棒球核心
+  'ball-baseball','ball-american-football','ball-basketball','ball-football','ball-tennis','ball-volleyball',
+  'play-basketball','play-football','play-volleyball','play-handball',
+  // 獎項/戰績
+  'trophy','trophy-off','medal','medal-2','crown','target','award','certificate',
+  // 票券/時間
+  'ticket','calendar-event','calendar-check','calendar-stats','calendar-time','clock','clock-play','alarm','hourglass',
+  // 地點/交通
+  'map-pin','map-2','map','pin','location','gps','compass','building-stadium','soccer-field','home','home-2','home-star','building-community','train','bus','car',
+  // 食物
+  'meat','beer','bottle','pizza','bread','apple','ice-cream','coffee','cup',
+  // 裝備/人物
+  'helmet','shirt-sport','shoe','run','users-group','user','user-star','user-check','flag',
+  // 數據/圖表
+  'chart-bar','chart-arrows','trending-up','tournament','list','filter','search','arrow-right','external-link',
+  // 氣氛/裝飾
+  'sun','moon','cloud','umbrella','star','star-filled','heart','heart-filled','flame','flame-filled','confetti','sparkles','stars','swords','shield-check','speakerphone','microphone','diamond','diamonds','number-1','hash','tag','tags','bookmark'
+];
+
+const grid = document.getElementById('grid');
+Promise.all(icons.map(name =>
+  fetch(`icons/${name}.svg`).then(r => r.text()).then(svg => ({name, svg}))
+)).then(results => {
+  results.forEach(({name, svg}) => {
+    const card = document.createElement('div');
+    card.className = 'icon-card';
+    card.title = '點擊複製 SVG';
+    card.innerHTML = svg + `<div class="name">${name}</div>`;
+    card.onclick = () => {
+      navigator.clipboard.writeText(svg);
+      const orig = card.querySelector('.name').textContent;
+      card.querySelector('.name').textContent = '✓ 已複製';
+      setTimeout(() => card.querySelector('.name').textContent = orig, 1200);
+    };
+    grid.appendChild(card);
+  });
+});
+</script>
+</body>
+</html>

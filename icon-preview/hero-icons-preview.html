@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<title>Hero 圖示候選對照 v2</title>
+<style>
+@font-face {
+  font-family: 'jf-openhuninn';
+  src: url('https://cdn.jsdelivr.net/gh/marsnow/open-huninn-font@1.1/font/jf-openhuninn.woff2') format('woff2');
+  font-display: swap;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', 'Noto Sans TC', sans-serif; background: #F5F0E8; padding: 30px; color: #4A3728; }
+h1 { font-family: 'jf-openhuninn', sans-serif; font-weight: 500; letter-spacing: 2px; font-size: 26px; margin-bottom: 8px; color: #3D3122; }
+.intro { color: #7A6E5E; margin-bottom: 30px; font-size: 14px; line-height: 1.7; }
+.intro code { background: #FFF; padding: 2px 6px; border-radius: 4px; font-size: 12px; }
+.intro strong { color: #C2573A; }
+
+.variant { background: #FDFCFA; border-radius: 20px; margin-bottom: 24px; overflow: hidden; box-shadow: 0 2px 10px rgba(212,196,171,.12); }
+.variant-label { background: #FFF; padding: 14px 24px; border-bottom: 1px solid #EEECEA; display: flex; justify-content: space-between; align-items: center; }
+.variant-label .tag { font-family: 'jf-openhuninn', sans-serif; font-weight: 500; font-size: 16px; color: #3D3122; letter-spacing: 1px; }
+.variant-label .meta { font-size: 12px; color: #9B8E7E; }
+
+.hero { position: relative; padding: 50px 40px 40px; text-align: center; }
+.hero-eyebrow { font-family: 'jf-openhuninn', sans-serif; font-size: 14px; font-weight: 500; letter-spacing: 2px; color: #B8A692; margin-bottom: 10px; }
+.hero h2 { font-family: 'jf-openhuninn', sans-serif; font-size: 52px; font-weight: 500; color: #3D3122; letter-spacing: 4px; line-height: 1.1; }
+/* Hero info pill — 與正式網站同步 */
+.hero-info { font-family: 'jf-openhuninn', sans-serif; display: inline-flex; align-items: center; gap: 14px; background: #FFF9F0; border: 1px solid #F0DFB8; border-radius: 22px; padding: 10px 22px; margin-top: 20px; flex-wrap: wrap; justify-content: center; }
+.hero-info-item { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; color: #4A3728; }
+.hero-info-sep { color: #E5D3B0; font-size: 10px; }
+.hero-info-num { color: #C2573A; font-weight: 700; font-size: 18px; margin: 0 2px; }
+.hero-info-status { color: #C2573A; font-weight: 600; }
+.hero-deco { color: #D9CCBC; font-size: 14px; margin-top: 16px; letter-spacing: 4px; }
+
+.float { position: absolute; top: 50%; transform: translateY(-50%); opacity: 0.88; }
+.float.left { left: 60px; }
+.float.right { right: 60px; }
+.float img { display: block; }
+.float .native-emoji { font-size: 64px; line-height: 1; }
+
+.size-64 img { width: 64px; height: 64px; }
+.size-72 img { width: 72px; height: 72px; }
+.size-80 img { width: 80px; height: 80px; }
+
+.note { background: #FFF9F0; border-left: 3px solid #F0DFB8; padding: 10px 14px; margin: 10px 24px 20px; font-size: 12px; color: #7A6E5E; border-radius: 0 8px 8px 0; }
+.current-marker { background: #FDF6EE; color: #C2573A; padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 700; }
+.warn-marker { background: #FFF0ED; color: #C2573A; padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 700; }
+</style>
+</head>
+<body>
+
+<h1>Hero 兩側圖示候選 v2（剔除板球）</h1>
+<p class="intro">
+  <strong>重要說明：</strong>標準 Unicode emoji 中並沒有獨立的「棒球球棒」。<br>
+  • <code>🏏</code> 實際是 <strong>板球（cricket）</strong>，不是棒球。<br>
+  • <code>⚾</code> 是棒球（球體本身）。<br>
+  所以要「球棒+球」的組合必須自繪 SVG，其他方向則用球帽、獎盃、門票、加油器材等棒球相關元素。
+</p>
+
+<!-- 現況 -->
+<div class="variant">
+  <div class="variant-label">
+    <span class="tag">現況 · 原生 Emoji <span class="warn-marker">🏏 是板球！</span></span>
+    <span class="meta">目前網站實際顯示</span>
+  </div>
+  <div class="hero">
+    <div class="float left"><span class="native-emoji">🏏</span></div>
+    <div class="hero-eyebrow">中華職棒一軍例行賽 · 2026</div>
+    <h2>進場倒數</h2>
+    <div class="hero-info">
+      <span class="hero-info-item">⚾ 今日 <span class="hero-info-num">3</span> 場</span>
+      <span class="hero-info-sep">●</span>
+      <span class="hero-info-item">📅 剩餘 <span class="hero-info-num">240</span> 場</span>
+      <span class="hero-info-sep">●</span>
+      <span class="hero-info-item">🔥 <span class="hero-info-status">賽季進行中</span></span>
+    </div>
+    <div class="hero-deco">● —— ◆ —— ●</div>
+    <div class="float right"><span class="native-emoji">⚾</span></div>
+  </div>
+</div>
+
+<!-- 方案 A：自繪 棒球球棒 + 棒球 -->
+<div class="variant">
+  <div class="variant-label">
+    <span class="tag">方案 A · 自繪 SVG（棒球球棒 + 棒球）⭐ 真·球棒</span>
+    <span class="meta">inline SVG · 赤陶紅主色 · 無 CDN 依賴</span>
+  </div>
+  <div class="hero">
+    <div class="float left">
+      <!-- 棒球球棒（標準輪廓：圓頂 → 桶身 → 漸細 → 握把 → knob） -->
+      <svg width="72" height="90" viewBox="0 0 100 100" fill="none" style="transform: rotate(-28deg);">
+        <!-- 球棒本體：單一 path 含圓頂、桶身、漸細、握把 -->
+        <path d="M 40 14
+                 A 10 6 0 0 1 60 14
+                 L 60 38
+                 C 60 52, 56 66, 55 72
+                 L 55 86
+                 L 45 86
+                 L 45 72
+                 C 44 66, 40 52, 40 38
+                 Z"
+              fill="#D4A574" stroke="#6B4824" stroke-width="2.2" stroke-linejoin="round"/>
+        <!-- 握把底端的 knob（扁圓外凸） -->
+        <ellipse cx="50" cy="88" rx="7" ry="3" fill="#6B4824"/>
+        <!-- 桶身細緻木紋 -->
+        <path d="M 44 22 Q 50 25 56 22 M 44 30 Q 50 33 56 30 M 44 36 Q 50 38 56 36"
+              stroke="#6B4824" stroke-width="0.7" fill="none" opacity="0.35"/>
+        <!-- 桶身左側柔光 -->
+        <path d="M 42 18 Q 44 16 45 18 L 44 36 Q 42 34 42 32 Z" fill="#FFF" opacity="0.25"/>
+        <!-- 握把防滑帶（細細兩圈） -->
+        <path d="M 45 76 L 55 76 M 45 80 L 55 80" stroke="#6B4824" stroke-width="0.8" opacity="0.5"/>
+      </svg>
+    </div>
+    <div class="hero-eyebrow">中華職棒一軍例行賽 · 2026</div>
+    <h2>進場倒數</h2>
+    <div class="hero-info">
+      <span class="hero-info-item">⚾ 今日 <span class="hero-info-num">3</span> 場</span>
+      <span class="hero-info-sep">●</span>
+      <span class="hero-info-item">📅 剩餘 <span class="hero-info-num">240</span> 場</span>
+      <span class="hero-info-sep">●</span>
+      <span class="hero-info-item">🔥 <span class="hero-info-status">賽季進行中</span></span>
+    </div>
+    <div class="hero-deco">● —— ◆ —— ●</div>
+    <div class="float right">
+      <!-- 棒球（白底紅線） -->
+      <svg width="70" height="70" viewBox="0 0 100 100" fill="none">
+        <circle cx="50" cy="50" r="38" fill="#FFF" stroke="#4A3728" stroke-width="2.4"/>
+        <path d="M22 38 Q50 44 78 38" stroke="#C2573A" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <path d="M22 62 Q50 56 78 62" stroke="#C2573A" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <path d="M26 35 L30 38 M32 33 L36 36 M38 31.5 L42 34 M44 30.5 L48 33 M50 30 L54 33 M56 30.5 L60 33 M62 31.5 L66 34 M68 33 L72 36 M74 35 L78 38" stroke="#C2573A" stroke-width="1.4" stroke-linecap="round"/>
+        <path d="M26 65 L30 62 M32 67 L36 64 M38 68.5 L42 66 M44 69.5 L48 67 M50 70 L54 67 M56 69.5 L60 67 M62 68.5 L66 66 M68 67 L72 64 M74 65 L78 62" stroke="#C2573A" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+    </div>
+  </div>
+  <div class="note">唯一能「正確顯示棒球球棒」的方案。木色 <code>#C89A6B</code>+深棕線條 <code>#6B4824</code>，球用白底赤陶紅縫線 <code>#C2573A</code>——與網站主色一致。可再調大小、角度、木紋密度。</div>
+</div>
+
+<!-- 方案 B：自繪 棒球手套 + 棒球 -->
+<div class="variant">
+  <div class="variant-label">
+    <span class="tag">方案 B · 自繪 SVG（棒球手套 + 棒球）</span>
+    <span class="meta">inline SVG · 配色統一</span>
+  </div>
+  <div class="hero">
+    <div class="float left">
+      <svg width="78" height="78" viewBox="0 0 100 100" fill="none">
+        <path d="M25 58 Q15 45 22 32 Q30 20 45 22 Q50 10 62 15 Q72 18 72 30 Q82 32 82 44 Q85 58 72 66 L72 82 Q50 88 28 82 Z"
+              fill="#C2573A" stroke="#8A3E26" stroke-width="2.2" stroke-linejoin="round"/>
+        <path d="M38 38 Q40 48 38 62 M52 32 Q54 48 52 66 M66 38 Q66 50 64 62" stroke="#8A3E26" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+        <circle cx="55" cy="50" r="10" fill="#FFF" stroke="#8A3E26" stroke-width="1.8"/>
+        <path d="M49 47 Q55 45 61 48 M49 53 Q55 55 61 52" stroke="#C2573A" stroke-width="1.2" fill="none"/>
+      </svg>
+    </div>
+    <div class="hero-eyebrow">中華職棒一軍例行賽 · 2026</div>
+    <h2>進場倒數</h2>
+    <div class="hero-info">
+      <span class="hero-info-item">⚾ 今日 <span class="hero-info-num">3</span> 場</span>
+      <span class="hero-info-sep">●</span>
+      <span class="hero-info-item">📅 剩餘 <span class="hero-info-num">240</span> 場</span>
+      <span class="hero-info-sep">●</span>
+      <span class="hero-info-item">🔥 <span class="hero-info-status">賽季進行中</span></span>
+    </div>
+    <div class="hero-deco">● —— ◆ —— ●</div>
+    <div class="float right">
+      <svg width="70" height="70" viewBox="0 0 100 100" fill="none">
+        <circle cx="50" cy="50" r="38" fill="#FFF" stroke="#4A3728" stroke-width="2.4"/>
+        <path d="M22 38 Q50 44 78 38" stroke="#C2573A" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <path d="M22 62 Q50 56 78 62" stroke="#C2573A" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <path d="M26 35 L30 38 M32 33 L36 36 M38 31.5 L42 34 M44 30.5 L48 33 M50 30 L54 33 M56 30.5 L60 33 M62 31.5 L66 34 M68 33 L72 36 M74 35 L78 38" stroke="#C2573A" stroke-width="1.4" stroke-linecap="round"/>
+        <path d="M26 65 L30 62 M32 67 L36 64 M38 68.5 L42 66 M44 69.5 L48 67 M50 70 L54 67 M56 69.5 L60 67 M62 68.5 L66 66 M68 67 L72 64 M74 65 L78 62" stroke="#C2573A" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+    </div>
+  </div>
+  <div class="note">手套左、球右。整組都用赤陶紅系色調，最統一。</div>
+</div>
+
+<!-- 方案 C：Fluent 3D 棒球 + 球帽 -->
+<div class="variant">
+  <div class="variant-label">
+    <span class="tag">方案 C · Fluent 3D（棒球 + 球帽）</span>
+    <span class="meta">Microsoft · MIT · PNG 立體</span>
+  </div>
+  <div class="hero">
+    <div class="float left size-72"><img src="https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets/Baseball/3D/baseball_3d.png" alt=""></div>
+    <div class="hero-eyebrow">中華職棒一軍例行賽 · 2026</div>
+    <h2>進場倒數</h2>
+    <div class="hero-info">
+      <span class="hero-info-item">⚾ 今日 <span class="hero-info-num">3</span> 場</span>
+      <span class="hero-info-sep">●</span>
+      <span class="hero-info-item">📅 剩餘 <span class="hero-info-num">240</span> 場</span>
+      <span class="hero-info-sep">●</span>
+      <span class="hero-info-item">🔥 <span class="hero-info-status">賽季進行中</span></span>
+    </div>
+    <div class="hero-deco">● —— ◆ —— ●</div>
+    <div class="float right size-72"><img src="https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets/Billed%20cap/3D/billed_cap_3d.png" alt=""></div>
+  </div>
+  <div class="note">球員配備感。立體擬真風，辨識度最高，但比較精緻、Snoopy 卡通感偏弱。</div>
+</div>
+
+<!-- 方案 D：Fluent 3D 門票 + 棒球（呼應「進場」主題） -->
+<div class="variant">
+  <div class="variant-label">
+    <span class="tag">方案 D · Fluent 3D（門票 + 棒球）🎯 呼應「進場倒數」</span>
+    <span class="meta">Microsoft · MIT · 主題貼合</span>
+  </div>
+  <div class="hero">
+    <div class="float left size-72"><img src="https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets/Admission%20tickets/3D/admission_tickets_3d.png" alt=""></div>
+    <div class="hero-eyebrow">中華職棒一軍例行賽 · 2026</div>
+    <h2>進場倒數</h2>
+    <div class="hero-info">
+      <span class="hero-info-item">⚾ 今日 <span class="hero-info-num">3</span> 場</span>
+      <span class="hero-info-sep">●</span>
+      <span class="hero-info-item">📅 剩餘 <span class="hero-info-num">240</span> 場</span>
+      <span class="hero-info-sep">●</span>
+      <span class="hero-info-item">🔥 <span class="hero-info-status">賽季進行中</span></span>
+    </div>
+    <div class="hero-deco">● —— ◆ —— ●</div>
+    <div class="float right size-72"><img src="https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets/Baseball/3D/baseball_3d.png" alt=""></div>
+  </div>
+  <div class="note">網站主題「進場倒數」就是規劃看球行程——門票圖示直接呼應。</div>
+</div>
+
+<!-- 方案 E：Fluent 3D 獎盃 + 棒球 -->
+<div class="variant">
+  <div class="variant-label">
+    <span class="tag">方案 E · Fluent 3D（獎盃 + 棒球）</span>
+    <span class="meta">Microsoft · MIT · 冠軍氣氛</span>
+  </div>
+  <div class="hero">
+    <div class="float left size-72"><img src="https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets/Trophy/3D/trophy_3d.png" alt=""></div>
+    <div class="hero-eyebrow">中華職棒一軍例行賽 · 2026</div>
+    <h2>進場倒數</h2>
+    <div class="hero-info">
+      <span class="hero-info-item">⚾ 今日 <span class="hero-info-num">3</span> 場</span>
+      <span class="hero-info-sep">●</span>
+      <span class="hero-info-item">📅 剩餘 <span class="hero-info-num">240</span> 場</span>
+      <span class="hero-info-sep">●</span>
+      <span class="hero-info-item">🔥 <span class="hero-info-status">賽季進行中</span></span>
+    </div>
+    <div class="hero-deco">● —— ◆ —— ●</div>
+    <div class="float right size-72"><img src="https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets/Baseball/3D/baseball_3d.png" alt=""></div>
+  </div>
+  <div class="note">季賽冠軍意象。金色獎盃與網站赤陶紅搭配和諧。</div>
+</div>
+
+<!-- 方案 F：OpenMoji 棒球 + 球帽 -->
+<div class="variant">
+  <div class="variant-label">
+    <span class="tag">方案 F · OpenMoji（棒球 + 球帽）</span>
+    <span class="meta">CC-BY-SA 4.0 · 手繪彩色 · 需頁尾標註</span>
+  </div>
+  <div class="hero">
+    <div class="float left size-80"><img src="https://cdn.jsdelivr.net/gh/hfg-gmuend/openmoji@latest/color/svg/1F9E2.svg" alt=""></div>
+    <div class="hero-eyebrow">中華職棒一軍例行賽 · 2026</div>
+    <h2>進場倒數</h2>
+    <div class="hero-info">
+      <span class="hero-info-item">⚾ 今日 <span class="hero-info-num">3</span> 場</span>
+      <span class="hero-info-sep">●</span>
+      <span class="hero-info-item">📅 剩餘 <span class="hero-info-num">240</span> 場</span>
+      <span class="hero-info-sep">●</span>
+      <span class="hero-info-item">🔥 <span class="hero-info-status">賽季進行中</span></span>
+    </div>
+    <div class="hero-deco">● —— ◆ —— ●</div>
+    <div class="float right size-80"><img src="https://cdn.jsdelivr.net/gh/hfg-gmuend/openmoji@latest/color/svg/26BE.svg" alt=""></div>
+  </div>
+  <div class="note">德國 hfg-gmuend 團隊作品，手繪線條感最強、最 Snoopy。授權需在頁尾加 "Icons by OpenMoji · CC BY-SA 4.0"。</div>
+</div>
+
+<!-- 方案 G：不放 -->
+<div class="variant">
+  <div class="variant-label">
+    <span class="tag">方案 G · 不放圖示（極簡）</span>
+    <span class="meta">讓粉圓體大標和資訊列當主角</span>
+  </div>
+  <div class="hero">
+    <div class="hero-eyebrow">中華職棒一軍例行賽 · 2026</div>
+    <h2>進場倒數</h2>
+    <div class="hero-info">
+      <span class="hero-info-item">⚾ 今日 <span class="hero-info-num">3</span> 場</span>
+      <span class="hero-info-sep">●</span>
+      <span class="hero-info-item">📅 剩餘 <span class="hero-info-num">240</span> 場</span>
+      <span class="hero-info-sep">●</span>
+      <span class="hero-info-item">🔥 <span class="hero-info-status">賽季進行中</span></span>
+    </div>
+    <div class="hero-deco">● —— ◆ —— ●</div>
+  </div>
+  <div class="note">兩個 emoji 原本沒承載功能意義，乾脆拿掉反而乾淨。</div>
+</div>
+
+</body>
+</html>
