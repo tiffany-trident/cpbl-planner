@@ -219,3 +219,43 @@ const todayStr = `${today.getFullYear()}-${String(today.getMonth()+1).padStart(2
 同步修正 `index.html` 與 `cpbl-planner.html` 的兩處（loadData、buildHeroInfo）。
 
 **教訓**：JavaScript `Date.toISOString()` 一律輸出 UTC，任何「本地日期字串」需求都不能直接用它 slice。處理日期字串時，先想清楚要的是 UTC 還是本地時區。
+
+## 實作摘要（2026-04-15 commit `92844c4`）
+
+新增 favicon — 瀏覽器分頁圖示。
+
+### 決策範圍
+
+| 項目 | 決策 |
+|------|------|
+| 載入方式 | **inline SVG data URI**，不另外放檔案，避免 404 與快取問題 |
+| 主視覺 | 赤陶紅 `#C2573A` 圓底 + 米白 `#FFF8F0` 棒球 + 赤陶紅縫線與縫針 |
+| iOS 主畫面版本 | 另加 `apple-touch-icon`（圓角方形底 + 棒球，無縫針細節） |
+| 檔案範圍 | 同步 `index.html` 與 `cpbl-planner.html` |
+
+### 為什麼用 inline SVG data URI
+
+- 不需額外 `favicon.ico` 或 PNG 檔案，減少部署負擔
+- SVG 原生可縮放，分頁（16/32px）與書籤（任意大小）都清楚
+- data URI 直接嵌在 HTML 裡，不會有獨立快取與跨網域問題
+- 現代瀏覽器全支援 `<link rel="icon" type="image/svg+xml">`
+
+### 技術細節
+
+- `<link rel="icon" type="image/svg+xml">` 給桌面瀏覽器分頁
+- `<link rel="apple-touch-icon">` 給 iOS Safari「加到主畫面」
+- SVG viewBox `0 0 64 64`，分頁版縮成圓形（外圈圓）、iOS 版用 rounded rect（`rx='14'`）符合 app icon 慣例
+- 縫線用兩條 `Q` quadratic bezier 弧，縫針用 12 條小斜線模擬棒球手縫細節
+- 所有 `#` 在 data URI 中需 URL encode 為 `%23`
+
+### 專有名詞備註
+
+瀏覽器分頁上那個圖示正式名稱是 **favicon**（favorites icon，IE5 引進）。相關變體：
+
+- `rel="icon"` — 一般 favicon（分頁、書籤、歷史）
+- `rel="apple-touch-icon"` — iOS/iPadOS 加到主畫面圖示
+- PWA `manifest.json` 的 `icons` — Android 主畫面與 splash screen
+
+### 開發教訓
+
+- GitHub Pages 有強烈快取，favicon 比 HTML 頁面本身更頑固，更新後可能需要關掉分頁重開才會換新圖
