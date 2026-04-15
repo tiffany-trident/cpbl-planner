@@ -6,6 +6,13 @@
 <title>CPBL 2026 進場倒數</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
+/* jf 粉圓體 · Taiwan JustFont · SIL OFL 1.1 · Hero 區專用 */
+@font-face {
+  font-family: 'jf-openhuninn';
+  src: url('https://cdn.jsdelivr.net/gh/marsnow/open-huninn-font@1.1/font/jf-openhuninn.woff2') format('woff2'),
+       url('https://cdn.jsdelivr.net/gh/marsnow/open-huninn-font@1.1/font/jf-openhuninn.woff') format('woff');
+  font-display: swap;
+}
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body { font-family: 'Inter', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; background: #FDFCFA; color: #4A3728; min-height: 100vh; }
@@ -21,19 +28,23 @@ body { font-family: 'Inter', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; b
 .nav-links a:hover { color: #C2573A; }
 
 /* ── Hero ── */
-.hero { display: flex; align-items: center; justify-content: center; padding: 48px 40px 44px; background: #FFF; position: relative; }
+.hero { display: flex; align-items: center; justify-content: center; padding: 52px 40px 48px; background: #FFF; position: relative; }
 .hero-content { text-align: center; }
-.hero-eyebrow { font-size: 12px; font-weight: 500; letter-spacing: 3px; color: #B8A692; margin-bottom: 8px; }
-.hero h1 { font-family: 'Noto Serif TC', serif; font-size: 42px; font-weight: 700; color: #3D3122; letter-spacing: 2px; margin-bottom: 8px; }
-.hero p { font-size: 15px; color: #9B8E7E; letter-spacing: 1px; }
-.hero-deco { color: #D9CCBC; font-size: 14px; margin-top: 14px; letter-spacing: 4px; }
+.hero-eyebrow { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; font-size: 14px; font-weight: 500; letter-spacing: 2px; color: #B8A692; margin-bottom: 10px; }
+.hero h1 { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; font-size: 56px; font-weight: 500; color: #3D3122; letter-spacing: 4px; margin-bottom: 6px; line-height: 1.1; }
+.hero-info { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; display: inline-flex; align-items: center; gap: 14px; background: #FFF9F0; border: 1px solid #F0DFB8; border-radius: 22px; padding: 10px 22px; margin-top: 20px; flex-wrap: wrap; justify-content: center; }
+.hero-info-item { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; color: #4A3728; }
+.hero-info-sep { color: #E5D3B0; font-size: 10px; }
+.hero-info-num { color: #C2573A; font-weight: 700; font-size: 18px; margin: 0 2px; }
+.hero-info-status { color: #C2573A; font-weight: 600; }
+.hero-deco { color: #D9CCBC; font-size: 14px; margin-top: 16px; letter-spacing: 4px; }
 .snoopy-float { position: absolute; font-size: 64px; opacity: 0.8; }
 .snoopy-float.left { left: 80px; }
 .snoopy-float.right { right: 80px; }
 
 /* ── Section headers ── */
 .section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
-.section-header-title { font-family: 'Noto Serif TC', serif; font-size: 18px; font-weight: 700; color: #3D3122; white-space: nowrap; }
+.section-header-title { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; font-size: 20px; font-weight: 500; letter-spacing: 1.5px; color: #3D3122; white-space: nowrap; }
 .section-header-line { flex: 1; height: 1px; background: linear-gradient(90deg, #E0D8CC, transparent); }
 .section-header-sub { font-size: 12px; color: #B8A692; white-space: nowrap; }
 
@@ -185,9 +196,12 @@ body { font-family: 'Inter', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; b
   .nav-title { font-size: 15px; }
   .nav-links { gap: 16px; }
   .nav-links a { font-size: 13px; }
-  .hero { padding: 32px 16px 28px; }
-  .hero h1 { font-size: 28px; }
-  .hero p { font-size: 13px; }
+  .hero { padding: 36px 16px 32px; }
+  .hero h1 { font-size: 34px; letter-spacing: 2px; }
+  .hero-eyebrow { font-size: 12px; letter-spacing: 1.5px; }
+  .hero-info { gap: 8px; padding: 8px 14px; margin-top: 14px; }
+  .hero-info-item { font-size: 12px; }
+  .hero-info-num { font-size: 15px; }
   .snoopy-float { font-size: 40px; }
   .snoopy-float.left { left: 16px; }
   .snoopy-float.right { right: 16px; }
@@ -252,10 +266,16 @@ body { font-family: 'Inter', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; b
 <div class="hero">
   <div class="snoopy-float left">🏏</div>
   <div class="hero-content">
-    <div class="hero-eyebrow">中華職棒一軍例行賽</div>
+    <div class="hero-eyebrow">中華職棒一軍例行賽 · 2026</div>
     <h1>進場倒數</h1>
-    <p>在最好的日子，走進最好的球場</p>
-    <div class="hero-deco">—— ◆ ——</div>
+    <div class="hero-info">
+      <span class="hero-info-item">⚾ 今日 <span class="hero-info-num" id="hero-today-count">—</span> 場</span>
+      <span class="hero-info-sep">●</span>
+      <span class="hero-info-item">📅 剩餘 <span class="hero-info-num" id="hero-remain-count">—</span> 場</span>
+      <span class="hero-info-sep">●</span>
+      <span class="hero-info-item">🔥 <span class="hero-info-status" id="hero-status">—</span></span>
+    </div>
+    <div class="hero-deco">● —— ◆ —— ●</div>
   </div>
   <div class="snoopy-float right">⚾</div>
 </div>
@@ -820,8 +840,30 @@ function loadData() {
     };
   }).sort((a,b) => a.date < b.date ? -1 : a.date > b.date ? 1 : a.time < b.time ? -1 : 1);
   buildStandings();
+  buildHeroInfo();
   initFilters();
   render();
+}
+
+// ── Hero 資訊列動態計算 ──
+function buildHeroInfo() {
+  const today = new Date(); today.setHours(0,0,0,0);
+  const todayStr = today.toISOString().slice(0,10);
+  const todayCount = allGames.filter(g => g.date === todayStr && !g.postponed).length;
+  const remainCount = allGames.filter(g => g.isFuture && !g.postponed).length;
+  const hasCompleted = allGames.some(g => g.completed);
+  const hasFuture = allGames.some(g => g.isFuture);
+  let status;
+  if (!hasCompleted && hasFuture) status = '賽季即將開幕';
+  else if (hasFuture) status = '賽季熱烈進行中';
+  else status = '賽季已結束';
+
+  const todayEl = document.getElementById('hero-today-count');
+  const remainEl = document.getElementById('hero-remain-count');
+  const statusEl = document.getElementById('hero-status');
+  if (todayEl) todayEl.textContent = todayCount;
+  if (remainEl) remainEl.textContent = remainCount;
+  if (statusEl) statusEl.textContent = status;
 }
 
 // ── 戰績計算 ──
