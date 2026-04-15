@@ -161,3 +161,25 @@
 - 載入第三方字體要驗證 CDN URL 有效（曾犯 404 錯誤、`@font-face font-family` 名稱不符等）
 - 日文字體用於中文前要確認字形覆蓋（數 vs 数 等差異）
 - 不可只靠推理假設「應該會生效」就交差
+
+## Bug 修正紀錄
+
+### 2026-04-15：Hero「今日場次」少算一場（時區 bug）
+
+**症狀**：今日（2026-04-15）實際有 3 場比賽，但 Hero 資訊列顯示「今日 2 場」。卡片上的「今日」橘色 badge 也錯標到前一天的場次。
+
+**原因**：`loadData()` 與 `buildHeroInfo()` 都用 `today.toISOString().slice(0, 10)` 取得「今日字串」。`toISOString()` 會把時間轉成 UTC：
+- 台灣 UTC+8 的本地午夜 `2026-04-15 00:00 +08:00`
+- 對應 UTC 時間是 `2026-04-14 16:00`
+- `toISOString().slice(0,10)` → `"2026-04-14"`
+
+於是 `todayStr` 永遠比實際本地日期早一天，比對 `g.date === todayStr` 自然抓錯場次。
+
+**修正**：改用本地時間自行組字串，避開 UTC 轉換：
+```js
+const todayStr = `${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}-${String(today.getDate()).padStart(2,'0')}`;
+```
+
+同步修正 `index.html` 與 `cpbl-planner.html` 的兩處（loadData、buildHeroInfo）。
+
+**教訓**：JavaScript `Date.toISOString()` 一律輸出 UTC，任何「本地日期字串」需求都不能直接用它 slice。處理日期字串時，先想清楚要的是 UTC 還是本地時區。

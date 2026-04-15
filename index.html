@@ -818,7 +818,7 @@ const RAW_DATA = [
 // ── 載入資料 ──
 function loadData() {
   const today = new Date(); today.setHours(0,0,0,0);
-  const todayStr = today.toISOString().slice(0, 10);
+  const todayStr = `${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}-${String(today.getDate()).padStart(2,'0')}`;
   allGames = RAW_DATA.map(r => {
     const [date, time, visitor, home, field, vScore, hScore, wp, lp, sv, mvp, gr] = r;
     const d = new Date(date + 'T00:00:00');
@@ -848,7 +848,7 @@ function loadData() {
 // ── Hero 資訊列動態計算 ──
 function buildHeroInfo() {
   const today = new Date(); today.setHours(0,0,0,0);
-  const todayStr = today.toISOString().slice(0,10);
+  const todayStr = `${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}-${String(today.getDate()).padStart(2,'0')}`;
   const todayCount = allGames.filter(g => g.date === todayStr && !g.postponed).length;
   const remainCount = allGames.filter(g => g.isFuture && !g.postponed).length;
   const hasCompleted = allGames.some(g => g.completed);
