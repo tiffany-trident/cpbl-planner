@@ -152,7 +152,43 @@
 - [ ] 全站 emoji 改 Twemoji / Flaticon Stickers
 - [ ] Section 標題分隔線改手繪風
 - [ ] 新文案方向（抒情 → 親切口吻）
-- [ ] `.filter-card-title`、`.nav-title`、頁尾標題是否一起換粉圓體
+- [x] `.filter-card-title`、`.nav-title`、頁尾標題是否一起換粉圓體 → 於 e95258b 一起換
+
+## 實作摘要（2026-04-15 commit `e95258b`）
+
+Hero 圖示、Section 配圖、字體一致性補刀。
+
+### 決策範圍
+
+| 項目 | 決策 |
+|------|------|
+| Hero 左圖示 | 🏏（板球）→ **自繪 SVG 棒球手套**（赤陶紅 `#C2573A` 主色） |
+| Hero 右圖示 | 原生 ⚾ → **Fluent 3D 棒球 PNG**（跨平台一致） |
+| Hero 裝飾線 | **保留** `● —— ◆ —— ●`，曾試 `⭐ 〰 ⚾ 〰 ⭐` 被否決（太突兀） |
+| 各隊戰績標題 | 加 **Fluent 3D 獎盃** icon |
+| 賽程總覽標題 | 加 **自繪 SVG 棒球場** icon（菱形 + 四壘包 + 外野扇形 + 投手丘） |
+| 字體一致性 | `.nav-title` / `.filter-card-title` / `.footer` 全換 jf 粉圓體 weight 500 |
+
+### Emoji 與棒球主題的幾個關鍵認知
+
+- **🏏 是板球（cricket），不是棒球**。Unicode **沒有獨立的「棒球球棒」emoji**，所以 Microsoft Fluent / Google Noto / OpenMoji 全家都只有 `Cricket game` 板球圖組。要球棒只能自繪。
+- **Fluent `Stadium` 是通用綜合體育場**（圓頂/碗狀），不是棒球場菱形。要棒球場也只能自繪。
+- Fluent Emoji MIT 授權、OpenMoji CC-BY-SA、Twemoji CC-BY — 外部圖庫有多種選擇。
+- Hero 兩側「飄浮裝飾」本來沒功能意義，但 emoji 跨平台渲染不一致是問題，換成 SVG/PNG 就統一了。
+
+### 技術細節
+
+- `.snoopy-float` 原先依賴 emoji 行高自然定位，改 SVG/img 後需加 `top: 50%; transform: translateY(-50%)` 明確置中
+- `.section-icon` 基礎 22px / 手機 18px；棒球場 SVG 細節多，用 `svg.section-icon` 選擇器放大到 28px / 22px
+- Fluent PNG CDN：`https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets/{name}/3D/{slug}_3d.png`（空格要 `%20`）
+- 棒球場 SVG 配色：外野 `#8FC271`、內野土 `#D4A574`、投手丘 `#C2573A`（網站赤陶紅）、壘包白
+- 棒球手套 SVG 已在 hero-icons-preview.html 的 方案 B 中驗證過
+
+### 工作流程收穫
+
+- 建立 `icon-preview/hero-icons-preview.html` 對照頁，把多個候選方案用**完整 Hero 區塊**（含實際 `.hero-info` class 結構）並排顯示，讓使用者視覺比較後再決定——比描述文字有效很多
+- 對照頁的 hero-info markup **必須複用真實網站的 class**，不然分隔點會繼承 body 色變黑，偏離真實效果
+- 自繪 SVG 反覆迭代：第一版球棒形狀粗糙（兩段拼接），第二版才用單一 path 做出標準棒球球棒輪廓（圓頂→桶身→漸細→握把→knob）
 
 ## 開發教訓
 
