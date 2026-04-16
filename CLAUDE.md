@@ -43,7 +43,7 @@
 - 暖色調：背景 `#FDFCFA`、卡片 `#FFF`、主文字 `#4A3728`、重點色 `#C2573A`（赤陶紅）
 - 字體：Inter + Noto Sans TC；Hero 標題用 Noto Serif TC
 - 結構：Nav（頂部錨點導航）→ Hero（置中標題 + emoji 裝飾 🏏⚾）→ 戰績 → 篩選 → 統計 → 卡片網格 → 深棕頁尾
-- **Nav 錨點導航**：戰績／篩選／賽程三個連結，smooth scroll 到對應區塊，hover 赤陶紅
+- **Nav 錨點導航**：戰績／篩選／賽程三個連結，smooth scroll 到對應區塊，hover 赤陶紅，`position: sticky` 置頂固定
 - **區塊節奏**：各區塊用 `.section-header`（Noto Serif TC 標題 + 漸層橫線）劃分，戰績區白底、篩選區米白底交替
 - **統一卡片網格**（桌面 3 欄 / 平板 2 欄 / 手機 1 欄），不再使用表格
 - 卡片結構：頂部欄（時間 + 球場 `◉`）→ 對戰區（logo 圓形 + VS/比分）→ 詳情 pill → footer（標籤 + 購票/高鐵按鈕同列，不再重複顯示球場）
@@ -78,6 +78,7 @@
 - 流程：CPBL API → RAW_DATA → 更新 index.html + cpbl-planner.html → git push
 - 僅資料有變更時才 commit
 - GitHub Actions 排程已停用（CPBL 封鎖境外 IP）
+- 注意：GitHub Pages 有瀏覽器快取，更新 push 後使用者可能需要 Ctrl+Shift+R 才能看到最新資料
 - 詳細方案評估、除錯記錄與待辦事項見 [scoreupdate.md](scoreupdate.md)
 
 ## 各隊購票連結
