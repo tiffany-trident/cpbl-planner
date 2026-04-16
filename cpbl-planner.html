@@ -197,6 +197,14 @@ svg.section-icon { width: 28px; height: 28px; }
 .day-sun { color: #C25B5B; font-weight: 600; }
 .day-hol { color: #C2573A; font-weight: 600; }
 
+/* ── Weather pill ── */
+.card-weather { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; background: #FFF9F0; border-radius: 10px; padding: 2px 8px; white-space: nowrap; }
+.card-weather-temp { font-weight: 600; color: #4A3728; }
+.card-weather-rain { color: #5B7BB4; }
+.card-weather-rain.rain-high { color: #C25B5B; }
+.card-weather-loading { animation: weatherPulse 1.5s ease-in-out infinite; color: #B8A692; font-size: 11px; }
+@keyframes weatherPulse { 0%,100% { opacity: 0.4; } 50% { opacity: 1; } }
+
 /* ── RWD ── */
 @media (max-width: 768px) {
   .container { max-width: 100%; }
@@ -245,6 +253,7 @@ svg.section-icon { width: 28px; height: 28px; }
   .toggle-btn { padding: 7px 14px; font-size: 12px; }
   .card-team img { width: 36px; height: 36px; }
   .card-score-num { font-size: 22px; }
+  .card-weather { font-size: 11px; }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
@@ -487,8 +496,150 @@ const STADIUM_HSR = {
 const HSR_BOOKING_URL = 'https://irs.thsrc.com.tw/IMINT/';
 const DAYS = ['日','一','二','三','四','五','六'];
 
+// ── 天氣相關常數 ──
+const STADIUM_COORDS = {
+  '大巨蛋': {lat:25.0478, lon:121.5318},
+  '天母':   {lat:25.0930, lon:121.5200},
+  '新莊':   {lat:25.0110, lon:121.4320},
+  '樂天桃園':{lat:25.0025, lon:121.2094},
+  '洲際':   {lat:24.1892, lon:120.6537},
+  '嘉義市': {lat:23.4757, lon:120.4400},
+  '亞太主': {lat:23.1024, lon:120.2941},
+  '澄清湖': {lat:22.6640, lon:120.3560},
+  '斗六':   {lat:23.7101, lon:120.5407},
+  '花蓮':   {lat:23.9653, lon:121.5850},
+};
+const WMO_WEATHER_MAP = [
+  [0,   '☀️','晴'],
+  [3,   '⛅','多雲'],
+  [48,  '🌫️','霧'],
+  [55,  '🌦️','毛毛雨'],
+  [65,  '🌧️','雨'],
+  [82,  '🌦️','陣雨'],
+  [99,  '⛈️','雷雨'],
+];
+const WEATHER_CACHE_TTL = 3 * 60 * 60 * 1000; // 3 小時
+
 let allGames = [];
 let statusFilter = 'future'; // 'all' | 'future' | 'past'
+let weatherCache = {};      // { stadium: { data, ts } }
+let weatherLoading = false;
+
+// ── 天氣工具函式 ──
+function getWeatherInfo(code) {
+  for (const [maxCode, icon, label] of WMO_WEATHER_MAP) {
+    if (code <= maxCode) return { icon, label };
+  }
+  return { icon: '🌤️', label: '' };
+}
+
+function getGameWeather(game) {
+  if (!game.isFuture || game.postponed) return null;
+  const now = new Date();
+  const gameTime = new Date(game.date + 'T' + game.time.substring(0,5));
+  const hoursAway = (gameTime - now) / 3600000;
+  if (hoursAway <= 0 || hoursAway > 168) return null;
+  const cached = weatherCache[game.field];
+  if (!cached || !cached.data) return null;
+  const hourly = cached.data.hourly;
+  if (hoursAway <= 72) {
+    const targetHour = game.date + 'T' + game.time.substring(0,2) + ':00';
+    const idx = hourly.time.indexOf(targetHour);
+    if (idx === -1) return null;
+    const info = getWeatherInfo(hourly.weathercode[idx]);
+    return { icon: info.icon, temp: Math.round(hourly.temperature_2m[idx]), rain: hourly.precipitation_probability[idx], type: 'hourly' };
+  }
+  // 3~7 天：當日白天概況
+  const dayPrefix = game.date + 'T';
+  let hi = -99, lo = 99, maxRain = 0, codes = [];
+  for (let h = 10; h <= 21; h++) {
+    const t = dayPrefix + String(h).padStart(2,'0') + ':00';
+    const idx = hourly.time.indexOf(t);
+    if (idx === -1) continue;
+    const temp = hourly.temperature_2m[idx];
+    if (temp > hi) hi = temp;
+    if (temp < lo) lo = temp;
+    if (hourly.precipitation_probability[idx] > maxRain) maxRain = hourly.precipitation_probability[idx];
+    codes.push(hourly.weathercode[idx]);
+  }
+  if (codes.length === 0) return null;
+  const modeCode = codes.sort((a,b) => codes.filter(v=>v===a).length - codes.filter(v=>v===b).length).pop();
+  const info = getWeatherInfo(modeCode);
+  return { icon: info.icon, tempHi: Math.round(hi), tempLo: Math.round(lo), rain: maxRain, type: 'daily' };
+}
+
+function buildWeatherHTML(game) {
+  if (weatherLoading && game.isFuture && !game.postponed) {
+    const now = new Date();
+    const gameTime = new Date(game.date + 'T' + game.time.substring(0,5));
+    const hoursAway = (gameTime - now) / 3600000;
+    if (hoursAway > 0 && hoursAway <= 168) {
+      return '<span class="card-weather card-weather-loading">⏳ 天氣載入中…</span>';
+    }
+  }
+  const w = getGameWeather(game);
+  if (!w) return '';
+  const rainClass = w.rain >= 50 ? ' rain-high' : '';
+  const timeLabel = w.type === 'hourly'
+    ? game.time.substring(0,2) + '時 '
+    : '全日 ';
+  const tempStr = w.type === 'hourly'
+    ? '<span class="card-weather-temp">' + w.temp + '°</span>'
+    : '<span class="card-weather-temp">' + w.tempLo + '-' + w.tempHi + '°</span>';
+  return '<span class="card-weather">' + timeLabel + w.icon + ' ' + tempStr + ' · <span class="card-weather-rain' + rainClass + '">' + w.rain + '%💧</span></span>';
+}
+
+// ── 天氣非同步載入 ──
+async function fetchWeatherForStadiums(stadiums) {
+  const toFetch = [];
+  for (const name of stadiums) {
+    try {
+      const raw = localStorage.getItem('weather_' + name);
+      if (raw) {
+        const cached = JSON.parse(raw);
+        if (cached.ts && Date.now() - cached.ts < WEATHER_CACHE_TTL) {
+          weatherCache[name] = cached;
+          continue;
+        }
+      }
+    } catch(e) {}
+    toFetch.push(name);
+  }
+  if (toFetch.length === 0) return;
+  const promises = toFetch.map(name => {
+    const c = STADIUM_COORDS[name];
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 10000);
+    return fetch('https://api.open-meteo.com/v1/forecast?latitude=' + c.lat + '&longitude=' + c.lon + '&hourly=temperature_2m,precipitation_probability,weathercode&forecast_days=7&timezone=Asia/Taipei', { signal: ctrl.signal })
+      .then(r => r.json())
+      .then(data => {
+        clearTimeout(timer);
+        const entry = { data, ts: Date.now() };
+        weatherCache[name] = entry;
+        try { localStorage.setItem('weather_' + name, JSON.stringify(entry)); } catch(e) {}
+      })
+      .catch(() => { clearTimeout(timer); });
+  });
+  await Promise.allSettled(promises);
+}
+
+async function loadWeather() {
+  const now = new Date();
+  const limit = new Date(now.getTime() + 7 * 24 * 3600000);
+  const stadiums = new Set();
+  for (const g of allGames) {
+    if (!g.isFuture || g.postponed) continue;
+    const gt = new Date(g.date + 'T' + g.time.substring(0,5));
+    if (gt <= now || gt > limit) continue;
+    if (STADIUM_COORDS[g.field]) stadiums.add(g.field);
+  }
+  if (stadiums.size === 0) return;
+  weatherLoading = true;
+  render();
+  await fetchWeatherForStadiums([...stadiums]);
+  weatherLoading = false;
+  render();
+}
 
 // ── RAW_DATA: [日期, 時間, 客隊, 主隊, 球場, 客分, 主分, 勝投, 敗投, 救援, MVP, GameResult] ──
 // GameResult: "0" = 已完賽, "1" = 延賽/取消, "" = 未賽
@@ -887,6 +1038,7 @@ function loadData() {
   buildHeroInfo();
   initFilters();
   render();
+  loadWeather();
 }
 
 // ── Hero 資訊列動態計算 ──
@@ -1161,7 +1313,7 @@ function render() {
       '<div class="card-top' + topClass + '">' +
         '<span class="card-top-time"' + (g.postponed ? ' style="color:#8B6BAE"' : '') + '>' + g.time + '</span>' +
         (g.postponed ? '<span class="badge badge-postponed">延賽</span>' :
-        '<span class="card-top-venue">◉ ' + g.field + '</span>') +
+        buildWeatherHTML(g) + '<span class="card-top-venue">◉ ' + g.field + '</span>') +
       '</div>' +
       '<div class="card-body">' +
         '<div class="card-matchup">' +
