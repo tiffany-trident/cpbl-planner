@@ -21,7 +21,7 @@ body { font-family: 'Inter', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; b
 .container { max-width: 1200px; margin: 0 auto; }
 
 /* ── Nav ── */
-.nav { display: flex; justify-content: space-between; align-items: center; padding: 16px 40px; background: #FFF; border-bottom: 1px solid #EEECEA; }
+.nav { display: flex; justify-content: space-between; align-items: center; padding: 16px 40px; background: #FFF; border-bottom: 1px solid #EEECEA; position: sticky; top: 0; z-index: 100; }
 .nav-logo { display: flex; align-items: center; gap: 10px; }
 .nav-logo .snoopy-icon { font-size: 24px; }
 .nav-title { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; font-size: 18px; font-weight: 500; letter-spacing: 2px; color: #4A3728; }
@@ -204,16 +204,17 @@ svg.section-icon { width: 28px; height: 28px; }
   .nav-title { font-size: 15px; }
   .nav-links { gap: 16px; }
   .nav-links a { font-size: 13px; }
-  .hero { padding: 36px 16px 32px; }
+  .hero { padding: 36px 16px 28px; flex-wrap: wrap; gap: 12px; }
+  .hero-content { width: 100%; }
   .hero h1 { font-size: 34px; letter-spacing: 2px; }
   .hero-eyebrow { font-size: 12px; letter-spacing: 1.5px; }
   .hero-info { gap: 8px; padding: 8px 14px; margin-top: 14px; }
   .hero-info-item { font-size: 12px; }
   .hero-info-num { font-size: 15px; }
-  .snoopy-float.left { left: 16px; }
-  .snoopy-float.right { right: 16px; }
-  .snoopy-float .glove-svg { width: 48px; height: 48px; }
-  .snoopy-float .baseball-img { width: 44px; height: 44px; }
+  .hero-deco { display: none; }
+  .snoopy-float { position: static; transform: none; flex-shrink: 0; order: 2; }
+  .snoopy-float .glove-svg { width: 36px; height: 36px; }
+  .snoopy-float .baseball-img { width: 32px; height: 32px; }
   .section-icon { width: 18px; height: 18px; }
   svg.section-icon { width: 22px; height: 22px; }
   .standings-wrap { padding: 20px 16px; }
