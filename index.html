@@ -44,7 +44,7 @@ body { font-family: 'Inter', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; b
 .footer-deco-row .tw-emoji { width: 20px; height: 20px; opacity: 0.85; }
 .footer-deco-row .deco-wave { width: 36px; height: 10px; opacity: 0.6; }
 .snoopy-float { position: absolute; top: 50%; transform: translateY(-50%); opacity: 0.88; line-height: 0; }
-.snoopy-float .glove-svg { width: 78px; height: 78px; display: block; }
+.snoopy-float .glove-svg { width: 108px; height: 108px; display: block; }
 .snoopy-float .baseball-img { width: 72px; height: 72px; display: block; }
 .section-icon { width: 22px; height: 22px; display: inline-block; vertical-align: middle; }
 svg.section-icon { width: 28px; height: 28px; }
@@ -243,7 +243,7 @@ button.card-weather.clickable:active { transform: scale(0.96); }
   .hero-info-num { font-size: 15px; }
   .hero-deco { display: none; }
   .snoopy-float { position: static; transform: none; flex-shrink: 0; order: 2; }
-  .snoopy-float .glove-svg { width: 36px; height: 36px; }
+  .snoopy-float .glove-svg { width: 52px; height: 52px; }
   .snoopy-float .baseball-img { width: 32px; height: 32px; }
   .section-icon { width: 18px; height: 18px; }
   svg.section-icon { width: 22px; height: 22px; }
@@ -657,7 +657,7 @@ async function fetchWeatherForStadiums(stadiums) {
   const toFetch = [];
   for (const name of stadiums) {
     try {
-      const raw = localStorage.getItem('weather_' + name);
+      const raw = localStorage.getItem('weather_v2_' + name);
       if (raw) {
         const cached = JSON.parse(raw);
         if (cached.ts && Date.now() - cached.ts < WEATHER_CACHE_TTL) {
@@ -673,13 +673,13 @@ async function fetchWeatherForStadiums(stadiums) {
     const c = STADIUM_COORDS[name];
     const ctrl = new AbortController();
     const timer = setTimeout(() => ctrl.abort(), 10000);
-    return fetch('https://api.open-meteo.com/v1/forecast?latitude=' + c.lat + '&longitude=' + c.lon + '&hourly=temperature_2m,precipitation_probability,weathercode&forecast_days=7&timezone=Asia/Taipei', { signal: ctrl.signal })
+    return fetch('https://api.open-meteo.com/v1/forecast?latitude=' + c.lat + '&longitude=' + c.lon + '&hourly=temperature_2m,precipitation_probability,weathercode&forecast_days=7&timezone=Asia/Taipei&models=ecmwf_ifs025', { signal: ctrl.signal })
       .then(r => r.json())
       .then(data => {
         clearTimeout(timer);
         const entry = { data, ts: Date.now() };
         weatherCache[name] = entry;
-        try { localStorage.setItem('weather_' + name, JSON.stringify(entry)); } catch(e) {}
+        try { localStorage.setItem('weather_v2_' + name, JSON.stringify(entry)); } catch(e) {}
       })
       .catch(() => { clearTimeout(timer); });
   });

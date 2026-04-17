@@ -37,7 +37,13 @@ https://api.open-meteo.com/v1/forecast
   &hourly=temperature_2m,precipitation_probability,weathercode
   &forecast_days=7
   &timezone=Asia/Taipei
+  &models=ecmwf_ifs025
 ```
+
+指定 `models=ecmwf_ifs025`（歐洲中期天氣預報中心 IFS 模型）而非預設 `best_match`。理由：
+- ECMWF IFS 公認全球最準的數值預報模型
+- 試過 `jma_seamless`（日本氣象廳）對台灣更貼近，但不回傳 `precipitation_probability`，降雨率會變 null
+- 快取 key 因此從 `weather_` 升級為 `weather_v2_`，舊資料自動失效
 
 ## 球場經緯度對應
 
