@@ -35,7 +35,7 @@
 - 各隊戰績排行榜（頁頂，依勝率排序，表格式含排名編號、勝/敗/和/勝率/勝差 GB）
 - 購票按鈕：未來非延賽場次，依主場球隊連結售票網站
 - 高鐵訂票按鈕：未來非延賽場次，依球場對應高鐵站（花蓮不顯示）
-- 球場天氣預報：Open-Meteo API 即時抓取，未來 7 天場次顯示溫度 + 降雨率（72hr 內逐時、3~7 天全日概況），localStorage 快取 3 小時，詳見 [weather.md](weather.md)
+- 球場天氣預報：Open-Meteo API 即時抓取，未來 7 天場次顯示溫度 + 降雨率（72hr 內逐時、3~7 天全日概況），localStorage 快取 3 小時，詳見 [weather.md](docs/weather.md)
 
 ## 設計風格
 
@@ -66,12 +66,20 @@
 
 - `index.html` — 部署主檔（與 cpbl-planner.html 同步）
 - `cpbl-planner.html` — 開發檔
-- `games_data.json` — 賽程原始資料備份
+- `data/games_data.json` — 賽程原始資料備份
 - `scripts/fetch-scores.sh` — 資料抓取腳本
 - `scripts/update-scores.ps1` — PowerShell 版抓取腳本（本機排程用）
 - `scripts/update-scores.bat` — Task Scheduler 包裝 bat
 - `.github/workflows/update-scores.yml` — 自動更新 workflow（排程已停用）
-- `scoreupdate.md` — 比分更新方案評估與進度記錄
+- `docs/scoreupdate.md` — 比分更新方案評估與進度記錄
+- `docs/uidesign.md` — UI 設計原則與風格系統
+- `docs/uidesign-changelog.md` — UI 實作紀錄與 Bug 修正
+- `docs/weather.md` — 天氣預報功能實作細節
+- `design/pencil-new.pen` — Pencil 設計檔
+- `icon-preview/` — icon 預覽與 SVG 素材
+- `images/` — 生成圖片素材
+- `cloudflare-worker/` — Cloudflare Worker 腳本
+- `google-apps-script/` — Google Apps Script 腳本
 
 ## 自動更新
 
@@ -80,7 +88,7 @@
 - 僅資料有變更時才 commit
 - GitHub Actions 排程已停用（CPBL 封鎖境外 IP）
 - 注意：GitHub Pages 有瀏覽器快取，更新 push 後使用者可能需要 Ctrl+Shift+R 才能看到最新資料
-- 詳細方案評估、除錯記錄與待辦事項見 [scoreupdate.md](scoreupdate.md)
+- 詳細方案評估、除錯記錄與待辦事項見 [scoreupdate.md](docs/scoreupdate.md)
 
 ## 各隊購票連結
 

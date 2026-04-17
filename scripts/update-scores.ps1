@@ -1,5 +1,5 @@
 # update-scores.ps1 - daily CPBL score fetcher, pure PowerShell (no bash/node deps)
-# Called by update-scores.bat via Task Scheduler. See scoreupdate.md plan D.
+# Called by update-scores.bat via Task Scheduler. See docs/scoreupdate.md plan D.
 
 param(
     [string]$RepoRoot = (Split-Path -Parent $PSScriptRoot)
