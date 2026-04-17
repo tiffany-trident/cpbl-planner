@@ -198,12 +198,34 @@ svg.section-icon { width: 28px; height: 28px; }
 .day-hol { color: #C2573A; font-weight: 600; }
 
 /* ── Weather pill ── */
-.card-weather { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; background: #FFF9F0; border-radius: 10px; padding: 2px 8px; white-space: nowrap; }
+.card-weather { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; background: #FFF9F0; border-radius: 10px; padding: 2px 8px; white-space: nowrap; border: 0; color: inherit; font-family: inherit; }
 .card-weather-temp { font-weight: 600; color: #4A3728; }
 .card-weather-rain { color: #5B7BB4; }
 .card-weather-rain.rain-high { color: #C25B5B; }
 .card-weather-loading { animation: weatherPulse 1.5s ease-in-out infinite; color: #B8A692; font-size: 11px; }
 @keyframes weatherPulse { 0%,100% { opacity: 0.4; } 50% { opacity: 1; } }
+button.card-weather.clickable { cursor: pointer; transition: background 0.15s, transform 0.1s; }
+button.card-weather.clickable:hover { background: #FBEED6; }
+button.card-weather.clickable:active { transform: scale(0.96); }
+
+/* ── Weather popover ── */
+.weather-popover-backdrop { position: fixed; inset: 0; z-index: 99; display: none; background: transparent; }
+.weather-popover-backdrop.active { display: block; }
+.weather-popover { position: absolute; z-index: 100; background: #FFF; border: 1px solid #F0E6D8; border-radius: 14px; box-shadow: 0 10px 32px rgba(74,55,40,0.16), 0 2px 8px rgba(74,55,40,0.08); padding: 14px 14px 12px; display: none; max-width: calc(100vw - 24px); }
+.weather-popover.active { display: block; }
+.weather-popover-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; font-size: 12px; color: #8B7356; }
+.weather-popover-header strong { color: #4A3728; font-weight: 600; }
+.weather-popover-close { background: none; border: 0; font-size: 20px; line-height: 1; color: #B8A692; cursor: pointer; padding: 0 0 0 8px; }
+.weather-popover-close:hover { color: #4A3728; }
+.weather-hours { display: flex; gap: 4px; }
+.weather-hour { display: flex; flex-direction: column; align-items: center; padding: 6px 6px; min-width: 42px; border-radius: 8px; background: #FDFCFA; font-size: 11px; color: #8B7356; }
+.weather-hour.is-game { background: #FFF0D9; color: #4A3728; }
+.weather-hour.is-game .weather-hour-time { color: #C2573A; }
+.weather-hour-time { font-weight: 600; margin-bottom: 3px; }
+.weather-hour-icon { font-size: 17px; line-height: 1; margin-bottom: 3px; }
+.weather-hour-temp { color: #4A3728; font-weight: 600; margin-bottom: 1px; }
+.weather-hour-rain { color: #5B7BB4; font-size: 10px; }
+.weather-hour-rain.rain-high { color: #C25B5B; }
 
 /* ── RWD ── */
 @media (max-width: 768px) {
@@ -254,6 +276,12 @@ svg.section-icon { width: 28px; height: 28px; }
   .card-team img { width: 36px; height: 36px; }
   .card-score-num { font-size: 22px; }
   .card-weather { font-size: 11px; }
+  /* Weather popover as bottom sheet on mobile */
+  .weather-popover-backdrop.active { background: rgba(74,55,40,0.32); }
+  .weather-popover { position: fixed; left: 0; right: 0; bottom: 0; top: auto; max-width: none; border-radius: 18px 18px 0 0; padding: 16px 14px 22px; transform: translateY(100%); transition: transform 0.25s ease-out; display: block; }
+  .weather-popover.active { transform: translateY(0); }
+  .weather-hours { justify-content: center; overflow-x: auto; padding-bottom: 2px; }
+  .weather-hour { min-width: 40px; padding: 6px 4px; }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
@@ -568,6 +596,36 @@ function getGameWeather(game) {
   return { icon: info.icon, tempHi: Math.round(hi), tempLo: Math.round(lo), rain: maxRain, type: 'daily' };
 }
 
+function getGameWeatherHours(game) {
+  if (!game.isFuture || game.postponed) return null;
+  const cached = weatherCache[game.field];
+  if (!cached || !cached.data) return null;
+  const hourly = cached.data.hourly;
+  const targetHour = game.date + 'T' + game.time.substring(0,2) + ':00';
+  const centerIdx = hourly.time.indexOf(targetHour);
+  if (centerIdx === -1) return null;
+  const now = new Date();
+  const gameTime = new Date(game.date + 'T' + game.time.substring(0,5));
+  if ((gameTime - now) / 3600000 > 72) return null;
+  const hours = [];
+  for (let offset = -3; offset <= 4; offset++) {
+    const idx = centerIdx + offset;
+    if (idx < 0 || idx >= hourly.time.length) continue;
+    const info = getWeatherInfo(hourly.weathercode[idx]);
+    const timeStr = hourly.time[idx];
+    hours.push({
+      hour: timeStr.substring(11,13),
+      icon: info.icon,
+      temp: Math.round(hourly.temperature_2m[idx]),
+      rain: hourly.precipitation_probability[idx],
+      isGame: offset === 0,
+    });
+  }
+  return hours.length ? hours : null;
+}
+
+function gameKey(g) { return g.date + '|' + g.time + '|' + g.field; }
+
 function buildWeatherHTML(game) {
   if (weatherLoading && game.isFuture && !game.postponed) {
     const now = new Date();
@@ -586,7 +644,12 @@ function buildWeatherHTML(game) {
   const tempStr = w.type === 'hourly'
     ? '<span class="card-weather-temp">' + w.temp + '°</span>'
     : '<span class="card-weather-temp">' + w.tempLo + '-' + w.tempHi + '°</span>';
-  return '<span class="card-weather">' + timeLabel + w.icon + ' ' + tempStr + ' · <span class="card-weather-rain' + rainClass + '">' + w.rain + '%💧</span></span>';
+  const inner = timeLabel + w.icon + ' ' + tempStr + ' · <span class="card-weather-rain' + rainClass + '">' + w.rain + '%💧</span>';
+  const hasHours = w.type === 'hourly' && getGameWeatherHours(game);
+  if (hasHours) {
+    return '<button type="button" class="card-weather clickable" data-weather-key="' + gameKey(game) + '" aria-label="展開逐時天氣">' + inner + '</button>';
+  }
+  return '<span class="card-weather">' + inner + '</span>';
 }
 
 // ── 天氣非同步載入 ──
@@ -622,6 +685,107 @@ async function fetchWeatherForStadiums(stadiums) {
   });
   await Promise.allSettled(promises);
 }
+
+// ── 天氣逐時 popover ──
+let weatherPopoverEl = null;
+let weatherBackdropEl = null;
+let weatherPopoverKey = null;
+
+function ensureWeatherPopover() {
+  if (weatherPopoverEl) return;
+  weatherBackdropEl = document.createElement('div');
+  weatherBackdropEl.className = 'weather-popover-backdrop';
+  weatherBackdropEl.addEventListener('click', closeWeatherPopover);
+  weatherPopoverEl = document.createElement('div');
+  weatherPopoverEl.className = 'weather-popover';
+  weatherPopoverEl.setAttribute('role', 'dialog');
+  weatherPopoverEl.addEventListener('click', (e) => e.stopPropagation());
+  document.body.appendChild(weatherBackdropEl);
+  document.body.appendChild(weatherPopoverEl);
+}
+
+function closeWeatherPopover() {
+  if (!weatherPopoverEl) return;
+  weatherPopoverEl.classList.remove('active');
+  weatherBackdropEl.classList.remove('active');
+  weatherPopoverKey = null;
+}
+
+function openWeatherPopover(triggerEl, game) {
+  ensureWeatherPopover();
+  const key = gameKey(game);
+  if (weatherPopoverKey === key && weatherPopoverEl.classList.contains('active')) {
+    closeWeatherPopover();
+    return;
+  }
+  const hours = getGameWeatherHours(game);
+  if (!hours || !hours.length) return;
+  const title = '<strong>' + game.field + '</strong> ' + game.date.substring(5) + ' ' + game.time + ' 開賽';
+  const hoursHTML = hours.map(h => {
+    const rainClass = h.rain >= 50 ? ' rain-high' : '';
+    const gameClass = h.isGame ? ' is-game' : '';
+    return '<div class="weather-hour' + gameClass + '">' +
+      '<div class="weather-hour-time">' + h.hour + '時</div>' +
+      '<div class="weather-hour-icon">' + h.icon + '</div>' +
+      '<div class="weather-hour-temp">' + h.temp + '°</div>' +
+      '<div class="weather-hour-rain' + rainClass + '">' + h.rain + '%</div>' +
+    '</div>';
+  }).join('');
+  weatherPopoverEl.innerHTML =
+    '<div class="weather-popover-header"><span>' + title + '</span>' +
+    '<button type="button" class="weather-popover-close" aria-label="關閉">×</button></div>' +
+    '<div class="weather-hours">' + hoursHTML + '</div>';
+  weatherPopoverEl.querySelector('.weather-popover-close').addEventListener('click', closeWeatherPopover);
+  weatherPopoverKey = key;
+  weatherBackdropEl.classList.add('active');
+  weatherPopoverEl.classList.add('active');
+  if (window.innerWidth > 768) positionWeatherPopover(triggerEl);
+  else {
+    weatherPopoverEl.style.top = '';
+    weatherPopoverEl.style.left = '';
+  }
+}
+
+function positionWeatherPopover(triggerEl) {
+  const rect = triggerEl.getBoundingClientRect();
+  const popRect = weatherPopoverEl.getBoundingClientRect();
+  const gap = 8;
+  const margin = 12;
+  const scrollY = window.scrollY || window.pageYOffset;
+  const scrollX = window.scrollX || window.pageXOffset;
+  let top = rect.bottom + scrollY + gap;
+  const spaceBelow = window.innerHeight - rect.bottom;
+  if (spaceBelow < popRect.height + gap + margin && rect.top > popRect.height + gap + margin) {
+    top = rect.top + scrollY - popRect.height - gap;
+  }
+  let left = rect.left + scrollX + rect.width / 2 - popRect.width / 2;
+  const maxLeft = scrollX + window.innerWidth - popRect.width - margin;
+  const minLeft = scrollX + margin;
+  if (left > maxLeft) left = maxLeft;
+  if (left < minLeft) left = minLeft;
+  weatherPopoverEl.style.top = top + 'px';
+  weatherPopoverEl.style.left = left + 'px';
+}
+
+document.addEventListener('click', (e) => {
+  const btn = e.target.closest('.card-weather.clickable');
+  if (!btn) return;
+  const key = btn.getAttribute('data-weather-key');
+  const game = allGames.find(g => gameKey(g) === key);
+  if (game) openWeatherPopover(btn, game);
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeWeatherPopover();
+});
+
+window.addEventListener('resize', () => {
+  if (weatherPopoverKey && window.innerWidth > 768) {
+    const btn = document.querySelector('.card-weather.clickable[data-weather-key="' + weatherPopoverKey + '"]');
+    if (btn) positionWeatherPopover(btn);
+    else closeWeatherPopover();
+  }
+});
 
 async function loadWeather() {
   const now = new Date();
@@ -1224,6 +1388,7 @@ function buildDetail(g) {
 }
 
 function render() {
+  if (typeof closeWeatherPopover === 'function') closeWeatherPopover();
   const list = getFiltered();
   const tbody = document.getElementById('tbody');
   const emptyTable = document.getElementById('empty-table');
