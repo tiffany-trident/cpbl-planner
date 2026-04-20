@@ -16,10 +16,11 @@
 ## RAW_DATA 格式
 
 ```
-[日期, 時間, 客隊, 主隊, 球場, 客分, 主分, 勝投, 敗投, 救援, MVP, GameResult]
+[日期, 時間, 客隊, 主隊, 球場, 客分, 主分, 勝投, 敗投, 救援, MVP, GameResult, GameSno]
 ```
 
 - `GameResult`: `"0"` 已完賽 / `"1"` 延賽取消 / `""` 未賽
+- `GameSno`: 3 位零填字串（例 `"001"`），用來對應 `const BRIEFINGS` 賽事簡報
 
 ## 功能
 
@@ -36,6 +37,7 @@
 - 購票按鈕：未來非延賽場次，依主場球隊連結售票網站
 - 高鐵訂票按鈕：未來非延賽場次，依球場對應高鐵站（花蓮不顯示）
 - 球場天氣預報：Open-Meteo API 即時抓取，未來 7 天場次顯示溫度 + 降雨率（72hr 內逐時、3~7 天全日概況），localStorage 快取 3 小時，詳見 [weather.md](docs/weather.md)
+- 賽事簡報：已完賽場次卡片 footer「📋 簡報」pill，點擊展開 CPBL 連勝連敗、里程碑紀錄，詳見 [briefings.md](docs/briefings.md)
 
 ## 設計風格
 
@@ -71,7 +73,10 @@
 - `scripts/update-scores.ps1` — PowerShell 版抓取腳本（本機排程用）
 - `scripts/update-scores.bat` — Task Scheduler 包裝 bat
 - `.github/workflows/update-scores.yml` — 自動更新 workflow（排程已停用）
-- `docs/scoreupdate.md` — 比分更新方案評估與進度記錄
+- `data/briefings.json` — CPBL 賽事簡報快取
+- `docs/scoreupdate.md` — 比分更新方案（現行方案 D）與進度記錄
+- `docs/scoreupdate-history.md` — 境外 serverless 失敗方案歷史記錄
+- `docs/briefings.md` — 賽事簡報功能實作細節
 - `docs/uidesign.md` — UI 設計原則與風格系統
 - `docs/uidesign-changelog.md` — UI 實作紀錄與 Bug 修正
 - `docs/weather.md` — 天氣預報功能實作細節
