@@ -75,6 +75,7 @@
 - `docs/uidesign.md` — UI 設計原則與風格系統
 - `docs/uidesign-changelog.md` — UI 實作紀錄與 Bug 修正
 - `docs/weather.md` — 天氣預報功能實作細節
+- `docs/theme-days.md` — 主場主題日功能規劃與資料來源
 - `design/pencil-new.pen` — Pencil 設計檔
 - `icon-preview/` — icon 預覽與 SVG 素材
 - `images/` — 生成圖片素材

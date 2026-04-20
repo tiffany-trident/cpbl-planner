@@ -154,8 +154,9 @@ svg.section-icon { width: 28px; height: 28px; }
 .date-header { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
 .date-header-text { font-size: 15px; font-weight: 700; color: #4A3728; white-space: nowrap; }
 .date-header-line { flex: 1; height: 1px; background: #EEECEA; }
-.card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-.game-card { background: #FFF; border-radius: 16px; box-shadow: 0 3px 12px rgba(212,196,171,0.12); border: 1px solid #F0EBDF; overflow: hidden; transition: transform 0.15s, box-shadow 0.15s; }
+.card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; align-items: stretch; }
+.game-card { background: #FFF; border-radius: 16px; box-shadow: 0 3px 12px rgba(212,196,171,0.12); border: 1px solid #F0EBDF; overflow: hidden; transition: transform 0.15s, box-shadow 0.15s; display: flex; flex-direction: column; }
+.game-card > .card-body { flex: 1 1 auto; }
 .game-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(212,196,171,0.2); }
 .game-card.card-today { border-color: #F0D9B5; }
 .card-top { display: flex; justify-content: space-between; align-items: center; padding: 14px 18px 12px; background: #FFFAF2; }
@@ -178,6 +179,11 @@ svg.section-icon { width: 28px; height: 28px; }
 .score-lose { color: #B8A692; }
 .score-postponed { font-size: 13px; color: #8B6BAE; font-weight: 600; }
 .card-detail { text-align: center; padding: 8px 0 0; }
+.theme-day-wrap { text-align: center; margin-top: 10px; }
+.theme-day-badge { display: inline-block; max-width: 100%; padding: 4px 12px; background: #FDF6EE; border: 1px solid #E8D5B8; border-radius: 14px; font-size: 12px; font-weight: 600; color: #C2573A; text-decoration: none; line-height: 1.5; transition: all 0.2s; }
+.theme-day-badge:hover { background: #C2573A; color: #fff; border-color: #C2573A; }
+.theme-day-sub { color: #8B7B66; font-weight: 500; }
+.theme-day-badge:hover .theme-day-sub { color: #FDF6EE; }
 .card-footer { display: flex; justify-content: space-between; align-items: center; padding: 10px 18px; border-top: 1px solid #F0EBDF; }
 .card-footer-tags { display: flex; flex-wrap: wrap; gap: 4px; }
 .card-footer-buttons { display: flex; gap: 6px; }
@@ -552,6 +558,7 @@ let allGames = [];
 let statusFilter = 'future'; // 'all' | 'future' | 'past'
 let weatherCache = {};      // { stadium: { data, ts } }
 let weatherLoading = false;
+let themeDaysData = {};     // { "YYYY-MM-DD": [{home_team, title, subtitle, source_url}, ...] }
 
 // ── 天氣工具函式 ──
 function getWeatherInfo(code) {
@@ -803,6 +810,18 @@ async function loadWeather() {
   await fetchWeatherForStadiums([...stadiums]);
   weatherLoading = false;
   render();
+}
+
+async function loadThemeDays() {
+  try {
+    const res = await fetch('data/theme_days.json');
+    if (!res.ok) return;
+    const d = await res.json();
+    themeDaysData = d.days || {};
+    render();
+  } catch (e) {
+    console.warn('theme days load failed', e);
+  }
 }
 
 // ── RAW_DATA: [日期, 時間, 客隊, 主隊, 球場, 客分, 主分, 勝投, 敗投, 救援, MVP, GameResult] ──
@@ -1203,6 +1222,7 @@ function loadData() {
   initFilters();
   render();
   loadWeather();
+  loadThemeDays();
 }
 
 // ── Hero 資訊列動態計算 ──
@@ -1387,6 +1407,16 @@ function buildDetail(g) {
   return '<div class="game-detail">' + parts.join('') + '</div>';
 }
 
+function buildThemeDayHTML(g) {
+  if (!g.isFuture || g.postponed) return '';
+  const entries = themeDaysData[g.date];
+  if (!entries) return '';
+  const match = entries.find(e => e.home_team === g.home);
+  if (!match) return '';
+  const sub = match.subtitle ? ' <span class="theme-day-sub">· ' + match.subtitle + '</span>' : '';
+  return '<div class="theme-day-wrap"><a class="theme-day-badge" href="' + match.source_url + '" target="_blank" rel="noopener" title="點擊查看官方公告">🎉 ' + match.title + sub + '</a></div>';
+}
+
 function render() {
   if (typeof closeWeatherPopover === 'function') closeWeatherPopover();
   const list = getFiltered();
@@ -1471,6 +1501,7 @@ function render() {
     const ticketUrl = g.isFuture && !g.postponed ? (TEAM_TICKET[g.home] || '') : '';
     const hsrStation = g.isFuture && !g.postponed ? (STADIUM_HSR[g.field] || '') : '';
     const detail = buildDetail(g);
+    const themeDayBadge = buildThemeDayHTML(g);
 
     const hasButtons = ticketUrl || hsrStation;
 
@@ -1492,6 +1523,7 @@ function render() {
             '<span class="card-team-name" style="color:' + getTeamColor(g.home) + '">' + hs + '</span>' +
           '</div>' +
         '</div>' +
+        themeDayBadge +
         (detail ? '<div class="card-detail">' + detail + '</div>' : '') +
       '</div>' +
       '<div class="card-footer">' +
