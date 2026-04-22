@@ -820,7 +820,7 @@ window.addEventListener('resize', () => {
   }
 });
 
-// ── 賽事簡報 popover ──
+// ── 賽事記錄 popover ──
 let briefingPopoverEl = null;
 let briefingBackdropEl = null;
 let briefingPopoverKey = null;
@@ -935,7 +935,7 @@ async function loadThemeDays() {
 // ── RAW_DATA: [日期, 時間, 客隊, 主隊, 球場, 客分, 主分, 勝投, 敗投, 救援, MVP, GameResult, GameSno] ──
 // GameResult: "0" = 已完賽, "1" = 延賽/取消, "" = 未賽
 // GameSno: CPBL 場次序號（3 位零填字串），用來對應 BRIEFINGS
-// BRIEFINGS: CPBL 賽事簡報，由 update-scores.ps1 抓 /box/getlive 寫入
+// BRIEFINGS: CPBL 賽事記錄，由 update-scores.ps1 抓 /box/getlive 寫入
 // BRIEFINGS-START
 const BRIEFINGS = {
   "001": "\u003cp\u003e\u003cspan\u003e技術室人員：羅鈞鴻、周駿勝、陳宋卿\u003cbr /\u003e\u003cbr /\u003e\u003c/span\u003e\u003c/p\u003e\n\u003cp\u003e◎裁判員 木內九二生 CPBL生涯首次一軍執法\u003c/p\u003e\n\u003cp\u003e◎中信兄弟 開幕戰 3 連敗 平聯盟記錄\u003cbr /\u003e◎中信兄弟 中斷對戰 樂天桃猿 跨季 2 連勝(2025/09/27~)\u003cbr /\u003e◎羅　戈 300奪三振達成(2局下)、中斷跨季連續 22 局無失分(2025/09/12~)、對戰樂天桃猿 跨季連續 13 局無失分(2025/09/12~)\u003cbr /\u003e◎江坤宇 跨季連續 14 場上壘(2025/09/16~)、跨季連續 9 場安打(2025/09/25~)\u003cbr /\u003e◎王威晨 跨季連續 11 場上壘(2025/09/20~)\u003cbr /\u003e◎王凱程 跨季連續 5 場救援失敗(2025/05/27~)\u003c/p\u003e\n\u003cp\u003e◎樂天桃猿 中斷主場 跨季 3 連敗( 2025/09/27~)\u003cbr /\u003e◎樂天桃猿 中斷對戰 中信兄弟 跨季 2 連敗( 2025/09/27~)\u003cbr /\u003e◎威能帝 跨季連續 26 局無失分(2025/09/19~)\u003cbr /\u003e◎林子偉 跨季連續 8 盜壘成功(2025/08/22~)\u003cbr /\u003e◎歐　晉 100出賽數達成\u003c/p\u003e\n\u003cp\u003e\u003cspan\u003e\u0026nbsp;\u003c/span\u003e\u003c/p\u003e",
@@ -1693,7 +1693,7 @@ function render() {
         (hasButtons ? '<div class="card-footer-buttons">' +
           (ticketUrl ? '<a class="btn-ticket" href="' + ticketUrl + '" target="_blank" rel="noopener">🎫 購票</a>' : '') +
           (hsrStation ? '<a class="btn-hsr" href="' + HSR_BOOKING_URL + '" target="_blank" rel="noopener">🚄 ' + hsrStation + '</a>' : '') +
-          (hasBriefing ? '<button type="button" class="btn-briefing" data-briefing-key="' + gameKey(g) + '">📋 簡報</button>' : '') +
+          (hasBriefing ? '<button type="button" class="btn-briefing" data-briefing-key="' + gameKey(g) + '">📋 賽事記錄</button>' : '') +
         '</div>' : '') +
       '</div>' +
     '</div>';
