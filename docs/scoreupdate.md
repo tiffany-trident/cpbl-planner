@@ -6,11 +6,11 @@
 
 ## 🔖 進度記錄
 
-### 2026-04-20 — Task Scheduler 錯過補跑 + 賽事簡報
+### 2026-04-20 — Task Scheduler 錯過補跑 + 賽事記錄
 
 - Task Scheduler 04/18~04/20 連續 3 天未執行（週末電腦關機 + 週一 09:00 還沒開機），手動跑 `update-scores.bat` 補上，commit `d18f33e`
 - 用 `Set-ScheduledTask -Settings.StartWhenAvailable = $true` 讓下次錯過排程時開機後自動補跑
-- 卡片加入「📋 簡報」pill 顯示 CPBL 賽事簡報（連勝連敗、里程碑），commit `3fec3c0`。詳見 [briefings.md](briefings.md)
+- 卡片加入「📋 賽事記錄」pill 顯示 CPBL 賽事記錄（連勝連敗、里程碑），commit `3fec3c0`。詳見 [briefings.md](briefings.md)
 
 ### 2026-04-15 之前 — 方案 D 上線
 
@@ -39,7 +39,7 @@
 
 ## PowerShell 5.1 中文字面陷阱
 
-2026-04-20 做賽事簡報功能時踩到的坑，記下以免重犯：
+2026-04-20 做賽事記錄功能時踩到的坑，記下以免重犯：
 
 1. **UTF-8 無 BOM 的 `.ps1` 檔，Chinese 註解會汙染下一行字串字面**
    - 症狀：`$x = '// something'` 結果 `$x` 是空字串，但 length 顯示正常
@@ -102,5 +102,5 @@ Set-ScheduledTask -TaskName 'CPBL 比分自動更新' -Settings $t.Settings
 - [scripts/update-scores.ps1](../scripts/update-scores.ps1) — 現行 PowerShell 抓取腳本
 - [scripts/update-scores.bat](../scripts/update-scores.bat) — Task Scheduler 包裝 bat
 - [logs/update-scores.log](../logs/update-scores.log) — 執行 log
-- [briefings.md](briefings.md) — 賽事簡報功能（由同一支腳本維護）
+- [briefings.md](briefings.md) — 賽事記錄功能（由同一支腳本維護）
 - [scoreupdate-history.md](scoreupdate-history.md) — 歷史失敗方案（CF Worker、GAS 等）

@@ -1,136 +1,74 @@
 # CPBL 2026 進場倒數
 
-單頁 HTML 工具，篩選 2026 中華職棒一軍例行賽場次，規劃看球行程並查詢比賽結果。
+單頁 HTML 工具，規劃 2026 中華職棒一軍例行賽看球行程。
 
 - 線上：https://tiffany-trident.github.io/cpbl-planner/
 - GitHub：https://github.com/tiffany-trident/cpbl-planner
 
-## 資料來源
+---
 
-- CPBL 官網 API `POST /schedule/getgamedatas`（需 `RequestVerificationToken`）
-- 取得 token：先 GET `/schedule` 取得 cookie 與頁面內嵌 token
-- 364 場（含延賽），6 隊，11 球場，2026-03-28 ~ 2026-09-28
-- 資料內嵌於 HTML，各隊 logo 引用 cpbl.com.tw
-- 戰績區標註資料來源：https://cpbl.com.tw/standings/season
+## 開工前必讀
 
-## RAW_DATA 格式
+每次 session 一開始，以及每個任務動手前，**先依任務類型讀對應 docs**，不要憑印象推論。
 
-```
-[日期, 時間, 客隊, 主隊, 球場, 客分, 主分, 勝投, 敗投, 救援, MVP, GameResult, GameSno]
-```
+| 任務類型 | 必讀 |
+|---------|------|
+| UI / 視覺 / 字體 / 圖示 | [docs/uidesign.md](docs/uidesign.md) / [docs/uidesign-changelog.md](docs/uidesign-changelog.md) |
+| 功能規劃 / 黏著度 Roadmap | [docs/engagement.md](docs/engagement.md) |
+| 現有功能清單 | [docs/features.md](docs/features.md) |
+| 資料來源 / API / RAW_DATA 格式 | [docs/data-source.md](docs/data-source.md) |
+| 自動更新 / 部署方案 | [docs/scoreupdate.md](docs/scoreupdate.md) / [docs/scoreupdate-history.md](docs/scoreupdate-history.md) |
+| 天氣預報 | [docs/weather.md](docs/weather.md) |
+| 賽事記錄 | [docs/briefings.md](docs/briefings.md) |
+| 主場主題日 | [docs/theme-days.md](docs/theme-days.md) |
+| 外部連結資料（購票網站、高鐵站對應） | [docs/external-links.md](docs/external-links.md) |
 
-- `GameResult`: `"0"` 已完賽 / `"1"` 延賽取消 / `""` 未賽
-- `GameSno`: 3 位零填字串（例 `"001"`），用來對應 `const BRIEFINGS` 賽事簡報
+## 設計原則
 
-## 功能
+### 調性
+- 參考 **Snoopy Museum Tokyo 的「卡通活潑」感**（不是博物館典雅）
+- **絕對不使用 Snoopy 或任何版權角色 IP** — 只取調性，不用角色
+- 彩色插畫 > 線條圖示，Tabler Icons 只做 UI 輔助（filter、search、arrow），不當主要視覺
 
-- 隊伍／對手多選 chip 按鈕，球場、月份下拉篩選
-- 週末／週末+國定假日篩選，台灣 2026 國定假日內建
-- 場次狀態三段切換：未來場次（預設）／全部／已結束
-- 已完賽：比分（勝方奶茶棕、敗方灰）+ W/L/SV/MVP 彩色 pill 標籤
-- 延賽：紫色 badge，不顯示比分
-- 今日：橘色 badge + 淡橘背景高亮
-- 同日多場分組：桌面版日期僅首場顯示 + 分隔列；手機版日期標題分組
-- 狀態 badge 僅「全部」模式顯示
-- 統計列：篩選結果／週末／假日依篩選計算；已完賽／未來／延賽從全部資料計算
-- 各隊戰績排行榜（頁頂，依勝率排序，表格式含排名編號、勝/敗/和/勝率/勝差 GB）
-- 購票按鈕：未來非延賽場次，依主場球隊連結售票網站
-- 高鐵訂票按鈕：未來非延賽場次，依球場對應高鐵站（花蓮不顯示）
-- 球場天氣預報：Open-Meteo API 即時抓取，未來 7 天場次顯示溫度 + 降雨率（72hr 內逐時、3~7 天全日概況），localStorage 快取 3 小時，詳見 [weather.md](docs/weather.md)
-- 賽事簡報：已完賽場次卡片 footer「📋 簡報」pill，點擊展開 CPBL 連勝連敗、里程碑紀錄，詳見 [briefings.md](docs/briefings.md)
+### 配色
+- 淺色清爽為主，避免色彩太重
+- 赤陶紅 `#C2573A` 為重點色
+- 完整色彩系統見 [docs/uidesign.md](docs/uidesign.md)
 
-## 設計風格
+### 字體
+- **jf-openhuninn（粉圓）為主**，Inter + Noto Sans TC 為輔
+- **避免襯線體 Noto Serif TC**（偏離卡通方向）
+- 日文字體（Hachi Maru Pop 等）**不含繁中字形**，不能用於中文顯示
 
-參考 Snoopy Museum Tokyo 風格，溫暖卡片式設計。
+### 素材授權
+- 使用 Flaticon Free、CC BY 等授權素材時，**production 部署前必須加 attribution**
+- 目前使用清單與 attribution 條款見 memory `project_flaticon_attribution.md`
 
-- 暖色調：背景 `#FDFCFA`、卡片 `#FFF`、主文字 `#4A3728`、重點色 `#C2573A`（赤陶紅）
-- 字體：Inter + Noto Sans TC；Hero 標題用 Noto Serif TC
-- 結構：Nav（頂部錨點導航）→ Hero（置中標題 + emoji 裝飾 🏏⚾）→ 戰績 → 篩選 → 統計 → 卡片網格 → 深棕頁尾
-- **Nav 錨點導航**：戰績／篩選／賽程三個連結，smooth scroll 到對應區塊，hover 赤陶紅，`position: sticky` 置頂固定
-- **區塊節奏**：各區塊用 `.section-header`（Noto Serif TC 標題 + 漸層橫線）劃分，戰績區白底、篩選區米白底交替
-- **統一卡片網格**（桌面 3 欄 / 平板 2 欄 / 手機 1 欄），不再使用表格
-- 卡片結構：頂部欄（時間 + 球場 `◉`）→ 對戰區（logo 圓形 + VS/比分）→ 詳情 pill → footer（標籤 + 購票/高鐵按鈕同列，不再重複顯示球場）
-- **篩選區**：分兩張 `.filter-card` 白底圓角卡片（「隊伍篩選」＋「條件篩選」），各有標題
-- 日期分組：每日一個 `.date-group`，有橫線延伸的日期標題
-- 卡片特殊狀態：
-  - 今日 → `card-top-today` 橘色頂部背景
-  - 延賽 → `card-top-postponed` 紫色頂部背景 + 延賽 badge
-  - 已完賽 → 大字比分（`26px` 粗體），勝方赤陶紅、敗方灰
-- 圓潤風格：Chip `border-radius: 22px`、按鈕 `20px`、下拉/Toggle `12px`、卡片 `16px`
-- Toggle 採膠囊 + 白色 active 區塊樣式（iOS 風格）
-- Badge 色系：週六藍、週日紅、假日赤陶、今日橘、延賽紫、未來綠、已結束灰
-- 隊名使用完整 3-4 字（中信兄弟、樂天桃猿、富邦悍將、味全龍、台鋼雄鷹、統一獅）
-- 戰績區：圓角表格排行榜，每列顯示排名 + logo + 隊名 + 勝/敗/和 + 勝率 + 勝差（含底部 bar 視覺化），領先者淡金底色
-- **統計列**：白底圓角卡片式 summary bar，數字加大加粗（`15px`/`800`），`.stat-item` 包裹各項，圓點 `●` 分隔
-- 頁尾：深棕 `#3D3122` 背景 + 裝飾元素 `● —— ◆ —— ●`
-
-## 檔案結構
-
-- `index.html` — 部署主檔（與 cpbl-planner.html 同步）
-- `cpbl-planner.html` — 開發檔
-- `data/games_data.json` — 賽程原始資料備份
-- `scripts/fetch-scores.sh` — 資料抓取腳本
-- `scripts/update-scores.ps1` — PowerShell 版抓取腳本（本機排程用）
-- `scripts/update-scores.bat` — Task Scheduler 包裝 bat
-- `.github/workflows/update-scores.yml` — 自動更新 workflow（排程已停用）
-- `data/briefings.json` — CPBL 賽事簡報快取
-- `docs/scoreupdate.md` — 比分更新方案（現行方案 D）與進度記錄
-- `docs/scoreupdate-history.md` — 境外 serverless 失敗方案歷史記錄
-- `docs/briefings.md` — 賽事簡報功能實作細節
-- `docs/uidesign.md` — UI 設計原則與風格系統
-- `docs/uidesign-changelog.md` — UI 實作紀錄與 Bug 修正
-- `docs/weather.md` — 天氣預報功能實作細節
-- `docs/theme-days.md` — 主場主題日功能規劃與資料來源
-- `design/pencil-new.pen` — Pencil 設計檔
-- `icon-preview/` — icon 預覽與 SVG 素材
-- `images/` — 生成圖片素材
-- `cloudflare-worker/` — Cloudflare Worker 腳本
-- `google-apps-script/` — Google Apps Script 腳本
-
-## 自動更新
-
-- 現行方案：本機 Windows Task Scheduler 每日執行 `scripts/update-scores.bat`
-- 流程：CPBL API → RAW_DATA → 更新 index.html + cpbl-planner.html → git push
-- 僅資料有變更時才 commit
-- GitHub Actions 排程已停用（CPBL 封鎖境外 IP）
-- 注意：GitHub Pages 有瀏覽器快取，更新 push 後使用者可能需要 Ctrl+Shift+R 才能看到最新資料
-- 詳細方案評估、除錯記錄與待辦事項見 [scoreupdate.md](docs/scoreupdate.md)
-
-## 各隊購票連結
-
-| 球隊 | 網址 |
-|------|------|
-| 樂天桃猿 | https://ticket.ibon.com.tw/Index/Sport |
-| 中信兄弟 | https://tix.brothers.tw/ |
-| 統一7-ELEVEn獅 | https://ticket.ibon.com.tw/Index/Sport |
-| 富邦悍將 | https://guardians.fami.life/ |
-| 味全龍 | https://tix.wdragons.com/ |
-| 台鋼雄鷹 | https://ticket.tsghawks.com/ |
-
-## 球場高鐵站對應
-
-| 球場 | 高鐵站 |
-|------|--------|
-| 大巨蛋 / 天母 | 台北 |
-| 新莊 | 板橋 |
-| 樂天桃園 | 桃園 |
-| 洲際 | 台中 |
-| 嘉義市 | 嘉義 |
-| 亞太主 | 台南 |
-| 澄清湖 | 左營 |
-| 斗六 | 雲林 |
-| 花蓮 | 無高鐵站 |
-
-- 高鐵訂票連結：`https://irs.thsrc.com.tw/IMINT/`（不支援 URL 參數帶入目的站）
-
-## 資料正確性
+## 資料正確性（硬規則）
 
 - **絕對不可自行編造或猜測比賽結果**，所有已完賽資料必須來自 CPBL 官方 API
-- API 回傳為唯一真實來源，不可從記憶或推測產生
-- 驗證資料應重新呼叫 API 比對
+- API 回傳是**唯一真實來源**，不可從記憶或推測產生
+- 驗證資料時應重新呼叫 API 比對
 
-## 部署
+## 部署原則
 
 - GitHub Pages 從 `main` 分支 `index.html` 部署
-- 修改 `cpbl-planner.html` 後需同步到 `index.html` 再 push
-- GitHub Actions 自動更新時會同時更新兩個檔案
+- **修改 `cpbl-planner.html` 後必須同步到 `index.html` 再 push**
+- GitHub Actions 自動更新 workflow 會同時更新兩個檔案
+- GitHub Pages 有瀏覽器快取，push 後使用者可能需要 Ctrl+Shift+R 才能看到最新資料
+- **改動 CSS / 字體 / CDN 後必須自行驗證生效**，不可只靠推論假設
+- 現行自動更新方案為本機 Windows Task Scheduler（境外 serverless 全數失敗，見 [docs/scoreupdate-history.md](docs/scoreupdate-history.md)）
+
+## 目錄結構（概要）
+
+| 路徑 | 用途 |
+|-----|------|
+| `index.html` / `cpbl-planner.html` | 主程式檔（兩者需保持同步） |
+| `data/` | 資料 JSON 與快取（`games_data.json`、`briefings.json`） |
+| `scripts/` | 自動更新抓取腳本（`fetch-scores.sh`、`update-scores.ps1`、`update-scores.bat`） |
+| `docs/` | 功能規格、架構、設計文件 |
+| `design/` | Pencil 設計檔、HTML 視覺稿 |
+| `icon-preview/` | icon 素材庫 + 預覽頁 |
+| `images/` | 生成圖片素材 |
+| `cloudflare-worker/` / `google-apps-script/` | 境外 serverless 嘗試（已驗證失敗） |
+| `.github/workflows/` | GitHub Actions（目前排程已停用） |

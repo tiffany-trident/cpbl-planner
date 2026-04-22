@@ -1,6 +1,6 @@
-# 賽事簡報功能
+# 賽事記錄功能
 
-2026-04-20 上線。已完賽場次卡片 footer 多一個「📋 簡報」pill，點擊展開 CPBL 官方的「賽事簡報」（連勝連敗紀錄、個人里程碑等）。
+2026-04-20 上線。已完賽場次卡片 footer 多一個「📋 賽事記錄」pill，點擊展開 CPBL 官方的「賽事簡報」（連勝連敗紀錄、個人里程碑等）。
 
 ## 資料來源
 
@@ -66,7 +66,7 @@ const BRIEFINGS = {};
 const hasBriefing = g.completed && g.sno && BRIEFINGS[g.sno];
 ```
 
-有 briefing 才渲染 `<button class="btn-briefing">📋 簡報</button>`，點擊開啟 popover（架構類似天氣 popover，桌面彈窗、手機 bottom sheet）。
+有 briefing 才渲染 `<button class="btn-briefing">📋 賽事記錄</button>`，點擊開啟 popover（架構類似天氣 popover，桌面彈窗、手機 bottom sheet）。
 
 ## 已知限制
 
