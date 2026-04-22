@@ -1,0 +1,1944 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CPBL Planner · Phase 1 & 2 視覺稿預覽</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Serif+TC:wght@600;700;800&family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+@font-face {
+  font-family: 'jf-openhuninn';
+  src: url('https://cdn.jsdelivr.net/gh/marsnow/open-huninn-font@1.1/font/jf-openhuninn.woff2') format('woff2'),
+       url('https://cdn.jsdelivr.net/gh/marsnow/open-huninn-font@1.1/font/jf-openhuninn.woff') format('woff');
+  font-display: swap;
+}
+</style>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+<style>
+:root {
+  --bg-warm: #FDFCFA;
+  --bg-cream: #FAFAF8;
+  --bg-soft: #F5F1EB;
+  --surface: #FFFFFF;
+  --surface-soft: #FDF8F0;
+  --surface-dark: #3D3122;
+  --surface-darker: #2C241A;
+  --text-primary: #3D3122;
+  --text-secondary: #6B5F50;
+  --text-muted: #9B8E7E;
+  --text-faint: #B8A692;
+  --accent-terracotta: #8F5A3C;
+  --accent-gold: #C49A4A;
+  --accent-gold-soft: #FFF5D6;
+  --accent-gold-muted: #F0E4CF;
+  --accent-red: #C2573A;
+  --border-light: #EEECEA;
+  --border-subtle: #E0D9CC;
+  --team-brothers: #C49A20;
+  --team-monkeys: #B52828;
+  --team-guardians: #3468C0;
+  --team-lions: #C46A18;
+  --team-dragons: #6D30B8;
+  --team-hawks: #1A6B3A;
+  --win: #1A6B3A;
+  --lose: #B52828;
+  --today: #D48C2E;
+  --postponed: #8B6BAE;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', 'Noto Sans TC', -apple-system, sans-serif;
+  background: var(--bg-soft);
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+.serif { font-family: 'Noto Serif TC', serif; }
+
+/* Page header */
+.page-hdr {
+  background: linear-gradient(180deg, #FFF 0%, #FDF8F0 100%);
+  padding: 64px 80px 48px;
+  border-bottom: 1px solid var(--border-light);
+  text-align: center;
+}
+.page-hdr h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 38px;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+.page-hdr .sub {
+  font-size: 14px;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+}
+.toc {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 24px;
+}
+.toc a {
+  padding: 6px 14px;
+  border-radius: 20px;
+  background: #FFF;
+  border: 1px solid var(--border-subtle);
+  color: var(--accent-terracotta);
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.toc a:hover {
+  background: var(--accent-terracotta);
+  color: #FFF;
+  border-color: var(--accent-terracotta);
+}
+
+/* Section wrapper */
+.section {
+  padding: 64px 60px;
+  border-bottom: 1px solid var(--border-light);
+}
+.section:nth-of-type(even) { background: var(--bg-warm); }
+.section-hdr {
+  max-width: 1320px;
+  margin: 0 auto 32px;
+  text-align: center;
+}
+.section-hdr .eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent-gold);
+  letter-spacing: 3px;
+  margin-bottom: 8px;
+}
+.section-hdr h2 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+.section-hdr .desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  max-width: 640px;
+  margin: 0 auto;
+}
+.canvas {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 40px;
+  background: var(--surface);
+  border-radius: 24px;
+  box-shadow: 0 4px 20px rgba(61, 49, 34, 0.06);
+}
+.dim-bg {
+  background: rgba(61, 49, 34, 0.6);
+  padding: 60px 40px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* === Phase 1-A: Onboarding Modal === */
+.onb {
+  background: #FFF;
+  border-radius: 24px;
+  padding: 52px 56px;
+  width: 760px;
+  max-width: 100%;
+  box-shadow: 0 12px 40px rgba(61, 49, 34, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 36px;
+}
+.onb-hdr { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.onb-hdr .ball { font-size: 44px; color: var(--accent-gold); }
+.onb-hdr h3 { font-family: 'Noto Serif TC', serif; font-size: 30px; font-weight: 700; letter-spacing: 1.5px; }
+.onb-hdr p { font-size: 14px; color: var(--text-muted); }
+.onb-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  width: 100%;
+}
+.team-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 12px;
+  border-radius: 16px;
+  background: var(--bg-warm);
+  border: 2px solid var(--border-light);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.team-card:hover { border-color: var(--accent-gold); background: var(--surface-soft); }
+.team-card.selected {
+  background: var(--surface-soft);
+  border-color: var(--accent-gold);
+}
+.team-card.selected .team-name { color: var(--accent-terracotta); font-weight: 700; }
+.team-logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+}
+.team-name { font-size: 13px; font-weight: 600; color: var(--text-primary); }
+.onb-skip { font-size: 13px; color: var(--text-faint); text-decoration: underline; cursor: pointer; }
+
+/* === Game Card === */
+.card-demo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 1180px; margin: 0 auto; }
+.card-demo-col { display: flex; flex-direction: column; gap: 10px; }
+.card-demo-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+}
+.card-demo-label.active { color: var(--accent-gold); }
+.gcard {
+  background: var(--surface);
+  border-radius: 16px;
+  border: 1px solid var(--border-light);
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(61, 49, 34, 0.06);
+}
+.gcard.starred {
+  border: 2px solid var(--accent-gold);
+  box-shadow: 0 4px 16px rgba(196, 154, 74, 0.2);
+}
+.gcard-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border-light);
+}
+.gcard.starred .gcard-top { background: var(--surface-soft); border-bottom-color: var(--accent-gold-muted); }
+.gcard-time-venue { display: flex; align-items: center; gap: 8px; }
+.gcard-time-venue .time { font-size: 15px; font-weight: 700; color: var(--text-primary); }
+.gcard-time-venue .dot { color: var(--text-faint); font-size: 6px; }
+.gcard-time-venue .venue { font-size: 13px; color: var(--text-muted); }
+.gcard-star { font-size: 22px; color: var(--text-faint); cursor: pointer; }
+.gcard-star.active { color: var(--accent-gold); }
+.gcard-vs {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+}
+.vs-team { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.vs-team .logo { width: 52px; height: 52px; border-radius: 50%; }
+.vs-team .logo.sm { width: 44px; height: 44px; }
+.vs-team .name { font-size: 13px; font-weight: 600; color: var(--text-primary); }
+.vs-team .name.sm { font-size: 12px; }
+.vs-text { font-size: 16px; font-weight: 700; color: var(--text-faint); letter-spacing: 2px; }
+.vs-score { display: flex; align-items: center; gap: 12px; }
+.vs-score .score { font-size: 30px; font-weight: 800; }
+.vs-score .score.win { color: var(--accent-red); }
+.vs-score .score.lose { color: var(--text-faint); }
+.vs-score .colon { font-size: 24px; font-weight: 700; color: var(--text-faint); }
+.gcard-pills { display: flex; gap: 6px; padding: 4px 20px; }
+.stat-pill { padding: 3px 8px; border-radius: 12px; font-size: 11px; font-weight: 700; }
+.stat-pill.win { background: #E8F5EC; color: var(--win); }
+.stat-pill.lose { background: #FCEEEC; color: var(--lose); }
+.stat-pill.mvp { background: var(--accent-gold-soft); color: var(--accent-terracotta); }
+.gcard-bot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  background: var(--bg-warm);
+}
+.gcard.starred .gcard-bot { background: var(--surface-soft); }
+.gcard-bot-left { display: flex; gap: 8px; }
+.btn-pill { padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; border: none; cursor: pointer; }
+.btn-pill.ticket { background: #FFF3E0; color: var(--accent-terracotta); }
+.btn-pill.train { background: #E8F1FD; color: var(--team-guardians); }
+.btn-pill.brief { background: var(--bg-soft); color: var(--accent-terracotta); }
+.btn-pill.checkin {
+  padding: 6px 14px;
+  background: transparent;
+  border: 1.5px solid var(--border-subtle);
+  color: var(--accent-terracotta);
+}
+.btn-pill.checkin.done {
+  background: var(--accent-gold);
+  color: #FFF;
+  border: none;
+  font-weight: 700;
+}
+
+/* === Phase 1-C: Checkin Modal === */
+.checkin-modal {
+  background: #FFF;
+  border-radius: 24px;
+  padding: 36px 40px;
+  width: 680px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  box-shadow: 0 12px 40px rgba(61, 49, 34, 0.25);
+}
+.ci-hdr { display: flex; flex-direction: column; gap: 8px; }
+.ci-hdr h3 { font-family: 'Noto Serif TC', serif; font-size: 22px; font-weight: 700; }
+.ci-game { display: flex; align-items: center; gap: 8px; font-size: 13px; flex-wrap: wrap; }
+.ci-game .date { color: var(--text-primary); font-weight: 600; }
+.ci-game .score { color: var(--accent-terracotta); }
+.ci-game .venue { color: var(--text-muted); }
+.ci-game .sep { color: var(--text-faint); font-size: 5px; }
+.ci-sep { height: 1px; background: var(--border-light); }
+.field { display: flex; flex-direction: column; gap: 10px; }
+.field label { font-size: 13px; font-weight: 600; color: var(--text-primary); }
+.field .lbl-row { display: flex; justify-content: space-between; align-items: center; }
+.field .lbl-row .counter { font-size: 11px; color: var(--text-faint); }
+.chip-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  padding: 7px 14px;
+  border-radius: 22px;
+  background: var(--bg-warm);
+  border: 1px solid var(--border-subtle);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+.chip.selected {
+  background: var(--accent-gold);
+  border-color: var(--accent-gold);
+  color: #FFF;
+  font-weight: 700;
+}
+.input {
+  padding: 11px 14px;
+  border-radius: 12px;
+  background: var(--bg-warm);
+  border: 1px solid var(--border-subtle);
+  font-size: 13px;
+  color: var(--text-primary);
+  font-family: inherit;
+  width: 100%;
+}
+.input.textarea { min-height: 72px; resize: vertical; line-height: 1.5; }
+.stars { display: flex; gap: 6px; font-size: 28px; color: var(--accent-gold); }
+.upload {
+  padding: 18px;
+  border-radius: 12px;
+  background: var(--bg-warm);
+  border: 1px dashed var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--text-faint);
+  font-size: 13px;
+  cursor: pointer;
+}
+.ci-btns { display: flex; gap: 12px; justify-content: flex-end; padding-top: 12px; }
+.btn {
+  padding: 12px 22px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+}
+.btn.ghost { background: transparent; border: 1.5px solid var(--border-subtle); color: var(--accent-terracotta); }
+.btn.primary { background: var(--accent-gold); color: #FFF; box-shadow: 0 2px 8px rgba(196, 154, 74, 0.4); }
+.btn.primary.dark { background: var(--accent-terracotta); box-shadow: 0 4px 8px rgba(143, 90, 60, 0.3); }
+
+/* === Phase 1-D: Profile Page === */
+.profile-page { background: var(--bg-warm); border-radius: 20px; overflow: hidden; border: 1px solid var(--border-light); }
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 60px;
+  background: #FFF;
+  border-bottom: 1px solid var(--border-light);
+}
+.nav-l { display: flex; align-items: center; gap: 10px; }
+.nav-l .logo { font-size: 20px; color: var(--accent-terracotta); }
+.nav-l .brand { font-family: 'Noto Serif TC', serif; font-size: 16px; font-weight: 700; letter-spacing: 1px; }
+.nav-r { display: flex; align-items: center; gap: 28px; }
+.nav-r a { font-size: 13px; font-weight: 500; color: var(--text-secondary); text-decoration: none; }
+.nav-r a.active { color: var(--accent-terracotta); font-weight: 700; display: flex; align-items: center; gap: 4px; }
+.p-hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 60px;
+  background: #FFF;
+}
+.p-hero-l { display: flex; align-items: center; gap: 20px; }
+.avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--surface-soft);
+  border: 2px solid var(--accent-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Noto Serif TC', serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--accent-gold);
+}
+.p-hero-txt h3 { font-family: 'Noto Serif TC', serif; font-size: 26px; font-weight: 700; margin-bottom: 6px; }
+.p-hero-team { display: flex; align-items: center; gap: 6px; font-size: 12px; }
+.p-hero-team .lbl { color: var(--text-muted); }
+.p-hero-team .logo { width: 18px; height: 18px; border-radius: 50%; }
+.p-hero-team .name { font-size: 13px; font-weight: 600; }
+.p-hero-team .change { font-size: 11px; color: var(--text-faint); text-decoration: underline; cursor: pointer; }
+.p-stats {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 16px 24px;
+  border-radius: 14px;
+  background: var(--surface-soft);
+  border: 1px solid var(--accent-gold-muted);
+}
+.p-stat { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.p-stat .num { font-size: 24px; font-weight: 800; }
+.p-stat .lbl { font-size: 11px; color: var(--text-muted); }
+.p-stats .sep { width: 1px; height: 32px; background: #E8D9BF; }
+.p-tabs {
+  display: flex;
+  gap: 4px;
+  padding: 20px 60px 0;
+  background: #FFF;
+  border-bottom: 1px solid var(--border-light);
+}
+.p-tab {
+  padding: 10px 18px;
+  font-size: 14px;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-weight: 500;
+}
+.p-tab.active { color: var(--accent-terracotta); font-weight: 700; border-bottom: 3px solid var(--accent-terracotta); }
+.p-body { padding: 32px 60px 48px; display: flex; flex-direction: column; gap: 20px; }
+.p-body-hdr { display: flex; justify-content: space-between; align-items: center; }
+.p-body-hdr h3 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 22px;
+  font-weight: 700;
+  display: inline;
+}
+.p-body-hdr .count { font-size: 13px; color: var(--text-muted); margin-left: 12px; font-weight: 500; }
+.sort-chips { display: flex; gap: 8px; }
+.sort-chip { padding: 6px 14px; border-radius: 18px; font-size: 12px; font-weight: 500; color: var(--text-muted); cursor: pointer; }
+.sort-chip.active { background: var(--surface-soft); border: 1px solid var(--accent-gold); color: var(--accent-terracotta); font-weight: 600; }
+.rec {
+  display: flex;
+  gap: 24px;
+  padding: 24px;
+  background: #FFF;
+  border-radius: 16px;
+  border: 1px solid var(--border-light);
+  box-shadow: 0 2px 8px rgba(61, 49, 34, 0.04);
+}
+.rec-date {
+  width: 88px;
+  height: 88px;
+  border-radius: 14px;
+  background: var(--surface-soft);
+  border: 1px solid var(--accent-gold-muted);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.rec-date .month { font-size: 11px; font-weight: 600; color: var(--text-faint); }
+.rec-date .day { font-family: 'Noto Serif TC', serif; font-size: 32px; font-weight: 800; color: var(--accent-terracotta); }
+.rec-date .wk { font-size: 11px; font-weight: 600; color: var(--text-muted); }
+.rec-body { flex: 1; display: flex; flex-direction: column; gap: 10px; }
+.rec-game { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.rec-game .logo { width: 28px; height: 28px; border-radius: 50%; }
+.rec-game .tname { font-size: 14px; font-weight: 700; }
+.rec-game .sc { font-size: 20px; font-weight: 800; }
+.rec-game .sc.w { color: var(--accent-red); }
+.rec-game .sc.l { color: var(--text-faint); }
+.rec-game .cln { font-size: 16px; font-weight: 700; color: var(--text-faint); }
+.rec-game .venue { font-size: 12px; color: var(--text-muted); margin-left: auto; }
+.rec-rate { display: flex; align-items: center; gap: 8px; }
+.rec-rate .stars { font-size: 16px; color: var(--accent-gold); }
+.rec-rate .stars .off { color: var(--border-subtle); }
+.milestone-pill { padding: 3px 10px; border-radius: 14px; background: var(--accent-gold-soft); font-size: 11px; font-weight: 700; color: var(--accent-terracotta); }
+.rec-note { font-size: 13px; line-height: 1.5; color: var(--text-primary); }
+.rec-tags { display: flex; gap: 6px; padding-top: 4px; }
+.rec-tag { padding: 3px 10px; border-radius: 14px; background: var(--bg-soft); font-size: 11px; font-weight: 600; color: var(--text-secondary); }
+.rec-photo {
+  width: 96px;
+  height: 96px;
+  border-radius: 12px;
+  background: var(--surface-soft);
+  border: 1px dashed var(--accent-gold-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-faint);
+  font-size: 22px;
+  flex-shrink: 0;
+}
+.rec-photo.filled { background: var(--bg-soft); border: none; }
+
+/* === Phase 2-A: Badges Grid === */
+.badges-hdr { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 28px; max-width: 1320px; margin-left: auto; margin-right: auto; }
+.badges-hdr .title { display: flex; align-items: center; gap: 10px; }
+.badges-hdr .title .icon { font-size: 28px; }
+.badges-hdr .title h3 { font-family: 'Noto Serif TC', serif; font-size: 26px; font-weight: 700; }
+.badges-hdr .progress { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; }
+.badges-hdr .progress .num { display: flex; align-items: center; gap: 8px; }
+.badges-hdr .progress .big { font-family: 'Noto Serif TC', serif; font-size: 28px; font-weight: 800; color: var(--accent-gold); }
+.badges-hdr .progress .sml { font-size: 14px; font-weight: 600; color: var(--text-muted); }
+.bar { width: 240px; height: 8px; border-radius: 6px; background: var(--accent-gold-muted); overflow: hidden; }
+.bar .fill { width: 36%; height: 100%; background: var(--accent-gold); border-radius: 6px; }
+.badges-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; max-width: 1320px; margin: 0 auto; }
+.badge-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px;
+  border-radius: 16px;
+  min-height: 200px;
+  text-align: center;
+}
+.badge-card.unlocked {
+  background: #FFF;
+  border: 2px solid var(--accent-gold);
+  box-shadow: 0 4px 12px rgba(196, 154, 74, 0.15);
+}
+.badge-card.locked {
+  background: var(--bg-warm);
+  border: 1px dashed var(--border-subtle);
+}
+.badge-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+}
+.badge-icon.unlocked { background: var(--surface-soft); border: 2px solid var(--accent-gold); }
+.badge-icon.locked { background: var(--bg-soft); color: var(--text-faint); font-family: 'Noto Serif TC', serif; font-weight: 700; font-size: 32px; }
+.badge-name { font-family: 'Noto Serif TC', serif; font-size: 16px; font-weight: 700; }
+.badge-name.locked { color: var(--text-faint); font-weight: 600; }
+.badge-tag { padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; }
+.badge-tag.unlocked { background: var(--accent-gold-soft); color: var(--accent-terracotta); }
+.badge-tag.locked { color: var(--text-faint); font-weight: 600; }
+.badge-card.special {
+  background: var(--surface-soft);
+  border: 1px dashed var(--accent-gold-muted);
+}
+
+/* === Phase 2-B: Stats + Streak === */
+.streak-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 28px;
+  border-radius: 16px;
+  background: var(--accent-gold-soft);
+  border: 1px solid #E8C961;
+  max-width: 1320px;
+  margin: 0 auto 24px;
+}
+.streak-l { display: flex; align-items: center; gap: 16px; }
+.streak-l .emoji { font-size: 34px; }
+.streak-txt h4 { font-family: 'Noto Serif TC', serif; font-size: 18px; font-weight: 700; color: #8B5E00; }
+.streak-txt p { font-size: 12px; color: var(--accent-terracotta); }
+.streak-r { padding: 10px 18px; border-radius: 20px; background: #FFF; font-size: 12px; font-weight: 700; color: var(--accent-terracotta); }
+.stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; max-width: 1320px; margin: 0 auto; }
+.stats-card {
+  background: #FFF;
+  border-radius: 20px;
+  padding: 28px;
+  border: 1px solid var(--border-light);
+  box-shadow: 0 4px 16px rgba(61, 49, 34, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.stats-card.dark { background: var(--surface-dark); color: #FFF5D6; }
+.stats-card .shdr { display: flex; align-items: center; gap: 10px; }
+.stats-card .shdr .stlogo { width: 32px; height: 32px; border-radius: 50%; }
+.stats-card .shdr .sttxt { font-size: 13px; font-weight: 600; color: var(--text-secondary); }
+.stats-card.dark .shdr .sttxt { color: var(--text-faint); }
+.stats-card .big-num { text-align: center; display: flex; flex-direction: column; gap: 4px; align-items: center; }
+.stats-card .big-num .n { font-family: 'Noto Serif TC', serif; font-size: 56px; font-weight: 800; color: var(--win); letter-spacing: 2px; line-height: 1; }
+.stats-card .big-num .sub { font-size: 12px; color: var(--text-muted); letter-spacing: 1px; }
+.wld {
+  display: flex;
+  justify-content: space-around;
+  padding: 16px 24px;
+  border-radius: 12px;
+  background: var(--bg-warm);
+}
+.wld-item { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.wld-item .n { font-size: 24px; font-weight: 800; }
+.wld-item .l { font-size: 11px; color: var(--text-muted); }
+.wld-item .n.w { color: var(--win); }
+.wld-item .n.l { color: var(--lose); }
+.wld-item .n.t { color: var(--text-muted); }
+.top-venue {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+  border-radius: 12px;
+}
+.top-venue.gold { background: var(--surface-soft); }
+.top-venue.plain { background: var(--bg-cream); }
+.top-venue .l { display: flex; align-items: center; gap: 10px; }
+.top-venue .l .medal { font-size: 20px; }
+.top-venue .l .tn { font-size: 14px; font-weight: 700; }
+.top-venue .r { font-size: 12px; font-weight: 600; }
+.top-venue.gold .r { color: var(--accent-gold); font-weight: 700; }
+.top-venue.plain .r { color: var(--text-muted); }
+.stats-card.dark .date { font-size: 12px; font-weight: 600; color: var(--text-faint); letter-spacing: 1px; }
+.ct-mid { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; }
+.ct-team { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.ct-team .lg { width: 38px; height: 38px; border-radius: 50%; }
+.ct-team .nm { font-size: 11px; font-weight: 600; color: var(--text-faint); }
+.ct-sc { display: flex; align-items: center; gap: 14px; }
+.ct-sc .n { font-family: 'Noto Serif TC', serif; font-size: 40px; font-weight: 800; }
+.ct-sc .n.w { color: #E8C961; }
+.ct-sc .n.l { color: var(--text-muted); }
+.ct-sc .c { font-size: 28px; font-weight: 700; color: var(--text-muted); }
+.ct-line { font-size: 13px; font-weight: 600; text-align: center; color: var(--accent-gold-soft); }
+.ct-quote {
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: var(--surface-darker);
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: center;
+  color: var(--text-faint);
+}
+
+/* === Phase 2-C: Year Recap === */
+.recap-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; max-width: 1320px; margin: 0 auto; }
+.recap-slide {
+  border-radius: 24px;
+  padding: 32px;
+  min-height: 460px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(61, 49, 34, 0.08);
+}
+.slide-num { font-size: 11px; font-weight: 700; letter-spacing: 2px; }
+.recap-slide.s1 { background: var(--accent-terracotta); color: #FFF5D6; box-shadow: 0 8px 24px rgba(143, 90, 60, 0.25); }
+.recap-slide.s1 .ball { font-size: 72px; }
+.recap-slide.s1 h3 { font-family: 'Noto Serif TC', serif; font-size: 34px; font-weight: 800; letter-spacing: 2px; }
+.recap-slide.s1 .sub { font-family: 'Noto Serif TC', serif; font-size: 20px; color: #E8C961; }
+.recap-slide.s1 .deco { display: flex; gap: 8px; color: #E8C961; }
+.recap-slide.s1 .scroll { font-size: 12px; color: var(--text-faint); }
+.recap-slide.s2 { background: var(--accent-gold-soft); border: 2px solid #E8C961; }
+.recap-slide.s2 .lbl { font-family: 'Noto Serif TC', serif; font-size: 20px; font-weight: 600; color: var(--accent-terracotta); }
+.recap-slide.s2 .big { font-family: 'Noto Serif TC', serif; font-size: 140px; font-weight: 800; color: var(--accent-red); line-height: 1; }
+.recap-slide.s2 .games { font-family: 'Noto Serif TC', serif; font-size: 22px; font-weight: 700; color: var(--text-primary); }
+.recap-slide.s2 .note { font-size: 14px; font-weight: 600; color: var(--accent-terracotta); }
+.recap-slide.s3 { background: #FFF; border: 2px solid var(--accent-gold); }
+.recap-slide.s3 .lbl { font-size: 14px; color: var(--text-muted); }
+.recap-slide.s3 .circle { width: 120px; height: 120px; border-radius: 50%; background: var(--surface-soft); border: 3px solid var(--accent-gold); display: flex; align-items: center; justify-content: center; font-size: 56px; }
+.recap-slide.s3 .vname { font-family: 'Noto Serif TC', serif; font-size: 28px; font-weight: 800; }
+.recap-slide.s3 .tag { padding: 8px 16px; border-radius: 20px; background: var(--accent-gold-soft); font-size: 13px; font-weight: 700; color: var(--accent-terracotta); }
+.recap-slide.s4 { background: var(--surface-dark); color: #D4C4AB; }
+.recap-slide.s4 .slide-num { color: var(--text-faint); }
+.recap-slide.s4 .lbl { font-size: 14px; color: #D4C4AB; }
+.recap-slide.s4 .dt { font-family: 'Noto Serif TC', serif; font-size: 22px; font-weight: 700; color: #E8C961; }
+.recap-slide.s4 .mid { display: flex; align-items: center; gap: 18px; padding: 12px 0; }
+.recap-slide.s4 .mid .lg { width: 42px; height: 42px; border-radius: 50%; }
+.recap-slide.s4 .mid .n { font-family: 'Noto Serif TC', serif; font-size: 56px; font-weight: 800; }
+.recap-slide.s4 .mid .n.w { color: #FFF5D6; }
+.recap-slide.s4 .mid .n.l { color: var(--text-muted); }
+.recap-slide.s4 .mid .c { font-size: 36px; font-weight: 700; color: var(--text-muted); }
+.recap-slide.s4 .cap { font-size: 14px; font-weight: 600; color: #D4C4AB; }
+.recap-slide.s4 .quote { padding: 14px 18px; border-radius: 14px; background: var(--surface-darker); font-family: 'Noto Serif TC', serif; font-size: 15px; color: #FFF5D6; }
+.recap-slide.s4 .by { font-size: 11px; color: var(--text-faint); }
+.recap-slide.s5 { background: #E8F5EC; border: 2px solid var(--win); }
+.recap-slide.s5 .slide-num { color: #6B7F6D; }
+.recap-slide.s5 .intro { font-size: 14px; color: var(--win); }
+.recap-slide.s5 .team { display: flex; align-items: center; gap: 12px; }
+.recap-slide.s5 .team .lg { width: 44px; height: 44px; border-radius: 50%; }
+.recap-slide.s5 .team .tn { font-family: 'Noto Serif TC', serif; font-size: 26px; font-weight: 800; color: var(--text-primary); }
+.recap-slide.s5 .wr-lbl { font-size: 12px; color: #6B7F6D; }
+.recap-slide.s5 .wr { font-family: 'Noto Serif TC', serif; font-size: 80px; font-weight: 800; color: var(--win); letter-spacing: 2px; line-height: 1; }
+.recap-slide.s5 .tag { padding: 8px 18px; border-radius: 20px; background: #FFF; font-size: 13px; font-weight: 700; color: var(--win); }
+.recap-slide.s6 { background: var(--accent-gold-soft); border: 2px solid var(--accent-gold); }
+.recap-slide.s6 .party { font-size: 60px; }
+.recap-slide.s6 h3 { font-family: 'Noto Serif TC', serif; font-size: 24px; font-weight: 700; }
+.recap-slide.s6 .wish { font-size: 13px; color: var(--accent-terracotta); }
+.recap-slide.s6 .btns { display: flex; gap: 12px; padding-top: 12px; }
+
+/* === Phase 2-D: Achievement Toast === */
+.toast-layout { display: flex; gap: 32px; align-items: center; justify-content: center; flex-wrap: wrap; }
+.toast-modal {
+  background: #FFF;
+  border-radius: 24px;
+  padding: 36px 36px 28px;
+  width: 460px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 12px 40px rgba(61, 49, 34, 0.3);
+}
+.toast-modal .confetti { display: flex; gap: 8px; }
+.toast-badge {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background: var(--surface-soft);
+  border: 3px solid var(--accent-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 60px;
+  box-shadow: 0 6px 20px rgba(196, 154, 74, 0.3);
+}
+.toast-modal .tag { font-size: 12px; font-weight: 700; color: var(--accent-gold); letter-spacing: 4px; }
+.toast-modal h3 { font-family: 'Noto Serif TC', serif; font-size: 26px; font-weight: 800; }
+.toast-modal .divider { width: 48px; height: 2px; background: var(--accent-gold); border-radius: 1px; }
+.toast-modal .desc { font-family: 'Noto Serif TC', serif; font-size: 16px; font-weight: 600; color: var(--text-secondary); }
+.toast-modal .count {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 20px;
+  background: var(--accent-gold-soft);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent-terracotta);
+}
+.toast-modal .btns { display: flex; gap: 10px; width: 100%; padding-top: 12px; }
+.toast-modal .btns .btn { flex: 1; display: flex; justify-content: center; padding: 12px 16px; }
+.toast-variants { display: flex; flex-direction: column; gap: 16px; width: 420px; }
+.toast-variants h4 { font-size: 12px; font-weight: 700; color: #FFF5D6; letter-spacing: 2px; }
+.toast-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  background: #FFF;
+  border-radius: 14px;
+  box-shadow: 0 4px 16px rgba(61, 49, 34, 0.2);
+}
+.toast-item .ic-wrap { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
+.toast-item .tt { display: flex; flex-direction: column; gap: 3px; flex: 1; }
+.toast-item .tt .t { font-size: 13px; font-weight: 700; }
+.toast-item .tt .d { font-size: 12px; color: var(--text-secondary); }
+
+/* === Phase 1 · 回訪首頁 === */
+.home-page { background: var(--bg-warm); border-radius: 20px; overflow: hidden; border: 1px solid var(--border-light); }
+.home-hero {
+  background: #FFF;
+  padding: 48px 60px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  position: relative;
+  border-bottom: 1px solid var(--border-light);
+}
+.home-hero .hero-eyebrow { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; font-size: 14px; font-weight: 500; color: #B8A692; letter-spacing: 2px; }
+.home-hero h1 {
+  font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif;
+  font-size: 56px;
+  font-weight: 500;
+  color: #3D3122;
+  letter-spacing: 4px;
+  margin: 6px 0;
+  line-height: 1.1;
+}
+.home-hero .hero-stat-pill { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; background: #FFF9F0; border-color: #F0DFB8; }
+.home-hero .hero-stat-pill .seg { font-size: 14px; color: #4A3728; }
+.home-hero .hero-stat-pill .seg .n { color: #C2573A; font-weight: 700; font-size: 18px; }
+.home-hero .hero-stat-pill .fire { color: #C2573A; font-weight: 600; }
+.home-hero .hero-divider { color: #D9CCBC; letter-spacing: 4px; margin-top: 16px; }
+.hero-stat-pill {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 22px;
+  border-radius: 24px;
+  background: var(--surface-soft);
+  border: 1px solid var(--accent-gold-muted);
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+.hero-stat-pill .seg { display: flex; align-items: center; gap: 6px; }
+.hero-stat-pill .seg .n { font-weight: 800; color: var(--text-primary); font-size: 15px; margin: 0 2px; }
+.hero-stat-pill .dt { font-size: 5px; color: var(--text-faint); }
+.hero-stat-pill .fire { color: #D48C2E; font-weight: 700; }
+.hero-divider { display: flex; gap: 10px; align-items: center; color: var(--text-faint); font-size: 14px; margin-top: 6px; }
+.hero-decor-l, .hero-decor-r {
+  position: absolute;
+  top: 40px;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-decor-l { left: 80px; }
+.hero-decor-r { right: 80px; }
+.hero-decor-l img, .hero-decor-r img { width: 100%; height: 100%; object-fit: contain; }
+
+.home-personal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 60px;
+  background: linear-gradient(90deg, #FFF 0%, var(--surface-soft) 100%);
+  border-bottom: 1px solid var(--accent-gold-muted);
+  font-size: 13px;
+  color: var(--text-secondary);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.home-personal .left { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.home-personal .hi-name { font-weight: 700; color: var(--text-primary); }
+.home-personal .team { display: inline-flex; align-items: center; gap: 4px; }
+.home-personal .team .lg { width: 18px; height: 18px; border-radius: 50%; }
+.home-personal .team .nm { font-weight: 600; color: var(--text-primary); }
+.home-personal .sep { color: var(--text-faint); }
+.home-personal .mine { color: var(--accent-gold); font-weight: 700; }
+.home-personal .right { font-size: 12px; color: var(--accent-terracotta); text-decoration: underline; cursor: pointer; }
+
+.home-notices { padding: 12px 60px 0; display: flex; flex-direction: column; gap: 10px; background: var(--bg-warm); }
+.notice {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 20px;
+  border-radius: 14px;
+  font-size: 13px;
+}
+.notice .ic { font-size: 22px; flex-shrink: 0; }
+.notice .main { flex: 1; }
+.notice .main .t { font-weight: 700; font-size: 14px; }
+.notice .main .d { font-size: 12px; margin-top: 2px; }
+.notice .action {
+  padding: 6px 14px;
+  border-radius: 18px;
+  background: #FFF;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1px solid var(--border-subtle);
+  white-space: nowrap;
+}
+.notice .close { color: var(--text-faint); cursor: pointer; font-size: 14px; padding: 0 4px; }
+.notice.streak { background: var(--accent-gold-soft); border: 1px solid #E8C961; }
+.notice.streak .main .t { color: #8B5E00; }
+.notice.streak .main .d { color: var(--accent-terracotta); }
+.notice.streak .action { color: #8B5E00; }
+.notice.starred { background: #E8F1FD; border: 1px solid #C5D9F0; }
+.notice.starred .main .t { color: var(--team-guardians); }
+.notice.starred .main .d { color: var(--text-secondary); }
+.notice.starred .action { color: var(--team-guardians); }
+.notice.achievement { background: #E8F5EC; border: 1px solid #B5D5BD; }
+.notice.achievement .main .t { color: var(--win); }
+.notice.achievement .main .d { color: var(--text-secondary); }
+.notice.achievement .action { color: var(--win); }
+
+.home-standings { padding: 28px 60px; background: #FFF; border-top: 1px solid var(--border-light); }
+.hs-hdr { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+.hs-hdr h3 { font-family: 'Noto Serif TC', serif; font-size: 20px; font-weight: 700; }
+.hs-hdr .src { font-size: 11px; color: var(--text-muted); }
+.stand-table { width: 100%; border-collapse: separate; border-spacing: 0; border-radius: 16px; overflow: hidden; border: 1px solid var(--border-light); }
+.stand-table thead { background: var(--bg-cream); }
+.stand-table th {
+  padding: 14px 20px;
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-align: left;
+  letter-spacing: 1.5px;
+}
+.stand-table th.num { text-align: right; }
+.stand-table td {
+  padding: 18px 20px;
+  font-size: 13px;
+  border-top: 1px solid var(--border-light);
+  color: var(--text-primary);
+}
+.stand-table td.num { text-align: right; }
+.stand-table .rank { font-family: 'Noto Serif TC', serif; font-weight: 700; color: var(--accent-terracotta); font-size: 15px; }
+.stand-table .team-cell { display: flex; align-items: center; gap: 12px; }
+.stand-table .team-cell .lg { width: 32px; height: 32px; border-radius: 50%; flex-shrink: 0; }
+.stand-table .team-cell .nm { font-weight: 600; color: var(--text-primary); }
+.stand-table .my-tag {
+  padding: 2px 8px;
+  background: var(--accent-gold);
+  color: #FFF;
+  font-size: 10px;
+  font-weight: 700;
+  border-radius: 8px;
+  letter-spacing: 0.5px;
+  margin-left: 4px;
+}
+.stand-table .wr-val { font-weight: 800; color: var(--accent-terracotta); font-size: 14px; }
+.stand-table tbody tr.leader { background: var(--surface-soft); }
+.stand-table tbody tr.my { background: var(--surface-soft); }
+.stand-table tbody tr.leader.my { background: linear-gradient(90deg, var(--surface-soft) 0%, #FFF5D6 100%); }
+.gb-bar-cell { position: relative; }
+.gb-bar { height: 3px; background: var(--accent-gold-muted); border-radius: 2px; margin-top: 4px; overflow: hidden; }
+.gb-bar > span { display: block; height: 100%; background: var(--accent-gold); border-radius: 2px; }
+
+.home-filters {
+  padding: 22px 60px;
+  background: #FFF;
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+}
+.filter-group { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; flex-wrap: wrap; }
+.filter-group:last-child { margin-bottom: 0; }
+.filter-group .lbl {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 700;
+  letter-spacing: 1px;
+  min-width: 40px;
+}
+.filter-chips { display: flex; gap: 6px; flex-wrap: wrap; }
+.filter-chip {
+  padding: 5px 12px;
+  border-radius: 22px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: var(--bg-warm);
+  border: 1px solid var(--border-subtle);
+  cursor: pointer;
+}
+.filter-chip.active {
+  background: var(--accent-terracotta);
+  color: #FFF;
+  border-color: var(--accent-terracotta);
+  font-weight: 700;
+}
+.filter-select {
+  padding: 6px 28px 6px 14px;
+  border-radius: 12px;
+  background: #FFF;
+  border: 1px solid var(--border-subtle);
+  font-size: 12px;
+  color: var(--text-secondary);
+  font-family: inherit;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%239B8E7E' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+}
+.toggle-sw {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 18px;
+  border: 1px solid var(--border-subtle);
+  background: #FFF;
+  font-size: 12px;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+.toggle-sw.active {
+  background: var(--accent-terracotta);
+  color: #FFF;
+  border-color: var(--accent-terracotta);
+  font-weight: 700;
+}
+.status-seg {
+  display: inline-flex;
+  padding: 3px;
+  border-radius: 18px;
+  background: var(--bg-warm);
+  border: 1px solid var(--border-subtle);
+}
+.status-seg .seg {
+  padding: 5px 14px;
+  border-radius: 16px;
+  font-size: 12px;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-weight: 500;
+}
+.status-seg .seg.active {
+  background: #FFF;
+  color: var(--accent-terracotta);
+  font-weight: 700;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+.fav-toggle {
+  padding: 5px 14px;
+  border-radius: 18px;
+  background: var(--surface-soft);
+  border: 1.5px solid var(--accent-gold);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent-terracotta);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+}
+
+.home-stats-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 14px 60px;
+  background: var(--bg-warm);
+  font-size: 13px;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border-light);
+}
+.home-stats-strip .item { display: flex; gap: 5px; align-items: center; }
+.home-stats-strip .item .n { font-weight: 800; color: var(--text-primary); font-size: 14px; }
+.home-stats-strip .dot { font-size: 4px; color: var(--text-faint); }
+.home-stats-strip .item.mine .n { color: var(--accent-gold); }
+
+.home-cards-wrap { padding: 28px 60px 40px; background: var(--bg-warm); }
+.cards-date-label {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--text-primary);
+}
+.cards-date-label .today-pill { padding: 2px 10px; border-radius: 10px; background: var(--today); color: #FFF; font-size: 11px; font-weight: 700; }
+.cards-date-label::after { content: ''; flex: 1; height: 1px; background: var(--border-subtle); }
+.cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.gcard.main-team { border-top: 3px solid var(--accent-gold); }
+.gcard.main-team.starred { border-top: 3px solid var(--accent-gold); }
+
+/* Flaticon 484466 棒球場（PNG 直接載入） */
+.ft-stadium {
+  display: inline-block;
+  vertical-align: middle;
+  object-fit: contain;
+}
+
+/* Icon system (Lucide) */
+.icon { display: inline-flex; align-items: center; justify-content: center; vertical-align: middle; }
+.icon svg { width: 1em; height: 1em; stroke-width: 2; }
+.icon-sm svg { width: 14px; height: 14px; }
+.icon-md svg { width: 18px; height: 18px; }
+.icon-lg svg { width: 22px; height: 22px; }
+.icon-xl svg { width: 32px; height: 32px; }
+.icon-2xl svg { width: 48px; height: 48px; }
+.icon-3xl svg { width: 64px; height: 64px; }
+.icon-fill svg { fill: currentColor; stroke: none; }
+
+/* Utility */
+.flex { display: flex; }
+.center { align-items: center; justify-content: center; }
+</style>
+</head>
+<body>
+
+<!-- Baseball-themed custom icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- svgrepo 139073: 收藏用（棒球 + 投球動線） -->
+    <symbol id="bb-favorite" viewBox="0 0 222.435 222.435">
+      <path fill="currentColor" d="M221.254,71.755c-0.306-0.713-7.702-17.667-25.447-34.959c-16.348-15.931-44.984-35.246-88.577-36.79 c-2.112-0.083-4.147,0.741-5.622,2.245c-1.475,1.505-2.249,3.561-2.132,5.665c0.008,0.146,0.476,8.815,0.506,21.156 c-32.125-1.382-53.875,12.78-65.722,23.689c-2.319-6.904-4.044-13.022-5.081-17.375c-0.765-3.219-3.549-5.557-6.852-5.753 c-3.313-0.196-6.345,1.795-7.485,4.901L1.033,72.128c-0.466,1.269-0.581,2.641-0.331,3.97 C17.65,166.362,63.23,222.435,119.655,222.435c29.651,0,56.285-15.793,74.997-44.471c17.547-26.894,27.21-63.562,27.21-103.251 C221.862,73.697,221.655,72.69,221.254,71.755z M99.788,44.085c-0.137,4.686-0.354,9.567-0.684,14.483 c-0.054,0.796-0.109,1.577-0.167,2.349c-25.307,1.338-42.101,13.071-51.73,22.671c-2.627-4.963-5.032-10.202-7.183-15.397 C48.167,59.246,67.797,42.578,99.788,44.085z M97.396,76.05c-3.988,29.777-11.242,34.182-12.861,34.797 c-2.291,0.869-4.552,1.31-6.722,1.31c-8.226,0-15.827-6.274-22.487-15.38C62.79,88.303,76.147,77.818,97.396,76.05z M182.09,169.767c-11.212,17.184-31.145,37.668-62.435,37.668c-57.665,0-91.335-67.846-103.825-132.087l5.336-14.526 c2.2,6.338,4.949,13.493,8.241,20.688c13.861,30.289,30.147,45.647,48.406,45.647c3.995,0,8.047-0.77,12.044-2.287 c13.799-5.237,21.478-25.764,24.166-64.599c1.229-17.751,1.044-34.871,0.76-44.758c7.297,0.681,14.311,1.948,21.048,3.762 l-10.02,57.752c-0.708,4.081,2.026,7.964,6.107,8.672c0.434,0.075,0.865,0.112,1.291,0.112c3.579,0,6.748-2.572,7.381-6.219 l9.612-55.404c5.073,2.122,9.959,4.601,14.648,7.446l-13.4,58.912c-0.918,4.039,1.611,8.058,5.65,8.977 c0.56,0.127,1.119,0.188,1.67,0.188c3.423,0,6.515-2.359,7.307-5.838l12.015-52.821c2.322,1.917,4.593,3.926,6.797,6.052 c1.013,0.976,1.976,1.951,2.914,2.923L177.182,94.45c-0.964,4.029,1.521,8.075,5.55,9.039c0.587,0.14,1.173,0.207,1.75,0.207 c3.391,0,6.466-2.316,7.288-5.757l7.98-33.377c3.776,5.438,6.09,9.771,7.107,11.821 C206.595,112.544,197.822,145.654,182.09,169.767z"/>
+      <path fill="currentColor" d="M157.406,149.228c-39.951-25.098-74.56-0.781-76.015,0.266c-3.35,2.414-4.104,7.072-1.706,10.433 c2.4,3.361,7.08,4.14,10.449,1.755c1.131-0.8,28.065-19.371,59.293,0.248c1.239,0.778,2.619,1.15,3.982,1.15 c2.494,0,4.933-1.244,6.357-3.511C161.972,156.061,160.914,151.432,157.406,149.228z"/>
+    </symbol>
+    <!-- svgrepo 480624: 打卡用（棒球場俯瞰圖） -->
+    <symbol id="bb-checkin" viewBox="0 0 512 512">
+      <g fill="currentColor">
+        <polygon points="280.402,153.66 256.008,129.275 231.606,153.66 256.008,178.063"/>
+        <polygon points="238.754,436.426 256.008,453.656 273.254,436.426 273.254,417.37 238.754,417.37"/>
+        <polygon points="369.403,291.465 393.797,315.851 418.19,291.465 393.797,267.063"/>
+        <polygon points="118.203,267.063 93.809,291.465 118.203,315.851 142.597,291.465"/>
+        <path d="M372.088,245.361l-69.985-69.984c-11.796,11.796-28.096,19.097-46.095,19.097 c-18.015,0-34.315-7.301-46.111-19.097l-69.976,69.984c11.796,11.789,19.089,28.097,19.089,46.104 c0,17.999-7.293,34.299-19.089,46.104l69.976,69.976c11.796-11.796,28.096-19.089,46.111-19.089 c17.999,0,34.299,7.293,46.095,19.089l69.985-69.976c-11.804-11.804-19.097-28.104-19.097-46.104 C352.99,273.459,360.283,257.151,372.088,245.361z M277.052,296.458h-44.669v-12.565h44.669V296.458z"/>
+        <path d="M511.871,256.717c-1.779-67.973-30.084-129.334-74.881-174.099C390.688,36.291,326.674,7.625,256.008,7.633 C185.326,7.625,121.312,36.291,75.009,82.618C30.212,127.383,1.907,188.744,0.128,256.717L0,261.79l233.096,233.088 c6.291,6.306,14.649,9.513,22.912,9.488c8.238,0.025,16.604-3.182,22.903-9.488L512,261.79L511.871,256.717z M262.21,478.194 c-1.747,1.739-3.927,2.564-6.202,2.572c-2.292-0.008-4.472-0.834-6.219-2.581L23.978,252.382 c2.837-59.75,28.112-113.459,67.732-153.079c42.104-42.088,100.06-68.06,164.298-68.069c64.23,0.008,122.178,25.981,164.29,68.069 c39.612,39.62,64.896,93.329,67.716,153.088L262.21,478.194z"/>
+      </g>
+    </symbol>
+    <symbol id="bb-scoreboard" viewBox="0 0 24 24">
+      <rect x="3" y="5.5" width="18" height="13" rx="1.8" fill="none" stroke="currentColor" stroke-width="1.8"/>
+      <line x1="3" y1="12" x2="21" y2="12" stroke="currentColor" stroke-width="1.4"/>
+      <circle cx="14.5" cy="8.75" r="0.85" fill="currentColor"/>
+      <circle cx="17.5" cy="8.75" r="0.85" fill="currentColor"/>
+      <circle cx="14.5" cy="15.25" r="0.85" fill="currentColor"/>
+      <circle cx="17.5" cy="15.25" r="0.85" fill="currentColor"/>
+      <line x1="5.5" y1="8.25" x2="9" y2="8.25" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+      <line x1="5.5" y1="15.25" x2="9" y2="15.25" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="page-hdr">
+  <h1>CPBL Planner · Phase 1 & 2 視覺稿</h1>
+  <p class="sub">8 個畫面的黏著度功能預覽 · 2026-04-21</p>
+  <nav class="toc">
+    <a href="#picker">圖示</a>
+    <a href="#p1a">1-A Onboarding</a>
+    <a href="#p1home">回訪首頁</a>
+    <a href="#p1b">1-B 卡片按鈕</a>
+    <a href="#p1c">1-C 打卡 Modal</a>
+    <a href="#p1d">1-D 個人中心</a>
+    <a href="#p2a">2-A 徽章網格</a>
+    <a href="#p2b">2-B 戰績 Streak</a>
+    <a href="#p2c">2-C 年度回顧</a>
+    <a href="#p2d">2-D 成就 Toast</a>
+  </nav>
+</header>
+
+<!-- Final chosen icons -->
+<section class="section" id="picker" style="background:#FFF5E6;">
+  <div class="section-hdr">
+    <div class="eyebrow">已採用的圖示</div>
+    <h2>收藏 / 打卡　最終選定</h2>
+    <p class="desc">由你指定，從 svgrepo 挑選並存到 <code>icon-preview/icons/</code>。已用 <code>&lt;symbol&gt;</code> 內嵌到 preview，全站一律以 <code>&lt;use href="#bb-favorite"&gt;</code> / <code>#bb-checkin</code> 引用，顏色用 CSS 的 <code>color</code> 控制。</p>
+  </div>
+  <div style="max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:24px;">
+    <div style="background:#FFF;border-radius:20px;padding:36px;text-align:center;border:2px solid var(--accent-gold);">
+      <div style="height:96px;display:flex;align-items:center;justify-content:center;color:var(--accent-terracotta);margin-bottom:16px;">
+        <svg style="width:80px;height:80px"><use href="#bb-favorite"/></svg>
+      </div>
+      <div style="font-weight:800;font-size:18px;color:var(--accent-terracotta);">收藏　bb-favorite</div>
+      <div style="font-size:12px;color:var(--text-muted);margin-top:4px;">svgrepo #139073 · 棒球 + 投球動線<br>icon-preview/icons/baseball-glove-svgrepo.svg</div>
+      <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--border-light);display:flex;justify-content:center;align-items:end;gap:16px;color:var(--accent-terracotta);">
+        <span style="display:flex;flex-direction:column;align-items:center;gap:4px;"><svg style="width:14px;height:14px"><use href="#bb-favorite"/></svg><span style="font-size:10px;color:var(--text-muted)">14</span></span>
+        <span style="display:flex;flex-direction:column;align-items:center;gap:4px;"><svg style="width:18px;height:18px"><use href="#bb-favorite"/></svg><span style="font-size:10px;color:var(--text-muted)">18</span></span>
+        <span style="display:flex;flex-direction:column;align-items:center;gap:4px;"><svg style="width:24px;height:24px"><use href="#bb-favorite"/></svg><span style="font-size:10px;color:var(--text-muted)">24</span></span>
+        <span style="display:flex;flex-direction:column;align-items:center;gap:4px;"><svg style="width:32px;height:32px"><use href="#bb-favorite"/></svg><span style="font-size:10px;color:var(--text-muted)">32</span></span>
+        <span style="display:flex;flex-direction:column;align-items:center;gap:4px;"><svg style="width:48px;height:48px"><use href="#bb-favorite"/></svg><span style="font-size:10px;color:var(--text-muted)">48</span></span>
+      </div>
+    </div>
+    <div style="background:#FFF;border-radius:20px;padding:36px;text-align:center;border:2px solid var(--accent-gold);">
+      <div style="height:96px;display:flex;align-items:center;justify-content:center;color:var(--accent-terracotta);margin-bottom:16px;">
+        <svg style="width:80px;height:80px"><use href="#bb-checkin"/></svg>
+      </div>
+      <div style="font-weight:800;font-size:18px;color:var(--accent-terracotta);">打卡　bb-checkin</div>
+      <div style="font-size:12px;color:var(--text-muted);margin-top:4px;">svgrepo #480624 · 棒球場俯瞰<br>icon-preview/icons/baseball-field-svgrepo.svg</div>
+      <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--border-light);display:flex;justify-content:center;align-items:end;gap:16px;color:var(--accent-terracotta);">
+        <span style="display:flex;flex-direction:column;align-items:center;gap:4px;"><svg style="width:14px;height:14px"><use href="#bb-checkin"/></svg><span style="font-size:10px;color:var(--text-muted)">14</span></span>
+        <span style="display:flex;flex-direction:column;align-items:center;gap:4px;"><svg style="width:18px;height:18px"><use href="#bb-checkin"/></svg><span style="font-size:10px;color:var(--text-muted)">18</span></span>
+        <span style="display:flex;flex-direction:column;align-items:center;gap:4px;"><svg style="width:24px;height:24px"><use href="#bb-checkin"/></svg><span style="font-size:10px;color:var(--text-muted)">24</span></span>
+        <span style="display:flex;flex-direction:column;align-items:center;gap:4px;"><svg style="width:32px;height:32px"><use href="#bb-checkin"/></svg><span style="font-size:10px;color:var(--text-muted)">32</span></span>
+        <span style="display:flex;flex-direction:column;align-items:center;gap:4px;"><svg style="width:48px;height:48px"><use href="#bb-checkin"/></svg><span style="font-size:10px;color:var(--text-muted)">48</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Phase 1-A -->
+<section class="section" id="p1a">
+  <div class="section-hdr">
+    <div class="eyebrow">PHASE 1-A</div>
+    <h2>首次進站 · 選擇主隊 Modal</h2>
+    <p class="desc">使用者首次進站時彈出，選完後整站以主隊視角呈現（戰績高亮、卡片排序）。示範中「統一 7-ELEVEn 獅」為選中態。</p>
+  </div>
+  <div class="canvas">
+    <div class="dim-bg">
+      <div class="onb">
+        <div class="onb-hdr">
+          <div class="ball icon icon-2xl" style="color:var(--accent-gold)"><i data-lucide="baseball"></i></div>
+          <h3>歡迎來到 CPBL 進場倒數</h3>
+          <p>選擇你的主隊，我們會為你量身打造看球計畫</p>
+        </div>
+        <div class="onb-grid">
+          <div class="team-card"><div class="team-logo" style="background:var(--team-brothers)"></div><div class="team-name">中信兄弟</div></div>
+          <div class="team-card"><div class="team-logo" style="background:var(--team-monkeys)"></div><div class="team-name">樂天桃猿</div></div>
+          <div class="team-card"><div class="team-logo" style="background:var(--team-guardians)"></div><div class="team-name">富邦悍將</div></div>
+          <div class="team-card selected"><div class="team-logo" style="background:var(--team-lions)"></div><div class="team-name">統一 7-ELEVEn 獅</div></div>
+          <div class="team-card"><div class="team-logo" style="background:var(--team-dragons)"></div><div class="team-name">味全龍</div></div>
+          <div class="team-card"><div class="team-logo" style="background:var(--team-hawks)"></div><div class="team-name">台鋼雄鷹</div></div>
+        </div>
+        <div class="onb-skip">稍後再選</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Phase 1 · 回訪首頁 -->
+<section class="section" id="p1home">
+  <div class="section-hdr">
+    <div class="eyebrow">PHASE 1 · 回訪首頁</div>
+    <h2>第二次之後看到的首頁</h2>
+    <p class="desc">Onboarding 完成後，每次進站看到的樣子。個人資訊用金色系疊加到原本的賽程頁，不取代核心瀏覽動線。</p>
+  </div>
+  <div class="canvas" style="padding:0;">
+    <div class="home-page">
+      <!-- Nav -->
+      <div class="nav">
+        <div class="nav-l"><span class="logo icon icon-lg" style="color:var(--accent-terracotta)"><i data-lucide="baseball"></i></span><span class="brand">CPBL 2026</span></div>
+        <div class="nav-r">
+          <a>戰績</a><a>篩選</a><a>賽程</a>
+          <a class="active">我的 <svg style="width:14px;height:14px;vertical-align:-2px"><use href="#bb-favorite"/></svg></a>
+        </div>
+      </div>
+
+      <!-- 1. Personal strip (TOP) -->
+      <div class="home-personal">
+        <div class="left">
+          <span class="hi-name">Hi Tiffany 👋</span>
+          <span class="sep">·</span>
+          <span class="team">支持 <div class="lg" style="background:var(--team-brothers)"></div> <span class="nm">中信兄弟</span></span>
+          <span class="sep">·</span>
+          <span>今季進場 <span class="mine">12</span> 場</span>
+          <span class="sep">·</span>
+          <span>現場勝率 <span class="mine" style="color:var(--win)">.625</span></span>
+          <span class="sep">·</span>
+          <span>球場 <span class="mine">4/11</span></span>
+        </div>
+        <span class="right">→ 我的中心頁</span>
+      </div>
+
+      <!-- 2. Notice banners -->
+      <div class="home-notices">
+        <div class="notice streak">
+          <span class="ic" style="color:#D48C2E"><i data-lucide="flame" style="width:22px;height:22px"></i></span>
+          <div class="main">
+            <div class="t">連勝見證來到 3 連勝！</div>
+            <div class="d">2026-04-22 (六) 兄弟 vs 樂天 @ 桃園，加場就是 4 連勝紀錄</div>
+          </div>
+          <span class="action">收藏場次</span>
+          <span class="close"><i data-lucide="x" style="width:14px;height:14px"></i></span>
+        </div>
+        <div class="notice starred">
+          <span class="ic" style="color:var(--accent-gold)"><svg style="width:22px;height:22px"><use href="#bb-favorite"/></svg></span>
+          <div class="main">
+            <div class="t">你收藏的 3 場本週開打</div>
+            <div class="d">4/22 桃園、4/24 天母、4/26 洲際</div>
+          </div>
+          <span class="action">查看</span>
+          <span class="close"><i data-lucide="x" style="width:14px;height:14px"></i></span>
+        </div>
+        <div class="notice achievement">
+          <span class="ic" style="color:var(--win)"><i data-lucide="trophy" style="width:22px;height:22px"></i></span>
+          <div class="main">
+            <div class="t">你解鎖了新徽章：球場巡禮 +1</div>
+            <div class="d">昨天的天母場記錄成功，總計已走訪 4 座球場</div>
+          </div>
+          <span class="action">查看徽章</span>
+          <span class="close"><i data-lucide="x" style="width:14px;height:14px"></i></span>
+        </div>
+      </div>
+
+      <!-- 3. Original Hero preserved -->
+      <div class="home-hero">
+        <div class="hero-decor-l">
+          <svg viewBox="0 0 100 100" fill="none" style="width:108px;height:108px" aria-hidden="true">
+            <path d="M25 58 Q15 45 22 32 Q30 20 45 22 Q50 10 62 15 Q72 18 72 30 Q82 32 82 44 Q85 58 72 66 L72 82 Q50 88 28 82 Z" fill="#C2573A" stroke="#8A3E26" stroke-width="2.2" stroke-linejoin="round"/>
+            <path d="M38 38 Q40 48 38 62 M52 32 Q54 48 52 66 M66 38 Q66 50 64 62" stroke="#8A3E26" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+            <circle cx="55" cy="50" r="10" fill="#FFF" stroke="#8A3E26" stroke-width="1.8"/>
+            <path d="M49 47 Q55 45 61 48 M49 53 Q55 55 61 52" stroke="#C2573A" stroke-width="1.2" fill="none"/>
+          </svg>
+        </div>
+        <div class="hero-decor-r">
+          <img src="https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets/Baseball/3D/baseball_3d.png" alt="" style="width:72px;height:72px">
+        </div>
+        <div class="hero-eyebrow">中華職棒一軍例行賽 · 2026</div>
+        <h1>進場倒數</h1>
+        <div class="hero-stat-pill">
+          <span class="seg"><i data-lucide="calendar" style="width:14px;height:14px;color:var(--accent-terracotta)"></i> 今日 <span class="n">2</span> 場</span>
+          <span class="dt">●</span>
+          <span class="seg"><i data-lucide="calendar-days" style="width:14px;height:14px;color:var(--text-muted)"></i> 剩餘 <span class="n">315</span> 場</span>
+          <span class="dt">●</span>
+          <span class="seg fire"><i data-lucide="flame" style="width:14px;height:14px"></i> 賽季熱烈進行中</span>
+        </div>
+        <div class="hero-divider">● —— ◆ —— ●</div>
+      </div>
+
+      <!-- 4. Standings (TABLE style, leader + main team highlight) -->
+      <div class="home-standings">
+        <div class="hs-hdr">
+          <h3 style="display:flex;align-items:center;gap:8px"><i data-lucide="bar-chart-3" style="width:18px;height:18px;color:var(--accent-terracotta)"></i> 各隊戰績</h3>
+          <span class="src">2026 例行賽 · 資料來源 cpbl.com.tw</span>
+        </div>
+        <table class="stand-table">
+          <thead>
+            <tr>
+              <th style="width:50px">#</th>
+              <th>球隊</th>
+              <th class="num">勝</th>
+              <th class="num">敗</th>
+              <th class="num">和</th>
+              <th class="num">勝率</th>
+              <th class="num">勝差</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="leader my">
+              <td><span class="rank">1</span></td>
+              <td><div class="team-cell"><div class="lg" style="background:var(--team-brothers)"></div><span class="nm">中信兄弟</span><span class="my-tag">主隊</span></div></td>
+              <td class="num">12</td><td class="num">7</td><td class="num">1</td>
+              <td class="num"><span class="wr-val">.632</span></td>
+              <td class="num">-</td>
+            </tr>
+            <tr>
+              <td><span class="rank">2</span></td>
+              <td><div class="team-cell"><div class="lg" style="background:var(--team-monkeys)"></div><span class="nm">樂天桃猿</span></div></td>
+              <td class="num">11</td><td class="num">8</td><td class="num">0</td>
+              <td class="num"><span class="wr-val" style="color:var(--text-primary)">.579</span></td>
+              <td class="num">1.0</td>
+            </tr>
+            <tr>
+              <td><span class="rank">3</span></td>
+              <td><div class="team-cell"><div class="lg" style="background:var(--team-guardians)"></div><span class="nm">富邦悍將</span></div></td>
+              <td class="num">10</td><td class="num">9</td><td class="num">0</td>
+              <td class="num"><span class="wr-val" style="color:var(--text-primary)">.526</span></td>
+              <td class="num">2.0</td>
+            </tr>
+            <tr>
+              <td><span class="rank">4</span></td>
+              <td><div class="team-cell"><div class="lg" style="background:var(--team-lions)"></div><span class="nm">統一 7-ELEVEn 獅</span></div></td>
+              <td class="num">9</td><td class="num">10</td><td class="num">1</td>
+              <td class="num"><span class="wr-val" style="color:var(--text-primary)">.474</span></td>
+              <td class="num">3.0</td>
+            </tr>
+            <tr>
+              <td><span class="rank">5</span></td>
+              <td><div class="team-cell"><div class="lg" style="background:var(--team-dragons)"></div><span class="nm">味全龍</span></div></td>
+              <td class="num">8</td><td class="num">11</td><td class="num">0</td>
+              <td class="num"><span class="wr-val" style="color:var(--text-primary)">.421</span></td>
+              <td class="num">4.0</td>
+            </tr>
+            <tr>
+              <td><span class="rank">6</span></td>
+              <td><div class="team-cell"><div class="lg" style="background:var(--team-hawks)"></div><span class="nm">台鋼雄鷹</span></div></td>
+              <td class="num">7</td><td class="num">12</td><td class="num">0</td>
+              <td class="num"><span class="wr-val" style="color:var(--text-primary)">.368</span></td>
+              <td class="num">5.0</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 5. Filters (FULL: teams, opponent, venue, month, weekend/holiday, status, 只看收藏) -->
+      <div class="home-filters">
+        <div class="filter-group">
+          <span class="lbl">主隊</span>
+          <div class="filter-chips">
+            <span class="filter-chip active">全部</span>
+            <span class="filter-chip">中信兄弟</span>
+            <span class="filter-chip">樂天桃猿</span>
+            <span class="filter-chip">富邦悍將</span>
+            <span class="filter-chip">統一獅</span>
+            <span class="filter-chip">味全龍</span>
+            <span class="filter-chip">台鋼雄鷹</span>
+          </div>
+        </div>
+        <div class="filter-group">
+          <span class="lbl">對手</span>
+          <div class="filter-chips">
+            <span class="filter-chip active">全部</span>
+            <span class="filter-chip">中信兄弟</span>
+            <span class="filter-chip">樂天桃猿</span>
+            <span class="filter-chip">富邦悍將</span>
+            <span class="filter-chip">統一獅</span>
+            <span class="filter-chip">味全龍</span>
+            <span class="filter-chip">台鋼雄鷹</span>
+          </div>
+        </div>
+        <div class="filter-group">
+          <span class="lbl">球場</span>
+          <select class="filter-select"><option>全部球場</option></select>
+          <span class="lbl" style="margin-left:12px">月份</span>
+          <select class="filter-select"><option>全部月份</option></select>
+          <span class="toggle-sw">週末</span>
+          <span class="toggle-sw">週末 + 國定假日</span>
+        </div>
+        <div class="filter-group">
+          <span class="lbl">狀態</span>
+          <div class="status-seg">
+            <span class="seg active">未來場次</span>
+            <span class="seg">全部</span>
+            <span class="seg">已結束</span>
+          </div>
+          <span class="fav-toggle"><svg style="width:14px;height:14px"><use href="#bb-favorite"/></svg> 只看我收藏的</span>
+        </div>
+      </div>
+
+      <!-- Stats strip -->
+      <div class="home-stats-strip">
+        <span class="item"><span class="n">28</span>場 篩選結果</span>
+        <span class="dot">●</span>
+        <span class="item"><span class="n">18</span>場 週末</span>
+        <span class="dot">●</span>
+        <span class="item mine"><span class="n">3</span>場 我的收藏</span>
+        <span class="dot">●</span>
+        <span class="item mine"><span class="n">3</span>場 已打卡</span>
+      </div>
+
+      <!-- Game cards -->
+      <div class="home-cards-wrap">
+        <div class="cards-date-label">4 月 22 日 (六) <span class="today-pill">今天</span></div>
+        <div class="cards-grid">
+          <!-- Main team + starred -->
+          <div class="gcard starred main-team">
+            <div class="gcard-top">
+              <div class="gcard-time-venue"><span class="time">18:35</span><span class="dot">●</span><span class="venue">樂天桃園</span></div>
+              <div class="gcard-star active icon icon-md"><svg style="width:18px;height:18px"><use href="#bb-favorite"/></svg></div>
+            </div>
+            <div class="gcard-vs">
+              <div class="vs-team"><div class="logo" style="background:var(--team-brothers)"></div><div class="name">中信兄弟</div></div>
+              <div class="vs-text">VS</div>
+              <div class="vs-team"><div class="logo" style="background:var(--team-monkeys)"></div><div class="name">樂天桃猿</div></div>
+            </div>
+            <div class="gcard-bot">
+              <div class="gcard-bot-left">
+                <span class="btn-pill ticket"><i data-lucide="ticket" style="width:14px;height:14px"></i> 購票</span>
+                <span class="btn-pill train"><i data-lucide="train-front" style="width:14px;height:14px"></i> 高鐵</span>
+              </div>
+            </div>
+          </div>
+          <!-- Main team (not starred) -->
+          <div class="gcard main-team">
+            <div class="gcard-top">
+              <div class="gcard-time-venue"><span class="time">17:05</span><span class="dot">●</span><span class="venue">洲際棒球場</span></div>
+              <div class="gcard-star icon icon-md"><svg style="width:18px;height:18px"><use href="#bb-favorite"/></svg></div>
+            </div>
+            <div class="gcard-vs">
+              <div class="vs-team"><div class="logo" style="background:var(--team-hawks)"></div><div class="name">台鋼雄鷹</div></div>
+              <div class="vs-text">VS</div>
+              <div class="vs-team"><div class="logo" style="background:var(--team-brothers)"></div><div class="name">中信兄弟</div></div>
+            </div>
+            <div class="gcard-bot">
+              <div class="gcard-bot-left">
+                <span class="btn-pill ticket"><i data-lucide="ticket" style="width:14px;height:14px"></i> 購票</span>
+                <span class="btn-pill train"><i data-lucide="train-front" style="width:14px;height:14px"></i> 高鐵</span>
+              </div>
+            </div>
+          </div>
+          <!-- Regular card -->
+          <div class="gcard">
+            <div class="gcard-top">
+              <div class="gcard-time-venue"><span class="time">17:05</span><span class="dot">●</span><span class="venue">新莊棒球場</span></div>
+              <div class="gcard-star icon icon-md"><svg style="width:18px;height:18px"><use href="#bb-favorite"/></svg></div>
+            </div>
+            <div class="gcard-vs">
+              <div class="vs-team"><div class="logo" style="background:var(--team-lions)"></div><div class="name">統一獅</div></div>
+              <div class="vs-text">VS</div>
+              <div class="vs-team"><div class="logo" style="background:var(--team-guardians)"></div><div class="name">富邦悍將</div></div>
+            </div>
+            <div class="gcard-bot">
+              <div class="gcard-bot-left">
+                <span class="btn-pill ticket"><i data-lucide="ticket" style="width:14px;height:14px"></i> 購票</span>
+                <span class="btn-pill train"><i data-lucide="train-front" style="width:14px;height:14px"></i> 高鐵</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Phase 1-B -->
+<section class="section" id="p1b">
+  <div class="section-hdr">
+    <div class="eyebrow">PHASE 1-B</div>
+    <h2>場次卡片 · 收藏與打卡按鈕</h2>
+    <p class="desc">左：未操作　·　右：已操作（金框 + 金色底色）。以此對比呈現兩種互動狀態。</p>
+  </div>
+  <div class="canvas">
+    <div class="card-demo-grid">
+      <!-- Future · unstarred -->
+      <div class="card-demo-col">
+        <div class="card-demo-label">未來場次 · 未收藏</div>
+        <div class="gcard">
+          <div class="gcard-top">
+            <div class="gcard-time-venue"><span class="time">18:35</span><span class="dot">●</span><span class="venue">洲際棒球場</span></div>
+            <div class="gcard-star icon icon-md"><svg style="width:18px;height:18px"><use href="#bb-favorite"/></svg></div>
+          </div>
+          <div class="gcard-vs">
+            <div class="vs-team"><div class="logo" style="background:var(--team-brothers)"></div><div class="name">中信兄弟</div></div>
+            <div class="vs-text">VS</div>
+            <div class="vs-team"><div class="logo" style="background:var(--team-lions)"></div><div class="name">統一獅</div></div>
+          </div>
+          <div class="gcard-bot">
+            <div class="gcard-bot-left">
+              <span class="btn-pill ticket"><i data-lucide="ticket" style="width:14px;height:14px"></i> 購票</span>
+              <span class="btn-pill train"><i data-lucide="train-front" style="width:14px;height:14px"></i> 高鐵</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Future · starred -->
+      <div class="card-demo-col">
+        <div class="card-demo-label active" style="display:flex;align-items:center;gap:6px">未來場次 · 已收藏 <svg style="width:13px;height:13px"><use href="#bb-favorite"/></svg></div>
+        <div class="gcard starred">
+          <div class="gcard-top">
+            <div class="gcard-time-venue"><span class="time">18:35</span><span class="dot">●</span><span class="venue">洲際棒球場</span></div>
+            <div class="gcard-star active icon icon-md"><svg style="width:18px;height:18px"><use href="#bb-favorite"/></svg></div>
+          </div>
+          <div class="gcard-vs">
+            <div class="vs-team"><div class="logo" style="background:var(--team-brothers)"></div><div class="name">中信兄弟</div></div>
+            <div class="vs-text">VS</div>
+            <div class="vs-team"><div class="logo" style="background:var(--team-lions)"></div><div class="name">統一獅</div></div>
+          </div>
+          <div class="gcard-bot">
+            <div class="gcard-bot-left">
+              <span class="btn-pill ticket"><i data-lucide="ticket" style="width:14px;height:14px"></i> 購票</span>
+              <span class="btn-pill train"><i data-lucide="train-front" style="width:14px;height:14px"></i> 高鐵</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Past · not checked in -->
+      <div class="card-demo-col">
+        <div class="card-demo-label">已完賽 · 未打卡</div>
+        <div class="gcard">
+          <div class="gcard-top">
+            <div class="gcard-time-venue"><span class="time">18:35</span><span class="dot">●</span><span class="venue">洲際棒球場</span></div>
+          </div>
+          <div class="gcard-vs">
+            <div class="vs-team"><div class="logo sm" style="background:var(--team-brothers)"></div><div class="name sm">中信兄弟</div></div>
+            <div class="vs-score"><span class="score win">5</span><span class="colon">:</span><span class="score lose">3</span></div>
+            <div class="vs-team"><div class="logo sm" style="background:var(--team-lions)"></div><div class="name sm">統一獅</div></div>
+          </div>
+          <div class="gcard-pills">
+            <span class="stat-pill win">W 徐若熙</span>
+            <span class="stat-pill lose">L 陳柏清</span>
+            <span class="stat-pill mvp">MVP 林立</span>
+          </div>
+          <div class="gcard-bot">
+            <div class="gcard-bot-left"><span class="btn-pill brief"><svg style="width:14px;height:14px"><use href="#bb-scoreboard"/></svg> 賽事記錄</span></div>
+            <span class="btn-pill checkin"><svg style="width:14px;height:14px"><use href="#bb-checkin"/></svg> 我去了</span>
+          </div>
+        </div>
+      </div>
+      <!-- Past · checked in -->
+      <div class="card-demo-col">
+        <div class="card-demo-label active" style="display:flex;align-items:center;gap:6px">已完賽 · 已打卡 <svg style="width:13px;height:13px"><use href="#bb-checkin"/></svg></div>
+        <div class="gcard starred">
+          <div class="gcard-top">
+            <div class="gcard-time-venue"><span class="time">18:35</span><span class="dot">●</span><span class="venue">洲際棒球場</span></div>
+          </div>
+          <div class="gcard-vs">
+            <div class="vs-team"><div class="logo sm" style="background:var(--team-brothers)"></div><div class="name sm">中信兄弟</div></div>
+            <div class="vs-score"><span class="score win">5</span><span class="colon">:</span><span class="score lose">3</span></div>
+            <div class="vs-team"><div class="logo sm" style="background:var(--team-lions)"></div><div class="name sm">統一獅</div></div>
+          </div>
+          <div class="gcard-pills">
+            <span class="stat-pill win">W 徐若熙</span>
+            <span class="stat-pill lose">L 陳柏清</span>
+            <span class="stat-pill mvp">MVP 林立</span>
+          </div>
+          <div class="gcard-bot">
+            <div class="gcard-bot-left"><span class="btn-pill brief"><svg style="width:14px;height:14px"><use href="#bb-scoreboard"/></svg> 賽事記錄</span></div>
+            <span class="btn-pill checkin done"><svg style="width:14px;height:14px"><use href="#bb-checkin"/></svg> 2026-04-15 去過</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Phase 1-C -->
+<section class="section" id="p1c">
+  <div class="section-hdr">
+    <div class="eyebrow">PHASE 1-C</div>
+    <h2>打卡 Modal</h2>
+    <p class="desc">點擊已完賽卡片的「我去了」後彈出，記錄座位、同行者、評分、心得、照片。</p>
+  </div>
+  <div class="canvas">
+    <div class="dim-bg">
+      <div class="checkin-modal">
+        <div class="ci-hdr">
+          <h3 style="display:flex;align-items:center;gap:8px;color:var(--accent-terracotta)"><svg style="width:22px;height:22px"><use href="#bb-checkin"/></svg> 我去了這場</h3>
+          <div class="ci-game">
+            <span class="date">2026-04-15 (三)</span>
+            <span class="sep">●</span>
+            <span class="score">中信兄弟 5 : 3 統一獅</span>
+            <span class="sep">●</span>
+            <span class="venue">洲際棒球場</span>
+          </div>
+        </div>
+        <div class="ci-sep"></div>
+        <div class="field">
+          <label>座位區</label>
+          <div class="chip-row">
+            <div class="chip">1壘內野</div>
+            <div class="chip selected">3壘內野</div>
+            <div class="chip">外野</div>
+            <div class="chip">全壘打牆</div>
+            <div class="chip">貴賓包廂</div>
+            <div class="chip">其他</div>
+          </div>
+        </div>
+        <div class="field">
+          <label>同行者</label>
+          <input class="input" value="跟阿明、小美一起">
+        </div>
+        <div class="field">
+          <label>評分</label>
+          <div class="stars">★ ★ ★ ★ ★</div>
+        </div>
+        <div class="field">
+          <div class="lbl-row">
+            <label>心得</label>
+            <span class="counter">38 / 200</span>
+          </div>
+          <textarea class="input textarea">第一次看到林立全壘打球飛過全壘打牆，很激動</textarea>
+        </div>
+        <div class="field">
+          <label>照片（選填）</label>
+          <div class="upload"><i data-lucide="camera" style="width:16px;height:16px"></i> 點擊或拖曳照片至此</div>
+        </div>
+        <div class="ci-btns">
+          <button class="btn ghost">取消</button>
+          <button class="btn primary">儲存打卡</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Phase 1-D -->
+<section class="section" id="p1d">
+  <div class="section-hdr">
+    <div class="eyebrow">PHASE 1-D</div>
+    <h2>個人中心頁 · 打卡紀錄</h2>
+    <p class="desc">從 Nav「我的」進入，顯示個人資訊、年度統計、打卡紀錄時間軸。</p>
+  </div>
+  <div class="canvas" style="padding:0;">
+    <div class="profile-page">
+      <div class="nav">
+        <div class="nav-l"><span class="logo icon icon-lg" style="color:var(--accent-terracotta)"><i data-lucide="baseball"></i></span><span class="brand">CPBL 2026</span></div>
+        <div class="nav-r">
+          <a>戰績</a><a>篩選</a><a>賽程</a>
+          <a class="active">我的 <svg style="width:14px;height:14px;vertical-align:-2px"><use href="#bb-favorite"/></svg></a>
+        </div>
+      </div>
+      <div class="p-hero">
+        <div class="p-hero-l">
+          <div class="avatar">T</div>
+          <div class="p-hero-txt">
+            <h3>Hi Tiffany 👋</h3>
+            <div class="p-hero-team">
+              <span class="lbl">主隊</span>
+              <div class="logo" style="background:var(--team-brothers)"></div>
+              <span class="name">中信兄弟</span>
+              <span class="change">變更</span>
+            </div>
+          </div>
+        </div>
+        <div class="p-stats">
+          <div class="p-stat"><span class="num" style="color:var(--accent-terracotta)">12</span><span class="lbl">進場場次</span></div>
+          <span class="sep"></span>
+          <div class="p-stat"><span class="num" style="color:var(--win)">.625</span><span class="lbl">現場勝率</span></div>
+          <span class="sep"></span>
+          <div class="p-stat"><span class="num" style="color:var(--accent-gold)">4 / 11</span><span class="lbl">球場收集</span></div>
+        </div>
+      </div>
+      <div class="p-tabs">
+        <div class="p-tab active"><svg style="width:14px;height:14px;vertical-align:-2px"><use href="#bb-checkin"/></svg> 打卡紀錄</div>
+        <div class="p-tab"><i data-lucide="award" style="width:14px;height:14px;vertical-align:-2px"></i> 徽章</div>
+        <div class="p-tab"><svg style="width:14px;height:14px;vertical-align:-2px"><use href="#bb-favorite"/></svg> 收藏</div>
+        <div class="p-tab"><i data-lucide="bar-chart-3" style="width:14px;height:14px;vertical-align:-2px"></i> 統計</div>
+      </div>
+      <div class="p-body">
+        <div class="p-body-hdr">
+          <div><h3>打卡紀錄</h3><span class="count">共 3 場</span></div>
+          <div class="sort-chips"><div class="sort-chip active">依日期</div><div class="sort-chip">依評分</div></div>
+        </div>
+
+        <div class="rec">
+          <div class="rec-date"><span class="month">04</span><span class="day">15</span><span class="wk">週三</span></div>
+          <div class="rec-body">
+            <div class="rec-game">
+              <div class="logo" style="background:var(--team-brothers)"></div><span class="tname">中信兄弟</span>
+              <span class="sc w">5</span><span class="cln">:</span><span class="sc l">3</span>
+              <span class="tname">統一獅</span><div class="logo" style="background:var(--team-lions)"></div>
+              <span class="venue">◉ 洲際棒球場</span>
+            </div>
+            <div class="rec-rate"><div class="stars">★ ★ ★ ★ ★</div></div>
+            <div class="rec-note">「第一次看到林立全壘打球飛過全壘打牆，很激動！」</div>
+            <div class="rec-tags"><span class="rec-tag"><i data-lucide="armchair" style="width:11px;height:11px;vertical-align:-1px"></i> 3壘內野</span><span class="rec-tag"><i data-lucide="users" style="width:11px;height:11px;vertical-align:-1px"></i> 阿明、小美</span></div>
+          </div>
+          <div class="rec-photo"><i data-lucide="camera" style="width:22px;height:22px"></i></div>
+        </div>
+
+        <div class="rec">
+          <div class="rec-date"><span class="month">04</span><span class="day">08</span><span class="wk">週三</span></div>
+          <div class="rec-body">
+            <div class="rec-game">
+              <div class="logo" style="background:var(--team-brothers)"></div><span class="tname">中信兄弟</span>
+              <span class="sc l">2</span><span class="cln">:</span><span class="sc w">6</span>
+              <span class="tname">樂天桃猿</span><div class="logo" style="background:var(--team-monkeys)"></div>
+              <span class="venue">◉ 樂天桃園</span>
+            </div>
+            <div class="rec-rate"><div class="stars">★ ★ ★ <span class="off">★ ★</span></div></div>
+            <div class="rec-note">「雨天延誤 40 分鐘，第八局才真正熱起來」</div>
+            <div class="rec-tags"><span class="rec-tag"><i data-lucide="armchair" style="width:11px;height:11px;vertical-align:-1px"></i> 外野</span><span class="rec-tag"><i data-lucide="user" style="width:11px;height:11px;vertical-align:-1px"></i> 獨自前往</span></div>
+          </div>
+          <div class="rec-photo filled"></div>
+        </div>
+
+        <div class="rec">
+          <div class="rec-date"><span class="month">03</span><span class="day">28</span><span class="wk">週六</span></div>
+          <div class="rec-body">
+            <div class="rec-game">
+              <div class="logo" style="background:var(--team-brothers)"></div><span class="tname">中信兄弟</span>
+              <span class="sc w">7</span><span class="cln">:</span><span class="sc l">4</span>
+              <span class="tname">台鋼雄鷹</span><div class="logo" style="background:var(--team-hawks)"></div>
+              <span class="venue">◉ 天母棒球場</span>
+            </div>
+            <div class="rec-rate">
+              <div class="stars">★ ★ ★ ★ <span class="off">★</span></div>
+              <span class="milestone-pill"><i data-lucide="trophy" style="width:11px;height:11px;vertical-align:-1px"></i> 球場首達</span>
+            </div>
+            <div class="rec-note">「開幕戰！天母球場第一次親眼看到江坤宇雙殺」</div>
+            <div class="rec-tags"><span class="rec-tag"><i data-lucide="armchair" style="width:11px;height:11px;vertical-align:-1px"></i> 1壘內野</span><span class="rec-tag"><i data-lucide="heart" style="width:11px;height:11px;vertical-align:-1px"></i> 老公</span></div>
+          </div>
+          <div class="rec-photo filled"></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Phase 2-A -->
+<section class="section" id="p2a">
+  <div class="section-hdr">
+    <div class="eyebrow">PHASE 2-A</div>
+    <h2>球場巡禮徽章</h2>
+    <p class="desc">11 座 CPBL 球場收集進度，已打卡金框 + 彩色，未去虛線灰階。集滿解鎖年度巡禮徽章。</p>
+  </div>
+  <div class="canvas">
+    <div class="badges-hdr">
+      <div class="title"><img class="ft-stadium" src="../icon-preview/icons/stadium-flaticon-484466.png" alt="" style="width:30px;height:30px"><h3>球場巡禮</h3></div>
+      <div class="progress">
+        <div class="num"><span class="big">4</span><span class="sml">/ 11 座</span></div>
+        <div class="bar"><div class="fill"></div></div>
+      </div>
+    </div>
+    <div class="badges-grid">
+      <div class="badge-card unlocked"><div class="badge-icon unlocked" style="color:var(--accent-gold)"><img class="ft-stadium" src="../icon-preview/icons/stadium-flaticon-484466.png" alt="" style="width:48px;height:48px"></div><div class="badge-name">洲際棒球場</div><div class="badge-tag unlocked">去過 2 次</div></div>
+      <div class="badge-card unlocked"><div class="badge-icon unlocked" style="color:var(--accent-gold)"><img class="ft-stadium" src="../icon-preview/icons/stadium-flaticon-484466.png" alt="" style="width:48px;height:48px"></div><div class="badge-name">樂天桃園</div><div class="badge-tag unlocked">去過 1 次</div></div>
+      <div class="badge-card unlocked"><div class="badge-icon unlocked" style="color:var(--accent-gold)"><img class="ft-stadium" src="../icon-preview/icons/stadium-flaticon-484466.png" alt="" style="width:48px;height:48px"></div><div class="badge-name">天母棒球場</div><div class="badge-tag unlocked">去過 1 次 · <i data-lucide="trophy" style="width:11px;height:11px;vertical-align:-1px"></i> 首達</div></div>
+      <div class="badge-card unlocked"><div class="badge-icon unlocked" style="color:var(--accent-gold)"><img class="ft-stadium" src="../icon-preview/icons/stadium-flaticon-484466.png" alt="" style="width:48px;height:48px"></div><div class="badge-name">台北大巨蛋</div><div class="badge-tag unlocked">去過 1 次</div></div>
+      <div class="badge-card locked"><div class="badge-icon locked">?</div><div class="badge-name locked">新莊棒球場</div><div class="badge-tag locked">未解鎖</div></div>
+      <div class="badge-card locked"><div class="badge-icon locked">?</div><div class="badge-name locked">亞太主球場</div><div class="badge-tag locked">未解鎖</div></div>
+      <div class="badge-card locked"><div class="badge-icon locked">?</div><div class="badge-name locked">澄清湖球場</div><div class="badge-tag locked">未解鎖</div></div>
+      <div class="badge-card locked"><div class="badge-icon locked">?</div><div class="badge-name locked">嘉義市球場</div><div class="badge-tag locked">未解鎖</div></div>
+      <div class="badge-card locked"><div class="badge-icon locked">?</div><div class="badge-name locked">斗六棒球場</div><div class="badge-tag locked">未解鎖</div></div>
+      <div class="badge-card locked"><div class="badge-icon locked">?</div><div class="badge-name locked">花蓮棒球場</div><div class="badge-tag locked">未解鎖</div></div>
+      <div class="badge-card locked"><div class="badge-icon locked">?</div><div class="badge-name locked">高雄立德</div><div class="badge-tag locked">未解鎖</div></div>
+      <div class="badge-card special">
+        <div style="font-size:28px;color:var(--accent-gold)">✨</div>
+        <div class="badge-name" style="font-size:14px;color:var(--accent-terracotta)">集滿 11 座</div>
+        <div style="font-size:11px;color:var(--text-muted)">解鎖年度巡禮徽章</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Phase 2-B -->
+<section class="section" id="p2b">
+  <div class="section-hdr">
+    <div class="eyebrow">PHASE 2-B</div>
+    <h2>現場戰績 · Streak 記錄</h2>
+    <p class="desc">你的看球故事：連勝紀錄、主隊現場勝率、最愛球場、最難忘的逆轉。</p>
+  </div>
+  <div class="canvas">
+    <div class="streak-banner">
+      <div class="streak-l">
+        <span class="emoji" style="color:#D48C2E"><i data-lucide="flame" style="width:30px;height:30px"></i></span>
+        <div class="streak-txt">
+          <h4>連續 3 場現場見證勝利</h4>
+          <p>2026-04-15 起，再去一場就是 4 連勝紀錄</p>
+        </div>
+      </div>
+      <div class="streak-r">下一場 2026-04-22 → 桃園</div>
+    </div>
+    <div class="stats-row">
+      <div class="stats-card">
+        <div class="shdr"><div class="stlogo" style="background:var(--team-brothers)"></div><div class="sttxt">你在現場時，中信兄弟的戰績</div></div>
+        <div class="big-num"><span class="n">.625</span><span class="sub">現場勝率</span></div>
+        <div class="wld">
+          <div class="wld-item"><span class="n w">5</span><span class="l">勝</span></div>
+          <div class="wld-item"><span class="n l">3</span><span class="l">敗</span></div>
+          <div class="wld-item"><span class="n t">0</span><span class="l">和</span></div>
+        </div>
+      </div>
+      <div class="stats-card">
+        <div class="shdr"><span style="color:var(--accent-gold)"><i data-lucide="zap" style="width:18px;height:18px"></i></span><div class="sttxt">你最常出沒的球場</div></div>
+        <div class="top-venue gold"><div class="l"><span class="medal">🥇</span><span class="tn">洲際棒球場</span></div><span class="r">2 次 · 42%</span></div>
+        <div class="top-venue plain"><div class="l"><span class="medal">🥈</span><span class="tn">天母棒球場</span></div><span class="r">1 次 · 25%</span></div>
+        <div class="top-venue plain"><div class="l"><span class="medal">🥉</span><span class="tn">樂天桃園</span></div><span class="r">1 次 · 17%</span></div>
+      </div>
+      <div class="stats-card dark">
+        <div class="shdr"><span style="color:#E8C961"><i data-lucide="flame" style="width:18px;height:18px"></i></span><div class="sttxt">你現場見證的最大逆轉</div></div>
+        <div class="date">2026-06-18</div>
+        <div class="ct-mid">
+          <div class="ct-team"><div class="lg" style="background:var(--team-brothers)"></div><span class="nm">兄弟</span></div>
+          <div class="ct-sc"><span class="n w">8</span><span class="c">:</span><span class="n l">7</span></div>
+          <div class="ct-team"><div class="lg" style="background:var(--team-monkeys)"></div><span class="nm">樂天</span></div>
+        </div>
+        <div class="ct-line">延長 11 局，落後 3 分逆轉致勝</div>
+        <div class="ct-quote">「這輩子看過最精彩的逆轉」— 你的心得</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Phase 2-C -->
+<section class="section" id="p2c">
+  <div class="section-hdr">
+    <div class="eyebrow">PHASE 2-C</div>
+    <h2>年度回顧頁 · /me/2026</h2>
+    <p class="desc">Spotify Wrapped 風格 · 6 頁 scroll-through · 年底 12 月觸發「你的球季回顧已生成」</p>
+  </div>
+  <div class="canvas">
+    <div class="recap-grid">
+      <div class="recap-slide s1">
+        <div class="slide-num" style="color:#F0E4CF">Page 1 / 6</div>
+        <div class="ball" style="color:#E8C961"><i data-lucide="baseball" style="width:72px;height:72px;stroke-width:1.5"></i></div>
+        <h3>2026 球季</h3>
+        <div class="sub">你的看球回顧</div>
+        <div class="deco">● —— ◆ —— ●</div>
+        <div class="scroll">向下滑 ↓</div>
+      </div>
+      <div class="recap-slide s2">
+        <div class="slide-num" style="color:var(--text-faint)">Page 2 / 6</div>
+        <div class="lbl">你去了</div>
+        <div class="big">12</div>
+        <div class="games">場比賽</div>
+        <div class="note">比去年多了 5 場 🎉</div>
+      </div>
+      <div class="recap-slide s3">
+        <div class="slide-num" style="color:var(--text-faint)">Page 3 / 6</div>
+        <div class="lbl">你最常出沒的球場</div>
+        <div class="circle" style="color:var(--accent-gold)"><img class="ft-stadium" src="../icon-preview/icons/stadium-flaticon-484466.png" alt="" style="width:80px;height:80px"></div>
+        <div class="vname">洲際棒球場</div>
+        <div class="tag">去了 5 次，佔今年 42%</div>
+      </div>
+      <div class="recap-slide s4">
+        <div class="slide-num">Page 4 / 6</div>
+        <div class="lbl">最難忘的一晚</div>
+        <div class="dt">2026-06-18</div>
+        <div class="mid">
+          <div class="lg" style="background:var(--team-brothers)"></div>
+          <div><span class="n w">8</span><span class="c">:</span><span class="n l">7</span></div>
+          <div class="lg" style="background:var(--team-monkeys)"></div>
+        </div>
+        <div class="cap">延長 11 局逆轉勝</div>
+        <div class="quote">「這輩子看過最精彩的逆轉」</div>
+        <div class="by">— 你的心得</div>
+      </div>
+      <div class="recap-slide s5">
+        <div class="slide-num">Page 5 / 6</div>
+        <div class="intro">你支持的</div>
+        <div class="team"><div class="lg" style="background:var(--team-brothers)"></div><span class="tn">中信兄弟</span></div>
+        <div class="wr-lbl">在你現場時的勝率</div>
+        <div class="wr">.625</div>
+        <div class="tag" style="display:inline-flex;align-items:center;gap:6px"><i data-lucide="flame" style="width:14px;height:14px"></i> 你是兄弟的幸運星</div>
+      </div>
+      <div class="recap-slide s6">
+        <div class="slide-num" style="color:var(--text-faint)">Page 6 / 6</div>
+        <div class="party">🎉</div>
+        <h3>感謝你這一年<br>的陪伴</h3>
+        <div class="wish">期待 2027 一起再進場</div>
+        <div class="btns">
+          <button class="btn primary dark" style="display:flex;align-items:center;gap:6px"><i data-lucide="download" style="width:14px;height:14px"></i> 儲存分享圖</button>
+          <button class="btn ghost">回首頁</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Phase 2-D -->
+<section class="section" id="p2d">
+  <div class="section-hdr">
+    <div class="eyebrow">PHASE 2-D</div>
+    <h2>成就解鎖 Toast</h2>
+    <p class="desc">左：主要解鎖 Lightbox（新球場達成）　·　右：其他情境的輕量 Toast 變體。</p>
+  </div>
+  <div class="canvas" style="background:rgba(61,49,34,0.85);">
+    <div class="toast-layout">
+      <div class="toast-modal">
+        <div class="confetti"><span style="font-size:28px">🎊</span><span style="font-size:20px">✨</span><span style="font-size:28px">🎉</span><span style="font-size:20px">✨</span><span style="font-size:28px">🎊</span></div>
+        <div class="toast-badge" style="color:var(--accent-gold)"><img class="ft-stadium" src="../icon-preview/icons/stadium-flaticon-484466.png" alt="" style="width:86px;height:86px"></div>
+        <div class="tag">成就解鎖</div>
+        <h3>球場巡禮 +1</h3>
+        <div class="divider"></div>
+        <div class="desc">第一次去 天母棒球場！</div>
+        <div class="count"><i data-lucide="trophy" style="width:14px;height:14px"></i><span>你已走訪 4 座球場</span></div>
+        <div class="btns">
+          <button class="btn ghost" style="display:flex;align-items:center;gap:6px;justify-content:center"><i data-lucide="share-2" style="width:14px;height:14px"></i> 分享</button>
+          <button class="btn primary">繼續看球</button>
+        </div>
+      </div>
+      <div class="toast-variants">
+        <h4>其他觸發情境 · Toast 變體</h4>
+        <div class="toast-item">
+          <div class="ic-wrap" style="background:var(--accent-gold-soft);color:#D48C2E"><i data-lucide="flame" style="width:22px;height:22px"></i></div>
+          <div class="tt"><span class="t" style="color:var(--accent-terracotta)">Streak +1</span><span class="d">連勝見證來到 3 連勝！</span></div>
+        </div>
+        <div class="toast-item">
+          <div class="ic-wrap" style="background:#E8F5EC;color:var(--win)"><i data-lucide="target" style="width:22px;height:22px"></i></div>
+          <div class="tt"><span class="t" style="color:var(--win)">打卡里程碑</span><span class="d">恭喜！這是你的第 10 場打卡</span></div>
+        </div>
+        <div class="toast-item">
+          <div class="ic-wrap" style="background:#FCEEEC;color:var(--accent-red)"><i data-lucide="zap" style="width:22px;height:22px"></i></div>
+          <div class="tt"><span class="t" style="color:var(--accent-red)">見證瞬間</span><span class="d">你現場的最大逆轉：落後 4 分反超！</span></div>
+        </div>
+        <div class="toast-item">
+          <div class="ic-wrap" style="background:var(--surface-soft);color:var(--accent-gold)"><i data-lucide="award" style="width:22px;height:22px"></i></div>
+          <div class="tt"><span class="t" style="color:var(--accent-gold)">年度挑戰達標</span><span class="d">「3 個月走訪 5 座球場」完成</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer style="background:var(--surface-dark);color:var(--text-faint);padding:32px 60px;text-align:center;font-size:12px;">
+  CPBL Planner · Phase 1 & 2 Engagement Design · 2026-04-21
+</footer>
+
+<script>
+  // Initialize Lucide icons after DOM loads
+  if (window.lucide) {
+    lucide.createIcons();
+  } else {
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.lucide) lucide.createIcons();
+    });
+  }
+</script>
+</body>
+</html>
