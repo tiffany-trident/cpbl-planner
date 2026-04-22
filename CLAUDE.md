@@ -7,13 +7,14 @@
 
 ---
 
-## 開工前必讀
+## 開工前必讀（硬規則）
 
-每次 session 一開始，以及每個任務動手前，**先依任務類型讀對應 docs**，不要憑印象推論。
+**每次 session 一開始、每個 Step / 子任務動手前、以及選定任何 icon / 視覺元件前**，先依任務類型讀對應文件。**不得憑印象、記憶或訓練語料推論**（例如看到「收藏」就用 ⭐、看到「打卡」就用 📍 — 這類假設在本專案幾乎都是錯的）。
 
 | 任務類型 | 必讀 |
 |---------|------|
-| UI / 視覺 / 字體 / 圖示 | [docs/uidesign.md](docs/uidesign.md) / [docs/uidesign-changelog.md](docs/uidesign-changelog.md) |
+| UI / 視覺 / 字體 / 色彩系統 | [docs/uidesign.md](docs/uidesign.md) / [docs/uidesign-changelog.md](docs/uidesign-changelog.md) |
+| **Icon 選用（含 SVG sprite / 客製符號 ID）** | **[design/phase1-2-preview.html](design/phase1-2-preview.html) 最上方的 `<defs>` sprite 區**（含 bb-favorite、bb-checkin 等客製 symbol 的正規定義）+ 下文「客製 icon 命名表」 |
 | 功能規劃 / 黏著度 Roadmap | [docs/engagement.md](docs/engagement.md) |
 | 現有功能清單 | [docs/features.md](docs/features.md) |
 | 資料來源 / API / RAW_DATA 格式 | [docs/data-source.md](docs/data-source.md) |
@@ -22,6 +23,18 @@
 | 賽事記錄 | [docs/briefings.md](docs/briefings.md) |
 | 主場主題日 | [docs/theme-days.md](docs/theme-days.md) |
 | 外部連結資料（購票網站、高鐵站對應） | [docs/external-links.md](docs/external-links.md) |
+
+### 客製 icon 命名表（正規定義在 `design/phase1-2-preview.html` sprite）
+
+選 icon 前**一律先查此表與視覺稿 sprite**，不要自作主張選 emoji 或別的圖庫 icon。
+
+| Symbol ID | 用途 | 來源 |
+|-----------|------|------|
+| `bb-favorite` | 場次收藏（⭐ 的正規替代圖） | svgrepo 139073（棒球+投球動線） |
+| `bb-checkin` | 觀戰打卡（📍 的正規替代圖） | 以 `design/phase1-2-preview.html` 最新定義為準 |
+| `cap-mainteam` | 戰績表主隊標記 | Phosphor `baseball-helmet-fill`（MIT） |
+
+若 `design/phase1-2-preview.html` 的 sprite 有更新（例如使用者換圖），**以視覺稿為最新真實來源**，主程式 `index.html` 需同步更新 sprite。
 
 ## 設計原則
 
