@@ -1430,6 +1430,7 @@ function loadData() {
   buildStandings();
   buildHeroInfo();
   initFilters();
+  if (userState.lastFilter) applyFilterToUI(userState.lastFilter);
   render();
   loadWeather();
   loadThemeDays();
@@ -1521,6 +1522,45 @@ function getSelectedTeams(containerId) {
   return [...document.querySelectorAll('#' + containerId + ' .chip.active')].map(c => c.dataset.team);
 }
 
+// ── 篩選記憶（Phase 1）──
+function captureCurrentFilter() {
+  return {
+    team1: getSelectedTeams('f-team1'),
+    team2: getSelectedTeams('f-team2'),
+    field: document.getElementById('f-field').value,
+    month: document.getElementById('f-month').value,
+    weekend: document.getElementById('f-weekend').checked,
+    holiday: document.getElementById('f-holiday').checked,
+    status: statusFilter
+  };
+}
+
+function applyFilterToUI(f) {
+  if (!f) return;
+  ['f-team1', 'f-team2'].forEach((id, i) => {
+    const selected = (i === 0 ? f.team1 : f.team2) || [];
+    document.querySelectorAll('#' + id + ' .chip').forEach(chip => {
+      chip.classList.toggle('active', selected.includes(chip.dataset.team));
+    });
+  });
+  const fld = document.getElementById('f-field');
+  const mon = document.getElementById('f-month');
+  if (f.field && [...fld.options].some(o => o.value === f.field)) fld.value = f.field;
+  if (f.month && [...mon.options].some(o => o.value === String(f.month))) mon.value = String(f.month);
+  document.getElementById('f-weekend').checked = !!f.weekend;
+  document.getElementById('f-holiday').checked = !!f.holiday;
+  const nextStatus = ['future', 'all', 'past'].includes(f.status) ? f.status : 'future';
+  document.querySelectorAll('#f-status .toggle-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.val === nextStatus);
+  });
+  statusFilter = nextStatus;
+}
+
+function persistCurrentFilter() {
+  userState.lastFilter = captureCurrentFilter();
+  saveUserState(userState);
+}
+
 function initFilters() {
   const teams = [...new Set(allGames.flatMap(g => [g.visitor, g.home]))].sort();
   const fields = [...new Set(allGames.map(g => g.field))].sort();
@@ -1534,7 +1574,7 @@ function initFilters() {
       chip.className = 'chip';
       chip.dataset.team = t;
       chip.innerHTML = logoImg(t, 18) + (TEAM_SHORT[t] || t);
-      chip.addEventListener('click', () => { chip.classList.toggle('active'); render(); });
+      chip.addEventListener('click', () => { chip.classList.toggle('active'); render(); persistCurrentFilter(); });
       container.appendChild(chip);
     });
   });
@@ -1759,12 +1799,13 @@ function getTeamColor(team) {
 
 // ── 事件綁定 ──
 ['f-field','f-month'].forEach(id =>
-  document.getElementById(id).addEventListener('change', render));
+  document.getElementById(id).addEventListener('change', function() { render(); persistCurrentFilter(); }));
 ['f-weekend','f-holiday'].forEach(id =>
   document.getElementById(id).addEventListener('change', function() {
     if (id === 'f-weekend' && this.checked) document.getElementById('f-holiday').checked = false;
     if (id === 'f-holiday' && this.checked) document.getElementById('f-weekend').checked = false;
     render();
+    persistCurrentFilter();
   }));
 
 // Status toggle
@@ -1774,6 +1815,7 @@ document.querySelectorAll('#f-status .toggle-btn').forEach(btn => {
     this.classList.add('active');
     statusFilter = this.dataset.val;
     render();
+    persistCurrentFilter();
   });
 });
 
@@ -1785,6 +1827,8 @@ document.getElementById('btn-reset').addEventListener('click', function() {
   document.querySelector('#f-status .toggle-btn[data-val="future"]').classList.add('active');
   statusFilter = 'future';
   render();
+  userState.lastFilter = null;
+  saveUserState(userState);
 });
 
 loadData();
