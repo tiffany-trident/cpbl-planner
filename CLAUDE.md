@@ -50,6 +50,15 @@
 - API 回傳是**唯一真實來源**，不可從記憶或推測產生
 - 驗證資料時應重新呼叫 API 比對
 
+## Git 工作流程（硬規則）
+
+- **所有功能開發、調整、修改一律走 feature branch**，不得直接改在 `main` 上
+- 分支命名：`feat/<功能名>`（新功能）／`fix/<問題名>`（修 bug）／`chore/<雜項>`（文件、設定）
+- 流程：從 `main` 拉分支 → 本機修改 + 瀏覽器驗證 → push → merge 回 `main` → GitHub Pages 自動部署
+- **merge 回 `main` 前必須在本機開瀏覽器驗證**（與部署原則「改動後自我驗證」合併要求）
+- 不滿意可直接砍分支或 reset，不會污染 `main` 與線上部署
+- GitHub Actions 自動更新 workflow 只會動 `main` 的 `games_data.json` 與兩份 HTML；feature branch 存活期間需自行處理 merge 衝突
+
 ## 部署原則
 
 - GitHub Pages 從 `main` 分支 `index.html` 部署
