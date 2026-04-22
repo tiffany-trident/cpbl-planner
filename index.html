@@ -581,6 +581,55 @@ let weatherCache = {};      // { stadium: { data, ts } }
 let weatherLoading = false;
 let themeDaysData = {};     // { "YYYY-MM-DD": [{home_team, title, subtitle, source_url}, ...] }
 
+// ── 使用者個人化資料（Phase 1 Schema v1）──
+// 儲存於 localStorage，未來 Phase 4 跨裝置同步會沿用此 schema
+const USER_STORE_KEY = 'cpbl_planner_v1';
+const USER_STORE_VERSION = 1;
+
+function defaultUserState() {
+  return {
+    version: USER_STORE_VERSION,
+    profile: { mainTeam: null },    // 主隊（Phase 1-主隊設定）
+    favorites: [],                   // [sno, ...] 場次收藏（Phase 1-⭐）
+    checkins: {},                    // { sno: {seat, companions, rating, note, photo, createdAt} }（Phase 1-📍）
+    lastFilter: null                 // 上次篩選條件（Phase 1-篩選記憶）
+  };
+}
+
+function migrateUserState(data) {
+  // 未來 schema 升版在此分支處理；目前只需把舊版本（或缺欄位）補齊到 v1 預設
+  const defaults = defaultUserState();
+  if (!data || typeof data !== 'object') return defaults;
+  // 合併：預設欄位打底 + 已存欄位覆蓋，並強制當前 version
+  return {
+    ...defaults,
+    ...data,
+    profile: { ...defaults.profile, ...(data.profile || {}) },
+    version: USER_STORE_VERSION
+  };
+}
+
+function loadUserState() {
+  try {
+    const raw = localStorage.getItem(USER_STORE_KEY);
+    if (!raw) return defaultUserState();
+    return migrateUserState(JSON.parse(raw));
+  } catch (e) {
+    return defaultUserState();
+  }
+}
+
+function saveUserState(state) {
+  try {
+    localStorage.setItem(USER_STORE_KEY, JSON.stringify(state));
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
+let userState = loadUserState();
+
 // ── 天氣工具函式 ──
 function getWeatherInfo(code) {
   for (const [maxCode, icon, label] of WMO_WEATHER_MAP) {
