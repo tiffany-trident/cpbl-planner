@@ -191,6 +191,9 @@ svg.section-icon { width: 28px; height: 28px; }
 .game-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(212,196,171,0.2); }
 .game-card.card-today { border-color: #F0D9B5; }
 .game-card.favorited { outline: 2px solid #C2573A; outline-offset: -2px; }
+.game-card.checked-in { position: relative; }
+.checkin-stamp { position: absolute; bottom: 56px; right: 12px; width: 72px; height: 72px; color: #C2573A; opacity: 0.30; transform: rotate(8deg); pointer-events: none; z-index: 1; }
+.checkin-stamp svg { width: 100%; height: 100%; display: block; }
 .card-top { display: flex; justify-content: space-between; align-items: center; padding: 14px 18px 12px; background: #FFFAF2; }
 .card-top.card-top-today { background: #FFF3E0; }
 .card-top.card-top-postponed { background: #F5EEF8; }
@@ -274,6 +277,48 @@ button.card-weather.clickable:active { transform: scale(0.96); }
 
 /* ── Briefing pill & popover ── */
 .btn-briefing { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; background: #F5EEDE; border: 1px solid #E8DDBE; border-radius: 20px; padding: 5px 12px; color: #4A3728; cursor: pointer; font-family: inherit; transition: background 0.15s, transform 0.1s; white-space: nowrap; }
+.btn-checkin { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; background: #FDF6EE; border: 1px solid #E8D5B8; border-radius: 20px; padding: 5px 12px; color: #C2573A; cursor: pointer; font-family: inherit; transition: background 0.15s, transform 0.1s; white-space: nowrap; }
+.btn-checkin:hover { background: #F5E6D0; }
+.btn-checkin:active { transform: scale(0.96); }
+.btn-checkin.done { background: #C2573A; color: #FFF; border-color: #C2573A; font-weight: 700; }
+.btn-checkin.done:hover { background: #A0432A; border-color: #A0432A; }
+.btn-checkin svg { width: 14px; height: 14px; display: block; }
+
+/* 打卡 Modal */
+.ci-overlay { position: fixed; inset: 0; background: rgba(61, 49, 34, 0.6); z-index: 9999; display: flex; align-items: center; justify-content: center; padding: 20px; animation: mtFadeIn 0.2s ease; }
+.ci-modal { background: #FFF; border-radius: 24px; padding: 32px 36px 24px; max-width: 560px; width: 100%; max-height: 90vh; overflow-y: auto; box-shadow: 0 20px 60px rgba(61, 49, 34, 0.3); display: flex; flex-direction: column; gap: 20px; }
+.ci-header { display: flex; align-items: center; gap: 10px; color: #C2573A; }
+.ci-header svg { width: 28px; height: 28px; }
+.ci-header h2 { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; font-size: 22px; font-weight: 500; letter-spacing: 1.5px; color: #3D3122; margin: 0; }
+.ci-game-info { background: #FDF6EE; border-radius: 14px; padding: 12px 16px; font-size: 13px; color: #4A3728; display: flex; flex-direction: column; gap: 6px; }
+.ci-game-info .ci-game-meta { font-size: 12px; color: #7A6E5E; }
+.ci-game-info .ci-game-teams { display: flex; align-items: center; justify-content: center; gap: 10px; font-weight: 600; }
+.ci-game-info .ci-game-teams img { width: 28px; height: 28px; object-fit: contain; }
+.ci-game-info .ci-game-score { font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 800; color: #C2573A; margin: 0 8px; }
+.ci-field { display: flex; flex-direction: column; gap: 8px; }
+.ci-field label { font-size: 13px; font-weight: 700; color: #4A3728; display: flex; justify-content: space-between; align-items: center; }
+.ci-field .ci-counter { font-size: 11px; font-weight: 500; color: #B8A692; }
+.ci-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.ci-chip { padding: 7px 14px; border-radius: 22px; background: #FDFCFA; border: 1px solid #E0D8CC; font-size: 12px; color: #4A3728; cursor: pointer; font-family: inherit; transition: all 0.15s; }
+.ci-chip:hover { background: #FDF6EE; border-color: #E8D5B8; }
+.ci-chip.active { background: #C2573A; color: #FFF; border-color: #C2573A; font-weight: 700; }
+.ci-input { padding: 10px 14px; border-radius: 12px; background: #FDFCFA; border: 1px solid #E0D8CC; font-size: 13px; color: #4A3728; font-family: inherit; width: 100%; box-sizing: border-box; }
+.ci-input:focus { outline: none; border-color: #C2573A; box-shadow: 0 0 0 3px rgba(194,87,58,0.12); }
+.ci-textarea { min-height: 80px; resize: vertical; line-height: 1.5; }
+.ci-stars { display: flex; gap: 4px; }
+.ci-star { background: transparent; border: none; font-size: 28px; color: #E0D8CC; cursor: pointer; padding: 2px 4px; font-family: inherit; transition: color 0.15s, transform 0.1s; }
+.ci-star:hover { transform: scale(1.1); }
+.ci-star.active { color: #F5B800; }
+.ci-photo-placeholder .ci-photo-box { padding: 18px; border: 1px dashed #E0D8CC; border-radius: 12px; text-align: center; color: #B8A692; font-size: 12px; background: #FDFCFA; }
+.ci-actions { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding-top: 4px; }
+.ci-actions-right { display: flex; gap: 10px; margin-left: auto; }
+.ci-btn { padding: 10px 20px; border-radius: 20px; font-size: 13px; font-weight: 700; cursor: pointer; border: none; font-family: inherit; transition: all 0.15s; }
+.ci-btn-save { background: #C2573A; color: #FFF; }
+.ci-btn-save:hover { background: #A0432A; }
+.ci-btn-cancel { background: transparent; color: #7A6E5E; border: 1px solid #E0D8CC; }
+.ci-btn-cancel:hover { background: #FDFCFA; }
+.ci-btn-delete { background: transparent; color: #C2573A; border: 1px solid #E8D5B8; font-size: 12px; padding: 8px 14px; }
+.ci-btn-delete:hover { background: #FDF6EE; border-color: #C2573A; }
 .btn-briefing:hover { background: #ECE3CC; }
 .btn-briefing:active { transform: scale(0.96); }
 .briefing-popover-backdrop { position: fixed; inset: 0; z-index: 99; display: none; background: transparent; }
@@ -374,6 +419,17 @@ button.card-weather.clickable:active { transform: scale(0.96); }
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
+    <!-- svgrepo 480624: 打卡用（棒球場俯瞰圖）— 與 design/phase1-2-preview.html sprite 同步 -->
+    <symbol id="bb-checkin" viewBox="0 0 512 512">
+      <g fill="currentColor">
+        <polygon points="280.402,153.66 256.008,129.275 231.606,153.66 256.008,178.063"/>
+        <polygon points="238.754,436.426 256.008,453.656 273.254,436.426 273.254,417.37 238.754,417.37"/>
+        <polygon points="369.403,291.465 393.797,315.851 418.19,291.465 393.797,267.063"/>
+        <polygon points="118.203,267.063 93.809,291.465 118.203,315.851 142.597,291.465"/>
+        <path d="M372.088,245.361l-69.985-69.984c-11.796,11.796-28.096,19.097-46.095,19.097 c-18.015,0-34.315-7.301-46.111-19.097l-69.976,69.984c11.796,11.789,19.089,28.097,19.089,46.104 c0,17.999-7.293,34.299-19.089,46.104l69.976,69.976c11.796-11.796,28.096-19.089,46.111-19.089 c17.999,0,34.299,7.293,46.095,19.089l69.985-69.976c-11.804-11.804-19.097-28.104-19.097-46.104 C352.99,273.459,360.283,257.151,372.088,245.361z M277.052,296.458h-44.669v-12.565h44.669V296.458z"/>
+        <path d="M511.871,256.717c-1.779-67.973-30.084-129.334-74.881-174.099C390.688,36.291,326.674,7.625,256.008,7.633 C185.326,7.625,121.312,36.291,75.009,82.618C30.212,127.383,1.907,188.744,0.128,256.717L0,261.79l233.096,233.088 c6.291,6.306,14.649,9.513,22.912,9.488c8.238,0.025,16.604-3.182,22.903-9.488L512,261.79L511.871,256.717z M262.21,478.194 c-1.747,1.739-3.927,2.564-6.202,2.572c-2.292-0.008-4.472-0.834-6.219-2.581L23.978,252.382 c2.837-59.75,28.112-113.459,67.732-153.079c42.104-42.088,100.06-68.06,164.298-68.069c64.23,0.008,122.178,25.981,164.29,68.069 c39.612,39.62,64.896,93.329,67.716,153.088L262.21,478.194z"/>
+      </g>
+    </symbol>
     <!-- Phosphor baseball-helmet-fill（主隊標記用，MIT）-->
     <symbol id="cap-mainteam" viewBox="0 0 256 256">
       <path fill="currentColor" d="M248,120H223.7A104,104,0,0,0,16,128v24a72.08,72.08,0,0,0,72,72h40a72.08,72.08,0,0,0,72-72V136h48a8,8,0,0,0,0-16ZM88,180a24,24,0,1,1,24-24A24,24,0,0,1,88,180Zm96-28a56.06,56.06,0,0,1-50.46,55.72A71.87,71.87,0,0,0,160,152V136h24Z"/>
@@ -395,6 +451,57 @@ button.card-weather.clickable:active { transform: scale(0.96); }
     </div>
     <div class="mt-grid" id="mt-grid"></div>
     <button type="button" class="mt-skip" id="mt-skip">先跳過</button>
+  </div>
+</div>
+
+<div class="ci-overlay" id="ci-overlay" style="display:none" aria-hidden="true">
+  <div class="ci-modal" role="dialog" aria-modal="true" aria-labelledby="ci-title">
+    <div class="ci-header">
+      <svg><use href="#bb-checkin"/></svg>
+      <h2 id="ci-title">我去了這場</h2>
+    </div>
+    <div class="ci-game-info" id="ci-game-info"></div>
+    <div class="ci-field">
+      <label>座位</label>
+      <div class="ci-chips" id="ci-seats">
+        <button type="button" class="ci-chip" data-seat="三壘">三壘</button>
+        <button type="button" class="ci-chip" data-seat="一壘">一壘</button>
+        <button type="button" class="ci-chip" data-seat="本後">本後</button>
+        <button type="button" class="ci-chip" data-seat="左外野">左外野</button>
+        <button type="button" class="ci-chip" data-seat="右外野">右外野</button>
+        <button type="button" class="ci-chip" data-seat="包廂">包廂</button>
+        <button type="button" class="ci-chip" data-seat="其他">其他</button>
+      </div>
+    </div>
+    <div class="ci-field">
+      <label>同行者</label>
+      <input type="text" class="ci-input" id="ci-companions" placeholder="（可空）朋友、家人的名字…" maxlength="100">
+    </div>
+    <div class="ci-field">
+      <label>評分</label>
+      <div class="ci-stars" id="ci-stars" role="radiogroup" aria-label="評分">
+        <button type="button" class="ci-star" data-rating="1" aria-label="1 星">★</button>
+        <button type="button" class="ci-star" data-rating="2" aria-label="2 星">★</button>
+        <button type="button" class="ci-star" data-rating="3" aria-label="3 星">★</button>
+        <button type="button" class="ci-star" data-rating="4" aria-label="4 星">★</button>
+        <button type="button" class="ci-star" data-rating="5" aria-label="5 星">★</button>
+      </div>
+    </div>
+    <div class="ci-field">
+      <label>心得 <span class="ci-counter"><span id="ci-note-count">0</span>/200</span></label>
+      <textarea class="ci-input ci-textarea" id="ci-note" maxlength="200" placeholder="記下這場比賽的回憶…"></textarea>
+    </div>
+    <div class="ci-field ci-photo-placeholder">
+      <label>照片</label>
+      <div class="ci-photo-box">📷 上傳功能施工中</div>
+    </div>
+    <div class="ci-actions">
+      <button type="button" class="ci-btn ci-btn-delete" id="ci-delete" style="display:none">刪除打卡</button>
+      <div class="ci-actions-right">
+        <button type="button" class="ci-btn ci-btn-cancel" id="ci-cancel">取消</button>
+        <button type="button" class="ci-btn ci-btn-save" id="ci-save">儲存</button>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -505,10 +612,13 @@ button.card-weather.clickable:active { transform: scale(0.96); }
         </div>
       </div>
       <div class="filter-group">
-        <label>收藏</label>
+        <label>收藏／打卡</label>
         <div class="cb-row">
           <div class="checkbox-group">
             <input type="checkbox" id="f-favorites-only"><label for="f-favorites-only">只看收藏</label>
+          </div>
+          <div class="checkbox-group">
+            <input type="checkbox" id="f-checkins-only"><label for="f-checkins-only">只看已打卡</label>
           </div>
         </div>
       </div>
@@ -1611,6 +1721,104 @@ function getSelectedTeams(containerId) {
   return [...document.querySelectorAll('#' + containerId + ' .chip.active')].map(c => c.dataset.team);
 }
 
+// ── 觀戰打卡（Phase 1）──
+let currentCheckinSno = null;
+
+function isCheckedIn(sno) {
+  return !!sno && !!userState.checkins[sno];
+}
+
+function openCheckinModal(sno) {
+  const g = allGames.find(x => x.sno === sno);
+  if (!g) return;
+  currentCheckinSno = sno;
+  const existing = userState.checkins[sno];
+
+  // 場次資訊
+  const info = document.getElementById('ci-game-info');
+  const vLogo = TEAM_LOGO[g.visitor] || '';
+  const hLogo = TEAM_LOGO[g.home] || '';
+  const d = new Date(g.date + 'T00:00:00');
+  const weekday = DAYS[d.getDay()];
+  info.innerHTML =
+    '<div class="ci-game-meta">' + g.date + '（' + weekday + '）· ' + g.time + ' · ' + g.field + '</div>' +
+    '<div class="ci-game-teams">' +
+      (vLogo ? '<img src="' + vLogo + '" alt="">' : '') +
+      '<span>' + (TEAM_SHORT[g.visitor] || g.visitor) + '</span>' +
+      '<span class="ci-game-score">' + g.vScore + ' : ' + g.hScore + '</span>' +
+      '<span>' + (TEAM_SHORT[g.home] || g.home) + '</span>' +
+      (hLogo ? '<img src="' + hLogo + '" alt="">' : '') +
+    '</div>';
+
+  // 重置所有欄位
+  document.querySelectorAll('#ci-seats .ci-chip').forEach(c => c.classList.remove('active'));
+  document.getElementById('ci-companions').value = '';
+  document.getElementById('ci-note').value = '';
+  document.getElementById('ci-note-count').textContent = '0';
+  document.querySelectorAll('#ci-stars .ci-star').forEach(s => s.classList.remove('active'));
+
+  // 有既有資料就填回
+  if (existing) {
+    const seats = Array.isArray(existing.seat) ? existing.seat : (existing.seat ? [existing.seat] : []);
+    seats.forEach(s => {
+      const chip = document.querySelector('#ci-seats .ci-chip[data-seat="' + s + '"]');
+      if (chip) chip.classList.add('active');
+    });
+    if (existing.companions) document.getElementById('ci-companions').value = existing.companions;
+    if (existing.note) {
+      document.getElementById('ci-note').value = existing.note;
+      document.getElementById('ci-note-count').textContent = existing.note.length;
+    }
+    if (existing.rating) {
+      document.querySelectorAll('#ci-stars .ci-star').forEach((s, i) => {
+        s.classList.toggle('active', i < existing.rating);
+      });
+    }
+  }
+
+  document.getElementById('ci-delete').style.display = existing ? '' : 'none';
+  document.getElementById('ci-overlay').style.display = 'flex';
+  document.getElementById('ci-overlay').setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeCheckinModal() {
+  document.getElementById('ci-overlay').style.display = 'none';
+  document.getElementById('ci-overlay').setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+  currentCheckinSno = null;
+}
+
+function saveCheckinForm() {
+  if (!currentCheckinSno) return;
+  const seats = [...document.querySelectorAll('#ci-seats .ci-chip.active')].map(c => c.dataset.seat);
+  const companions = document.getElementById('ci-companions').value.trim();
+  const note = document.getElementById('ci-note').value.trim();
+  const rating = document.querySelectorAll('#ci-stars .ci-star.active').length;
+  const prev = userState.checkins[currentCheckinSno];
+  userState.checkins[currentCheckinSno] = {
+    seat: seats,
+    companions,
+    rating,
+    note,
+    photo: null,
+    createdAt: prev?.createdAt || Date.now(),
+    updatedAt: Date.now()
+  };
+  saveUserState(userState);
+  closeCheckinModal();
+  render();
+}
+
+function deleteCheckinForm() {
+  if (!currentCheckinSno) return;
+  if (!confirm('確定刪除這場比賽的打卡紀錄嗎？')) return;
+  delete userState.checkins[currentCheckinSno];
+  saveUserState(userState);
+  closeCheckinModal();
+  render();
+}
+
 // ── 場次收藏（Phase 1）──
 function isFavorited(sno) {
   return !!sno && userState.favorites.includes(sno);
@@ -1720,6 +1928,7 @@ function captureCurrentFilter() {
     weekend: document.getElementById('f-weekend').checked,
     holiday: document.getElementById('f-holiday').checked,
     favoritesOnly: document.getElementById('f-favorites-only').checked,
+    checkinsOnly: document.getElementById('f-checkins-only').checked,
     status: statusFilter
   };
 }
@@ -1739,6 +1948,7 @@ function applyFilterToUI(f) {
   document.getElementById('f-weekend').checked = !!f.weekend;
   document.getElementById('f-holiday').checked = !!f.holiday;
   document.getElementById('f-favorites-only').checked = !!f.favoritesOnly;
+  document.getElementById('f-checkins-only').checked = !!f.checkinsOnly;
   const nextStatus = ['future', 'all', 'past'].includes(f.status) ? f.status : 'future';
   document.querySelectorAll('#f-status .toggle-btn').forEach(b => {
     b.classList.toggle('active', b.dataset.val === nextStatus);
@@ -1787,6 +1997,7 @@ function getFiltered() {
   const we = document.getElementById('f-weekend').checked;
   const hol = document.getElementById('f-holiday').checked;
   const favOnly = document.getElementById('f-favorites-only').checked;
+  const checkinsOnly = document.getElementById('f-checkins-only').checked;
 
   return allGames.filter(g => {
     // Team 1 filter: at least one selected team must be in the game (either side)
@@ -1804,6 +2015,7 @@ function getFiltered() {
     if (we && !g.isWE) return false;
     if (hol && !g.isWE && !g.holName) return false;
     if (favOnly && !isFavorited(g.sno)) return false;
+    if (checkinsOnly && !isCheckedIn(g.sno)) return false;
     // Status filter
     if (statusFilter === 'future' && !g.isFuture) return false;
     if (statusFilter === 'past' && g.isFuture) return false;
@@ -1812,18 +2024,11 @@ function getFiltered() {
 }
 
 function buildTags(g) {
+  // 冗餘 badge（今日/週六/週日/已結束/未來）已移除，日期 header 與 card-top 色已足夠
+  // 僅保留真正有額外資訊的 tag：假日名稱、延賽狀態
   let tags = '';
-  if (g.isToday) tags += '<span class="badge badge-today">今日</span>';
-  if (g.dow === 6) tags += '<span class="badge badge-sat">週六</span>';
-  if (g.dow === 0) tags += '<span class="badge badge-sun">週日</span>';
   if (g.holName) tags += '<span class="badge badge-hol">' + g.holName + '</span>';
-  if (g.postponed) {
-    tags += '<span class="badge badge-postponed">延賽</span>';
-  } else if (statusFilter === 'all') {
-    // 只在「全部」模式下才顯示狀態 badge，避免冗餘
-    if (g.completed) tags += '<span class="badge badge-past">已結束</span>';
-    else tags += '<span class="badge badge-future">未來</span>';
-  }
+  if (g.postponed) tags += '<span class="badge badge-postponed">延賽</span>';
   return tags;
 }
 
@@ -1892,9 +2097,12 @@ function render() {
     tbody.innerHTML = '';
     cardList.innerHTML = '';
     const favOnly = document.getElementById('f-favorites-only').checked;
-    emptyCard.textContent = favOnly
-      ? '還沒有收藏的場次 — 點未來場次卡片右上角的收藏按鈕開始收藏'
-      : '沒有符合條件的場次';
+    const checkinsOnly = document.getElementById('f-checkins-only').checked;
+    emptyCard.textContent = checkinsOnly
+      ? '還沒有打卡的場次 — 已完賽場次卡片下方點「打卡」開始記錄'
+      : favOnly
+        ? '還沒有收藏的場次 — 點未來場次卡片右上角的收藏按鈕開始收藏'
+        : '沒有符合條件的場次';
     emptyTable.style.display = '';
     emptyCard.style.display = '';
     return;
@@ -1928,8 +2136,9 @@ function render() {
     const hLogo = TEAM_LOGO[g.home] || '';
     const showScore = g.completed && !g.postponed;
 
-    const canFavorite = g.isFuture && !g.postponed;
+    const canFavorite = !g.postponed;
     const favActive = canFavorite && isFavorited(g.sno);
+    const checkedIn = g.completed && isCheckedIn(g.sno);
     const topClass = g.isToday ? ' card-top-today'
       : g.postponed ? ' card-top-postponed'
       : favActive ? ' card-top-favorited'
@@ -1938,6 +2147,7 @@ function render() {
     const favBtn = canFavorite
       ? '<button type="button" class="card-fav-btn' + (favActive ? ' active' : '') + '" data-fav-sno="' + g.sno + '" aria-label="' + (favActive ? '取消收藏' : '收藏此場次') + '" title="' + (favActive ? '已收藏' : '收藏') + '"><svg><use href="#bb-favorite"/></svg></button>'
       : '';
+    const checkinStamp = checkedIn ? '<span class="checkin-stamp" aria-hidden="true"><svg><use href="#bb-checkin"/></svg></span>' : '';
 
     const centerPart = showScore
       ? '<div class="card-center">' +
@@ -1958,9 +2168,11 @@ function render() {
     const detail = buildDetail(g);
     const themeDayBadge = buildThemeDayHTML(g);
 
-    const hasButtons = ticketUrl || hsrStation || hasBriefing;
+    const hasCheckinBtn = g.completed;
+    const hasRightButtons = ticketUrl || hsrStation || hasCheckinBtn;
 
-    cards += '<div class="game-card' + todayClass + (favActive ? ' favorited' : '') + '">' +
+    cards += '<div class="game-card' + todayClass + (favActive ? ' favorited' : '') + (checkedIn ? ' checked-in' : '') + '">' +
+      checkinStamp +
       '<div class="card-top' + topClass + '">' +
         '<span class="card-top-time"' + (g.postponed ? ' style="color:#8B6BAE"' : '') + '>' + g.time + '</span>' +
         (g.postponed
@@ -1983,11 +2195,14 @@ function render() {
         (detail ? '<div class="card-detail">' + detail + '</div>' : '') +
       '</div>' +
       '<div class="card-footer">' +
-        '<div class="card-footer-tags">' + buildTags(g) + '</div>' +
-        (hasButtons ? '<div class="card-footer-buttons">' +
+        '<div class="card-footer-tags">' +
+          buildTags(g) +
+          (hasBriefing ? '<button type="button" class="btn-briefing" data-briefing-key="' + gameKey(g) + '">📋 賽事記錄</button>' : '') +
+        '</div>' +
+        (hasRightButtons ? '<div class="card-footer-buttons">' +
           (ticketUrl ? '<a class="btn-ticket" href="' + ticketUrl + '" target="_blank" rel="noopener">🎫 購票</a>' : '') +
           (hsrStation ? '<a class="btn-hsr" href="' + HSR_BOOKING_URL + '" target="_blank" rel="noopener">🚄 ' + hsrStation + '</a>' : '') +
-          (hasBriefing ? '<button type="button" class="btn-briefing" data-briefing-key="' + gameKey(g) + '">📋 賽事記錄</button>' : '') +
+          (hasCheckinBtn ? '<button type="button" class="btn-checkin' + (checkedIn ? ' done' : '') + '" data-checkin-sno="' + g.sno + '"><svg><use href="#bb-checkin"/></svg> ' + (checkedIn ? '我在現場' : '打卡') + '</button>' : '') +
         '</div>' : '') +
       '</div>' +
     '</div>';
@@ -2016,14 +2231,49 @@ document.getElementById('f-favorites-only').addEventListener('change', function(
   render();
   persistCurrentFilter();
 });
+document.getElementById('f-checkins-only').addEventListener('change', function() {
+  render();
+  persistCurrentFilter();
+});
 
 // 場次收藏點擊（event delegation，因為卡片會重新 render）
 document.getElementById('card-list').addEventListener('click', function(e) {
-  const btn = e.target.closest('.card-fav-btn');
-  if (!btn) return;
-  e.preventDefault();
-  e.stopPropagation();
-  toggleFavorite(btn.dataset.favSno);
+  const favBtn = e.target.closest('.card-fav-btn');
+  if (favBtn) {
+    e.preventDefault();
+    e.stopPropagation();
+    toggleFavorite(favBtn.dataset.favSno);
+    return;
+  }
+  const checkinBtn = e.target.closest('.btn-checkin');
+  if (checkinBtn) {
+    e.preventDefault();
+    e.stopPropagation();
+    openCheckinModal(checkinBtn.dataset.checkinSno);
+  }
+});
+
+// 打卡 modal 內部事件
+document.getElementById('ci-seats').addEventListener('click', function(e) {
+  const chip = e.target.closest('.ci-chip');
+  if (chip) chip.classList.toggle('active');
+});
+document.getElementById('ci-stars').addEventListener('click', function(e) {
+  const star = e.target.closest('.ci-star');
+  if (!star) return;
+  const rating = parseInt(star.dataset.rating, 10);
+  document.querySelectorAll('#ci-stars .ci-star').forEach((s, i) => {
+    s.classList.toggle('active', i < rating);
+  });
+});
+document.getElementById('ci-note').addEventListener('input', function() {
+  document.getElementById('ci-note-count').textContent = this.value.length;
+});
+document.getElementById('ci-save').addEventListener('click', saveCheckinForm);
+document.getElementById('ci-cancel').addEventListener('click', closeCheckinModal);
+document.getElementById('ci-delete').addEventListener('click', deleteCheckinForm);
+document.getElementById('ci-overlay').addEventListener('click', function(e) {
+  if (e.target === this) closeCheckinModal();
 });
 
 // 主隊設定 modal 初始化與事件
@@ -2040,8 +2290,10 @@ document.getElementById('mt-overlay').addEventListener('click', function(e) {
 });
 document.addEventListener('keydown', function(e) {
   if (e.key !== 'Escape') return;
-  const overlay = document.getElementById('mt-overlay');
-  if (overlay.style.display === 'flex' && userState.profile.mainTeam) hideMainTeamModal();
+  const mtOverlay = document.getElementById('mt-overlay');
+  if (mtOverlay.style.display === 'flex' && userState.profile.mainTeam) hideMainTeamModal();
+  const ciOverlay = document.getElementById('ci-overlay');
+  if (ciOverlay.style.display === 'flex') closeCheckinModal();
 });
 document.getElementById('nav-mainteam').addEventListener('click', function(e) {
   const action = e.target.closest('[data-main-action]')?.dataset.mainAction;
@@ -2062,7 +2314,7 @@ document.querySelectorAll('#f-status .toggle-btn').forEach(btn => {
 document.getElementById('btn-reset').addEventListener('click', function() {
   document.querySelectorAll('.chip.active').forEach(c => c.classList.remove('active'));
   ['f-field','f-month'].forEach(id => document.getElementById(id).value = '');
-  ['f-weekend','f-holiday','f-favorites-only'].forEach(id => document.getElementById(id).checked = false);
+  ['f-weekend','f-holiday','f-favorites-only','f-checkins-only'].forEach(id => document.getElementById(id).checked = false);
   document.querySelectorAll('#f-status .toggle-btn').forEach(b => b.classList.remove('active'));
   document.querySelector('#f-status .toggle-btn[data-val="future"]').classList.add('active');
   statusFilter = 'future';

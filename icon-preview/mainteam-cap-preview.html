@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>主隊 icon 候選對照 — 單色棒球帽</title>
+<style>
+@font-face {
+  font-family: 'jf-openhuninn';
+  src: url('https://cdn.jsdelivr.net/gh/marsnow/open-huninn-font@1.1/font/jf-openhuninn.woff2') format('woff2'),
+       url('https://cdn.jsdelivr.net/gh/marsnow/open-huninn-font@1.1/font/jf-openhuninn.woff') format('woff');
+  font-display: swap;
+}
+body {
+  font-family: 'Inter', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+  background: #FDFCFA;
+  color: #4A3728;
+  margin: 0;
+  padding: 40px 24px;
+  line-height: 1.5;
+}
+h1 {
+  font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif;
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  margin: 0 0 6px;
+}
+.sub { color: #9B8E7E; font-size: 14px; margin: 0 0 32px; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 18px;
+  max-width: 1320px;
+  margin: 0 auto;
+}
+.card {
+  background: #FFF;
+  border: 1px solid #EEECEA;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(212,196,171,0.08);
+}
+.card h3 { font-size: 14px; font-weight: 700; margin: 0 0 4px; color: #3D3122; }
+.card .meta { font-size: 11px; color: #9B8E7E; margin: 0 0 16px; }
+
+/* 64px 預覽，雙色對照 */
+.bigs { display: flex; gap: 8px; margin-bottom: 14px; }
+.big {
+  flex: 1;
+  text-align: center;
+  padding: 20px 0;
+  background: #FDF6EE;
+  border-radius: 12px;
+  position: relative;
+}
+.big .label { font-size: 10px; color: #9B8E7E; position: absolute; top: 4px; left: 8px; letter-spacing: 1px; }
+.big .icon-wrap { display: inline-flex; width: 56px; height: 56px; align-items: center; justify-content: center; }
+.big .icon-wrap svg, .big .icon-wrap img { width: 100%; height: 100%; object-fit: contain; }
+.big.terra { color: #C2573A; }
+.big.dark { color: #3D3122; }
+
+/* 模擬實際戰績表主隊列 */
+.preview-rows { display: flex; flex-direction: column; gap: 4px; }
+.preview-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  background: linear-gradient(90deg, #FFE8D0 0%, #FFF3E0 60%);
+  border-radius: 8px;
+  font-size: 13px;
+  color: #4A3728;
+}
+.preview-row .rank { font-weight: 700; color: #C2573A; min-width: 18px; }
+.preview-row .name { font-weight: 600; }
+.preview-row .pct { margin-left: auto; color: #C2573A; font-weight: 700; }
+.preview-row .icon-wrap { display: inline-flex; width: 20px; height: 20px; align-items: center; justify-content: center; flex-shrink: 0; }
+.preview-row .icon-wrap svg, .preview-row .icon-wrap img { width: 100%; height: 100%; object-fit: contain; }
+.preview-row.terra { color: inherit; }
+.preview-row.terra .icon-wrap { color: #C2573A; }
+.preview-row.dark .icon-wrap { color: #3D3122; }
+
+.note {
+  max-width: 1320px;
+  margin: 32px auto 0;
+  font-size: 13px;
+  color: #7A6E5E;
+  background: #FDF6EE;
+  border: 1px solid #F0DFB8;
+  border-radius: 12px;
+  padding: 16px 20px;
+}
+.note b { color: #4A3728; }
+</style>
+</head>
+<body>
+
+<!-- 放 SVG sprite 定義在頂部，全頁共用 -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+
+    <!-- Phosphor regular: outline 棒球帽 -->
+    <symbol id="cap-phosphor-regular" viewBox="0 0 256 256">
+      <path fill="currentColor" d="M128,24h0A104.12,104.12,0,0,0,24,128v56a24,24,0,0,0,24,24,24.11,24.11,0,0,0,14.18-4.64C74.33,194.53,95.6,184,128,184s53.67,10.52,65.81,19.35A24,24,0,0,0,232,184V128A104.12,104.12,0,0,0,128,24Zm88,104v8.87a166,166,0,0,0-40.94-18.22A167,167,0,0,0,146.19,41.9,88.14,88.14,0,0,1,216,128ZM128,44.27a152.47,152.47,0,0,1,30.4,70.46,170.85,170.85,0,0,0-60.84,0A153.31,153.31,0,0,1,128,44.27ZM109.81,41.9a167,167,0,0,0-28.87,76.76A166,166,0,0,0,40,136.88V128A88.14,88.14,0,0,1,109.81,41.9ZM211.66,191.11a8,8,0,0,1-8.44-.69C189.16,180.2,164.7,168,128,168S66.84,180.2,52.78,190.42a8,8,0,0,1-8.44.69A7.77,7.77,0,0,1,40,184V156.07a152,152,0,0,1,176,0V184A7.77,7.77,0,0,1,211.66,191.11Z"/>
+    </symbol>
+
+    <!-- Phosphor fill: 填滿版 -->
+    <symbol id="cap-phosphor-fill" viewBox="0 0 256 256">
+      <path fill="currentColor" d="M128,24A104.12,104.12,0,0,0,24,128v56a24,24,0,0,0,24,24,24.11,24.11,0,0,0,14.18-4.64C74.33,194.53,95.6,184,128,184s53.67,10.52,65.81,19.35A24,24,0,0,0,232,184V128A104.12,104.12,0,0,0,128,24ZM40,128A88.15,88.15,0,0,1,109.81,41.9a167,167,0,0,0-28.87,76.76A166,166,0,0,0,40,136.88Zm176,56a7.77,7.77,0,0,1-4.34,7.1,8,8,0,0,1-8.44-.69C189.16,180.2,164.7,168,128,168S66.84,180.2,52.78,190.42a8,8,0,0,1-8.44.69A7.77,7.77,0,0,1,40,184V156.07a150.62,150.62,0,0,1,49.93-23.28,7.06,7.06,0,0,0,1-.26,154.06,154.06,0,0,1,74.17,0,8.64,8.64,0,0,0,1,.27A150.49,150.49,0,0,1,216,156.07Zm0-47.13a166,166,0,0,0-40.94-18.22A167,167,0,0,0,146.19,41.9,88.15,88.15,0,0,1,216,128Z"/>
+    </symbol>
+
+    <!-- Fluent High Contrast: 改成 currentColor -->
+    <symbol id="cap-fluent-hc" viewBox="0 0 32 32">
+      <path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M23.015 4.13376C22.6235 4.01168 22.2211 3.9751 21.8314 4.01612C21.104 4.09271 20.4249 4.44095 19.9335 4.98987H17.147C11.6783 4.98987 7.24508 9.46908 7.24508 14.9945V15.8342L1.3465 19.2398C0.173262 19.8691 -0.067453 21.0735 0.0145643 21.8814C0.0925058 22.6491 0.439928 23.3396 0.816206 23.8624C1.56041 24.8963 2.96145 25.9995 4.76953 25.9995C6.68752 25.9995 8.16171 24.9989 9.06987 24.3824L9.18179 24.3066C9.3564 24.1885 9.50926 24.0861 9.64593 23.9973C9.81719 24.1089 9.99923 24.2303 10.198 24.363L10.3124 24.4394C11.8392 25.4599 14.1434 27 17.147 27C20.6749 27 23.0898 24.811 24.8984 22.9982L29.0294 22.9982C30.67 22.9982 32 21.6544 32 19.9968V16.9954C32 12.5078 29.5633 8.59888 25.9599 6.53931C25.7083 5.56815 24.9803 4.74667 23.9611 4.42883L23.015 4.13376ZM9.68945 21.7079C7.26858 20.4994 4.13772 20.5316 2.2941 20.9973L9.21175 17.0033C10.7201 17.0288 12.2179 17.1197 13.7084 17.3358C17.063 17.8222 20.3808 18.9429 23.6999 21.3789C21.8419 23.2448 19.9285 24.9991 17.147 24.9991C14.7436 24.9991 12.871 23.7491 11.2896 22.6935C11.0833 22.5558 10.8819 22.4214 10.685 22.2935C10.5258 22.1901 10.3694 22.0909 10.2157 21.9977C10.0447 21.8941 9.86903 21.7976 9.68945 21.7079ZM9.22547 15.0024C11.0819 15.0331 12.9531 15.1598 14.8336 15.4908C18.6741 16.1667 22.5533 17.6947 26.4246 20.9972L29.0294 20.9972C29.5763 20.9972 30.0196 20.5493 30.0196 19.9968V16.9954C30.0196 12.8929 27.5756 9.36709 24.0784 7.82326C24.0438 7.80798 24.0091 7.79289 23.9743 7.778C23.0736 7.39283 22.1049 7.13848 21.0913 7.03854C20.771 7.00695 20.4462 6.99079 20.1176 6.99079H20.0173H17.147C12.7721 6.99079 9.22547 10.5742 9.22547 14.9945V15.0024Z"/>
+    </symbol>
+
+    <!-- 自繪 mini cap: 側面、brim 朝右、currentColor -->
+    <symbol id="cap-custom" viewBox="0 0 64 64">
+      <path fill="currentColor" d="M 32 14 C 22 14, 14 22, 14 32 L 14 36 C 14 38, 16 40, 18 40 L 42 40 C 44 40, 46 38, 46 36 L 46 32 C 46 22, 42 14, 32 14 Z"/>
+      <path fill="currentColor" d="M 46 34 L 56 34 C 58 34, 60 36, 60 38 L 60 40 L 44 40 L 44 36 C 44 35, 45 34, 46 34 Z" opacity="0.85"/>
+      <circle fill="currentColor" cx="32" cy="16" r="2"/>
+    </symbol>
+
+  </defs>
+</svg>
+
+<h1>主隊 icon 候選 — 單色棒球帽（可用 CSS 改色）</h1>
+<p class="sub">全部用 <code>fill="currentColor"</code>，CSS 改 color 就換色，不會跟球隊主題色衝突</p>
+
+<div class="grid">
+
+  <!-- 1. Phosphor Regular -->
+  <div class="card">
+    <h3>1. Phosphor Regular（outline）</h3>
+    <p class="meta">正面視角、描線風 · MIT 免標註</p>
+    <div class="bigs">
+      <div class="big terra"><span class="label">赤陶紅</span><span class="icon-wrap"><svg><use href="#cap-phosphor-regular"/></svg></span></div>
+      <div class="big dark"><span class="label">深棕</span><span class="icon-wrap"><svg><use href="#cap-phosphor-regular"/></svg></span></div>
+    </div>
+    <div class="preview-rows">
+      <div class="preview-row terra"><span class="rank">1</span><span class="icon-wrap"><svg><use href="#cap-phosphor-regular"/></svg></span><span class="name">中信兄弟</span><span class="pct">.625</span></div>
+      <div class="preview-row dark"><span class="rank">3</span><span class="icon-wrap"><svg><use href="#cap-phosphor-regular"/></svg></span><span class="name">中信兄弟</span><span class="pct">.500</span></div>
+    </div>
+  </div>
+
+  <!-- 2. Phosphor Fill -->
+  <div class="card">
+    <h3>2. Phosphor Fill（填滿）</h3>
+    <p class="meta">正面視角、實心塊狀 · MIT 免標註</p>
+    <div class="bigs">
+      <div class="big terra"><span class="label">赤陶紅</span><span class="icon-wrap"><svg><use href="#cap-phosphor-fill"/></svg></span></div>
+      <div class="big dark"><span class="label">深棕</span><span class="icon-wrap"><svg><use href="#cap-phosphor-fill"/></svg></span></div>
+    </div>
+    <div class="preview-rows">
+      <div class="preview-row terra"><span class="rank">1</span><span class="icon-wrap"><svg><use href="#cap-phosphor-fill"/></svg></span><span class="name">中信兄弟</span><span class="pct">.625</span></div>
+      <div class="preview-row dark"><span class="rank">3</span><span class="icon-wrap"><svg><use href="#cap-phosphor-fill"/></svg></span><span class="name">中信兄弟</span><span class="pct">.500</span></div>
+    </div>
+  </div>
+
+  <!-- 3. Fluent High Contrast → currentColor -->
+  <div class="card">
+    <h3>3. Fluent High Contrast（改成 currentColor）</h3>
+    <p class="meta">側面視角（brim 朝右）· MIT 可修改</p>
+    <div class="bigs">
+      <div class="big terra"><span class="label">赤陶紅</span><span class="icon-wrap"><svg><use href="#cap-fluent-hc"/></svg></span></div>
+      <div class="big dark"><span class="label">深棕</span><span class="icon-wrap"><svg><use href="#cap-fluent-hc"/></svg></span></div>
+    </div>
+    <div class="preview-rows">
+      <div class="preview-row terra"><span class="rank">1</span><span class="icon-wrap"><svg><use href="#cap-fluent-hc"/></svg></span><span class="name">中信兄弟</span><span class="pct">.625</span></div>
+      <div class="preview-row dark"><span class="rank">3</span><span class="icon-wrap"><svg><use href="#cap-fluent-hc"/></svg></span><span class="name">中信兄弟</span><span class="pct">.500</span></div>
+    </div>
+  </div>
+
+  <!-- 4. 自繪 -->
+  <div class="card">
+    <h3>4. 自繪 mini cap（side view）</h3>
+    <p class="meta">站內原創 · 免授權 · 可後續調整</p>
+    <div class="bigs">
+      <div class="big terra"><span class="label">赤陶紅</span><span class="icon-wrap"><svg><use href="#cap-custom"/></svg></span></div>
+      <div class="big dark"><span class="label">深棕</span><span class="icon-wrap"><svg><use href="#cap-custom"/></svg></span></div>
+    </div>
+    <div class="preview-rows">
+      <div class="preview-row terra"><span class="rank">1</span><span class="icon-wrap"><svg><use href="#cap-custom"/></svg></span><span class="name">中信兄弟</span><span class="pct">.625</span></div>
+      <div class="preview-row dark"><span class="rank">3</span><span class="icon-wrap"><svg><use href="#cap-custom"/></svg></span><span class="name">中信兄弟</span><span class="pct">.500</span></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="note">
+  <b>觀察點</b><br>
+  · <b>視角差異</b>：Phosphor 1-2 是正面（帽沿朝前、看得到帽口），Fluent 與自繪是側面（帽沿朝右）<br>
+  · <b>20px 辨識度</b>：Fill 款（2）與 Fluent（3）在小尺寸通常比 outline（1）更好認，但側面輪廓比正面更「像棒球帽」<br>
+  · <b>授權</b>：1、2、3 皆 MIT 免標註；4 自繪完全沒授權問題<br>
+  · 決定後我把選中的 SVG 加進主程式 <code>bb-favorite</code> sprite 同處
+</div>
+
+</body>
+</html>
