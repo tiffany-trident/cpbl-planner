@@ -2,6 +2,15 @@
 
 目標：讓 CPBL Planner 從「路人查賽程」進化到「球迷不可或缺的個人化工具」。
 
+## 實作狀態
+
+- **Phase 1 ✅ 已實作**（2026-04-22）：分支 `feat/phase1-personalization`，commits `97f5dae`..`50e656f`，**尚未 merge 到 main**
+  - 主隊設定、場次收藏、觀戰打卡、篩選記憶、Schema v1 localStorage
+  - 實作細節見 [features.md 個人化功能章節](features.md#個人化功能phase-1)
+  - UI 實作紀錄與教訓見 [uidesign-changelog.md](uidesign-changelog.md)
+- **Phase 2** — 尚未開始（球場巡禮徽章、現場戰績卡、Streak、年度回顧）
+- **Phase 3-6** — 尚未開始
+
 ## 視覺素材原則（IP 風險）
 
 - **不使用 Snoopy 或任何受版權保護的角色 IP**

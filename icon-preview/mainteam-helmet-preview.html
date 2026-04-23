@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>主隊 icon 候選對照 — 棒球頭盔 & 其他</title>
+<style>
+@font-face {
+  font-family: 'jf-openhuninn';
+  src: url('https://cdn.jsdelivr.net/gh/marsnow/open-huninn-font@1.1/font/jf-openhuninn.woff2') format('woff2'),
+       url('https://cdn.jsdelivr.net/gh/marsnow/open-huninn-font@1.1/font/jf-openhuninn.woff') format('woff');
+  font-display: swap;
+}
+body {
+  font-family: 'Inter', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+  background: #FDFCFA;
+  color: #4A3728;
+  margin: 0;
+  padding: 40px 24px;
+  line-height: 1.5;
+}
+h1 { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; font-size: 28px; font-weight: 500; letter-spacing: 2px; margin: 0 0 6px; }
+.sub { color: #9B8E7E; font-size: 14px; margin: 0 0 32px; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 18px; max-width: 1320px; margin: 0 auto; }
+.card { background: #FFF; border: 1px solid #EEECEA; border-radius: 16px; padding: 20px; box-shadow: 0 2px 8px rgba(212,196,171,0.08); }
+.card h3 { font-size: 14px; font-weight: 700; margin: 0 0 4px; color: #3D3122; }
+.card .meta { font-size: 11px; color: #9B8E7E; margin: 0 0 16px; }
+
+.bigs { display: flex; gap: 8px; margin-bottom: 14px; }
+.big {
+  flex: 1; text-align: center; padding: 20px 0; background: #FDF6EE; border-radius: 12px; position: relative;
+}
+.big .label { font-size: 10px; color: #9B8E7E; position: absolute; top: 4px; left: 8px; letter-spacing: 1px; }
+.big .icon-wrap { display: inline-flex; width: 56px; height: 56px; align-items: center; justify-content: center; }
+.big .icon-wrap svg { width: 100%; height: 100%; }
+.big.terra { color: #D4A017; }   /* 用中信兄弟色示意 */
+.big.dark { color: #D8252D; }    /* 用味全龍色示意 */
+
+.preview-rows { display: flex; flex-direction: column; gap: 4px; }
+.preview-row {
+  display: flex; align-items: center; gap: 10px; padding: 10px 12px;
+  background: linear-gradient(90deg, #FFE8D0 0%, #FFF3E0 60%);
+  border-radius: 8px; font-size: 13px; color: #4A3728;
+}
+.preview-row .rank { font-weight: 700; color: #C2573A; min-width: 18px; }
+.preview-row .name { font-weight: 600; }
+.preview-row .pct { margin-left: auto; color: #C2573A; font-weight: 700; }
+.preview-row .icon-wrap { display: inline-flex; width: 20px; height: 20px; align-items: center; justify-content: center; flex-shrink: 0; }
+.preview-row .icon-wrap svg { width: 100%; height: 100%; display: block; }
+.preview-row .logo-mock { width: 24px; height: 24px; border-radius: 50%; background: #D4C4AB; flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; font-size: 10px; color: #fff; font-weight: 700; }
+.preview-row.r1 .logo-mock { background: #D4A017; } /* 中信 */
+.preview-row.r1 .name { color: #D4A017; }
+.preview-row.r1 .icon-wrap { color: #D4A017; }
+.preview-row.r2 .logo-mock { background: #D8252D; } /* 味全 */
+.preview-row.r2 .name { color: #D8252D; }
+.preview-row.r2 .icon-wrap { color: #D8252D; }
+.preview-row.r3 .logo-mock { background: #7B1A1A; } /* 樂天 */
+.preview-row.r3 .name { color: #7B1A1A; }
+.preview-row.r3 .icon-wrap { color: #7B1A1A; }
+
+.note { max-width: 1320px; margin: 32px auto 0; font-size: 13px; color: #7A6E5E; background: #FDF6EE; border: 1px solid #F0DFB8; border-radius: 12px; padding: 16px 20px; }
+.note b { color: #4A3728; }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+
+    <!-- Phosphor baseball-helmet (Regular) -->
+    <symbol id="helmet-regular" viewBox="0 0 256 256">
+      <path fill="currentColor" d="M88,128a28,28,0,1,0,28,28A28,28,0,0,0,88,128Zm0,40a12,12,0,1,1,12-12A12,12,0,0,1,88,168Zm160-48H223.7A104,104,0,0,0,16,128v24a72.08,72.08,0,0,0,72,72h40a72.08,72.08,0,0,0,72-72V136h48a8,8,0,0,0,0-16Zm-64,32a56.06,56.06,0,0,1-50.46,55.72A71.87,71.87,0,0,0,160,152V136h24Zm-32-32a8,8,0,0,0-8,8v24a56,56,0,0,1-112,0V128a88,88,0,0,1,175.64-8Z"/>
+    </symbol>
+
+    <!-- Phosphor baseball-helmet (Fill) -->
+    <symbol id="helmet-fill" viewBox="0 0 256 256">
+      <path fill="currentColor" d="M248,120H223.7A104,104,0,0,0,16,128v24a72.08,72.08,0,0,0,72,72h40a72.08,72.08,0,0,0,72-72V136h48a8,8,0,0,0,0-16ZM88,180a24,24,0,1,1,24-24A24,24,0,0,1,88,180Zm96-28a56.06,56.06,0,0,1-50.46,55.72A71.87,71.87,0,0,0,160,152V136h24Z"/>
+    </symbol>
+
+    <!-- Home plate 本壘板（五角形）-->
+    <symbol id="home-plate" viewBox="0 0 32 32">
+      <path fill="currentColor" d="M6 10 L26 10 L26 22 L16 28 L6 22 Z"/>
+    </symbol>
+
+    <!-- Crossed bats + ball 交叉球棒加球 -->
+    <symbol id="crossed-bats" viewBox="0 0 32 32">
+      <!-- bat 1 (左下 → 右上) -->
+      <path fill="currentColor" d="M 6 25 L 9 22 L 24 7 Q 26 5, 27 6 Q 28 7, 26 9 L 11 24 L 8 27 Q 6 27, 6 25 Z"/>
+      <!-- bat 2 (左上 → 右下) -->
+      <path fill="currentColor" d="M 6 7 L 9 10 L 24 25 Q 26 27, 27 26 Q 28 25, 26 23 L 11 8 L 8 5 Q 6 5, 6 7 Z" opacity="0.55"/>
+      <!-- ball 中央 -->
+      <circle fill="currentColor" cx="16" cy="16" r="3.5"/>
+    </symbol>
+
+    <!-- Current cap (對照組，已套用的 Fluent HC billed cap) -->
+    <symbol id="cap-current" viewBox="0 0 32 32">
+      <path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M23.015 4.13376C22.6235 4.01168 22.2211 3.9751 21.8314 4.01612C21.104 4.09271 20.4249 4.44095 19.9335 4.98987H17.147C11.6783 4.98987 7.24508 9.46908 7.24508 14.9945V15.8342L1.3465 19.2398C0.173262 19.8691 -0.067453 21.0735 0.0145643 21.8814C0.0925058 22.6491 0.439928 23.3396 0.816206 23.8624C1.56041 24.8963 2.96145 25.9995 4.76953 25.9995C6.68752 25.9995 8.16171 24.9989 9.06987 24.3824L9.18179 24.3066C9.3564 24.1885 9.50926 24.0861 9.64593 23.9973C9.81719 24.1089 9.99923 24.2303 10.198 24.363L10.3124 24.4394C11.8392 25.4599 14.1434 27 17.147 27C20.6749 27 23.0898 24.811 24.8984 22.9982L29.0294 22.9982C30.67 22.9982 32 21.6544 32 19.9968V16.9954C32 12.5078 29.5633 8.59888 25.9599 6.53931C25.7083 5.56815 24.9803 4.74667 23.9611 4.42883L23.015 4.13376ZM9.68945 21.7079C7.26858 20.4994 4.13772 20.5316 2.2941 20.9973L9.21175 17.0033C10.7201 17.0288 12.2179 17.1197 13.7084 17.3358C17.063 17.8222 20.3808 18.9429 23.6999 21.3789C21.8419 23.2448 19.9285 24.9991 17.147 24.9991C14.7436 24.9991 12.871 23.7491 11.2896 22.6935C11.0833 22.5558 10.8819 22.4214 10.685 22.2935C10.5258 22.1901 10.3694 22.0909 10.2157 21.9977C10.0447 21.8941 9.86903 21.7976 9.68945 21.7079ZM9.22547 15.0024C11.0819 15.0331 12.9531 15.1598 14.8336 15.4908C18.6741 16.1667 22.5533 17.6947 26.4246 20.9972L29.0294 20.9972C29.5763 20.9972 30.0196 20.5493 30.0196 19.9968V16.9954C30.0196 12.8929 27.5756 9.36709 24.0784 7.82326C24.0438 7.80798 24.0091 7.79289 23.9743 7.778C23.0736 7.39283 22.1049 7.13848 21.0913 7.03854C20.771 7.00695 20.4462 6.99079 20.1176 6.99079H20.0173H17.147C12.7721 6.99079 9.22547 10.5742 9.22547 14.9945V15.0024Z"/>
+    </symbol>
+  </defs>
+</svg>
+
+<h1>主隊 icon 候選 — 更具棒球語意</h1>
+<p class="sub">三隊示意：中信（金）、味全（紅）、樂天（酒紅）— 看 icon 與不同隊色搭配</p>
+
+<div class="grid">
+
+  <!-- 目前的 cap -->
+  <div class="card">
+    <h3>0. 目前版本（Fluent Billed Cap）</h3>
+    <p class="meta">側面、一般休閒帽 · 你反應「不夠棒球」</p>
+    <div class="bigs">
+      <div class="big terra"><span class="label">金</span><span class="icon-wrap"><svg><use href="#cap-current"/></svg></span></div>
+      <div class="big dark"><span class="label">紅</span><span class="icon-wrap"><svg><use href="#cap-current"/></svg></span></div>
+    </div>
+    <div class="preview-rows">
+      <div class="preview-row r1"><span class="rank">1</span><span class="logo-mock">中信</span><span class="name">中信兄弟</span><span class="icon-wrap"><svg><use href="#cap-current"/></svg></span><span class="pct">.625</span></div>
+      <div class="preview-row r2"><span class="rank">2</span><span class="logo-mock">味全</span><span class="name">味全龍</span><span class="icon-wrap"><svg><use href="#cap-current"/></svg></span><span class="pct">.571</span></div>
+      <div class="preview-row r3"><span class="rank">3</span><span class="logo-mock">樂天</span><span class="name">樂天桃猿</span><span class="icon-wrap"><svg><use href="#cap-current"/></svg></span><span class="pct">.500</span></div>
+    </div>
+  </div>
+
+  <!-- 1. Phosphor Baseball Helmet Regular -->
+  <div class="card">
+    <h3>1. Phosphor 打擊頭盔（描線）</h3>
+    <p class="meta">側面、含耳罩 · MIT 免標註</p>
+    <div class="bigs">
+      <div class="big terra"><span class="label">金</span><span class="icon-wrap"><svg><use href="#helmet-regular"/></svg></span></div>
+      <div class="big dark"><span class="label">紅</span><span class="icon-wrap"><svg><use href="#helmet-regular"/></svg></span></div>
+    </div>
+    <div class="preview-rows">
+      <div class="preview-row r1"><span class="rank">1</span><span class="logo-mock">中信</span><span class="name">中信兄弟</span><span class="icon-wrap"><svg><use href="#helmet-regular"/></svg></span><span class="pct">.625</span></div>
+      <div class="preview-row r2"><span class="rank">2</span><span class="logo-mock">味全</span><span class="name">味全龍</span><span class="icon-wrap"><svg><use href="#helmet-regular"/></svg></span><span class="pct">.571</span></div>
+      <div class="preview-row r3"><span class="rank">3</span><span class="logo-mock">樂天</span><span class="name">樂天桃猿</span><span class="icon-wrap"><svg><use href="#helmet-regular"/></svg></span><span class="pct">.500</span></div>
+    </div>
+  </div>
+
+  <!-- 2. Phosphor Baseball Helmet Fill -->
+  <div class="card">
+    <h3>2. Phosphor 打擊頭盔（填滿）</h3>
+    <p class="meta">側面、含耳罩 · MIT 免標註</p>
+    <div class="bigs">
+      <div class="big terra"><span class="label">金</span><span class="icon-wrap"><svg><use href="#helmet-fill"/></svg></span></div>
+      <div class="big dark"><span class="label">紅</span><span class="icon-wrap"><svg><use href="#helmet-fill"/></svg></span></div>
+    </div>
+    <div class="preview-rows">
+      <div class="preview-row r1"><span class="rank">1</span><span class="logo-mock">中信</span><span class="name">中信兄弟</span><span class="icon-wrap"><svg><use href="#helmet-fill"/></svg></span><span class="pct">.625</span></div>
+      <div class="preview-row r2"><span class="rank">2</span><span class="logo-mock">味全</span><span class="name">味全龍</span><span class="icon-wrap"><svg><use href="#helmet-fill"/></svg></span><span class="pct">.571</span></div>
+      <div class="preview-row r3"><span class="rank">3</span><span class="logo-mock">樂天</span><span class="name">樂天桃猿</span><span class="icon-wrap"><svg><use href="#helmet-fill"/></svg></span><span class="pct">.500</span></div>
+    </div>
+  </div>
+
+  <!-- 3. Home plate -->
+  <div class="card">
+    <h3>3. 本壘板（五角形）</h3>
+    <p class="meta">「home = 主隊」隱喻完美 · 自繪原創</p>
+    <div class="bigs">
+      <div class="big terra"><span class="label">金</span><span class="icon-wrap"><svg><use href="#home-plate"/></svg></span></div>
+      <div class="big dark"><span class="label">紅</span><span class="icon-wrap"><svg><use href="#home-plate"/></svg></span></div>
+    </div>
+    <div class="preview-rows">
+      <div class="preview-row r1"><span class="rank">1</span><span class="logo-mock">中信</span><span class="name">中信兄弟</span><span class="icon-wrap"><svg><use href="#home-plate"/></svg></span><span class="pct">.625</span></div>
+      <div class="preview-row r2"><span class="rank">2</span><span class="logo-mock">味全</span><span class="name">味全龍</span><span class="icon-wrap"><svg><use href="#home-plate"/></svg></span><span class="pct">.571</span></div>
+      <div class="preview-row r3"><span class="rank">3</span><span class="logo-mock">樂天</span><span class="name">樂天桃猿</span><span class="icon-wrap"><svg><use href="#home-plate"/></svg></span><span class="pct">.500</span></div>
+    </div>
+  </div>
+
+  <!-- 4. Crossed bats -->
+  <div class="card">
+    <h3>4. 交叉球棒 + 球</h3>
+    <p class="meta">經典團隊徽章風 · 自繪原創</p>
+    <div class="bigs">
+      <div class="big terra"><span class="label">金</span><span class="icon-wrap"><svg><use href="#crossed-bats"/></svg></span></div>
+      <div class="big dark"><span class="label">紅</span><span class="icon-wrap"><svg><use href="#crossed-bats"/></svg></span></div>
+    </div>
+    <div class="preview-rows">
+      <div class="preview-row r1"><span class="rank">1</span><span class="logo-mock">中信</span><span class="name">中信兄弟</span><span class="icon-wrap"><svg><use href="#crossed-bats"/></svg></span><span class="pct">.625</span></div>
+      <div class="preview-row r2"><span class="rank">2</span><span class="logo-mock">味全</span><span class="name">味全龍</span><span class="icon-wrap"><svg><use href="#crossed-bats"/></svg></span><span class="pct">.571</span></div>
+      <div class="preview-row r3"><span class="rank">3</span><span class="logo-mock">樂天</span><span class="name">樂天桃猿</span><span class="icon-wrap"><svg><use href="#crossed-bats"/></svg></span><span class="pct">.500</span></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="note">
+  <b>候選比較</b><br>
+  · <b>1-2 打擊頭盔</b>：最棒球專屬，側面耳罩是標誌特徵；fill 版在 20px 更清楚<br>
+  · <b>3 本壘板</b>：「home team = 主隊」語意完美，但五角形在沒上下文時認知度較弱<br>
+  · <b>4 交叉球棒</b>：最經典的球隊徽章，但在 20px 可能細節糊掉<br>
+  · 全部都用 <code>currentColor</code>，顏色隨主隊動態變化<br>
+  · 決定後我把選中的 <code>symbol</code> 替換主程式裡 <code>#cap-mainteam</code> 的內容
+</div>
+
+</body>
+</html>
