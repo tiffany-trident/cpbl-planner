@@ -6,6 +6,15 @@
 
 ## 🔖 進度記錄
 
+### 2026-04-23 — Task Scheduler 推錯分支 + 分支守衛
+
+- **問題**：Phase 1 開發期 Task Scheduler 在 `feat/phase1-personalization` 分支上執行，bat 不檢查當前分支，ps1 commit + push 跑到 feature 分支（`a7cb143`），線上版（從 main 部署）當天沒拿到更新。Phase 1 merge 回 main 時才把這次 auto-update 一併帶進來。
+- **修正**（commit `7c7645e`、`8d94d16`）：`update-scores.bat` 加入分支守衛
+  - 記住原分支、檢查 working tree 是否乾淨（tracked files dirty → abort，**不自動 stash**，避免遺失使用者進行中的工作，由人工處理）
+  - 若不在 main 則 `git checkout main && git pull`，執行完再切回原分支
+  - 切回前 `git checkout -- index.html cpbl-planner.html data/briefings.json` 清掉 ps1 寫入的 line-ending 殘留（PowerShell `` `n `` 是 LF，Windows Git autocrlf 會認為 working tree 有差異；不清會讓下次 dirty check abort）
+- **測試方法**：在 test branch 上跑兩輪 `update-scores.bat`，驗證切換邏輯 + working tree 最終乾淨
+
 ### 2026-04-20 — Task Scheduler 錯過補跑 + 賽事記錄
 
 - Task Scheduler 04/18~04/20 連續 3 天未執行（週末電腦關機 + 週一 09:00 還沒開機），手動跑 `update-scores.bat` 補上，commit `d18f33e`
@@ -20,6 +29,11 @@
 - 移除網頁「🔄 更新比分」按鈕（commit `6871437`）：CORS proxy / CF Worker / GAS 皆失敗，比分改由本機排程更新
 
 ## 🔧 已解決的問題
+
+**Task Scheduler 在 feature 分支上推錯分支（2026-04-23）**
+- 現象：排程正常執行，但 push 到當下 working tree 所在的 feature 分支而非 main，線上未更新
+- 原因：`update-scores.bat` 不檢查當前分支，直接在哪個分支就 commit 到哪個
+- 修正：bat 加入分支守衛（dirty check abort → checkout main + pull → ps1 + commit + push → 清 line-ending 殘留 → 切回原分支），commit `7c7645e`、`8d94d16`
 
 **Task Scheduler 錯過後不會自動補跑（2026-04-20）**
 - 現象：04/18、04/19、04/20 連續 3 天沒更新。電腦週末關機 + 週一 09:00 還沒開機
