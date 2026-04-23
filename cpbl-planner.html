@@ -425,6 +425,23 @@ button.card-weather.clickable:active { transform: scale(0.96); }
 .my-empty-action { display: inline-block; margin-top: 24px; padding: 10px 24px; background: #C2573A; color: #FFF; border: none; border-radius: 20px; font-size: 14px; font-family: inherit; cursor: pointer; transition: background 0.2s; }
 .my-empty-action:hover { background: #A0432A; }
 
+.my-streak-banner { max-width: 720px; margin: 0 auto 20px; padding: 20px 24px; border-radius: 20px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.my-streak-banner.win { background: linear-gradient(135deg, #FFF5E6 0%, #FDEBD0 100%); border: 1px solid #F0D9B5; }
+.my-streak-banner.lose { background: linear-gradient(135deg, #F5ECE3 0%, #E8D9C7 100%); border: 1px solid #D4C3A8; }
+.streak-l { display: flex; align-items: center; gap: 14px; }
+.streak-icon { font-size: 32px; line-height: 1; flex-shrink: 0; }
+.streak-txt { min-width: 0; }
+.streak-title { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; font-size: 18px; font-weight: 500; letter-spacing: 1px; color: #4A3728; margin: 0 0 4px; }
+.streak-sub { font-size: 12px; color: #6B5F50; margin: 0; line-height: 1.5; }
+.streak-r { font-size: 13px; color: #6B5F50; white-space: nowrap; text-align: right; }
+.streak-r .lbl { color: #9B8E7E; font-size: 11px; display: block; margin-bottom: 2px; }
+@media (max-width: 768px) {
+  .my-streak-banner { flex-direction: column; align-items: flex-start; gap: 12px; padding: 16px 20px; }
+  .streak-title { font-size: 16px; }
+  .streak-icon { font-size: 28px; }
+  .streak-r { text-align: left; }
+}
+
 .my-stats-grid { display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 480px; margin: 0 auto; }
 .my-stats-card { background: #FFF; border-radius: 20px; padding: 28px 24px; display: flex; flex-direction: column; gap: 20px; box-shadow: 0 2px 12px rgba(138, 120, 99, 0.08); }
 .msc-header { display: flex; align-items: center; gap: 10px; }
@@ -2451,9 +2468,72 @@ function renderMyView() {
     if (stats.total === 0) {
       body.innerHTML = renderMyEmptyState('noMainTeamCheckins');
     } else {
-      body.innerHTML = '<div class="my-stats-grid">' + renderMainTeamStatsCard(stats) + '</div>';
+      body.innerHTML = renderStreakBanner() + '<div class="my-stats-grid">' + renderMainTeamStatsCard(stats) + '</div>';
     }
   }
+}
+
+function calcMainTeamFieldStreak() {
+  const mainTeam = userState.profile.mainTeam;
+  if (!mainTeam) return { count: 0 };
+  const records = [];
+  Object.keys(userState.checkins).forEach(sno => {
+    const g = allGames.find(x => x.sno === sno);
+    if (!g || g.postponed || !g.completed) return;
+    const isHome = g.home === mainTeam;
+    const isVisitor = g.visitor === mainTeam;
+    if (!isHome && !isVisitor) return;
+    const mainScore = isHome ? g.hScore : g.vScore;
+    const oppScore = isHome ? g.vScore : g.hScore;
+    let result;
+    if (mainScore > oppScore) result = 'W';
+    else if (mainScore < oppScore) result = 'L';
+    else result = 'T';
+    records.push({ date: g.date, time: g.time, result });
+  });
+  if (records.length === 0) return { count: 0 };
+  records.sort((a, b) => a.date < b.date ? -1 : a.date > b.date ? 1 : a.time < b.time ? -1 : 1);
+  const last = records[records.length - 1];
+  if (last.result === 'T') return { count: 0, type: 'tie' };
+  let count = 1;
+  let startDate = last.date;
+  for (let i = records.length - 2; i >= 0; i--) {
+    if (records[i].result === last.result) {
+      count++;
+      startDate = records[i].date;
+    } else {
+      break;
+    }
+  }
+  return { type: last.result === 'W' ? 'win' : 'lose', count, startDate };
+}
+
+function findNextMainTeamGame() {
+  const mainTeam = userState.profile.mainTeam;
+  if (!mainTeam) return null;
+  return allGames.find(g => g.isFuture && !g.postponed && (g.home === mainTeam || g.visitor === mainTeam)) || null;
+}
+
+function renderStreakBanner() {
+  const streak = calcMainTeamFieldStreak();
+  if (!streak.type || streak.count < 2) return '';
+  const isWin = streak.type === 'win';
+  const icon = isWin ? '🔥' : '☁️';
+  const resultLabel = isWin ? '現場見證勝利' : '現場見證敗北';
+  const next = findNextMainTeamGame();
+  const nextHtml = next
+    ? '<div class="streak-r"><span class="lbl">下一場</span>' + next.date + ' · ' + next.field + '</div>'
+    : '';
+  return '<div class="my-streak-banner ' + streak.type + '">' +
+    '<div class="streak-l">' +
+      '<span class="streak-icon" aria-hidden="true">' + icon + '</span>' +
+      '<div class="streak-txt">' +
+        '<h4 class="streak-title">連續 ' + streak.count + ' 場' + resultLabel + '</h4>' +
+        '<p class="streak-sub">' + streak.startDate + ' 起</p>' +
+      '</div>' +
+    '</div>' +
+    nextHtml +
+  '</div>';
 }
 
 function renderMainTeamStatsCard(stats) {
