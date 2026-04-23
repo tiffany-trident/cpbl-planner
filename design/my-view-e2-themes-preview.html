@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E2 layout × 5 主題 · CPBL 2026</title>
+<style>
+@font-face {
+  font-family: 'jf-openhuninn';
+  src: url('https://cdn.jsdelivr.net/gh/marsnow/open-huninn-font@1.1/jf-openhuninn-1.1.ttf') format('truetype');
+  font-weight: 500;
+  font-display: swap;
+}
+* { box-sizing: border-box; }
+body { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; background: #F9F3E9; color: #4A3728; margin: 0; padding: 40px 20px; }
+.page-hdr { max-width: 800px; margin: 0 auto 40px; text-align: center; }
+.page-hdr h1 { font-size: 28px; font-weight: 500; margin: 0 0 8px; letter-spacing: 2px; }
+.page-hdr p { font-size: 14px; color: #6B5F50; margin: 0; line-height: 1.7; }
+
+.variant { max-width: 720px; margin: 0 auto 56px; }
+.variant-hdr { margin-bottom: 20px; display: flex; align-items: flex-start; gap: 10px; }
+.variant-hdr .num { flex-shrink: 0; background: #C2573A; color: #FFF; width: 32px; height: 32px; line-height: 32px; text-align: center; border-radius: 50%; font-size: 13px; font-weight: 700; font-family: 'Inter', sans-serif; }
+.variant-hdr .txt h2 { margin: 2px 0 4px; font-size: 17px; font-weight: 500; letter-spacing: 1px; }
+.variant-hdr .txt p { margin: 0; font-size: 12px; color: #9B8E7E; line-height: 1.6; }
+
+/* ======== E2 共用骨架 ======== */
+.bc { border-radius: 24px; padding: 28px 32px; display: flex; flex-direction: column; gap: 20px; }
+.bc-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-bottom: 20px; }
+.bc-header-l { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.logo-stub { width: 40px; height: 40px; border-radius: 50%; background: #D8252D; color: #FFF; text-align: center; line-height: 40px; font-weight: 700; font-size: 16px; flex-shrink: 0; }
+.bc-title { font-size: 15px; font-weight: 700; }
+.bc-subtitle { font-size: 11px; margin-top: 2px; }
+.bc-streak-pill { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 20px; font-size: 13px; white-space: nowrap; flex-shrink: 0; }
+.bc-body { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center; }
+.bc-left { text-align: center; padding-right: 24px; }
+.bc-right { display: flex; flex-direction: column; gap: 16px; padding-left: 8px; }
+.bc-num { font-family: 'Inter', sans-serif; font-size: 56px; font-weight: 800; letter-spacing: 1px; line-height: 1; }
+.bc-sub { font-size: 12px; letter-spacing: 1px; margin-top: 6px; }
+.bc-wld { display: flex; justify-content: center; gap: 28px; margin-top: 16px; }
+.bc-wld-item { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.bc-wld-item .n { font-family: 'Inter', sans-serif; font-size: 20px; font-weight: 800; }
+.bc-wld-item .l { font-size: 11px; }
+.bc-block-label { font-size: 11px; letter-spacing: 1px; margin-bottom: 6px; }
+.bc-recent-dots { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+.bc-next-text { font-size: 14px; font-weight: 600; }
+.bc-next-venue { font-size: 12px; margin-top: 2px; }
+.dot { width: 14px; height: 14px; border-radius: 50%; display: inline-block; }
+
+/* ======== Theme 1 · 暖色漸層 ======== */
+.bc.t1 { background: linear-gradient(135deg, #FFFEFB 0%, #FFF5E6 100%); border: 1px solid #F0D9B5; box-shadow: 0 2px 12px rgba(138, 120, 99, 0.08); }
+.bc.t1 .bc-header { border-bottom: 1px solid #F0E8DB; }
+.bc.t1 .bc-title { color: #4A3728; }
+.bc.t1 .bc-subtitle { color: #9B8E7E; }
+.bc.t1 .bc-streak-pill { background: #FFF5E6; border: 1px solid #F0D9B5; color: #4A3728; }
+.bc.t1 .bc-left { border-right: 1px dashed #E8DDBE; }
+.bc.t1 .bc-num { color: #1A6B3A; }
+.bc.t1 .bc-sub, .bc.t1 .bc-wld-item .l, .bc.t1 .bc-block-label { color: #9B8E7E; }
+.bc.t1 .bc-wld-item .n.win, .bc.t1 .dot.w { color: #1A6B3A; }
+.bc.t1 .bc-wld-item .n.loss, .bc.t1 .dot.l { color: #B52828; }
+.bc.t1 .bc-wld-item .n.tie, .bc.t1 .dot.t { color: #9B8E7E; }
+.bc.t1 .dot.w { background: #1A6B3A; }
+.bc.t1 .dot.l { background: #B52828; }
+.bc.t1 .dot.t { background: #9B8E7E; }
+.bc.t1 .bc-next-text { color: #4A3728; }
+.bc.t1 .bc-next-venue { color: #6B5F50; }
+
+/* ======== Theme 2 · 米底清爽 + 左側彩條 ======== */
+.bc.t2 { background: #FFFAF2; border: 1px solid #F0E8DB; position: relative; overflow: hidden; padding-left: 36px; }
+.bc.t2::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: #C2573A; }
+.bc.t2 .bc-header { border-bottom: 1px dashed #E8DDBE; }
+.bc.t2 .bc-title { color: #4A3728; }
+.bc.t2 .bc-subtitle { color: #9B8E7E; }
+.bc.t2 .bc-streak-pill { background: #FFF5E6; border: 1px solid #F0D9B5; color: #4A3728; }
+.bc.t2 .bc-left { border-right: 1px dashed #E8DDBE; }
+.bc.t2 .bc-num { color: #C2573A; }
+.bc.t2 .bc-sub, .bc.t2 .bc-wld-item .l, .bc.t2 .bc-block-label { color: #9B8E7E; }
+.bc.t2 .bc-wld-item .n.win { color: #1A6B3A; }
+.bc.t2 .bc-wld-item .n.loss { color: #B52828; }
+.bc.t2 .bc-wld-item .n.tie { color: #9B8E7E; }
+.bc.t2 .dot.w { background: #1A6B3A; }
+.bc.t2 .dot.l { background: #B52828; }
+.bc.t2 .dot.t { background: #9B8E7E; }
+.bc.t2 .bc-next-text { color: #4A3728; }
+.bc.t2 .bc-next-venue { color: #6B5F50; }
+
+/* ======== Theme 3 · 赤陶紅主題（頂部 6px 彩帶） ======== */
+.bc.t3 { background: #FFF; border-top: 6px solid #C2573A; border-radius: 24px; box-shadow: 0 2px 12px rgba(138, 120, 99, 0.08); padding-top: 22px; }
+.bc.t3 .bc-header { border-bottom: 1px solid #F5EEDE; }
+.bc.t3 .bc-title { color: #4A3728; }
+.bc.t3 .bc-subtitle { color: #9B8E7E; }
+.bc.t3 .bc-streak-pill { background: #C2573A; color: #FFF; border: 1px solid #C2573A; font-weight: 600; box-shadow: 0 2px 6px rgba(194, 87, 58, 0.2); }
+.bc.t3 .bc-left { border-right: 1px solid #F5EEDE; }
+.bc.t3 .bc-num { color: #C2573A; }
+.bc.t3 .bc-sub, .bc.t3 .bc-wld-item .l, .bc.t3 .bc-block-label { color: #9B8E7E; }
+.bc.t3 .bc-wld-item .n.win { color: #C2573A; }
+.bc.t3 .bc-wld-item .n.loss { color: #9B8E7E; }
+.bc.t3 .bc-wld-item .n.tie { color: #B8A692; }
+.bc.t3 .dot.w { background: #C2573A; }
+.bc.t3 .dot.l { background: #9B8E7E; }
+.bc.t3 .dot.t { background: #B8A692; }
+.bc.t3 .bc-next-text { color: #4A3728; }
+.bc.t3 .bc-next-venue { color: #6B5F50; }
+
+/* ======== Theme 4 · 手帳貼紙（虛線 + 土黃大字） ======== */
+.bc.t4 { background: #FFFAF2; border: 2px dashed #E8DDBE; border-radius: 24px; }
+.bc.t4 .bc-header { border-bottom: 2px dotted #E8DDBE; }
+.bc.t4 .bc-title { color: #4A3728; font-weight: 700; }
+.bc.t4 .bc-subtitle { color: #9B8E7E; font-weight: 600; }
+.bc.t4 .bc-streak-pill { background: #FFF5E6; border: 2px dashed #E8C961; color: #4A3728; font-weight: 700; }
+.bc.t4 .bc-left { border-right: 2px dotted #E8DDBE; }
+.bc.t4 .bc-num { color: #D48C2E; font-size: 64px; }
+.bc.t4 .bc-sub, .bc.t4 .bc-block-label { color: #9B8E7E; font-weight: 600; }
+.bc.t4 .bc-wld-item .l { color: #9B8E7E; font-weight: 600; }
+.bc.t4 .bc-wld-item .n.win { color: #1A6B3A; }
+.bc.t4 .bc-wld-item .n.loss { color: #B52828; }
+.bc.t4 .bc-wld-item .n.tie { color: #9B8E7E; }
+.bc.t4 .dot.w { background: #1A6B3A; }
+.bc.t4 .dot.l { background: #B52828; }
+.bc.t4 .dot.t { background: #9B8E7E; }
+.bc.t4 .bc-next-text { color: #4A3728; font-weight: 700; }
+.bc.t4 .bc-next-venue { color: #6B5F50; }
+
+/* ======== Theme 5 · scoreboard 深色 ======== */
+.bc.t5 { background: #3D3122; color: #FFF5D6; box-shadow: 0 4px 16px rgba(61, 49, 34, 0.15); }
+.bc.t5 .bc-header { border-bottom: 1px solid #5C4A33; }
+.bc.t5 .bc-title { color: #FFF5D6; }
+.bc.t5 .bc-subtitle { color: #B8A692; }
+.bc.t5 .bc-streak-pill { background: #5C4A33; border: 1px solid #8A7863; color: #E8C961; }
+.bc.t5 .bc-left { border-right: 1px dashed #5C4A33; }
+.bc.t5 .bc-num { color: #E8C961; }
+.bc.t5 .bc-sub, .bc.t5 .bc-wld-item .l, .bc.t5 .bc-block-label { color: #8A7863; }
+.bc.t5 .bc-wld-item .n.win { color: #A8D49F; }
+.bc.t5 .bc-wld-item .n.loss { color: #E89090; }
+.bc.t5 .bc-wld-item .n.tie { color: #B8A692; }
+.bc.t5 .dot.w { background: #A8D49F; }
+.bc.t5 .dot.l { background: #E89090; }
+.bc.t5 .dot.t { background: #B8A692; }
+.bc.t5 .bc-next-text { color: #D4C3A8; }
+.bc.t5 .bc-next-venue { color: #8A7863; }
+
+@media (max-width: 640px) {
+  body { padding: 24px 12px; }
+  .bc { padding: 24px 20px; }
+  .bc.t2 { padding-left: 24px; }
+  .bc-body { grid-template-columns: 1fr; }
+  .bc-left { border-right: none !important; border-bottom: 1px dashed #E8DDBE; padding-right: 0; padding-bottom: 20px; }
+  .bc-right { padding-left: 0; }
+  .bc.t5 .bc-left { border-bottom-color: #5C4A33 !important; }
+  .bc-header { flex-wrap: wrap; gap: 12px; }
+}
+</style>
+</head>
+<body>
+
+<div class="page-hdr">
+  <h1>E2 layout × 5 主題</h1>
+  <p>同樣的 E2 結構套不同視覺主題，選一個告訴我。</p>
+</div>
+
+<!-- 以下 5 個 variant 共用同一個 HTML 結構 -->
+
+<!-- Theme 1 -->
+<div class="variant">
+  <div class="variant-hdr"><span class="num">1</span><div class="txt"><h2>暖色漸層（baseline）</h2><p>淡暖漸層白底 + 米色邊框、黑字綠勝率；跟 hero 氛圍最接近</p></div></div>
+  <div class="bc t1">
+    <div class="bc-header">
+      <div class="bc-header-l">
+        <div class="logo-stub">味</div>
+        <div>
+          <div class="bc-title">味全龍 · 現場戰績</div>
+          <div class="bc-subtitle">你在現場見證的紀錄</div>
+        </div>
+      </div>
+      <div class="bc-streak-pill">🔥 連 3 勝 · 自 2026-04-15 起</div>
+    </div>
+    <div class="bc-body">
+      <div class="bc-left">
+        <div class="bc-num">.625</div>
+        <div class="bc-sub">現場勝率</div>
+        <div class="bc-wld">
+          <div class="bc-wld-item"><span class="n win">5</span><span class="l">勝</span></div>
+          <div class="bc-wld-item"><span class="n loss">3</span><span class="l">敗</span></div>
+          <div class="bc-wld-item"><span class="n tie">0</span><span class="l">和</span></div>
+        </div>
+      </div>
+      <div class="bc-right">
+        <div><div class="bc-block-label">最近 10 場</div><div class="bc-recent-dots"><span class="dot w"></span><span class="dot w"></span><span class="dot w"></span><span class="dot l"></span><span class="dot w"></span><span class="dot l"></span><span class="dot w"></span><span class="dot w"></span><span class="dot l"></span><span class="dot w"></span></div></div>
+        <div><div class="bc-block-label">下一場主隊比賽</div><div class="bc-next-text">2026-04-23（四）</div><div class="bc-next-venue">澄清湖 · 兄弟 vs 味全</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Theme 2 -->
+<div class="variant">
+  <div class="variant-hdr"><span class="num">2</span><div class="txt"><h2>米底清爽 + 左側赤陶紅彩條</h2><p>無陰影、米色實底、4px 左側 accent bar 當身份識別；降低視覺密度</p></div></div>
+  <div class="bc t2">
+    <div class="bc-header">
+      <div class="bc-header-l">
+        <div class="logo-stub">味</div>
+        <div>
+          <div class="bc-title">味全龍 · 現場戰績</div>
+          <div class="bc-subtitle">你在現場見證的紀錄</div>
+        </div>
+      </div>
+      <div class="bc-streak-pill">🔥 連 3 勝 · 自 2026-04-15 起</div>
+    </div>
+    <div class="bc-body">
+      <div class="bc-left">
+        <div class="bc-num">.625</div>
+        <div class="bc-sub">現場勝率</div>
+        <div class="bc-wld">
+          <div class="bc-wld-item"><span class="n win">5</span><span class="l">勝</span></div>
+          <div class="bc-wld-item"><span class="n loss">3</span><span class="l">敗</span></div>
+          <div class="bc-wld-item"><span class="n tie">0</span><span class="l">和</span></div>
+        </div>
+      </div>
+      <div class="bc-right">
+        <div><div class="bc-block-label">最近 10 場</div><div class="bc-recent-dots"><span class="dot w"></span><span class="dot w"></span><span class="dot w"></span><span class="dot l"></span><span class="dot w"></span><span class="dot l"></span><span class="dot w"></span><span class="dot w"></span><span class="dot l"></span><span class="dot w"></span></div></div>
+        <div><div class="bc-block-label">下一場主隊比賽</div><div class="bc-next-text">2026-04-23（四）</div><div class="bc-next-venue">澄清湖 · 兄弟 vs 味全</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Theme 3 -->
+<div class="variant">
+  <div class="variant-hdr"><span class="num">3</span><div class="txt"><h2>赤陶紅主題（頂部 6px 彩帶 + 實色 pill）</h2><p>白底 + 赤陶紅頂部彩帶、勝率也用赤陶紅；跟 hero 主色呼應最強烈</p></div></div>
+  <div class="bc t3">
+    <div class="bc-header">
+      <div class="bc-header-l">
+        <div class="logo-stub">味</div>
+        <div>
+          <div class="bc-title">味全龍 · 現場戰績</div>
+          <div class="bc-subtitle">你在現場見證的紀錄</div>
+        </div>
+      </div>
+      <div class="bc-streak-pill">🔥 連 3 勝 · 自 2026-04-15 起</div>
+    </div>
+    <div class="bc-body">
+      <div class="bc-left">
+        <div class="bc-num">.625</div>
+        <div class="bc-sub">現場勝率</div>
+        <div class="bc-wld">
+          <div class="bc-wld-item"><span class="n win">5</span><span class="l">勝</span></div>
+          <div class="bc-wld-item"><span class="n loss">3</span><span class="l">敗</span></div>
+          <div class="bc-wld-item"><span class="n tie">0</span><span class="l">和</span></div>
+        </div>
+      </div>
+      <div class="bc-right">
+        <div><div class="bc-block-label">最近 10 場</div><div class="bc-recent-dots"><span class="dot w"></span><span class="dot w"></span><span class="dot w"></span><span class="dot l"></span><span class="dot w"></span><span class="dot l"></span><span class="dot w"></span><span class="dot w"></span><span class="dot l"></span><span class="dot w"></span></div></div>
+        <div><div class="bc-block-label">下一場主隊比賽</div><div class="bc-next-text">2026-04-23（四）</div><div class="bc-next-venue">澄清湖 · 兄弟 vs 味全</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Theme 4 -->
+<div class="variant">
+  <div class="variant-hdr"><span class="num">4</span><div class="txt"><h2>手帳貼紙風（虛線 + 土黃大字）</h2><p>2px 虛線框 + 勝率土黃 #D48C2E；sticker 拼貼感</p></div></div>
+  <div class="bc t4">
+    <div class="bc-header">
+      <div class="bc-header-l">
+        <div class="logo-stub">味</div>
+        <div>
+          <div class="bc-title">味全龍 · 現場戰績</div>
+          <div class="bc-subtitle">你在現場見證的紀錄</div>
+        </div>
+      </div>
+      <div class="bc-streak-pill">🔥 連 3 勝 · 自 2026-04-15 起</div>
+    </div>
+    <div class="bc-body">
+      <div class="bc-left">
+        <div class="bc-num">.625</div>
+        <div class="bc-sub">現場勝率</div>
+        <div class="bc-wld">
+          <div class="bc-wld-item"><span class="n win">5</span><span class="l">勝</span></div>
+          <div class="bc-wld-item"><span class="n loss">3</span><span class="l">敗</span></div>
+          <div class="bc-wld-item"><span class="n tie">0</span><span class="l">和</span></div>
+        </div>
+      </div>
+      <div class="bc-right">
+        <div><div class="bc-block-label">最近 10 場</div><div class="bc-recent-dots"><span class="dot w"></span><span class="dot w"></span><span class="dot w"></span><span class="dot l"></span><span class="dot w"></span><span class="dot l"></span><span class="dot w"></span><span class="dot w"></span><span class="dot l"></span><span class="dot w"></span></div></div>
+        <div><div class="bc-block-label">下一場主隊比賽</div><div class="bc-next-text">2026-04-23（四）</div><div class="bc-next-venue">澄清湖 · 兄弟 vs 味全</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Theme 5 -->
+<div class="variant">
+  <div class="variant-hdr"><span class="num">5</span><div class="txt"><h2>scoreboard 深色</h2><p>深褐底 + 金色勝率 + 淺金數字；跟整站淺色反差最大</p></div></div>
+  <div class="bc t5">
+    <div class="bc-header">
+      <div class="bc-header-l">
+        <div class="logo-stub">味</div>
+        <div>
+          <div class="bc-title">味全龍 · 現場戰績</div>
+          <div class="bc-subtitle">你在現場見證的紀錄</div>
+        </div>
+      </div>
+      <div class="bc-streak-pill">🔥 連 3 勝 · 自 2026-04-15 起</div>
+    </div>
+    <div class="bc-body">
+      <div class="bc-left">
+        <div class="bc-num">.625</div>
+        <div class="bc-sub">現場勝率</div>
+        <div class="bc-wld">
+          <div class="bc-wld-item"><span class="n win">5</span><span class="l">勝</span></div>
+          <div class="bc-wld-item"><span class="n loss">3</span><span class="l">敗</span></div>
+          <div class="bc-wld-item"><span class="n tie">0</span><span class="l">和</span></div>
+        </div>
+      </div>
+      <div class="bc-right">
+        <div><div class="bc-block-label">最近 10 場</div><div class="bc-recent-dots"><span class="dot w"></span><span class="dot w"></span><span class="dot w"></span><span class="dot l"></span><span class="dot w"></span><span class="dot l"></span><span class="dot w"></span><span class="dot w"></span><span class="dot l"></span><span class="dot w"></span></div></div>
+        <div><div class="bc-block-label">下一場主隊比賽</div><div class="bc-next-text">2026-04-23（四）</div><div class="bc-next-venue">澄清湖 · 兄弟 vs 味全</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

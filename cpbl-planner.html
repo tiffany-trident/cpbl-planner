@@ -413,6 +413,68 @@ button.card-weather.clickable:active { transform: scale(0.96); }
   .stats { padding: 10px 24px; }
   .card-section { padding: 0 24px 32px; }
 }
+
+/* ── Phase 2-B: 我的（戰績 Streak） ── */
+.nav-links a.active { color: #C2573A; font-weight: 600; }
+.nav-my-icon { width: 14px; height: 14px; vertical-align: -2px; }
+.my-view { max-width: 1200px; margin: 40px auto; padding: 0 32px; }
+.my-empty { text-align: center; padding: 80px 20px; color: #6B5F50; }
+.my-empty-icon { font-size: 56px; margin-bottom: 18px; line-height: 1; }
+.my-empty-title { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; font-size: 18px; font-weight: 500; letter-spacing: 1px; color: #4A3728; margin-bottom: 10px; }
+.my-empty-desc { font-size: 14px; line-height: 1.7; max-width: 400px; margin: 0 auto; }
+.my-empty-desc a { color: #C2573A; text-decoration: underline; }
+.my-empty-action { display: inline-block; margin-top: 24px; padding: 10px 24px; background: #C2573A; color: #FFF; border: none; border-radius: 20px; font-size: 14px; font-family: inherit; cursor: pointer; transition: background 0.2s; }
+.my-empty-action:hover { background: #A0432A; }
+
+/* E2 layout × 主題 1（暖色漸層）整合戰績大卡 */
+.my-bigcard { max-width: 720px; margin: 0 auto; background: linear-gradient(135deg, #FFFEFB 0%, #FFF5E6 100%); border: 1px solid #F0D9B5; border-radius: 24px; padding: 28px 32px; display: flex; flex-direction: column; gap: 20px; box-shadow: 0 2px 12px rgba(138, 120, 99, 0.08); }
+.bc-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-bottom: 20px; border-bottom: 1px solid #F0E8DB; }
+.bc-header-l { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.bc-logo { width: 40px; height: 40px; border-radius: 50%; object-fit: contain; flex-shrink: 0; }
+.bc-title { font-size: 15px; font-weight: 700; color: #4A3728; }
+.bc-subtitle { font-size: 11px; color: #9B8E7E; margin-top: 2px; }
+.bc-streak-pill { display: inline-flex; align-items: center; gap: 6px; background: #FFF5E6; border: 1px solid #F0D9B5; color: #4A3728; padding: 6px 14px; border-radius: 20px; font-size: 13px; white-space: nowrap; flex-shrink: 0; }
+.bc-body { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center; }
+.bc-left { text-align: center; padding-right: 24px; border-right: 1px dashed #E8DDBE; }
+.bc-right { display: flex; flex-direction: column; gap: 16px; padding-left: 8px; }
+.bc-num { font-family: 'Inter', 'Noto Sans TC', sans-serif; font-size: 56px; font-weight: 800; color: #C2573A; letter-spacing: 1px; line-height: 1; }
+.bc-num.neutral { color: #9B8E7E; }
+.bc-sub { font-size: 12px; color: #9B8E7E; letter-spacing: 1px; margin-top: 6px; }
+.bc-wld { display: flex; justify-content: center; gap: 28px; margin-top: 16px; }
+.bc-wld-item { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.bc-wld-item .num { font-family: 'Inter', 'Noto Sans TC', sans-serif; font-size: 20px; font-weight: 800; }
+.bc-wld-item .lbl { font-size: 11px; color: #9B8E7E; }
+.bc-wld-item .num.win { color: #C2573A; }
+.bc-wld-item .num.loss { color: #1A6B3A; }
+.bc-wld-item .num.tie { color: #9B8E7E; }
+.bc-block-label { font-size: 11px; color: #9B8E7E; letter-spacing: 1px; margin-bottom: 6px; }
+.bc-recent-dots { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+.bc-dot { width: 14px; height: 14px; border-radius: 50%; display: inline-block; flex-shrink: 0; }
+.bc-dot.win { background: #C2573A; }
+.bc-dot.loss { background: #1A6B3A; }
+.bc-dot.tie { background: #9B8E7E; }
+.bc-dot.empty { background: transparent; border: 1.5px dashed #D4C3A8; }
+.bc-next-text { font-size: 14px; color: #4A3728; font-weight: 600; }
+.bc-next-venue { font-size: 12px; color: #6B5F50; margin-top: 2px; }
+.bc-field-note { font-size: 12px; color: #6B5F50; padding-top: 16px; border-top: 1px dashed #F0E8DB; text-align: center; letter-spacing: 1px; }
+.bc-field-note .lbl { color: #9B8E7E; margin-right: 4px; }
+.bc-field-note .r-w { color: #C2573A; font-weight: 700; margin: 0 2px; }
+.bc-field-note .r-l { color: #1A6B3A; font-weight: 700; margin: 0 2px; }
+.bc-field-note .r-t { color: #9B8E7E; font-weight: 700; margin: 0 2px; }
+
+@media (max-width: 768px) {
+  .my-view { margin: 24px auto; padding: 0 16px; }
+  .my-empty { padding: 60px 16px; }
+  .my-empty-icon { font-size: 48px; }
+  .my-empty-title { font-size: 16px; }
+  .my-empty-desc { font-size: 13px; }
+  .my-bigcard { padding: 24px 20px; }
+  .bc-body { grid-template-columns: 1fr; gap: 20px; }
+  .bc-left { border-right: none; border-bottom: 1px dashed #E8DDBE; padding-right: 0; padding-bottom: 20px; }
+  .bc-right { padding-left: 0; }
+  .bc-header { flex-wrap: wrap; gap: 12px; }
+  .bc-num { font-size: 48px; }
+}
 </style>
 </head>
 <body>
@@ -514,9 +576,10 @@ button.card-weather.clickable:active { transform: scale(0.96); }
   </div>
   <div class="nav-mainteam" id="nav-mainteam"></div>
   <div class="nav-links">
-    <a href="#standings-wrap">戰績</a>
-    <a href="#filters">篩選</a>
-    <a href="#games">賽程</a>
+    <a href="#standings-wrap" data-view="main">戰績</a>
+    <a href="#filters" data-view="main">篩選</a>
+    <a href="#games" data-view="main">賽程</a>
+    <a href="#my" data-view="my" id="nav-my-link">我的 <svg class="nav-my-icon" aria-hidden="true"><use href="#bb-favorite"/></svg></a>
   </div>
 </div>
 
@@ -656,6 +719,15 @@ button.card-weather.clickable:active { transform: scale(0.96); }
 <!-- Hidden table for JS compat -->
 <table style="display:none"><tbody id="tbody"></tbody></table>
 <div id="empty-table" style="display:none"></div>
+
+<!-- Phase 2-B: 我的（戰績 Streak 頁籤） -->
+<div class="my-view" id="my-view" style="display:none">
+  <div class="section-header">
+    <span class="section-header-title">我的看球故事</span>
+    <span class="section-header-line"></span>
+  </div>
+  <div id="my-view-body"></div>
+</div>
 
 <div class="footer">
   <div class="footer-deco-row">
@@ -2326,7 +2398,289 @@ document.getElementById('btn-reset').addEventListener('click', function() {
   saveUserState(userState);
 });
 
+// ── Phase 2-B: 「我的」tab 切換 + empty state ──
+const MAIN_VIEW_SECTION_IDS = ['standings-wrap', 'filters', 'stats', 'games'];
+
+function switchView(view) {
+  const showMy = view === 'my';
+  MAIN_VIEW_SECTION_IDS.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.style.display = showMy ? 'none' : '';
+  });
+  const myEl = document.getElementById('my-view');
+  if (myEl) myEl.style.display = showMy ? 'block' : 'none';
+  const myLink = document.getElementById('nav-my-link');
+  if (myLink) myLink.classList.toggle('active', showMy);
+  if (showMy) renderMyView();
+}
+
+document.querySelector('.nav-links').addEventListener('click', function(e) {
+  const a = e.target.closest('a');
+  if (!a) return;
+  const view = a.dataset.view;
+  if (view === 'my') {
+    e.preventDefault();
+    history.replaceState(null, '', '#my');
+    switchView('my');
+  } else if (view === 'main') {
+    const myEl = document.getElementById('my-view');
+    if (myEl && myEl.style.display !== 'none') switchView('main');
+  }
+});
+
+window.addEventListener('hashchange', function() {
+  if (location.hash === '#my') {
+    switchView('my');
+  } else {
+    const myEl = document.getElementById('my-view');
+    if (myEl && myEl.style.display !== 'none') switchView('main');
+  }
+});
+
+function initMyViewFromHash() {
+  if (location.hash === '#my') switchView('my');
+}
+
+function calcMainTeamFieldStats() {
+  const mainTeam = userState.profile.mainTeam;
+  if (!mainTeam) return { total: 0, wins: 0, losses: 0, ties: 0 };
+  let wins = 0, losses = 0, ties = 0;
+  Object.keys(userState.checkins).forEach(sno => {
+    const g = allGames.find(x => x.sno === sno);
+    if (!g || g.postponed || !g.completed) return;
+    const isHome = g.home === mainTeam;
+    const isVisitor = g.visitor === mainTeam;
+    if (!isHome && !isVisitor) return;
+    const mainScore = isHome ? g.hScore : g.vScore;
+    const oppScore = isHome ? g.vScore : g.hScore;
+    if (mainScore > oppScore) wins++;
+    else if (mainScore < oppScore) losses++;
+    else ties++;
+  });
+  return { total: wins + losses + ties, wins, losses, ties };
+}
+
+function renderMyView() {
+  const body = document.getElementById('my-view-body');
+  if (!body) return;
+  const mainTeam = userState.profile.mainTeam;
+  const checkinsCount = Object.keys(userState.checkins).length;
+  if (!mainTeam) {
+    body.innerHTML = renderMyEmptyState('noTeam');
+  } else if (checkinsCount === 0) {
+    body.innerHTML = renderMyEmptyState('noCheckins');
+  } else {
+    const stats = calcMainTeamFieldStats();
+    if (stats.total === 0) {
+      body.innerHTML = renderMyEmptyState('noMainTeamCheckins');
+    } else {
+      body.innerHTML = renderMainTeamBigCard(stats);
+    }
+  }
+}
+
+function calcMainTeamFieldStreak() {
+  const mainTeam = userState.profile.mainTeam;
+  if (!mainTeam) return { count: 0 };
+  const records = [];
+  Object.keys(userState.checkins).forEach(sno => {
+    const g = allGames.find(x => x.sno === sno);
+    if (!g || g.postponed || !g.completed) return;
+    const isHome = g.home === mainTeam;
+    const isVisitor = g.visitor === mainTeam;
+    if (!isHome && !isVisitor) return;
+    const mainScore = isHome ? g.hScore : g.vScore;
+    const oppScore = isHome ? g.vScore : g.hScore;
+    let result;
+    if (mainScore > oppScore) result = 'W';
+    else if (mainScore < oppScore) result = 'L';
+    else result = 'T';
+    records.push({ date: g.date, time: g.time, result });
+  });
+  if (records.length === 0) return { count: 0 };
+  records.sort((a, b) => a.date < b.date ? -1 : a.date > b.date ? 1 : a.time < b.time ? -1 : 1);
+  const last = records[records.length - 1];
+  if (last.result === 'T') return { count: 0, type: 'tie' };
+  let count = 1;
+  let startDate = last.date;
+  for (let i = records.length - 2; i >= 0; i--) {
+    if (records[i].result === last.result) {
+      count++;
+      startDate = records[i].date;
+    } else {
+      break;
+    }
+  }
+  return { type: last.result === 'W' ? 'win' : 'lose', count, startDate };
+}
+
+function findNextMainTeamGame() {
+  const mainTeam = userState.profile.mainTeam;
+  if (!mainTeam) return null;
+  return allGames.find(g => g.isFuture && !g.postponed && !g.completed && (g.home === mainTeam || g.visitor === mainTeam)) || null;
+}
+
+function gameResultForTeam(g, team) {
+  const isHome = g.home === team;
+  const isVisitor = g.visitor === team;
+  if (!isHome && !isVisitor) return null;
+  const mainScore = isHome ? g.hScore : g.vScore;
+  const oppScore = isHome ? g.vScore : g.hScore;
+  if (mainScore > oppScore) return 'win';
+  if (mainScore < oppScore) return 'loss';
+  return 'tie';
+}
+
+function calcMainTeamFieldRecent(limit) {
+  const mainTeam = userState.profile.mainTeam;
+  if (!mainTeam) return [];
+  const records = [];
+  Object.keys(userState.checkins).forEach(sno => {
+    const g = allGames.find(x => x.sno === sno);
+    if (!g || g.postponed || !g.completed) return;
+    const result = gameResultForTeam(g, mainTeam);
+    if (!result) return;
+    records.push({ date: g.date, time: g.time, result });
+  });
+  records.sort((a, b) => a.date < b.date ? -1 : a.date > b.date ? 1 : a.time < b.time ? -1 : 1);
+  return records.slice(-limit);
+}
+
+function calcMainTeamSeasonRecent(limit) {
+  const mainTeam = userState.profile.mainTeam;
+  if (!mainTeam) return [];
+  const records = [];
+  allGames.forEach(g => {
+    if (!g.completed || g.postponed) return;
+    const result = gameResultForTeam(g, mainTeam);
+    if (!result) return;
+    records.push({ date: g.date, time: g.time, result });
+  });
+  return records.slice(-limit);
+}
+
+function renderMainTeamBigCard(stats) {
+  const team = userState.profile.mainTeam;
+  const logo = TEAM_LOGO[team] || '';
+  const shortName = TEAM_SHORT[team] || team;
+
+  const denom = stats.wins + stats.losses;
+  const rateNum = denom === 0 ? '--' : (stats.wins / denom).toFixed(3).replace(/^0+/, '');
+  const rateClass = denom === 0 ? 'bc-num neutral' : 'bc-num';
+
+  const streak = calcMainTeamFieldStreak();
+  let streakPill = '';
+  if (streak.type && streak.count >= 2) {
+    const icon = streak.type === 'win' ? '🔥' : '☁️';
+    const label = streak.type === 'win' ? ('連 ' + streak.count + ' 勝') : ('連 ' + streak.count + ' 敗');
+    streakPill = '<div class="bc-streak-pill">' + icon + ' ' + label + ' · 自 ' + streak.startDate + ' 起</div>';
+  }
+
+  const seasonRecent = calcMainTeamSeasonRecent(10);
+  let dotsHtml = '';
+  for (let i = 0; i < 10; i++) {
+    const idx = seasonRecent.length - 10 + i;
+    if (idx < 0 || !seasonRecent[idx]) {
+      dotsHtml += '<span class="bc-dot empty"></span>';
+    } else {
+      dotsHtml += '<span class="bc-dot ' + seasonRecent[idx].result + '"></span>';
+    }
+  }
+
+  const fieldRecent = calcMainTeamFieldRecent(5);
+  let fieldNoteHtml = '';
+  if (fieldRecent.length > 0) {
+    const letters = fieldRecent.map(r => {
+      const letter = r.result === 'win' ? 'W' : (r.result === 'loss' ? 'L' : 'T');
+      return '<span class="r-' + r.result.charAt(0) + '">' + letter + '</span>';
+    }).join(' ');
+    const firstDate = fieldRecent[0].date;
+    const lastDate = fieldRecent[fieldRecent.length - 1].date;
+    const dateRange = firstDate === lastDate ? firstDate : (firstDate + ' ~ ' + lastDate);
+    fieldNoteHtml = '<div class="bc-field-note">' +
+      '<span class="lbl">你現場見證最近 ' + fieldRecent.length + ' 場：</span>' +
+      letters + ' · ' + dateRange +
+    '</div>';
+  }
+
+  const next = findNextMainTeamGame();
+  let nextHtml = '<div class="bc-next-text">—</div><div class="bc-next-venue">沒有未來主隊場次</div>';
+  if (next) {
+    const dayName = DAYS[new Date(next.date + 'T00:00:00').getDay()];
+    const vShort = TEAM_SHORT[next.visitor] || next.visitor;
+    const hShort = TEAM_SHORT[next.home] || next.home;
+    nextHtml = '<div class="bc-next-text">' + next.date + '（' + dayName + '）</div>' +
+               '<div class="bc-next-venue">' + next.field + ' · ' + vShort + ' vs ' + hShort + '</div>';
+  }
+
+  return '<div class="my-bigcard">' +
+    '<div class="bc-header">' +
+      '<div class="bc-header-l">' +
+        (logo ? '<img class="bc-logo" src="' + logo + '" alt="">' : '') +
+        '<div>' +
+          '<div class="bc-title">' + shortName + ' · 現場戰績</div>' +
+          '<div class="bc-subtitle">你在現場見證的紀錄</div>' +
+        '</div>' +
+      '</div>' +
+      streakPill +
+    '</div>' +
+    '<div class="bc-body">' +
+      '<div class="bc-left">' +
+        '<div class="' + rateClass + '">' + rateNum + '</div>' +
+        '<div class="bc-sub">現場勝率</div>' +
+        '<div class="bc-wld">' +
+          '<div class="bc-wld-item"><span class="num win">' + stats.wins + '</span><span class="lbl">勝</span></div>' +
+          '<div class="bc-wld-item"><span class="num loss">' + stats.losses + '</span><span class="lbl">敗</span></div>' +
+          '<div class="bc-wld-item"><span class="num tie">' + stats.ties + '</span><span class="lbl">和</span></div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="bc-right">' +
+        '<div>' +
+          '<div class="bc-block-label">主隊賽季近 10 場</div>' +
+          '<div class="bc-recent-dots">' + dotsHtml + '</div>' +
+        '</div>' +
+        '<div>' +
+          '<div class="bc-block-label">下一場主隊比賽</div>' +
+          nextHtml +
+        '</div>' +
+      '</div>' +
+    '</div>' +
+    fieldNoteHtml +
+  '</div>';
+}
+
+function renderMyEmptyState(kind) {
+  const states = {
+    noTeam: {
+      icon: '⚾',
+      title: '還沒設定主隊',
+      desc: '先選一隊作為你的主隊，我們才能幫你追蹤現場戰績與連勝紀錄。',
+      action: '<button class="my-empty-action" data-main-action="setup">設定主隊</button>'
+    },
+    noCheckins: {
+      icon: '📍',
+      title: '還沒打卡紀錄',
+      desc: '去<a href="#games" data-view="main">賽程</a>挑一場主隊比賽打卡，累積你的看球故事。',
+      action: ''
+    },
+    noMainTeamCheckins: {
+      icon: '🏟️',
+      title: '主隊還沒出現在你的現場',
+      desc: '你打卡的場次中還沒有主隊的比賽。下次主隊的主場記得去打卡。',
+      action: ''
+    }
+  };
+  const s = states[kind];
+  return '<div class="my-empty">' +
+         '<div class="my-empty-icon">' + s.icon + '</div>' +
+         '<div class="my-empty-title">' + s.title + '</div>' +
+         '<div class="my-empty-desc">' + s.desc + '</div>' +
+         s.action +
+         '</div>';
+}
+
 loadData();
+initMyViewFromHash();
 </script>
 </body>
 </html>
