@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>方案 E · 戰績大卡 layout · CPBL 2026</title>
+<style>
+@font-face {
+  font-family: 'jf-openhuninn';
+  src: url('https://cdn.jsdelivr.net/gh/marsnow/open-huninn-font@1.1/jf-openhuninn-1.1.ttf') format('truetype');
+  font-weight: 500;
+  font-display: swap;
+}
+* { box-sizing: border-box; }
+body { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; background: #F9F3E9; color: #4A3728; margin: 0; padding: 40px 20px; }
+.page-hdr { max-width: 800px; margin: 0 auto 40px; text-align: center; }
+.page-hdr h1 { font-size: 28px; font-weight: 500; margin: 0 0 8px; letter-spacing: 2px; }
+.page-hdr p { font-size: 14px; color: #6B5F50; margin: 0 0 8px; line-height: 1.7; }
+.page-hdr .hint { margin-top: 16px; padding: 12px 20px; background: #FFFAF2; border-radius: 12px; font-size: 13px; color: #6B5F50; border: 1px dashed #E8DDBE; text-align: left; }
+
+.variant { max-width: 720px; margin: 0 auto 64px; }
+.variant-hdr { margin-bottom: 20px; display: flex; align-items: flex-start; gap: 10px; }
+.variant-hdr .num { flex-shrink: 0; background: #C2573A; color: #FFF; width: 36px; height: 36px; line-height: 36px; text-align: center; border-radius: 50%; font-size: 14px; font-weight: 700; font-family: 'Inter', sans-serif; }
+.variant-hdr .txt h2 { margin: 6px 0 4px; font-size: 18px; font-weight: 500; letter-spacing: 1px; }
+.variant-hdr .txt p { margin: 0; font-size: 12px; color: #9B8E7E; line-height: 1.6; }
+
+/* 共用元素 */
+.dot { display: inline-block; width: 14px; height: 14px; border-radius: 50%; margin: 0 3px; }
+.dot.w { background: #1A6B3A; }
+.dot.l { background: #B52828; }
+.dot.t { background: #9B8E7E; }
+.dot.e { background: transparent; border: 1.5px dashed #D4C3A8; }
+.logo-stub { width: 40px; height: 40px; border-radius: 50%; background: #D8252D; color: #FFF; text-align: center; line-height: 40px; font-weight: 700; font-size: 16px; flex-shrink: 0; }
+
+/* ============================================ */
+/* E1 · 垂直 stack（在現有卡基礎上擴充）         */
+/* ============================================ */
+.e1 { background: linear-gradient(135deg, #FFFEFB 0%, #FFF8EA 100%); border: 1px solid #F0E8DB; border-radius: 24px; padding: 28px 32px; display: flex; flex-direction: column; gap: 24px; box-shadow: 0 2px 12px rgba(138, 120, 99, 0.08); }
+.e1-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.e1-header-l { display: flex; align-items: center; gap: 12px; }
+.e1-header-title { font-size: 14px; color: #6B5F50; font-weight: 600; }
+.e1-streak-pill { display: inline-flex; align-items: center; gap: 6px; background: #FFF5E6; border: 1px solid #F0D9B5; padding: 6px 14px; border-radius: 20px; font-size: 13px; color: #4A3728; }
+.e1-streak-pill .icon { font-size: 16px; }
+
+.e1-big { text-align: center; display: flex; flex-direction: column; gap: 4px; align-items: center; }
+.e1-num { font-family: 'Inter', sans-serif; font-size: 64px; font-weight: 800; color: #1A6B3A; letter-spacing: 1px; line-height: 1; }
+.e1-sub { font-size: 12px; color: #9B8E7E; letter-spacing: 1px; }
+
+.e1-recent { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 16px 0; border-top: 1px solid #F0E8DB; border-bottom: 1px solid #F0E8DB; }
+.e1-recent-label { font-size: 11px; color: #9B8E7E; letter-spacing: 1px; }
+.e1-recent-dots { display: flex; align-items: center; }
+
+.e1-wld { display: flex; justify-content: center; gap: 48px; }
+.e1-wld-item { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.e1-wld-item .n { font-family: 'Inter', sans-serif; font-size: 28px; font-weight: 800; }
+.e1-wld-item .l { font-size: 11px; color: #9B8E7E; }
+.e1-wld-item .n.win { color: #1A6B3A; }
+.e1-wld-item .n.loss { color: #B52828; }
+.e1-wld-item .n.tie { color: #9B8E7E; }
+
+.e1-next { text-align: center; font-size: 12px; color: #6B5F50; padding-top: 4px; }
+.e1-next .lbl { color: #9B8E7E; margin-right: 8px; }
+
+/* ============================================ */
+/* E2 · 左右分欄                                 */
+/* ============================================ */
+.e2 { background: #FFF; border: 1px solid #F0E8DB; border-radius: 24px; padding: 28px 32px; box-shadow: 0 2px 12px rgba(138, 120, 99, 0.08); display: flex; flex-direction: column; gap: 20px; }
+.e2-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-bottom: 20px; border-bottom: 1px solid #F0E8DB; }
+.e2-header-l { display: flex; align-items: center; gap: 12px; }
+.e2-header-title { font-size: 15px; color: #4A3728; font-weight: 700; }
+.e2-header-sub { font-size: 11px; color: #9B8E7E; margin-top: 2px; }
+.e2-streak-pill { display: inline-flex; align-items: center; gap: 6px; background: linear-gradient(135deg, #FFF5E6 0%, #FDEBD0 100%); border: 1px solid #F0D9B5; padding: 6px 14px; border-radius: 20px; font-size: 13px; color: #4A3728; white-space: nowrap; }
+
+.e2-body { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center; }
+.e2-left { text-align: center; border-right: 1px dashed #E8DDBE; padding-right: 24px; }
+.e2-right { display: flex; flex-direction: column; gap: 16px; padding-left: 8px; }
+
+.e2-num { font-family: 'Inter', sans-serif; font-size: 56px; font-weight: 800; color: #1A6B3A; letter-spacing: 1px; line-height: 1; }
+.e2-sub { font-size: 12px; color: #9B8E7E; letter-spacing: 1px; margin-top: 6px; }
+.e2-wld { display: flex; justify-content: center; gap: 28px; margin-top: 16px; }
+.e2-wld-item { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.e2-wld-item .n { font-family: 'Inter', sans-serif; font-size: 20px; font-weight: 800; }
+.e2-wld-item .l { font-size: 11px; color: #9B8E7E; }
+.e2-wld-item .n.win { color: #1A6B3A; }
+.e2-wld-item .n.loss { color: #B52828; }
+.e2-wld-item .n.tie { color: #9B8E7E; }
+
+.e2-block { }
+.e2-block-label { font-size: 11px; color: #9B8E7E; letter-spacing: 1px; margin-bottom: 6px; }
+.e2-recent-dots { display: flex; align-items: center; flex-wrap: wrap; gap: 4px; }
+.e2-next-text { font-size: 14px; color: #4A3728; font-weight: 600; }
+.e2-next-venue { font-size: 12px; color: #6B5F50; margin-top: 2px; }
+
+/* ============================================ */
+/* E3 · Hero-banner 式（勝率巨大當主角）          */
+/* ============================================ */
+.e3 { background: linear-gradient(135deg, #FFFEFB 0%, #FFF5E6 100%); border: 1px solid #F0D9B5; border-radius: 28px; padding: 32px 36px; display: flex; flex-direction: column; gap: 24px; box-shadow: 0 4px 20px rgba(232, 201, 97, 0.15); }
+.e3-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+.e3-top-l { display: flex; align-items: center; gap: 14px; }
+.e3-title { font-size: 16px; font-weight: 700; color: #4A3728; margin: 0; }
+.e3-subtitle { font-size: 12px; color: #9B8E7E; margin-top: 2px; }
+.e3-streak-badge { display: inline-flex; align-items: center; gap: 6px; background: #C2573A; color: #FFF; padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; box-shadow: 0 2px 8px rgba(194, 87, 58, 0.25); }
+
+.e3-center { display: flex; align-items: center; justify-content: center; gap: 32px; padding: 16px 0; }
+.e3-num { font-family: 'Inter', sans-serif; font-size: 96px; font-weight: 800; color: #C2573A; letter-spacing: 2px; line-height: 1; }
+.e3-center-right { display: flex; flex-direction: column; gap: 6px; }
+.e3-center-right .lbl { font-size: 13px; color: #9B8E7E; letter-spacing: 1.5px; }
+.e3-wld-inline { display: flex; gap: 18px; }
+.e3-wld-inline-item { font-size: 14px; }
+.e3-wld-inline-item .n { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 18px; }
+.e3-wld-inline-item .n.win { color: #1A6B3A; }
+.e3-wld-inline-item .n.loss { color: #B52828; }
+.e3-wld-inline-item .n.tie { color: #9B8E7E; }
+.e3-wld-inline-item .l { color: #9B8E7E; margin-left: 2px; }
+
+.e3-bottom { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 20px; border-top: 1px dashed #E8DDBE; }
+.e3-recent-label { font-size: 11px; color: #9B8E7E; letter-spacing: 1px; margin-bottom: 4px; }
+.e3-recent-dots { display: flex; align-items: center; gap: 3px; }
+.e3-next { text-align: right; font-size: 12px; color: #6B5F50; }
+.e3-next .lbl { color: #9B8E7E; display: block; font-size: 11px; margin-bottom: 2px; }
+.e3-next .txt { font-weight: 600; color: #4A3728; font-size: 13px; }
+
+/* ============================================ */
+/* E4 · 4 宮格（結構最緊湊）                     */
+/* ============================================ */
+.e4 { background: #FFFAF2; border: 1px solid #F0E8DB; border-radius: 20px; box-shadow: 0 2px 12px rgba(138, 120, 99, 0.06); overflow: hidden; }
+.e4-header { padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; border-bottom: 1px solid #F0E8DB; background: #FFF; }
+.e4-header-l { display: flex; align-items: center; gap: 12px; }
+.e4-header-title { font-size: 15px; font-weight: 700; color: #4A3728; }
+.e4-streak-pill { display: inline-flex; align-items: center; gap: 6px; background: #FFF5E6; border: 1px solid #F0D9B5; padding: 5px 12px; border-radius: 20px; font-size: 13px; color: #4A3728; }
+
+.e4-grid { display: grid; grid-template-columns: 1fr 1fr; }
+.e4-cell { padding: 24px 20px; text-align: center; border-right: 1px solid #F0E8DB; border-bottom: 1px solid #F0E8DB; }
+.e4-cell:nth-child(2) { border-right: none; }
+.e4-cell:nth-child(3), .e4-cell:nth-child(4) { border-bottom: none; }
+.e4-cell:nth-child(4) { border-right: none; }
+.e4-cell-label { font-size: 11px; color: #9B8E7E; letter-spacing: 1px; margin-bottom: 8px; }
+.e4-num-big { font-family: 'Inter', sans-serif; font-size: 44px; font-weight: 800; color: #1A6B3A; line-height: 1; letter-spacing: 1px; }
+.e4-wld { display: flex; justify-content: center; gap: 20px; }
+.e4-wld-item { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.e4-wld-item .n { font-family: 'Inter', sans-serif; font-size: 22px; font-weight: 800; }
+.e4-wld-item .l { font-size: 10px; color: #9B8E7E; }
+.e4-wld-item .n.win { color: #1A6B3A; }
+.e4-wld-item .n.loss { color: #B52828; }
+.e4-wld-item .n.tie { color: #9B8E7E; }
+.e4-recent-dots { display: flex; justify-content: center; align-items: center; gap: 3px; padding-top: 2px; }
+.e4-next { display: flex; flex-direction: column; align-items: center; gap: 4px; padding-top: 2px; }
+.e4-next-date { font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 700; color: #4A3728; }
+.e4-next-venue { font-size: 12px; color: #6B5F50; }
+
+@media (max-width: 640px) {
+  body { padding: 24px 12px; }
+  .variant { margin-bottom: 48px; }
+  .e2-body { grid-template-columns: 1fr; }
+  .e2-left { border-right: none; border-bottom: 1px dashed #E8DDBE; padding-right: 0; padding-bottom: 20px; }
+  .e2-right { padding-left: 0; }
+  .e3-center { flex-direction: column; gap: 12px; }
+  .e3-num { font-size: 72px; }
+  .e3-bottom { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .e3-next { text-align: left; }
+  .e1, .e2, .e3 { padding: 22px 20px; }
+  .e4-cell { padding: 20px 14px; }
+  .e4-num-big { font-size: 36px; }
+}
+</style>
+</head>
+<body>
+
+<div class="page-hdr">
+  <h1>方案 E · 戰績大卡 4 種 layout</h1>
+  <p>把 Streak + 主隊戰績 + 最近 10 場 + 下一場<b>整合成一張卡</b>，不再用獨立的 Streak banner。</p>
+  <div class="hint">
+    先決定 <b>layout</b>（內容結構），視覺底色暫用「主題 1 暖色漸層」; layout 定了之後可套任何主題（米底清爽 / 赤陶紅 / scoreboard 等）。<br>
+    最近 10 場用 ●（勝綠）/●（敗紅）/●（和灰）/○（虛線 = 未到 10 場）。
+  </div>
+</div>
+
+<!-- E1 -->
+<div class="variant">
+  <div class="variant-hdr">
+    <span class="num">E1</span>
+    <div class="txt">
+      <h2>垂直 stack — 最保守擴充</h2>
+      <p>在原卡基礎上增加：header 右邊 streak pill、W/L/T 上方一排最近 10 場 dot、卡底部下一場。維持置中對稱。</p>
+    </div>
+  </div>
+  <div class="e1">
+    <div class="e1-header">
+      <div class="e1-header-l">
+        <div class="logo-stub">味</div>
+        <div>
+          <div class="e1-header-title">你在現場時，味全龍 的戰績</div>
+        </div>
+      </div>
+      <div class="e1-streak-pill"><span class="icon">🔥</span>連 3 勝</div>
+    </div>
+    <div class="e1-big">
+      <div class="e1-num">.625</div>
+      <div class="e1-sub">現場勝率</div>
+    </div>
+    <div class="e1-recent">
+      <div class="e1-recent-label">最近 10 場</div>
+      <div class="e1-recent-dots">
+        <span class="dot w"></span><span class="dot w"></span><span class="dot w"></span>
+        <span class="dot l"></span><span class="dot w"></span><span class="dot l"></span>
+        <span class="dot w"></span><span class="dot w"></span><span class="dot l"></span>
+        <span class="dot w"></span>
+      </div>
+    </div>
+    <div class="e1-wld">
+      <div class="e1-wld-item"><span class="n win">5</span><span class="l">勝</span></div>
+      <div class="e1-wld-item"><span class="n loss">3</span><span class="l">敗</span></div>
+      <div class="e1-wld-item"><span class="n tie">0</span><span class="l">和</span></div>
+    </div>
+    <div class="e1-next"><span class="lbl">下一場</span>2026-04-23 · 澄清湖</div>
+  </div>
+</div>
+
+<!-- E2 -->
+<div class="variant">
+  <div class="variant-hdr">
+    <span class="num">E2</span>
+    <div class="txt">
+      <h2>左右分欄 — 現代 dashboard 感</h2>
+      <p>左邊：勝率 big + W/L/T。右邊：最近 10 場 dot + 下一場。Streak pill 擺 header。兩邊資訊密度平衡，不會上下冗長。</p>
+    </div>
+  </div>
+  <div class="e2">
+    <div class="e2-header">
+      <div class="e2-header-l">
+        <div class="logo-stub">味</div>
+        <div>
+          <div class="e2-header-title">味全龍 · 現場戰績</div>
+          <div class="e2-header-sub">你在現場見證的紀錄</div>
+        </div>
+      </div>
+      <div class="e2-streak-pill">🔥 連 3 勝 · 自 2026-04-15 起</div>
+    </div>
+    <div class="e2-body">
+      <div class="e2-left">
+        <div class="e2-num">.625</div>
+        <div class="e2-sub">現場勝率</div>
+        <div class="e2-wld">
+          <div class="e2-wld-item"><span class="n win">5</span><span class="l">勝</span></div>
+          <div class="e2-wld-item"><span class="n loss">3</span><span class="l">敗</span></div>
+          <div class="e2-wld-item"><span class="n tie">0</span><span class="l">和</span></div>
+        </div>
+      </div>
+      <div class="e2-right">
+        <div class="e2-block">
+          <div class="e2-block-label">最近 10 場</div>
+          <div class="e2-recent-dots">
+            <span class="dot w"></span><span class="dot w"></span><span class="dot w"></span>
+            <span class="dot l"></span><span class="dot w"></span><span class="dot l"></span>
+            <span class="dot w"></span><span class="dot w"></span><span class="dot l"></span>
+            <span class="dot w"></span>
+          </div>
+        </div>
+        <div class="e2-block">
+          <div class="e2-block-label">下一場主隊比賽</div>
+          <div class="e2-next-text">2026-04-23（四）</div>
+          <div class="e2-next-venue">澄清湖 · 兄弟 vs 味全</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- E3 -->
+<div class="variant">
+  <div class="variant-hdr">
+    <span class="num">E3</span>
+    <div class="txt">
+      <h2>Hero-banner 式 — 勝率當主角</h2>
+      <p>勝率超大（96px）當視覺主角，W/L/T 縮小當附屬；Streak badge 實色赤陶紅當亮點。適合想讓這區塊有強烈存在感。</p>
+    </div>
+  </div>
+  <div class="e3">
+    <div class="e3-top">
+      <div class="e3-top-l">
+        <div class="logo-stub">味</div>
+        <div>
+          <div class="e3-title">你在現場時，味全龍 的戰績</div>
+          <div class="e3-subtitle">12 場打卡紀錄</div>
+        </div>
+      </div>
+      <div class="e3-streak-badge">🔥 連 3 勝</div>
+    </div>
+    <div class="e3-center">
+      <div class="e3-num">.625</div>
+      <div class="e3-center-right">
+        <div class="lbl">現場勝率</div>
+        <div class="e3-wld-inline">
+          <div class="e3-wld-inline-item"><span class="n win">5</span><span class="l">勝</span></div>
+          <div class="e3-wld-inline-item"><span class="n loss">3</span><span class="l">敗</span></div>
+          <div class="e3-wld-inline-item"><span class="n tie">0</span><span class="l">和</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="e3-bottom">
+      <div>
+        <div class="e3-recent-label">最近 10 場</div>
+        <div class="e3-recent-dots">
+          <span class="dot w"></span><span class="dot w"></span><span class="dot w"></span>
+          <span class="dot l"></span><span class="dot w"></span><span class="dot l"></span>
+          <span class="dot w"></span><span class="dot w"></span><span class="dot l"></span>
+          <span class="dot w"></span>
+        </div>
+      </div>
+      <div class="e3-next">
+        <span class="lbl">下一場</span>
+        <span class="txt">04/23 · 澄清湖</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- E4 -->
+<div class="variant">
+  <div class="variant-hdr">
+    <span class="num">E4</span>
+    <div class="txt">
+      <h2>4 宮格 — 結構最緊湊</h2>
+      <p>分成四塊：勝率、W/L/T、最近 10 場、下一場。資訊位置固定、一眼掃過。Streak pill 擺 header。</p>
+    </div>
+  </div>
+  <div class="e4">
+    <div class="e4-header">
+      <div class="e4-header-l">
+        <div class="logo-stub">味</div>
+        <div class="e4-header-title">味全龍 · 現場戰績</div>
+      </div>
+      <div class="e4-streak-pill">🔥 連 3 勝</div>
+    </div>
+    <div class="e4-grid">
+      <div class="e4-cell">
+        <div class="e4-cell-label">現場勝率</div>
+        <div class="e4-num-big">.625</div>
+      </div>
+      <div class="e4-cell">
+        <div class="e4-cell-label">戰績</div>
+        <div class="e4-wld">
+          <div class="e4-wld-item"><span class="n win">5</span><span class="l">勝</span></div>
+          <div class="e4-wld-item"><span class="n loss">3</span><span class="l">敗</span></div>
+          <div class="e4-wld-item"><span class="n tie">0</span><span class="l">和</span></div>
+        </div>
+      </div>
+      <div class="e4-cell">
+        <div class="e4-cell-label">最近 10 場</div>
+        <div class="e4-recent-dots">
+          <span class="dot w"></span><span class="dot w"></span><span class="dot w"></span>
+          <span class="dot l"></span><span class="dot w"></span><span class="dot l"></span>
+          <span class="dot w"></span><span class="dot w"></span><span class="dot l"></span>
+          <span class="dot w"></span>
+        </div>
+      </div>
+      <div class="e4-cell">
+        <div class="e4-cell-label">下一場主隊比賽</div>
+        <div class="e4-next">
+          <div class="e4-next-date">04/23（四）</div>
+          <div class="e4-next-venue">澄清湖</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
