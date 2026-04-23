@@ -413,6 +413,24 @@ button.card-weather.clickable:active { transform: scale(0.96); }
   .stats { padding: 10px 24px; }
   .card-section { padding: 0 24px 32px; }
 }
+
+/* ── Phase 2-B: 我的（戰績 Streak） ── */
+.nav-links a.active { color: #C2573A; font-weight: 600; }
+.my-view { max-width: 1200px; margin: 40px auto; padding: 0 32px; }
+.my-empty { text-align: center; padding: 80px 20px; color: #6B5F50; }
+.my-empty-icon { font-size: 56px; margin-bottom: 18px; line-height: 1; }
+.my-empty-title { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; font-size: 18px; font-weight: 500; letter-spacing: 1px; color: #4A3728; margin-bottom: 10px; }
+.my-empty-desc { font-size: 14px; line-height: 1.7; max-width: 400px; margin: 0 auto; }
+.my-empty-desc a { color: #C2573A; text-decoration: underline; }
+.my-empty-action { display: inline-block; margin-top: 24px; padding: 10px 24px; background: #C2573A; color: #FFF; border: none; border-radius: 20px; font-size: 14px; font-family: inherit; cursor: pointer; transition: background 0.2s; }
+.my-empty-action:hover { background: #A0432A; }
+@media (max-width: 768px) {
+  .my-view { margin: 24px auto; padding: 0 16px; }
+  .my-empty { padding: 60px 16px; }
+  .my-empty-icon { font-size: 48px; }
+  .my-empty-title { font-size: 16px; }
+  .my-empty-desc { font-size: 13px; }
+}
 </style>
 </head>
 <body>
@@ -514,9 +532,10 @@ button.card-weather.clickable:active { transform: scale(0.96); }
   </div>
   <div class="nav-mainteam" id="nav-mainteam"></div>
   <div class="nav-links">
-    <a href="#standings-wrap">戰績</a>
-    <a href="#filters">篩選</a>
-    <a href="#games">賽程</a>
+    <a href="#standings-wrap" data-view="main">戰績</a>
+    <a href="#filters" data-view="main">篩選</a>
+    <a href="#games" data-view="main">賽程</a>
+    <a href="#my" data-view="my" id="nav-my-link">我的</a>
   </div>
 </div>
 
@@ -656,6 +675,15 @@ button.card-weather.clickable:active { transform: scale(0.96); }
 <!-- Hidden table for JS compat -->
 <table style="display:none"><tbody id="tbody"></tbody></table>
 <div id="empty-table" style="display:none"></div>
+
+<!-- Phase 2-B: 我的（戰績 Streak 頁籤） -->
+<div class="my-view" id="my-view" style="display:none">
+  <div class="section-header">
+    <span class="section-header-title">我的看球故事</span>
+    <span class="section-header-line"></span>
+  </div>
+  <div id="my-view-body"></div>
+</div>
 
 <div class="footer">
   <div class="footer-deco-row">
@@ -2326,7 +2354,119 @@ document.getElementById('btn-reset').addEventListener('click', function() {
   saveUserState(userState);
 });
 
+// ── Phase 2-B: 「我的」tab 切換 + empty state ──
+const MAIN_VIEW_SECTION_IDS = ['standings-wrap', 'filters', 'games'];
+
+function switchView(view) {
+  const showMy = view === 'my';
+  MAIN_VIEW_SECTION_IDS.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.style.display = showMy ? 'none' : '';
+  });
+  const myEl = document.getElementById('my-view');
+  if (myEl) myEl.style.display = showMy ? 'block' : 'none';
+  const myLink = document.getElementById('nav-my-link');
+  if (myLink) myLink.classList.toggle('active', showMy);
+  if (showMy) renderMyView();
+}
+
+document.querySelector('.nav-links').addEventListener('click', function(e) {
+  const a = e.target.closest('a');
+  if (!a) return;
+  const view = a.dataset.view;
+  if (view === 'my') {
+    e.preventDefault();
+    history.replaceState(null, '', '#my');
+    switchView('my');
+  } else if (view === 'main') {
+    const myEl = document.getElementById('my-view');
+    if (myEl && myEl.style.display !== 'none') switchView('main');
+  }
+});
+
+window.addEventListener('hashchange', function() {
+  if (location.hash === '#my') {
+    switchView('my');
+  } else {
+    const myEl = document.getElementById('my-view');
+    if (myEl && myEl.style.display !== 'none') switchView('main');
+  }
+});
+
+function initMyViewFromHash() {
+  if (location.hash === '#my') switchView('my');
+}
+
+function calcMainTeamFieldStats() {
+  const mainTeam = userState.profile.mainTeam;
+  if (!mainTeam) return { total: 0, wins: 0, losses: 0, ties: 0 };
+  let wins = 0, losses = 0, ties = 0;
+  Object.keys(userState.checkins).forEach(sno => {
+    const g = allGames.find(x => x.sno === sno);
+    if (!g || g.postponed || !g.completed) return;
+    const isHome = g.home === mainTeam;
+    const isVisitor = g.visitor === mainTeam;
+    if (!isHome && !isVisitor) return;
+    const mainScore = isHome ? g.hScore : g.vScore;
+    const oppScore = isHome ? g.vScore : g.hScore;
+    if (mainScore > oppScore) wins++;
+    else if (mainScore < oppScore) losses++;
+    else ties++;
+  });
+  return { total: wins + losses + ties, wins, losses, ties };
+}
+
+function renderMyView() {
+  const body = document.getElementById('my-view-body');
+  if (!body) return;
+  const mainTeam = userState.profile.mainTeam;
+  const checkinsCount = Object.keys(userState.checkins).length;
+  if (!mainTeam) {
+    body.innerHTML = renderMyEmptyState('noTeam');
+  } else if (checkinsCount === 0) {
+    body.innerHTML = renderMyEmptyState('noCheckins');
+  } else {
+    const stats = calcMainTeamFieldStats();
+    if (stats.total === 0) {
+      body.innerHTML = renderMyEmptyState('noMainTeamCheckins');
+    } else {
+      body.innerHTML = '<div class="my-empty-desc" style="text-align:center; padding:60px 20px">（戰績卡與 Streak 即將上線）</div>';
+    }
+  }
+}
+
+function renderMyEmptyState(kind) {
+  const states = {
+    noTeam: {
+      icon: '⚾',
+      title: '還沒設定主隊',
+      desc: '先選一隊作為你的主隊，我們才能幫你追蹤現場戰績與連勝紀錄。',
+      action: '<button class="my-empty-action" data-main-action="setup">設定主隊</button>'
+    },
+    noCheckins: {
+      icon: '📍',
+      title: '還沒打卡紀錄',
+      desc: '去<a href="#games" data-view="main">賽程</a>挑一場主隊比賽打卡，累積你的看球故事。',
+      action: ''
+    },
+    noMainTeamCheckins: {
+      icon: '🏟️',
+      title: '主隊還沒出現在你的現場',
+      desc: '你打卡的場次中還沒有主隊的比賽。下次主隊的主場記得去打卡。',
+      action: ''
+    }
+  };
+  const s = states[kind];
+  return '<div class="my-empty">' +
+         '<div class="my-empty-icon">' + s.icon + '</div>' +
+         '<div class="my-empty-title">' + s.title + '</div>' +
+         '<div class="my-empty-desc">' + s.desc + '</div>' +
+         s.action +
+         '</div>';
+}
+
 loadData();
+initMyViewFromHash();
 </script>
 </body>
 </html>
