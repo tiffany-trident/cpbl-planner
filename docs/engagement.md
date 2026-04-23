@@ -4,12 +4,15 @@
 
 ## 實作狀態
 
-- **Phase 1 ✅ 已實作**（2026-04-22）：分支 `feat/phase1-personalization`，commits `97f5dae`..`50e656f`，**尚未 merge 到 main**
+- **Phase 1 ✅ 已實作 + merge**（2026-04-22，merge `4e7c11a`）
   - 主隊設定、場次收藏、觀戰打卡、篩選記憶、Schema v1 localStorage
-  - 實作細節見 [features.md 個人化功能章節](features.md#個人化功能phase-1)
-  - UI 實作紀錄與教訓見 [uidesign-changelog.md](uidesign-changelog.md)
-- **Phase 2** — 尚未開始（球場巡禮徽章、現場戰績卡、Streak、年度回顧）
+- **Phase 2-B ✅ 已實作 + merge**（2026-04-22，merge `7ddca8d`）
+  - 我的 tab + Streak + 主隊現場戰績卡（E2 大卡整合版）
+  - 主隊賽季近 10 場 dot + 下一場 + 現場見證 field note
+- **Phase 2-A / 2-C / 2-D** — 尚未開始（球場巡禮徽章 / 年度回顧頁 / 成就 toast）
 - **Phase 3-6** — 尚未開始
+
+實作細節見 [features.md 個人化功能章節](features.md)，UI 紀錄與教訓見 [uidesign-changelog.md](uidesign-changelog.md)。
 
 ## 視覺素材原則（IP 風險）
 
@@ -72,15 +75,15 @@
 
 ### 功能
 
-- **球場巡禮徽章**：11 座球場收集進度（已打卡亮色、未去灰階 + 剪影）
-- **現場戰績卡**：「你支持的中信兄弟，在你現場觀戰時 5 勝 3 敗（勝率 .625）」
-- **Streak 指標**：連續去幾場、連勝／連敗現場見證
-- **我的 2026 球季回顧頁**（獨立 URL `/me/2026`）：
+- ⬜ **球場巡禮徽章**（Phase 2-A）：11 座球場收集進度（已打卡亮色、未去灰階 + 剪影）
+- ✅ **現場戰績卡**（Phase 2-B，整合進 E2 大卡）：「你在現場時，味全龍的戰績 .625（5 勝 3 敗 0 和）」+ 主隊賽季近 10 場 dot + 下一場 + 現場見證 field note
+- ✅ **Streak 指標**（Phase 2-B，整合為 E2 大卡 header pill）：主隊出賽 + 有打卡場次的 current 連勝/連敗（count ≥ 2 才顯示）
+- ⬜ **我的 2026 球季回顧頁**（Phase 2-C，獨立 URL `/me/2026`）：
   - 卡通活潑風格插畫（原創，非 Snoopy IP）+ 關鍵數字
   - 去過幾場、最常去哪座球場、現場見證的最大逆轉
   - 可截圖分享（html2canvas 或動態 og:image）
   - 年底 12 月彈出「你的年度回顧已生成」toast
-- **里程碑動畫**：
+- ⬜ **里程碑動畫**（Phase 2-D）：
   - 第一次去新球場
   - 第 10 場打卡
   - 支持球隊晉級時跳成就動畫

@@ -67,7 +67,7 @@ CPBL 2026 進場倒數目前已實作的功能。
 
 ## 個人化功能（Phase 1）
 
-localStorage 儲存 schema v1，讓網站記得使用者身份與偏好。未來 Phase 4 跨裝置同步會沿用此 schema。分支 `feat/phase1-personalization`，尚未 merge。
+localStorage 儲存 schema v1，讓網站記得使用者身份與偏好。未來 Phase 4 跨裝置同步會沿用此 schema。分支 `feat/phase1-personalization`，已 merge `4e7c11a`。
 
 ### 主隊設定
 - 首次進站彈出 modal（6 隊 3×2 網格）選主隊；可按「先跳過」
@@ -109,3 +109,47 @@ localStorage 儲存 schema v1，讓網站記得使用者身份與偏好。未來
 - 移除冗餘 badge：今日／週六／週日／已結束／未來（日期 header + card-top 色已足夠）
 - 保留：假日名稱、延賽（有額外資訊）
 - 賽事記錄 pill 搬到左下，與 tags 同區
+
+## 個人化功能（Phase 2-B · 我的看球故事）
+
+Nav 新增「我的」tab 切換進入「我的看球故事」頁面。只計主隊出賽且有打卡的場次計算戰績。分支 `feat/phase2-stats-streak`，已 merge `7ddca8d`。
+
+### Tab 切換
+- Nav「我的」加 `bb-favorite` 小圖示（14×14 sprite，`currentColor` 跟隨文字色）
+- 點擊後隱藏賽程區塊（standings / filters / stats / games），顯示「我的看球故事」
+- URL hash `#my` 可書籤、可分享；hashchange listener 處理前進/後退
+
+### 現場戰績 E2 大卡（720px 寬整合卡）
+
+Header：主隊 logo + 名稱 + streak pill（條件 count ≥ 2 才顯示）
+
+左欄：
+- 勝率大數字（赤陶紅 `#C2573A`，Inter 800 / 56px）
+- 勝率算法 `wins / (wins + losses)`，和場不計入分母；分母 0 顯示 `--`
+- W（赤陶紅）/ L（綠）/ T（灰）三欄
+
+右欄：
+- 主隊賽季近 10 場 dot（赤陶紅勝 / 綠敗 / 灰和 / 虛線空位）— 不限打卡
+- 下一場主隊比賽（日期、球場、對戰）— 排除已完賽與延賽
+
+底部 field note：「你現場見證最近 N 場：W L W · 日期範圍」
+- 最多顯示最近 5 筆打卡
+- 跟主隊賽季 dot 並存，兩個 signal 互補（主隊近況 / 你現場近況）
+
+### Streak pill
+- 只計主隊出賽 + 有打卡 + 非延賽場次，依日期+時間排序
+- 從最後一筆往前算 current 連勝/連敗，遇到不同結果或和局即中斷
+- 連勝用 🔥、連敗用 ☁️
+- `count < 2` 或最後一筆是和局不顯示
+
+### Empty state（3 種）
+- 未設主隊 → 「先選一隊作為你的主隊」+ 設定主隊按鈕
+- 有主隊無打卡 → 「還沒打卡紀錄」+ 連回賽程連結
+- 打卡但主隊沒出賽過 → 「主隊還沒出現在你的現場」
+
+### 顏色語意（對調原綠勝紅敗慣例）
+| 結果 | 顏色 | 原 → 新 |
+|------|------|---------|
+| 勝 / 勝率 | 赤陶紅 `#C2573A` | `#1A6B3A` → `#C2573A`（台灣傳統紅=吉祥，跟站內主色呼應） |
+| 敗 | 深綠 `#1A6B3A` | `#B52828` → `#1A6B3A` |
+| 和 | 灰 `#9B8E7E` | 不變 |
