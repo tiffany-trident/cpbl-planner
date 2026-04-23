@@ -2511,7 +2511,7 @@ function calcMainTeamFieldStreak() {
 function findNextMainTeamGame() {
   const mainTeam = userState.profile.mainTeam;
   if (!mainTeam) return null;
-  return allGames.find(g => g.isFuture && !g.postponed && (g.home === mainTeam || g.visitor === mainTeam)) || null;
+  return allGames.find(g => g.isFuture && !g.postponed && !g.completed && (g.home === mainTeam || g.visitor === mainTeam)) || null;
 }
 
 function renderStreakBanner() {
