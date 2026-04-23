@@ -92,6 +92,8 @@ if errorlevel 1 (
 
 :restore_branch
 if "!SWITCHED!"=="1" (
+  REM Clear any unstaged ps1 residue (line-ending noise) so checkout back is clean
+  "%GIT%" checkout -- index.html cpbl-planner.html data/briefings.json >> "%LOG%" 2>&1
   echo [info] switching back to !ORIG_BRANCH! >> "%LOG%"
   "%GIT%" checkout !ORIG_BRANCH! >> "%LOG%" 2>&1
   if errorlevel 1 (
