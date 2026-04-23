@@ -424,12 +424,33 @@ button.card-weather.clickable:active { transform: scale(0.96); }
 .my-empty-desc a { color: #C2573A; text-decoration: underline; }
 .my-empty-action { display: inline-block; margin-top: 24px; padding: 10px 24px; background: #C2573A; color: #FFF; border: none; border-radius: 20px; font-size: 14px; font-family: inherit; cursor: pointer; transition: background 0.2s; }
 .my-empty-action:hover { background: #A0432A; }
+
+.my-stats-grid { display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 480px; margin: 0 auto; }
+.my-stats-card { background: #FFF; border-radius: 20px; padding: 28px 24px; display: flex; flex-direction: column; gap: 20px; box-shadow: 0 2px 12px rgba(138, 120, 99, 0.08); }
+.msc-header { display: flex; align-items: center; gap: 10px; }
+.msc-logo { width: 32px; height: 32px; border-radius: 50%; object-fit: contain; }
+.msc-title { font-size: 13px; font-weight: 600; color: #6B5F50; }
+.msc-big { text-align: center; display: flex; flex-direction: column; gap: 4px; align-items: center; }
+.msc-big-num { font-family: 'Inter', 'Noto Sans TC', sans-serif; font-size: 56px; font-weight: 800; color: #1A6B3A; letter-spacing: 1px; line-height: 1; }
+.msc-big-num.neutral { color: #9B8E7E; }
+.msc-big-sub { font-size: 12px; color: #9B8E7E; letter-spacing: 1px; }
+.msc-wld { display: flex; justify-content: center; gap: 40px; padding-top: 16px; border-top: 1px solid #F0E8DB; }
+.msc-wld-item { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.msc-wld-item .n { font-family: 'Inter', 'Noto Sans TC', sans-serif; font-size: 24px; font-weight: 800; }
+.msc-wld-item .l { font-size: 11px; color: #9B8E7E; }
+.msc-wld-item .n.w { color: #1A6B3A; }
+.msc-wld-item .n.l { color: #B52828; }
+.msc-wld-item .n.t { color: #9B8E7E; }
+
 @media (max-width: 768px) {
   .my-view { margin: 24px auto; padding: 0 16px; }
   .my-empty { padding: 60px 16px; }
   .my-empty-icon { font-size: 48px; }
   .my-empty-title { font-size: 16px; }
   .my-empty-desc { font-size: 13px; }
+  .my-stats-card { padding: 24px 20px; }
+  .msc-big-num { font-size: 48px; }
+  .msc-wld { gap: 32px; }
 }
 </style>
 </head>
@@ -2430,9 +2451,33 @@ function renderMyView() {
     if (stats.total === 0) {
       body.innerHTML = renderMyEmptyState('noMainTeamCheckins');
     } else {
-      body.innerHTML = '<div class="my-empty-desc" style="text-align:center; padding:60px 20px">（戰績卡與 Streak 即將上線）</div>';
+      body.innerHTML = '<div class="my-stats-grid">' + renderMainTeamStatsCard(stats) + '</div>';
     }
   }
+}
+
+function renderMainTeamStatsCard(stats) {
+  const team = userState.profile.mainTeam;
+  const logo = TEAM_LOGO[team] || '';
+  const shortName = TEAM_SHORT[team] || team;
+  const denom = stats.wins + stats.losses;
+  const rateNum = denom === 0 ? '--' : (stats.wins / denom).toFixed(3).replace(/^0+/, '');
+  const rateClass = denom === 0 ? 'msc-big-num neutral' : 'msc-big-num';
+  return '<div class="my-stats-card">' +
+    '<div class="msc-header">' +
+      (logo ? '<img class="msc-logo" src="' + logo + '" alt="">' : '') +
+      '<div class="msc-title">你在現場時，' + shortName + ' 的戰績</div>' +
+    '</div>' +
+    '<div class="msc-big">' +
+      '<div class="' + rateClass + '">' + rateNum + '</div>' +
+      '<div class="msc-big-sub">現場勝率</div>' +
+    '</div>' +
+    '<div class="msc-wld">' +
+      '<div class="msc-wld-item"><span class="n w">' + stats.wins + '</span><span class="l">勝</span></div>' +
+      '<div class="msc-wld-item"><span class="n l">' + stats.losses + '</span><span class="l">敗</span></div>' +
+      '<div class="msc-wld-item"><span class="n t">' + stats.ties + '</span><span class="l">和</span></div>' +
+    '</div>' +
+  '</div>';
 }
 
 function renderMyEmptyState(kind) {
