@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phase 2-A · 球場巡禮徽章 exploration · CPBL 2026</title>
+<style>
+@font-face {
+  font-family: 'jf-openhuninn';
+  src: url('https://cdn.jsdelivr.net/gh/marsnow/open-huninn-font@1.1/jf-openhuninn-1.1.ttf') format('truetype');
+  font-weight: 500;
+  font-display: swap;
+}
+* { box-sizing: border-box; }
+body { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; background: #F9F3E9; color: #4A3728; margin: 0; padding: 40px 20px; }
+
+.page-hdr { max-width: 720px; margin: 0 auto 40px; text-align: center; }
+.page-hdr h1 { font-size: 28px; font-weight: 500; margin: 0 0 8px; letter-spacing: 2px; }
+.page-hdr p.sub { font-size: 14px; color: #6B5F50; margin: 0 0 14px; line-height: 1.7; }
+.field-note { display: inline-flex; align-items: center; gap: 8px; background: #FFF5E6; border: 1px solid #F0D9B5; padding: 7px 16px; border-radius: 20px; font-size: 13px; color: #4A3728; margin: 0 0 18px; }
+.field-note .dot { width: 6px; height: 6px; border-radius: 50%; background: #C2573A; }
+.field-note b { color: #C2573A; font-weight: 500; }
+.page-hdr .hint { margin-top: 6px; padding: 12px 20px; background: #FFFAF2; border-radius: 12px; font-size: 13px; color: #6B5F50; border: 1px dashed #E8DDBE; text-align: left; line-height: 1.75; }
+.page-hdr .hint b { color: #C2573A; }
+
+.variant { max-width: 1200px; margin: 0 auto 72px; padding: 0 32px; }
+.variant-hdr { margin-bottom: 20px; display: flex; align-items: flex-start; gap: 10px; }
+.variant-hdr .num { flex-shrink: 0; background: #C2573A; color: #FFF; width: 40px; height: 36px; line-height: 36px; text-align: center; border-radius: 18px; font-size: 12px; font-weight: 700; font-family: 'Inter', sans-serif; letter-spacing: 0.3px; padding: 0 8px; }
+.variant-hdr .txt h2 { margin: 6px 0 4px; font-size: 18px; font-weight: 500; letter-spacing: 1px; }
+.variant-hdr .txt p { margin: 0; font-size: 12px; color: #9B8E7E; line-height: 1.6; }
+
+/* ================================== */
+/* 共用：外卡片、header、進度條        */
+/* ================================== */
+.card { background: linear-gradient(135deg, #FFFEFB 0%, #FFF8EA 100%); border: 1px solid #F0E8DB; border-radius: 24px; padding: 28px 28px 32px; box-shadow: 0 2px 12px rgba(138, 120, 99, 0.08); }
+
+.card-hdr { display: flex; justify-content: space-between; align-items: center; margin-bottom: 22px; gap: 16px; flex-wrap: wrap; }
+.card-hdr-l { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.card-hdr-l .ic { color: #C2573A; display: inline-flex; }
+.card-hdr-l h3 { margin: 0; font-size: 17px; font-weight: 500; letter-spacing: 1px; }
+.card-hdr-r { display: flex; align-items: center; gap: 12px; }
+.card-hdr-r .num { font-family: 'Inter', sans-serif; font-weight: 700; color: #C2573A; font-size: 22px; letter-spacing: 0.5px; }
+.card-hdr-r .num .sml { font-size: 12px; color: #9B8E7E; font-weight: 500; margin-left: 2px; }
+.bar { width: 120px; height: 6px; border-radius: 4px; background: #F0E3CA; overflow: hidden; }
+.bar .fill { height: 100%; background: linear-gradient(90deg, #E2A36C 0%, #C2573A 100%); border-radius: 4px; transition: width 0.4s; }
+
+/* ================================== */
+/* Variant A: 集章卡網格                */
+/* ================================== */
+.a-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.a-cell {
+  min-height: 210px;
+  border-radius: 18px;
+  padding: 22px 12px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  text-align: center;
+  position: relative;
+  transition: transform 0.2s, box-shadow 0.2s;
+  background: linear-gradient(140deg, #FFF5DC 0%, #FFFBEE 55%, #FFFEFA 100%);
+  border: 2px solid #E2A36C;
+  box-shadow: 0 3px 14px rgba(226, 163, 108, 0.22), inset 0 0 0 1px rgba(255, 255, 255, 0.6);
+  overflow: hidden;
+}
+.a-cell:hover { box-shadow: 0 6px 20px rgba(226, 163, 108, 0.32), inset 0 0 0 1px rgba(255, 255, 255, 0.6); }
+.a-cell.locked {
+  background: #F2EBDA;
+  border: 1.5px dashed #CBB999;
+  box-shadow: none;
+}
+.a-cell.locked:hover { box-shadow: none; }
+
+/* ====== B vs G 正常大小卡片比較 ====== */
+.bg-pick { max-width: 720px; margin: 0 auto 48px; padding: 0 32px; }
+.bg-pick-hdr { font-size: 12px; color: #9B8E7E; letter-spacing: 1px; margin-bottom: 16px; text-align: center; }
+.bg-pick-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start; }
+.bg-pick-sub { font-size: 13px; color: #C2573A; font-weight: 500; letter-spacing: 0.5px; text-align: center; margin-bottom: 10px; }
+@media (max-width: 520px) { .bg-pick-row { grid-template-columns: 1fr; } }
+
+/* ====== visited 角標變體 ====== */
+.a-chip {
+  position: absolute; top: 10px; right: 10px;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: #C2573A;
+  color: #FFF;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Inter', sans-serif; font-weight: 700; font-size: 11px;
+  box-shadow: 0 2px 4px rgba(194, 87, 58, 0.3);
+  z-index: 2;
+}
+.a-chip { width: 26px; height: 26px; }
+.a-chip svg { width: 16px; height: 16px; }
+/* A 打勾 */
+.a-chip.chip-check::before {
+  content: '';
+  display: block;
+  width: 12px; height: 12px;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>") center / contain no-repeat;
+}
+/* B 棒球 icon（用 bb-favorite sprite） */
+.a-chip.chip-baseball { background: #C2573A; }
+/* C 訪字章（護照章風） */
+.a-chip.chip-stamp { font-family: 'jf-openhuninn', 'Noto Sans TC'; font-size: 12px; font-weight: 500; transform: rotate(-8deg); border: 1.5px solid #FFF3E0; box-shadow: 0 2px 4px rgba(194, 87, 58, 0.3), inset 0 0 0 1.5px rgba(255,255,255,0.15); }
+/* D 次數徽 */
+.a-chip.chip-count { font-size: 13px; letter-spacing: -0.3px; }
+/* E 緞帶折角 — 非 circular，獨立處理 */
+.a-chip.chip-ribbon { background: transparent; width: 0; height: 0; border-radius: 0; top: 0; right: 0; box-shadow: none; border-top: 28px solid #C2573A; border-left: 28px solid transparent; }
+.a-chip.chip-ribbon::after { content: ''; position: absolute; top: -25px; right: 2px; width: 10px; height: 10px; background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>") center / contain no-repeat; }
+/* F 實心圓點 */
+.a-chip.chip-dot { width: 10px; height: 10px; background: #C2573A; box-shadow: 0 0 0 3px rgba(194, 87, 58, 0.15); }
+/* G 球場印章（與 index.html:.checkin-stamp 同風格 — 大印章、右下、半透明、略斜） */
+.a-chip.chip-stadium {
+  top: auto; bottom: 8px; right: 8px;
+  width: 72px; height: 72px;
+  background: transparent;
+  box-shadow: none;
+  color: #C2573A;
+  opacity: 0.28;
+  transform: rotate(8deg);
+  pointer-events: none;
+  z-index: 1;
+}
+.a-chip.chip-stadium svg { width: 100%; height: 100%; }
+.a-cell.bonus {
+  background: linear-gradient(135deg, #FFF5E0 0%, #FDE3CB 100%);
+  border: 1.5px solid #E2A36C;
+  color: #C2573A;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: none;
+}
+.a-cell.bonus::before { display: none; }
+.a-cell:hover { transform: translateY(-2px); }
+
+.a-icon { width: 68px; height: 68px; display: flex; align-items: center; justify-content: center; }
+.a-icon img { width: 100%; height: 100%; object-fit: contain; }
+.a-cell.locked .a-icon img { filter: grayscale(1) opacity(0.45); }
+
+/* 球場名 + 主隊 logo 同列 */
+.a-title { display: inline-flex; align-items: center; gap: 6px; font-size: 15px; font-weight: 500; letter-spacing: 0.5px; color: #4A3728; margin-top: 2px; }
+.a-title img { width: 22px; height: 22px; object-fit: contain; border-radius: 50%; flex-shrink: 0; }
+.a-cell.locked .a-title { color: #8F7F6A; }
+.a-cell.locked .a-title img { filter: grayscale(0.5) opacity(0.6); }
+
+.a-count { font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 700; color: #C2573A; letter-spacing: 0.3px; margin-top: 2px; }
+.a-count .unit { font-family: 'jf-openhuninn', 'Noto Sans TC'; font-size: 12px; color: #6B5F50; font-weight: 500; margin-left: 3px; }
+
+.a-meta { font-size: 11px; color: #9B8E7E; line-height: 1.5; letter-spacing: 0.3px; }
+.a-cell.locked .a-meta { color: #BAA98A; }
+.a-cell .a-meta.locked-only { margin-top: auto; padding-bottom: 2px; }
+
+.a-badge-first { display: inline-block; background: #C2573A; color: #FFF; font-family: 'Inter', sans-serif; font-size: 9px; padding: 1px 5px; border-radius: 8px; font-weight: 700; letter-spacing: 0.3px; vertical-align: 1px; margin-left: 2px; }
+
+/* bonus cell with progress ring */
+.ring-wrap { position: relative; width: 72px; height: 72px; }
+.ring-wrap svg { transform: rotate(-90deg); }
+.ring-wrap .ring-txt {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  font-family: 'Inter', sans-serif; font-weight: 700; font-size: 17px; color: #C2573A;
+}
+.a-cell.bonus .a-title { color: #C2573A; margin-top: 6px; font-size: 15px; }
+.a-cell.bonus .a-meta { color: #A87855; }
+
+.a-legend { display: flex; gap: 16px; justify-content: center; margin-top: 22px; font-size: 12px; color: #9B8E7E; flex-wrap: wrap; }
+.a-legend-item { display: inline-flex; align-items: center; gap: 6px; }
+.a-legend-dot { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+.a-legend-dot.v { background: linear-gradient(140deg, #FFF5DC, #FFFEFA); border: 2px solid #E2A36C; }
+.a-legend-dot.l { background: #F2EBDA; border: 1.5px dashed #CBB999; }
+
+/* ================================== */
+/* Variant A+B α: 地圖 + 集章卡        */
+/* ================================== */
+.ab-layout { display: grid; grid-template-columns: 210px 1fr; gap: 24px; align-items: start; }
+@media (max-width: 620px) { .ab-layout { grid-template-columns: 1fr; } }
+
+.ab-map-box { background: #FFFAF0; border: 1px dashed #E8DDBE; border-radius: 16px; padding: 14px 8px 12px; text-align: center; position: relative; }
+.ab-map-box .map-lbl { font-size: 11px; color: #9B8E7E; letter-spacing: 1px; margin-bottom: 8px; display: flex; align-items: center; justify-content: center; gap: 4px; }
+.ab-map { width: 100%; height: auto; max-height: 460px; display: block; margin: 0 auto; }
+.ab-map .island { fill: #F5EDD8; stroke: #C9B99A; stroke-width: 1.2; }
+.ab-map .inset-box { fill: #FFF7E5; stroke: #D8C9AC; stroke-width: 1; stroke-dasharray: 2 2; }
+.ab-map .inset-line { stroke: #D8C9AC; stroke-width: 0.8; stroke-dasharray: 2 2; fill: none; }
+.ab-map .dot-l { fill: #C9B99A; }
+.ab-map .dot-v { fill: #C2573A; filter: drop-shadow(0 1px 2px rgba(194,87,58,0.35)); }
+.ab-map .label { font-family: 'jf-openhuninn', 'Noto Sans TC'; font-size: 10.5px; fill: #4A3728; font-weight: 500; }
+.ab-map .label-l { fill: #9B8E7E; font-weight: 400; }
+.ab-map .inset-title { font-family: 'jf-openhuninn', 'Noto Sans TC'; font-size: 9px; fill: #9B8E7E; letter-spacing: 0.5px; }
+.ab-map-box .map-summary { font-size: 11px; color: #6B5F50; margin-top: 10px; letter-spacing: 0.5px; line-height: 1.5; }
+.ab-map-box .map-summary b { color: #C2573A; font-family: 'Inter', sans-serif; font-weight: 700; }
+
+/* mini cell (used in α 網格 + β lanes) */
+.ab-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.ab-cell {
+  border-radius: 14px;
+  padding: 10px 6px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-align: center;
+  min-height: 126px;
+  justify-content: flex-start;
+  position: relative;
+  background: #FFFAF0;
+  border: 1.5px solid #EACB8B;
+}
+.ab-cell.locked { background: #F6F0E3; border: 1.5px dashed #D8C9AC; }
+.ab-cell.bonus { background: linear-gradient(135deg, #FFF5E0 0%, #FDE3CB 100%); border: 1.5px solid #E2A36C; justify-content: center; }
+.ab-icon { width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
+.ab-icon img { width: 100%; height: 100%; object-fit: contain; }
+.ab-cell.locked .ab-icon img { filter: grayscale(1) opacity(0.45); }
+.ab-title { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; font-weight: 500; line-height: 1.2; letter-spacing: 0.3px; color: #4A3728; }
+.ab-title img { width: 16px; height: 16px; object-fit: contain; border-radius: 50%; flex-shrink: 0; }
+.ab-cell.locked .ab-title { color: #8F7F6A; }
+.ab-cell.locked .ab-title img { filter: grayscale(0.5) opacity(0.6); }
+.ab-count { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; color: #C2573A; }
+.ab-count .unit { font-family: 'jf-openhuninn', 'Noto Sans TC'; font-size: 9.5px; color: #6B5F50; font-weight: 500; margin-left: 1px; }
+.ab-meta { font-size: 9.5px; color: #9B8E7E; line-height: 1.3; }
+.ab-cell.locked .ab-meta { color: #BAA98A; }
+.ab-cell.bonus .ab-title { color: #C2573A; font-size: 12px; margin-top: 4px; }
+.ab-cell.bonus .ab-meta { color: #A87855; }
+.ab-ring-wrap { position: relative; width: 42px; height: 42px; }
+.ab-ring-wrap svg { transform: rotate(-90deg); }
+.ab-ring-wrap .ring-txt { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 11px; color: #C2573A; }
+
+/* ================================== */
+/* Variant A+B β: 北中南東 lanes       */
+/* ================================== */
+.lanes { display: flex; flex-direction: column; gap: 14px; }
+.lane { display: grid; grid-template-columns: 50px 1fr; gap: 12px; align-items: stretch; }
+.lane-label {
+  background: #FFF5E6;
+  border: 1px solid #F0D9B5;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 4px;
+  font-size: 12px;
+  color: #C2573A;
+  font-weight: 500;
+  letter-spacing: 1px;
+  line-height: 1.2;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+}
+.lane-cells { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: 10px; }
+@media (max-width: 620px) { .lane-cells { grid-auto-columns: minmax(100px, 1fr); overflow-x: auto; } }
+
+/* ================================== */
+/* footer notes                         */
+/* ================================== */
+.notes { max-width: 720px; margin: 0 auto; padding: 20px 24px; background: #FFFAF2; border: 1px dashed #E8DDBE; border-radius: 14px; font-size: 12.5px; color: #6B5F50; line-height: 1.8; }
+.notes b { color: #4A3728; }
+.notes ul { margin: 6px 0 0; padding-left: 20px; }
+.notes li { margin-bottom: 4px; }
+</style>
+</head>
+<body>
+
+<!-- bb-favorite sprite（供 B 變體角標使用）-->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="bb-favorite" viewBox="0 0 222.435 222.435">
+      <path fill="currentColor" d="M221.254,71.755c-0.306-0.713-7.702-17.667-25.447-34.959c-16.348-15.931-44.984-35.246-88.577-36.79 c-2.112-0.083-4.147,0.741-5.622,2.245c-1.475,1.505-2.249,3.561-2.132,5.665c0.008,0.146,0.476,8.815,0.506,21.156 c-32.125-1.382-53.875,12.78-65.722,23.689c-2.319-6.904-4.044-13.022-5.081-17.375c-0.765-3.219-3.549-5.557-6.852-5.753 c-3.313-0.196-6.345,1.795-7.485,4.901L1.033,72.128c-0.466,1.269-0.581,2.641-0.331,3.97 C17.65,166.362,63.23,222.435,119.655,222.435c29.651,0,56.285-15.793,74.997-44.471c17.547-26.894,27.21-63.562,27.21-103.251 C221.862,73.697,221.655,72.69,221.254,71.755z M99.788,44.085c-0.137,4.686-0.354,9.567-0.684,14.483 c-0.054,0.796-0.109,1.577-0.167,2.349c-25.307,1.338-42.101,13.071-51.73,22.671c-2.627-4.963-5.032-10.202-7.183-15.397 C48.167,59.246,67.797,42.578,99.788,44.085z M97.396,76.05c-3.988,29.777-11.242,34.182-12.861,34.797 c-2.291,0.869-4.552,1.31-6.722,1.31c-8.226,0-15.827-6.274-22.487-15.38C62.79,88.303,76.147,77.818,97.396,76.05z M182.09,169.767c-11.212,17.184-31.145,37.668-62.435,37.668c-57.665,0-91.335-67.846-103.825-132.087l5.336-14.526 c2.2,6.338,4.949,13.493,8.241,20.688c13.861,30.289,30.147,45.647,48.406,45.647c3.995,0,8.047-0.77,12.044-2.287 c13.799-5.237,21.478-25.764,24.166-64.599c1.229-17.751,1.044-34.871,0.76-44.758c7.297,0.681,14.311,1.948,21.048,3.762 l-10.02,57.752c-0.708,4.081,2.026,7.964,6.107,8.672c0.434,0.075,0.865,0.112,1.291,0.112c3.579,0,6.748-2.572,7.381-6.219 l9.612-55.404c5.073,2.122,9.959,4.601,14.648,7.446l-13.4,58.912c-0.918,4.039,1.611,8.058,5.65,8.977 c0.56,0.127,1.119,0.188,1.67,0.188c3.423,0,6.515-2.359,7.307-5.838l12.015-52.821c2.322,1.917,4.593,3.926,6.797,6.052 c1.013,0.976,1.976,1.951,2.914,2.923L177.182,94.45c-0.964,4.029,1.521,8.075,5.55,9.039c0.587,0.14,1.173,0.207,1.75,0.207 c3.391,0,6.466-2.316,7.288-5.757l7.98-33.377c3.776,5.438,6.09,9.771,7.107,11.821 C206.595,112.544,197.822,145.654,182.09,169.767z"/>
+      <path fill="currentColor" d="M157.406,149.228c-39.951-25.098-74.56-0.781-76.015,0.266c-3.35,2.414-4.104,7.072-1.706,10.433 c2.4,3.361,7.08,4.14,10.449,1.755c1.131-0.8,28.065-19.371,59.293,0.248c1.239,0.778,2.619,1.15,3.982,1.15 c2.494,0,4.933-1.244,6.357-3.511C161.972,156.061,160.914,151.432,157.406,149.228z"/>
+    </symbol>
+    <!-- bb-checkin 球場俯瞰圖（svgrepo 480624 · 與打卡功能同 icon）-->
+    <symbol id="bb-checkin" viewBox="0 0 512 512">
+      <g fill="currentColor">
+        <polygon points="280.402,153.66 256.008,129.275 231.606,153.66 256.008,178.063"/>
+        <polygon points="238.754,436.426 256.008,453.656 273.254,436.426 273.254,417.37 238.754,417.37"/>
+        <polygon points="369.403,291.465 393.797,315.851 418.19,291.465 393.797,267.063"/>
+        <polygon points="118.203,267.063 93.809,291.465 118.203,315.851 142.597,291.465"/>
+        <path d="M372.088,245.361l-69.985-69.984c-11.796,11.796-28.096,19.097-46.095,19.097 c-18.015,0-34.315-7.301-46.111-19.097l-69.976,69.984c11.796,11.789,19.089,28.097,19.089,46.104 c0,17.999-7.293,34.299-19.089,46.104l69.976,69.976c11.796-11.796,28.096-19.089,46.111-19.089 c17.999,0,34.299,7.293,46.095,19.089l69.985-69.976c-11.804-11.804-19.097-28.104-19.097-46.104 C352.99,273.459,360.283,257.151,372.088,245.361z M277.052,296.458h-44.669v-12.565h44.669V296.458z"/>
+        <path d="M511.871,256.717c-1.779-67.973-30.084-129.334-74.881-174.099C390.688,36.291,326.674,7.625,256.008,7.633 C185.326,7.625,121.312,36.291,75.009,82.618C30.212,127.383,1.907,188.744,0.128,256.717L0,261.79l233.096,233.088 c6.291,6.306,14.649,9.513,22.912,9.488c8.238,0.025,16.604-3.182,22.903-9.488L512,261.79L511.871,256.717z M262.21,478.194 c-1.747,1.739-3.927,2.564-6.202,2.572c-2.292-0.008-4.472-0.834-6.219-2.581L23.978,252.382 c2.837-59.75,28.112-113.459,67.732-153.079c42.104-42.088,100.06-68.06,164.298-68.069c64.23,0.008,122.178,25.981,164.29,68.069 c39.612,39.62,64.896,93.329,67.716,153.088L262.21,478.194z"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="page-hdr">
+  <h1>球場巡禮徽章 · Phase 2-A</h1>
+  <p class="sub">11 座 CPBL 一軍球場的收集進度 · 主隊識別改由 logo 傳達、卡片回歸中性奶茶底</p>
+  <div class="field-note"><span class="dot"></span>你最常去 <b>洲際</b>，已達成 <b>2 次</b></div>
+  <div class="hint">
+    <b>示範資料</b>：已打卡 4 座（大巨蛋、天母、樂天桃園、洲際），未去 7 座。主隊 = 中信兄弟。<br>
+    <b>資料邏輯（來自確認）</b>：visited meta「最近 X/XX」從 Phase 1 打卡日期；「兄弟 2-0」為主隊在此球場的現場戰績；field note「最常去 XX」為跨球場統計，與主隊無關。
+  </div>
+</header>
+
+
+<!-- =============================================== -->
+<!-- Variant A · 純集章卡網格（logo 版）               -->
+<!-- =============================================== -->
+<section class="variant">
+  <div class="variant-hdr">
+    <div class="num">A</div>
+    <div class="txt">
+      <h2>集章卡網格</h2>
+      <p>3 欄 × 4 列（11 球場 + 1 bonus 進度環）</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-hdr">
+      <div class="card-hdr-l">
+        <span class="ic"><img src="../icon-preview/icons/stadium-flaticon-484466.png" alt="" style="width:26px;height:26px"></span>
+        <h3>球場巡禮</h3>
+      </div>
+      <div class="card-hdr-r">
+        <span class="num">4<span class="sml"> / 11</span></span>
+        <div class="bar"><div class="fill" style="width:36%"></div></div>
+      </div>
+    </div>
+
+    <div class="a-grid">
+      <!-- 大巨蛋（共用場館，visited，無 logo） -->
+      <div class="a-cell">
+        <span class="a-chip chip-stadium"><svg><use href="#bb-checkin"/></svg></span>
+        <div class="a-icon"><img src="../icon-preview/icons/stadium-flaticon-484466.png" alt=""></div>
+        <div class="a-title">大巨蛋</div>
+        <div class="a-count">2<span class="unit">次</span></div>
+        <div class="a-meta">最近 4/05 · 兄弟 2-0</div>
+      </div>
+      <!-- 天母（味全主場，visited） -->
+      <div class="a-cell">
+        <span class="a-chip chip-stadium"><svg><use href="#bb-checkin"/></svg></span>
+        <div class="a-icon"><img src="../icon-preview/icons/stadium-flaticon-484466.png" alt=""></div>
+        <div class="a-title"><img src="https://cpbl.com.tw/files/atts/0L021497845061333235/logo_dragon.png" alt="">天母</div>
+        <div class="a-count">1<span class="unit">次</span></div>
+        <div class="a-meta">最近 3/30 · 兄弟 0-1</div>
+      </div>
+      <!-- 新莊（富邦主場，locked） -->
+      <div class="a-cell locked">
+        <div class="a-icon"><img src="../icon-preview/icons/stadium-flaticon-484466.png" alt=""></div>
+        <div class="a-title"><img src="https://cpbl.com.tw/files/atts/0L021495969510091777/logo_fubon.png" alt="">新莊</div>
+        <div class="a-meta locked-only">還沒去</div>
+      </div>
+      <!-- 樂天桃園（樂天主場，visited） -->
+      <div class="a-cell">
+        <span class="a-chip chip-stadium"><svg><use href="#bb-checkin"/></svg></span>
+        <div class="a-icon"><img src="../icon-preview/icons/stadium-flaticon-484466.png" alt=""></div>
+        <div class="a-title"><img src="https://cpbl.com.tw/files/atts/0L015574823122453305/2024_CPBL%E5%85%AD%E9%9A%8ALogo_R2_%E5%AE%98%E7%B6%B2.png" alt="">樂天桃園</div>
+        <div class="a-count">1<span class="unit">次</span></div>
+        <div class="a-meta">最近 4/18 · 兄弟 1-0</div>
+      </div>
+      <!-- 洲際（兄弟主場，visited） -->
+      <div class="a-cell">
+        <span class="a-chip chip-stadium"><svg><use href="#bb-checkin"/></svg></span>
+        <div class="a-icon"><img src="../icon-preview/icons/stadium-flaticon-484466.png" alt=""></div>
+        <div class="a-title"><img src="https://cpbl.com.tw/files/atts/0L021497108709222204/logo_brothers.png" alt="">洲際</div>
+        <div class="a-count">2<span class="unit">次</span></div>
+        <div class="a-meta">最近 4/15 · 兄弟 2-0</div>
+      </div>
+      <!-- 斗六（共用副主場，locked） -->
+      <div class="a-cell locked">
+        <div class="a-icon"><img src="../icon-preview/icons/stadium-flaticon-484466.png" alt=""></div>
+        <div class="a-title">斗六</div>
+        <div class="a-meta locked-only">還沒去</div>
+      </div>
+      <!-- 嘉義市（共用副主場，locked） -->
+      <div class="a-cell locked">
+        <div class="a-icon"><img src="../icon-preview/icons/stadium-flaticon-484466.png" alt=""></div>
+        <div class="a-title">嘉義市</div>
+        <div class="a-meta locked-only">還沒去</div>
+      </div>
+      <!-- 亞太主（統一主場，locked） -->
+      <div class="a-cell locked">
+        <div class="a-icon"><img src="../icon-preview/icons/stadium-flaticon-484466.png" alt=""></div>
+        <div class="a-title"><img src="https://cpbl.com.tw/files/atts/0L021496162893869773/logo_lions.png" alt="">亞太主</div>
+        <div class="a-meta locked-only">還沒去</div>
+      </div>
+      <!-- 澄清湖（台鋼主場，locked） -->
+      <div class="a-cell locked">
+        <div class="a-icon"><img src="../icon-preview/icons/stadium-flaticon-484466.png" alt=""></div>
+        <div class="a-title"><img src="https://cpbl.com.tw/files/atts/0M259522048557486065/%E5%96%AE%E8%89%B2T-100x100.png" alt="">澄清湖</div>
+        <div class="a-meta locked-only">還沒去</div>
+      </div>
+      <!-- 花蓮（共用副主場，locked） -->
+      <div class="a-cell locked">
+        <div class="a-icon"><img src="../icon-preview/icons/stadium-flaticon-484466.png" alt=""></div>
+        <div class="a-title">花蓮</div>
+        <div class="a-meta locked-only">還沒去</div>
+      </div>
+      <!-- 台東（共用副主場，locked） -->
+      <div class="a-cell locked">
+        <div class="a-icon"><img src="../icon-preview/icons/stadium-flaticon-484466.png" alt=""></div>
+        <div class="a-title">台東</div>
+        <div class="a-meta locked-only">還沒去</div>
+      </div>
+      <!-- bonus: 進度環 -->
+      <div class="a-cell bonus">
+        <div class="ring-wrap">
+          <svg width="72" height="72" viewBox="0 0 72 72">
+            <circle cx="36" cy="36" r="28" fill="none" stroke="#F0E3CA" stroke-width="6"/>
+            <circle cx="36" cy="36" r="28" fill="none" stroke="#C2573A" stroke-width="6"
+                    stroke-dasharray="175.93" stroke-dashoffset="111.94"
+                    stroke-linecap="round"/>
+          </svg>
+          <div class="ring-txt">4/11</div>
+        </div>
+        <div class="a-title">集滿 11 座</div>
+        <div class="a-meta">年度巡禮徽章</div>
+      </div>
+    </div>
+
+    <div class="a-legend">
+      <span class="a-legend-item"><span class="a-legend-dot v"></span>已打卡</span>
+      <span class="a-legend-item"><span class="a-legend-dot l"></span>還沒去</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- =============================================== -->
+<!-- footer notes                                     -->
+<!-- =============================================== -->
+<div class="notes">
+  <b>本版改進重點（2026-04-23 晚）</b>
+  <ul>
+    <li><b>定案走 A（純網格）+ 1200px 寬</b>：配合 production <code>.my-view</code> 1200px 容器，填滿徽章牆，4 欄 × 3 列（11 格 + 1 bonus）</li>
+    <li><b>icon 放大</b>：44 → 68（+55%），成為卡片視覺主角</li>
+    <li><b>留白加大</b>：cell min-height 168 → 210、padding 14/10 → 22/12、gap 6 → 10</li>
+    <li><b>字級微調</b>：count 13 → 17（更突出）、title 14 → 15、unit 11 → 12、meta 10.5 → 11</li>
+    <li><b>Logo 略放大</b>：20 → 22px</li>
+    <li><b>進度環</b>：56 → 72，對應字級 15 → 17</li>
+    <li><b>locked 卡平衡</b>：「還沒去」用 <code>margin-top:auto</code> 推到卡底，避免上方留白不均</li>
+    <li><b>visited 視覺加強</b>：暖色漸層奶底 + 2px 赤陶橙實線框 + 柔光 shadow + 右下角 72px 半透明球場印章（bb-checkin，與打卡功能同 icon、同語彙）；locked 改偏冷奶茶底（#F2EBDA）+ 更淡虛線 — 拉開兩者對比</li>
+  </ul>
+</div>
+
+</body>
+</html>
