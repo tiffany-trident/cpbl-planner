@@ -14,6 +14,11 @@
   - visited 右下角半透明球場印章（`bb-checkin` sprite）+ 主隊 logo 識別 + 每座戰績
   - 同步把「我的」tab 從單頁 stack 升級為 sub-tabs 個人中心殼（統計 / 徽章 / 打卡紀錄 / 收藏 4 tab）
   - 全站 hero 加「哈囉，XX 迷 👋」招呼語
+- **Phase 1-D 收藏 tab ✅ 已實作**（2026-04-23 下午）
+  - 我的 → 收藏 sub-tab 列表（即將到來 / 已過分組，row 格式：日期 + 對戰 + 場地 + ★）
+  - 篩選區「收藏／打卡」從 2 checkbox 改為 3-段 segment（全部/只看收藏/只看已打卡，互斥）
+  - lastFilter schema 加 ownership 欄位，自動遷移舊 favoritesOnly/checkinsOnly
+  - Phase 1-D「打卡紀錄」tab 仍 placeholder，留給下一次 iteration
 - **Phase 2-C / 2-D** — 尚未開始（年度回顧頁 / 成就 toast）
 - **Phase 3-6** — 尚未開始
 
