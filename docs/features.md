@@ -222,3 +222,46 @@ Tab 切換純 CSS（`.active` class toggle），無 re-render。URL hash 仍走 
 - `bb-checkin` sprite 已在主程式（line ~485），印章直接 `<use href="#bb-checkin"/>`
 - 主隊 logo 用 `TEAM_LOGO[team]` — 遠端 `cpbl.com.tw` 圖片
 - cpbl-planner.html 必須跟 index.html 保持同步
+
+## 個人化功能（Phase 1-D 收藏 tab · 篩選 segment 重構）
+
+分支 `feat/phase1d-favorites-tab`。補上原 Phase 1-D 設計的「收藏」sub-tab 內容 + 篩選區 UX 改進。
+
+### 我的 → 收藏 sub-tab
+
+原本是 placeholder，這次填入實際列表。
+
+- **資料來源**：`userState.favorites` 陣列 → 對應 `allGames` 撈出完整場次
+- **分組**：「即將到來」（未來 + 非延賽，依日期 asc）/「已過」（已完賽或延賽，依日期 desc）
+- **Row layout**：`grid-template-columns: 72px 1fr 40px` — 日期 block | 對戰 + 場地時間 | 取消收藏 ★
+  - 日期 block：`月/日` 赤陶紅 Inter 粗體 + `週X` 小灰字
+  - 對戰：已完賽顯示比分（W 赤陶紅 / L 綠 / T 灰，沿用 Phase 2-B 配色），未完賽顯示 `VS`
+  - 延賽場次：場地後加「延賽」小 pill
+- **互動**：點 `.card-fav-btn`（★）→ `toggleFavorite()` → row 立即移除 + list 重新渲染
+- **`toggleFavorite()` 擴充**：同時 call `render()`（主賽程）+ `renderMyView()`（收藏 tab），兩邊保持同步
+- **空 state**：沒收藏過 → 提示「去賽程頁面點卡片右上角的 ⭐ 收藏」
+
+### 篩選區「收藏／打卡」從 checkbox 改 segment
+
+原本篩選區有 2 個獨立 checkbox `f-favorites-only` 與 `f-checkins-only`（可同時勾，但實際組合少用），改為一個互斥 segment control。
+
+- **UI**：3-段 `.toggle-group`（`全部 | ⭐ 只看收藏 | ◉ 只看已打卡`），跟既有「場次狀態」segment 同 CSS class + 同樣式
+- **Icon**：`bb-favorite` 手套 + `bb-checkin` 球場俯瞰圖
+- **數字 badge**：旁邊顯示實際收藏 / 打卡數，`ob-count:empty` 時自動隱藏
+- **Schema**：`userState.lastFilter` 加 `ownership: 'all' | 'favorites' | 'checkins'`；`applyFilterToUI` 自動從舊 `favoritesOnly` / `checkinsOnly` 遷移
+- **state var**：`ownershipFilter` 取代原 2 個 checkbox query
+- **Reset 按鈕**：同步重設成「全部」
+
+### 篩選區排版壓縮
+
+讓 5 個條件（隊伍 / 球場 / 月份 / 場次狀態 / 日期 / 收藏·打卡）+ 重設按鈕排成一列：
+
+- `.filter-card-row` gap 16 → 10/12
+- `.filter-row` gap 14 → 10
+- `.cb-row` gap 14 → 10
+- `.filter-group` label→content gap 7 → 5
+- label 字 12 → 11，select padding 10/16 → 8/14、min-width 140 → 120
+- `.toggle-btn` padding 8/20 → 6/12、font 13 → 12.5
+- `.btn-reset` padding 10/22 → 8/16
+
+總寬從 ~1084px 壓到 ~930px，1200px 容器內可平鋪成一列。

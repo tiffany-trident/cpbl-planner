@@ -117,22 +117,27 @@ svg.section-icon { width: 28px; height: 28px; }
 .filters { background: #FDFCFA; padding: 28px 40px 32px; display: flex; flex-direction: column; gap: 16px; }
 .filter-card { background: #FFF; border-radius: 14px; padding: 20px 24px; box-shadow: 0 2px 8px rgba(212,196,171,0.10); }
 .filter-card-title { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; font-size: 15px; font-weight: 500; color: #4A3728; margin-bottom: 12px; letter-spacing: 1px; }
-.filter-card-row { display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-end; }
-.filter-group { display: flex; flex-direction: column; gap: 7px; }
-.filter-group > label { font-size: 12px; color: #7A6E5E; font-weight: 600; }
-.filter-group select { background: #FFF; border: 1px solid #E0D8CC; color: #4A3728; padding: 10px 16px; border-radius: 12px; font-size: 14px; min-width: 140px; cursor: pointer; font-family: 'Inter', 'Noto Sans TC', sans-serif; appearance: auto; }
+.filter-card-row { display: flex; flex-wrap: wrap; gap: 10px 12px; align-items: flex-end; }
+.filter-group { display: flex; flex-direction: column; gap: 5px; }
+.filter-group > label { font-size: 11px; color: #7A6E5E; font-weight: 600; letter-spacing: 0.3px; }
+.filter-group select { background: #FFF; border: 1px solid #E0D8CC; color: #4A3728; padding: 8px 14px; border-radius: 10px; font-size: 13px; min-width: 120px; cursor: pointer; font-family: 'Inter', 'Noto Sans TC', sans-serif; appearance: auto; }
 .filter-group select:focus { outline: none; border-color: #C2573A; box-shadow: 0 0 0 3px rgba(194,87,58,0.1); }
-.filter-row { display: flex; gap: 14px; }
-.cb-row { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+.filter-row { display: flex; gap: 10px; }
+.cb-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
 .checkbox-group { display: flex; align-items: center; gap: 6px; }
 .checkbox-group input[type="checkbox"] { width: 18px; height: 18px; accent-color: #C2573A; cursor: pointer; border-radius: 5px; }
 .checkbox-group label { font-size: 13px; cursor: pointer; user-select: none; color: #4A3728; }
 
 /* ── Toggle ── */
-.toggle-group { display: inline-flex; background: #F5F0E8; border-radius: 12px; padding: 3px; gap: 2px; }
-.toggle-btn { padding: 8px 20px; font-size: 13px; cursor: pointer; border: none; background: transparent; color: #9B8E7E; font-family: 'Inter', 'Noto Sans TC', sans-serif; transition: all 0.2s; border-radius: 10px; }
+.toggle-group { display: inline-flex; background: #F5F0E8; border-radius: 10px; padding: 2px; gap: 2px; }
+.toggle-btn { display: inline-flex; align-items: center; gap: 4px; padding: 6px 12px; font-size: 12.5px; cursor: pointer; border: none; background: transparent; color: #9B8E7E; font-family: 'Inter', 'Noto Sans TC', sans-serif; transition: all 0.2s; border-radius: 8px; }
 .toggle-btn.active { background: #FFF; color: #4A3728; font-weight: 600; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
 .toggle-btn:hover:not(.active) { color: #7A6E5E; }
+.toggle-btn .ob-ic { width: 13px; height: 13px; }
+.toggle-btn .ob-count { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 11px; color: #C2573A; margin-left: 1px; }
+.toggle-btn.active .ob-count { color: #C2573A; }
+.toggle-btn:not(.active) .ob-count { color: #9B8E7E; }
+.toggle-btn .ob-count:empty { display: none; }
 
 /* ── Chips ── */
 .chip-group { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -148,7 +153,7 @@ svg.section-icon { width: 28px; height: 28px; }
 .chip img { border-radius: 50%; }
 
 /* ── Buttons ── */
-.btn-reset { background: #F5F0E8; color: #7A6E5E; border: none; padding: 10px 22px; border-radius: 12px; font-size: 13px; font-weight: 500; cursor: pointer; transition: all 0.2s; font-family: 'Inter', 'Noto Sans TC', sans-serif; }
+.btn-reset { background: #F5F0E8; color: #7A6E5E; border: none; padding: 8px 16px; border-radius: 10px; font-size: 12.5px; font-weight: 500; cursor: pointer; transition: all 0.2s; font-family: 'Inter', 'Noto Sans TC', sans-serif; align-self: flex-end; }
 .btn-reset:hover { background: #EBE4D8; color: #4A3728; }
 .btn-ticket { display: inline-flex; align-items: center; gap: 4px; padding: 6px 16px; border-radius: 20px; font-size: 12px; font-weight: 600; color: #C2573A; background: #FDF6EE; border: 1px solid #E8D5B8; text-decoration: none; transition: all 0.2s; }
 .btn-ticket:hover { background: #C2573A; color: #fff; border-color: #C2573A; }
@@ -492,6 +497,38 @@ button.card-weather.clickable:active { transform: scale(0.96); }
 .my-placeholder-title { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; font-size: 16px; color: #6B5F50; margin-bottom: 10px; letter-spacing: 1px; font-weight: 500; }
 .my-placeholder-desc { font-size: 13px; line-height: 1.8; max-width: 360px; margin: 0 auto; }
 
+/* 收藏場次列表 */
+.fav-list { max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; }
+.fav-section-hdr { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; font-size: 13px; font-weight: 500; color: #6B5F50; letter-spacing: 1px; padding: 14px 4px 6px; border-bottom: 1px dashed #E8DDBE; margin: 8px 0 6px; display: flex; align-items: center; gap: 8px; }
+.fav-section-hdr:first-child { margin-top: 0; }
+.fav-section-hdr .count { color: #C2573A; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 0.3px; }
+.fav-row { display: grid; grid-template-columns: 72px 1fr 40px; align-items: center; gap: 14px; padding: 14px 18px; background: #FFFAF0; border: 1px solid #F0E8DB; border-radius: 14px; transition: box-shadow 0.2s, transform 0.15s; }
+.fav-row:hover { box-shadow: 0 2px 10px rgba(138, 120, 99, 0.1); transform: translateY(-1px); }
+.fav-date { display: flex; flex-direction: column; align-items: center; gap: 2px; border-right: 1px dashed #E8DDBE; padding-right: 10px; }
+.fav-date .md { font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 700; color: #C2573A; letter-spacing: 0.3px; }
+.fav-date .wk { font-size: 10px; color: #9B8E7E; letter-spacing: 1px; }
+.fav-main { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.fav-match { display: flex; align-items: center; gap: 6px; font-size: 14px; flex-wrap: wrap; }
+.fav-team { display: inline-flex; align-items: center; gap: 4px; color: #4A3728; font-weight: 500; }
+.fav-logo { width: 20px; height: 20px; object-fit: contain; border-radius: 50%; flex-shrink: 0; }
+.fav-vs { font-family: 'Inter', sans-serif; font-size: 11px; color: #9B8E7E; letter-spacing: 1.5px; padding: 0 4px; }
+.fav-score { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 16px; padding: 0 3px; }
+.fav-score.win { color: #C2573A; }
+.fav-score.lose { color: #1A6B3A; }
+.fav-score.tie { color: #9B8E7E; }
+.fav-score-sep { color: #C9B99A; font-family: 'Inter', sans-serif; font-weight: 400; }
+.fav-venue-line { font-size: 12px; color: #6B5F50; letter-spacing: 0.3px; }
+.fav-postponed { display: inline-block; padding: 1px 8px; background: #FDF0E8; border-radius: 10px; font-size: 10px; color: #C2573A; font-weight: 500; letter-spacing: 0.5px; }
+
+@media (max-width: 600px) {
+  .fav-row { grid-template-columns: 56px 1fr 32px; padding: 12px 14px; gap: 10px; }
+  .fav-date { padding-right: 8px; }
+  .fav-date .md { font-size: 15px; }
+  .fav-match { font-size: 13px; gap: 4px; }
+  .fav-logo { width: 18px; height: 18px; }
+  .fav-score { font-size: 14px; }
+}
+
 /* Phase 2-A 球場巡禮徽章 */
 .vp-card { background: linear-gradient(135deg, #FFFEFB 0%, #FFF8EA 100%); border: 1px solid #F0E8DB; border-radius: 24px; padding: 28px 28px 32px; box-shadow: 0 2px 12px rgba(138, 120, 99, 0.08); }
 .vp-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; gap: 16px; flex-wrap: wrap; }
@@ -744,11 +781,10 @@ button.card-weather.clickable:active { transform: scale(0.96); }
       <div class="filter-group">
         <label>收藏／打卡</label>
         <div class="cb-row">
-          <div class="checkbox-group">
-            <input type="checkbox" id="f-favorites-only"><label for="f-favorites-only">只看收藏</label>
-          </div>
-          <div class="checkbox-group">
-            <input type="checkbox" id="f-checkins-only"><label for="f-checkins-only">只看已打卡</label>
+          <div class="toggle-group" id="f-ownership">
+            <button class="toggle-btn active" data-val="all">全部</button>
+            <button class="toggle-btn" data-val="favorites"><svg class="ob-ic" aria-hidden="true"><use href="#bb-favorite"/></svg>只看收藏<span class="ob-count" id="ob-count-fav"></span></button>
+            <button class="toggle-btn" data-val="checkins"><svg class="ob-ic" aria-hidden="true"><use href="#bb-checkin"/></svg>只看已打卡<span class="ob-count" id="ob-count-ci"></span></button>
           </div>
         </div>
       </div>
@@ -1971,6 +2007,7 @@ function toggleFavorite(sno) {
   else userState.favorites.splice(idx, 1);
   saveUserState(userState);
   render();
+  renderMyView();
 }
 
 // ── 主隊設定（Phase 1）──
@@ -2082,6 +2119,8 @@ function updateMainTeamUI() {
 }
 
 // ── 篩選記憶（Phase 1）──
+let ownershipFilter = 'all'; // 'all' | 'favorites' | 'checkins'
+
 function captureCurrentFilter() {
   return {
     team1: getSelectedTeams('f-team1'),
@@ -2090,8 +2129,7 @@ function captureCurrentFilter() {
     month: document.getElementById('f-month').value,
     weekend: document.getElementById('f-weekend').checked,
     holiday: document.getElementById('f-holiday').checked,
-    favoritesOnly: document.getElementById('f-favorites-only').checked,
-    checkinsOnly: document.getElementById('f-checkins-only').checked,
+    ownership: ownershipFilter,
     status: statusFilter
   };
 }
@@ -2110,8 +2148,16 @@ function applyFilterToUI(f) {
   if (f.month && [...mon.options].some(o => o.value === String(f.month))) mon.value = String(f.month);
   document.getElementById('f-weekend').checked = !!f.weekend;
   document.getElementById('f-holiday').checked = !!f.holiday;
-  document.getElementById('f-favorites-only').checked = !!f.favoritesOnly;
-  document.getElementById('f-checkins-only').checked = !!f.checkinsOnly;
+  // 舊 schema 遷移：favoritesOnly / checkinsOnly → ownership
+  let nextOwnership = f.ownership;
+  if (!nextOwnership) {
+    nextOwnership = f.favoritesOnly ? 'favorites' : f.checkinsOnly ? 'checkins' : 'all';
+  }
+  if (!['all', 'favorites', 'checkins'].includes(nextOwnership)) nextOwnership = 'all';
+  ownershipFilter = nextOwnership;
+  document.querySelectorAll('#f-ownership .toggle-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.val === nextOwnership);
+  });
   const nextStatus = ['future', 'all', 'past'].includes(f.status) ? f.status : 'future';
   document.querySelectorAll('#f-status .toggle-btn').forEach(b => {
     b.classList.toggle('active', b.dataset.val === nextStatus);
@@ -2159,9 +2205,6 @@ function getFiltered() {
   const mon = document.getElementById('f-month').value;
   const we = document.getElementById('f-weekend').checked;
   const hol = document.getElementById('f-holiday').checked;
-  const favOnly = document.getElementById('f-favorites-only').checked;
-  const checkinsOnly = document.getElementById('f-checkins-only').checked;
-
   return allGames.filter(g => {
     // Team 1 filter: at least one selected team must be in the game (either side)
     if (sel1.length && !sel1.includes(g.visitor) && !sel1.includes(g.home)) return false;
@@ -2177,8 +2220,8 @@ function getFiltered() {
     if (mon && g.month !== +mon) return false;
     if (we && !g.isWE) return false;
     if (hol && !g.isWE && !g.holName) return false;
-    if (favOnly && !isFavorited(g.sno)) return false;
-    if (checkinsOnly && !isCheckedIn(g.sno)) return false;
+    if (ownershipFilter === 'favorites' && !isFavorited(g.sno)) return false;
+    if (ownershipFilter === 'checkins' && !isCheckedIn(g.sno)) return false;
     // Status filter
     if (statusFilter === 'future' && !g.isFuture) return false;
     if (statusFilter === 'past' && g.isFuture) return false;
@@ -2227,8 +2270,19 @@ function buildThemeDayHTML(g) {
   return '<div class="theme-day-wrap"><a class="theme-day-badge" href="' + match.source_url + '" target="_blank" rel="noopener" title="點擊查看官方公告">🎉 ' + match.title + sub + '</a></div>';
 }
 
+function updateOwnershipCounts() {
+  const favEl = document.getElementById('ob-count-fav');
+  const ciEl = document.getElementById('ob-count-ci');
+  if (favEl) favEl.textContent = userState.favorites.length > 0 ? ' ' + userState.favorites.length : '';
+  if (ciEl) {
+    const ciCount = Object.keys(userState.checkins).length;
+    ciEl.textContent = ciCount > 0 ? ' ' + ciCount : '';
+  }
+}
+
 function render() {
   if (typeof closeWeatherPopover === 'function') closeWeatherPopover();
+  updateOwnershipCounts();
   const list = getFiltered();
   const tbody = document.getElementById('tbody');
   const emptyTable = document.getElementById('empty-table');
@@ -2259,11 +2313,9 @@ function render() {
   if (!list.length) {
     tbody.innerHTML = '';
     cardList.innerHTML = '';
-    const favOnly = document.getElementById('f-favorites-only').checked;
-    const checkinsOnly = document.getElementById('f-checkins-only').checked;
-    emptyCard.textContent = checkinsOnly
+    emptyCard.textContent = ownershipFilter === 'checkins'
       ? '還沒有打卡的場次 — 已完賽場次卡片下方點「打卡」開始記錄'
-      : favOnly
+      : ownershipFilter === 'favorites'
         ? '還沒有收藏的場次 — 點未來場次卡片右上角的收藏按鈕開始收藏'
         : '沒有符合條件的場次';
     emptyTable.style.display = '';
@@ -2390,13 +2442,14 @@ function getTeamColor(team) {
     render();
     persistCurrentFilter();
   }));
-document.getElementById('f-favorites-only').addEventListener('change', function() {
-  render();
-  persistCurrentFilter();
-});
-document.getElementById('f-checkins-only').addEventListener('change', function() {
-  render();
-  persistCurrentFilter();
+document.querySelectorAll('#f-ownership .toggle-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('#f-ownership .toggle-btn').forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+    ownershipFilter = this.dataset.val;
+    render();
+    persistCurrentFilter();
+  });
 });
 
 // 場次收藏點擊（event delegation，因為卡片會重新 render）
@@ -2464,7 +2517,13 @@ document.getElementById('nav-mainteam').addEventListener('click', function(e) {
 });
 document.getElementById('my-view-body').addEventListener('click', function(e) {
   const action = e.target.closest('[data-main-action]')?.dataset.mainAction;
-  if (action === 'setup' || action === 'switch') showMainTeamModal();
+  if (action === 'setup' || action === 'switch') { showMainTeamModal(); return; }
+  const favBtn = e.target.closest('.card-fav-btn');
+  if (favBtn) {
+    e.preventDefault();
+    e.stopPropagation();
+    toggleFavorite(favBtn.dataset.favSno);
+  }
 });
 
 // Status toggle
@@ -2481,10 +2540,13 @@ document.querySelectorAll('#f-status .toggle-btn').forEach(btn => {
 document.getElementById('btn-reset').addEventListener('click', function() {
   document.querySelectorAll('.chip.active').forEach(c => c.classList.remove('active'));
   ['f-field','f-month'].forEach(id => document.getElementById(id).value = '');
-  ['f-weekend','f-holiday','f-favorites-only','f-checkins-only'].forEach(id => document.getElementById(id).checked = false);
+  ['f-weekend','f-holiday'].forEach(id => document.getElementById(id).checked = false);
   document.querySelectorAll('#f-status .toggle-btn').forEach(b => b.classList.remove('active'));
   document.querySelector('#f-status .toggle-btn[data-val="future"]').classList.add('active');
   statusFilter = 'future';
+  document.querySelectorAll('#f-ownership .toggle-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector('#f-ownership .toggle-btn[data-val="all"]').classList.add('active');
+  ownershipFilter = 'all';
   render();
   userState.lastFilter = null;
   saveUserState(userState);
@@ -2578,7 +2640,7 @@ function renderMyShell() {
     : renderMainTeamBigCard(stats);
   const badgesPanelHtml = renderVenuePilgrimage();
   const timelinePanelHtml = renderMyPlaceholder('timeline');
-  const favoritesPanelHtml = renderMyPlaceholder('favorites');
+  const favoritesPanelHtml = renderFavoritesList();
 
   const cls = tab => 'my-tab' + (currentMyTab === tab ? ' active' : '');
   const panelCls = tab => 'my-tab-panel' + (currentMyTab === tab ? ' active' : '');
@@ -2608,6 +2670,73 @@ function renderMyPlaceholder(kind) {
     '<div class="my-placeholder-title">' + data.title + '</div>' +
     '<div class="my-placeholder-desc">' + data.desc + '</div>' +
   '</div>';
+}
+
+function renderFavoritesEmpty() {
+  return '<div class="my-placeholder">' +
+    '<div class="my-placeholder-icon">⭐</div>' +
+    '<div class="my-placeholder-title">還沒收藏任何場次</div>' +
+    '<div class="my-placeholder-desc">在賽程頁面點卡片右上角的 ⭐ 收藏未來場次，這裡會列出你想去看的比賽</div>' +
+  '</div>';
+}
+
+function renderFavoritesList() {
+  const snos = userState.favorites || [];
+  if (snos.length === 0) return renderFavoritesEmpty();
+  const games = snos.map(sno => allGames.find(g => g.sno === sno)).filter(Boolean);
+  if (games.length === 0) return renderFavoritesEmpty();
+
+  const future = games.filter(g => g.isFuture && !g.postponed).sort((a, b) => a.date < b.date ? -1 : a.date > b.date ? 1 : a.time < b.time ? -1 : 1);
+  const past = games.filter(g => !g.isFuture || g.postponed).sort((a, b) => a.date > b.date ? -1 : a.date < b.date ? 1 : 0);
+
+  const renderRow = g => {
+    const m = g.date.slice(5, 7).replace(/^0/, '');
+    const d = g.date.slice(8, 10).replace(/^0/, '');
+    const vs = TEAM_SHORT[g.visitor] || g.visitor;
+    const hs = TEAM_SHORT[g.home] || g.home;
+    const vLogo = TEAM_LOGO[g.visitor] || '';
+    const hLogo = TEAM_LOGO[g.home] || '';
+    const showScore = g.completed && !g.postponed;
+    let matchHtml;
+    if (showScore) {
+      const vCls = g.vScore > g.hScore ? 'win' : (g.vScore < g.hScore ? 'lose' : 'tie');
+      const hCls = g.hScore > g.vScore ? 'win' : (g.hScore < g.vScore ? 'lose' : 'tie');
+      matchHtml =
+        '<span class="fav-team">' + (vLogo ? '<img class="fav-logo" src="' + vLogo + '" alt="">' : '') + '<span>' + vs + '</span></span>' +
+        '<span class="fav-score ' + vCls + '">' + g.vScore + '</span>' +
+        '<span class="fav-score-sep">:</span>' +
+        '<span class="fav-score ' + hCls + '">' + g.hScore + '</span>' +
+        '<span class="fav-team"><span>' + hs + '</span>' + (hLogo ? '<img class="fav-logo" src="' + hLogo + '" alt="">' : '') + '</span>';
+    } else {
+      matchHtml =
+        '<span class="fav-team">' + (vLogo ? '<img class="fav-logo" src="' + vLogo + '" alt="">' : '') + '<span>' + vs + '</span></span>' +
+        '<span class="fav-vs">VS</span>' +
+        '<span class="fav-team">' + (hLogo ? '<img class="fav-logo" src="' + hLogo + '" alt="">' : '') + '<span>' + hs + '</span></span>';
+    }
+    const venueLine = g.postponed
+      ? g.field + ' · <span class="fav-postponed">延賽</span>'
+      : g.field + ' · ' + g.time;
+    return '<div class="fav-row">' +
+      '<div class="fav-date"><span class="md">' + m + '/' + d + '</span><span class="wk">' + g.dayName + '</span></div>' +
+      '<div class="fav-main">' +
+        '<div class="fav-match">' + matchHtml + '</div>' +
+        '<div class="fav-venue-line">' + venueLine + '</div>' +
+      '</div>' +
+      '<button type="button" class="card-fav-btn active" data-fav-sno="' + g.sno + '" title="取消收藏" aria-label="取消收藏"><svg><use href="#bb-favorite"/></svg></button>' +
+    '</div>';
+  };
+
+  let html = '<div class="fav-list">';
+  if (future.length > 0) {
+    html += '<div class="fav-section-hdr">即將到來 <span class="count">' + future.length + ' 場</span></div>';
+    html += future.map(renderRow).join('');
+  }
+  if (past.length > 0) {
+    html += '<div class="fav-section-hdr">已過 <span class="count">' + past.length + ' 場</span></div>';
+    html += past.map(renderRow).join('');
+  }
+  html += '</div>';
+  return html;
 }
 
 function bindMyTabEvents() {
