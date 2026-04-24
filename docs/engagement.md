@@ -9,7 +9,12 @@
 - **Phase 2-B ✅ 已實作 + merge**（2026-04-22，merge `7ddca8d`）
   - 我的 tab + Streak + 主隊現場戰績卡（E2 大卡整合版）
   - 主隊賽季近 10 場 dot + 下一場 + 現場見證 field note
-- **Phase 2-A / 2-C / 2-D** — 尚未開始（球場巡禮徽章 / 年度回顧頁 / 成就 toast）
+- **Phase 2-A ✅ 已實作**（2026-04-23）
+  - 球場巡禮徽章 4 欄網格（11 球場 + 1 bonus 進度環）
+  - visited 右下角半透明球場印章（`bb-checkin` sprite）+ 主隊 logo 識別 + 每座戰績
+  - 同步把「我的」tab 從單頁 stack 升級為 sub-tabs 個人中心殼（統計 / 徽章 / 打卡紀錄 / 收藏 4 tab）
+  - 全站 hero 加「哈囉，XX 迷 👋」招呼語
+- **Phase 2-C / 2-D** — 尚未開始（年度回顧頁 / 成就 toast）
 - **Phase 3-6** — 尚未開始
 
 實作細節見 [features.md 個人化功能章節](features.md)，UI 紀錄與教訓見 [uidesign-changelog.md](uidesign-changelog.md)。
@@ -75,7 +80,7 @@
 
 ### 功能
 
-- ⬜ **球場巡禮徽章**（Phase 2-A）：11 座球場收集進度（已打卡亮色、未去灰階 + 剪影）
+- ✅ **球場巡禮徽章**（Phase 2-A）：11 座球場收集進度 4 欄網格（大巨蛋、天母、新莊、樂天桃園、洲際、斗六、嘉義市、亞太主、澄清湖、花蓮、台東 + 1 bonus 進度環）。已打卡 visited = 暖色漸層底 + 赤陶橙 2px 邊框 + 右下角半透明球場印章（`bb-checkin` sprite，與打卡功能同 icon）；未去 locked = 奶茶灰虛線。有明確主場主隊的 6 座於球場名前顯示隊徽（味全 / 富邦 / 樂天 / 兄弟 / 統一 / 台鋼），共用場館（大巨蛋）+ 4 座副主場（嘉義市、斗六、花蓮、台東）不顯示隊徽。visited 卡顯示「最近打卡日期 · 主隊戰績」；bonus 格顯示收集進度環 X/11。搭配 `.my-view` 頂端 `field-note` 顯示「你最常去 XX，N 次」
 - ✅ **現場戰績卡**（Phase 2-B，整合進 E2 大卡）：「你在現場時，味全龍的戰績 .625（5 勝 3 敗 0 和）」+ 主隊賽季近 10 場 dot + 下一場 + 現場見證 field note
 - ✅ **Streak 指標**（Phase 2-B，整合為 E2 大卡 header pill）：主隊出賽 + 有打卡場次的 current 連勝/連敗（count ≥ 2 才顯示）
 - ⬜ **我的 2026 球季回顧頁**（Phase 2-C，獨立 URL `/me/2026`）：

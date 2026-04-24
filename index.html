@@ -63,6 +63,7 @@ body { font-family: 'Inter', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; b
 /* ── Hero ── */
 .hero { display: flex; align-items: center; justify-content: center; padding: 52px 40px 48px; background: #FFF; position: relative; }
 .hero-content { text-align: center; }
+.hero-greet { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; font-size: 15px; font-weight: 500; letter-spacing: 1.5px; color: #C2573A; margin-bottom: 6px; }
 .hero-eyebrow { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; font-size: 14px; font-weight: 500; letter-spacing: 2px; color: #B8A692; margin-bottom: 10px; }
 .hero h1 { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; font-size: 56px; font-weight: 500; color: #3D3122; letter-spacing: 4px; margin-bottom: 6px; line-height: 1.1; }
 .hero-info { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; display: inline-flex; align-items: center; gap: 14px; background: #FFF9F0; border: 1px solid #F0DFB8; border-radius: 22px; padding: 10px 22px; margin-top: 20px; flex-wrap: wrap; justify-content: center; }
@@ -475,6 +476,71 @@ button.card-weather.clickable:active { transform: scale(0.96); }
   .bc-header { flex-wrap: wrap; gap: 12px; }
   .bc-num { font-size: 48px; }
 }
+
+/* 「我的」個人中心殼：sub-tabs + panels（頁面 hero 的招呼語放在全站 hero-greet 中）*/
+.my-tabs { display: flex; align-items: center; gap: 2px; border-bottom: 1px solid #E8DDBE; margin: 0 auto 24px; padding: 0 8px; max-width: 1200px; overflow-x: auto; }
+.my-tab { background: transparent; border: none; padding: 12px 22px 10px; font-family: inherit; font-size: 14px; color: #9B8E7E; cursor: pointer; border-bottom: 3px solid transparent; transition: color 0.2s, border-color 0.2s; white-space: nowrap; letter-spacing: 0.5px; }
+.my-tab:hover { color: #6B5F50; }
+.my-tab.active { color: #C2573A; font-weight: 500; border-bottom-color: #C2573A; }
+
+.my-tab-panels { position: relative; }
+.my-tab-panel { display: none; }
+.my-tab-panel.active { display: block; }
+
+.my-placeholder { max-width: 560px; margin: 40px auto; text-align: center; padding: 60px 20px; color: #9B8E7E; }
+.my-placeholder-icon { font-size: 44px; margin-bottom: 18px; line-height: 1; }
+.my-placeholder-title { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; font-size: 16px; color: #6B5F50; margin-bottom: 10px; letter-spacing: 1px; font-weight: 500; }
+.my-placeholder-desc { font-size: 13px; line-height: 1.8; max-width: 360px; margin: 0 auto; }
+
+/* Phase 2-A 球場巡禮徽章 */
+.vp-card { background: linear-gradient(135deg, #FFFEFB 0%, #FFF8EA 100%); border: 1px solid #F0E8DB; border-radius: 24px; padding: 28px 28px 32px; box-shadow: 0 2px 12px rgba(138, 120, 99, 0.08); }
+.vp-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; gap: 16px; flex-wrap: wrap; }
+.vp-header-l { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.vp-header-l h3 { margin: 0; font-size: 17px; font-weight: 500; letter-spacing: 1px; color: #4A3728; font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; }
+.vp-header-ic { width: 26px; height: 26px; object-fit: contain; }
+.vp-header-r { display: flex; align-items: center; gap: 12px; }
+.vp-progress-num { font-family: 'Inter', sans-serif; font-weight: 700; color: #C2573A; font-size: 22px; letter-spacing: 0.5px; }
+.vp-progress-num .sml { font-size: 12px; color: #9B8E7E; font-weight: 500; margin-left: 2px; }
+.vp-bar { width: 120px; height: 6px; border-radius: 4px; background: #F0E3CA; overflow: hidden; }
+.vp-bar-fill { height: 100%; background: linear-gradient(90deg, #E2A36C 0%, #C2573A 100%); border-radius: 4px; transition: width 0.4s; }
+.vp-field-note { display: inline-flex; align-items: center; gap: 8px; background: #FFF5E6; border: 1px solid #F0D9B5; padding: 7px 16px; border-radius: 20px; font-size: 13px; color: #4A3728; margin: 0 0 18px; }
+.vp-field-dot { width: 6px; height: 6px; border-radius: 50%; background: #C2573A; }
+.vp-field-note b { color: #C2573A; font-weight: 500; }
+.vp-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.vp-cell { min-height: 210px; border-radius: 18px; padding: 22px 12px 18px; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 10px; text-align: center; position: relative; transition: transform 0.2s, box-shadow 0.2s; background: linear-gradient(140deg, #FFF5DC 0%, #FFFBEE 55%, #FFFEFA 100%); border: 2px solid #E2A36C; box-shadow: 0 3px 14px rgba(226, 163, 108, 0.22), inset 0 0 0 1px rgba(255, 255, 255, 0.6); overflow: hidden; }
+.vp-cell:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(226, 163, 108, 0.32), inset 0 0 0 1px rgba(255, 255, 255, 0.6); }
+.vp-cell.locked { background: #F2EBDA; border: 1.5px dashed #CBB999; box-shadow: none; }
+.vp-cell.locked:hover { box-shadow: none; }
+.vp-cell.bonus { background: linear-gradient(135deg, #FFF5E0 0%, #FDE3CB 100%); border: 1.5px solid #E2A36C; color: #C2573A; justify-content: center; gap: 8px; box-shadow: none; }
+.vp-cell.bonus:hover { box-shadow: none; }
+.vp-icon { width: 68px; height: 68px; display: flex; align-items: center; justify-content: center; }
+.vp-icon img { width: 100%; height: 100%; object-fit: contain; }
+.vp-cell.locked .vp-icon img { filter: grayscale(1) opacity(0.45); }
+.vp-title { display: inline-flex; align-items: center; gap: 6px; font-size: 15px; font-weight: 500; letter-spacing: 0.5px; color: #4A3728; margin-top: 2px; font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; }
+.vp-title img { width: 22px; height: 22px; object-fit: contain; border-radius: 50%; flex-shrink: 0; }
+.vp-cell.locked .vp-title { color: #8F7F6A; }
+.vp-cell.locked .vp-title img { filter: grayscale(0.5) opacity(0.6); }
+.vp-count { font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 700; color: #C2573A; letter-spacing: 0.3px; margin-top: 2px; }
+.vp-count .unit { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; font-size: 12px; color: #6B5F50; font-weight: 500; margin-left: 3px; }
+.vp-meta { font-size: 11px; color: #9B8E7E; line-height: 1.5; letter-spacing: 0.3px; }
+.vp-cell.locked .vp-meta { color: #BAA98A; }
+.vp-cell .vp-meta.locked-only { margin-top: auto; padding-bottom: 2px; }
+.vp-chip { position: absolute; bottom: 8px; right: 8px; width: 72px; height: 72px; color: #C2573A; opacity: 0.28; transform: rotate(8deg); pointer-events: none; z-index: 1; }
+.vp-chip svg { width: 100%; height: 100%; }
+.vp-ring-wrap { position: relative; width: 72px; height: 72px; }
+.vp-ring-wrap svg { transform: rotate(-90deg); }
+.vp-ring-txt { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 17px; color: #C2573A; }
+.vp-cell.bonus .vp-title { color: #C2573A; margin-top: 6px; }
+.vp-cell.bonus .vp-meta { color: #A87855; }
+
+@media (max-width: 900px) { .vp-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 600px) { .vp-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 768px) {
+  .vp-card { padding: 22px 18px 26px; }
+  .vp-chip { width: 56px; height: 56px; }
+  .my-tab { padding: 10px 14px 8px; font-size: 13px; }
+  .hero-greet { font-size: 13px; letter-spacing: 1px; }
+}
 </style>
 </head>
 <body>
@@ -594,6 +660,7 @@ button.card-weather.clickable:active { transform: scale(0.96); }
     </svg>
   </div>
   <div class="hero-content">
+    <div class="hero-greet" id="hero-greet" style="display:none"></div>
     <div class="hero-eyebrow">中華職棒一軍例行賽 · 2026</div>
     <h1>進場倒數</h1>
     <div class="hero-info">
@@ -720,12 +787,8 @@ button.card-weather.clickable:active { transform: scale(0.96); }
 <table style="display:none"><tbody id="tbody"></tbody></table>
 <div id="empty-table" style="display:none"></div>
 
-<!-- Phase 2-B: 我的（戰績 Streak 頁籤） -->
+<!-- 「我的」個人中心（Phase 1-D 個人中心殼 + Phase 2-A 徽章 + Phase 2-B 戰績） -->
 <div class="my-view" id="my-view" style="display:none">
-  <div class="section-header">
-    <span class="section-header-title">我的看球故事</span>
-    <span class="section-header-line"></span>
-  </div>
   <div id="my-view-body"></div>
 </div>
 
@@ -739,6 +802,7 @@ button.card-weather.clickable:active { transform: scale(0.96); }
   </div>
   <div>CPBL 2026 · 享受每一場比賽的美好時光</div>
   <div class="footer-copy">資料來源：中華職棒大聯盟</div>
+  <div class="footer-copy">球場圖示：<a href="https://www.flaticon.com/free-icon/stadium_484466" target="_blank" rel="noopener" style="color:#6B5F50; text-decoration:underline;">Freepik</a>（來自 Flaticon）</div>
 </div>
 
 </div>
@@ -1989,9 +2053,32 @@ function updateHeroMainTeamStats() {
   stat.style.display = '';
 }
 
+const TEAM_FAN_NICKNAME = {
+  '中信兄弟': '兄弟迷',
+  '統一7-ELEVEn獅': '獅迷',
+  '樂天桃猿': '猿迷',
+  '富邦悍將': '悍將迷',
+  '味全龍': '龍迷',
+  '台鋼雄鷹': '雄鷹迷',
+};
+
+function updateHeroGreet() {
+  const team = userState.profile.mainTeam;
+  const el = document.getElementById('hero-greet');
+  if (!el) return;
+  if (!team) {
+    el.style.display = 'none';
+    return;
+  }
+  const nickname = TEAM_FAN_NICKNAME[team] || '球迷';
+  el.textContent = '哈囉，' + nickname + ' 👋';
+  el.style.display = '';
+}
+
 function updateMainTeamUI() {
   updateNavMainTeamUI();
   updateHeroMainTeamStats();
+  updateHeroGreet();
 }
 
 // ── 篩選記憶（Phase 1）──
@@ -2375,6 +2462,10 @@ document.getElementById('nav-mainteam').addEventListener('click', function(e) {
   const action = e.target.closest('[data-main-action]')?.dataset.mainAction;
   if (action === 'setup' || action === 'switch') showMainTeamModal();
 });
+document.getElementById('my-view-body').addEventListener('click', function(e) {
+  const action = e.target.closest('[data-main-action]')?.dataset.mainAction;
+  if (action === 'setup' || action === 'switch') showMainTeamModal();
+});
 
 // Status toggle
 document.querySelectorAll('#f-status .toggle-btn').forEach(btn => {
@@ -2461,6 +2552,8 @@ function calcMainTeamFieldStats() {
   return { total: wins + losses + ties, wins, losses, ties };
 }
 
+let currentMyTab = 'stats';
+
 function renderMyView() {
   const body = document.getElementById('my-view-body');
   if (!body) return;
@@ -2468,16 +2561,179 @@ function renderMyView() {
   const checkinsCount = Object.keys(userState.checkins).length;
   if (!mainTeam) {
     body.innerHTML = renderMyEmptyState('noTeam');
-  } else if (checkinsCount === 0) {
-    body.innerHTML = renderMyEmptyState('noCheckins');
-  } else {
-    const stats = calcMainTeamFieldStats();
-    if (stats.total === 0) {
-      body.innerHTML = renderMyEmptyState('noMainTeamCheckins');
-    } else {
-      body.innerHTML = renderMainTeamBigCard(stats);
-    }
+    return;
   }
+  if (checkinsCount === 0) {
+    body.innerHTML = renderMyEmptyState('noCheckins');
+    return;
+  }
+  body.innerHTML = renderMyShell();
+  bindMyTabEvents();
+}
+
+function renderMyShell() {
+  const stats = calcMainTeamFieldStats();
+  const statsPanelHtml = stats.total === 0
+    ? renderMyEmptyState('noMainTeamCheckins')
+    : renderMainTeamBigCard(stats);
+  const badgesPanelHtml = renderVenuePilgrimage();
+  const timelinePanelHtml = renderMyPlaceholder('timeline');
+  const favoritesPanelHtml = renderMyPlaceholder('favorites');
+
+  const cls = tab => 'my-tab' + (currentMyTab === tab ? ' active' : '');
+  const panelCls = tab => 'my-tab-panel' + (currentMyTab === tab ? ' active' : '');
+
+  return '<nav class="my-tabs">' +
+      '<button type="button" class="' + cls('stats') + '" data-my-tab="stats">統計</button>' +
+      '<button type="button" class="' + cls('badges') + '" data-my-tab="badges">徽章</button>' +
+      '<button type="button" class="' + cls('timeline') + '" data-my-tab="timeline">打卡紀錄</button>' +
+      '<button type="button" class="' + cls('favorites') + '" data-my-tab="favorites">收藏</button>' +
+    '</nav>' +
+    '<div class="my-tab-panels">' +
+      '<div class="' + panelCls('stats') + '" data-my-panel="stats">' + statsPanelHtml + '</div>' +
+      '<div class="' + panelCls('badges') + '" data-my-panel="badges">' + badgesPanelHtml + '</div>' +
+      '<div class="' + panelCls('timeline') + '" data-my-panel="timeline">' + timelinePanelHtml + '</div>' +
+      '<div class="' + panelCls('favorites') + '" data-my-panel="favorites">' + favoritesPanelHtml + '</div>' +
+    '</div>';
+}
+
+function renderMyPlaceholder(kind) {
+  const data = {
+    timeline: { icon: '📅', title: '打卡紀錄', desc: '你每一場進場比賽的時間軸（評分、心得、照片），規劃中。' },
+    favorites: { icon: '⭐', title: '收藏場次', desc: '你從賽程加星號的未來比賽一覽，即將推出。' },
+  }[kind];
+  if (!data) return '';
+  return '<div class="my-placeholder">' +
+    '<div class="my-placeholder-icon">' + data.icon + '</div>' +
+    '<div class="my-placeholder-title">' + data.title + '</div>' +
+    '<div class="my-placeholder-desc">' + data.desc + '</div>' +
+  '</div>';
+}
+
+function bindMyTabEvents() {
+  document.querySelectorAll('.my-tab').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const target = this.dataset.myTab;
+      if (!target || target === currentMyTab) return;
+      currentMyTab = target;
+      document.querySelectorAll('.my-tab').forEach(b => b.classList.toggle('active', b.dataset.myTab === target));
+      document.querySelectorAll('.my-tab-panel').forEach(p => p.classList.toggle('active', p.dataset.myPanel === target));
+    });
+  });
+}
+
+// Phase 2-A 球場巡禮徽章
+const VENUES_2026 = ['大巨蛋', '天母', '新莊', '樂天桃園', '洲際', '斗六', '嘉義市', '亞太主', '澄清湖', '花蓮', '台東'];
+const VENUE_HOME_TEAM = {
+  '天母': '味全龍',
+  '新莊': '富邦悍將',
+  '樂天桃園': '樂天桃猿',
+  '洲際': '中信兄弟',
+  '亞太主': '統一7-ELEVEn獅',
+  '澄清湖': '台鋼雄鷹',
+};
+
+function calcVenueStats(venue) {
+  const mainTeam = userState.profile.mainTeam;
+  let count = 0;
+  let lastDate = null;
+  let wins = 0, losses = 0;
+  Object.keys(userState.checkins).forEach(sno => {
+    const g = allGames.find(x => x.sno === sno);
+    if (!g || g.field !== venue) return;
+    count++;
+    if (!lastDate || g.date > lastDate) lastDate = g.date;
+    if (!mainTeam || !g.completed || g.postponed) return;
+    const result = gameResultForTeam(g, mainTeam);
+    if (result === 'win') wins++;
+    else if (result === 'loss') losses++;
+  });
+  return { count, lastDate, wins, losses };
+}
+
+function findTopCheckinVenue() {
+  const counts = {};
+  Object.keys(userState.checkins).forEach(sno => {
+    const g = allGames.find(x => x.sno === sno);
+    if (!g) return;
+    counts[g.field] = (counts[g.field] || 0) + 1;
+  });
+  let top = null, topCount = 0;
+  Object.keys(counts).forEach(v => {
+    if (counts[v] > topCount) { top = v; topCount = counts[v]; }
+  });
+  return top ? { venue: top, count: topCount } : null;
+}
+
+function renderVenuePilgrimage() {
+  const mainTeam = userState.profile.mainTeam;
+  const mainTeamShort = mainTeam ? (TEAM_SHORT[mainTeam] || mainTeam) : null;
+  const visitedCount = VENUES_2026.filter(v => calcVenueStats(v).count > 0).length;
+  const total = VENUES_2026.length;
+  const progressPct = Math.round((visitedCount / total) * 100);
+  const topVenue = findTopCheckinVenue();
+  const fieldNoteHtml = topVenue ?
+    '<div class="vp-field-note"><span class="vp-field-dot"></span>你最常去 <b>' + topVenue.venue + '</b>，已達成 <b>' + topVenue.count + ' 次</b></div>' : '';
+
+  const stadiumIconUrl = 'icon-preview/icons/stadium-flaticon-484466.png';
+  let cellsHtml = '';
+  VENUES_2026.forEach(venue => {
+    const homeTeam = VENUE_HOME_TEAM[venue];
+    const logoUrl = homeTeam ? TEAM_LOGO[homeTeam] : null;
+    const logoHtml = logoUrl ? '<img src="' + logoUrl + '" alt="">' : '';
+    const stats = calcVenueStats(venue);
+    if (stats.count > 0) {
+      const lastShort = stats.lastDate ? stats.lastDate.slice(5).replace('-', '/') : '';
+      let meta = '最近 ' + lastShort;
+      if (mainTeam && (stats.wins + stats.losses) > 0) {
+        meta += ' · ' + mainTeamShort + ' ' + stats.wins + '-' + stats.losses;
+      }
+      cellsHtml +=
+        '<div class="vp-cell">' +
+          '<span class="vp-chip"><svg><use href="#bb-checkin"/></svg></span>' +
+          '<div class="vp-icon"><img src="' + stadiumIconUrl + '" alt=""></div>' +
+          '<div class="vp-title">' + logoHtml + venue + '</div>' +
+          '<div class="vp-count">' + stats.count + '<span class="unit">次</span></div>' +
+          '<div class="vp-meta">' + meta + '</div>' +
+        '</div>';
+    } else {
+      cellsHtml +=
+        '<div class="vp-cell locked">' +
+          '<div class="vp-icon"><img src="' + stadiumIconUrl + '" alt=""></div>' +
+          '<div class="vp-title">' + logoHtml + venue + '</div>' +
+          '<div class="vp-meta locked-only">還沒去</div>' +
+        '</div>';
+    }
+  });
+  const circumference = 2 * Math.PI * 28;
+  const dashOffset = circumference * (1 - visitedCount / total);
+  cellsHtml +=
+    '<div class="vp-cell bonus">' +
+      '<div class="vp-ring-wrap">' +
+        '<svg width="72" height="72" viewBox="0 0 72 72">' +
+          '<circle cx="36" cy="36" r="28" fill="none" stroke="#F0E3CA" stroke-width="6"/>' +
+          '<circle cx="36" cy="36" r="28" fill="none" stroke="#C2573A" stroke-width="6" stroke-dasharray="' + circumference.toFixed(2) + '" stroke-dashoffset="' + dashOffset.toFixed(2) + '" stroke-linecap="round"/>' +
+        '</svg>' +
+        '<div class="vp-ring-txt">' + visitedCount + '/' + total + '</div>' +
+      '</div>' +
+      '<div class="vp-title">集滿 ' + total + ' 座</div>' +
+      '<div class="vp-meta">年度巡禮徽章</div>' +
+    '</div>';
+
+  return '<div class="vp-card">' +
+    '<div class="vp-header">' +
+      '<div class="vp-header-l">' +
+        '<img src="' + stadiumIconUrl + '" alt="" class="vp-header-ic">' +
+        '<h3>球場巡禮</h3>' +
+      '</div>' +
+      '<div class="vp-header-r">' +
+        '<span class="vp-progress-num">' + visitedCount + '<span class="sml"> / ' + total + '</span></span>' +
+        '<div class="vp-bar"><div class="vp-bar-fill" style="width:' + progressPct + '%"></div></div>' +
+      '</div>' +
+    '</div>' +
+    fieldNoteHtml +
+    '<div class="vp-grid">' + cellsHtml + '</div>' +
+  '</div>';
 }
 
 function calcMainTeamFieldStreak() {

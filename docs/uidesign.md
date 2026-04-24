@@ -57,6 +57,25 @@ CPBL 2026 進場倒數網站的設計決策與風格系統。實作紀錄與 Bug
 | 高鐵綠 | `#2B8A8A` | 高鐵按鈕 |
 | 未來綠 | `#4A8B5C` | 狀態提示 |
 
+### 球隊主色（single source of truth）
+
+**所有主隊色都以 [index.html](../index.html) 的 `getTeamColor()` 函式為準**（目前在 `index.html:2291`），其他地方（`.chip.active[data-team=]` CSS、`design/*.html` CSS vars）若與之不同步，以 `getTeamColor()` 為準，不一致的地方應視為 bug 修掉。
+
+| 球隊 | 主色 | 用於 |
+|------|------|------|
+| 中信兄弟 | `#FACD01` | chip、標準、card 名稱、主隊 dot |
+| 統一 7-ELEVEn 獅 | `#C0611A` | 同上 |
+| 樂天桃猿 | `#7B1A1A` | 同上 |
+| 富邦悍將 | `#2B5FC3` | 同上 |
+| 味全龍 | `#D8252D` | 同上 |
+| 台鋼雄鷹 | `#16794A` | 同上 |
+
+**使用規則**：
+
+- 取色時呼叫 `getTeamColor(隊名)`（JS）或用 `.chip.active[data-team=]` 的 CSS 規則，**不要自己寫死 hex**
+- 若要做主色淡底（例如球場徽章的主場上色），用 `color-mix(in srgb, <主色> 12%, #FFFAF0)` 保持奶茶底調性
+- 新增 preview / 視覺稿時，**先 grep `index.html` 的 `getTeamColor`**，不要抄 `design/phase1-2-preview.html` 的 CSS vars（那份可能過時）
+
 ## 圖示與插畫
 
 ### 方向：彩色插畫 > 線條圖示

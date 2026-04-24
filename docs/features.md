@@ -153,3 +153,72 @@ Header：主隊 logo + 名稱 + streak pill（條件 count ≥ 2 才顯示）
 | 勝 / 勝率 | 赤陶紅 `#C2573A` | `#1A6B3A` → `#C2573A`（台灣傳統紅=吉祥，跟站內主色呼應） |
 | 敗 | 深綠 `#1A6B3A` | `#B52828` → `#1A6B3A` |
 | 和 | 灰 `#9B8E7E` | 不變 |
+
+## 個人化功能（Phase 2-A · 球場巡禮徽章 + 個人中心殼）
+
+分支 `feat/phase2a-venue-badges`。在 Phase 2-B 的「我的」tab 內再擴充：
+
+### 個人中心殼（sub-tabs 架構）
+
+原本「我的」tab 是單卡直接顯示，這次改成 4 個 sub-tab 框架（對齊 `design/phase1-2-preview.html` 的 Phase 1-D 設計）：
+
+- **統計** — Phase 2-B 戰績大卡（預設 active）
+- **徽章** — Phase 2-A 球場巡禮（新）
+- **打卡紀錄** — placeholder（Phase 1-D 規劃中）
+- **收藏** — placeholder（即將推出）
+
+Tab 切換純 CSS（`.active` class toggle），無 re-render。URL hash 仍走 `#my`，sub-tab 狀態不持久（每次進入預設 `stats`）。
+
+### 全站 hero 招呼語
+
+`.hero-greet` 在全站頂部 hero 的「中華職棒一軍例行賽 · 2026」上方顯示「哈囉，XX 迷 👋」。
+- 只有設定主隊時才顯示，未設定自動隱藏
+- 主隊暱稱 map（`TEAM_FAN_NICKNAME`）：兄弟迷 / 獅迷 / 猿迷 / 悍將迷 / 龍迷 / 雄鷹迷
+- 全站可見（非限定「我的」tab），避免跟 `.my-view` 內容的主隊資訊重複
+
+### 球場巡禮徽章（`.vp-card`）
+
+4 欄 × 3 列網格填滿 `.my-view` 1200px 容器內側（11 球場 + 1 bonus 格）：
+
+- **球場清單**（`VENUES_2026`）：大巨蛋、天母、新莊、樂天桃園、洲際、斗六、嘉義市、亞太主、澄清湖、花蓮、台東
+- **主場主隊 map**（`VENUE_HOME_TEAM`）— 只有主場占比 ≥ 95% 的 6 座列入：
+  - 天母 → 味全龍 / 新莊 → 富邦悍將 / 樂天桃園 → 樂天桃猿 / 洲際 → 中信兄弟 / 亞太主 → 統一 7-ELEVEn 獅 / 澄清湖 → 台鋼雄鷹
+  - 大巨蛋（6 隊共用 28/19/17/14/12/10%）+ 4 座副主場（嘉義市、斗六、花蓮、台東）→ 無隊徽顯示
+
+### Cell 狀態
+
+**visited**：
+- 背景暖色漸層（`#FFF5DC` → `#FFFBEE` → `#FFFEFA`）
+- 2px 實線赤陶橙 `#E2A36C` 邊框
+- 柔光 shadow `0 3px 14px rgba(226, 163, 108, 0.22)`
+- **右下角球場印章**（bottom-right 72px `bb-checkin` sprite，opacity 0.28，rotate 8°，與 `.checkin-stamp` 同風格）
+- cell 內容：球場 icon（68px flaticon PNG）+ 主隊 logo + 球場名 + 去過次數 + 最近日期 / 主隊現場戰績
+
+**locked**：
+- 背景 `#F2EBDA`，1.5px 虛線 `#CBB999`，無 shadow
+- icon grayscale 0.45，球場名灰化
+- 底部「還沒去」，`margin-top: auto` 推到卡底
+
+**bonus 格**：
+- 漸層暖底，進度環 SVG（r=28px，6px stroke，赤陶紅弧 / 淡金底）
+- 中心顯示 `N/11`
+- 下方文字「集滿 11 座 · 年度巡禮徽章」
+
+### Field note
+
+`.vp-card` header 下方 pill：「你最常去 XX，已達成 N 次」
+- 從所有 checkins 統計球場次數取最高者
+- 與主隊無關（不管主隊是誰）
+
+### 資料邏輯
+
+- `calcVenueStats(venue)`：遍歷 `userState.checkins`，回傳 { count, lastDate, wins, losses }；W-L 只計算主隊出賽且已完賽的場次
+- `findTopCheckinVenue()`：跨球場統計，回傳最多次數的球場
+- 所有 render 即時 `document.querySelectorAll` 不做快取（`userState` 變動時 `renderMyView()` 重新渲染）
+
+### Production 注意
+
+- 球場 icon 用 `icon-preview/icons/stadium-flaticon-484466.png`（Flaticon Free 授權，footer 需 attribution）
+- `bb-checkin` sprite 已在主程式（line ~485），印章直接 `<use href="#bb-checkin"/>`
+- 主隊 logo 用 `TEAM_LOGO[team]` — 遠端 `cpbl.com.tw` 圖片
+- cpbl-planner.html 必須跟 index.html 保持同步
