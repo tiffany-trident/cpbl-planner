@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Phase 2-D · 成就 Toast confetti 對照</title>
+<style>
+  @font-face {
+    font-family: 'jf-openhuninn';
+    src: url('https://cdn.jsdelivr.net/gh/marsnow/open-huninn-font@1.1/font/jf-openhuninn.woff2') format('woff2'),
+         url('https://cdn.jsdelivr.net/gh/marsnow/open-huninn-font@1.1/font/jf-openhuninn.woff') format('woff');
+    font-display: swap;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: #FDFCFA;
+    color: #4A3728;
+    font-family: 'Noto Sans TC', -apple-system, sans-serif;
+    padding: 32px 20px 60px;
+  }
+  .page-hdr { max-width: 1080px; margin: 0 auto 20px; }
+  .page-hdr h1 { font-family: 'jf-openhuninn'; font-weight: 500; font-size: 28px; letter-spacing: 2px; margin: 0 0 6px; color: #3D3122; }
+  .page-hdr p { margin: 0; color: #8B7355; font-size: 13px; line-height: 1.6; }
+  .page-hdr code { background: #FDF6EE; padding: 1px 6px; border-radius: 4px; font-size: 12px; }
+
+  .canvas {
+    max-width: 1080px;
+    margin: 24px auto 0;
+    background: rgba(61,49,34,0.85);
+    border-radius: 24px;
+    padding: 40px 28px;
+  }
+  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; justify-items: center; }
+  @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
+
+  .variant { display: flex; flex-direction: column; gap: 10px; align-items: center; }
+  .variant-tag {
+    font-family: 'jf-openhuninn';
+    font-size: 12px;
+    color: #FFE6B8;
+    letter-spacing: 3px;
+    background: rgba(255,255,255,0.08);
+    padding: 4px 12px;
+    border-radius: 20px;
+  }
+
+  /* 共用 toast 樣式 */
+  .toast {
+    background: #FFF;
+    border-radius: 24px;
+    padding: 28px 32px 24px;
+    width: 360px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 12px 40px rgba(61,49,34,0.3);
+  }
+  .toast .deco {
+    display: flex; align-items: flex-end; justify-content: center;
+    height: 60px; width: 100%;
+  }
+  .toast .deco svg { display: block; }
+  .toast .badge {
+    width: 110px; height: 110px; border-radius: 50%;
+    background: #FDF6EE; border: 3px solid #C49A4A;
+    display: flex; align-items: center; justify-content: center;
+    color: #C2573A;
+    box-shadow: 0 6px 20px rgba(196,154,74,0.3);
+  }
+  .toast .badge img { width: 72px; height: 72px; }
+  .toast .tag { font-family: 'jf-openhuninn'; font-size: 11px; font-weight: 500; color: #C49A4A; letter-spacing: 5px; }
+  .toast h3 {
+    font-family: 'jf-openhuninn';
+    font-size: 26px; font-weight: 500;
+    color: #3D3122;
+    letter-spacing: 2px;
+    margin: 0;
+  }
+  .toast .divider { width: 40px; height: 2px; background: #C49A4A; border-radius: 1px; }
+  .toast .desc { font-size: 13px; color: #6B5444; margin: 0; }
+  .toast .count {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 7px 14px; border-radius: 20px;
+    background: #FDF6EE; color: #C2573A;
+    font-size: 12px; font-weight: 700;
+  }
+
+  /* deco-bb 變體單獨控制 gap */
+  .deco-bb { gap: 12px; }
+  .deco-bb svg { display: block; }
+
+  .footnote {
+    max-width: 1080px;
+    margin: 24px auto 0;
+    font-size: 12px;
+    color: #8B7355;
+    line-height: 1.7;
+  }
+  .footnote ul { padding-left: 18px; margin: 6px 0; }
+</style>
+</head>
+<body>
+
+<!-- bb-checkin sprite (來自 CLAUDE.md icon 表的正規球場 icon) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="bb-checkin" viewBox="0 0 512 512">
+      <g fill="currentColor">
+        <polygon points="280.402,153.66 256.008,129.275 231.606,153.66 256.008,178.063"/>
+        <polygon points="238.754,436.426 256.008,453.656 273.254,436.426 273.254,417.37 238.754,417.37"/>
+        <polygon points="369.403,291.465 393.797,315.851 418.19,291.465 393.797,267.063"/>
+        <polygon points="118.203,267.063 93.809,291.465 118.203,315.851 142.597,291.465"/>
+        <path d="M372.088,245.361l-69.985-69.984c-11.796,11.796-28.096,19.097-46.095,19.097 c-18.015,0-34.315-7.301-46.111-19.097l-69.976,69.984c11.796,11.789,19.089,28.097,19.089,46.104 c0,17.999-7.293,34.299-19.089,46.104l69.976,69.976c11.796-11.796,28.096-19.089,46.111-19.089 c17.999,0,34.299,7.293,46.095,19.089l69.985-69.976c-11.804-11.804-19.097-28.104-19.097-46.104 C352.99,273.459,360.283,257.151,372.088,245.361z M277.052,296.458h-44.669v-12.565h44.669V296.458z"/>
+        <path d="M511.871,256.717c-1.779-67.973-30.084-129.334-74.881-174.099C390.688,36.291,326.674,7.625,256.008,7.633 C185.326,7.625,121.312,36.291,75.009,82.618C30.212,127.383,1.907,188.744,0.128,256.717L0,261.79l233.096,233.088 c6.291,6.306,14.649,9.513,22.912,9.488c8.238,0.025,16.604-3.182,22.903-9.488L512,261.79L511.871,256.717z M262.21,478.194 c-1.747,1.739-3.927,2.564-6.202,2.572c-2.292-0.008-4.472-0.834-6.219-2.581L23.978,252.382 c2.837-59.75,28.112-113.459,67.732-153.079c42.104-42.088,100.06-68.06,164.298-68.069c64.23,0.008,122.178,25.981,164.29,68.069 c39.612,39.62,64.896,93.329,67.716,153.088L262.21,478.194z"/>
+      </g>
+    </symbol>
+    <!-- 棒球（白底 + 赤陶紅縫線，呼應 favicon） -->
+    <symbol id="bb-ball" viewBox="0 0 40 40">
+      <circle cx="20" cy="20" r="18" fill="#FFF8F0" stroke="#C2573A" stroke-width="1.5"/>
+      <path d="M 8 12 Q 20 16 32 12" fill="none" stroke="#C2573A" stroke-width="1.4" stroke-linecap="round"/>
+      <path d="M 8 28 Q 20 24 32 28" fill="none" stroke="#C2573A" stroke-width="1.4" stroke-linecap="round"/>
+      <g stroke="#C2573A" stroke-width="0.9" stroke-linecap="round">
+        <line x1="11" y1="11" x2="13" y2="13.5"/><line x1="14" y1="10.4" x2="16" y2="13"/>
+        <line x1="17" y1="10.1" x2="19" y2="12.7"/><line x1="20" y1="10" x2="22" y2="12.7"/>
+        <line x1="23" y1="10.1" x2="25" y2="12.7"/><line x1="26" y1="10.4" x2="28" y2="13"/>
+        <line x1="11" y1="29" x2="13" y2="26.5"/><line x1="14" y1="29.6" x2="16" y2="27"/>
+        <line x1="17" y1="29.9" x2="19" y2="27.3"/><line x1="20" y1="30" x2="22" y2="27.3"/>
+        <line x1="23" y1="29.9" x2="25" y2="27.3"/><line x1="26" y1="29.6" x2="28" y2="27"/>
+      </g>
+    </symbol>
+    <!-- 四角星（裝飾用） -->
+    <symbol id="bb-spark" viewBox="0 0 24 24">
+      <path d="M12 2 L13.6 10.4 L22 12 L13.6 13.6 L12 22 L10.4 13.6 L2 12 L10.4 10.4 Z" fill="currentColor"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="page-hdr">
+  <h1>Phase 2-D · 成就 Toast confetti 對照</h1>
+  <p>四種「成就解鎖 Lightbox」上方裝飾的呈現方式對照。其餘元素（圓形球場徽章、字體、按鈕）皆已套用現行規則：<code>jf-openhuninn</code> 標題 · <code>bb-checkin</code> sprite · 不使用 Noto Serif TC / Flaticon。</p>
+</header>
+
+<section class="canvas">
+  <div class="grid">
+
+    <!-- A: 光線放射 -->
+    <div class="variant">
+      <div class="variant-tag">A · 光線放射</div>
+      <div class="toast">
+        <div class="deco">
+          <svg width="220" height="60" viewBox="0 0 220 60" aria-hidden="true">
+            <g stroke-linecap="round" fill="none">
+              <line x1="110" y1="58" x2="110" y2="6" stroke="#C2573A" stroke-width="4"/>
+              <line x1="110" y1="58" x2="92" y2="10" stroke="#C49A4A" stroke-width="3.5"/>
+              <line x1="110" y1="58" x2="128" y2="10" stroke="#C49A4A" stroke-width="3.5"/>
+              <line x1="110" y1="58" x2="74" y2="20" stroke="#FACD01" stroke-width="3"/>
+              <line x1="110" y1="58" x2="146" y2="20" stroke="#FACD01" stroke-width="3"/>
+              <line x1="110" y1="58" x2="56" y2="32" stroke="#C2573A" stroke-width="2.8"/>
+              <line x1="110" y1="58" x2="164" y2="32" stroke="#C2573A" stroke-width="2.8"/>
+              <line x1="110" y1="58" x2="38" y2="44" stroke="#C49A4A" stroke-width="2.5"/>
+              <line x1="110" y1="58" x2="182" y2="44" stroke="#C49A4A" stroke-width="2.5"/>
+            </g>
+          </svg>
+        </div>
+        <div class="badge"><img src="../icon-preview/icons/stadium-flaticon-484466.png" alt=""></div>
+        <div class="tag">成就解鎖</div>
+        <h3>球場巡禮 +1</h3>
+        <div class="divider"></div>
+        <div class="desc">第一次去 天母棒球場！</div>
+        <div class="count">🏆 你已走訪 4 座球場</div>
+      </div>
+    </div>
+
+    <!-- B: 手繪緞帶 -->
+    <div class="variant">
+      <div class="variant-tag">B · 手繪緞帶</div>
+      <div class="toast">
+        <div class="deco">
+          <svg width="220" height="60" viewBox="0 0 220 60" aria-hidden="true">
+            <path d="M 8 32 Q 50 8 92 32 T 176 32 T 214 28" fill="none" stroke="#C2573A" stroke-width="4" stroke-linecap="round"/>
+            <path d="M 8 16 Q 60 50 112 16 T 214 16" fill="none" stroke="#C49A4A" stroke-width="3.6" stroke-linecap="round"/>
+            <path d="M 8 48 Q 50 24 112 48 T 214 42" fill="none" stroke="#4A8B5C" stroke-width="3.6" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="badge"><img src="../icon-preview/icons/stadium-flaticon-484466.png" alt=""></div>
+        <div class="tag">成就解鎖</div>
+        <h3>球場巡禮 +1</h3>
+        <div class="divider"></div>
+        <div class="desc">第一次去 天母棒球場！</div>
+        <div class="count">🏆 你已走訪 4 座球場</div>
+      </div>
+    </div>
+
+    <!-- C: 棒球周邊散落 -->
+    <div class="variant">
+      <div class="variant-tag">C · 棒球周邊散落</div>
+      <div class="toast">
+        <div class="deco">
+          <svg width="220" height="60" viewBox="0 0 220 60" aria-hidden="true">
+            <!-- Bat -->
+            <g transform="translate(22 28) rotate(40)">
+              <rect x="-20" y="-3" width="32" height="6" rx="2.5" fill="#C49A4A" stroke="#8B6A2E" stroke-width="0.8"/>
+              <rect x="-20" y="-4" width="6" height="8" rx="1.2" fill="#8B6A2E"/>
+            </g>
+            <!-- Ball -->
+            <g transform="translate(64 28)">
+              <circle r="12" fill="#FFF8F0" stroke="#C2573A" stroke-width="1.4"/>
+              <path d="M -9 -4 Q 0 -1 9 -4" fill="none" stroke="#C2573A" stroke-width="1.1" stroke-linecap="round"/>
+              <path d="M -9 4 Q 0 1 9 4" fill="none" stroke="#C2573A" stroke-width="1.1" stroke-linecap="round"/>
+            </g>
+            <!-- Glove -->
+            <g transform="translate(108 30)">
+              <path d="M -14 8 Q -18 -10 0 -12 Q 16 -10 16 4 Q 16 12 8 14 L -10 14 Z" fill="#A87850" stroke="#5C3D24" stroke-width="1"/>
+              <line x1="-6" y1="-6" x2="-6" y2="8" stroke="#5C3D24" stroke-width="0.9"/>
+              <line x1="2" y1="-8" x2="2" y2="8" stroke="#5C3D24" stroke-width="0.9"/>
+              <line x1="9" y1="-6" x2="9" y2="8" stroke="#5C3D24" stroke-width="0.9"/>
+            </g>
+            <!-- Home plate -->
+            <g transform="translate(154 30) rotate(-12)">
+              <path d="M -13 -5 L 13 -5 L 13 2 L 0 12 L -13 2 Z" fill="#FFF8F0" stroke="#3D3122" stroke-width="1.4"/>
+            </g>
+            <!-- Cap -->
+            <g transform="translate(195 30)">
+              <path d="M -13 4 Q -13 -8 0 -8 Q 13 -8 13 4 L 13 6 L -13 6 Z" fill="#C2573A"/>
+              <ellipse cx="7" cy="6" rx="14" ry="3" fill="#C2573A"/>
+              <circle cx="0" cy="-3" r="1.6" fill="#FFF8F0"/>
+            </g>
+          </svg>
+        </div>
+        <div class="badge"><img src="../icon-preview/icons/stadium-flaticon-484466.png" alt=""></div>
+        <div class="tag">成就解鎖</div>
+        <h3>球場巡禮 +1</h3>
+        <div class="divider"></div>
+        <div class="desc">第一次去 天母棒球場！</div>
+        <div class="count">🏆 你已走訪 4 座球場</div>
+      </div>
+    </div>
+
+    <!-- D: 小旗串 -->
+    <div class="variant">
+      <div class="variant-tag">D · 小旗串</div>
+      <div class="toast">
+        <div class="deco">
+          <svg width="220" height="60" viewBox="0 0 220 60" aria-hidden="true">
+            <line x1="8" y1="18" x2="212" y2="18" stroke="#8B7355" stroke-width="1.6" stroke-linecap="round"/>
+            <polygon points="18,18 32,18 25,42" fill="#C2573A"/>
+            <polygon points="40,18 54,18 47,42" fill="#FACD01"/>
+            <polygon points="62,18 76,18 69,42" fill="#4A8B5C"/>
+            <polygon points="84,18 98,18 91,42" fill="#2B8A8A"/>
+            <polygon points="106,18 120,18 113,42" fill="#C2573A"/>
+            <polygon points="128,18 142,18 135,42" fill="#FACD01"/>
+            <polygon points="150,18 164,18 157,42" fill="#4A8B5C"/>
+            <polygon points="172,18 186,18 179,42" fill="#2B8A8A"/>
+            <polygon points="194,18 208,18 201,42" fill="#C2573A"/>
+          </svg>
+        </div>
+        <div class="badge"><img src="../icon-preview/icons/stadium-flaticon-484466.png" alt=""></div>
+        <div class="tag">成就解鎖</div>
+        <h3>球場巡禮 +1</h3>
+        <div class="divider"></div>
+        <div class="desc">第一次去 天母棒球場！</div>
+        <div class="count">🏆 你已走訪 4 座球場</div>
+      </div>
+    </div>
+
+    <!-- E: 自繪幾何粒子（原 C） -->
+    <div class="variant">
+      <div class="variant-tag">E · 幾何粒子</div>
+      <div class="toast">
+        <div class="deco">
+          <svg width="220" height="60" viewBox="0 0 220 60" aria-hidden="true">
+            <!-- 上排 -->
+            <path d="M14 22 q4 -8 8 0 t8 0" fill="none" stroke="#C2573A" stroke-width="2.4" stroke-linecap="round"/>
+            <polygon points="50,12 58,28 42,28" fill="#FACD01" transform="rotate(-12 50 20)"/>
+            <circle cx="78" cy="16" r="4.5" fill="#4A8B5C"/>
+            <g transform="translate(96 8)" fill="#C49A4A"><use href="#bb-spark"/></g>
+            <line x1="132" y1="10" x2="140" y2="24" stroke="#2B8A8A" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="156" cy="16" r="4.5" fill="none" stroke="#C2573A" stroke-width="2"/>
+            <polygon points="174,30 182,14 190,30" fill="#D8252D" transform="rotate(20 182 22)"/>
+            <path d="M198 32 q3 -7 6 0" fill="none" stroke="#C49A4A" stroke-width="2.4" stroke-linecap="round"/>
+            <!-- 下排小粒子 -->
+            <circle cx="32" cy="44" r="2.6" fill="#C49A4A"/>
+            <circle cx="64" cy="46" r="2.2" fill="#C2573A"/>
+            <line x1="106" y1="40" x2="112" y2="48" stroke="#4A8B5C" stroke-width="2.2" stroke-linecap="round"/>
+            <circle cx="142" cy="44" r="2.6" fill="#FACD01"/>
+            <circle cx="186" cy="46" r="2.2" fill="#2B8A8A"/>
+          </svg>
+        </div>
+        <div class="badge"><img src="../icon-preview/icons/stadium-flaticon-484466.png" alt=""></div>
+        <div class="tag">成就解鎖</div>
+        <h3>球場巡禮 +1</h3>
+        <div class="divider"></div>
+        <div class="desc">第一次去 天母棒球場！</div>
+        <div class="count">🏆 你已走訪 4 座球場</div>
+      </div>
+    </div>
+
+    <!-- F: 棒球+星星（原 D） -->
+    <div class="variant">
+      <div class="variant-tag">F · 棒球+星星</div>
+      <div class="toast">
+        <div class="deco deco-bb">
+          <svg width="22" height="22" style="color:#C49A4A"><use href="#bb-spark"/></svg>
+          <svg width="32" height="32"><use href="#bb-ball"/></svg>
+          <svg width="28" height="28" style="color:#C2573A"><use href="#bb-spark"/></svg>
+          <svg width="32" height="32"><use href="#bb-ball"/></svg>
+          <svg width="22" height="22" style="color:#C49A4A"><use href="#bb-spark"/></svg>
+        </div>
+        <div class="badge"><img src="../icon-preview/icons/stadium-flaticon-484466.png" alt=""></div>
+        <div class="tag">成就解鎖</div>
+        <h3>球場巡禮 +1</h3>
+        <div class="divider"></div>
+        <div class="desc">第一次去 天母棒球場！</div>
+        <div class="count">🏆 你已走訪 4 座球場</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="footnote">
+  <ul>
+    <li><strong>A · 光線放射</strong>：從球場徽章上方放射的卡通光芒線，赤陶紅 + 金 + 兄弟黃。「解鎖瞬間」感最強，動畫可做光線一筆筆畫出。</li>
+    <li><strong>B · 手繪緞帶</strong>：3 條交錯波浪緞帶（赤陶紅 / 金 / 草綠）。最接近生日卡 / 童趣感，與卡通方向最一致。</li>
+    <li><strong>C · 棒球周邊散落</strong>：球棒、棒球、手套、本壘板、球帽 SVG 散排。主題感最強，但元素多視覺較雜。</li>
+    <li><strong>D · 小旗串</strong>：一串卡通三角彩旗（5 色品牌色循環）。熱鬧感、開幕式氛圍，視覺對稱平衡。</li>
+    <li><strong>E · 幾何粒子</strong>：上排大粒子 + 下排小粒子混搭（圓 / 三角 / 四角星 / 短斜線 / 緞帶）。最 on-brand、可動畫逐顆飄落。</li>
+    <li><strong>F · 棒球+星星</strong>：自繪棒球（呼應 favicon）+ 四角星交錯。呼應專案主題；棒球元素與下方球場徽章同主題。</li>
+  </ul>
+</div>
+
+</body>
+</html>
