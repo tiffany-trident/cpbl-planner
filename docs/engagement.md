@@ -18,7 +18,12 @@
   - 我的 → 收藏 sub-tab 列表（即將到來 / 已過分組，row 格式：日期 + 對戰 + 場地 + ★）
   - 篩選區「收藏／打卡」從 2 checkbox 改為 3-段 segment（全部/只看收藏/只看已打卡，互斥）
   - lastFilter schema 加 ownership 欄位，自動遷移舊 favoritesOnly/checkinsOnly
-  - Phase 1-D「打卡紀錄」tab 仍 placeholder，留給下一次 iteration
+- **Phase 1-D 打卡紀錄 tab ✅ 已實作**（2026-04-27）
+  - 我的 → 打卡紀錄 sub-tab 列表，依日期由近到遠排序
+  - 摘要 pill：已打卡場數 · 最常去球場（≥2 次才顯示）· 平均星評
+  - 每列：日期方塊 + 比分對戰 + meta 行（球場 · ★ · 座位 chips）+ 同行者 + 心得
+  - 點 row（或 Enter / Space）開啟既有打卡 modal 編輯／刪除
+  - 空狀態使用 `bb-checkin` sprite，與打卡功能 icon 一致
 - **Phase 2-C / 2-D** — 尚未開始（年度回顧頁 / 成就 toast）
 - **Phase 3-6** — 尚未開始
 
