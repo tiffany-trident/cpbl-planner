@@ -164,8 +164,8 @@ Header：主隊 logo + 名稱 + streak pill（條件 count ≥ 2 才顯示）
 
 - **統計** — Phase 2-B 戰績大卡（預設 active）
 - **徽章** — Phase 2-A 球場巡禮（新）
-- **打卡紀錄** — placeholder（Phase 1-D 規劃中）
-- **收藏** — placeholder（即將推出）
+- **打卡紀錄** — Phase 1-D 打卡列表（已實作）
+- **收藏** — Phase 1-D 收藏列表（已實作）
 
 Tab 切換純 CSS（`.active` class toggle），無 re-render。URL hash 仍走 `#my`，sub-tab 狀態不持久（每次進入預設 `stats`）。
 
@@ -265,3 +265,33 @@ Tab 切換純 CSS（`.active` class toggle），無 re-render。URL hash 仍走 
 - `.btn-reset` padding 10/22 → 8/16
 
 總寬從 ~1084px 壓到 ~930px，1200px 容器內可平鋪成一列。
+
+## 個人化功能（Phase 1-D 打卡紀錄 tab）
+
+分支 `feat/phase1d-checkins-tab`，merge `88bea42`。把「我的 → 打卡紀錄」sub-tab 從 placeholder 換成正式列表，Phase 1-D 至此完整收尾。
+
+### 我的 → 打卡紀錄 sub-tab
+
+- **資料來源**：`userState.checkins` 物件 keys → 對應 `allGames` 撈出完整場次（缺資料的 sno 會跳過）
+- **排序**：依 `g.date` desc（最近打卡的場次在最上面），同日不再二次排
+- **摘要 pill**（`.ck-summary`）：「已打卡 N 場 · 最常去 XX（M 次）· 平均 ★ X.X」
+  - 「最常去」只在最高頻球場 ≥ 2 次才顯示，避免單筆打卡時冗詞
+  - 平均星評只在至少 1 筆有評分時顯示，`toFixed(1)`
+- **Row layout**：`grid-template-columns: 72px 1fr` — 日期 block | 對戰 + meta + 同行者 + 心得
+  - 日期 block：沿用收藏 tab 的 `月/日` 赤陶紅 + `週X` 灰字
+  - 對戰：所有打卡場次都已完賽，用 Phase 2-B 配色顯示比分（W 赤陶紅 / L 綠 / T 灰）；防延賽 fallback 顯示 `VS`
+  - meta 行：`球場 · ★★★★☆ · 座位 chips`，`<span class="dot">·</span>` 分隔
+  - 星評：`.ck-stars` 5 顆 ★，未達等級的用 `.off` 灰
+  - 座位：`.ck-seat` 小奶油 chip（多選）
+  - 同行者：`同行 XX`，僅 `companions` 非空時出現
+  - 心得：`.ck-note` 奶油底 + 赤陶橙左 border，`white-space: pre-wrap` 保留換行
+- **互動**：點 `.ck-row`（或 keyboard Enter / Space）→ `openCheckinModal(sno)` 進既有編輯 modal；存檔/刪除走原本流程，`render()` 後列表自動更新
+- **空 state**：用 `bb-checkin` sprite icon（48×48 赤陶紅）+ 引導文案，與打卡功能 icon 語彙一致
+
+### XSS 防護
+
+打卡欄位（`note` / `companions` / `seat`）是使用者自由輸入文字，這次第一次以 HTML innerHTML 渲染這些值。新增 `escapeHtml()` helper（`& < > " '` 五字符），所有渲染入口統一通過。`g.field` / `g.dayName` 雖來源是後端 API，仍走同一條路徑保險。
+
+### 廢棄 helper
+
+舊 `renderMyPlaceholder(kind)` 只剩 `timeline` 一個呼叫點，這次換掉後直接刪除整個函式（`favorites` 早已用 `renderFavoritesEmpty`）。
