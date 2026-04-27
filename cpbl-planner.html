@@ -529,6 +529,39 @@ button.card-weather.clickable:active { transform: scale(0.96); }
   .fav-score { font-size: 14px; }
 }
 
+/* Phase 1-D 打卡紀錄列表 */
+.ck-list { max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; }
+.ck-summary { display: inline-flex; align-items: center; gap: 8px; background: #FFF5E6; border: 1px solid #F0D9B5; padding: 7px 16px; border-radius: 20px; font-size: 13px; color: #4A3728; margin: 0 auto 18px; align-self: center; max-width: 900px; flex-wrap: wrap; justify-content: center; }
+.ck-summary b { color: #C2573A; font-weight: 500; }
+.ck-summary .sep { color: #C9B99A; padding: 0 2px; }
+.ck-summary-wrap { display: flex; justify-content: center; }
+.ck-row { display: grid; grid-template-columns: 72px 1fr; align-items: stretch; gap: 14px; padding: 14px 18px; background: #FFFAF0; border: 1px solid #F0E8DB; border-radius: 14px; cursor: pointer; transition: box-shadow 0.2s, transform 0.15s; }
+.ck-row:hover { box-shadow: 0 2px 10px rgba(138, 120, 99, 0.1); transform: translateY(-1px); }
+.ck-row:focus-visible { outline: 2px solid #C2573A; outline-offset: 2px; }
+.ck-date { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; border-right: 1px dashed #E8DDBE; padding-right: 10px; }
+.ck-date .md { font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 700; color: #C2573A; letter-spacing: 0.3px; }
+.ck-date .wk { font-size: 10px; color: #9B8E7E; letter-spacing: 1px; }
+.ck-main { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.ck-match { display: flex; align-items: center; gap: 6px; font-size: 14px; flex-wrap: wrap; }
+.ck-meta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-size: 12px; color: #6B5F50; letter-spacing: 0.3px; }
+.ck-meta .dot { color: #C9B99A; }
+.ck-stars { color: #C2573A; letter-spacing: 1px; font-size: 13px; line-height: 1; }
+.ck-stars .off { color: #E8DDBE; }
+.ck-seats { display: inline-flex; gap: 4px; flex-wrap: wrap; }
+.ck-seat { display: inline-block; padding: 1px 8px; background: #FDF0E8; border-radius: 10px; font-size: 11px; color: #C2573A; letter-spacing: 0.5px; }
+.ck-extra { font-size: 12px; color: #6B5F50; line-height: 1.6; letter-spacing: 0.3px; }
+.ck-extra .lbl { color: #9B8E7E; margin-right: 4px; }
+.ck-note { font-size: 12.5px; color: #4A3728; background: #FFF5E6; border-left: 2px solid #E2A36C; padding: 6px 10px; border-radius: 0 6px 6px 0; line-height: 1.6; margin-top: 2px; white-space: pre-wrap; word-break: break-word; }
+
+@media (max-width: 600px) {
+  .ck-row { grid-template-columns: 56px 1fr; padding: 12px 14px; gap: 10px; }
+  .ck-date { padding-right: 8px; }
+  .ck-date .md { font-size: 15px; }
+  .ck-match { font-size: 13px; gap: 4px; }
+  .ck-meta { font-size: 11px; gap: 6px; }
+  .ck-summary { font-size: 12px; padding: 6px 12px; }
+}
+
 /* Phase 2-A 球場巡禮徽章 */
 .vp-card { background: linear-gradient(135deg, #FFFEFB 0%, #FFF8EA 100%); border: 1px solid #F0E8DB; border-radius: 24px; padding: 28px 28px 32px; box-shadow: 0 2px 12px rgba(138, 120, 99, 0.08); }
 .vp-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; gap: 16px; flex-wrap: wrap; }
@@ -2530,6 +2563,20 @@ document.getElementById('my-view-body').addEventListener('click', function(e) {
     e.preventDefault();
     e.stopPropagation();
     toggleFavorite(favBtn.dataset.favSno);
+    return;
+  }
+  const ckRow = e.target.closest('.ck-row');
+  if (ckRow && ckRow.dataset.ckSno) {
+    e.preventDefault();
+    openCheckinModal(ckRow.dataset.ckSno);
+  }
+});
+document.getElementById('my-view-body').addEventListener('keydown', function(e) {
+  if (e.key !== 'Enter' && e.key !== ' ') return;
+  const ckRow = e.target.closest('.ck-row');
+  if (ckRow && ckRow.dataset.ckSno) {
+    e.preventDefault();
+    openCheckinModal(ckRow.dataset.ckSno);
   }
 });
 
@@ -2646,7 +2693,7 @@ function renderMyShell() {
     ? renderMyEmptyState('noMainTeamCheckins')
     : renderMainTeamBigCard(stats);
   const badgesPanelHtml = renderVenuePilgrimage();
-  const timelinePanelHtml = renderMyPlaceholder('timeline');
+  const timelinePanelHtml = renderCheckinsList();
   const favoritesPanelHtml = renderFavoritesList();
 
   const cls = tab => 'my-tab' + (currentMyTab === tab ? ' active' : '');
@@ -2666,17 +2713,96 @@ function renderMyShell() {
     '</div>';
 }
 
-function renderMyPlaceholder(kind) {
-  const data = {
-    timeline: { icon: '📅', title: '打卡紀錄', desc: '你每一場進場比賽的時間軸（評分、心得、照片），規劃中。' },
-    favorites: { icon: '⭐', title: '收藏場次', desc: '你從賽程加星號的未來比賽一覽，即將推出。' },
-  }[kind];
-  if (!data) return '';
+function escapeHtml(s) {
+  return String(s == null ? '' : s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+function renderCheckinsEmpty() {
   return '<div class="my-placeholder">' +
-    '<div class="my-placeholder-icon">' + data.icon + '</div>' +
-    '<div class="my-placeholder-title">' + data.title + '</div>' +
-    '<div class="my-placeholder-desc">' + data.desc + '</div>' +
+    '<div class="my-placeholder-icon" style="display:inline-flex;align-items:center;justify-content:center;color:#C2573A;"><svg width="48" height="48" aria-hidden="true"><use href="#bb-checkin"/></svg></div>' +
+    '<div class="my-placeholder-title">還沒有打卡紀錄</div>' +
+    '<div class="my-placeholder-desc">在已結束的比賽卡片點「打卡」，留下座位、評分、心得，這裡會記下你每一場進場的時刻</div>' +
   '</div>';
+}
+
+function renderCheckinsList() {
+  const snos = Object.keys(userState.checkins || {});
+  if (snos.length === 0) return renderCheckinsEmpty();
+  const rows = snos.map(sno => ({ sno, ck: userState.checkins[sno], g: allGames.find(x => x.sno === sno) }))
+    .filter(r => r.g)
+    .sort((a, b) => a.g.date < b.g.date ? 1 : a.g.date > b.g.date ? -1 : 0);
+  if (rows.length === 0) return renderCheckinsEmpty();
+
+  const total = rows.length;
+  const venueCount = {};
+  let ratingSum = 0, ratingN = 0;
+  rows.forEach(r => {
+    venueCount[r.g.field] = (venueCount[r.g.field] || 0) + 1;
+    if (r.ck.rating > 0) { ratingSum += r.ck.rating; ratingN++; }
+  });
+  let topVenue = null, topCount = 0;
+  Object.keys(venueCount).forEach(v => { if (venueCount[v] > topCount) { topVenue = v; topCount = venueCount[v]; } });
+  const avgRating = ratingN > 0 ? (ratingSum / ratingN).toFixed(1) : null;
+
+  const summaryParts = ['已打卡 <b>' + total + '</b> 場'];
+  if (topVenue && topCount > 1) summaryParts.push('最常去 <b>' + escapeHtml(topVenue) + '</b>（' + topCount + ' 次）');
+  if (avgRating) summaryParts.push('平均 <b>★ ' + avgRating + '</b>');
+  const summaryHtml = '<div class="ck-summary-wrap"><div class="ck-summary">' + summaryParts.join('<span class="sep">·</span>') + '</div></div>';
+
+  const renderRow = ({ sno, ck, g }) => {
+    const m = g.date.slice(5, 7).replace(/^0/, '');
+    const d = g.date.slice(8, 10).replace(/^0/, '');
+    const vs = TEAM_SHORT[g.visitor] || g.visitor;
+    const hs = TEAM_SHORT[g.home] || g.home;
+    const vLogo = TEAM_LOGO[g.visitor] || '';
+    const hLogo = TEAM_LOGO[g.home] || '';
+    const showScore = g.completed && !g.postponed;
+    let matchHtml;
+    if (showScore) {
+      const vCls = g.vScore > g.hScore ? 'win' : (g.vScore < g.hScore ? 'lose' : 'tie');
+      const hCls = g.hScore > g.vScore ? 'win' : (g.hScore < g.vScore ? 'lose' : 'tie');
+      matchHtml =
+        '<span class="fav-team">' + (vLogo ? '<img class="fav-logo" src="' + vLogo + '" alt="">' : '') + '<span>' + vs + '</span></span>' +
+        '<span class="fav-score ' + vCls + '">' + g.vScore + '</span>' +
+        '<span class="fav-score-sep">:</span>' +
+        '<span class="fav-score ' + hCls + '">' + g.hScore + '</span>' +
+        '<span class="fav-team"><span>' + hs + '</span>' + (hLogo ? '<img class="fav-logo" src="' + hLogo + '" alt="">' : '') + '</span>';
+    } else {
+      matchHtml =
+        '<span class="fav-team">' + (vLogo ? '<img class="fav-logo" src="' + vLogo + '" alt="">' : '') + '<span>' + vs + '</span></span>' +
+        '<span class="fav-vs">VS</span>' +
+        '<span class="fav-team">' + (hLogo ? '<img class="fav-logo" src="' + hLogo + '" alt="">' : '') + '<span>' + hs + '</span></span>';
+    }
+    const starsHtml = ck.rating > 0
+      ? '<span class="ck-stars" aria-label="' + ck.rating + ' 星">' + Array.from({length:5}, (_,i) => i < ck.rating ? '★' : '<span class="off">★</span>').join('') + '</span>'
+      : '';
+    const seatsArr = Array.isArray(ck.seat) ? ck.seat : (ck.seat ? [ck.seat] : []);
+    const seatsHtml = seatsArr.length > 0
+      ? '<span class="ck-seats">' + seatsArr.map(s => '<span class="ck-seat">' + escapeHtml(s) + '</span>').join('') + '</span>'
+      : '';
+    const metaPieces = ['<span>' + escapeHtml(g.field) + '</span>'];
+    if (starsHtml) metaPieces.push(starsHtml);
+    if (seatsHtml) metaPieces.push(seatsHtml);
+    const metaHtml = '<div class="ck-meta">' + metaPieces.join('<span class="dot">·</span>') + '</div>';
+    const companionsHtml = ck.companions ? '<div class="ck-extra"><span class="lbl">同行</span>' + escapeHtml(ck.companions) + '</div>' : '';
+    const noteHtml = ck.note ? '<div class="ck-note">' + escapeHtml(ck.note) + '</div>' : '';
+    return '<div class="ck-row" data-ck-sno="' + sno + '" role="button" tabindex="0" aria-label="編輯打卡：' + escapeHtml(g.date + ' ' + vs + ' vs ' + hs) + '">' +
+      '<div class="ck-date"><span class="md">' + m + '/' + d + '</span><span class="wk">' + escapeHtml(g.dayName || '') + '</span></div>' +
+      '<div class="ck-main">' +
+        '<div class="ck-match">' + matchHtml + '</div>' +
+        metaHtml +
+        companionsHtml +
+        noteHtml +
+      '</div>' +
+    '</div>';
+  };
+
+  return summaryHtml + '<div class="ck-list">' + rows.map(renderRow).join('') + '</div>';
 }
 
 function renderFavoritesEmpty() {
