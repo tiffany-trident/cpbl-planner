@@ -24,7 +24,13 @@
   - 每列：日期方塊 + 比分對戰 + meta 行（球場 · ★ · 座位 chips）+ 同行者 + 心得
   - 點 row（或 Enter / Space）開啟既有打卡 modal 編輯／刪除
   - 空狀態使用 `bb-checkin` sprite，與打卡功能 icon 一致
-- **Phase 2-C / 2-D** — 尚未開始（年度回顧頁 / 成就 toast）
+- **Phase 2-D 設計探索 ✅**（2026-04-27，分支 `feat/phase2d-confetti-preview`，commit `82f01fb`，**主程式尚未實作**）
+  - confetti SVG 選定 svgrepo #325796 `party-confetti`（與 `bb-favorite` / `bb-checkin` 同源）
+  - toast 佈局選定 L4：confetti 140px 為主視覺 + 28px inline icon 貼 h3 標題前
+  - 三類里程碑 inline icon：球場巡禮 = Flaticon `stadium-484466.png`、打卡達標 = `bb-checkin` sprite、主隊晉級 = `TEAM_LOGO` map 取主隊 logo
+  - 動畫：一次性 burst（scale 彈跳 + confetti 散開），靜止後待 dismiss；`shownMilestones` localStorage 防重播；多里程碑同時觸發採排隊間隔 ~300ms
+  - 4 份 design exploration HTML + 8 個 svgrepo 候選 SVG 已 commit
+- **Phase 2-C** — 尚未開始（年度回顧頁）
 - **Phase 3-6** — 尚未開始
 
 實作細節見 [features.md 個人化功能章節](features.md)，UI 紀錄與教訓見 [uidesign-changelog.md](uidesign-changelog.md)。
