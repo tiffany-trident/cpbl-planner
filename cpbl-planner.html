@@ -2053,12 +2053,15 @@ function closeCheckinModal() {
 
 function saveCheckinForm() {
   if (!currentCheckinSno) return;
+  const sno = currentCheckinSno;
   const seats = [...document.querySelectorAll('#ci-seats .ci-chip.active')].map(c => c.dataset.seat);
   const companions = document.getElementById('ci-companions').value.trim();
   const note = document.getElementById('ci-note').value.trim();
   const rating = document.querySelectorAll('#ci-stars .ci-star.active').length;
-  const prev = userState.checkins[currentCheckinSno];
-  userState.checkins[currentCheckinSno] = {
+  const prev = userState.checkins[sno];
+  // Phase 2-D：偵測里程碑前的快照（淺拷貝足夠，後續只看 keys 與 sno→field）
+  const prevCheckins = { ...userState.checkins };
+  userState.checkins[sno] = {
     seat: seats,
     companions,
     rating,
@@ -2068,17 +2071,52 @@ function saveCheckinForm() {
     updatedAt: Date.now()
   };
   saveUserState(userState);
+
+  // Phase 2-D：偵測新里程碑（編輯既有打卡時 prevCount/newCount 相同 → 自然不會觸發）
+  const newMilestones = detectMilestonesAfterCheckin(sno, prevCheckins);
+  if (newMilestones.length > 0) {
+    const now = Date.now();
+    newMilestones.forEach(id => { userState.shownMilestones[id] = now; });
+    saveUserState(userState);
+  }
+
   closeCheckinModal();
   render();
+
+  if (newMilestones.length > 0) enqueueMilestones(newMilestones);
 }
 
 function deleteCheckinForm() {
   if (!currentCheckinSno) return;
   if (!confirm('確定刪除這場比賽的打卡紀錄嗎？')) return;
-  delete userState.checkins[currentCheckinSno];
+  const sno = currentCheckinSno;
+  const deletedGame = allGames.find(g => g.sno === sno);
+  const deletedVenue = deletedGame ? deletedGame.field : null;
+  delete userState.checkins[sno];
+  // Phase 2-D：刪除後同步倒退 shownMilestones，讓不再達標的可重新觸發
+  cleanupShownMilestonesAfterDelete(deletedVenue);
   saveUserState(userState);
   closeCheckinModal();
   render();
+}
+
+function cleanupShownMilestonesAfterDelete(deletedVenue) {
+  const shown = userState.shownMilestones;
+  if (!shown) return;
+  const newCount = Object.keys(userState.checkins).length;
+  // 場數倒退：低於門檻的清掉
+  CHECKIN_THRESHOLDS.forEach(n => {
+    if (newCount < n) delete shown['checkin-' + n];
+  });
+  // 球場倒退：被刪的球場現在 0 場 → 清掉
+  if (deletedVenue && VENUES_2026.includes(deletedVenue)) {
+    if (countCheckinsForVenue(userState.checkins, deletedVenue) === 0) {
+      delete shown['venue-' + deletedVenue];
+    }
+  }
+  // 大滿貫倒退：任一球場破洞就清掉
+  const hasAllVenues = VENUES_2026.every(v => countCheckinsForVenue(userState.checkins, v) > 0);
+  if (!hasAllVenues) delete shown['venue-all'];
 }
 
 // ── 場次收藏（Phase 1）──
