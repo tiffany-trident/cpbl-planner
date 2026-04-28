@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Phase 2-D · svgrepo confetti 候選</title>
+<style>
+  @font-face {
+    font-family: 'jf-openhuninn';
+    src: url('https://cdn.jsdelivr.net/gh/marsnow/open-huninn-font@1.1/font/jf-openhuninn.woff2') format('woff2');
+    font-display: swap;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: #FDFCFA;
+    color: #4A3728;
+    font-family: 'Noto Sans TC', sans-serif;
+    padding: 32px 20px 60px;
+  }
+  .hdr { max-width: 1080px; margin: 0 auto 20px; }
+  .hdr h1 { font-family: 'jf-openhuninn'; font-weight: 500; font-size: 28px; letter-spacing: 2px; margin: 0 0 6px; color: #3D3122; }
+  .hdr p { margin: 0; color: #8B7355; font-size: 13px; line-height: 1.6; }
+  .hdr code { background: #FDF6EE; padding: 1px 6px; border-radius: 4px; font-size: 12px; }
+
+  .grid {
+    max-width: 1080px;
+    margin: 28px auto 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  @media (max-width: 900px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+
+  .card {
+    background: #FFF;
+    border-radius: 16px;
+    border: 1.5px solid #F0DFB8;
+    padding: 16px 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  .card .id { font-size: 11px; color: #B8A692; letter-spacing: 1px; }
+  .card .name { font-family: 'jf-openhuninn'; font-size: 13px; color: #3D3122; }
+  .card .img-area {
+    width: 100%;
+    height: 130px;
+    background: #FDFCFA;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .card .img-area img { max-width: 100%; max-height: 100%; }
+  .card .img-area.dark { background: rgba(61,49,34,0.85); }
+  .card .meta {
+    font-size: 11px; color: #8B7355;
+    display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;
+  }
+  .badge-tag {
+    background: #FDF6EE; color: #C2573A;
+    padding: 2px 8px; border-radius: 10px;
+    font-size: 10px; font-weight: 700;
+  }
+  .badge-tag.line { background: #E8E0D5; color: #6B5444; }
+
+  .compare-section {
+    max-width: 1080px;
+    margin: 40px auto 0;
+    background: rgba(61,49,34,0.85);
+    border-radius: 24px;
+    padding: 28px 20px;
+  }
+  .compare-section h2 {
+    font-family: 'jf-openhuninn'; font-weight: 500;
+    color: #FFE6B8; font-size: 18px; letter-spacing: 2px;
+    text-align: center; margin: 0 0 20px;
+  }
+  .compare-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+  @media (max-width: 900px) { .compare-grid { grid-template-columns: repeat(2, 1fr); } }
+  .ctile {
+    background: #FFF;
+    border-radius: 14px;
+    padding: 14px 12px 12px;
+    display: flex; flex-direction: column; align-items: center; gap: 6px;
+  }
+  .ctile .deco {
+    width: 100%;
+    height: 56px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .ctile .deco img { max-width: 100%; max-height: 56px; }
+  .ctile .badge-circle {
+    width: 78px; height: 78px; border-radius: 50%;
+    background: #FDF6EE; border: 2.5px solid #C49A4A;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 12px rgba(196,154,74,0.25);
+  }
+  .ctile .badge-circle img { width: 50px; height: 50px; }
+  .ctile .stamp { font-family: 'jf-openhuninn'; font-size: 9px; color: #C49A4A; letter-spacing: 3px; margin-top: 2px; }
+  .ctile h3 { font-family: 'jf-openhuninn'; font-size: 16px; font-weight: 500; color: #3D3122; margin: 0; letter-spacing: 1px; }
+  .ctile .id-mini { font-size: 10px; color: #B8A692; }
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <h1>Phase 2-D · svgrepo confetti 候選</h1>
+  <p>從 <code>svgrepo.com</code> 下載 8 個 confetti / celebration / party SVG，存於 <code>icon-preview/confetti-candidates/</code>。上半部 = 縮圖檢視；下半部 = 套進 toast 上方位置看實際情境。所有 SVG 為 svgrepo 免費商用授權（與 <code>bb-favorite</code> / <code>bb-checkin</code> 同來源）。</p>
+</header>
+
+<!-- Section 1: 縮圖比較 -->
+<div class="grid">
+  <div class="card">
+    <div class="id">svgrepo #41964</div>
+    <div class="name">confetti</div>
+    <div class="img-area"><img src="../icon-preview/confetti-candidates/sr-41964-confetti.svg" alt=""></div>
+    <div class="meta"><span class="badge-tag">A</span></div>
+  </div>
+  <div class="card">
+    <div class="id">svgrepo #325796</div>
+    <div class="name">party-confetti</div>
+    <div class="img-area"><img src="../icon-preview/confetti-candidates/sr-325796-party-confetti.svg" alt=""></div>
+    <div class="meta"><span class="badge-tag">B</span></div>
+  </div>
+  <div class="card">
+    <div class="id">svgrepo #230115</div>
+    <div class="name">confetti-birthday</div>
+    <div class="img-area"><img src="../icon-preview/confetti-candidates/sr-230115-confetti-birthday.svg" alt=""></div>
+    <div class="meta"><span class="badge-tag">C</span></div>
+  </div>
+  <div class="card">
+    <div class="id">svgrepo #524465</div>
+    <div class="name">confetti-minimalistic</div>
+    <div class="img-area"><img src="../icon-preview/confetti-candidates/sr-524465-confetti-minimalistic.svg" alt=""></div>
+    <div class="meta"><span class="badge-tag">D</span></div>
+  </div>
+  <div class="card">
+    <div class="id">svgrepo #406848</div>
+    <div class="name">party-popper</div>
+    <div class="img-area"><img src="../icon-preview/confetti-candidates/sr-406848-party-popper.svg" alt=""></div>
+    <div class="meta"><span class="badge-tag">E</span></div>
+  </div>
+  <div class="card">
+    <div class="id">svgrepo #415836</div>
+    <div class="name">birthday-celebration-party</div>
+    <div class="img-area"><img src="../icon-preview/confetti-candidates/sr-415836-birthday-celebration-party.svg" alt=""></div>
+    <div class="meta"><span class="badge-tag">F</span></div>
+  </div>
+  <div class="card">
+    <div class="id">svgrepo #231829</div>
+    <div class="name">celebration-party</div>
+    <div class="img-area"><img src="../icon-preview/confetti-candidates/sr-231829-celebration-party.svg" alt=""></div>
+    <div class="meta"><span class="badge-tag">G</span></div>
+  </div>
+  <div class="card">
+    <div class="id">svgrepo #716</div>
+    <div class="name">celebration</div>
+    <div class="img-area"><img src="../icon-preview/confetti-candidates/sr-716-celebration.svg" alt=""></div>
+    <div class="meta"><span class="badge-tag">H</span></div>
+  </div>
+</div>
+
+<!-- Section 2: 套進 toast 情境 -->
+<div class="compare-section">
+  <h2>套進成就 toast 上方（縮小版）</h2>
+  <div class="compare-grid">
+    <div class="ctile">
+      <div class="deco"><img src="../icon-preview/confetti-candidates/sr-41964-confetti.svg" alt=""></div>
+      <div class="badge-circle"><img src="../icon-preview/icons/stadium-flaticon-484466.png" alt=""></div>
+      <div class="stamp">成就解鎖</div>
+      <h3>球場巡禮 +1</h3>
+      <div class="id-mini">A · #41964</div>
+    </div>
+    <div class="ctile">
+      <div class="deco"><img src="../icon-preview/confetti-candidates/sr-325796-party-confetti.svg" alt=""></div>
+      <div class="badge-circle"><img src="../icon-preview/icons/stadium-flaticon-484466.png" alt=""></div>
+      <div class="stamp">成就解鎖</div>
+      <h3>球場巡禮 +1</h3>
+      <div class="id-mini">B · #325796</div>
+    </div>
+    <div class="ctile">
+      <div class="deco"><img src="../icon-preview/confetti-candidates/sr-230115-confetti-birthday.svg" alt=""></div>
+      <div class="badge-circle"><img src="../icon-preview/icons/stadium-flaticon-484466.png" alt=""></div>
+      <div class="stamp">成就解鎖</div>
+      <h3>球場巡禮 +1</h3>
+      <div class="id-mini">C · #230115</div>
+    </div>
+    <div class="ctile">
+      <div class="deco"><img src="../icon-preview/confetti-candidates/sr-524465-confetti-minimalistic.svg" alt=""></div>
+      <div class="badge-circle"><img src="../icon-preview/icons/stadium-flaticon-484466.png" alt=""></div>
+      <div class="stamp">成就解鎖</div>
+      <h3>球場巡禮 +1</h3>
+      <div class="id-mini">D · #524465</div>
+    </div>
+    <div class="ctile">
+      <div class="deco"><img src="../icon-preview/confetti-candidates/sr-406848-party-popper.svg" alt=""></div>
+      <div class="badge-circle"><img src="../icon-preview/icons/stadium-flaticon-484466.png" alt=""></div>
+      <div class="stamp">成就解鎖</div>
+      <h3>球場巡禮 +1</h3>
+      <div class="id-mini">E · #406848</div>
+    </div>
+    <div class="ctile">
+      <div class="deco"><img src="../icon-preview/confetti-candidates/sr-415836-birthday-celebration-party.svg" alt=""></div>
+      <div class="badge-circle"><img src="../icon-preview/icons/stadium-flaticon-484466.png" alt=""></div>
+      <div class="stamp">成就解鎖</div>
+      <h3>球場巡禮 +1</h3>
+      <div class="id-mini">F · #415836</div>
+    </div>
+    <div class="ctile">
+      <div class="deco"><img src="../icon-preview/confetti-candidates/sr-231829-celebration-party.svg" alt=""></div>
+      <div class="badge-circle"><img src="../icon-preview/icons/stadium-flaticon-484466.png" alt=""></div>
+      <div class="stamp">成就解鎖</div>
+      <h3>球場巡禮 +1</h3>
+      <div class="id-mini">G · #231829</div>
+    </div>
+    <div class="ctile">
+      <div class="deco"><img src="../icon-preview/confetti-candidates/sr-716-celebration.svg" alt=""></div>
+      <div class="badge-circle"><img src="../icon-preview/icons/stadium-flaticon-484466.png" alt=""></div>
+      <div class="stamp">成就解鎖</div>
+      <h3>球場巡禮 +1</h3>
+      <div class="id-mini">H · #716</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
