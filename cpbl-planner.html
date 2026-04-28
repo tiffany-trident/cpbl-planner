@@ -980,10 +980,10 @@ let weatherCache = {};      // { stadium: { data, ts } }
 let weatherLoading = false;
 let themeDaysData = {};     // { "YYYY-MM-DD": [{home_team, title, subtitle, source_url}, ...] }
 
-// ── 使用者個人化資料（Phase 1 Schema v1）──
+// ── 使用者個人化資料（Phase 1 Schema v1，Phase 2-D 升 v2 加 shownMilestones）──
 // 儲存於 localStorage，未來 Phase 4 跨裝置同步會沿用此 schema
 const USER_STORE_KEY = 'cpbl_planner_v1';
-const USER_STORE_VERSION = 1;
+const USER_STORE_VERSION = 2;
 
 function defaultUserState() {
   return {
@@ -991,12 +991,13 @@ function defaultUserState() {
     profile: { mainTeam: null },    // 主隊（Phase 1-主隊設定）
     favorites: [],                   // [sno, ...] 場次收藏（Phase 1-⭐）
     checkins: {},                    // { sno: {seat, companions, rating, note, photo, createdAt} }（Phase 1-📍）
-    lastFilter: null                 // 上次篩選條件（Phase 1-篩選記憶）
+    lastFilter: null,                // 上次篩選條件（Phase 1-篩選記憶）
+    shownMilestones: {}              // { milestoneId: timestamp } 已跳過的里程碑（Phase 2-D，防重播）
   };
 }
 
 function migrateUserState(data) {
-  // 未來 schema 升版在此分支處理；目前只需把舊版本（或缺欄位）補齊到 v1 預設
+  // 升版規則：v1 → v2 補 shownMilestones（預設空物件 = 全部尚未觸發）
   const defaults = defaultUserState();
   if (!data || typeof data !== 'object') return defaults;
   // 合併：預設欄位打底 + 已存欄位覆蓋，並強制當前 version
@@ -1004,6 +1005,7 @@ function migrateUserState(data) {
     ...defaults,
     ...data,
     profile: { ...defaults.profile, ...(data.profile || {}) },
+    shownMilestones: { ...defaults.shownMilestones, ...(data.shownMilestones || {}) },
     version: USER_STORE_VERSION
   };
 }
@@ -2925,6 +2927,55 @@ function findTopCheckinVenue() {
     if (counts[v] > topCount) { top = v; topCount = counts[v]; }
   });
   return top ? { venue: top, count: topCount } : null;
+}
+
+// ── Phase 2-D 里程碑偵測（純邏輯，不含 UI；toast UI 與觸發在後續 commit 加入）──
+const CHECKIN_THRESHOLDS = [5, 10]; // 將來只往上加（25/50/...），加更低值會讓老用戶補跳
+
+function countCheckinsForVenue(checkins, venue) {
+  let n = 0;
+  Object.keys(checkins).forEach(sno => {
+    const g = allGames.find(x => x.sno === sno);
+    if (g && g.field === venue) n++;
+  });
+  return n;
+}
+
+// 在 saveCheckinForm 寫入後呼叫；prevCheckins 是寫入前的快照
+// 回傳本次新觸發的 milestone ID 陣列（已過濾 shownMilestones）
+function detectMilestonesAfterCheckin(addedSno, prevCheckins) {
+  const newMilestones = [];
+  const newCheckins = userState.checkins;
+  const shown = userState.shownMilestones || {};
+
+  // ① 打卡達標：累積場數跨過閾值
+  const prevCount = Object.keys(prevCheckins).length;
+  const newCount = Object.keys(newCheckins).length;
+  CHECKIN_THRESHOLDS.forEach(n => {
+    if (prevCount < n && newCount >= n) {
+      const id = 'checkin-' + n;
+      if (!shown[id]) newMilestones.push(id);
+    }
+  });
+
+  // ② 球場巡禮（單座首次解鎖）：本次寫入的 sno 所在球場是否從 0 → 1+
+  const g = allGames.find(x => x.sno === addedSno);
+  if (g && VENUES_2026.includes(g.field)) {
+    const prevVenueCount = countCheckinsForVenue(prevCheckins, g.field);
+    const newVenueCount = countCheckinsForVenue(newCheckins, g.field);
+    if (prevVenueCount === 0 && newVenueCount > 0) {
+      const id = 'venue-' + g.field;
+      if (!shown[id]) newMilestones.push(id);
+    }
+  }
+
+  // ③ 球場巡禮（全 11 座達標）
+  const newVisited = VENUES_2026.filter(v => countCheckinsForVenue(newCheckins, v) > 0).length;
+  if (newVisited === VENUES_2026.length && !shown['venue-all']) {
+    newMilestones.push('venue-all');
+  }
+
+  return newMilestones;
 }
 
 function renderVenuePilgrimage() {
