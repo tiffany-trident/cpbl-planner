@@ -325,6 +325,37 @@ button.card-weather.clickable:active { transform: scale(0.96); }
 .ci-btn-cancel:hover { background: #FDFCFA; }
 .ci-btn-delete { background: transparent; color: #C2573A; border: 1px solid #E8D5B8; font-size: 12px; padding: 8px 14px; }
 .ci-btn-delete:hover { background: #FDF6EE; border-color: #C2573A; }
+
+/* Phase 2-D 里程碑 toast（L4 佈局：confetti 主視覺 + inline icon 貼 h3 / 派對狂歡進場） */
+.ms-overlay { position: fixed; inset: 0; background: rgba(61, 49, 34, 0.5); z-index: 10000; display: none; align-items: center; justify-content: center; padding: 20px; }
+.ms-overlay.visible, .ms-overlay.exiting { display: flex; }
+.ms-overlay.exiting { animation: msOverlayFadeOut 200ms ease-out forwards; }
+.ms-overlay.visible .ms-toast { animation: msToastIn 500ms cubic-bezier(0.34, 1.8, 0.64, 1) both; }
+.ms-overlay.visible .ms-confetti { animation: msConfettiBurst 700ms 150ms cubic-bezier(0.4, 1.7, 0.6, 1) both; }
+@keyframes msToastIn {
+  0%   { opacity: 0; transform: scale(0.5); }
+  50%  { opacity: 1; transform: scale(1.1); }
+  100% { opacity: 1; transform: scale(1); }
+}
+@keyframes msConfettiBurst {
+  0%   { opacity: 0; transform: scale(0) rotate(-25deg); }
+  60%  { opacity: 1; transform: scale(1.25) rotate(8deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+@keyframes msOverlayFadeOut { to { opacity: 0; } }
+.ms-toast { background: #FFF; border-radius: 24px; padding: 28px 32px 24px; width: 340px; max-width: calc(100vw - 40px); display: flex; flex-direction: column; align-items: center; gap: 12px; box-shadow: 0 12px 40px rgba(61,49,34,0.3); transform-origin: center; }
+.ms-confetti { width: 140px; height: 140px; display: block; transform-origin: center; }
+.ms-tag { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; font-size: 11px; font-weight: 500; color: #C49A4A; letter-spacing: 5px; }
+.ms-title { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; font-size: 24px; font-weight: 500; color: #3D3122; letter-spacing: 1.5px; margin: 0; display: flex; align-items: center; justify-content: center; gap: 10px; text-align: center; }
+.ms-inline-icon { width: 28px; height: 28px; flex-shrink: 0; object-fit: contain; }
+.ms-inline-icon.svg { color: #C2573A; display: block; }
+.ms-divider { width: 40px; height: 2px; background: #C49A4A; border-radius: 1px; }
+.ms-desc { font-size: 13px; color: #6B5444; margin: 0; text-align: center; }
+.ms-count { display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px; border-radius: 20px; background: #FDF6EE; color: #C2573A; font-size: 12px; font-weight: 700; }
+.ms-cta { margin-top: 6px; padding: 10px 24px; border-radius: 22px; background: #C2573A; color: #FFF; font-size: 13px; font-weight: 700; border: none; cursor: pointer; font-family: inherit; transition: background 0.15s, transform 0.1s; }
+.ms-cta:hover { background: #A0432A; }
+.ms-cta:active { transform: scale(0.96); }
+
 .btn-briefing:hover { background: #ECE3CC; }
 .btn-briefing:active { transform: scale(0.96); }
 .briefing-popover-backdrop { position: fixed; inset: 0; z-index: 99; display: none; background: transparent; }
@@ -703,6 +734,19 @@ button.card-weather.clickable:active { transform: scale(0.96); }
   </div>
 </div>
 
+<!-- Phase 2-D 里程碑 toast -->
+<div class="ms-overlay" id="ms-overlay" aria-hidden="true">
+  <div class="ms-toast" role="alert" aria-live="polite">
+    <img class="ms-confetti" src="icon-preview/confetti-candidates/sr-325796-party-confetti.svg" alt="">
+    <div class="ms-tag">成就解鎖</div>
+    <h3 class="ms-title" id="ms-title"></h3>
+    <div class="ms-divider"></div>
+    <div class="ms-desc" id="ms-desc"></div>
+    <div class="ms-count" id="ms-count"></div>
+    <button type="button" class="ms-cta" id="ms-cta">繼續看球</button>
+  </div>
+</div>
+
 <div class="container">
 
 <div class="nav">
@@ -980,10 +1024,10 @@ let weatherCache = {};      // { stadium: { data, ts } }
 let weatherLoading = false;
 let themeDaysData = {};     // { "YYYY-MM-DD": [{home_team, title, subtitle, source_url}, ...] }
 
-// ── 使用者個人化資料（Phase 1 Schema v1）──
+// ── 使用者個人化資料（Phase 1 Schema v1，Phase 2-D 升 v2 加 shownMilestones）──
 // 儲存於 localStorage，未來 Phase 4 跨裝置同步會沿用此 schema
 const USER_STORE_KEY = 'cpbl_planner_v1';
-const USER_STORE_VERSION = 1;
+const USER_STORE_VERSION = 2;
 
 function defaultUserState() {
   return {
@@ -991,12 +1035,13 @@ function defaultUserState() {
     profile: { mainTeam: null },    // 主隊（Phase 1-主隊設定）
     favorites: [],                   // [sno, ...] 場次收藏（Phase 1-⭐）
     checkins: {},                    // { sno: {seat, companions, rating, note, photo, createdAt} }（Phase 1-📍）
-    lastFilter: null                 // 上次篩選條件（Phase 1-篩選記憶）
+    lastFilter: null,                // 上次篩選條件（Phase 1-篩選記憶）
+    shownMilestones: {}              // { milestoneId: timestamp } 已跳過的里程碑（Phase 2-D，防重播）
   };
 }
 
 function migrateUserState(data) {
-  // 未來 schema 升版在此分支處理；目前只需把舊版本（或缺欄位）補齊到 v1 預設
+  // 升版規則：v1 → v2 補 shownMilestones（預設空物件 = 全部尚未觸發）
   const defaults = defaultUserState();
   if (!data || typeof data !== 'object') return defaults;
   // 合併：預設欄位打底 + 已存欄位覆蓋，並強制當前 version
@@ -1004,6 +1049,7 @@ function migrateUserState(data) {
     ...defaults,
     ...data,
     profile: { ...defaults.profile, ...(data.profile || {}) },
+    shownMilestones: { ...defaults.shownMilestones, ...(data.shownMilestones || {}) },
     version: USER_STORE_VERSION
   };
 }
@@ -2007,12 +2053,15 @@ function closeCheckinModal() {
 
 function saveCheckinForm() {
   if (!currentCheckinSno) return;
+  const sno = currentCheckinSno;
   const seats = [...document.querySelectorAll('#ci-seats .ci-chip.active')].map(c => c.dataset.seat);
   const companions = document.getElementById('ci-companions').value.trim();
   const note = document.getElementById('ci-note').value.trim();
   const rating = document.querySelectorAll('#ci-stars .ci-star.active').length;
-  const prev = userState.checkins[currentCheckinSno];
-  userState.checkins[currentCheckinSno] = {
+  const prev = userState.checkins[sno];
+  // Phase 2-D：偵測里程碑前的快照（淺拷貝足夠，後續只看 keys 與 sno→field）
+  const prevCheckins = { ...userState.checkins };
+  userState.checkins[sno] = {
     seat: seats,
     companions,
     rating,
@@ -2022,17 +2071,52 @@ function saveCheckinForm() {
     updatedAt: Date.now()
   };
   saveUserState(userState);
+
+  // Phase 2-D：偵測新里程碑（編輯既有打卡時 prevCount/newCount 相同 → 自然不會觸發）
+  const newMilestones = detectMilestonesAfterCheckin(sno, prevCheckins);
+  if (newMilestones.length > 0) {
+    const now = Date.now();
+    newMilestones.forEach(id => { userState.shownMilestones[id] = now; });
+    saveUserState(userState);
+  }
+
   closeCheckinModal();
   render();
+
+  if (newMilestones.length > 0) enqueueMilestones(newMilestones);
 }
 
 function deleteCheckinForm() {
   if (!currentCheckinSno) return;
   if (!confirm('確定刪除這場比賽的打卡紀錄嗎？')) return;
-  delete userState.checkins[currentCheckinSno];
+  const sno = currentCheckinSno;
+  const deletedGame = allGames.find(g => g.sno === sno);
+  const deletedVenue = deletedGame ? deletedGame.field : null;
+  delete userState.checkins[sno];
+  // Phase 2-D：刪除後同步倒退 shownMilestones，讓不再達標的可重新觸發
+  cleanupShownMilestonesAfterDelete(deletedVenue);
   saveUserState(userState);
   closeCheckinModal();
   render();
+}
+
+function cleanupShownMilestonesAfterDelete(deletedVenue) {
+  const shown = userState.shownMilestones;
+  if (!shown) return;
+  const newCount = Object.keys(userState.checkins).length;
+  // 場數倒退：低於門檻的清掉
+  CHECKIN_THRESHOLDS.forEach(n => {
+    if (newCount < n) delete shown['checkin-' + n];
+  });
+  // 球場倒退：被刪的球場現在 0 場 → 清掉
+  if (deletedVenue && VENUES_2026.includes(deletedVenue)) {
+    if (countCheckinsForVenue(userState.checkins, deletedVenue) === 0) {
+      delete shown['venue-' + deletedVenue];
+    }
+  }
+  // 大滿貫倒退：任一球場破洞就清掉
+  const hasAllVenues = VENUES_2026.every(v => countCheckinsForVenue(userState.checkins, v) > 0);
+  if (!hasAllVenues) delete shown['venue-all'];
 }
 
 // ── 場次收藏（Phase 1）──
@@ -2926,6 +3010,155 @@ function findTopCheckinVenue() {
   });
   return top ? { venue: top, count: topCount } : null;
 }
+
+// ── Phase 2-D 里程碑偵測（純邏輯，不含 UI；toast UI 與觸發在後續 commit 加入）──
+const CHECKIN_THRESHOLDS = [5, 10]; // 將來只往上加（25/50/...），加更低值會讓老用戶補跳
+
+function countCheckinsForVenue(checkins, venue) {
+  let n = 0;
+  Object.keys(checkins).forEach(sno => {
+    const g = allGames.find(x => x.sno === sno);
+    if (g && g.field === venue) n++;
+  });
+  return n;
+}
+
+// 在 saveCheckinForm 寫入後呼叫；prevCheckins 是寫入前的快照
+// 回傳本次新觸發的 milestone ID 陣列（已過濾 shownMilestones）
+function detectMilestonesAfterCheckin(addedSno, prevCheckins) {
+  const newMilestones = [];
+  const newCheckins = userState.checkins;
+  const shown = userState.shownMilestones || {};
+
+  // ① 打卡達標：累積場數跨過閾值
+  const prevCount = Object.keys(prevCheckins).length;
+  const newCount = Object.keys(newCheckins).length;
+  CHECKIN_THRESHOLDS.forEach(n => {
+    if (prevCount < n && newCount >= n) {
+      const id = 'checkin-' + n;
+      if (!shown[id]) newMilestones.push(id);
+    }
+  });
+
+  // ② 球場巡禮（單座首次解鎖）：本次寫入的 sno 所在球場是否從 0 → 1+
+  const g = allGames.find(x => x.sno === addedSno);
+  if (g && VENUES_2026.includes(g.field)) {
+    const prevVenueCount = countCheckinsForVenue(prevCheckins, g.field);
+    const newVenueCount = countCheckinsForVenue(newCheckins, g.field);
+    if (prevVenueCount === 0 && newVenueCount > 0) {
+      const id = 'venue-' + g.field;
+      if (!shown[id]) newMilestones.push(id);
+    }
+  }
+
+  // ③ 球場巡禮（全 11 座達標）
+  const newVisited = VENUES_2026.filter(v => countCheckinsForVenue(newCheckins, v) > 0).length;
+  if (newVisited === VENUES_2026.length && !shown['venue-all']) {
+    newMilestones.push('venue-all');
+  }
+
+  return newMilestones;
+}
+
+// 將 milestone ID 轉成 toast 顯示內容（commit 2 純 render，無動畫無排隊）
+function getMilestoneContent(id) {
+  const totalCheckins = Object.keys(userState.checkins).length;
+  const m = id.match(/^checkin-(\d+)$/);
+  if (m) {
+    const n = parseInt(m[1], 10);
+    return {
+      iconHtml: '<svg class="ms-inline-icon svg" aria-hidden="true"><use href="#bb-checkin"/></svg>',
+      titleText: n + ' 場打卡達成',
+      descText: '恭喜累計 ' + n + ' 場現場見證！',
+      countText: '🏆 本季已打卡 ' + totalCheckins + ' 場'
+    };
+  }
+  if (id === 'venue-all') {
+    return {
+      iconHtml: '<img class="ms-inline-icon" src="icon-preview/icons/stadium-flaticon-484466.png" alt="">',
+      titleText: '球場大滿貫',
+      descText: '11 座球場全部走訪！',
+      countText: '🏆 完整走訪 11 座球場'
+    };
+  }
+  if (id.startsWith('venue-')) {
+    const venueName = id.slice(6);
+    const visited = VENUES_2026.filter(v => countCheckinsForVenue(userState.checkins, v) > 0).length;
+    return {
+      iconHtml: '<img class="ms-inline-icon" src="icon-preview/icons/stadium-flaticon-484466.png" alt="">',
+      titleText: '球場巡禮 +1',
+      descText: '第一次去 ' + venueName + '！',
+      countText: '🏆 你已走訪 ' + Math.max(1, visited) + ' 座球場'
+    };
+  }
+  return null;
+}
+
+function renderMilestoneToast(id) {
+  const c = getMilestoneContent(id);
+  if (!c) return false;
+  document.getElementById('ms-title').innerHTML = c.iconHtml + c.titleText;
+  document.getElementById('ms-desc').textContent = c.descText;
+  document.getElementById('ms-count').textContent = c.countText;
+  return true;
+}
+
+// ── 進場 / 退場 / 排隊 ──
+let milestoneQueue = [];
+let milestoneActive = false;
+let msExitTimer = null;
+let msGapTimer = null;
+
+function showMilestoneToast(id) {
+  if (!renderMilestoneToast(id)) return;
+  const overlay = document.getElementById('ms-overlay');
+  if (msExitTimer) { clearTimeout(msExitTimer); msExitTimer = null; }
+  overlay.classList.remove('visible', 'exiting');
+  void overlay.offsetWidth; // 強制 reflow，動畫從頭播
+  overlay.classList.add('visible');
+  overlay.setAttribute('aria-hidden', 'false');
+}
+
+function hideMilestoneToast() {
+  const overlay = document.getElementById('ms-overlay');
+  if (!overlay.classList.contains('visible')) return;
+  overlay.classList.remove('visible');
+  overlay.classList.add('exiting');
+  msExitTimer = setTimeout(() => {
+    overlay.classList.remove('exiting');
+    overlay.setAttribute('aria-hidden', 'true');
+    msExitTimer = null;
+    if (milestoneQueue.length > 0) {
+      msGapTimer = setTimeout(() => {
+        msGapTimer = null;
+        const next = milestoneQueue.shift();
+        showMilestoneToast(next);
+      }, 300);
+    } else {
+      milestoneActive = false;
+    }
+  }, 200);
+}
+
+// 多里程碑同時觸發時的單一入口；自動排隊一個一個跳，間隔 300ms
+function enqueueMilestones(ids) {
+  if (!Array.isArray(ids)) ids = [ids];
+  if (ids.length === 0) return;
+  if (milestoneActive) {
+    ids.forEach(id => milestoneQueue.push(id));
+  } else {
+    milestoneActive = true;
+    const first = ids[0];
+    ids.slice(1).forEach(id => milestoneQueue.push(id));
+    showMilestoneToast(first);
+  }
+}
+
+// 點外部 / CTA 關閉
+document.getElementById('ms-cta').addEventListener('click', hideMilestoneToast);
+document.getElementById('ms-overlay').addEventListener('click', e => {
+  if (e.target === e.currentTarget) hideMilestoneToast();
+});
 
 function renderVenuePilgrimage() {
   const mainTeam = userState.profile.mainTeam;

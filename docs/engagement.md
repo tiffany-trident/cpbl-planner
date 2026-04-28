@@ -24,12 +24,11 @@
   - 每列：日期方塊 + 比分對戰 + meta 行（球場 · ★ · 座位 chips）+ 同行者 + 心得
   - 點 row（或 Enter / Space）開啟既有打卡 modal 編輯／刪除
   - 空狀態使用 `bb-checkin` sprite，與打卡功能 icon 一致
-- **Phase 2-D 設計探索 ✅**（2026-04-27，分支 `feat/phase2d-confetti-preview`，commit `82f01fb`，**主程式尚未實作**）
-  - confetti SVG 選定 svgrepo #325796 `party-confetti`（與 `bb-favorite` / `bb-checkin` 同源）
-  - toast 佈局選定 L4：confetti 140px 為主視覺 + 28px inline icon 貼 h3 標題前
-  - 三類里程碑 inline icon：球場巡禮 = Flaticon `stadium-484466.png`、打卡達標 = `bb-checkin` sprite、主隊晉級 = `TEAM_LOGO` map 取主隊 logo
-  - 動畫：一次性 burst（scale 彈跳 + confetti 散開），靜止後待 dismiss；`shownMilestones` localStorage 防重播；多里程碑同時觸發採排隊間隔 ~300ms
-  - 4 份 design exploration HTML + 8 個 svgrepo 候選 SVG 已 commit
+- **Phase 2-D ✅ 設計探索 + 主程式（分批）**
+  - 設計探索（2026-04-27，分支 `feat/phase2d-confetti-preview`，merged `4b54f86`）— confetti / toast 佈局 / 三類 inline icon / 動畫節奏 / 防重播全部收斂
+  - 主程式（2026-04-28，分支 `feat/phase2d-milestone-toast`，4 commits）— schema v1→v2、`shownMilestones` 防重播、`detectMilestonesAfterCheckin()` 偵測 + 排隊 toast；接到 `saveCheckinForm` / 刪除倒退
+  - 場數門檻 `CHECKIN_THRESHOLDS = [5, 10]`（將來只往上加）；動畫選 ③ 派對狂歡；刪除語意採狀態反映而非永久解鎖
+  - **③ 主隊晉級擱置**：CPBL 上下半季規則尚未在 code 建模，且 2026 賽季 4 月才開季，最早 6 月底才會觸發
 - **Phase 2-C** — 尚未開始（年度回顧頁）
 - **Phase 3-6** — 尚未開始
 
@@ -104,10 +103,11 @@
   - 去過幾場、最常去哪座球場、現場見證的最大逆轉
   - 可截圖分享（html2canvas 或動態 og:image）
   - 年底 12 月彈出「你的年度回顧已生成」toast
-- ⬜ **里程碑動畫**（Phase 2-D）：
-  - 第一次去新球場
-  - 第 10 場打卡
-  - 支持球隊晉級時跳成就動畫
+- ✅ **里程碑動畫**（Phase 2-D，2026-04-28 主程式上線）：
+  - ✅ 第一次去新球場（`venue-{name}` toast）
+  - ✅ 累積打卡 5 / 10 場（`checkin-{N}` toast，閾值將來只往上加）
+  - ✅ 11 座球場全達標（`venue-all`）
+  - ⬜ 支持球隊晉級（待 CPBL 上下半季規則 / 季後賽資格在 code 建模後再做）
 
 ### 技術
 
