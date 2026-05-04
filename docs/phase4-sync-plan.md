@@ -1,6 +1,8 @@
- 喔# Phase 4 跨裝置同步 — 實作計畫
+# Phase 4 跨裝置同步 — 實作計畫
 
-> 撰寫於 2026-04-28，**未實作、未開分支**。供 review 後再決定是否動工。
+> 撰寫於 2026-04-28，更新於 2026-05-04。
+> **POC 已實作於 `feat/phase4-poc-sync-skeleton` 分支**（2026-05-04 跨裝置驗證通過，未 merge main）。
+> 4-B 正式版尚未動工，等前置帳號 / DNS 準備好後開新分支。
 
 [engagement.md](engagement.md) Phase 4 的具體實作 plan。
 
@@ -220,14 +222,64 @@ JWT in HttpOnly cookie，內容 `{ email, exp }`，TTL 30 天，伺服器端用 
 
 ---
 
-## 下一步
+## User 回覆紀錄（2026-05-04）
 
-需要 user 回答後再開工：
-
-1. **第 7 項開放範圍**：白名單只你自己用？或開放給朋友（誰）？
-2. **CF + Resend 帳號 + DNS 設定**：你準備好了嗎？沒有的話我可以列前置 checklist
-3. **要不要先做 1 day POC**（打卡 push 到 mock endpoint，純驗證前端 sync 邏輯架構）— 還是直接接真 CF Worker
-
-回完這 3 題，我開分支寫具體 step-by-step plan。
+| # | 問題 | 回覆 |
+|---|------|------|
+| 1 | 白名單範圍 | 自己 + 少數朋友（具體 email 名單待收齊） |
+| 2 | CF + Resend + DNS 是否就緒 | 未準備，需走前置 checklist |
+| 3 | 是否先做 POC | 先做 — 已完成 |
 
 > **版本選擇已定**：中間版 6-7 天（保留離線 queue，暫緩 409 衝突 / 完整隱私文案）。
+
+---
+
+## POC 結論（2026-05-04）
+
+**分支**：`feat/phase4-poc-sync-skeleton`（不 merge main，純驗證架構）
+
+### 確認 OK 的 hook 點
+
+- **`saveUserState(state)`**：拆出 `writeUserStateLocal()` 純本機寫，外層 `saveUserState` 在本機寫成功後 fire-and-forget 觸發 `syncPush(state)`。8 個既有 callsite（toggleFavorite / saveCheckinForm / setMainTeam / 篩選記憶 / 里程碑等）完全不用改，自動取得 sync 能力。
+- **App 開站**：在 `loadData()` + `initMyViewFromHash()` 之後串 `syncFlushQueue().then(syncPull)`，順序穩定無 race。
+- **`syncPull` 遠端空時 seed 邏輯**：第一次跑時遠端是空的，若本機有資料（`mainTeam` / `checkins` / `favorites` 任一非空）就 push 上去當 source-of-truth seed；否則保留遠端空，避免新裝置誤覆蓋舊裝置。**這個 seed rule 必須保留到正式版**。
+
+### 抽象界面設計（正式版直接復用）
+
+```js
+const syncBackend = {
+  async push(state) { ... },
+  async pull() { ... return remote || null; }
+};
+```
+
+正式版只需把 `mockSyncBackend` 換成 `httpSyncBackend`（fetch CF Worker），上層 `syncPush` / `syncPull` / `syncFlushQueue` / 離線 queue 全部不動。
+
+### 本機跨「裝置」測試方案
+
+`?device=A|B` URL 後綴 → `USER_STORE_KEY = 'cpbl_planner_v1' + suffix`，三個分頁可同時模擬「預設 / A / B」三裝置共享同一 mock backend。驗證流程：
+
+1. 預設裝置開站 → seed push（mock backend 從空變有）
+2. 切到 `?device=A` → A 本機空 → 自動 pull → 套上預設的資料 ✅
+3. （仍可測：在 A 改東西 → 切到 B → B pull 到 A 的最新狀態）
+
+### POC 範圍外 / 正式版要補的
+
+- ❌ **Last-write-wins 比對**：POC 採「遠端有資料就一律覆蓋本地」，正式版要比對 `updatedAt` timestamp，本地較新才不被覆蓋
+- ❌ **同步 UI 位置**：POC 放「我的」tab footer（dev/debug 用），正式版要搬到 nav 列讓所有 view 都看得到
+- ❌ **POC 偵錯選項**（模擬離線 toggle / device 切換連結）：正式版拿掉
+- ❌ **真正的 auth 流程**：POC 假設單一使用者，沒有 Magic Link
+
+---
+
+## 下一步：4-B 開工前置 checklist
+
+| # | 項目 | 細節 | 狀態 |
+|---|------|------|------|
+| 1 | Cloudflare 帳號 | Workers + KV 啟用（free tier 即可） | ⬜ |
+| 2 | Resend 帳號 | 免費 3000/月、100/天 | ⬜ |
+| 3 | Email sender domain 決策 | (a) 子網域 `mail.trident-tech.com` + DKIM / SPF；(b) Resend onboarding sandbox（限發給自己 → 朋友收不到，pass）| ⬜ |
+| 4 | Worker 部署 domain | (a) `api.trident-tech.com`；(b) `cpbl-planner-api.workers.dev` 預設 | ⬜ |
+| 5 | 朋友 email 白名單 | 收齊清單，hard-code 在 Worker 環境變數 | ⬜ |
+
+**4-B 正式版開工 = 上述 1–5 全部就緒 + 開新分支 `feat/phase4-cf-worker-auth`**。POC 分支可保留為架構參考，不需 merge main。
