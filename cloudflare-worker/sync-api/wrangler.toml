@@ -12,7 +12,7 @@ APP_ORIGIN = "https://tiffany-trident.github.io"
 #   npx wrangler secret put GOOGLE_CLIENT_SECRET
 #   npx wrangler secret put SESSION_SIGNING_KEY    # 用 `openssl rand -hex 32` 產生 64-char hex
 
-# KV namespace（切片 #2 加，需先跑 `npx wrangler kv:namespace create CPBL_USER_STORE`）：
-# [[kv_namespaces]]
-# binding = "CPBL_USER_STORE"
-# id = "<從 wrangler 輸出貼進來>"
+# KV namespace（切片 #2，2026-05-05 建立）
+[[kv_namespaces]]
+binding = "CPBL_USER_STORE"
+id = "e3d1beabee17416f9383cf010ad08436"
