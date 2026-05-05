@@ -290,13 +290,23 @@ const syncBackend = {
 
 | # | 切片 | 範圍 | 狀態 |
 |---|------|------|------|
-| 1 | Worker scaffold | `cloudflare-worker/` 目錄 + `wrangler.toml` + `package.json` + `src/index.ts`（只有 `/healthz`）| 🟡 進行中（2026-05-05）|
-| 2 | KV namespace 綁定 | `wrangler kv:namespace create CPBL_USER_STORE` + 綁進 `wrangler.toml` | ⬜ |
-| 3 | OAuth callback | `/auth/login`（redirect to Google）+ `/auth/callback`（驗 state、token exchange、簽 JWT cookie）| ⬜ |
-| 4 | Push / Pull endpoints | `/state` GET / PUT，session cookie 驗 → 從 sub 推 KV key → CRUD | ⬜ |
-| 5 | 前端 `httpSyncBackend` | drop-in 取代 POC 的 `mockSyncBackend`、加 401 → 跳登入 modal | ⬜ |
+| 1 | Worker scaffold | `cloudflare-worker/sync-api/` + `wrangler.toml` + `package.json` + `src/index.ts`（`/healthz`）| ✅ commit `75f6fc1`（2026-05-05）|
+| 2 | KV namespace 綁定 | `CPBL_USER_STORE` (id `e3d1beab...`) 綁進 `wrangler.toml`，`/healthz` 加 KV write+read sentinel | ✅ commit `500231a` |
+| 3 | OAuth callback | `/auth/login`（state → KV）+ `/auth/callback`（驗 state、code exchange、HMAC-SHA256 簽 session JWT、URL fragment 帶回前端）| ✅ commit `18baf31`（Tiffany Gmail 實測通過）|
+| 4 | Push / Pull endpoints | `/state` GET/PUT、auth middleware（Bearer JWT verify + exp）、CORS preflight + headers | ✅ commit `16fe3d9`（curl + JWT round-trip 實測，PowerShell 5.1 中文編碼問題僅影響 client，不影響 Worker）|
+| 5 | 前端 `httpSyncBackend` | drop-in 取代 POC 的 `mockSyncBackend`；URL fragment 接 token 寫 localStorage；401 → 跳登入 | ⬜ |
 | 6 | 登入 modal UI | 設定主隊頁旁加「跨裝置同步」入口 | ⬜ |
 | 7 | 移除 POC debug UI | 拿掉模擬離線 toggle、device 切換連結；sync 狀態 pill 搬到 nav | ⬜ |
-| 8 | timestamp 比對 | 加 `lastSyncAt` 與 server `updatedAt` 比對，本地較新就拒絕被覆蓋 | ⬜ |
+| 8 | client-side updatedAt 比對 | client 送 `updatedAt` → server 比對舊值，舊的 push 回 409；client 收 409 自動 pull + retry | ⬜ |
 
 每切片獨立可部署 / 可驗證。完整流程跑通後再 merge main。
+
+### 後端切片完成度（2026-05-05）
+
+切片 #1-4 = 後端 100% 完成。Worker 在 `https://cpbl-planner-api.tiffany-434.workers.dev` 提供：
+- `GET /healthz` 健康檢查
+- `GET /auth/login` → 302 to Google authorize
+- `GET /auth/callback` → 驗 state + token exchange + 簽 session JWT + 302 to `APP_ORIGIN/cpbl-planner/#session=<jwt>`
+- `GET /state` （Bearer JWT）→ 從 KV 讀使用者 state（`user:{sub}`）
+- `PUT /state` （Bearer JWT + JSON body `{state}`）→ 寫進 KV，server-side `updatedAt`
+- `OPTIONS /*` → CORS preflight，Allow-Origin 限 `APP_ORIGIN` + localhost
