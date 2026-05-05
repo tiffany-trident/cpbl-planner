@@ -60,6 +60,7 @@ body { font-family: 'Inter', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; b
 .sync-modal-btn-primary:hover { background: #A84826; }
 .sync-modal-btn-ghost { background: transparent; color: #6B5F50; border: 1px solid #E8DDBE; }
 .sync-modal-btn-ghost:hover { background: #FAF6EC; color: #4A3728; }
+.sync-modal-status { display: block; font-family: 'Inter', sans-serif; font-size: 12px; color: #6B5F50; margin-top: 6px; letter-spacing: 0.3px; }
 .hero-mainteam-num { color: #C2573A !important; }
 .hero-mainteam-logo { width: 18px; height: 18px; object-fit: contain; border-radius: 50%; vertical-align: middle; margin-right: 4px; }
 .standing-maincap { display: inline-flex; width: 20px; height: 20px; align-items: center; justify-content: center; margin-left: 6px; vertical-align: middle; }
@@ -551,27 +552,6 @@ button.card-weather.clickable:active { transform: scale(0.96); }
 .my-tab-panel { display: none; }
 .my-tab-panel.active { display: block; }
 
-/* Phase 4 POC：sync footer（dev/debug 用，正式版會搬到 nav 並拿掉 debug 區） */
-.sync-footer { max-width: 720px; margin: 32px auto 0; padding: 16px 20px; background: #FFFAF0; border: 1px dashed #E8DDBE; border-radius: 14px; font-size: 12px; color: #6B5F50; }
-.sync-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
-.sync-pill { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; background: #F4ECD8; border-radius: 999px; font-family: 'Inter', sans-serif; font-size: 12px; letter-spacing: 0.3px; color: #6B5F50; }
-.sync-pill[data-status="syncing"] { background: #FFE9D6; color: #C2573A; }
-.sync-pill[data-status="offline"] { background: #EFE5D0; color: #8A7A5C; }
-.sync-pill[data-status="unauthenticated"] { background: #F4ECD8; color: #9B8E7E; }
-.sync-pill::before { content: '●'; font-size: 8px; color: #1A6B3A; }
-.sync-pill[data-status="syncing"]::before { color: #C2573A; }
-.sync-pill[data-status="offline"]::before { color: #B5A47A; }
-.sync-pill[data-status="unauthenticated"]::before { color: #B5A47A; }
-.sync-btn { background: #C2573A; color: #fff; border: none; padding: 6px 14px; border-radius: 999px; font-family: inherit; font-size: 12px; letter-spacing: 0.5px; cursor: pointer; transition: background 0.15s; }
-.sync-btn:hover { background: #A84826; }
-.sync-btn.sync-btn-ghost { background: transparent; color: #6B5F50; border: 1px solid #C9B999; }
-.sync-btn.sync-btn-ghost:hover { background: #F4ECD8; color: #4A3728; }
-.sync-debug { margin-top: 12px; }
-.sync-debug summary { cursor: pointer; color: #9B8E7E; font-size: 11px; letter-spacing: 1px; padding: 4px 0; }
-.sync-debug summary:hover { color: #6B5F50; }
-.sync-debug-row { padding: 6px 0; display: flex; align-items: center; gap: 8px; font-size: 12px; }
-.sync-device-links a { color: #C2573A; padding: 2px 8px; border-radius: 999px; background: #FDF0E8; text-decoration: none; margin-left: 4px; font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 0.3px; }
-.sync-device-links a:hover { background: #FAE0CD; }
 
 .my-placeholder { max-width: 560px; margin: 40px auto; text-align: center; padding: 60px 20px; color: #9B8E7E; }
 .my-placeholder-icon { font-size: 44px; margin-bottom: 18px; line-height: 1; }
@@ -1088,12 +1068,7 @@ let themeDaysData = {};     // { "YYYY-MM-DD": [{home_team, title, subtitle, sou
 
 // ── 使用者個人化資料（Phase 1 Schema v1，Phase 2-D 升 v2 加 shownMilestones）──
 // 儲存於 localStorage，未來 Phase 4 跨裝置同步會沿用此 schema
-// Phase 4 POC：?device=A|B URL 後綴讓不同分頁可模擬獨立裝置共用同一 mock backend
-function getDeviceSuffix() {
-  const m = location.search.match(/[?&]device=([A-Za-z0-9_-]+)/);
-  return m ? '_' + m[1] : '';
-}
-const USER_STORE_KEY = 'cpbl_planner_v1' + getDeviceSuffix();
+const USER_STORE_KEY = 'cpbl_planner_v1';
 const USER_STORE_VERSION = 2;
 
 function defaultUserState() {
@@ -1149,37 +1124,20 @@ function saveUserState(state) {
 
 let userState = loadUserState();
 
-// ── Phase 4 sync layer ──
-// 切片 #5：登入後走 httpSyncBackend（CF Worker），未登入 fallback 走 mockSyncBackend
-// 切片 #7 會拿掉 mock 與 device 切換 debug UI
-const MOCK_SYNC_STORE_KEY = 'cpbl_mock_sync_v1';     // 跨「裝置」共用的 mock server
-const SYNC_QUEUE_KEY = 'cpbl_sync_queue_v1' + getDeviceSuffix();
-const SYNC_OFFLINE_KEY = 'cpbl_sync_offline_flag';   // debug：模擬離線
-
-const isOfflineSimulated = () => localStorage.getItem(SYNC_OFFLINE_KEY) === '1';
-const sleep = (ms) => new Promise(r => setTimeout(r, ms));
-
-const mockSyncBackend = {
-  async push(state) {
-    if (isOfflineSimulated()) throw new Error('offline');
-    await sleep(150);
-    localStorage.setItem(MOCK_SYNC_STORE_KEY, JSON.stringify({ state, updatedAt: Date.now() }));
-  },
-  async pull() {
-    if (isOfflineSimulated()) throw new Error('offline');
-    await sleep(150);
-    const raw = localStorage.getItem(MOCK_SYNC_STORE_KEY);
-    return raw ? JSON.parse(raw) : null;
-  }
-};
-
-// ── Phase 4 #5：HTTP sync backend + session 管理 ──
+// ── Phase 4 sync layer（slice #7 後：HTTP backend + session 管理；未登入時 sync 為 no-op）──
+const SYNC_QUEUE_KEY = 'cpbl_sync_queue_v1';
 const SYNC_API_BASE = 'https://cpbl-planner-api.tiffany-434.workers.dev';
 const SESSION_TOKEN_KEY = 'cpbl_session_token';
 
 function getSessionToken() { return localStorage.getItem(SESSION_TOKEN_KEY) || null; }
 function saveSessionToken(jwt) { localStorage.setItem(SESSION_TOKEN_KEY, jwt); }
-function clearSessionToken() { localStorage.removeItem(SESSION_TOKEN_KEY); }
+function clearSessionToken() {
+  localStorage.removeItem(SESSION_TOKEN_KEY);
+  // 401 異步觸發時也會走這條：必須 reset 狀態 + 重畫 nav，避免 UI 停在「同步中」假象
+  if (typeof syncStatus !== 'undefined') syncStatus = 'idle';
+  if (typeof lastSyncAt !== 'undefined') lastSyncAt = null;
+  if (typeof updateNavSyncUI === 'function') updateNavSyncUI();
+}
 
 // 不驗簽，純解 JWT payload 給 UI 顯示用（顯示 email 等）；安全驗簽是 Worker 那端的事
 function decodeSessionPayload() {
@@ -1231,19 +1189,14 @@ const httpSyncBackend = {
   }
 };
 
-// 已登入 → 走真 CF Worker；未登入 → fallback 走 POC mock backend（slice #7 會拿掉 mock）
-function getSyncBackend() {
-  return getSessionToken() ? httpSyncBackend : mockSyncBackend;
-}
-
 let syncStatus = 'idle';  // 'idle' | 'syncing' | 'offline'
 let lastSyncAt = null;
 
 async function syncPush(state) {
+  if (!getSessionToken()) return;   // 未登入：sync 為 no-op，state 只存 localStorage
   syncStatus = 'syncing';
-  updateSyncIndicator();
   try {
-    await getSyncBackend().push(state);
+    await httpSyncBackend.push(state);
     localStorage.removeItem(SYNC_QUEUE_KEY);
     lastSyncAt = Date.now();
     syncStatus = 'idle';
@@ -1251,17 +1204,16 @@ async function syncPush(state) {
     localStorage.setItem(SYNC_QUEUE_KEY, JSON.stringify(state));
     syncStatus = 'offline';
   }
-  updateSyncIndicator();
 }
 
 async function syncPull(opts) {
+  if (!getSessionToken()) return;
   const rerender = !opts || opts.rerender !== false;
   syncStatus = 'syncing';
-  updateSyncIndicator();
   try {
-    const remote = await getSyncBackend().pull();
+    const remote = await httpSyncBackend.pull();
     if (remote && remote.state) {
-      // 遠端有資料 → 覆蓋本地（POC：last-write-wins，遠端勝）
+      // 遠端有資料 → 覆蓋本地（slice #8 會加 updatedAt 比對）
       userState = migrateUserState(remote.state);
       writeUserStateLocal(userState);
       if (rerender) {
@@ -1269,29 +1221,28 @@ async function syncPull(opts) {
         if (typeof renderMyView === 'function') renderMyView();
       }
     } else {
-      // 遠端空 → 本地有資料時 seed 上去（避免新裝置覆蓋舊裝置 / 首次同步沒東西可拉）
+      // 遠端空 → 本地有資料時 seed 上去（首次同步沒東西可拉的場景）
       const hasLocalData = userState.profile.mainTeam
         || Object.keys(userState.checkins || {}).length > 0
         || (userState.favorites || []).length > 0;
-      if (hasLocalData) await getSyncBackend().push(userState);
+      if (hasLocalData) await httpSyncBackend.push(userState);
     }
     lastSyncAt = Date.now();
     syncStatus = 'idle';
   } catch (e) {
     syncStatus = 'offline';
   }
-  updateSyncIndicator();
 }
 
 async function syncFlushQueue() {
+  if (!getSessionToken()) return;
   const raw = localStorage.getItem(SYNC_QUEUE_KEY);
   if (!raw) return;
   try {
-    await getSyncBackend().push(JSON.parse(raw));
+    await httpSyncBackend.push(JSON.parse(raw));
     localStorage.removeItem(SYNC_QUEUE_KEY);
     lastSyncAt = Date.now();
     syncStatus = 'idle';
-    updateSyncIndicator();
   } catch (e) {
     // 仍離線，下次再試
   }
@@ -1302,25 +1253,15 @@ async function manualSync() {
   await syncPull();
 }
 
-function updateSyncIndicator() {
-  const el = document.getElementById('sync-status');
-  if (!el) return;
-  const hasToken = !!getSessionToken();
-  const suffix = hasToken ? '' : '・local only';
-  let txt;
-  if (syncStatus === 'syncing') {
-    txt = '同步中…';
-  } else if (syncStatus === 'offline') {
-    txt = localStorage.getItem(SYNC_QUEUE_KEY) ? '離線・有未同步變更' : '離線';
-  } else if (lastSyncAt) {
+function getSyncStatusText() {
+  if (syncStatus === 'syncing') return '同步中…';
+  if (syncStatus === 'offline') return localStorage.getItem(SYNC_QUEUE_KEY) ? '離線・有未同步變更' : '離線';
+  if (lastSyncAt) {
     const t = new Date(lastSyncAt);
     const pad = n => String(n).padStart(2, '0');
-    txt = '已同步 ' + pad(t.getHours()) + ':' + pad(t.getMinutes()) + ':' + pad(t.getSeconds());
-  } else {
-    txt = hasToken ? '尚未同步' : '未登入';
+    return '最後同步 ' + pad(t.getHours()) + ':' + pad(t.getMinutes()) + ':' + pad(t.getSeconds());
   }
-  el.textContent = txt + suffix;
-  el.dataset.status = hasToken ? syncStatus : 'unauthenticated';
+  return '尚未同步';
 }
 
 // ── 天氣工具函式 ──
@@ -2411,8 +2352,12 @@ function showSyncModal() {
   const payload = decodeSessionPayload();
   if (payload && payload.email) {
     body.innerHTML =
-      '<div class="sync-modal-current">目前以 <strong>' + escapeHtml(payload.email) + '</strong> 同步中</div>' +
+      '<div class="sync-modal-current">' +
+        '目前以 <strong>' + escapeHtml(payload.email) + '</strong> 同步' +
+        '<span class="sync-modal-status">' + escapeHtml(getSyncStatusText()) + '</span>' +
+      '</div>' +
       '<div class="sync-modal-actions">' +
+        '<button type="button" class="sync-modal-btn sync-modal-btn-primary" data-sync-action="manual">立即同步</button>' +
         '<button type="button" class="sync-modal-btn sync-modal-btn-ghost" data-sync-action="logout">登出</button>' +
         '<button type="button" class="sync-modal-btn sync-modal-btn-ghost" data-sync-modal-action="close">關閉</button>' +
       '</div>';
@@ -2948,13 +2893,16 @@ document.getElementById('sync-overlay').addEventListener('click', function(e) {
   if (modalAction === 'close') { hideSyncModal(); return; }
   const syncAction = e.target.closest('[data-sync-action]')?.dataset.syncAction;
   if (syncAction === 'login') { location.href = SYNC_API_BASE + '/auth/login'; return; }
+  if (syncAction === 'manual') {
+    manualSync().then(() => showSyncModal());   // re-render modal 顯示最新狀態
+    return;
+  }
   if (syncAction === 'logout') {
     clearSessionToken();
     syncStatus = 'idle';
     lastSyncAt = null;
     hideSyncModal();
     updateNavSyncUI();
-    updateSyncIndicator();
     if (typeof renderMyView === 'function') renderMyView();
     return;
   }
@@ -2974,30 +2922,6 @@ document.getElementById('my-view-body').addEventListener('click', function(e) {
     e.preventDefault();
     openCheckinModal(ckRow.dataset.ckSno);
     return;
-  }
-  const syncAction = e.target.closest('[data-sync-action]')?.dataset.syncAction;
-  if (syncAction === 'manual') { manualSync(); return; }
-  if (syncAction === 'login') { location.href = SYNC_API_BASE + '/auth/login'; return; }
-  if (syncAction === 'logout') {
-    clearSessionToken();
-    syncStatus = 'idle';
-    lastSyncAt = null;
-    renderMyView();   // 重畫 footer 切回「用 Google 登入」按鈕 + 更新狀態
-    return;
-  }
-});
-document.getElementById('my-view-body').addEventListener('change', function(e) {
-  const syncAction = e.target.closest('[data-sync-action]')?.dataset.syncAction;
-  if (syncAction === 'toggle-offline') {
-    if (e.target.checked) localStorage.setItem(SYNC_OFFLINE_KEY, '1');
-    else localStorage.removeItem(SYNC_OFFLINE_KEY);
-    if (e.target.checked) {
-      syncStatus = 'offline';
-    } else {
-      syncStatus = 'idle';
-      syncFlushQueue();
-    }
-    updateSyncIndicator();
   }
 });
 document.getElementById('my-view-body').addEventListener('keydown', function(e) {
@@ -3104,40 +3028,16 @@ function renderMyView() {
   if (!body) return;
   const mainTeam = userState.profile.mainTeam;
   const checkinsCount = Object.keys(userState.checkins).length;
-  let inner;
-  if (!mainTeam) inner = renderMyEmptyState('noTeam');
-  else if (checkinsCount === 0) inner = renderMyEmptyState('noCheckins');
-  else inner = renderMyShell();
-  body.innerHTML = inner + renderSyncFooter();
-  if (mainTeam && checkinsCount > 0) bindMyTabEvents();
-  updateSyncIndicator();
-}
-
-function renderSyncFooter() {
-  const m = location.search.match(/[?&]device=([A-Za-z0-9_-]+)/);
-  const dev = m ? m[1] : '預設';
-  const offline = isOfflineSimulated();
-  const path = location.pathname;
-  // slice #6：登入 / 登出 入口移到 nav-sync modal，footer 僅留 sync 狀態與 debug 區
-  return '<div class="sync-footer">' +
-    '<div class="sync-row">' +
-      '<span class="sync-pill" id="sync-status">尚未同步</span>' +
-      '<button type="button" class="sync-btn" data-sync-action="manual">立即同步</button>' +
-    '</div>' +
-    '<details class="sync-debug">' +
-      '<summary>POC 偵錯選項</summary>' +
-      '<label class="sync-debug-row">' +
-        '<input type="checkbox" data-sync-action="toggle-offline"' + (offline ? ' checked' : '') + '> 模擬離線（push / pull 會失敗）' +
-      '</label>' +
-      '<div class="sync-debug-row">目前裝置：<strong>' + escapeHtml(dev) + '</strong></div>' +
-      '<div class="sync-debug-row sync-device-links">' +
-        '切換 →' +
-        '<a href="' + path + '#my">預設</a>' +
-        '<a href="' + path + '?device=A#my">A</a>' +
-        '<a href="' + path + '?device=B#my">B</a>' +
-      '</div>' +
-    '</details>' +
-  '</div>';
+  if (!mainTeam) {
+    body.innerHTML = renderMyEmptyState('noTeam');
+    return;
+  }
+  if (checkinsCount === 0) {
+    body.innerHTML = renderMyEmptyState('noCheckins');
+    return;
+  }
+  body.innerHTML = renderMyShell();
+  bindMyTabEvents();
 }
 
 function renderMyShell() {
