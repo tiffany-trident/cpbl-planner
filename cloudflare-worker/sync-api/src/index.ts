@@ -61,8 +61,81 @@ function decodeJwtPayloadUnverified(jwt: string): Record<string, unknown> {
   return JSON.parse(base64UrlDecodeToString(parts[1]));
 }
 
-function jsonError(status: number, message: string): Response {
-  return Response.json({ ok: false, error: message }, { status });
+async function verifySessionJWT(
+  jwt: string,
+  secret: string,
+): Promise<Record<string, unknown> | null> {
+  const parts = jwt.split('.');
+  if (parts.length !== 3) return null;
+  const [headerB64, payloadB64, sigB64] = parts;
+  const data = `${headerB64}.${payloadB64}`;
+
+  let sigPadded = sigB64.replace(/-/g, '+').replace(/_/g, '/');
+  while (sigPadded.length % 4) sigPadded += '=';
+  const sigBytes = Uint8Array.from(atob(sigPadded), (c) => c.charCodeAt(0));
+
+  const key = await crypto.subtle.importKey(
+    'raw',
+    new TextEncoder().encode(secret),
+    { name: 'HMAC', hash: 'SHA-256' },
+    false,
+    ['verify'],
+  );
+  const ok = await crypto.subtle.verify('HMAC', key, sigBytes, new TextEncoder().encode(data));
+  if (!ok) return null;
+
+  let payload: Record<string, unknown>;
+  try {
+    payload = JSON.parse(base64UrlDecodeToString(payloadB64));
+  } catch {
+    return null;
+  }
+  const now = Math.floor(Date.now() / 1000);
+  if (typeof payload.exp === 'number' && payload.exp < now) return null;
+  return payload;
+}
+
+async function authenticate(
+  req: Request,
+  env: Env,
+): Promise<{ sub: string; email: string } | null> {
+  const auth = req.headers.get('Authorization') ?? '';
+  const m = /^Bearer\s+(.+)$/.exec(auth);
+  if (!m) return null;
+  const payload = await verifySessionJWT(m[1], env.SESSION_SIGNING_KEY);
+  if (!payload) return null;
+  if (typeof payload.sub !== 'string' || typeof payload.email !== 'string') return null;
+  return { sub: payload.sub, email: payload.email };
+}
+
+function corsHeaders(req: Request, env: Env): Record<string, string> {
+  const origin = req.headers.get('Origin') ?? '';
+  const allowed =
+    origin === env.APP_ORIGIN || origin.startsWith('http://localhost:') || origin === 'null';
+  return {
+    'Access-Control-Allow-Origin': allowed ? origin : env.APP_ORIGIN,
+    'Access-Control-Allow-Methods': 'GET, PUT, OPTIONS',
+    'Access-Control-Allow-Headers': 'Authorization, Content-Type',
+    'Access-Control-Max-Age': '86400',
+    Vary: 'Origin',
+  };
+}
+
+function jsonResponse(
+  body: unknown,
+  opts: { status?: number; cors?: Record<string, string> } = {},
+): Response {
+  return new Response(JSON.stringify(body), {
+    status: opts.status ?? 200,
+    headers: {
+      'Content-Type': 'application/json; charset=utf-8',
+      ...(opts.cors ?? {}),
+    },
+  });
+}
+
+function jsonError(status: number, message: string, cors?: Record<string, string>): Response {
+  return jsonResponse({ ok: false, error: message }, { status, cors });
 }
 
 // ── handlers ──
@@ -137,11 +210,55 @@ async function handleAuthCallback(req: Request, env: Env): Promise<Response> {
   return Response.redirect(target, 302);
 }
 
+async function handleStateGet(req: Request, env: Env): Promise<Response> {
+  const cors = corsHeaders(req, env);
+  const user = await authenticate(req, env);
+  if (!user) return jsonError(401, 'Unauthorized', cors);
+
+  const raw = await env.CPBL_USER_STORE.get(`user:${user.sub}`);
+  if (!raw) return jsonResponse({ ok: true, state: null, updatedAt: null }, { cors });
+
+  try {
+    const parsed = JSON.parse(raw) as { state: unknown; updatedAt: number };
+    return jsonResponse({ ok: true, state: parsed.state, updatedAt: parsed.updatedAt }, { cors });
+  } catch {
+    return jsonError(500, 'Corrupted KV state', cors);
+  }
+}
+
+async function handleStatePut(req: Request, env: Env): Promise<Response> {
+  const cors = corsHeaders(req, env);
+  const user = await authenticate(req, env);
+  if (!user) return jsonError(401, 'Unauthorized', cors);
+
+  let body: { state?: unknown };
+  try {
+    body = (await req.json()) as { state?: unknown };
+  } catch {
+    return jsonError(400, 'Invalid JSON body', cors);
+  }
+  if (!body.state || typeof body.state !== 'object') {
+    return jsonError(400, 'Missing or invalid state field', cors);
+  }
+
+  const updatedAt = Date.now();
+  await env.CPBL_USER_STORE.put(
+    `user:${user.sub}`,
+    JSON.stringify({ state: body.state, updatedAt }),
+  );
+  return jsonResponse({ ok: true, updatedAt }, { cors });
+}
+
 // ── main ──
 
 export default {
   async fetch(req: Request, env: Env): Promise<Response> {
     const url = new URL(req.url);
+
+    // CORS preflight
+    if (req.method === 'OPTIONS') {
+      return new Response(null, { status: 204, headers: corsHeaders(req, env) });
+    }
 
     if (req.method === 'GET' && url.pathname === '/healthz') {
       return Response.json({ ok: true, service: 'cpbl-planner-api', ts: Date.now() });
@@ -153,6 +270,11 @@ export default {
 
     if (req.method === 'GET' && url.pathname === '/auth/callback') {
       return handleAuthCallback(req, env);
+    }
+
+    if (url.pathname === '/state') {
+      if (req.method === 'GET') return handleStateGet(req, env);
+      if (req.method === 'PUT') return handleStatePut(req, env);
     }
 
     return new Response('Not Found', { status: 404 });
