@@ -294,16 +294,18 @@ const syncBackend = {
 | 2 | KV namespace 綁定 | `CPBL_USER_STORE` (id `e3d1beab...`) 綁進 `wrangler.toml`，`/healthz` 加 KV write+read sentinel | ✅ commit `500231a` |
 | 3 | OAuth callback | `/auth/login`（state → KV）+ `/auth/callback`（驗 state、code exchange、HMAC-SHA256 簽 session JWT、URL fragment 帶回前端）| ✅ commit `18baf31`（Tiffany Gmail 實測通過）|
 | 4 | Push / Pull endpoints | `/state` GET/PUT、auth middleware（Bearer JWT verify + exp）、CORS preflight + headers | ✅ commit `16fe3d9`（curl + JWT round-trip 實測，PowerShell 5.1 中文編碼問題僅影響 client，不影響 Worker）|
-| 5 | 前端 `httpSyncBackend` | drop-in 取代 POC 的 `mockSyncBackend`；URL fragment 接 token 寫 localStorage；401 → 跳登入 | ⬜ |
-| 6 | 登入 modal UI | 設定主隊頁旁加「跨裝置同步」入口 | ⬜ |
-| 7 | 移除 POC debug UI | 拿掉模擬離線 toggle、device 切換連結；sync 狀態 pill 搬到 nav | ⬜ |
+| 5 | 前端 `httpSyncBackend` | drop-in 取代 POC 的 `mockSyncBackend`；URL fragment 接 token 寫 localStorage；401 → 自動清 token | ✅ commit `e172f03` |
+| 6 | 登入 modal UI | nav 加 sync pill（與主隊並列）+ sync-overlay modal（解釋同步功能、登入 / 登出 / 關閉） | ✅ commit `ab76d63` |
+| 7 | 移除 POC debug UI | 砍 mockSyncBackend / `?device=` / 模擬離線 / sync footer 整段；sync 狀態整合進 modal；clearSessionToken 修 401 後 nav 不重畫 bug | ✅ commit `42bb8dc` |
 | 8 | client-side updatedAt 比對 | client 送 `updatedAt` → server 比對舊值，舊的 push 回 409；client 收 409 自動 pull + retry | ⬜ |
 
 每切片獨立可部署 / 可驗證。完整流程跑通後再 merge main。
 
-### 後端切片完成度（2026-05-05）
+### 切片完成度（2026-05-05）
 
-切片 #1-4 = 後端 100% 完成。Worker 在 `https://cpbl-planner-api.tiffany-434.workers.dev` 提供：
+切片 #1-7 完成（後端 + 前端 + cleanup），剩 #8 衝突保護。**準備 merge main → GitHub Pages 部署 → production E2E 驗證**。
+
+Worker 在 `https://cpbl-planner-api.tiffany-434.workers.dev` 提供：
 - `GET /healthz` 健康檢查
 - `GET /auth/login` → 302 to Google authorize
 - `GET /auth/callback` → 驗 state + token exchange + 簽 session JWT + 302 to `APP_ORIGIN/cpbl-planner/#session=<jwt>`
