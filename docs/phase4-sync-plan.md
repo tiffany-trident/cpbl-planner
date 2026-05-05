@@ -1,8 +1,9 @@
 # Phase 4 跨裝置同步 — 實作計畫
 
-> 撰寫於 2026-04-28，更新於 2026-05-04。
-> **POC 已實作於 `feat/phase4-poc-sync-skeleton` 分支**（2026-05-04 跨裝置驗證通過，未 merge main）。
-> 4-B 正式版尚未動工，等前置帳號 / DNS 準備好後開新分支。
+> 撰寫於 2026-04-28，更新於 2026-05-05。
+> **POC 已實作於 `feat/phase4-poc-sync-skeleton`**（2026-05-04 跨裝置驗證通過，未 merge main）。
+> **4-B 正式版開工於 2026-05-05，分支 `feat/phase4-cf-worker-auth`**。
+> ⚠️ **2026-05-05 pivot**：原本選 Magic Link + Resend，改走 **Google OAuth**（user 無 sender domain DNS 寫入權，且 Google OAuth Testing 模式自帶白名單 — 詳見「關鍵決策 #1」）。
 
 [engagement.md](engagement.md) Phase 4 的具體實作 plan。
 
@@ -27,27 +28,31 @@ Phase 4 原本拆兩階段：
 [手機 / 電腦瀏覽器]
         ↓ HTTPS
 [Cloudflare Worker]
-   ├─→ [Cloudflare KV]      使用者資料 store
-   └─→ [Resend API]         寄 Magic Link email
+   ├─→ [Cloudflare KV]            使用者資料 store
+   └─→ [Google OAuth endpoints]   登入驗證 + 白名單（Testing 模式 test users）
 ```
 
 - 前端：現有 `index.html` 加登入 UI、sync 觸發點、衝突解決邏輯
-- 後端：Cloudflare Worker（單檔 JS / TS）處理 auth + KV CRUD
+- 後端：Cloudflare Worker（單檔 TS）處理 OAuth callback + KV CRUD
 - 儲存：Cloudflare KV（key-value，免費 tier 100K reads/day, 1K writes/day）
-- Auth：Magic Link（email 收一次性連結 → click → 拿 session token）
+- Auth：Google OAuth Authorization Code flow（redirect → consent → callback → session cookie）
+- 白名單：Google OAuth consent screen 在 Testing 狀態時，**只有 GCP project 內的 test users 能登入**，0 行 Worker 程式碼
 
 ---
 
-## 7 個關鍵決策
+## 關鍵決策
 
-### 1. 登入方式 — **Magic Link**
+### 1. 登入方式 — **Google OAuth**（2026-05-05 pivot）
 
 | 選項 | 優點 | 缺點 |
 |------|------|------|
-| **Magic Link** ✅ | 無密碼、UX 簡潔、所有人都有 email | 收信延遲（通常 < 30 秒） |
-| GitHub OAuth | 即時、技術簡單 | 強制使用者要有 GitHub 帳號 |
+| **Google OAuth** ✅ | 不需 email 服務、台灣 Gmail 普及率 99%+、Testing 模式自帶白名單、無 token / retry / expiry 邏輯要寫 | 朋友需有 Google 帳號（實務上幾乎都有） |
+| ~~Magic Link~~ | 任何 email 都能用 | 需 sender domain（user 無 trident-tech.com DNS 寫入權）+ token store / retry / expiry 系統 |
+| GitHub OAuth | 即時、技術簡單 | 強制使用者要有 GitHub 帳號（CPBL 球迷不一定有） |
 
-理由：CPBL 球迷不一定有 GitHub。Magic Link 最普及。
+**Pivot 理由**（2026-05-05 重新評估）：原本 doc 只比較 Magic Link vs GitHub OAuth，漏列 Google OAuth。User 確認 trident-tech.com 是公司域名無 DNS 寫入權後，Magic Link 走 Brevo 寄件者觀感差且要寫一堆 token logic；Google OAuth 跳過所有 email 麻煩，且 **Google OAuth Testing 模式最多 100 個 test users 就是內建白名單**，不用 Worker hard-code email list。
+
+**白名單管理**：加減朋友 = 在 GCP console 「Audience → Test users」加減 email，不改 Worker 程式碼。
 
 ### 2. 後端 — **Cloudflare Workers + KV**
 
@@ -57,17 +62,11 @@ Phase 4 原本拆兩階段：
 
 **注意**：本機自動更新比分時試過 CF Workers 失敗，但那是因為 **CPBL API 地理封鎖非台灣 IP**（見 [scoreupdate-history.md](scoreupdate-history.md)）。**使用者同步資料沒有 geofencing 問題**，CF Workers 可行。
 
-### 3. Email 服務 — **Resend**
+### 3. Email 服務 — **不需要**（2026-05-05 pivot 後刪除）
 
-| 選項 | 免費額度 | 備註 |
-|------|---------|------|
-| **Resend** ✅ | 3000 封/月、100 封/天 | API 最簡潔，需綁 domain |
-| Postmark | 100 封/月（過渡方案） | 可不綁 domain |
-| SendGrid | 100 封/天 | UI 較複雜 |
-
-3000/月對個人專案綽綽有餘（一個 active user 一個月不會發超過 30 個 magic link）。
-
-需綁 `trident-tech.com`（你的 domain）做 SPF/DKIM 驗證。
+原本選 Resend，但 Google OAuth 不寄 email，整段刪除。
+- 工時節省：原 Magic Link auth + Resend 整合 2-3 天 → Google OAuth callback 約 1 天
+- 設定省略：sender domain 決策、SPF / DKIM 設定、Resend 帳號全部不需要
 
 ### 4. 衝突解決 — **last-write-wins + 時間戳**
 
@@ -119,11 +118,11 @@ GDPR / 個資相關：
 | 階段 | 工時 | 內容 |
 |------|------|------|
 | 1. CF Worker scaffold + KV schema | 1 天 | 寫 Worker / KV 設計 / 部署 pipeline |
-| 2. Magic Link auth + Resend 整合 | 2-3 天 | 寄信 / token 驗證 / session cookie |
-| 3. Frontend 登入 UI + sync 觸發點 | 2 天 | 登入 modal / sync 邏輯接到 saveUserState / pull on load |
-| 4. 衝突處理 + 離線 queue | 2 天 | 409 重試 / 離線時暫存 push / 上線時 flush |
-| 5. 隱私文案 + 一鍵刪除 + 測試 | 1-2 天 | UI 文案 / 真機跨裝置驗證 / KV / Resend / token expiry edge cases |
-| **合計** | **8-10 天** | 約 1.5-2 週 |
+| 2. Google OAuth callback + session cookie | 1 天 | OAuth redirect / token exchange / 簽 JWT cookie |
+| 3. Frontend 登入 UI + sync 觸發點 | 1-2 天 | 登入 modal / `httpSyncBackend` 接到 POC sync layer / pull on load |
+| 4. 衝突處理 + 離線 queue | 2 天 | 409 重試 / 離線 queue 已在 POC，正式版加 timestamp 比對 |
+| 5. 隱私文案 + 一鍵刪除 + 測試 | 1-2 天 | UI 文案 / 真機跨裝置驗證 / KV / token expiry edge cases |
+| **合計** | **6-8 天** | 約 1-1.5 週（比原估省 2 天，省在跳過 Magic Link / Resend） |
 
 ---
 
@@ -132,10 +131,10 @@ GDPR / 個資相關：
 對應使用情境（並行使用 + 球場現場 / 通勤打卡）優化：保留離線 queue（必要），暫緩衝突 409 與完整隱私文案。
 
 ### 包含
-- ✅ Magic Link auth（2-3 天）
-- ✅ 全狀態 push / pull（1 天）
-- ✅ 離線 queue（2 天）— 球場 / 通勤離線高風險區仍能打卡，恢復連線後自動 push
-- ✅ 白名單（含在 auth 裡）
+- ✅ Google OAuth callback（1 天）
+- ✅ 全狀態 push / pull（1 天，POC 已驗證架構）
+- ✅ 離線 queue（POC 已實作，正式版只需把 mock backend 換 http）
+- ✅ 白名單（GCP Testing test users，0 行 Worker code）
 
 ### 暫緩
 - ❌ 衝突 409 重試 — 改純 last-write-wins，雙裝置同時改同一筆會默默覆蓋（後寫的勝出）
@@ -153,14 +152,17 @@ GDPR / 個資相關：
 
 ---
 
-## 開工前要先 ready 的事
+## 開工前要先 ready 的事（2026-05-05 全部就緒）
 
 | # | 項目 | 狀態 |
 |---|------|------|
-| 1 | Cloudflare 帳號（CF Workers + KV） | 需確認 |
-| 2 | Resend 帳號（綁 trident-tech.com domain） | 需確認 |
-| 3 | DNS 設定（SPF / DKIM 給 Resend） | 需確認 |
-| 4 | 部署 domain（要不要用子網域 `api.trident-tech.com`？或 `cpbl-planner-api.workers.dev`？） | 待定 |
+| 1 | Cloudflare 帳號（CF Workers + KV） | ✅ Tiffany@trident-tech.com，subdomain `tiffany-434.workers.dev` |
+| 2 | ~~Resend 帳號~~ | ❌ 不需要（Google OAuth pivot 後刪除） |
+| 3 | ~~DNS / SPF / DKIM~~ | ❌ 不需要 |
+| 4 | Worker 部署 domain | ✅ `cpbl-planner-api.tiffany-434.workers.dev` |
+| 5 | GCP project + OAuth client | ✅ Project `CPBL planner`、Client ID `154138452880-o245n9ejknhboe84u0ujb9uvqtqi4hc2.apps.googleusercontent.com`、scopes openid/email/profile、Tiffany 為唯一 test user |
+| 6 | Authorized redirect URIs | ✅ `http://localhost:8787/auth/callback` + `https://cpbl-planner-api.tiffany-434.workers.dev/auth/callback` |
+| 7 | Client Secret | ⬜ 已產生，等 Worker 骨架就緒後 user 用 `wrangler secret put GOOGLE_CLIENT_SECRET` 設入 |
 
 ---
 
@@ -187,17 +189,19 @@ key: user:{email_hash}:state    → userState v2
 
 第二種讀寫更細，但個人資料量小，第一種就好。
 
-### Magic Link token
+### OAuth state（防 CSRF）
 
 ```
-key: token:{uuid}
-value: { email, createdAt, used: false }
-TTL: 15 分鐘（Cloudflare KV 內建 TTL）
+key: oauth_state:{random_string}
+value: { createdAt, redirectAfterLogin? }
+TTL: 10 分鐘（Cloudflare KV 內建 TTL）
 ```
+
+OAuth flow 開始時 Worker 產生 random `state`，存 KV + 帶進 Google authorize URL；callback 收到後驗證 state 存在才繼續。
 
 ### Session cookie
 
-JWT in HttpOnly cookie，內容 `{ email, exp }`，TTL 30 天，伺服器端用 Worker secret 簽。
+JWT in HttpOnly cookie，內容 `{ email, sub, exp }`（`sub` 是 Google 使用者 ID，`email` 來自 Google userinfo），TTL 30 天，伺服器端用 Worker secret（`SESSION_SIGNING_KEY`）簽。
 
 ---
 
@@ -214,23 +218,33 @@ JWT in HttpOnly cookie，內容 `{ email, exp }`，TTL 30 天，伺服器端用 
 
 | 風險 | 機率 | 緩解 |
 |------|------|------|
-| Resend 免費額度被濫用打爆 | 低（有白名單）| Worker 加 rate limit / IP 限制 |
-| 使用者忘記登入 email | 中 | 「重寄 magic link」UI + 保留 schema 讓使用者匯出 localStorage 過渡 |
+| 朋友拒用 Google 登入 | 低 | 白名單朋友幾乎都有 Gmail；極端 case 加 GitHub OAuth fallback（不在 v1） |
+| Google OAuth Testing 模式 100 人上限 | 低 | 個人專案 0 行銷壓力，超過 100 朋友等同準備好 PUBLISH，是好問題不是風險 |
 | CF Worker / KV 服務中斷 | 低 | 客戶端有 localStorage 副本，sync 失敗不影響本機使用 |
-| Resend domain 驗證沒過 | 中 | 過渡方案先用 Resend 預設 sandbox domain（限制收件 = 自己） |
+| OAuth Client Secret 外洩 | 低 | `wrangler secret put` 不入 git；如外洩 Google console 重發 secret 即可 |
 | Schema 升版要遷移 | 中 | 沿用既有 `migrateUserState()` 模式，server 端只存 raw state，遷移在客戶端做 |
 
 ---
 
-## User 回覆紀錄（2026-05-04）
+## User 回覆紀錄
 
+### 2026-05-04
 | # | 問題 | 回覆 |
 |---|------|------|
 | 1 | 白名單範圍 | 自己 + 少數朋友（具體 email 名單待收齊） |
 | 2 | CF + Resend + DNS 是否就緒 | 未準備，需走前置 checklist |
 | 3 | 是否先做 POC | 先做 — 已完成 |
 
-> **版本選擇已定**：中間版 6-7 天（保留離線 queue，暫緩 409 衝突 / 完整隱私文案）。
+### 2026-05-05（pivot 日）
+| # | 決議 | 回覆 |
+|---|------|------|
+| 1 | trident-tech.com DNS 寫入權 | 沒有 → Magic Link 方案受阻 |
+| 2 | 改走 Google OAuth | ✅ 接受（user 原本也想，是我框架引導錯方向） |
+| 3 | Worker 名字 `cpbl-planner-api` | ✅ |
+| 4 | 白名單先只自己（Google Testing 模式） | ✅ |
+| 5 | 開分支 `feat/phase4-cf-worker-auth` | ✅ |
+
+> **版本選擇已定**：中間版 6-8 天（保留離線 queue，暫緩 409 衝突 / 完整隱私文案）。
 
 ---
 
@@ -272,14 +286,17 @@ const syncBackend = {
 
 ---
 
-## 下一步：4-B 開工前置 checklist
+## 4-B 實作切片（incremental）
 
-| # | 項目 | 細節 | 狀態 |
+| # | 切片 | 範圍 | 狀態 |
 |---|------|------|------|
-| 1 | Cloudflare 帳號 | Workers + KV 啟用（free tier 即可） | ⬜ |
-| 2 | Resend 帳號 | 免費 3000/月、100/天 | ⬜ |
-| 3 | Email sender domain 決策 | (a) 子網域 `mail.trident-tech.com` + DKIM / SPF；(b) Resend onboarding sandbox（限發給自己 → 朋友收不到，pass）| ⬜ |
-| 4 | Worker 部署 domain | (a) `api.trident-tech.com`；(b) `cpbl-planner-api.workers.dev` 預設 | ⬜ |
-| 5 | 朋友 email 白名單 | 收齊清單，hard-code 在 Worker 環境變數 | ⬜ |
+| 1 | Worker scaffold | `cloudflare-worker/` 目錄 + `wrangler.toml` + `package.json` + `src/index.ts`（只有 `/healthz`）| 🟡 進行中（2026-05-05）|
+| 2 | KV namespace 綁定 | `wrangler kv:namespace create CPBL_USER_STORE` + 綁進 `wrangler.toml` | ⬜ |
+| 3 | OAuth callback | `/auth/login`（redirect to Google）+ `/auth/callback`（驗 state、token exchange、簽 JWT cookie）| ⬜ |
+| 4 | Push / Pull endpoints | `/state` GET / PUT，session cookie 驗 → 從 sub 推 KV key → CRUD | ⬜ |
+| 5 | 前端 `httpSyncBackend` | drop-in 取代 POC 的 `mockSyncBackend`、加 401 → 跳登入 modal | ⬜ |
+| 6 | 登入 modal UI | 設定主隊頁旁加「跨裝置同步」入口 | ⬜ |
+| 7 | 移除 POC debug UI | 拿掉模擬離線 toggle、device 切換連結；sync 狀態 pill 搬到 nav | ⬜ |
+| 8 | timestamp 比對 | 加 `lastSyncAt` 與 server `updatedAt` 比對，本地較新就拒絕被覆蓋 | ⬜ |
 
-**4-B 正式版開工 = 上述 1–5 全部就緒 + 開新分支 `feat/phase4-cf-worker-auth`**。POC 分支可保留為架構參考，不需 merge main。
+每切片獨立可部署 / 可驗證。完整流程跑通後再 merge main。
