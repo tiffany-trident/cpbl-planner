@@ -33,15 +33,10 @@ body { font-family: 'Inter', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; b
 .nav-mainteam-setup { display: inline-flex; align-items: center; gap: 4px; padding: 6px 14px; border-radius: 20px; border: 1px dashed #E5D3B0; color: #C2573A; font-size: 13px; font-weight: 600; cursor: pointer; background: transparent; font-family: inherit; }
 .nav-mainteam-setup:hover { background: #FDF6EE; border-style: solid; }
 
-/* nav 跨裝置同步 pill（slice #6）— 跟主隊 pill 並列同視覺語彙 */
-.nav-sync { display: flex; align-items: center; flex-shrink: 0; }
-.nav-sync:empty { display: none; }
-.nav-sync-filled { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 20px; background: #EAF6EE; border: 1px solid #B5DCC2; font-size: 13px; color: #1A6B3A; cursor: pointer; font-family: inherit; }
-.nav-sync-filled:hover { background: #DCEEE2; }
-.nav-sync-filled .nav-sync-icon { font-size: 14px; line-height: 1; }
-.nav-sync-filled .nav-sync-label { font-size: 11px; color: #5C8A6C; font-weight: 600; letter-spacing: 1px; }
-.nav-sync-setup { display: inline-flex; align-items: center; gap: 5px; padding: 6px 12px; border-radius: 20px; border: 1px dashed #C9B999; color: #6B5F50; font-size: 13px; font-weight: 500; cursor: pointer; background: transparent; font-family: inherit; }
-.nav-sync-setup:hover { background: #FAF6EC; border-style: solid; color: #4A3728; }
+/* nav 跨裝置同步 link — 融入 nav-links，與戰績/篩選/賽程/我的同視覺語彙 */
+.nav-links a#nav-sync { display: inline-flex; align-items: center; gap: 4px; }
+.nav-links a#nav-sync.nav-sync-active { color: #1A6B3A; }
+.nav-links a#nav-sync.nav-sync-active:hover { color: #145E2D; }
 
 /* sync modal */
 .sync-overlay { position: fixed; inset: 0; background: rgba(61, 49, 34, 0.6); z-index: 9999; display: flex; align-items: center; justify-content: center; padding: 20px; }
@@ -796,12 +791,12 @@ button.card-weather.clickable:active { transform: scale(0.96); }
     <span class="nav-title">CPBL 2026</span>
   </div>
   <div class="nav-mainteam" id="nav-mainteam"></div>
-  <div class="nav-sync" id="nav-sync"></div>
   <div class="nav-links">
     <a href="#standings-wrap" data-view="main">戰績</a>
     <a href="#filters" data-view="main">篩選</a>
     <a href="#games" data-view="main">賽程</a>
     <a href="#my" data-view="my" id="nav-my-link">我的 <svg class="nav-my-icon" aria-hidden="true"><use href="#bb-favorite"/></svg></a>
+    <a id="nav-sync" href="javascript:void(0)" data-sync-modal-action="open">☁️ 同步</a>
   </div>
 </div>
 
@@ -2390,12 +2385,11 @@ function updateNavSyncUI() {
   if (!el) return;
   const token = getSessionToken();
   if (token) {
-    el.innerHTML = '<button type="button" class="nav-sync-filled" data-sync-modal-action="open" title="跨裝置同步已啟用">' +
-      '<span class="nav-sync-icon">☁️</span>' +
-      '<span class="nav-sync-label">同步中</span>' +
-    '</button>';
+    el.textContent = '☁️ 同步中';
+    el.classList.add('nav-sync-active');
   } else {
-    el.innerHTML = '<button type="button" class="nav-sync-setup" data-sync-modal-action="open">☁️ 啟用同步</button>';
+    el.textContent = '☁️ 同步';
+    el.classList.remove('nav-sync-active');
   }
 }
 
