@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>Phase 4 同步按鈕位置預覽</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/cylee/jf-openhuninn-1.1@main/web/openhuninn-1.1.css" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; background: #F8F4ED; color: #4A3728; padding: 30px; }
+h1 { font-size: 24px; letter-spacing: 2px; margin-bottom: 8px; color: #3D3122; }
+.intro { font-size: 13px; color: #6B5F50; margin-bottom: 28px; line-height: 1.7; max-width: 720px; }
+.intro code { background: #FDF6EE; padding: 2px 6px; border-radius: 4px; font-family: 'Inter', sans-serif; font-size: 12px; color: #C2573A; }
+
+.variant { background: #FFF; border-radius: 16px; box-shadow: 0 2px 12px rgba(61, 49, 34, 0.05); margin-bottom: 24px; overflow: hidden; }
+.variant-label { padding: 14px 22px; background: #FAF6EC; border-bottom: 1px solid #F0E8DB; display: flex; align-items: baseline; gap: 12px; }
+.variant-label .tag { background: #C2573A; color: #fff; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 14px; padding: 3px 12px; border-radius: 999px; letter-spacing: 0.5px; }
+.variant-label .name { font-size: 15px; color: #4A3728; font-weight: 500; letter-spacing: 1px; }
+.variant-label .note { font-size: 12px; color: #9B8E7E; margin-left: auto; }
+
+/* nav 結構（從 index.html 抓出來） */
+.nav { display: flex; justify-content: space-between; align-items: center; padding: 16px 40px; background: #FFF; border-bottom: 1px solid #EEECEA; gap: 16px; }
+.nav-logo { display: flex; align-items: center; gap: 10px; }
+.nav-logo .snoopy-icon { font-size: 24px; }
+.nav-title { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; font-size: 18px; font-weight: 500; letter-spacing: 2px; color: #4A3728; }
+.nav-mainteam { display: flex; align-items: center; flex-shrink: 0; }
+.nav-mainteam-filled { display: flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 20px; background: #FDF6EE; border: 1px solid #F0DFB8; font-size: 13px; color: #4A3728; }
+.nav-mainteam-label { font-size: 11px; color: #9B8E7E; font-weight: 600; letter-spacing: 1px; }
+.nav-mainteam-logo { width: 22px; height: 22px; object-fit: contain; border-radius: 50%; background: #7B1A1A; color: white; display: inline-flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 12px; }
+.nav-mainteam-name { font-weight: 700; font-size: 13px; }
+.nav-mainteam-switch { font-size: 11px; color: #C2573A; text-decoration: underline; cursor: pointer; margin-left: 4px; background: transparent; border: none; padding: 0; font-family: inherit; }
+.nav-links { display: flex; gap: 24px; }
+.nav-links a { font-size: 14px; color: #9B8E7E; text-decoration: none; cursor: pointer; }
+.nav-links a:hover { color: #C2573A; }
+
+/* sync pill 變體 */
+.sync-pill-setup { display: inline-flex; align-items: center; gap: 5px; padding: 6px 12px; border-radius: 20px; border: 1px dashed #C9B999; color: #6B5F50; font-size: 13px; font-weight: 500; background: transparent; font-family: inherit; cursor: pointer; }
+.sync-pill-icon-only { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background: #FAF6EC; border: 1px dashed #C9B999; color: #6B5F50; font-size: 16px; cursor: pointer; }
+.sync-pill-link { font-size: 13px; color: #9B8E7E; text-decoration: none; cursor: pointer; display: inline-flex; align-items: center; gap: 4px; }
+.sync-pill-link:hover { color: #C2573A; }
+.sync-inline-team { display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px; border-radius: 10px; background: #EAF6EE; border: 1px solid #B5DCC2; font-size: 11px; color: #1A6B3A; font-family: 'Inter', sans-serif; font-weight: 600; letter-spacing: 0.5px; cursor: pointer; }
+
+/* hero banner（A 用）*/
+.sync-banner { display: flex; align-items: center; justify-content: center; gap: 14px; padding: 12px 24px; background: linear-gradient(90deg, #FFF7E8, #FDF6EE); border-bottom: 1px solid #F0E8DB; font-size: 13px; color: #4A3728; }
+.sync-banner-icon { font-size: 18px; }
+.sync-banner-text { letter-spacing: 0.5px; }
+.sync-banner-text strong { color: #C2573A; font-weight: 600; }
+.sync-banner-btn { padding: 5px 14px; background: #C2573A; color: #fff; border: none; border-radius: 999px; font-family: inherit; font-size: 12px; font-weight: 500; cursor: pointer; letter-spacing: 0.5px; }
+.sync-banner-btn:hover { background: #A84826; }
+.sync-banner-close { background: transparent; border: none; color: #9B8E7E; font-size: 14px; cursor: pointer; padding: 2px 6px; }
+
+/* hero 假體 */
+.hero { padding: 28px 40px 22px; background: #FFF; text-align: center; }
+.hero-eyebrow { font-size: 12px; color: #B8A692; letter-spacing: 2px; margin-bottom: 6px; }
+.hero h1 { font-size: 32px; color: #3D3122; letter-spacing: 4px; margin-bottom: 4px; }
+
+/* 我的 tab 假體（E 用）*/
+.my-mock { padding: 28px 40px; background: #FFF; }
+.my-tabs { display: flex; gap: 2px; border-bottom: 1px solid #E8DDBE; padding: 0 8px; max-width: 1200px; margin: 0 auto 20px; }
+.my-tab-mock { padding: 10px 20px; font-size: 14px; color: #9B8E7E; }
+.my-tab-mock.active { color: #C2573A; font-weight: 500; border-bottom: 3px solid #C2573A; margin-bottom: -1px; padding-bottom: 7px; }
+.my-sync-card { max-width: 520px; margin: 24px auto 0; padding: 22px 24px; background: #FFFAF0; border: 1px dashed #E8DDBE; border-radius: 16px; display: flex; align-items: center; gap: 16px; }
+.my-sync-card-icon { font-size: 28px; }
+.my-sync-card-body { flex: 1; }
+.my-sync-card-title { font-size: 14px; font-weight: 500; color: #4A3728; margin-bottom: 2px; }
+.my-sync-card-desc { font-size: 12px; color: #9B8E7E; line-height: 1.6; }
+.my-sync-card-btn { padding: 7px 16px; background: #C2573A; color: #fff; border: none; border-radius: 999px; font-family: inherit; font-size: 12px; font-weight: 500; cursor: pointer; }
+
+/* 對齊 nav 內 D 變體：team pill 多一個 inline ☁️ */
+.nav-mainteam-filled.with-sync { gap: 6px; }
+
+.summary { background: #FFF; padding: 22px 24px; border-radius: 14px; margin-top: 28px; font-size: 13px; line-height: 1.9; color: #4A3728; }
+.summary h2 { font-size: 16px; margin-bottom: 12px; letter-spacing: 1px; color: #3D3122; }
+.summary table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 12px; }
+.summary th, .summary td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #F0E8DB; vertical-align: top; }
+.summary th { color: #9B8E7E; font-weight: 600; letter-spacing: 1px; font-size: 11px; }
+.summary code { background: #FDF6EE; padding: 1px 6px; border-radius: 4px; font-family: 'Inter', sans-serif; font-size: 11px; color: #C2573A; }
+</style>
+</head>
+<body>
+
+<h1>Phase 4 同步按鈕位置 — 5 種變體預覽</h1>
+<p class="intro">
+情境統一為 <code>已設定主隊（樂天桃猿）+ 未登入 sync</code>。每個 panel 顯示對應變體在 nav / hero / 我的 tab 的長相。
+五種都採同一份視覺語彙（赤陶紅 + 奶茶 + 虛線邊框 = 邀請性 CTA），只是位置與份量不同。
+</p>
+
+<!-- A. Hero 下方 banner -->
+<div class="variant">
+  <div class="variant-label">
+    <span class="tag">A</span>
+    <span class="name">Hero 下方 banner — 強提示，整條橫幅</span>
+    <span class="note">未登入時最顯眼；登入後可隱藏</span>
+  </div>
+  <div class="nav">
+    <div class="nav-logo"><span class="snoopy-icon">⚾</span><span class="nav-title">CPBL 2026</span></div>
+    <div class="nav-mainteam">
+      <span class="nav-mainteam-filled">
+        <span class="nav-mainteam-label">主隊</span>
+        <span class="nav-mainteam-logo">R</span>
+        <span class="nav-mainteam-name">樂天桃猿</span>
+        <button class="nav-mainteam-switch">切換</button>
+      </span>
+    </div>
+    <div class="nav-links">
+      <a>戰績</a><a>篩選</a><a>賽程</a><a>我的 ⭐</a>
+    </div>
+  </div>
+  <div class="sync-banner">
+    <span class="sync-banner-icon">☁️</span>
+    <span class="sync-banner-text"><strong>啟用跨裝置同步</strong> — 把打卡、收藏帶到手機 / 平板 / 別台電腦</span>
+    <button class="sync-banner-btn">用 Google 登入</button>
+    <button class="sync-banner-close" title="本次不顯示">×</button>
+  </div>
+  <div class="hero">
+    <div class="hero-eyebrow">中華職棒一軍例行賽 · 2026</div>
+    <h1>進場倒數</h1>
+  </div>
+</div>
+
+<!-- B. Icon-only 漢堡 -->
+<div class="variant">
+  <div class="variant-label">
+    <span class="tag">B</span>
+    <span class="name">Icon-only — 圓形 ☁️ 按鈕，最小份量</span>
+    <span class="note">點下去開 modal；hover 顯示 tooltip</span>
+  </div>
+  <div class="nav">
+    <div class="nav-logo"><span class="snoopy-icon">⚾</span><span class="nav-title">CPBL 2026</span></div>
+    <div class="nav-mainteam">
+      <span class="nav-mainteam-filled">
+        <span class="nav-mainteam-label">主隊</span>
+        <span class="nav-mainteam-logo">R</span>
+        <span class="nav-mainteam-name">樂天桃猿</span>
+        <button class="nav-mainteam-switch">切換</button>
+      </span>
+    </div>
+    <div class="nav-links" style="align-items: center;">
+      <a>戰績</a><a>篩選</a><a>賽程</a><a>我的 ⭐</a>
+      <button class="sync-pill-icon-only" title="跨裝置同步">☁️</button>
+    </div>
+  </div>
+  <div class="hero">
+    <div class="hero-eyebrow">中華職棒一軍例行賽 · 2026</div>
+    <h1>進場倒數</h1>
+  </div>
+</div>
+
+<!-- C. Nav 最右側文字 link -->
+<div class="variant">
+  <div class="variant-label">
+    <span class="tag">C</span>
+    <span class="name">Nav links 內，文字 link — 跟其他 nav 一致語彙</span>
+    <span class="note">融進現有 nav，視覺份量 = 戰績/篩選/賽程</span>
+  </div>
+  <div class="nav">
+    <div class="nav-logo"><span class="snoopy-icon">⚾</span><span class="nav-title">CPBL 2026</span></div>
+    <div class="nav-mainteam">
+      <span class="nav-mainteam-filled">
+        <span class="nav-mainteam-label">主隊</span>
+        <span class="nav-mainteam-logo">R</span>
+        <span class="nav-mainteam-name">樂天桃猿</span>
+        <button class="nav-mainteam-switch">切換</button>
+      </span>
+    </div>
+    <div class="nav-links">
+      <a>戰績</a><a>篩選</a><a>賽程</a><a>我的 ⭐</a>
+      <a class="sync-pill-link">☁️ 同步</a>
+    </div>
+  </div>
+  <div class="hero">
+    <div class="hero-eyebrow">中華職棒一軍例行賽 · 2026</div>
+    <h1>進場倒數</h1>
+  </div>
+</div>
+
+<!-- D. 整合進主隊 pill -->
+<div class="variant">
+  <div class="variant-label">
+    <span class="tag">D</span>
+    <span class="name">整合進主隊 pill — 共用「身分區塊」概念</span>
+    <span class="note">主隊 + 同步狀態同一群組；未登入時 pill 內塞「啟用」inline link</span>
+  </div>
+  <div class="nav">
+    <div class="nav-logo"><span class="snoopy-icon">⚾</span><span class="nav-title">CPBL 2026</span></div>
+    <div class="nav-mainteam">
+      <span class="nav-mainteam-filled with-sync">
+        <span class="nav-mainteam-label">主隊</span>
+        <span class="nav-mainteam-logo">R</span>
+        <span class="nav-mainteam-name">樂天桃猿</span>
+        <button class="nav-mainteam-switch">切換</button>
+        <span style="width: 1px; height: 16px; background: #E5D3B0; margin: 0 4px;"></span>
+        <button class="sync-inline-team">☁️ 啟用同步</button>
+      </span>
+    </div>
+    <div class="nav-links">
+      <a>戰績</a><a>篩選</a><a>賽程</a><a>我的 ⭐</a>
+    </div>
+  </div>
+  <div class="hero">
+    <div class="hero-eyebrow">中華職棒一軍例行賽 · 2026</div>
+    <h1>進場倒數</h1>
+  </div>
+</div>
+
+<!-- E. 藏進「我的」tab -->
+<div class="variant">
+  <div class="variant-label">
+    <span class="tag">E</span>
+    <span class="name">完全藏進「我的」tab 內 — 主畫面看不到</span>
+    <span class="note">使用者必須先進「我的」才能發現；最低存在感</span>
+  </div>
+  <div class="nav">
+    <div class="nav-logo"><span class="snoopy-icon">⚾</span><span class="nav-title">CPBL 2026</span></div>
+    <div class="nav-mainteam">
+      <span class="nav-mainteam-filled">
+        <span class="nav-mainteam-label">主隊</span>
+        <span class="nav-mainteam-logo">R</span>
+        <span class="nav-mainteam-name">樂天桃猿</span>
+        <button class="nav-mainteam-switch">切換</button>
+      </span>
+    </div>
+    <div class="nav-links">
+      <a>戰績</a><a>篩選</a><a>賽程</a><a style="color: #C2573A; font-weight: 500;">我的 ⭐</a>
+    </div>
+  </div>
+  <div class="my-mock">
+    <div class="my-tabs">
+      <span class="my-tab-mock active">統計</span>
+      <span class="my-tab-mock">徽章</span>
+      <span class="my-tab-mock">打卡紀錄</span>
+      <span class="my-tab-mock">收藏</span>
+    </div>
+    <div class="my-sync-card">
+      <div class="my-sync-card-icon">☁️</div>
+      <div class="my-sync-card-body">
+        <div class="my-sync-card-title">啟用跨裝置同步</div>
+        <div class="my-sync-card-desc">把打卡、收藏、主隊設定帶到手機 / 別台電腦，登 Google 帳號就好。</div>
+      </div>
+      <button class="my-sync-card-btn">啟用</button>
+    </div>
+    <div style="height: 240px;"></div>
+  </div>
+</div>
+
+<div class="summary">
+  <h2>選擇參考</h2>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:60px">變體</th>
+        <th>視覺份量</th>
+        <th>發現性</th>
+        <th>nav 擁擠度</th>
+        <th>適合的場景</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>A</strong></td>
+        <td>強（CTA banner）</td>
+        <td>高，第一秒就看到</td>
+        <td>不影響</td>
+        <td>把同步當「明星功能」推</td>
+      </tr>
+      <tr>
+        <td><strong>B</strong></td>
+        <td>弱（icon only）</td>
+        <td>低，要游標 hover 才知意義</td>
+        <td>無感</td>
+        <td>定位為「進階工具」</td>
+      </tr>
+      <tr>
+        <td><strong>C</strong></td>
+        <td>中（跟 nav links 一樣）</td>
+        <td>中，掃 nav 會看到</td>
+        <td>nav 多一項</td>
+        <td>「另一個 tab」概念</td>
+      </tr>
+      <tr>
+        <td><strong>D</strong></td>
+        <td>中（pill 內小 link）</td>
+        <td>中，跟主隊一起出現</td>
+        <td>主隊 pill 變寬</td>
+        <td>把「身分相關」歸成一組</td>
+      </tr>
+      <tr>
+        <td><strong>E</strong></td>
+        <td>低（藏在 tab）</td>
+        <td>低，要進我的才看到</td>
+        <td>無感</td>
+        <td>實驗階段、不想干擾主流程</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>

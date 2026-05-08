@@ -1,0 +1,18 @@
+name = "cpbl-planner-api"
+main = "src/index.ts"
+compatibility_date = "2026-04-01"
+workers_dev = true
+
+# 公開設定（可入 git）
+[vars]
+GOOGLE_CLIENT_ID = "154138452880-o245n9ejknhboe84u0ujb9uvqtqi4hc2.apps.googleusercontent.com"
+APP_ORIGIN = "https://tiffany-trident.github.io"
+
+# Secret（不入 git，用以下指令設定）：
+#   npx wrangler secret put GOOGLE_CLIENT_SECRET
+#   npx wrangler secret put SESSION_SIGNING_KEY    # 用 `openssl rand -hex 32` 產生 64-char hex
+
+# KV namespace（切片 #2，2026-05-05 建立）
+[[kv_namespaces]]
+binding = "CPBL_USER_STORE"
+id = "e3d1beabee17416f9383cf010ad08436"
