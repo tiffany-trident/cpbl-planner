@@ -30,7 +30,12 @@
   - 場數門檻 `CHECKIN_THRESHOLDS = [5, 10]`（將來只往上加）；動畫選 ③ 派對狂歡；刪除語意採狀態反映而非永久解鎖
   - **③ 主隊晉級擱置**：CPBL 上下半季規則尚未在 code 建模，且 2026 賽季 4 月才開季，最早 6 月底才會觸發
 - **Phase 2-C** — 尚未開始（年度回顧頁）
-- **Phase 3-6** — 尚未開始
+- **Phase 4 ✅ 4-B 已上線**（2026-05-08，分支 `feat/phase4-cf-worker-auth`，9 commits 累積）
+  - Cloudflare Worker (`cpbl-planner-api.tiffany-434.workers.dev`) + KV + Google OAuth
+  - 走 Google OAuth Authorization Code flow（非原計畫的 Magic Link，pivot 理由見 [phase4-sync-plan.md](phase4-sync-plan.md)）
+  - 白名單透過 Google OAuth Testing 模式 test users 管理（非 Worker hard-code）
+  - Slice #8（衝突保護）延後，個人使用機率極低
+- **Phase 3, 5-6** — 尚未開始
 
 實作細節見 [features.md 個人化功能章節](features.md)，UI 紀錄與教訓見 [uidesign-changelog.md](uidesign-changelog.md)。
 
