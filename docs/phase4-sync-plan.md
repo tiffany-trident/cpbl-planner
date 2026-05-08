@@ -1,8 +1,9 @@
 # Phase 4 跨裝置同步 — 實作計畫
 
-> 撰寫於 2026-04-28，更新於 2026-05-05。
-> **POC 已實作於 `feat/phase4-poc-sync-skeleton`**（2026-05-04 跨裝置驗證通過，未 merge main）。
-> **4-B 正式版開工於 2026-05-05，分支 `feat/phase4-cf-worker-auth`**。
+> 撰寫於 2026-04-28，更新於 2026-05-08。
+> **🚀 Phase 4 4-B 已上線**（2026-05-08，production E2E 跨裝置驗證通過）。
+> POC `feat/phase4-poc-sync-skeleton`（2026-05-04，保留為架構參考，不 merge main）。
+> 4-B `feat/phase4-cf-worker-auth`（2026-05-05–07，已 merge main + push + GitHub Pages 部署）。
 > ⚠️ **2026-05-05 pivot**：原本選 Magic Link + Resend，改走 **Google OAuth**（user 無 sender domain DNS 寫入權，且 Google OAuth Testing 模式自帶白名單 — 詳見「關鍵決策 #1」）。
 
 [engagement.md](engagement.md) Phase 4 的具體實作 plan。
@@ -295,15 +296,20 @@ const syncBackend = {
 | 3 | OAuth callback | `/auth/login`（state → KV）+ `/auth/callback`（驗 state、code exchange、HMAC-SHA256 簽 session JWT、URL fragment 帶回前端）| ✅ commit `18baf31`（Tiffany Gmail 實測通過）|
 | 4 | Push / Pull endpoints | `/state` GET/PUT、auth middleware（Bearer JWT verify + exp）、CORS preflight + headers | ✅ commit `16fe3d9`（curl + JWT round-trip 實測，PowerShell 5.1 中文編碼問題僅影響 client，不影響 Worker）|
 | 5 | 前端 `httpSyncBackend` | drop-in 取代 POC 的 `mockSyncBackend`；URL fragment 接 token 寫 localStorage；401 → 自動清 token | ✅ commit `e172f03` |
-| 6 | 登入 modal UI | nav 加 sync pill（與主隊並列）+ sync-overlay modal（解釋同步功能、登入 / 登出 / 關閉） | ✅ commit `ab76d63` |
+| 6 | 登入 modal UI | nav 加 sync pill（與主隊並列）+ sync-overlay modal（解釋同步功能、登入 / 登出 / 關閉） | ✅ commit `ab76d63`（位置 2026-05-07 改 variant C：移進 nav-links 與戰績/篩選同樣式，commit `8e579f5`） |
 | 7 | 移除 POC debug UI | 砍 mockSyncBackend / `?device=` / 模擬離線 / sync footer 整段；sync 狀態整合進 modal；clearSessionToken 修 401 後 nav 不重畫 bug | ✅ commit `42bb8dc` |
-| 8 | client-side updatedAt 比對 | client 送 `updatedAt` → server 比對舊值，舊的 push 回 409；client 收 409 自動 pull + retry | ⬜ |
+| 8 | client-side updatedAt 比對 | client 送 `updatedAt` → server 比對舊值，舊的 push 回 409；client 收 409 自動 pull + retry | ⬜ 延後（個人使用衝突機率極低） |
 
 每切片獨立可部署 / 可驗證。完整流程跑通後再 merge main。
 
-### 切片完成度（2026-05-05）
+### 切片完成度（2026-05-08 上線）
 
-切片 #1-7 完成（後端 + 前端 + cleanup），剩 #8 衝突保護。**準備 merge main → GitHub Pages 部署 → production E2E 驗證**。
+切片 #1-7 完成（後端 + 前端 + cleanup + UI 微調），#8 延後。**已 merge main + push + production E2E 驗證跨裝置通過**。
+
+#### 上線後遺留
+
+- **Google consent 顯示 `tiffany-434.workers.dev` 而非 app name**：`workers.dev` 在 Public Suffix List 上，Google 強制顯示 raw domain 防釣魚，無法靠 GCP 設定改。User 接受此 cosmetic 限制；要徹底解決需買個人 domain 設 Worker custom domain（~NT$300/年）。
+- **#8 衝突保護未做**：兩裝置「同時」改同一筆會默默覆蓋，個人使用機率極低，等真正撞到再做。
 
 Worker 在 `https://cpbl-planner-api.tiffany-434.workers.dev` 提供：
 - `GET /healthz` 健康檢查
