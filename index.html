@@ -610,6 +610,13 @@ button.card-weather.clickable:active { transform: scale(0.96); }
 .ck-extra { font-size: 12px; color: #6B5F50; line-height: 1.6; letter-spacing: 0.3px; }
 .ck-extra .lbl { color: #9B8E7E; margin-right: 4px; }
 .ck-note { font-size: 12.5px; color: #4A3728; background: #FFF5E6; border-left: 2px solid #E2A36C; padding: 6px 10px; border-radius: 0 6px 6px 0; line-height: 1.6; margin-top: 2px; white-space: pre-wrap; word-break: break-word; }
+.ck-pitchers { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-size: 12px; color: #6B5F50; padding: 6px 10px; background: #FAF6EC; border-radius: 8px; }
+.ck-pitchers .lbl { font-size: 10px; color: #9B8E7E; letter-spacing: 1px; font-weight: 600; margin-right: 4px; }
+.ck-pitchers .name { font-weight: 500; color: #4A3728; }
+.ck-pitchers .name.w { color: #C2573A; font-weight: 600; }
+.ck-pitchers .name.l { color: #1A6B3A; }
+.ck-pitchers .mvp { background: #FFE9D6; color: #C2573A; padding: 1px 8px; border-radius: 10px; font-size: 11px; font-weight: 500; }
+.ck-pitchers .sep { color: #C9B99A; }
 
 @media (max-width: 600px) {
   .ck-row { grid-template-columns: 56px 1fr; padding: 12px 14px; gap: 10px; }
@@ -3155,6 +3162,17 @@ function renderCheckinsList() {
     if (starsHtml) metaPieces.push(starsHtml);
     if (seatsHtml) metaPieces.push(seatsHtml);
     const metaHtml = '<div class="ck-meta">' + metaPieces.join('<span class="dot">·</span>') + '</div>';
+    // slice #1：把已存在 games_data.json 的 wp / lp / sv / mvp 拉進來
+    const pitcherPieces = [];
+    if (showScore) {
+      if (g.wp) pitcherPieces.push('<span><span class="lbl">W</span><span class="name w">' + escapeHtml(g.wp) + '</span></span>');
+      if (g.lp) pitcherPieces.push('<span><span class="lbl">L</span><span class="name l">' + escapeHtml(g.lp) + '</span></span>');
+      if (g.sv) pitcherPieces.push('<span><span class="lbl">SV</span><span class="name">' + escapeHtml(g.sv) + '</span></span>');
+      if (g.mvp) pitcherPieces.push('<span><span class="lbl">MVP</span><span class="mvp">' + escapeHtml(g.mvp) + '</span></span>');
+    }
+    const pitchersHtml = pitcherPieces.length > 0
+      ? '<div class="ck-pitchers">' + pitcherPieces.join('<span class="sep">·</span>') + '</div>'
+      : '';
     const companionsHtml = ck.companions ? '<div class="ck-extra"><span class="lbl">同行</span>' + escapeHtml(ck.companions) + '</div>' : '';
     const noteHtml = ck.note ? '<div class="ck-note">' + escapeHtml(ck.note) + '</div>' : '';
     return '<div class="ck-row" data-ck-sno="' + sno + '" role="button" tabindex="0" aria-label="編輯打卡：' + escapeHtml(g.date + ' ' + vs + ' vs ' + hs) + '">' +
@@ -3162,6 +3180,7 @@ function renderCheckinsList() {
       '<div class="ck-main">' +
         '<div class="ck-match">' + matchHtml + '</div>' +
         metaHtml +
+        pitchersHtml +
         companionsHtml +
         noteHtml +
       '</div>' +
