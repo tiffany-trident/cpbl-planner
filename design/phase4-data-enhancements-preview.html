@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>3 個現有資料未利用功能 — 設計預覽</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/cylee/jf-openhuninn-1.1@main/web/openhuninn-1.1.css" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; background: #F8F4ED; color: #4A3728; padding: 30px; max-width: 1100px; margin: 0 auto; }
+h1 { font-size: 24px; letter-spacing: 2px; margin-bottom: 8px; color: #3D3122; }
+.intro { font-size: 13px; color: #6B5F50; margin-bottom: 28px; line-height: 1.7; }
+.intro code { background: #FDF6EE; padding: 2px 6px; border-radius: 4px; font-family: 'Inter', sans-serif; font-size: 12px; color: #C2573A; }
+
+.feature { background: #FFF; border-radius: 16px; box-shadow: 0 2px 12px rgba(61, 49, 34, 0.05); margin-bottom: 28px; overflow: hidden; }
+.feature-head { padding: 16px 22px; background: #FAF6EC; border-bottom: 1px solid #F0E8DB; }
+.feature-head .num { background: #C2573A; color: #fff; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 13px; padding: 3px 10px; border-radius: 999px; letter-spacing: 0.5px; margin-right: 10px; }
+.feature-head .name { font-size: 16px; color: #3D3122; font-weight: 500; letter-spacing: 1px; }
+.feature-head .desc { font-size: 13px; color: #6B5F50; margin-top: 6px; line-height: 1.6; }
+.feature-head code { background: #FFF; padding: 1px 6px; border-radius: 4px; font-family: 'Inter', sans-serif; font-size: 12px; color: #C2573A; }
+.feature-body { padding: 22px 24px; }
+.feature-label { font-size: 11px; color: #9B8E7E; letter-spacing: 2px; margin-bottom: 10px; font-weight: 500; }
+.feature-label.after { color: #C2573A; }
+
+/* ===== Enhancement #1: 打卡 row 加 W/L/MVP ===== */
+.ck-row { display: grid; grid-template-columns: 72px 1fr; align-items: stretch; gap: 14px; padding: 14px 18px; background: #FFFAF0; border: 1px solid #F0E8DB; border-radius: 14px; }
+.ck-date { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; border-right: 1px dashed #E8DDBE; padding-right: 10px; }
+.ck-date .md { font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 700; color: #C2573A; }
+.ck-date .wk { font-size: 10px; color: #9B8E7E; letter-spacing: 1px; }
+.ck-main { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.ck-match { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.ck-team { display: inline-flex; align-items: center; gap: 4px; color: #4A3728; font-weight: 500; font-size: 14px; }
+.ck-logo { width: 20px; height: 20px; object-fit: contain; background: #7B1A1A; color: white; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 11px; }
+.ck-logo.cb { background: #FACD01; color: #4A3728; }
+.ck-score { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 16px; padding: 0 3px; }
+.ck-score.win { color: #C2573A; }
+.ck-score.lose { color: #1A6B3A; }
+.ck-score-sep { color: #C9B99A; font-family: 'Inter', sans-serif; font-weight: 400; }
+.ck-meta { font-size: 12px; color: #6B5F50; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.ck-meta .dot { color: #C9B99A; }
+.ck-stars { color: #C2573A; letter-spacing: 1px; font-size: 13px; line-height: 1; }
+.ck-stars .off { color: #E8DDBE; }
+.ck-seat { display: inline-block; padding: 1px 8px; background: #FDF0E8; border-radius: 10px; font-size: 11px; color: #C2573A; letter-spacing: 0.5px; }
+.ck-comp { font-size: 12px; color: #6B5F50; }
+.ck-note { font-size: 12.5px; color: #4A3728; background: #FFF5E6; border-left: 2px solid #E2A36C; padding: 6px 10px; border-radius: 0 6px 6px 0; line-height: 1.6; }
+
+/* NEW: 球場數據 line */
+.ck-pitchers { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-size: 12px; color: #6B5F50; padding: 4px 8px; background: #FAF6EC; border-radius: 8px; }
+.ck-pitchers .label { font-size: 10px; color: #9B8E7E; letter-spacing: 1px; font-weight: 600; }
+.ck-pitchers .name { font-weight: 500; color: #4A3728; }
+.ck-pitchers .w { color: #C2573A; font-weight: 600; }
+.ck-pitchers .l { color: #1A6B3A; }
+.ck-pitchers .mvp-tag { background: #FFE9D6; color: #C2573A; padding: 1px 7px; border-radius: 10px; font-size: 11px; font-weight: 500; }
+
+/* ===== Enhancement #2: 比賽卡兩隊交手 ===== */
+.game-card { background: #FFF; border: 1px solid #F0E8DB; border-radius: 14px; padding: 16px 20px; max-width: 520px; }
+.gc-top { display: flex; align-items: center; gap: 14px; }
+.gc-team { display: flex; align-items: center; gap: 8px; font-size: 14px; color: #4A3728; flex: 1; }
+.gc-team-logo { width: 28px; height: 28px; background: #7B1A1A; color: white; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 12px; }
+.gc-team-logo.cb { background: #FACD01; color: #4A3728; }
+.gc-team-name { font-weight: 500; }
+.gc-vs { font-family: 'Inter', sans-serif; font-size: 11px; color: #9B8E7E; letter-spacing: 1.5px; padding: 0 6px; }
+.gc-meta { display: flex; gap: 12px; font-size: 12px; color: #6B5F50; margin-top: 10px; flex-wrap: wrap; }
+.gc-meta-item { display: inline-flex; align-items: center; gap: 4px; }
+
+/* NEW: 兩隊交手摘要 */
+.gc-h2h { display: flex; align-items: center; gap: 10px; margin-top: 12px; padding: 9px 12px; background: #FDF6EE; border: 1px dashed #F0DFB8; border-radius: 10px; font-size: 12px; color: #4A3728; flex-wrap: wrap; }
+.gc-h2h-label { font-size: 10px; color: #9B8E7E; letter-spacing: 1px; font-weight: 600; }
+.gc-h2h .record { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 13px; color: #C2573A; }
+.gc-h2h .recent-dots { display: inline-flex; gap: 3px; align-items: center; }
+.gc-h2h .dot-result { width: 9px; height: 9px; border-radius: 50%; }
+.gc-h2h .dot-result.w { background: #C2573A; }
+.gc-h2h .dot-result.l { background: #1A6B3A; }
+.gc-h2h .dot-result.t { background: #C9B99A; }
+.gc-h2h .last { font-size: 11px; color: #6B5F50; }
+.gc-h2h .sep { color: #C9B99A; }
+
+/* ===== Enhancement #3: streak pill + 現場見證 ===== */
+.bigcard { background: linear-gradient(135deg, #FFFAF0 0%, #FDF6EE 100%); border: 1px solid #F0E8DB; border-radius: 18px; padding: 22px 26px; max-width: 540px; }
+.bc-head { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+.bc-logo { width: 36px; height: 36px; background: #7B1A1A; color: white; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 16px; }
+.bc-name { font-size: 17px; font-weight: 500; color: #3D3122; letter-spacing: 1px; flex: 1; }
+.bc-streak-pill { display: inline-flex; align-items: center; gap: 6px; background: #FFF5E6; border: 1px solid #F0D9B5; color: #4A3728; padding: 6px 14px; border-radius: 20px; font-size: 13px; white-space: nowrap; }
+.bc-streak-pill.fire { background: #FFE9D6; border-color: #E2A36C; color: #C2573A; }
+
+/* NEW: 升級版 streak pill 加「你現場見證」內含 */
+.bc-streak-pill.enhanced { background: #FFE9D6; border-color: #E2A36C; padding: 6px 16px; gap: 8px; }
+.bc-streak-pill.enhanced .streak-main { color: #C2573A; font-weight: 600; }
+.bc-streak-pill.enhanced .field-note { font-size: 11px; color: #6B5F50; border-left: 1px solid #E2A36C; padding-left: 8px; letter-spacing: 0.3px; }
+.bc-streak-pill.enhanced .field-note strong { color: #1A6B3A; font-family: 'Inter', sans-serif; font-weight: 700; }
+
+.bc-recent-label { font-size: 11px; color: #9B8E7E; letter-spacing: 1px; margin-bottom: 6px; }
+.bc-recent-dots { display: flex; gap: 4px; flex-wrap: wrap; }
+.bc-recent-dot { width: 14px; height: 14px; border-radius: 50%; background: #C9B99A; }
+.bc-recent-dot.w { background: #C2573A; }
+.bc-recent-dot.l { background: #1A6B3A; }
+
+.note-block { background: #FDF6EE; padding: 14px 18px; border-radius: 12px; font-size: 13px; color: #4A3728; line-height: 1.8; margin-top: 12px; }
+.note-block strong { color: #C2573A; }
+
+</style>
+</head>
+<body>
+
+<h1>3 個現有資料未利用功能 — 設計預覽</h1>
+<p class="intro">
+這三個增強都用<strong>現有 <code>games_data.json</code> 已存的資料</strong>（W / L / MVP / 比分 / 對戰結果），純前端 render，0 額外 scrape。每個功能下方標「資料來源 / 工時」幫助你判斷。
+</p>
+
+<!-- Enhancement #1 -->
+<div class="feature">
+  <div class="feature-head">
+    <span class="num">1</span>
+    <span class="name">打卡紀錄 row 加「投手 / MVP」</span>
+    <div class="desc">
+      點開打卡紀錄會看到那場的勝投 / 敗投 / MVP，加深「我現場看了哪些球員的好球」記憶。
+      <br>資料來源：<code>g.wp / g.lp / g.mvp</code>（games_data.json 已有）｜工時：~30 分鐘
+    </div>
+  </div>
+  <div class="feature-body">
+
+    <div class="feature-label">改前（現在）</div>
+    <div class="ck-row" style="margin-bottom: 16px;">
+      <div class="ck-date"><div class="md">4/29</div><div class="wk">週日</div></div>
+      <div class="ck-main">
+        <div class="ck-match">
+          <span class="ck-team"><span class="ck-logo cb">CB</span> 中信兄弟</span>
+          <span class="ck-score win">5</span><span class="ck-score-sep">:</span><span class="ck-score lose">3</span>
+          <span class="ck-team"><span class="ck-logo">R</span> 樂天桃猿</span>
+        </div>
+        <div class="ck-meta">
+          洲際 <span class="dot">·</span>
+          <span class="ck-stars">★★★★<span class="off">★</span></span>
+          <span class="dot">·</span>
+          <span class="ck-seat">三壘</span>
+        </div>
+        <div class="ck-comp">同行 阿明、小美</div>
+        <div class="ck-note">逆轉超嗨！</div>
+      </div>
+    </div>
+
+    <div class="feature-label after">改後（多一行 pitchers + MVP）</div>
+    <div class="ck-row">
+      <div class="ck-date"><div class="md">4/29</div><div class="wk">週日</div></div>
+      <div class="ck-main">
+        <div class="ck-match">
+          <span class="ck-team"><span class="ck-logo cb">CB</span> 中信兄弟</span>
+          <span class="ck-score win">5</span><span class="ck-score-sep">:</span><span class="ck-score lose">3</span>
+          <span class="ck-team"><span class="ck-logo">R</span> 樂天桃猿</span>
+        </div>
+        <div class="ck-meta">
+          洲際 <span class="dot">·</span>
+          <span class="ck-stars">★★★★<span class="off">★</span></span>
+          <span class="dot">·</span>
+          <span class="ck-seat">三壘</span>
+        </div>
+        <div class="ck-pitchers">
+          <span><span class="label">W</span> <span class="name w">王XX</span></span>
+          <span><span class="label">L</span> <span class="name l">陳XX</span></span>
+          <span><span class="label">MVP</span> <span class="mvp-tag">林XX 2安1HR</span></span>
+        </div>
+        <div class="ck-comp">同行 阿明、小美</div>
+        <div class="ck-note">逆轉超嗨！</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Enhancement #2 -->
+<div class="feature">
+  <div class="feature-head">
+    <span class="num">2</span>
+    <span class="name">比賽卡加「兩隊本季交手摘要」</span>
+    <div class="desc">
+      看明天比賽時，順便看到兩隊本季交手戰績 + 近 5 次結果，幫助判斷「這場會多激烈」。
+      <br>資料來源：從 games_data.json 過濾兩隊已完賽場次計算｜工時：~1 小時
+    </div>
+  </div>
+  <div class="feature-body">
+
+    <div class="feature-label">改前（現在）</div>
+    <div class="game-card" style="margin-bottom: 16px;">
+      <div class="gc-top">
+        <div class="gc-team"><span class="gc-team-logo cb">CB</span><span class="gc-team-name">中信兄弟</span></div>
+        <span class="gc-vs">VS</span>
+        <div class="gc-team"><span class="gc-team-logo">R</span><span class="gc-team-name">樂天桃猿</span></div>
+      </div>
+      <div class="gc-meta">
+        <span class="gc-meta-item">⏰ 18:35</span>
+        <span class="gc-meta-item">🏟 洲際</span>
+        <span class="gc-meta-item">⛅ 28° / 30% 降雨</span>
+      </div>
+    </div>
+
+    <div class="feature-label after">改後（多 h2h 區塊）</div>
+    <div class="game-card">
+      <div class="gc-top">
+        <div class="gc-team"><span class="gc-team-logo cb">CB</span><span class="gc-team-name">中信兄弟</span></div>
+        <span class="gc-vs">VS</span>
+        <div class="gc-team"><span class="gc-team-logo">R</span><span class="gc-team-name">樂天桃猿</span></div>
+      </div>
+      <div class="gc-meta">
+        <span class="gc-meta-item">⏰ 18:35</span>
+        <span class="gc-meta-item">🏟 洲際</span>
+        <span class="gc-meta-item">⛅ 28° / 30% 降雨</span>
+      </div>
+      <div class="gc-h2h">
+        <span class="gc-h2h-label">本季交手</span>
+        <span class="record">兄弟 6 - 4 桃猿</span>
+        <span class="sep">·</span>
+        <span class="gc-h2h-label">近 5 場</span>
+        <span class="recent-dots">
+          <span class="dot-result w" title="兄弟勝"></span>
+          <span class="dot-result l" title="桃猿勝"></span>
+          <span class="dot-result w" title="兄弟勝"></span>
+          <span class="dot-result w" title="兄弟勝"></span>
+          <span class="dot-result l" title="桃猿勝"></span>
+        </span>
+        <span class="sep">·</span>
+        <span class="last">上次：4/29 兄弟 5-3 勝</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Enhancement #3 -->
+<div class="feature">
+  <div class="feature-head">
+    <span class="num">3</span>
+    <span class="name">主隊 streak pill 升級「整合現場見證」</span>
+    <div class="desc">
+      Phase 2-B 已有 streak pill 顯示「4 連勝 🔥」與下方獨立的「現場見證最近 X 場」field note。
+      整合成一個 pill：streak + 你在現場親見的場數，視覺上一氣呵成。
+      <br>資料來源：userState.checkins + games_data.json（皆已有）｜工時：~30 分鐘（合併現有 code）
+    </div>
+  </div>
+  <div class="feature-body">
+
+    <div class="feature-label">改前（現在 Phase 2-B）</div>
+    <div class="bigcard" style="margin-bottom: 16px;">
+      <div class="bc-head">
+        <span class="bc-logo">R</span>
+        <span class="bc-name">樂天桃猿</span>
+        <span class="bc-streak-pill fire">🔥 4 連勝</span>
+      </div>
+      <div class="bc-recent-label">主隊賽季近 10 場</div>
+      <div class="bc-recent-dots">
+        <span class="bc-recent-dot w"></span>
+        <span class="bc-recent-dot w"></span>
+        <span class="bc-recent-dot l"></span>
+        <span class="bc-recent-dot w"></span>
+        <span class="bc-recent-dot w"></span>
+        <span class="bc-recent-dot l"></span>
+        <span class="bc-recent-dot w"></span>
+        <span class="bc-recent-dot w"></span>
+        <span class="bc-recent-dot w"></span>
+        <span class="bc-recent-dot w"></span>
+      </div>
+      <div class="note-block">
+        你現場見證最近 5 場：<strong>W L W W W</strong> · 4/15-4/29
+      </div>
+    </div>
+
+    <div class="feature-label after">改後（升級 streak pill 直接帶現場見證）</div>
+    <div class="bigcard">
+      <div class="bc-head">
+        <span class="bc-logo">R</span>
+        <span class="bc-name">樂天桃猿</span>
+        <span class="bc-streak-pill enhanced">
+          <span class="streak-main">🔥 4 連勝</span>
+          <span class="field-note">你現場見證 <strong>2</strong> 場</span>
+        </span>
+      </div>
+      <div class="bc-recent-label">主隊賽季近 10 場（你現場見證的圈起來）</div>
+      <div class="bc-recent-dots">
+        <span class="bc-recent-dot w" style="box-shadow: 0 0 0 2px #FFE9D6, 0 0 0 3px #C2573A;"></span>
+        <span class="bc-recent-dot w"></span>
+        <span class="bc-recent-dot l"></span>
+        <span class="bc-recent-dot w" style="box-shadow: 0 0 0 2px #FFE9D6, 0 0 0 3px #C2573A;"></span>
+        <span class="bc-recent-dot w"></span>
+        <span class="bc-recent-dot l"></span>
+        <span class="bc-recent-dot w"></span>
+        <span class="bc-recent-dot w" style="box-shadow: 0 0 0 2px #FFE9D6, 0 0 0 3px #C2573A;"></span>
+        <span class="bc-recent-dot w" style="box-shadow: 0 0 0 2px #FFE9D6, 0 0 0 3px #C2573A;"></span>
+        <span class="bc-recent-dot w"></span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<p class="intro" style="margin-top: 28px;">
+看完三個給我回饋：哪個有感、哪個無感、哪個你想拿掉某段。也可以三個都不做、想看別的設計。
+</p>
+
+</body>
+</html>
