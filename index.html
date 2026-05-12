@@ -496,7 +496,11 @@ button.card-weather.clickable:active { transform: scale(0.96); }
 .bc-logo { width: 40px; height: 40px; border-radius: 50%; object-fit: contain; flex-shrink: 0; }
 .bc-title { font-size: 15px; font-weight: 700; color: #4A3728; }
 .bc-subtitle { font-size: 11px; color: #9B8E7E; margin-top: 2px; }
-.bc-streak-pill { display: inline-flex; align-items: center; gap: 6px; background: #FFF5E6; border: 1px solid #F0D9B5; color: #4A3728; padding: 6px 14px; border-radius: 20px; font-size: 13px; white-space: nowrap; flex-shrink: 0; }
+.bc-streak-pill { display: inline-flex; align-items: center; gap: 8px; background: #FFF5E6; border: 1px solid #F0D9B5; color: #4A3728; padding: 6px 14px; border-radius: 20px; font-size: 13px; white-space: nowrap; flex-shrink: 0; }
+.bc-streak-pill .bc-streak-main { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; }
+.bc-streak-pill .bc-witness { display: inline-flex; align-items: baseline; gap: 4px; font-size: 12px; color: #6B5F50; letter-spacing: 0.3px; }
+.bc-streak-pill .bc-witness strong { color: #C2573A; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 13px; }
+.bc-streak-pill .bc-divider { width: 1px; height: 14px; background: #E2A36C; flex-shrink: 0; }
 .bc-body { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center; }
 .bc-left { text-align: center; padding-right: 24px; border-right: 1px dashed #E8DDBE; }
 .bc-right { display: flex; flex-direction: column; gap: 16px; padding-left: 8px; }
@@ -511,12 +515,14 @@ button.card-weather.clickable:active { transform: scale(0.96); }
 .bc-wld-item .num.loss { color: #1A6B3A; }
 .bc-wld-item .num.tie { color: #9B8E7E; }
 .bc-block-label { font-size: 11px; color: #9B8E7E; letter-spacing: 1px; margin-bottom: 6px; }
-.bc-recent-dots { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+.bc-recent-dots { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.bc-block-hint { font-size: 10px; color: #B8A692; margin-left: 6px; letter-spacing: 0.5px; font-weight: 400; }
 .bc-dot { width: 14px; height: 14px; border-radius: 50%; display: inline-block; flex-shrink: 0; }
 .bc-dot.win { background: #C2573A; }
 .bc-dot.loss { background: #1A6B3A; }
 .bc-dot.tie { background: #9B8E7E; }
 .bc-dot.empty { background: transparent; border: 1.5px dashed #D4C3A8; }
+.bc-dot.attended { box-shadow: 0 0 0 2px #FFF, 0 0 0 3.5px #C2573A; }
 .bc-next-text { font-size: 14px; color: #4A3728; font-weight: 600; }
 .bc-next-venue { font-size: 12px; color: #6B5F50; margin-top: 2px; }
 .bc-field-note { font-size: 12px; color: #6B5F50; padding-top: 16px; border-top: 1px dashed #F0E8DB; text-align: center; letter-spacing: 1px; }
@@ -3607,7 +3613,7 @@ function calcMainTeamSeasonRecent(limit) {
     if (!g.completed || g.postponed) return;
     const result = gameResultForTeam(g, mainTeam);
     if (!result) return;
-    records.push({ date: g.date, time: g.time, result });
+    records.push({ date: g.date, time: g.time, result, sno: g.sno });
   });
   return records.slice(-limit);
 }
@@ -3622,39 +3628,41 @@ function renderMainTeamBigCard(stats) {
   const rateClass = denom === 0 ? 'bc-num neutral' : 'bc-num';
 
   const streak = calcMainTeamFieldStreak();
+  const seasonRecent = calcMainTeamSeasonRecent(10);
+
+  // slice #3：streak pill 與「你現場見證」整合
+  const checkedSnos = new Set(Object.keys(userState.checkins || {}));
+  const totalWitnessed = stats.wins + stats.losses + stats.ties;   // 等於有效打卡場數
+  const hasStreak = streak.type && streak.count >= 2;
+  const hasWitness = totalWitnessed > 0;
   let streakPill = '';
-  if (streak.type && streak.count >= 2) {
-    const icon = streak.type === 'win' ? '🔥' : '☁️';
-    const label = streak.type === 'win' ? ('連 ' + streak.count + ' 勝') : ('連 ' + streak.count + ' 敗');
-    streakPill = '<div class="bc-streak-pill">' + icon + ' ' + label + ' · 自 ' + streak.startDate + ' 起</div>';
+  if (hasStreak || hasWitness) {
+    const parts = [];
+    if (hasStreak) {
+      const icon = streak.type === 'win' ? '🔥' : '☁️';
+      const label = streak.type === 'win' ? ('連 ' + streak.count + ' 勝') : ('連 ' + streak.count + ' 敗');
+      parts.push('<span class="bc-streak-main">' + icon + ' ' + label + '</span>');
+    }
+    if (hasWitness) {
+      parts.push('<span class="bc-witness">你現場見證 <strong>' + totalWitnessed + '</strong> 場</span>');
+    }
+    streakPill = '<div class="bc-streak-pill">' + parts.join('<span class="bc-divider"></span>') + '</div>';
   }
 
-  const seasonRecent = calcMainTeamSeasonRecent(10);
   let dotsHtml = '';
   for (let i = 0; i < 10; i++) {
     const idx = seasonRecent.length - 10 + i;
     if (idx < 0 || !seasonRecent[idx]) {
       dotsHtml += '<span class="bc-dot empty"></span>';
     } else {
-      dotsHtml += '<span class="bc-dot ' + seasonRecent[idx].result + '"></span>';
+      const r = seasonRecent[idx];
+      const attendedCls = r.sno && checkedSnos.has(r.sno) ? ' attended' : '';
+      dotsHtml += '<span class="bc-dot ' + r.result + attendedCls + '"></span>';
     }
   }
 
-  const fieldRecent = calcMainTeamFieldRecent(5);
+  // 原 fieldNoteHtml（letters + date range）已整合進 streak pill，這裡置空
   let fieldNoteHtml = '';
-  if (fieldRecent.length > 0) {
-    const letters = fieldRecent.map(r => {
-      const letter = r.result === 'win' ? 'W' : (r.result === 'loss' ? 'L' : 'T');
-      return '<span class="r-' + r.result.charAt(0) + '">' + letter + '</span>';
-    }).join(' ');
-    const firstDate = fieldRecent[0].date;
-    const lastDate = fieldRecent[fieldRecent.length - 1].date;
-    const dateRange = firstDate === lastDate ? firstDate : (firstDate + ' ~ ' + lastDate);
-    fieldNoteHtml = '<div class="bc-field-note">' +
-      '<span class="lbl">你現場見證最近 ' + fieldRecent.length + ' 場：</span>' +
-      letters + ' · ' + dateRange +
-    '</div>';
-  }
 
   const next = findNextMainTeamGame();
   let nextHtml = '<div class="bc-next-text">—</div><div class="bc-next-venue">沒有未來主隊場次</div>';
@@ -3689,7 +3697,7 @@ function renderMainTeamBigCard(stats) {
       '</div>' +
       '<div class="bc-right">' +
         '<div>' +
-          '<div class="bc-block-label">主隊賽季近 10 場</div>' +
+          '<div class="bc-block-label">主隊賽季近 10 場<span class="bc-block-hint">（你現場見證的圈起來）</span></div>' +
           '<div class="bc-recent-dots">' + dotsHtml + '</div>' +
         '</div>' +
         '<div>' +
