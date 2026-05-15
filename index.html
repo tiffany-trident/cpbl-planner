@@ -491,6 +491,66 @@ button.card-weather.clickable:active { transform: scale(0.96); }
 
 /* E2 layout × 主題 1（暖色漸層）整合戰績大卡 */
 .my-bigcard { max-width: 720px; margin: 0 auto; background: linear-gradient(135deg, #FFFEFB 0%, #FFF5E6 100%); border: 1px solid #F0D9B5; border-radius: 24px; padding: 28px 32px; display: flex; flex-direction: column; gap: 20px; box-shadow: 0 2px 12px rgba(138, 120, 99, 0.08); }
+
+/* UX redesign #1 — Claude design 風格的主隊大卡 v2 */
+.my-bigcard-v2 { max-width: 720px; margin: 0 auto; background: #FFFAF0; border: 1px solid #E8DDBE; border-radius: 16px; padding: 24px 28px; box-shadow: 0 2px 8px rgba(138, 120, 99, 0.06); }
+.bc-v2-header { display: flex; align-items: center; gap: 18px; }
+.bc-v2-logo { width: 56px; height: 56px; object-fit: contain; flex-shrink: 0; }
+.bc-v2-title-block { flex: 1; min-width: 0; }
+.bc-v2-title { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; font-size: 22px; font-weight: 500; color: #3D3122; letter-spacing: 1px; line-height: 1.3; }
+.bc-v2-meta { margin-top: 6px; display: flex; align-items: center; gap: 6px; font-size: 13px; color: #6B5F50; flex-wrap: wrap; }
+.bc-v2-meta .sep { color: #C9B99A; }
+.bc-v2-meta .streak { color: #C2573A; font-weight: 600; }
+.bc-v2-rate-block { text-align: right; flex-shrink: 0; }
+.bc-v2-rate { font-family: 'Inter', sans-serif; font-size: 42px; font-weight: 700; color: #C2573A; letter-spacing: -0.5px; line-height: 1; }
+.bc-v2-rate-label { margin-top: 4px; font-size: 11px; color: #9B8E7E; letter-spacing: 1px; }
+.bc-v2-dots-block { margin-top: 18px; padding: 12px 16px; background: rgba(232, 221, 190, 0.35); border-radius: 12px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.bc-v2-dots-label { font-size: 12px; color: #6B5F50; letter-spacing: 1px; font-weight: 600; }
+.bc-v2-dots { display: flex; gap: 8px; align-items: center; padding: 4px 0; }
+.bc-v2-dot { width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700; color: #fff; }
+.bc-v2-dot.win { background: #C2573A; }
+.bc-v2-dot.loss { background: #1A6B3A; }
+.bc-v2-dot.tie { background: #9B8E7E; color: #fff; }
+.bc-v2-dot.empty { background: transparent; border: 1.5px dashed #D4C3A8; color: transparent; }
+.bc-v2-dot.attended { box-shadow: 0 0 0 2px rgba(232, 221, 190, 0.35), 0 0 0 4px #C2573A; }
+.bc-v2-attended-hint { margin-left: auto; font-size: 11px; color: #9B8E7E; letter-spacing: 0.3px; }
+@media (max-width: 600px) {
+  .my-bigcard-v2 { padding: 20px 18px; }
+  .bc-v2-header { flex-wrap: wrap; gap: 12px; }
+  .bc-v2-rate-block { flex-basis: 100%; text-align: left; padding-top: 8px; border-top: 1px dashed #E8DDBE; }
+  .bc-v2-rate-block { display: flex; align-items: baseline; gap: 8px; }
+  .bc-v2-rate { font-size: 32px; }
+  .bc-v2-rate-label { margin-top: 0; }
+}
+/* UX redesign #1 — Claude design 風格的聯盟戰績 widget（用在「我的 → 戰績」sub-tab）*/
+.standings-v2 { max-width: 720px; margin: 32px auto 0; background: #FFFAF0; border: 1px solid #E8DDBE; border-radius: 14px; overflow: hidden; box-shadow: 0 2px 8px rgba(138, 120, 99, 0.06); }
+.standings-v2-header { display: flex; align-items: baseline; padding: 14px 20px; border-bottom: 1px solid #F0E8DB; gap: 8px; }
+.standings-v2-header .title { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; font-size: 16px; font-weight: 500; color: #4A3728; letter-spacing: 1px; }
+.standings-v2-header .sub { font-size: 12px; color: #9B8E7E; }
+.standings-v2-header .updated { margin-left: auto; font-size: 12px; color: #9B8E7E; font-family: 'Inter', sans-serif; }
+.standings-v2-row { display: grid; grid-template-columns: 44px 1fr 50px 50px 50px 70px 60px; padding: 12px 20px; align-items: center; font-size: 13px; border-top: 1px solid #F0E8DB; color: #4A3728; }
+.standings-v2-row.main { background: rgba(194, 87, 58, 0.05); }
+.standings-v2-rank { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; font-size: 17px; font-weight: 500; color: #4A3728; }
+.standings-v2-rank.leader { color: #C2573A; }
+.standings-v2-team { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.standings-v2-team img { width: 22px; height: 22px; object-fit: contain; flex-shrink: 0; }
+.standings-v2-name { font-weight: 500; color: #4A3728; }
+.standings-v2-name.main { font-weight: 700; }
+.standings-v2-maincap { display: inline-flex; width: 18px; height: 18px; align-items: center; justify-content: center; margin-left: 4px; vertical-align: middle; flex-shrink: 0; }
+.standings-v2-maincap svg { width: 100%; height: 100%; display: block; }
+.standings-v2-num { font-family: 'Inter', sans-serif; font-variant-numeric: tabular-nums; text-align: center; }
+.standings-v2-mute { color: #9B8E7E; }
+.standings-v2-pct { font-family: 'Inter', sans-serif; font-variant-numeric: tabular-nums; font-weight: 700; text-align: center; }
+.standings-v2-pct.leader { color: #C2573A; }
+.standings-v2-gb { font-family: 'Inter', sans-serif; font-variant-numeric: tabular-nums; text-align: center; color: #6B5F50; }
+@media (max-width: 600px) {
+  .standings-v2 { margin-top: 24px; border-radius: 12px; }
+  .standings-v2-header { padding: 12px 14px; }
+  .standings-v2-row { grid-template-columns: 32px 1fr 36px 36px 36px 56px 44px; padding: 10px 14px; font-size: 12px; gap: 4px; }
+  .standings-v2-rank { font-size: 15px; }
+  .standings-v2-team img { width: 20px; height: 20px; }
+  .standings-v2-mychip { display: none; }
+}
 .bc-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-bottom: 20px; border-bottom: 1px solid #F0E8DB; }
 .bc-header-l { display: flex; align-items: center; gap: 12px; min-width: 0; }
 .bc-logo { width: 40px; height: 40px; border-radius: 50%; object-fit: contain; flex-shrink: 0; }
@@ -2148,7 +2208,8 @@ function buildHeroInfo() {
 }
 
 // ── 戰績計算 ──
-function buildStandings() {
+// 純運算：計算各隊戰績並排序
+function computeStandingsSorted() {
   const teams = {};
   allGames.forEach(g => {
     if (!g.completed) return;
@@ -2166,24 +2227,21 @@ function buildStandings() {
       teams[g.home].t++;
     }
   });
-
-  const sorted = Object.entries(teams)
+  return Object.entries(teams)
     .map(([name, r]) => ({
       name,
       ...r,
       pct: (r.w + r.l) > 0 ? (r.w / (r.w + r.l)).toFixed(3) : '.000'
     }))
     .sort((a, b) => parseFloat(b.pct) - parseFloat(a.pct));
+}
 
-  const tbody = document.getElementById('standings-body');
-  if (!sorted.length) {
-    document.getElementById('standings-wrap').style.display = 'none';
-    return;
-  }
-  document.getElementById('standings-wrap').style.display = '';
+// 純渲染：給定排序過的陣列，回傳所有 <tr> HTML
+function buildStandingsRowsHtml(sorted) {
+  if (!sorted.length) return '';
   const leader = sorted[0];
   const maxGb = sorted.length > 1 ? ((leader.w - sorted[sorted.length-1].w) + (sorted[sorted.length-1].l - leader.l)) / 2 : 0;
-  tbody.innerHTML = sorted.map((t, i) => {
+  return sorted.map((t, i) => {
     const logo = TEAM_LOGO[t.name] || '';
     const color = getTeamColor(t.name);
     const gbNum = i === 0 ? 0 : ((leader.w - t.w) + (t.l - leader.l)) / 2;
@@ -2209,6 +2267,58 @@ function buildStandings() {
       '</td>' +
     '</tr>';
   }).join('');
+}
+
+function buildStandings() {
+  const sorted = computeStandingsSorted();
+  if (!sorted.length) {
+    document.getElementById('standings-wrap').style.display = 'none';
+    return;
+  }
+  document.getElementById('standings-wrap').style.display = '';
+  document.getElementById('standings-body').innerHTML = buildStandingsRowsHtml(sorted);
+}
+
+// UX redesign #1：給「我的 → 戰績」sub-tab 用的獨立 widget（Claude design 風格）
+function buildStandingsWidgetHtml() {
+  const sorted = computeStandingsSorted();
+  if (!sorted.length) return '';
+  const mainTeam = userState.profile.mainTeam;
+  // 找最後一場已完賽的日期當「更新於」
+  const lastDate = allGames.filter(g => g.completed && !g.postponed)
+    .map(g => g.date).sort().pop();
+  const updatedStr = lastDate ? ('更新於 ' + lastDate.slice(5).replace('-', '/')) : '';
+  const rows = sorted.map((t, i) => {
+    const isLeader = i === 0;
+    const isMain = t.name === mainTeam;
+    const logo = TEAM_LOGO[t.name] || '';
+    const name = TEAM_SHORT[t.name] || t.name;
+    const leader = sorted[0];
+    const gbNum = i === 0 ? 0 : ((leader.w - t.w) + (t.l - leader.l)) / 2;
+    const gbDisplay = i === 0 ? '-' : gbNum % 1 === 0 ? gbNum.toString() : gbNum.toFixed(1);
+    const color = getTeamColor(t.name);
+    return '<div class="standings-v2-row' + (isMain ? ' main' : '') + '">' +
+      '<div class="standings-v2-rank' + (isLeader ? ' leader' : '') + '">' + (i + 1) + '</div>' +
+      '<div class="standings-v2-team">' +
+        (logo ? '<img src="' + logo + '" alt="">' : '') +
+        '<span class="standings-v2-name' + (isMain ? ' main' : '') + '" style="color:' + color + '">' + escapeHtml(name) + '</span>' +
+        (isMain ? '<span class="standings-v2-maincap" style="color:' + color + '" aria-label="主隊" title="你的主隊"><svg><use href="#cap-mainteam"/></svg></span>' : '') +
+      '</div>' +
+      '<div class="standings-v2-num">' + t.w + '</div>' +
+      '<div class="standings-v2-num">' + t.l + '</div>' +
+      '<div class="standings-v2-num standings-v2-mute">' + t.t + '</div>' +
+      '<div class="standings-v2-pct' + (isLeader ? ' leader' : '') + '">' + t.pct + '</div>' +
+      '<div class="standings-v2-gb">' + gbDisplay + '</div>' +
+    '</div>';
+  }).join('');
+  return '<div class="standings-v2">' +
+    '<div class="standings-v2-header">' +
+      '<span class="title">🏆 聯盟戰績</span>' +
+      '<span class="sub">· 2026 例行賽</span>' +
+      (updatedStr ? '<span class="updated">' + updatedStr + '</span>' : '') +
+    '</div>' +
+    rows +
+  '</div>';
 }
 
 function getSelectedTeams(containerId) {
@@ -3082,9 +3192,11 @@ function renderMyView() {
 
 function renderMyShell() {
   const stats = calcMainTeamFieldStats();
-  const statsPanelHtml = stats.total === 0
+  const mainCardOrEmpty = stats.total === 0
     ? renderMyEmptyState('noMainTeamCheckins')
-    : renderMainTeamBigCard(stats);
+    : renderMainTeamBigCardV2(stats);
+  // UX redesign #1：戰績進「我的」 — 大卡（Claude design v2）+ 聯盟戰績表並陳
+  const statsPanelHtml = mainCardOrEmpty + buildStandingsWidgetHtml();
   const badgesPanelHtml = renderVenuePilgrimage();
   const timelinePanelHtml = renderCheckinsList();
   const favoritesPanelHtml = renderFavoritesList();
@@ -3093,7 +3205,7 @@ function renderMyShell() {
   const panelCls = tab => 'my-tab-panel' + (currentMyTab === tab ? ' active' : '');
 
   return '<nav class="my-tabs">' +
-      '<button type="button" class="' + cls('stats') + '" data-my-tab="stats">統計</button>' +
+      '<button type="button" class="' + cls('stats') + '" data-my-tab="stats">戰績</button>' +
       '<button type="button" class="' + cls('badges') + '" data-my-tab="badges">徽章</button>' +
       '<button type="button" class="' + cls('timeline') + '" data-my-tab="timeline">打卡紀錄</button>' +
       '<button type="button" class="' + cls('favorites') + '" data-my-tab="favorites">收藏</button>' +
@@ -3721,6 +3833,81 @@ function renderMainTeamBigCard(stats) {
       '</div>' +
     '</div>' +
     fieldNoteHtml +
+  '</div>';
+}
+
+// UX redesign #1 — Claude design 風格的主隊大卡（v2）
+function renderMainTeamBigCardV2(stats) {
+  const team = userState.profile.mainTeam;
+  const logo = TEAM_LOGO[team] || '';
+  const shortName = TEAM_SHORT[team] || team;
+
+  // 現場勝率（沿用 Phase 2-B 的算法）
+  const denom = stats.wins + stats.losses;
+  const rateNum = denom === 0 ? '--' : (stats.wins / denom).toFixed(3).replace(/^0+/, '');
+
+  // 你現場見證場數
+  const witnessCount = stats.wins + stats.losses + stats.ties;
+
+  // 主隊賽季整體戰績 + 勝差（從 standings 撈）
+  const sorted = computeStandingsSorted();
+  const teamRow = sorted.find(r => r.name === team);
+  const seasonWLT = teamRow ? (teamRow.w + '-' + teamRow.l + '-' + teamRow.t) : '–';
+  let gbDisplay = '-';
+  if (teamRow && sorted.length > 0) {
+    const leader = sorted[0];
+    if (teamRow.name !== leader.name) {
+      const gbNum = ((leader.w - teamRow.w) + (teamRow.l - leader.l)) / 2;
+      gbDisplay = gbNum % 1 === 0 ? gbNum.toString() : gbNum.toFixed(1);
+    }
+  }
+
+  // streak
+  const streak = calcMainTeamFieldStreak();
+  let streakStr = '';
+  if (streak.type && streak.count >= 2) {
+    const icon = streak.type === 'win' ? '🔥' : '☁️';
+    streakStr = icon + ' 連 ' + streak.count + (streak.type === 'win' ? ' 勝' : ' 敗');
+  }
+
+  // 近 10 場 dots（含字母 W/L/T + 打卡 ring）
+  const seasonRecent = calcMainTeamSeasonRecent(10);
+  const checkedSnos = new Set(Object.keys(userState.checkins || {}));
+  let dotsHtml = '';
+  for (let i = 0; i < 10; i++) {
+    const idx = seasonRecent.length - 10 + i;
+    if (idx < 0 || !seasonRecent[idx]) {
+      dotsHtml += '<span class="bc-v2-dot empty"></span>';
+    } else {
+      const r = seasonRecent[idx];
+      const attended = r.sno && checkedSnos.has(r.sno);
+      const letter = r.result === 'win' ? 'W' : r.result === 'loss' ? 'L' : 'T';
+      dotsHtml += '<span class="bc-v2-dot ' + r.result + (attended ? ' attended' : '') + '">' + letter + '</span>';
+    }
+  }
+
+  const metaParts = [];
+  if (streakStr) metaParts.push('<span class="streak">' + streakStr + '</span>');
+  metaParts.push('<span>賽季 ' + seasonWLT + '</span>');
+  metaParts.push('<span>勝差 ' + gbDisplay + '</span>');
+
+  return '<div class="my-bigcard-v2">' +
+    '<div class="bc-v2-header">' +
+      (logo ? '<img class="bc-v2-logo" src="' + logo + '" alt="">' : '') +
+      '<div class="bc-v2-title-block">' +
+        '<div class="bc-v2-title">' + escapeHtml(shortName) + ' · 你在現場見證 ' + witnessCount + ' 場</div>' +
+        '<div class="bc-v2-meta">' + metaParts.join('<span class="sep">·</span>') + '</div>' +
+      '</div>' +
+      '<div class="bc-v2-rate-block">' +
+        '<div class="bc-v2-rate">' + rateNum + '</div>' +
+        '<div class="bc-v2-rate-label">現場勝率</div>' +
+      '</div>' +
+    '</div>' +
+    '<div class="bc-v2-dots-block">' +
+      '<span class="bc-v2-dots-label">近 10 場：</span>' +
+      '<div class="bc-v2-dots">' + dotsHtml + '</div>' +
+      '<span class="bc-v2-attended-hint">⊙ 你打卡過</span>' +
+    '</div>' +
   '</div>';
 }
 
