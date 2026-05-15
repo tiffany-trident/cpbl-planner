@@ -35,10 +35,14 @@ body { font-family: 'Inter', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; b
 .nav-mainteam-setup { display: inline-flex; align-items: center; gap: 4px; padding: 6px 14px; border-radius: 20px; border: 1px dashed #E5D3B0; color: #C2573A; font-size: 13px; font-weight: 600; cursor: pointer; background: transparent; font-family: inherit; }
 .nav-mainteam-setup:hover { background: #FDF6EE; border-style: solid; }
 
-/* nav 跨裝置同步 link — 融入 nav-links，與戰績/篩選/賽程/我的同視覺語彙 */
-.nav-links a#nav-sync { display: inline-flex; align-items: center; gap: 4px; }
-.nav-links a#nav-sync.nav-sync-active { color: #1A6B3A; }
-.nav-links a#nav-sync.nav-sync-active:hover { color: #145E2D; }
+/* nav 同步 → avatar pill（UX slice #2，圓形 logo + 已登入綠環 + 角落綠點）*/
+.nav-avatar { position: relative; width: 36px; height: 36px; border-radius: 50%; background: #FDF6EE; border: 1.5px solid #F0DFB8; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; padding: 0; flex-shrink: 0; font-family: inherit; transition: background 0.15s, border-color 0.15s, box-shadow 0.15s; }
+.nav-avatar:hover { background: #FAE0CD; border-color: #E5C8A0; }
+.nav-avatar.is-synced { border-color: #1A6B3A; box-shadow: 0 0 0 2px rgba(26, 107, 58, 0.18); }
+.nav-avatar.is-synced:hover { background: #EAF6EE; }
+.nav-avatar-logo { width: 28px; height: 28px; object-fit: contain; border-radius: 50%; }
+.nav-avatar-fallback { font-size: 17px; line-height: 1; }
+.nav-avatar-dot { position: absolute; bottom: -2px; right: -2px; width: 14px; height: 14px; border-radius: 50%; background: #1A6B3A; border: 2.5px solid #FFF; box-shadow: 0 0 0 0.5px rgba(26, 107, 58, 0.4); }
 
 /* sync modal */
 .sync-overlay { position: fixed; inset: 0; background: rgba(61, 49, 34, 0.6); z-index: 9999; display: flex; align-items: center; justify-content: center; padding: 20px; }
@@ -867,11 +871,9 @@ button.card-weather.clickable:active { transform: scale(0.96); }
   </div>
   <div class="nav-mainteam" id="nav-mainteam"></div>
   <div class="nav-links">
-    <a href="#standings-wrap" data-view="main">戰績</a>
-    <a href="#filters" data-view="main">篩選</a>
     <a href="#games" data-view="main">賽程</a>
     <a href="#my" data-view="my" id="nav-my-link">我的 <svg class="nav-my-icon" aria-hidden="true"><use href="#bb-favorite"/></svg></a>
-    <a id="nav-sync" href="javascript:void(0)" data-sync-modal-action="open">☁️ 同步</a>
+    <button type="button" id="nav-sync" class="nav-avatar" data-sync-modal-action="open" title="跨裝置同步"></button>
   </div>
 </div>
 
@@ -2540,13 +2542,15 @@ function updateNavSyncUI() {
   const el = document.getElementById('nav-sync');
   if (!el) return;
   const token = getSessionToken();
-  if (token) {
-    el.textContent = '☁️ 同步中';
-    el.classList.add('nav-sync-active');
-  } else {
-    el.textContent = '☁️ 同步';
-    el.classList.remove('nav-sync-active');
-  }
+  const mainTeam = userState.profile.mainTeam;
+  const logo = mainTeam && TEAM_LOGO[mainTeam];
+  const innerHtml = logo
+    ? '<img class="nav-avatar-logo" src="' + logo + '" alt="">'
+    : '<span class="nav-avatar-fallback">☁️</span>';
+  const dotHtml = token ? '<span class="nav-avatar-dot" title="已同步"></span>' : '';
+  el.innerHTML = innerHtml + dotHtml;
+  el.classList.toggle('is-synced', !!token);
+  el.setAttribute('aria-label', token ? '跨裝置同步（已啟用）' : '啟用跨裝置同步');
 }
 
 function hideMainTeamModal() {
