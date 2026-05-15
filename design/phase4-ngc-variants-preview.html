@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>「你下次進場」位置 / 樣式 — 4 變體預覽</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/cylee/jf-openhuninn-1.1@main/web/openhuninn-1.1.css" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; background: #F8F4ED; color: #4A3728; padding: 30px; max-width: 1100px; margin: 0 auto; }
+h1 { font-size: 24px; letter-spacing: 2px; margin-bottom: 8px; color: #3D3122; }
+.intro { font-size: 13px; color: #6B5F50; margin-bottom: 28px; line-height: 1.7; }
+.variant { background: #FFF; border-radius: 16px; box-shadow: 0 2px 12px rgba(61, 49, 34, 0.05); margin-bottom: 28px; overflow: hidden; }
+.variant-head { padding: 14px 22px; background: #FAF6EC; border-bottom: 1px solid #F0E8DB; display: flex; align-items: center; gap: 12px; }
+.variant-head .tag { background: #C2573A; color: #fff; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 13px; padding: 3px 12px; border-radius: 999px; }
+.variant-head .name { font-size: 15px; color: #4A3728; font-weight: 500; letter-spacing: 1px; }
+.variant-head .desc { font-size: 12px; color: #9B8E7E; margin-left: auto; }
+.variant-body { padding: 0; }
+
+/* hero mock — 簡化版 */
+.hero-mock { padding: 32px 30px 24px; text-align: center; background: #FFF; position: relative; }
+.hero-mock .glove { position: absolute; left: 8%; top: 30px; font-size: 36px; opacity: 0.7; }
+.hero-mock .ball { position: absolute; right: 8%; top: 30px; font-size: 36px; opacity: 0.7; }
+.hero-mock .eyebrow { font-size: 11px; color: #B8A692; letter-spacing: 2px; margin-bottom: 6px; }
+.hero-mock h1 { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; font-size: 38px; font-weight: 500; color: #3D3122; letter-spacing: 4px; line-height: 1; margin-bottom: 14px; }
+.hero-info { display: inline-flex; align-items: center; gap: 12px; padding: 7px 18px; border-radius: 999px; background: #FFF9F0; border: 1px solid #F0DFB8; font-size: 13px; color: #4A3728; flex-wrap: wrap; justify-content: center; max-width: 600px; }
+.hero-info .num { color: #C2573A; font-weight: 700; }
+.hero-info .sep { color: #E5D3B0; font-size: 8px; }
+.hero-info .mainteam-stat { color: #4A3728; }
+.hero-info .mainteam-logo { width: 16px; height: 16px; vertical-align: middle; margin-right: 3px; }
+.deco { color: #D9CCBC; font-size: 11px; margin-top: 12px; letter-spacing: 3px; }
+
+/* standings mock */
+.standings-mock { padding: 22px 30px; }
+.standings-mock .header { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+.standings-mock .icon { font-size: 20px; }
+.standings-mock .title { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; font-size: 18px; font-weight: 500; }
+.standings-mock .line { flex: 1; height: 1px; background: linear-gradient(90deg, #E8DDBE 0%, transparent 100%); }
+.standings-mock .sub { font-size: 12px; color: #9B8E7E; }
+.standings-mock .table { background: #FFF; border-radius: 12px; box-shadow: 0 2px 8px rgba(212,196,171,0.12); padding: 16px 20px; color: #B8A692; font-size: 12px; text-align: center; letter-spacing: 1px; }
+
+/* === Variant A: 拿掉 === */
+
+/* === Variant B: inline chip in hero info bar === */
+.hero-info.with-ngc { padding: 8px 16px; flex-wrap: wrap; gap: 10px; }
+.ngc-chip { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; background: #FDF0E8; border-radius: 999px; color: #C2573A; font-weight: 600; font-size: 12px; }
+.ngc-chip a { color: #C2573A; text-decoration: underline; }
+
+/* === Variant C: full card 搬到 standings 後 === */
+.ngc-card-mock { max-width: 720px; margin: 0 auto 24px; padding: 0 30px; }
+.ngc-card-mock .row { display: flex; align-items: baseline; gap: 12px; margin-bottom: 12px; }
+.ngc-card-mock .eyebrow { font-size: 11px; color: #9B8E7E; letter-spacing: 1px; }
+.ngc-card-mock .eyebrow .accent { color: #C2573A; font-weight: 700; }
+.ngc-card-mock h2 { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; font-size: 22px; font-weight: 500; color: #3D3122; letter-spacing: 1px; margin-top: 2px; line-height: 1; }
+.ngc-card-mock .theme { padding: 3px 10px; background: #FDF0E8; color: #C2573A; border-radius: 999px; font-size: 11px; font-weight: 500; flex-shrink: 0; }
+.ngc-card-mock .card { padding: 16px 22px; background: #FFFAF0; border: 1px solid #E8DDBE; border-radius: 14px; }
+.ngc-card-mock .body { display: flex; align-items: center; gap: 14px; }
+.ngc-card-mock .side { display: flex; align-items: center; gap: 8px; flex: 1; }
+.ngc-card-mock .side.right { justify-content: flex-end; text-align: right; }
+.ngc-card-mock .logo { width: 36px; height: 36px; background: #ddd; border-radius: 50%; flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; color: white; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 11px; }
+.ngc-card-mock .logo.lm { background: #7B1A1A; }
+.ngc-card-mock .logo.ct { background: #FACD01; color: #4A3728; }
+.ngc-card-mock .label { font-size: 11px; color: #9B8E7E; }
+.ngc-card-mock .label.main { color: #C2573A; font-weight: 700; }
+.ngc-card-mock .name { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; font-size: 15px; color: #3D3122; margin-top: 2px; }
+.ngc-card-mock .center { padding: 0 12px; border-left: 1px dashed #E8DDBE; border-right: 1px dashed #E8DDBE; text-align: center; }
+.ngc-card-mock .time { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; font-size: 22px; color: #3D3122; line-height: 1; }
+.ngc-card-mock .date { font-size: 11px; color: #9B8E7E; margin-top: 4px; }
+.ngc-card-mock .foot { margin-top: 14px; padding-top: 12px; border-top: 1px solid #F0E8DB; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; font-size: 12px; color: #6B5F50; }
+.ngc-card-mock .meta { display: flex; gap: 12px; }
+.ngc-card-mock .btn { padding: 6px 14px; border-radius: 999px; font-size: 12px; font-weight: 600; background: #C2573A; color: #FFF; border: none; }
+
+/* === Variant D: 簡化強提示 strip === */
+.ngc-strip-mock { max-width: 720px; margin: 0 auto 24px; padding: 0 30px; }
+.ngc-strip { display: flex; align-items: center; gap: 12px; padding: 12px 18px; background: linear-gradient(90deg, #FFFAF0 0%, #FDF0E8 100%); border: 1px solid #F0DFB8; border-radius: 12px; font-size: 13px; color: #4A3728; }
+.ngc-strip .label { font-size: 11px; color: #9B8E7E; letter-spacing: 1px; font-weight: 600; padding-right: 8px; border-right: 1px dashed #E5D3B0; }
+.ngc-strip .info { flex: 1; }
+.ngc-strip .info .date { font-weight: 700; color: #C2573A; }
+.ngc-strip .info .meta { color: #6B5F50; }
+.ngc-strip .btn { padding: 6px 12px; border-radius: 999px; font-size: 12px; font-weight: 600; background: #C2573A; color: #FFF; border: none; cursor: pointer; }
+
+.summary { background: #FFF; padding: 22px 24px; border-radius: 14px; margin-top: 28px; font-size: 13px; line-height: 1.9; color: #4A3728; }
+.summary h2 { font-size: 16px; margin-bottom: 12px; letter-spacing: 1px; color: #3D3122; }
+.summary table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 12px; }
+.summary th, .summary td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #F0E8DB; vertical-align: top; }
+.summary th { color: #9B8E7E; font-weight: 600; letter-spacing: 1px; font-size: 11px; }
+</style>
+</head>
+<body>
+
+<h1>「你下次進場」四種變體</h1>
+<p class="intro">
+情境：你是兄弟迷、未來 7 天內收藏了 5/15 兄弟 vs 樂天的洲際場（State A）。
+每個 panel 顯示 nav 下方到 standings 中間的「上半頁」呈現。
+</p>
+
+<!-- A: 拿掉 -->
+<div class="variant">
+  <div class="variant-head"><span class="tag">A</span><span class="name">完全拿掉</span><span class="desc">回到 #3 之前狀態</span></div>
+  <div class="variant-body">
+    <div class="hero-mock">
+      <div class="glove">🥎</div>
+      <div class="ball">⚾</div>
+      <div class="eyebrow">中華職棒一軍例行賽 · 2026</div>
+      <h1>進場倒數</h1>
+      <div class="hero-info">
+        <span>⚾ 今日 <span class="num">3</span> 場</span>
+        <span class="sep">●</span>
+        <span>📅 剩餘 <span class="num">313</span> 場</span>
+        <span class="sep">●</span>
+        <span>🔥 賽季熱烈進行中</span>
+        <span class="sep">●</span>
+        <span class="mainteam-stat"><span class="mainteam-logo" style="display:inline-block;background:#FACD01;border-radius:50%;font-size:9px;color:#4A3728;text-align:center;line-height:16px;">兄</span>今日 <span class="num">1</span> 場 · 剩餘 <span class="num">93</span> 場</span>
+      </div>
+      <div class="deco">● —— ◆ —— ●</div>
+    </div>
+    <div class="standings-mock">
+      <div class="header"><span class="icon">🏆</span><span class="title">各隊戰績</span><span class="line"></span><span class="sub">2026 例行賽</span></div>
+      <div class="table">（戰績表略）</div>
+    </div>
+  </div>
+</div>
+
+<!-- B: inline chip in hero info bar -->
+<div class="variant">
+  <div class="variant-head"><span class="tag">B</span><span class="name">融入 hero info bar — 一個 chip</span><span class="desc">在「主隊今日」後加 chip</span></div>
+  <div class="variant-body">
+    <div class="hero-mock">
+      <div class="glove">🥎</div>
+      <div class="ball">⚾</div>
+      <div class="eyebrow">中華職棒一軍例行賽 · 2026</div>
+      <h1>進場倒數</h1>
+      <div class="hero-info with-ngc">
+        <span>⚾ 今日 <span class="num">3</span> 場</span>
+        <span class="sep">●</span>
+        <span>📅 剩餘 <span class="num">313</span> 場</span>
+        <span class="sep">●</span>
+        <span class="mainteam-stat"><span class="mainteam-logo" style="display:inline-block;background:#FACD01;border-radius:50%;font-size:9px;color:#4A3728;text-align:center;line-height:16px;">兄</span>今日 <span class="num">1</span> 場</span>
+        <span class="ngc-chip">🎯 你下次：5/15 vs 樂天 · <a href="#">購票 →</a></span>
+      </div>
+      <div class="deco">● —— ◆ —— ●</div>
+    </div>
+    <div class="standings-mock">
+      <div class="header"><span class="icon">🏆</span><span class="title">各隊戰績</span><span class="line"></span><span class="sub">2026 例行賽</span></div>
+      <div class="table">（戰績表略）</div>
+    </div>
+  </div>
+</div>
+
+<!-- C: full card 搬到 standings 後 -->
+<div class="variant">
+  <div class="variant-head"><span class="tag">C</span><span class="name">完整卡 — 搬到 standings 下方</span><span class="desc">不跟 hero 競爭視覺</span></div>
+  <div class="variant-body">
+    <div class="hero-mock">
+      <div class="glove">🥎</div>
+      <div class="ball">⚾</div>
+      <div class="eyebrow">中華職棒一軍例行賽 · 2026</div>
+      <h1>進場倒數</h1>
+      <div class="hero-info">
+        <span>⚾ 今日 <span class="num">3</span> 場</span>
+        <span class="sep">●</span>
+        <span>📅 剩餘 <span class="num">313</span> 場</span>
+        <span class="sep">●</span>
+        <span>🔥 賽季熱烈進行中</span>
+        <span class="sep">●</span>
+        <span class="mainteam-stat"><span class="mainteam-logo" style="display:inline-block;background:#FACD01;border-radius:50%;font-size:9px;color:#4A3728;text-align:center;line-height:16px;">兄</span>今日 <span class="num">1</span> 場 · 剩餘 <span class="num">93</span> 場</span>
+      </div>
+      <div class="deco">● —— ◆ —— ●</div>
+    </div>
+    <div class="standings-mock">
+      <div class="header"><span class="icon">🏆</span><span class="title">各隊戰績</span><span class="line"></span><span class="sub">2026 例行賽</span></div>
+      <div class="table">（戰績表略）</div>
+    </div>
+    <div class="ngc-card-mock">
+      <div class="row">
+        <div>
+          <div class="eyebrow">嗨，兄弟迷 👋 · <span class="accent">已收藏 · 還有 2 天</span></div>
+          <h2>你下次進場</h2>
+        </div>
+        <div style="flex:1"></div>
+        <span class="theme">🎌 應援日</span>
+      </div>
+      <div class="card">
+        <div class="body">
+          <div class="side">
+            <div class="logo lm">LM</div>
+            <div>
+              <div class="label">客場</div>
+              <div class="name">樂天桃猿</div>
+            </div>
+          </div>
+          <div class="center">
+            <div class="time">18:35</div>
+            <div class="date">5/15 週六</div>
+          </div>
+          <div class="side right">
+            <div>
+              <div class="label main">主場 · 你的主隊</div>
+              <div class="name">中信兄弟</div>
+            </div>
+            <div class="logo ct">CT</div>
+          </div>
+        </div>
+        <div class="foot">
+          <div class="meta"><span>📍 洲際</span><span>☀️ 26°</span></div>
+          <button class="btn">🎟️ 購票</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- D: 簡化強提示 strip -->
+<div class="variant">
+  <div class="variant-head"><span class="tag">D</span><span class="name">簡化強提示 strip — 一行橫條</span><span class="desc">hero 與 standings 間，輕量</span></div>
+  <div class="variant-body">
+    <div class="hero-mock">
+      <div class="glove">🥎</div>
+      <div class="ball">⚾</div>
+      <div class="eyebrow">中華職棒一軍例行賽 · 2026</div>
+      <h1>進場倒數</h1>
+      <div class="hero-info">
+        <span>⚾ 今日 <span class="num">3</span> 場</span>
+        <span class="sep">●</span>
+        <span>📅 剩餘 <span class="num">313</span> 場</span>
+        <span class="sep">●</span>
+        <span>🔥 賽季熱烈進行中</span>
+        <span class="sep">●</span>
+        <span class="mainteam-stat"><span class="mainteam-logo" style="display:inline-block;background:#FACD01;border-radius:50%;font-size:9px;color:#4A3728;text-align:center;line-height:16px;">兄</span>今日 <span class="num">1</span> 場 · 剩餘 <span class="num">93</span> 場</span>
+      </div>
+      <div class="deco">● —— ◆ —— ●</div>
+    </div>
+    <div style="height:20px;"></div>
+    <div class="ngc-strip-mock">
+      <div class="ngc-strip">
+        <span class="label">你下次進場</span>
+        <span class="info"><span class="date">5/15 週六 18:35</span> · <span class="meta">vs 樂天桃猿 @洲際 · ☀️ 26° · 應援日 🎌</span></span>
+        <button class="btn">🎟️ 購票</button>
+      </div>
+    </div>
+    <div class="standings-mock">
+      <div class="header"><span class="icon">🏆</span><span class="title">各隊戰績</span><span class="line"></span><span class="sub">2026 例行賽</span></div>
+      <div class="table">（戰績表略）</div>
+    </div>
+  </div>
+</div>
+
+<!-- E: hero info 下方 matchup pill — B + 卡片視覺融合 -->
+<style>
+.ngc-matchup-pill { display: inline-flex; align-items: center; gap: 12px; padding: 10px 18px; border-radius: 999px; background: #FFFAF0; border: 1px solid #F0DFB8; font-size: 13px; color: #4A3728; margin-top: 12px; flex-wrap: wrap; justify-content: center; max-width: 760px; }
+.ngc-matchup-pill .label { font-size: 11px; color: #9B8E7E; letter-spacing: 1px; font-weight: 600; padding-right: 8px; border-right: 1px dashed #E5D3B0; }
+.ngc-matchup-pill .versus { display: inline-flex; align-items: center; gap: 8px; font-weight: 500; }
+.ngc-matchup-pill .versus .team { display: inline-flex; align-items: center; gap: 5px; }
+.ngc-matchup-pill .versus .team.main strong { color: #C2573A; font-weight: 700; }
+.ngc-matchup-pill .mini-logo { width: 22px; height: 22px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; color: white; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 10px; }
+.ngc-matchup-pill .mini-logo.lm { background: #7B1A1A; }
+.ngc-matchup-pill .mini-logo.ct { background: #FACD01; color: #4A3728; }
+.ngc-matchup-pill .vs-sep { color: #C9B99A; font-family: 'Inter', sans-serif; font-size: 11px; padding: 0 2px; letter-spacing: 1px; }
+.ngc-matchup-pill .meta { color: #6B5F50; font-size: 12px; padding: 0 8px; border-left: 1px dashed #E5D3B0; }
+.ngc-matchup-pill .btn { padding: 5px 12px; border-radius: 999px; font-size: 12px; font-weight: 600; background: #C2573A; color: #FFF; border: none; cursor: pointer; }
+.ngc-matchup-pill .btn:hover { background: #A84826; }
+</style>
+
+<div class="variant">
+  <div class="variant-head"><span class="tag">E</span><span class="name">融入 hero — 對戰 pill 一條（推薦）</span><span class="desc">B + 卡片視覺融合</span></div>
+  <div class="variant-body">
+    <div class="hero-mock">
+      <div class="glove">🥎</div>
+      <div class="ball">⚾</div>
+      <div class="eyebrow">中華職棒一軍例行賽 · 2026</div>
+      <h1>進場倒數</h1>
+      <div class="hero-info">
+        <span>⚾ 今日 <span class="num">3</span> 場</span>
+        <span class="sep">●</span>
+        <span>📅 剩餘 <span class="num">313</span> 場</span>
+        <span class="sep">●</span>
+        <span>🔥 賽季熱烈進行中</span>
+        <span class="sep">●</span>
+        <span class="mainteam-stat"><span class="mainteam-logo" style="display:inline-block;background:#FACD01;border-radius:50%;font-size:9px;color:#4A3728;text-align:center;line-height:16px;">兄</span>今日 <span class="num">1</span> 場 · 剩餘 <span class="num">93</span> 場</span>
+      </div>
+      <br>
+      <div class="ngc-matchup-pill">
+        <span class="label">🎯 你下次進場</span>
+        <span class="versus">
+          <span class="team"><span class="mini-logo lm">LM</span>樂天</span>
+          <span class="vs-sep">VS</span>
+          <span class="team main"><span class="mini-logo ct">CT</span><strong>兄弟</strong></span>
+        </span>
+        <span class="meta">5/15 週六 18:35 · 📍 洲際 · 🎌 應援日</span>
+        <button class="btn">🎟️ 購票</button>
+      </div>
+      <div class="deco" style="margin-top:14px;">● —— ◆ —— ●</div>
+    </div>
+    <div class="standings-mock">
+      <div class="header"><span class="icon">🏆</span><span class="title">各隊戰績</span><span class="line"></span><span class="sub">2026 例行賽</span></div>
+      <div class="table">（戰績表略）</div>
+    </div>
+  </div>
+</div>
+
+<!-- E1: 無邊框版 -->
+<style>
+.ngc-row-bare { display: inline-flex; align-items: center; gap: 14px; margin-top: 14px; font-size: 13px; color: #4A3728; flex-wrap: wrap; justify-content: center; max-width: 720px; padding: 0 16px; }
+.ngc-row-bare .label { font-size: 11px; color: #9B8E7E; letter-spacing: 1px; font-weight: 600; }
+.ngc-row-bare .versus { display: inline-flex; align-items: center; gap: 8px; font-weight: 500; }
+.ngc-row-bare .versus .team { display: inline-flex; align-items: center; gap: 5px; }
+.ngc-row-bare .versus .team.main strong { color: #C2573A; font-weight: 700; }
+.ngc-row-bare .mini-logo { width: 22px; height: 22px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; color: white; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 10px; }
+.ngc-row-bare .mini-logo.lm { background: #7B1A1A; }
+.ngc-row-bare .mini-logo.ct { background: #FACD01; color: #4A3728; }
+.ngc-row-bare .vs-sep { color: #C9B99A; font-family: 'Inter', sans-serif; font-size: 11px; padding: 0 2px; }
+.ngc-row-bare .meta { color: #6B5F50; font-size: 12px; }
+.ngc-row-bare .btn { padding: 5px 12px; border-radius: 999px; font-size: 12px; font-weight: 600; background: #C2573A; color: #FFF; border: none; cursor: pointer; }
+.ngc-row-bare .dot-sep { color: #C9B99A; }
+</style>
+<div class="variant">
+  <div class="variant-head"><span class="tag">E1</span><span class="name">原 pill + 下方無邊框 matchup row</span><span class="desc">不重複 pill</span></div>
+  <div class="variant-body">
+    <div class="hero-mock">
+      <div class="glove">🥎</div>
+      <div class="ball">⚾</div>
+      <div class="eyebrow">中華職棒一軍例行賽 · 2026</div>
+      <h1>進場倒數</h1>
+      <div class="hero-info">
+        <span>⚾ 今日 <span class="num">3</span> 場</span>
+        <span class="sep">●</span>
+        <span>📅 剩餘 <span class="num">313</span> 場</span>
+        <span class="sep">●</span>
+        <span>🔥 賽季熱烈進行中</span>
+        <span class="sep">●</span>
+        <span class="mainteam-stat"><span class="mainteam-logo" style="display:inline-block;background:#FACD01;border-radius:50%;font-size:9px;color:#4A3728;text-align:center;line-height:16px;">兄</span>今日 <span class="num">1</span> 場 · 剩餘 <span class="num">93</span> 場</span>
+      </div>
+      <br>
+      <div class="ngc-row-bare">
+        <span class="label">🎯 你下次</span>
+        <span class="versus">
+          <span class="team"><span class="mini-logo lm">LM</span>樂天</span>
+          <span class="vs-sep">VS</span>
+          <span class="team main"><span class="mini-logo ct">CT</span><strong>兄弟</strong></span>
+        </span>
+        <span class="dot-sep">·</span>
+        <span class="meta">5/15 週六 18:35 · 📍 洲際 · 🎌 應援日</span>
+        <button class="btn">🎟️ 購票</button>
+      </div>
+      <div class="deco" style="margin-top:14px;">● —— ◆ —— ●</div>
+    </div>
+    <div class="standings-mock">
+      <div class="header"><span class="icon">🏆</span><span class="title">各隊戰績</span><span class="line"></span><span class="sub">2026 例行賽</span></div>
+      <div class="table">（戰績表略）</div>
+    </div>
+  </div>
+</div>
+
+<!-- E2: 取代 hero info bar -->
+<div class="variant">
+  <div class="variant-head"><span class="tag">E2</span><span class="name">取代 hero info bar — 只剩一個 pill</span><span class="desc">有「你下次」時顯示這個，無時顯示原 hero stats</span></div>
+  <div class="variant-body">
+    <div class="hero-mock">
+      <div class="glove">🥎</div>
+      <div class="ball">⚾</div>
+      <div class="eyebrow">中華職棒一軍例行賽 · 2026</div>
+      <h1>進場倒數</h1>
+      <div class="ngc-matchup-pill">
+        <span class="label">🎯 你下次進場</span>
+        <span class="versus">
+          <span class="team"><span class="mini-logo lm">LM</span>樂天</span>
+          <span class="vs-sep">VS</span>
+          <span class="team main"><span class="mini-logo ct">CT</span><strong>兄弟</strong></span>
+        </span>
+        <span class="meta">5/15 週六 18:35 · 📍 洲際 · 🎌 應援日</span>
+        <button class="btn">🎟️ 購票</button>
+      </div>
+      <div class="deco" style="margin-top:14px;">● —— ◆ —— ●</div>
+    </div>
+    <div class="standings-mock">
+      <div class="header"><span class="icon">🏆</span><span class="title">各隊戰績</span><span class="line"></span><span class="sub">2026 例行賽</span></div>
+      <div class="table">（戰績表略）</div>
+    </div>
+  </div>
+</div>
+
+<!-- E3: rectangle banner -->
+<style>
+.ngc-banner { max-width: 720px; margin: 16px auto 0; padding: 12px 20px; background: linear-gradient(90deg, #FFFAF0 0%, #FFF5E6 100%); border: 1px solid #F0DFB8; border-radius: 12px; display: flex; align-items: center; gap: 14px; font-size: 13px; color: #4A3728; flex-wrap: wrap; }
+.ngc-banner .label { font-size: 11px; color: #9B8E7E; letter-spacing: 1px; font-weight: 600; padding-right: 10px; border-right: 1px dashed #E5D3B0; }
+.ngc-banner .versus { display: inline-flex; align-items: center; gap: 8px; font-weight: 500; }
+.ngc-banner .versus .team { display: inline-flex; align-items: center; gap: 5px; }
+.ngc-banner .versus .team.main strong { color: #C2573A; font-weight: 700; }
+.ngc-banner .mini-logo { width: 22px; height: 22px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; color: white; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 10px; }
+.ngc-banner .mini-logo.lm { background: #7B1A1A; }
+.ngc-banner .mini-logo.ct { background: #FACD01; color: #4A3728; }
+.ngc-banner .vs-sep { color: #C9B99A; font-family: 'Inter', sans-serif; font-size: 11px; padding: 0 2px; }
+.ngc-banner .meta { color: #6B5F50; font-size: 12px; flex: 1; }
+.ngc-banner .btn { padding: 6px 14px; border-radius: 8px; font-size: 12px; font-weight: 600; background: #C2573A; color: #FFF; border: none; cursor: pointer; }
+</style>
+<div class="variant">
+  <div class="variant-head"><span class="tag">E3</span><span class="name">直角矩形 banner — 與 pill 區隔形狀</span><span class="desc">圓 pill + 直角 banner</span></div>
+  <div class="variant-body">
+    <div class="hero-mock">
+      <div class="glove">🥎</div>
+      <div class="ball">⚾</div>
+      <div class="eyebrow">中華職棒一軍例行賽 · 2026</div>
+      <h1>進場倒數</h1>
+      <div class="hero-info">
+        <span>⚾ 今日 <span class="num">3</span> 場</span>
+        <span class="sep">●</span>
+        <span>📅 剩餘 <span class="num">313</span> 場</span>
+        <span class="sep">●</span>
+        <span>🔥 賽季熱烈進行中</span>
+        <span class="sep">●</span>
+        <span class="mainteam-stat"><span class="mainteam-logo" style="display:inline-block;background:#FACD01;border-radius:50%;font-size:9px;color:#4A3728;text-align:center;line-height:16px;">兄</span>今日 <span class="num">1</span> 場 · 剩餘 <span class="num">93</span> 場</span>
+      </div>
+      <div class="ngc-banner">
+        <span class="label">🎯 你下次進場</span>
+        <span class="versus">
+          <span class="team"><span class="mini-logo lm">LM</span>樂天</span>
+          <span class="vs-sep">VS</span>
+          <span class="team main"><span class="mini-logo ct">CT</span><strong>兄弟</strong></span>
+        </span>
+        <span class="meta">· 5/15 週六 18:35 · 📍 洲際 · 🎌 應援日</span>
+        <button class="btn">🎟️ 購票</button>
+      </div>
+      <div class="deco" style="margin-top:14px;">● —— ◆ —— ●</div>
+    </div>
+    <div class="standings-mock">
+      <div class="header"><span class="icon">🏆</span><span class="title">各隊戰績</span><span class="line"></span><span class="sub">2026 例行賽</span></div>
+      <div class="table">（戰績表略）</div>
+    </div>
+  </div>
+</div>
+
+<div class="summary">
+  <h2>選擇參考</h2>
+  <table>
+    <thead>
+      <tr><th>變體</th><th>視覺份量</th><th>資訊密度</th><th>跟 hero 衝突</th><th>實作工時 vs 現況</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>A</strong></td><td>無</td><td>低</td><td>無</td><td>revert（負工時）</td></tr>
+      <tr><td><strong>B</strong></td><td>低（hero 內 chip）</td><td>中</td><td>無 — 融入</td><td>低（換 hero info bar 一行）</td></tr>
+      <tr><td><strong>C</strong></td><td>高（卡片）</td><td>高</td><td>無 — 不同位置</td><td>低（只改位置）</td></tr>
+      <tr><td><strong>D</strong></td><td>中（一行 strip）</td><td>中</td><td>低</td><td>中（重做樣式）</td></tr>
+      <tr><td><strong>E</strong></td><td>中（pill 形式）</td><td>適中</td><td>無 — 跟在 hero info 下</td><td>中</td></tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>

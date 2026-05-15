@@ -526,7 +526,19 @@ button.card-weather.clickable:active { transform: scale(0.96); }
   .bc-v2-rate { font-size: 32px; }
   .bc-v2-rate-label { margin-top: 0; }
 }
-/* UX redesign #1 — Claude design 風格的聯盟戰績 widget（用在「我的 → 戰績」sub-tab）*/
+/* UX redesign #3 — 「你下次進場」matchup pill（取代 hero info bar 當 state-aware）*/
+/* 沿用 .hero-info pill 容器樣式（同 border / radius / bg），只加內容專屬 styles */
+#hero-ngc-pill .ngc-label { font-size: 12px; color: #9B8E7E; letter-spacing: 1px; font-weight: 600; padding-right: 10px; border-right: 1px dashed #E5D3B0; }
+#hero-ngc-pill .ngc-versus { display: inline-flex; align-items: center; gap: 8px; font-weight: 500; font-size: 14px; }
+#hero-ngc-pill .ngc-team { display: inline-flex; align-items: center; gap: 5px; }
+#hero-ngc-pill .ngc-team.main { color: #C2573A; font-weight: 700; }
+#hero-ngc-pill .ngc-mini-logo { width: 22px; height: 22px; object-fit: contain; border-radius: 50%; flex-shrink: 0; }
+#hero-ngc-pill .ngc-vs-sep { color: #C9B99A; font-family: 'Inter', sans-serif; font-size: 11px; padding: 0 2px; letter-spacing: 1px; font-weight: 400; }
+#hero-ngc-pill .ngc-meta { color: #6B5F50; font-size: 13px; padding: 0 8px; border-left: 1px dashed #E5D3B0; }
+#hero-ngc-pill .ngc-theme-inline { color: #C2573A; font-weight: 600; }
+#hero-ngc-pill .ngc-btn { padding: 6px 14px; border-radius: 999px; font-size: 13px; font-weight: 600; background: #C2573A; color: #FFF; border: 1px solid #C2573A; cursor: pointer; text-decoration: none; font-family: inherit; transition: background 0.15s; white-space: nowrap; }
+#hero-ngc-pill .ngc-btn:hover { background: #A84826; }
+
 .standings-v2 { max-width: 720px; margin: 32px auto 0; background: #FFFAF0; border: 1px solid #E8DDBE; border-radius: 14px; overflow: hidden; box-shadow: 0 2px 8px rgba(138, 120, 99, 0.06); }
 .standings-v2-header { display: flex; align-items: baseline; padding: 14px 20px; border-bottom: 1px solid #F0E8DB; gap: 8px; }
 .standings-v2-header .title { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; font-size: 16px; font-weight: 500; color: #4A3728; letter-spacing: 1px; }
@@ -891,7 +903,8 @@ button.card-weather.clickable:active { transform: scale(0.96); }
     <div class="hero-greet" id="hero-greet" style="display:none"></div>
     <div class="hero-eyebrow">中華職棒一軍例行賽 · 2026</div>
     <h1>進場倒數</h1>
-    <div class="hero-info">
+    <div class="hero-info" id="hero-ngc-pill" style="display:none"></div>
+    <div class="hero-info" id="hero-info-stats">
       <span class="hero-info-item">⚾ 今日 <span class="hero-info-num" id="hero-today-count">—</span> 場</span>
       <span class="hero-info-sep">●</span>
       <span class="hero-info-item">📅 剩餘 <span class="hero-info-num" id="hero-remain-count">—</span> 場</span>
@@ -1655,6 +1668,15 @@ document.addEventListener('click', (e) => {
 
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeBriefingPopover();
+});
+
+// UX redesign #3 — 「你下次進場」卡片內加入收藏按鈕
+document.addEventListener('click', (e) => {
+  const btn = e.target.closest('[data-ngc-action="favorite"]');
+  if (!btn) return;
+  e.preventDefault();
+  const sno = btn.getAttribute('data-ngc-sno');
+  if (sno) toggleFavorite(sno);
 });
 
 async function loadWeather() {
@@ -2476,6 +2498,7 @@ function toggleFavorite(sno) {
   saveUserState(userState);
   render();
   renderMyView();
+  if (typeof renderNextGameCard === 'function') renderNextGameCard();
 }
 
 // ── 主隊設定（Phase 1）──
@@ -2566,6 +2589,7 @@ function selectMainTeam(team) {
   updateMainTeamUI();
   buildStandings();
   buildHeroInfo();
+  if (typeof renderNextGameCard === 'function') renderNextGameCard();
 }
 
 function skipMainTeamSetup() {
@@ -3709,6 +3733,101 @@ function findNextMainTeamGame() {
   return allGames.find(g => g.isFuture && !g.postponed && !g.completed && (g.home === mainTeam || g.visitor === mainTeam)) || null;
 }
 
+// UX redesign #3 — 「你下次進場」state-aware card
+// State A: 未來 7 天內有收藏場次 → 「你下次進場」+ 購票 CTA
+// State B: 無收藏但有主隊賽事 → 「主隊下一場」+ 加入收藏 CTA
+// State C: 略過（user 決定）
+function findNextRelevantGame() {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const todayStr = today.getFullYear() + '-' + String(today.getMonth() + 1).padStart(2, '0') + '-' + String(today.getDate()).padStart(2, '0');
+  const sevenDaysLater = new Date(today.getTime() + 7 * 86400000);
+  const sevenStr = sevenDaysLater.getFullYear() + '-' + String(sevenDaysLater.getMonth() + 1).padStart(2, '0') + '-' + String(sevenDaysLater.getDate()).padStart(2, '0');
+
+  // State A
+  const favSnos = userState.favorites || [];
+  const favGames = favSnos
+    .map(sno => allGames.find(g => g.sno === sno))
+    .filter(g => g && !g.postponed && !g.completed && g.date >= todayStr && g.date <= sevenStr)
+    .sort((a, b) => a.date < b.date ? -1 : a.date > b.date ? 1 : a.time < b.time ? -1 : 1);
+  if (favGames.length > 0) return { state: 'A', game: favGames[0] };
+
+  // State B
+  const next = findNextMainTeamGame();
+  if (next) return { state: 'B', game: next };
+
+  return null;
+}
+
+// 取代 hero info bar 的 matchup pill 內容
+function buildHeroMatchupHtml(result) {
+  const g = result.game;
+  const state = result.state;
+  const mainTeam = userState.profile.mainTeam;
+  const vShort = TEAM_SHORT[g.visitor] || g.visitor;
+  const hShort = TEAM_SHORT[g.home] || g.home;
+  const vLogo = TEAM_LOGO[g.visitor] || '';
+  const hLogo = TEAM_LOGO[g.home] || '';
+  const vIsMain = g.visitor === mainTeam;
+  const hIsMain = g.home === mainTeam;
+
+  // 日期
+  const today = new Date(); today.setHours(0, 0, 0, 0);
+  const gameDate = new Date(g.date + 'T00:00:00');
+  const daysAway = Math.round((gameDate - today) / 86400000);
+  const monthDay = g.date.slice(5).replace('-', '/');
+  const dayName = g.dayName || '';
+  const dateStr = monthDay + ' ' + dayName + ' ' + g.time;
+
+  const labelText = state === 'A'
+    ? '🎯 你下次進場' + (daysAway === 0 ? '（今天）' : daysAway === 1 ? '（明天）' : daysAway <= 7 ? '（還有 ' + daysAway + ' 天）' : '')
+    : '🎯 主隊下一場';
+
+  // 主場主題日
+  const themes = (typeof themeDaysData !== 'undefined' && themeDaysData[g.date]) ? themeDaysData[g.date].filter(t => t.home_team === g.home) : [];
+  const themeStr = themes.length > 0 ? ' · <span class="ngc-theme-inline">🎌 ' + escapeHtml(themes[0].title) + '</span>' : '';
+
+  // 主要動作
+  const ticketUrl = (typeof TEAM_TICKET !== 'undefined') ? (TEAM_TICKET[g.home] || '') : '';
+  let actionHtml = '';
+  if (state === 'A') {
+    if (ticketUrl) actionHtml = '<a class="ngc-btn" href="' + ticketUrl + '" target="_blank" rel="noopener">🎟️ 購票</a>';
+  } else {
+    actionHtml = '<button type="button" class="ngc-btn" data-ngc-action="favorite" data-ngc-sno="' + g.sno + '">♡ 加入收藏</button>';
+  }
+
+  return '<span class="ngc-label">' + labelText + '</span>' +
+    '<span class="ngc-versus">' +
+      '<span class="ngc-team' + (vIsMain ? ' main' : '') + '">' +
+        (vLogo ? '<img class="ngc-mini-logo" src="' + vLogo + '" alt="">' : '') +
+        escapeHtml(vShort) +
+      '</span>' +
+      '<span class="ngc-vs-sep">VS</span>' +
+      '<span class="ngc-team' + (hIsMain ? ' main' : '') + '">' +
+        (hLogo ? '<img class="ngc-mini-logo" src="' + hLogo + '" alt="">' : '') +
+        escapeHtml(hShort) +
+      '</span>' +
+    '</span>' +
+    '<span class="ngc-meta">' + escapeHtml(dateStr) + ' · 📍 ' + escapeHtml(g.field) + themeStr + '</span>' +
+    actionHtml;
+}
+
+function renderNextGameCard() {
+  const pill = document.getElementById('hero-ngc-pill');
+  const stats = document.getElementById('hero-info-stats');
+  if (!pill || !stats) return;
+  const result = findNextRelevantGame();
+  if (result) {
+    pill.innerHTML = buildHeroMatchupHtml(result);
+    pill.style.display = '';
+    stats.style.display = 'none';
+  } else {
+    pill.innerHTML = '';
+    pill.style.display = 'none';
+    stats.style.display = '';
+  }
+}
+
 function gameResultForTeam(g, team) {
   const isHome = g.home === team;
   const isVisitor = g.visitor === team;
@@ -3949,6 +4068,7 @@ function renderMyEmptyState(kind) {
 captureSessionFromUrlFragment();
 loadData();
 updateNavSyncUI();
+renderNextGameCard();
 initMyViewFromHash();
 // 開站時嘗試 sync（未登入走 mock，登入走 CF Worker；離線時會自動標記狀態，不 throw）
 syncFlushQueue().then(() => syncPull());
