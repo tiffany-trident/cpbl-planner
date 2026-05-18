@@ -626,6 +626,8 @@ button.card-weather.clickable:active { transform: scale(0.96); }
 .my-tab { background: transparent; border: none; padding: 12px 22px 10px; font-family: inherit; font-size: 14px; color: #9B8E7E; cursor: pointer; border-bottom: 3px solid transparent; transition: color 0.2s, border-color 0.2s; white-space: nowrap; letter-spacing: 0.5px; }
 .my-tab:hover { color: #6B5F50; }
 .my-tab.active { color: #C2573A; font-weight: 500; border-bottom-color: #C2573A; }
+.my-tab-count { font-family: 'Inter', sans-serif; font-size: 12px; color: #B8A692; font-weight: 600; margin-left: 4px; letter-spacing: 0.3px; }
+.my-tab.active .my-tab-count { color: #C2573A; }
 
 .my-tab-panels { position: relative; }
 .my-tab-panel { display: none; }
@@ -3232,17 +3234,29 @@ function renderMyShell() {
   const cls = tab => 'my-tab' + (currentMyTab === tab ? ' active' : '');
   const panelCls = tab => 'my-tab-panel' + (currentMyTab === tab ? ' active' : '');
 
+  // UX redesign #4：sub-tab 重排 (戰績 / 收藏 / 打卡紀錄 / 徽章) + count badges
+  const favCount = (userState.favorites || []).length;
+  const checkinCount = Object.keys(userState.checkins || {}).length;
+  const visitedVenues = new Set();
+  Object.keys(userState.checkins || {}).forEach(sno => {
+    const g = allGames.find(x => x.sno === sno);
+    if (g && g.field && VENUES_2026.includes(g.field)) visitedVenues.add(g.field);
+  });
+  const venueCount = visitedVenues.size;
+  const venueTotal = VENUES_2026.length;
+  const cnt = n => n > 0 ? '<span class="my-tab-count">·' + n + '</span>' : '';
+
   return '<nav class="my-tabs">' +
       '<button type="button" class="' + cls('stats') + '" data-my-tab="stats">戰績</button>' +
-      '<button type="button" class="' + cls('badges') + '" data-my-tab="badges">徽章</button>' +
-      '<button type="button" class="' + cls('timeline') + '" data-my-tab="timeline">打卡紀錄</button>' +
-      '<button type="button" class="' + cls('favorites') + '" data-my-tab="favorites">收藏</button>' +
+      '<button type="button" class="' + cls('favorites') + '" data-my-tab="favorites">收藏' + cnt(favCount) + '</button>' +
+      '<button type="button" class="' + cls('timeline') + '" data-my-tab="timeline">打卡紀錄' + cnt(checkinCount) + '</button>' +
+      '<button type="button" class="' + cls('badges') + '" data-my-tab="badges">徽章<span class="my-tab-count">·' + venueCount + '/' + venueTotal + '</span></button>' +
     '</nav>' +
     '<div class="my-tab-panels">' +
       '<div class="' + panelCls('stats') + '" data-my-panel="stats">' + statsPanelHtml + '</div>' +
-      '<div class="' + panelCls('badges') + '" data-my-panel="badges">' + badgesPanelHtml + '</div>' +
-      '<div class="' + panelCls('timeline') + '" data-my-panel="timeline">' + timelinePanelHtml + '</div>' +
       '<div class="' + panelCls('favorites') + '" data-my-panel="favorites">' + favoritesPanelHtml + '</div>' +
+      '<div class="' + panelCls('timeline') + '" data-my-panel="timeline">' + timelinePanelHtml + '</div>' +
+      '<div class="' + panelCls('badges') + '" data-my-panel="badges">' + badgesPanelHtml + '</div>' +
     '</div>';
 }
 
