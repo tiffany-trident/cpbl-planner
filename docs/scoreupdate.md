@@ -6,6 +6,24 @@
 
 ## 🔖 進度記錄
 
+### 2026-06-01 — 筆電 sleep 才是真因，加 hourly retry trigger
+
+- **問題**：2026-05-23 ~ 05-29 連續 7 天 `NumberOfMissedRuns`，5/30 又 miss 一次。`LastBootUpTime` 顯示電腦沒重啟、手動 `Start-ScheduledTask` 完全正常，排除密碼/權限/網路/腳本。
+- **真因**：筆電進入 Modern Standby (S0) 期間 task scheduler 也睡，task `WakeToRun=False` 不會主動喚醒電腦。`Get-WinEvent Power-Troubleshooter` 顯示 5/22 09:13 → 5/29 10:55 sleep 整整 7 天、5/29 16:10 → 5/30 16:36 sleep 24h，**時間軸完美吻合 missed runs**。`StartWhenAvailable=$true` 對「sleep 醒來補跑」邏輯也不可靠 — 它只在下次喚醒/開機時補跑**最近一次** miss。
+- **走錯一步**（2026-05-29）：誤推測「`LogonType: Password` 在 lock screen 下吞 trigger」，把 principal 改成 `Interactive`。5/30 又 miss 才知道方向錯了 — 從 5/22 之前 6 週 Password 模式都跑得好好的就該想到根因不在這。改動本身無害，保留 Interactive（順便驗證該模式下 git push 可讀 Credential Manager）。
+- **修正**：加 hourly retry trigger — daily 09:00 觸發後每 1 小時 repeat，duration 13 小時（覆蓋 09:00 ~ 22:00 共 14 次/天）。筆電隨時從 sleep 醒來，下個整點 trigger 就 catch 到。
+  ```powershell
+  $trigger = New-ScheduledTaskTrigger -Daily -At '09:00:00'
+  $rep = (New-ScheduledTaskTrigger -Once -At '09:00' `
+            -RepetitionInterval (New-TimeSpan -Hours 1) `
+            -RepetitionDuration (New-TimeSpan -Hours 13)).Repetition
+  $trigger.Repetition = $rep
+  Set-ScheduledTask -TaskName 'CPBL 比分自動更新' -Trigger $trigger  # 需 RunAs admin
+  ```
+- **驗證**：2026-06-01 上午筆電從 sleep 醒來 11 分鐘內 11:00 trigger 自動觸發，補上 5/22 ~ 5/31 累積 9 條 briefings，commit `29ece72` push 成功。
+- **副作用評估**：每小時切 main 分支不擾人 — bat 有 dirty check（tracked dirty → abort）保護編輯中的工作，沒新資料就 no changes。但**編輯中的 tracked 改動會擋住 task 跑**，要記得 commit 或 stash。
+- **診斷血淚**：「task 沒跑但手動觸發 OK」第一個該查的不是 logon type，是 `powercfg /a` + Power-Troubleshooter event log 看筆電有沒有 sleep 跨過排程時間。`LastBootUpTime` 只看上次從關機開機，看不出中間 sleep 多少次。
+
 ### 2026-04-23 — Task Scheduler 推錯分支 + 分支守衛
 
 - **問題**：Phase 1 開發期 Task Scheduler 在 `feat/phase1-personalization` 分支上執行，bat 不檢查當前分支，ps1 commit + push 跑到 feature 分支（`a7cb143`），線上版（從 main 部署）當天沒拿到更新。Phase 1 merge 回 main 時才把這次 auto-update 一併帶進來。
@@ -29,6 +47,13 @@
 - 移除網頁「🔄 更新比分」按鈕（commit `6871437`）：CORS proxy / CF Worker / GAS 皆失敗，比分改由本機排程更新
 
 ## 🔧 已解決的問題
+
+**筆電 sleep 跨過排程，task 完全沒跑（2026-05-22 ~ 06-01）**
+- 現象：連續多天 `NumberOfMissedRuns`，但 `LastBootUpTime` 顯示電腦沒重啟、手動 `Start-ScheduledTask` 跑得起來
+- 原因：Win11 Modern Standby (S0) 期間 task scheduler 也休眠，`WakeToRun=False` 不喚醒電腦；`StartWhenAvailable` 的補跑機制對 sleep wake 不可靠
+- 診斷關鍵：`powercfg /a` 看睡眠能力、`Get-WinEvent -ProviderName Microsoft-Windows-Power-Troubleshooter` 看實際 sleep/wake 時間軸，跟 missed runs 時間對得起來才確認
+- 修正：加 hourly retry trigger（daily 09:00 + Repetition PT1H / PT13H，覆蓋 09:00 ~ 22:00）
+- 副註：曾誤推測 `LogonType: Password` 在 lock screen 吞 trigger，改 Interactive 後仍 miss — 方向錯。改動保留無害
 
 **Task Scheduler 在 feature 分支上推錯分支（2026-04-23）**
 - 現象：排程正常執行，但 push 到當下 working tree 所在的 feature 分支而非 main，線上未更新
