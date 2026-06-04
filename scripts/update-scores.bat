@@ -21,7 +21,7 @@ if errorlevel 1 (
   exit /b 1
 )
 
-for /f "usebackq delims=" %%t in (`powershell -NoProfile -Command "Get-Date -Format 'yyyy-MM-dd HH:mm:ss'"`) do set "TS=%%t"
+for /f "usebackq delims=" %%t in (`powershell -NoProfile -WindowStyle Hidden -Command "Get-Date -Format 'yyyy-MM-dd HH:mm:ss'"`) do set "TS=%%t"
 
 echo. >> "%LOG%"
 echo ===== !TS! ===== >> "%LOG%"
@@ -68,7 +68,7 @@ if /i not "!ORIG_BRANCH!"=="main" (
 
 set "FINAL_EXIT=0"
 
-powershell -NoProfile -ExecutionPolicy Bypass -File "%PS1%" >> "%LOG%" 2>&1
+powershell -NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -File "%PS1%" >> "%LOG%" 2>&1
 if errorlevel 1 (
   echo [FAIL] update-scores.ps1 exited non-zero >> "%LOG%"
   set "FINAL_EXIT=1"
