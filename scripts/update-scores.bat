@@ -79,16 +79,21 @@ if errorlevel 1 (
 if errorlevel 1 (
   "%GIT%" add index.html cpbl-planner.html data/briefings.json >> "%LOG%" 2>&1
   "%GIT%" commit -m "auto update scores !TS!" >> "%LOG%" 2>&1
-  "%GIT%" push >> "%LOG%" 2>&1
-  if errorlevel 1 (
-    echo [FAIL] git push failed >> "%LOG%"
-    set "FINAL_EXIT=1"
-    goto :restore_branch
-  )
-  echo [OK] committed and pushed >> "%LOG%"
+  echo [OK] committed >> "%LOG%"
 ) else (
-  echo [OK] no changes >> "%LOG%"
+  echo [OK] no new data >> "%LOG%"
 )
+
+REM Always push -- this also flushes any earlier commit whose push failed (network down on
+REM wake-from-sleep). git push is a no-op (exit 0) when origin/main is already up to date, so
+REM a previously-stranded commit gets sent on the next run even when there is no new data.
+"%GIT%" push >> "%LOG%" 2>&1
+if errorlevel 1 (
+  echo [FAIL] git push failed >> "%LOG%"
+  set "FINAL_EXIT=1"
+  goto :restore_branch
+)
+echo [OK] pushed (or already up to date) >> "%LOG%"
 
 :restore_branch
 if "!SWITCHED!"=="1" (

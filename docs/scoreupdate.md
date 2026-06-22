@@ -6,6 +6,18 @@
 
 ## 🔖 進度記錄
 
+### 2026-06-22 — CPBL API 改 HiNet CDN cookie 挑戰 + push 韌性補強
+
+- **問題**：戰績表停在 6/16。三層根因疊在一起：
+  1. 6/18 00:13 那次 commit 成功但 `git push` 當下連不上 github.com（剛 wake-from-sleep 網路未就緒），commit 卡本機沒上 origin。
+  2. 筆電 6/18 11:52 ~ 6/22 10:58 連睡 4 天，排程完全沒跑（`NumberOfMissedRuns=54`、`LastTaskResult=0x41306`）。
+  3. **致命**：CPBL API `POST /schedule/getgamedatas` 現在被 **HiNet CDN** 用 cookie 挑戰擋住 — 第一次 POST 回 `308 Permanent Redirect`（Location 指回同一 URL）+ `Set-Cookie: __chtcdn=...`，要帶這個 cookie 重打才會過。PS 5.1 `Invoke-WebRequest` 對 POST 不會自動跟 308（直接 throw），所以 fetch 整個壞掉，之後每次跑都失敗。
+- **診斷關鍵**：`curl -i -X POST` 看到 `Server: HiNetCDN` + 308 + `Set-Cookie: __chtcdn`；帶 cookie 重打 308→500（CDN 那關已過，500 只是少 token）。
+- **修正**：
+  - `update-scores.ps1`：API POST 包成 retry 迴圈，`-MaximumRedirection 0` 抓 308，從回應 `Set-Cookie` 取出 `__chtcdn` 加進 WebSession 後重打（最多 3 次）。實測一次重試即過、抓回 378 場 + 補 6/18~6/21 共 12 筆 briefing。
+  - `update-scores.bat`：commit 與 push 拆開，**改成每次都 `git push`**（origin 已最新時為 no-op exit 0）。任何一次 push 失敗留下的 pending commit，下個整點 retry 即使「無新資料」也會自動補送，不再卡到下次剛好有新賽事。
+- **副註**：HiNet CDN 挑戰是新行為（6/18 還正常）。若日後 cookie 名稱或機制再變，先用 `curl -i -X POST` 看 CDN 回應標頭。
+
 ### 2026-06-01 — 筆電 sleep 才是真因，加 hourly retry trigger
 
 - **問題**：2026-05-23 ~ 05-29 連續 7 天 `NumberOfMissedRuns`，5/30 又 miss 一次。`LastBootUpTime` 顯示電腦沒重啟、手動 `Start-ScheduledTask` 完全正常，排除密碼/權限/網路/腳本。
