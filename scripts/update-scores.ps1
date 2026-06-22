@@ -12,13 +12,56 @@ $UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like
 
 function Write-Step($msg) { Write-Host "[step] $msg" }
 
+# CPBL sits behind HiNet CDN, which answers a "cold" request (any method, no __chtcdn cookie yet)
+# with a 308 Permanent Redirect to the SAME url plus Set-Cookie: __chtcdn=... -- a cookie challenge.
+# PS 5.1 Invoke-WebRequest will not auto-follow a 308 (it throws on POST), so this wrapper catches
+# the 308, copies __chtcdn into the session, and retries. Used for BOTH the schedule GET and the
+# data POST because either can be the first (challenged) request. See docs/scoreupdate.md 2026-06-22.
+function Invoke-CpblWeb {
+    param(
+        [string]$Uri,
+        [string]$Method = 'Get',
+        [hashtable]$Headers,
+        [string]$ContentType,
+        [string]$Body,
+        $Session
+    )
+    for ($attempt = 1; $attempt -le 3; $attempt++) {
+        $resp308 = $null
+        try {
+            $params = @{
+                Uri                = $Uri
+                Method             = $Method
+                UserAgent          = $UA
+                WebSession         = $Session
+                MaximumRedirection = 0
+                UseBasicParsing    = $true
+            }
+            if ($Headers)     { $params['Headers']     = $Headers }
+            if ($ContentType) { $params['ContentType'] = $ContentType }
+            if ($PSBoundParameters.ContainsKey('Body')) { $params['Body'] = $Body }
+            $r = Invoke-WebRequest @params
+            if ([int]$r.StatusCode -eq 308) { $resp308 = $r } else { return $r }
+        } catch [System.Net.WebException] {
+            $er = $_.Exception.Response
+            if ($er -and [int]$er.StatusCode -eq 308) { $resp308 = $er } else { throw }
+        }
+        if ($resp308) {
+            $setCookie = [string]$resp308.Headers['Set-Cookie']
+            if ($setCookie -match '__chtcdn=([^;]+)') {
+                $Session.Cookies.Add((New-Object System.Net.Cookie('__chtcdn', $matches[1], '/', 'www.cpbl.com.tw')))
+                Write-Step "CDN 308 challenge on $Method $Uri -> stored __chtcdn, retry $attempt..."
+                continue
+            }
+            throw "CPBL 308 on $Uri but no __chtcdn cookie in response"
+        }
+    }
+    throw "CPBL request to $Uri failed after 3 attempts (CDN challenge unresolved)"
+}
+
 Write-Step "Fetching CPBL schedule page for token..."
 $session = New-Object Microsoft.PowerShell.Commands.WebRequestSession
-$pageRes = Invoke-WebRequest `
-    -Uri "$CpblBase/schedule" `
-    -UserAgent $UA `
-    -WebSession $session `
-    -UseBasicParsing
+$pageRes = Invoke-CpblWeb -Uri "$CpblBase/schedule" -Session $session
 
 $html = $pageRes.Content
 $tokenMatches = [regex]::Matches($html, "RequestVerificationToken:\s*'([^']+)'")
@@ -29,48 +72,16 @@ $token = $tokenMatches[$tokenMatches.Count - 1].Groups[1].Value
 Write-Step "Token acquired."
 
 Write-Step "Fetching game data from API..."
-# CPBL sits behind HiNet CDN, which answers the first POST with a 308 Permanent Redirect to the
-# SAME url plus Set-Cookie: __chtcdn=... (a cookie challenge). PS 5.1 Invoke-WebRequest will not
-# auto-follow a 308 on POST -- it throws -- so we catch the 308, copy __chtcdn into the session,
-# and retry the same POST. See docs/scoreupdate.md (2026-06-22 entry).
-$apiUri     = "$CpblBase/schedule/getgamedatas"
-$apiHeaders = @{
-    'RequestVerificationToken' = $token
-    'X-Requested-With'         = 'XMLHttpRequest'
-}
-$apiBody = 'CalendarDate=2026%2F06%2F01&GameSno=01&KindCode=A&Location='
-$apiRes  = $null
-for ($attempt = 1; $attempt -le 3; $attempt++) {
-    $resp308 = $null
-    try {
-        $r = Invoke-WebRequest `
-            -Uri $apiUri `
-            -Method Post `
-            -UserAgent $UA `
-            -WebSession $session `
-            -Headers $apiHeaders `
-            -ContentType 'application/x-www-form-urlencoded' `
-            -Body $apiBody `
-            -MaximumRedirection 0 `
-            -UseBasicParsing
-        if ([int]$r.StatusCode -eq 308) { $resp308 = $r } else { $apiRes = $r; break }
-    } catch [System.Net.WebException] {
-        $er = $_.Exception.Response
-        if ($er -and [int]$er.StatusCode -eq 308) { $resp308 = $er } else { throw }
-    }
-    if ($resp308) {
-        $setCookie = [string]$resp308.Headers['Set-Cookie']
-        if ($setCookie -match '__chtcdn=([^;]+)') {
-            $session.Cookies.Add((New-Object System.Net.Cookie('__chtcdn', $matches[1], '/', 'www.cpbl.com.tw')))
-            Write-Step "CDN 308 challenge -> stored __chtcdn cookie, retry $attempt..."
-            continue
-        }
-        throw "CPBL API returned 308 but no __chtcdn cookie to satisfy the CDN challenge"
-    }
-}
-if ($null -eq $apiRes) {
-    throw "CPBL API POST failed after 3 attempts (CDN challenge unresolved)"
-}
+$apiRes = Invoke-CpblWeb `
+    -Uri "$CpblBase/schedule/getgamedatas" `
+    -Method Post `
+    -Headers @{
+        'RequestVerificationToken' = $token
+        'X-Requested-With'         = 'XMLHttpRequest'
+    } `
+    -ContentType 'application/x-www-form-urlencoded' `
+    -Body 'CalendarDate=2026%2F06%2F01&GameSno=01&KindCode=A&Location=' `
+    -Session $session
 
 $data = $apiRes.Content | ConvertFrom-Json
 if (-not $data.Success) {

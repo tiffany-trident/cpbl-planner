@@ -14,7 +14,7 @@
   3. **致命**：CPBL API `POST /schedule/getgamedatas` 現在被 **HiNet CDN** 用 cookie 挑戰擋住 — 第一次 POST 回 `308 Permanent Redirect`（Location 指回同一 URL）+ `Set-Cookie: __chtcdn=...`，要帶這個 cookie 重打才會過。PS 5.1 `Invoke-WebRequest` 對 POST 不會自動跟 308（直接 throw），所以 fetch 整個壞掉，之後每次跑都失敗。
 - **診斷關鍵**：`curl -i -X POST` 看到 `Server: HiNetCDN` + 308 + `Set-Cookie: __chtcdn`；帶 cookie 重打 308→500（CDN 那關已過，500 只是少 token）。
 - **修正**：
-  - `update-scores.ps1`：API POST 包成 retry 迴圈，`-MaximumRedirection 0` 抓 308，從回應 `Set-Cookie` 取出 `__chtcdn` 加進 WebSession 後重打（最多 3 次）。實測一次重試即過、抓回 378 場 + 補 6/18~6/21 共 12 筆 briefing。
+  - `update-scores.ps1`：把請求抽成 `Invoke-CpblWeb` helper（`-MaximumRedirection 0` 抓 308 → 從 `Set-Cookie` 取 `__chtcdn` 加進 WebSession → 重打，最多 3 次），**schedule GET 與 getgamedatas POST 都走它**——因為冷啟動時「第一個請求」（不論 GET/POST）就會被挑戰，只包 POST 不夠。實測連跑兩次（各為新 process / 新 session）GET 皆被 308、retry 1 即過、抓回 378 場。
   - `update-scores.bat`：commit 與 push 拆開，**改成每次都 `git push`**（origin 已最新時為 no-op exit 0）。任何一次 push 失敗留下的 pending commit，下個整點 retry 即使「無新資料」也會自動補送，不再卡到下次剛好有新賽事。
 - **副註**：HiNet CDN 挑戰是新行為（6/18 還正常）。若日後 cookie 名稱或機制再變，先用 `curl -i -X POST` 看 CDN 回應標頭。
 
