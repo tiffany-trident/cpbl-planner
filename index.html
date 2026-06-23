@@ -200,6 +200,7 @@ svg.section-icon { width: 28px; height: 28px; }
 .badge-future { background: #EEF6F0; color: #4A8B5C; }
 .badge-past { background: #F0EBE3; color: #B0A593; }
 .badge-postponed { background: #F5EEF8; color: #8B6BAE; }
+.badge-makeup { background: #EAF4EC; color: #3E7D54; }
 .badge-today { background: #FFF3E0; color: #D48C2E; }
 
 /* ── Detail pills ── */
@@ -2182,12 +2183,15 @@ const RAW_DATA = [
 function loadData() {
   const today = new Date(); today.setHours(0,0,0,0);
   const todayStr = `${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}-${String(today.getDate()).padStart(2,'0')}`;
+  // 補賽偵測：被延賽（gr=1）的場次編號，其同 sno 的另一筆（gr≠1）就是補賽
+  const postponedSnos = new Set(RAW_DATA.filter(r => r[11] === '1').map(r => r[12]));
   allGames = RAW_DATA.map(r => {
     const [date, time, visitor, home, field, vScore, hScore, wp, lp, sv, mvp, gr, sno] = r;
     const d = new Date(date + 'T00:00:00');
     const dow = d.getDay();
     const completed = gr === '0' && (vScore > 0 || hScore > 0 || wp !== '');
     const postponed = gr === '1';
+    const isMakeup = gr !== '1' && postponedSnos.has(sno);
     return {
       date, time, visitor, home, field,
       vScore, hScore, wp, lp, sv, mvp, gr, sno,
@@ -2200,6 +2204,7 @@ function loadData() {
       isToday: date === todayStr,
       completed,
       postponed,
+      isMakeup,
     };
   }).sort((a,b) => a.date < b.date ? -1 : a.date > b.date ? 1 : a.time < b.time ? -1 : 1);
   buildStandings();
@@ -2730,6 +2735,7 @@ function buildTags(g) {
   let tags = '';
   if (g.holName) tags += '<span class="badge badge-hol">' + g.holName + '</span>';
   if (g.postponed) tags += '<span class="badge badge-postponed">延賽</span>';
+  if (g.isMakeup) tags += '<span class="badge badge-makeup">補賽</span>';
   return tags;
 }
 
