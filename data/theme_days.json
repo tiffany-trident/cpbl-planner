@@ -8,6 +8,14 @@
     "統一7-ELEVEn獅": "https://www.facebook.com/unilions/",
     "台鋼雄鷹": "https://www.facebook.com/TSGHAWKS/"
   },
+  "_sources_h2": {
+    "中信兄弟": "https://www.brothers.tw/POR0106_?BULLETIN_ID=P1BNF1T5",
+    "樂天桃猿": "https://monkeys.rakuten.com.tw/news_detail/914",
+    "富邦悍將": "https://www.fubonguardians.com/content/info/NewsDetail?id=686",
+    "味全龍": "https://www.wdragons.com/2026_theme_day/",
+    "統一7-ELEVEn獅": "https://www.facebook.com/unilions/ (新聞佐證日期)",
+    "台鋼雄鷹": "https://www.facebook.com/TSGHAWKS/ (LINE TODAY 懶人包佐證日期)"
+  },
   "days": {
     "2026-03-28": [
       {"home_team":"樂天桃猿","title":"做伙開幕戰","subtitle":"冠軍獎牌揭牌儀式","source_url":"https://monkeys.rakuten.com.tw/news_detail/907"}
@@ -209,6 +217,200 @@
       {"home_team":"樂天桃猿","title":"動紫趴","source_url":"https://monkeys.rakuten.com.tw/news_detail/907"},
       {"home_team":"統一7-ELEVEn獅","title":"台日雙獅好友交流日","subtitle":"統一獅 × 埼玉西武獅","source_url":"https://www.facebook.com/unilions/"},
       {"home_team":"台鋼雄鷹","title":"TAKAO 與他的好友出遊趣","source_url":"https://www.facebook.com/TSGHAWKS/"}
+    ],
+    "2026-07-04": [
+      {"home_team":"中信兄弟","title":"涼水祭","subtitle":"Bro's Water Park 水樂園","source_url":"https://www.brothers.tw/POR0106_?BULLETIN_ID=P1BNF1T5"},
+      {"home_team":"味全龍","title":"hololive night","subtitle":"VTuber 聯名 ‧ 天母","source_url":"https://www.wdragons.com/2026_theme_day/"},
+      {"home_team":"台鋼雄鷹","title":"Party 鷹 the USA","subtitle":"美式派對主題日","source_url":"https://www.facebook.com/TSGHAWKS/"}
+    ],
+    "2026-07-05": [
+      {"home_team":"中信兄弟","title":"涼水祭","subtitle":"Bro's Water Park 水樂園","source_url":"https://www.brothers.tw/POR0106_?BULLETIN_ID=P1BNF1T5"},
+      {"home_team":"味全龍","title":"hololive night","subtitle":"VTuber 聯名 ‧ 天母","source_url":"https://www.wdragons.com/2026_theme_day/"},
+      {"home_team":"台鋼雄鷹","title":"Party 鷹 the USA","subtitle":"美式派對主題日","source_url":"https://www.facebook.com/TSGHAWKS/"}
+    ],
+    "2026-07-10": [
+      {"home_team":"樂天桃猿","title":"靈魂繪師全猿參展","subtitle":"親子共創藝術主場","source_url":"https://monkeys.rakuten.com.tw/news_detail/914"}
+    ],
+    "2026-07-11": [
+      {"home_team":"富邦悍將","title":"城堡密語","subtitle":"尋寶解謎主題日","source_url":"https://www.fubonguardians.com/content/info/NewsDetail?id=686"},
+      {"home_team":"樂天桃猿","title":"水蜜桃趴","subtitle":"桃園好農聯手","source_url":"https://monkeys.rakuten.com.tw/news_detail/914"},
+      {"home_team":"統一7-ELEVEn獅","title":"超人力霸王聯名主題日","subtitle":"光之英雄再度降臨 ‧ 亞太","source_url":"https://www.facebook.com/unilions/"}
+    ],
+    "2026-07-12": [
+      {"home_team":"富邦悍將","title":"城堡密語","subtitle":"尋寶解謎主題日","source_url":"https://www.fubonguardians.com/content/info/NewsDetail?id=686"},
+      {"home_team":"樂天桃猿","title":"水蜜桃趴","subtitle":"桃園好農聯手","source_url":"https://monkeys.rakuten.com.tw/news_detail/914"},
+      {"home_team":"統一7-ELEVEn獅","title":"超人力霸王聯名主題日","subtitle":"光之英雄再度降臨 ‧ 亞太","source_url":"https://www.facebook.com/unilions/"}
+    ],
+    "2026-07-21": [
+      {"home_team":"味全龍","title":"hololive night","subtitle":"VTuber 聯名 ‧ 大巨蛋","source_url":"https://www.wdragons.com/2026_theme_day/"}
+    ],
+    "2026-07-22": [
+      {"home_team":"味全龍","title":"hololive night","subtitle":"VTuber 聯名 ‧ 大巨蛋","source_url":"https://www.wdragons.com/2026_theme_day/"}
+    ],
+    "2026-07-24": [
+      {"home_team":"樂天桃猿","title":"辣年糕趴","subtitle":"K-POP 巨星 ‧ 大巨蛋","source_url":"https://monkeys.rakuten.com.tw/news_detail/914"}
+    ],
+    "2026-07-25": [
+      {"home_team":"中信兄弟","title":"AAPE × Brothers","subtitle":"TAICHUNG BROS CITY 街頭潮流","source_url":"https://www.brothers.tw/POR0106_?BULLETIN_ID=P1BNF1T5"},
+      {"home_team":"樂天桃猿","title":"辣年糕趴","subtitle":"K-POP 巨星 ‧ 大巨蛋","source_url":"https://monkeys.rakuten.com.tw/news_detail/914"},
+      {"home_team":"台鋼雄鷹","title":"Game Start 夏日女孩運動會","subtitle":"Wing Stars 運動會","source_url":"https://www.facebook.com/TSGHAWKS/"}
+    ],
+    "2026-07-26": [
+      {"home_team":"中信兄弟","title":"AAPE × Brothers","subtitle":"TAICHUNG BROS CITY 街頭潮流","source_url":"https://www.brothers.tw/POR0106_?BULLETIN_ID=P1BNF1T5"},
+      {"home_team":"樂天桃猿","title":"辣年糕趴","subtitle":"K-POP 巨星 ‧ 大巨蛋","source_url":"https://monkeys.rakuten.com.tw/news_detail/914"},
+      {"home_team":"台鋼雄鷹","title":"Game Start 夏日女孩運動會","subtitle":"Wing Stars 運動會","source_url":"https://www.facebook.com/TSGHAWKS/"}
+    ],
+    "2026-07-28": [
+      {"home_team":"富邦悍將","title":"POWER NIGHT","subtitle":"大巨蛋平日夜場","source_url":"https://www.fubonguardians.com/content/info/NewsDetail?id=686"}
+    ],
+    "2026-07-29": [
+      {"home_team":"富邦悍將","title":"POWER NIGHT","subtitle":"大巨蛋平日夜場","source_url":"https://www.fubonguardians.com/content/info/NewsDetail?id=686"}
+    ],
+    "2026-07-31": [
+      {"home_team":"味全龍","title":"新光亞洲音樂祭","subtitle":"大巨蛋音樂盛典","source_url":"https://www.wdragons.com/2026_theme_day/"}
+    ],
+    "2026-08-01": [
+      {"home_team":"富邦悍將","title":"虎道同盟","subtitle":"阪神虎首度跨國聯名","source_url":"https://www.fubonguardians.com/content/info/NewsDetail?id=686"},
+      {"home_team":"味全龍","title":"新光亞洲音樂祭","subtitle":"大巨蛋音樂盛典","source_url":"https://www.wdragons.com/2026_theme_day/"},
+      {"home_team":"統一7-ELEVEn獅","title":"萊恩盈盈的夏日午茶派對","subtitle":"全糖城市 ‧ 亞太","source_url":"https://www.facebook.com/unilions/"}
+    ],
+    "2026-08-02": [
+      {"home_team":"富邦悍將","title":"虎道同盟","subtitle":"阪神虎首度跨國聯名","source_url":"https://www.fubonguardians.com/content/info/NewsDetail?id=686"},
+      {"home_team":"味全龍","title":"新光亞洲音樂祭","subtitle":"大巨蛋音樂盛典","source_url":"https://www.wdragons.com/2026_theme_day/"},
+      {"home_team":"統一7-ELEVEn獅","title":"萊恩盈盈的夏日午茶派對","subtitle":"全糖城市 ‧ 亞太","source_url":"https://www.facebook.com/unilions/"}
+    ],
+    "2026-08-05": [
+      {"home_team":"味全龍","title":"85 forever","subtitle":"致敬徐生明總教練","source_url":"https://www.wdragons.com/2026_theme_day/"}
+    ],
+    "2026-08-07": [
+      {"home_team":"樂天桃猿","title":"10 號隊友玩水祭","subtitle":"夏日戲水應援","source_url":"https://monkeys.rakuten.com.tw/news_detail/914"}
+    ],
+    "2026-08-08": [
+      {"home_team":"富邦悍將","title":"旅行趣","subtitle":"世界文化體驗","source_url":"https://www.fubonguardians.com/content/info/NewsDetail?id=686"},
+      {"home_team":"樂天桃猿","title":"10 號隊友玩水祭","subtitle":"夏日戲水應援","source_url":"https://monkeys.rakuten.com.tw/news_detail/914"},
+      {"home_team":"台鋼雄鷹","title":"鷹樂祭 做伙來高雄","subtitle":"港都年度音樂祭","source_url":"https://www.facebook.com/TSGHAWKS/"}
+    ],
+    "2026-08-09": [
+      {"home_team":"富邦悍將","title":"旅行趣","subtitle":"世界文化體驗","source_url":"https://www.fubonguardians.com/content/info/NewsDetail?id=686"},
+      {"home_team":"樂天桃猿","title":"10 號隊友玩水祭","subtitle":"夏日戲水應援","source_url":"https://monkeys.rakuten.com.tw/news_detail/914"},
+      {"home_team":"台鋼雄鷹","title":"鷹樂祭 做伙來高雄","subtitle":"港都年度音樂祭","source_url":"https://www.facebook.com/TSGHAWKS/"}
+    ],
+    "2026-08-11": [
+      {"home_team":"統一7-ELEVEn獅","title":"陳鏞基引退系列 #回到故鄉","subtitle":"台東","source_url":"https://www.facebook.com/unilions/"}
+    ],
+    "2026-08-12": [
+      {"home_team":"統一7-ELEVEn獅","title":"陳鏞基引退系列 #回到故鄉","subtitle":"台東","source_url":"https://www.facebook.com/unilions/"}
+    ],
+    "2026-08-14": [
+      {"home_team":"味全龍","title":"龍星大樂 Beyond the Dragons Roar","subtitle":"王道銀行冠名 ‧ 大巨蛋","source_url":"https://www.wdragons.com/2026_theme_day/"}
+    ],
+    "2026-08-15": [
+      {"home_team":"中信兄弟","title":"飛天小女警 × Brothers 女孩日","subtitle":"守護你的星","source_url":"https://www.brothers.tw/POR0106_?BULLETIN_ID=P1BNF1T5"},
+      {"home_team":"味全龍","title":"龍星大樂 Beyond the Dragons Roar","subtitle":"王道銀行冠名 ‧ 大巨蛋","source_url":"https://www.wdragons.com/2026_theme_day/"},
+      {"home_team":"統一7-ELEVEn獅","title":"第一次心動 First Crush","subtitle":"UniGirls 主題日 ‧ 亞太","source_url":"https://www.facebook.com/unilions/"}
+    ],
+    "2026-08-16": [
+      {"home_team":"中信兄弟","title":"飛天小女警 × Brothers 女孩日","subtitle":"守護你的星","source_url":"https://www.brothers.tw/POR0106_?BULLETIN_ID=P1BNF1T5"},
+      {"home_team":"味全龍","title":"龍星大樂 Beyond the Dragons Roar","subtitle":"王道銀行冠名 ‧ 大巨蛋","source_url":"https://www.wdragons.com/2026_theme_day/"},
+      {"home_team":"統一7-ELEVEn獅","title":"第一次心動 First Crush","subtitle":"UniGirls 主題日 ‧ 亞太","source_url":"https://www.facebook.com/unilions/"}
+    ],
+    "2026-08-19": [
+      {"home_team":"味全龍","title":"鷹祭 SUMMER BOOST 2026","subtitle":"日職聯名 ‧ 大巨蛋","source_url":"https://www.wdragons.com/2026_theme_day/"}
+    ],
+    "2026-08-20": [
+      {"home_team":"味全龍","title":"鷹祭 SUMMER BOOST 2026","subtitle":"日職聯名 ‧ 大巨蛋","source_url":"https://www.wdragons.com/2026_theme_day/"}
+    ],
+    "2026-08-21": [
+      {"home_team":"統一7-ELEVEn獅","title":"J-LIONS 主題日「非‧日常」","subtitle":"台日韓偶像 ‧ 大巨蛋","source_url":"https://www.facebook.com/unilions/"}
+    ],
+    "2026-08-22": [
+      {"home_team":"富邦悍將","title":"進擊的巨人 聯名主題日","subtitle":"守護城牆 ‧ 新莊","source_url":"https://www.fubonguardians.com/content/info/NewsDetail?id=686"},
+      {"home_team":"統一7-ELEVEn獅","title":"J-LIONS 主題日「非‧日常」","subtitle":"台日韓偶像 ‧ 大巨蛋","source_url":"https://www.facebook.com/unilions/"},
+      {"home_team":"台鋼雄鷹","title":"鷹勇戰士","subtitle":"國軍主題日","source_url":"https://www.facebook.com/TSGHAWKS/"}
+    ],
+    "2026-08-23": [
+      {"home_team":"富邦悍將","title":"進擊的巨人 聯名主題日","subtitle":"守護城牆 ‧ 新莊","source_url":"https://www.fubonguardians.com/content/info/NewsDetail?id=686"},
+      {"home_team":"統一7-ELEVEn獅","title":"J-LIONS 主題日「非‧日常」","subtitle":"台日韓偶像 ‧ 大巨蛋","source_url":"https://www.facebook.com/unilions/"},
+      {"home_team":"台鋼雄鷹","title":"鷹勇戰士","subtitle":"國軍主題日","source_url":"https://www.facebook.com/TSGHAWKS/"}
+    ],
+    "2026-08-28": [
+      {"home_team":"樂天桃猿","title":"SINGDOME 音樂電台","subtitle":"台日韓歌手 ‧ 大巨蛋","source_url":"https://monkeys.rakuten.com.tw/news_detail/914"},
+      {"home_team":"味全龍","title":"HUNTER×HUNTER 獵人聯名","subtitle":"天母","source_url":"https://www.wdragons.com/2026_theme_day/"}
+    ],
+    "2026-08-29": [
+      {"home_team":"中信兄弟","title":"賽車主題日 BROTHERS GRAND PRIX","subtitle":"洲際大獎賽","source_url":"https://www.brothers.tw/POR0106_?BULLETIN_ID=P1BNF1T5"},
+      {"home_team":"樂天桃猿","title":"SINGDOME 音樂電台","subtitle":"台日韓歌手 ‧ 大巨蛋","source_url":"https://monkeys.rakuten.com.tw/news_detail/914"},
+      {"home_team":"味全龍","title":"HUNTER×HUNTER 獵人聯名","subtitle":"天母","source_url":"https://www.wdragons.com/2026_theme_day/"}
+    ],
+    "2026-08-30": [
+      {"home_team":"中信兄弟","title":"賽車主題日 BROTHERS GRAND PRIX","subtitle":"洲際大獎賽","source_url":"https://www.brothers.tw/POR0106_?BULLETIN_ID=P1BNF1T5"},
+      {"home_team":"樂天桃猿","title":"SINGDOME 音樂電台","subtitle":"台日韓歌手 ‧ 大巨蛋","source_url":"https://monkeys.rakuten.com.tw/news_detail/914"},
+      {"home_team":"味全龍","title":"HUNTER×HUNTER 獵人聯名","subtitle":"天母","source_url":"https://www.wdragons.com/2026_theme_day/"}
+    ],
+    "2026-09-02": [
+      {"home_team":"樂天桃猿","title":"阿迷趴","subtitle":"致敬國軍弟兄","source_url":"https://monkeys.rakuten.com.tw/news_detail/914"}
+    ],
+    "2026-09-03": [
+      {"home_team":"樂天桃猿","title":"阿迷趴","subtitle":"致敬國軍弟兄","source_url":"https://monkeys.rakuten.com.tw/news_detail/914"}
+    ],
+    "2026-09-05": [
+      {"home_team":"中信兄弟","title":"Ya Haw! Eddy 牛仔歷險記","subtitle":"好侍咖哩聯名","source_url":"https://www.brothers.tw/POR0106_?BULLETIN_ID=P1BNF1T5"},
+      {"home_team":"富邦悍將","title":"XVIII 悍將中學","subtitle":"校草校花票選 ‧ 大巨蛋","source_url":"https://www.fubonguardians.com/content/info/NewsDetail?id=686"},
+      {"home_team":"統一7-ELEVEn獅","title":"台南城市－巷仔內的西拉雅","subtitle":"亞太","source_url":"https://www.facebook.com/unilions/"}
+    ],
+    "2026-09-06": [
+      {"home_team":"中信兄弟","title":"Ya Haw! Eddy 牛仔歷險記","subtitle":"好侍咖哩聯名","source_url":"https://www.brothers.tw/POR0106_?BULLETIN_ID=P1BNF1T5"},
+      {"home_team":"富邦悍將","title":"XVIII 悍將中學","subtitle":"校草校花票選 ‧ 大巨蛋","source_url":"https://www.fubonguardians.com/content/info/NewsDetail?id=686"},
+      {"home_team":"統一7-ELEVEn獅","title":"台南城市－巷仔內的西拉雅","subtitle":"亞太","source_url":"https://www.facebook.com/unilions/"}
+    ],
+    "2026-09-08": [
+      {"home_team":"味全龍","title":"Tasting the World","subtitle":"達美樂世界風味季 ‧ 大巨蛋","source_url":"https://www.wdragons.com/2026_theme_day/"}
+    ],
+    "2026-09-09": [
+      {"home_team":"味全龍","title":"Tasting the World","subtitle":"達美樂世界風味季 ‧ 大巨蛋","source_url":"https://www.wdragons.com/2026_theme_day/"}
+    ],
+    "2026-09-11": [
+      {"home_team":"樂天桃猿","title":"NIJISANJI × 樂天桃猿","subtitle":"VTuber × 棒球","source_url":"https://monkeys.rakuten.com.tw/news_detail/914"},
+      {"home_team":"味全龍","title":"HUNTER×HUNTER 獵人聯名","subtitle":"天母","source_url":"https://www.wdragons.com/2026_theme_day/"}
+    ],
+    "2026-09-12": [
+      {"home_team":"樂天桃猿","title":"NIJISANJI × 樂天桃猿","subtitle":"VTuber × 棒球","source_url":"https://monkeys.rakuten.com.tw/news_detail/914"},
+      {"home_team":"味全龍","title":"HUNTER×HUNTER 獵人聯名","subtitle":"天母","source_url":"https://www.wdragons.com/2026_theme_day/"},
+      {"home_team":"台鋼雄鷹","title":"皇鷹學院","subtitle":"開學季校園主題","source_url":"https://www.facebook.com/TSGHAWKS/"}
+    ],
+    "2026-09-13": [
+      {"home_team":"樂天桃猿","title":"NIJISANJI × 樂天桃猿","subtitle":"VTuber × 棒球","source_url":"https://monkeys.rakuten.com.tw/news_detail/914"},
+      {"home_team":"味全龍","title":"HUNTER×HUNTER 獵人聯名","subtitle":"天母","source_url":"https://www.wdragons.com/2026_theme_day/"},
+      {"home_team":"台鋼雄鷹","title":"皇鷹學院","subtitle":"開學季校園主題","source_url":"https://www.facebook.com/TSGHAWKS/"}
+    ],
+    "2026-09-18": [
+      {"home_team":"中信兄弟","title":"中信兄弟 × 鬼滅之刃","subtitle":"決戰無限城 ‧ 大巨蛋","source_url":"https://www.brothers.tw/POR0106_?BULLETIN_ID=P1BNF1T5"}
+    ],
+    "2026-09-19": [
+      {"home_team":"中信兄弟","title":"中信兄弟 × 鬼滅之刃","subtitle":"決戰無限城 ‧ 大巨蛋","source_url":"https://www.brothers.tw/POR0106_?BULLETIN_ID=P1BNF1T5"},
+      {"home_team":"樂天桃猿","title":"辣酷甜趴","subtitle":"下半季壓軸女孩日","source_url":"https://monkeys.rakuten.com.tw/news_detail/914"},
+      {"home_team":"統一7-ELEVEn獅","title":"陳鏞基引退系列 榮耀終章","subtitle":"亞太","source_url":"https://www.facebook.com/unilions/"}
+    ],
+    "2026-09-20": [
+      {"home_team":"中信兄弟","title":"中信兄弟 × 鬼滅之刃","subtitle":"決戰無限城 ‧ 大巨蛋","source_url":"https://www.brothers.tw/POR0106_?BULLETIN_ID=P1BNF1T5"},
+      {"home_team":"樂天桃猿","title":"辣酷甜趴","subtitle":"下半季壓軸女孩日","source_url":"https://monkeys.rakuten.com.tw/news_detail/914"},
+      {"home_team":"統一7-ELEVEn獅","title":"陳鏞基引退系列 榮耀終章","subtitle":"亞太","source_url":"https://www.facebook.com/unilions/"}
+    ],
+    "2026-09-25": [
+      {"home_team":"台鋼雄鷹","title":"鷹 JOY～","subtitle":"季末壓軸嘉年華","source_url":"https://www.facebook.com/TSGHAWKS/"}
+    ],
+    "2026-09-26": [
+      {"home_team":"富邦悍將","title":"寵愛天使","subtitle":"年度壓軸 Fubon Angels","source_url":"https://www.fubonguardians.com/content/info/NewsDetail?id=686"},
+      {"home_team":"味全龍","title":"搖滾撞野球復古日","subtitle":"復古主題壓軸","source_url":"https://www.wdragons.com/2026_theme_day/"},
+      {"home_team":"台鋼雄鷹","title":"鷹 JOY～","subtitle":"季末壓軸嘉年華","source_url":"https://www.facebook.com/TSGHAWKS/"}
+    ],
+    "2026-09-27": [
+      {"home_team":"富邦悍將","title":"寵愛天使","subtitle":"年度壓軸 Fubon Angels","source_url":"https://www.fubonguardians.com/content/info/NewsDetail?id=686"},
+      {"home_team":"味全龍","title":"搖滾撞野球復古日","subtitle":"復古主題壓軸","source_url":"https://www.wdragons.com/2026_theme_day/"},
+      {"home_team":"台鋼雄鷹","title":"鷹 JOY～","subtitle":"季末壓軸嘉年華","source_url":"https://www.facebook.com/TSGHAWKS/"}
+    ],
+    "2026-09-28": [
+      {"home_team":"富邦悍將","title":"寵愛天使","subtitle":"年度壓軸 Fubon Angels","source_url":"https://www.fubonguardians.com/content/info/NewsDetail?id=686"}
     ]
   }
 }

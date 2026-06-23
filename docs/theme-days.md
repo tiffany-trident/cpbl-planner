@@ -132,12 +132,30 @@
 
 **驗證**：Headless Edge 實測 2026-04-20 之後 75 個未來非延賽場次正確顯示 badge，同排卡片 footer 對齊在同一條水平線。
 
+### 2026-06-23 下半季更新
+
+**資料**：新增 2026 下半季（7/4 ~ 9/28）共 98 筆 entry（48 個日期），六隊全數涵蓋，合併後 `data/theme_days.json` 共 95 個日期。新增 `_sources_h2` 區塊記錄各隊下半季來源。
+
+**來源與驗證**：
+- 中信兄弟（6 檔）：官方單篇 [`POR0106_?BULLETIN_ID=P1BNF1T5`](https://www.brothers.tw/POR0106_?BULLETIN_ID=P1BNF1T5)
+- 富邦悍將（7 檔）：官方單篇 [`NewsDetail?id=686`](https://www.fubonguardians.com/content/info/NewsDetail?id=686)
+- 樂天桃猿（8 檔）：官方 [`news_detail/914`](https://monkeys.rakuten.com.tw/news_detail/914)
+- 味全龍（8 檔）：官方年度專頁，新聞佐證日期
+- 統一7-ELEVEn獅（6 檔）：官方 FB，新聞佐證日期
+- 台鋼雄鷹（6 檔）：官方 FB，LINE TODAY 懶人包佐證日期
+- **全部 98 筆 entry 以程式逐一對照 `games_data.json`（CPBL 官方賽程）驗證，每筆 home_team + date 皆對應一場主場賽事**
+- 本機瀏覽器實測：硬重整後 98 個 badge 正確渲染於下半季賽程卡
+
+**踩雷紀錄**（避免下次重蹈）：
+- `fubonguardians.com/NewsDetail?id=633`、`wdragons.com/2026_theme_day/`（WebFetch 回傳值）、`sports.ettoday.net/news/2765344` 等多個來源其實是 **2025 / 2024 舊資料**，日期與 2026 賽程系統性對不上 → 一律以「對照官方賽程」為終審。味全侏羅紀那篇發佈日為 2025-07-01。
+- 二手新聞對「虎道同盟」等日期說法互相矛盾（8/1-2 / 8/22-23 / 8/23-24），最終以官方單篇頁 + 賽程驗證為準。
+
 ## 待辦
 
 - [x] 建立 `data/theme_days.json` 與 2026 上半季資料
 - [x] 在 `cpbl-planner.html` / `index.html` 加入 fetch 與 render 邏輯
 - [x] 設計 badge CSS（奶茶棕配色，與整體 Snoopy Museum 風格一致）
 - [x] 修正卡片高度不齊（badge 有無造成視覺不整齊）
+- [x] 2026 下半季公告出爐時更新 JSON（2026-06-23 完成）
 - [ ] 台鋼「覺察多巴胺」確認正確日期後補回
 - [ ] 找到統一獅、台鋼雄鷹更精確的單篇公告連結（目前指向 FB 主頁）
-- [ ] 2026 下半季公告出爐時（約 6 月底）更新 JSON
