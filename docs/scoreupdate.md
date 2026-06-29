@@ -6,6 +6,24 @@
 
 ## 🔖 進度記錄
 
+### 2026-06-29 — 「電腦打開就更新」：加 logon/unlock 觸發 + 抓取前等網路
+
+- **需求**：使用者可接受筆電睡眠期間不更新，但**打開電腦後必須正常補更新**。週末筆電 sleep（6/27 00:04 → 6/29 09:55）後，醒來到 14:27 都沒跑，戰績表停在 6/26。
+- **為什麼舊機制醒來補不了**（先前以為 hourly retry 會救）：
+  - `StartWhenAvailable` 錯過多次**只補一次**，且只套用到 base daily 觸發，**不套用到 repetition 的每個時段** → 「hourly retry 14 次/天」其實是 repetition，根本不是補跑機制，醒來能補的是 1 槍不是 14 槍。
+  - 那唯一 1 槍被 `RunOnlyIfNetworkAvailable=True` 擋掉 —— 筆電從 Modern Standby resume 的瞬間 Wi-Fi 還在重連，Task Scheduler 判定網路不可用就跳過且不重試。電源條件已排除（`DisallowStartIfOnBatteries=False`、當時接 AC）。
+- **修正**（task 設定，需 admin；用 `Export-ScheduledTask` + `Register-ScheduledTask -Xml -Force` 套用，見下「踩雷」）：
+  - 加 **LogonTrigger**（delay PT30S）+ **SessionStateChangeTrigger StateChange=SessionUnlock**（delay PT30S）→ 登入/解鎖就觸發。
+  - `RunOnlyIfNetworkAvailable` 改 **False**（解除「resume 瞬間網路沒好就放棄」）。
+  - 保留 daily 09:00 + repetition PT1H/PT13H 當 backstop。
+- **修正**（腳本，commit `06e6e96`）：`update-scores.ps1` 加 `Wait-Network` —— 抓取前以 TCP 連 `www.cpbl.com.tw:443` 探測，每 15s 重試最多 10 次，通了才往下。取代「網路一不通就 throw 整輪掛掉」。
+- **驗證**：本機實跑 `update-scores.ps1`，醒來首次 check 即 `Network ready`，API 回 380 場、補抓 6/26 + 6/28 等 5 筆 briefing。
+- **踩雷**（PS 5.1）：
+  1. `Set-ScheduledTask -Trigger` 對此任務一律吐 `0x80070002`（連只設既有 daily 都失敗）→ 改走 `Export-ScheduledTask` 拿 XML、字串改 + `Register-ScheduledTask -Xml -Force` 重建。
+  2. 提權跑的 `.ps1` 暫存檔若是 **UTF-8 無 BOM**，PS 5.1 會把中文任務名 `CPBL 比分自動更新` 讀壞 → `Export`/`Set` 全報「找不到任務」（也是 0x80070002，假象）。改成腳本全 ASCII、用 action 參數 `run-hidden.vbs` 定位任務，不寫死中文名。
+- **未啟用 `WakeToRun`**：使用者明確不需要睡眠中喚醒；且實測「允許喚醒計時器」AC/DC 皆為停用（0x0），就算設 `WakeToRun=True` 也不會醒，故不採用。
+- **診斷工具**：本日起 `Microsoft-Windows-TaskScheduler/Operational` log 已啟用（`wevtutil set-log ... /enabled:true`，需 admin）。下次「醒來沒跑」直接查 event 332（條件不符）/ 322（IgnoreNew）/ 107·110（有觸發），不必再用推的。
+
 ### 2026-06-22 — CPBL API 改 HiNet CDN cookie 挑戰 + push 韌性補強
 
 - **問題**：戰績表停在 6/16。三層根因疊在一起：
