@@ -12,6 +12,30 @@ $UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like
 
 function Write-Step($msg) { Write-Host "[step] $msg" }
 
+# When this task is triggered by logon / session-unlock right after the laptop
+# wakes from sleep, Wi-Fi is often still reconnecting and the very first request
+# would throw under $ErrorActionPreference='Stop', failing the whole run. Wait for
+# a TCP route to CPBL before fetching. See docs/scoreupdate.md 2026-06-29.
+function Wait-Network {
+    param([string]$HostName = 'www.cpbl.com.tw', [int]$Port = 443, [int]$MaxTries = 10, [int]$DelaySec = 15)
+    for ($i = 1; $i -le $MaxTries; $i++) {
+        try {
+            $client = New-Object System.Net.Sockets.TcpClient
+            $iar = $client.BeginConnect($HostName, $Port, $null, $null)
+            $ok = $iar.AsyncWaitHandle.WaitOne(5000, $false)
+            if ($ok -and $client.Connected) {
+                $client.EndConnect($iar); $client.Close()
+                Write-Step "Network ready (${HostName}:${Port}) after $i check(s)."
+                return
+            }
+            $client.Close()
+        } catch { }
+        Write-Step "Network not ready (try $i/$MaxTries), waiting ${DelaySec}s..."
+        Start-Sleep -Seconds $DelaySec
+    }
+    throw "Network to ${HostName}:${Port} not ready after $MaxTries tries"
+}
+
 # CPBL sits behind HiNet CDN, which answers a "cold" request (any method, no __chtcdn cookie yet)
 # with a 308 Permanent Redirect to the SAME url plus Set-Cookie: __chtcdn=... -- a cookie challenge.
 # PS 5.1 Invoke-WebRequest will not auto-follow a 308 (it throws on POST), so this wrapper catches
@@ -59,6 +83,7 @@ function Invoke-CpblWeb {
     throw "CPBL request to $Uri failed after 3 attempts (CDN challenge unresolved)"
 }
 
+Wait-Network
 Write-Step "Fetching CPBL schedule page for token..."
 $session = New-Object Microsoft.PowerShell.Commands.WebRequestSession
 $pageRes = Invoke-CpblWeb -Uri "$CpblBase/schedule" -Session $session
