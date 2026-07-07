@@ -139,6 +139,16 @@ svg.section-icon { width: 28px; height: 28px; }
 .standing-gb-text { font-size: 14px; font-weight: 600; font-variant-numeric: tabular-nums; }
 .standing-gb-bar { position: absolute; bottom: 4px; left: 50%; transform: translateX(-50%); height: 3px; border-radius: 2px; background: #E8DFD3; }
 
+/* 半季分頁：沿用 .my-tab 底線切換語彙，縮小尺寸融入戰績卡 */
+.standings-tabs { display: flex; align-items: center; gap: 2px; border-bottom: 1px solid #F0ECE6; margin-bottom: 12px; }
+.standings-tab { background: transparent; border: none; padding: 8px 16px 7px; font-family: inherit; font-size: 13px; color: #9B8E7E; cursor: pointer; border-bottom: 2px solid transparent; transition: color 0.2s, border-color 0.2s; white-space: nowrap; letter-spacing: 0.5px; }
+.standings-tab:hover { color: #6B5F50; }
+.standings-tab.active { color: #C2573A; font-weight: 600; border-bottom-color: #C2573A; }
+.standings-caption { font-size: 12px; color: #7A6E5E; line-height: 1.6; margin-bottom: 12px; }
+.standings-caption .champ-team { color: #C2573A; font-weight: 600; }
+/* 半季冠軍標章（僅該半季已打完時出現） */
+.standing-champ { display: inline-flex; align-items: center; gap: 3px; margin-left: 6px; padding: 1px 8px; background: #FDF0E8; border-radius: 10px; font-size: 10px; color: #C2573A; font-weight: 600; letter-spacing: 0.5px; white-space: nowrap; }
+
 /* ── Filters ── */
 .filters { background: #FDFCFA; padding: 28px 40px 32px; display: flex; flex-direction: column; gap: 16px; }
 .filter-card { background: #FFF; border-radius: 14px; padding: 20px 24px; box-shadow: 0 2px 8px rgba(212,196,171,0.10); }
@@ -428,6 +438,8 @@ button.card-weather.clickable:active { transform: scale(0.96); }
   svg.section-icon { width: 22px; height: 22px; }
   .standings-wrap { padding: 20px 16px; }
   .section-header-title { font-size: 16px; }
+  .standings-tab { padding: 8px 12px 7px; font-size: 12px; }
+  .standings-caption { font-size: 11px; }
   .standings-table th { font-size: 10px; padding: 8px 6px; }
   .standings-table td { padding: 10px 6px; font-size: 13px; }
   .standing-rank { font-size: 13px; width: 28px; }
@@ -853,6 +865,12 @@ button.card-weather.clickable:active { transform: scale(0.96); }
     <span class="section-header-line"></span>
     <span class="section-header-sub">2026 例行賽</span>
   </div>
+  <div class="standings-tabs" id="standings-tabs" role="tablist">
+    <button type="button" class="standings-tab" data-half="first" role="tab">上半季</button>
+    <button type="button" class="standings-tab" data-half="second" role="tab">下半季</button>
+    <button type="button" class="standings-tab" data-half="full" role="tab">全年</button>
+  </div>
+  <div class="standings-caption" id="standings-caption"></div>
   <table class="standings-table" id="standings-table">
     <thead>
       <tr><th>#</th><th>球隊</th><th>勝</th><th>敗</th><th>和</th><th>勝率</th><th>勝差</th></tr>
@@ -1072,6 +1090,10 @@ const WMO_WEATHER_MAP = [
 const WEATHER_CACHE_TTL = 3 * 60 * 60 * 1000; // 3 小時
 
 let allGames = [];
+// 半季戰績：sno ≤ 180 為上半季、≥ 181 為下半季（分界依 2026 賽程實測，補賽沿用原 sno 故自動歸回原半季）
+const FIRST_HALF_MAX_SNO = 180;
+let currentHalf = null;        // 'first' | 'second' | 'full'，null 時 buildStandings 依當天日期決定預設
+let standingsTabsBound = false;
 let statusFilter = 'future'; // 'all' | 'future' | 'past'
 let weatherCache = {};      // { stadium: { data, ts } }
 let weatherLoading = false;
@@ -2223,6 +2245,7 @@ function loadData() {
       isMakeup,
     };
   }).sort((a,b) => a.date < b.date ? -1 : a.date > b.date ? 1 : a.time < b.time ? -1 : 1);
+  bindStandingsTabs();
   buildStandings();
   buildHeroInfo();
   updateMainTeamUI();
@@ -2256,13 +2279,64 @@ function buildHeroInfo() {
 }
 
 // ── 戰績計算 ──
-function buildStandings() {
-  const teams = {};
-  allGames.forEach(g => {
-    if (!g.completed) return;
+// 半季歸屬：一律用 sno 判斷（補賽沿用原 sno，故自動算回原半季，比用日期切穩）
+function gameHalf(g) {
+  return parseInt(g.sno, 10) <= FIRST_HALF_MAX_SNO ? 'first' : 'second';
+}
+// 某半季是否已有隊伍「數學封王」（勝率第一無法再被追過），回傳該隊名或 null。
+// 判定：第一名在「自己剩餘全輸、對手剩餘全贏」的最壞情況下，勝率仍嚴格高於所有對手 → 封王。
+// 剩餘場次以 sno 去重計（延賽/補賽同 sno 只算一場）；此為保守估計（假設各隊剩餘全勝，實際互打不可能同時成立），不會誤發冠軍。
+function clinchedHalfChampion(halfGames, sorted) {
+  if (sorted.length < 2) return null;
+  const totalSno = {}, doneSno = {};   // team -> Set<sno>
+  halfGames.forEach(g => {
     [g.visitor, g.home].forEach(t => {
-      if (!teams[t]) teams[t] = { w: 0, l: 0, t: 0 };
+      (totalSno[t] || (totalSno[t] = new Set())).add(g.sno);
+      if (g.completed) (doneSno[t] || (doneSno[t] = new Set())).add(g.sno);
     });
+  });
+  const rem = t => (totalSno[t] ? totalSno[t].size : 0) - (doneSno[t] ? doneSno[t].size : 0);
+  const leader = sorted[0];
+  const lDen = leader.w + leader.l + rem(leader.name);
+  if (lDen === 0) return null;
+  const leaderMinPct = leader.w / lDen;                 // 第一名剩餘全輸
+  const clinched = sorted.slice(1).every(c => {
+    const cRem = rem(c.name);
+    const cDen = c.w + c.l + cRem;
+    const cMaxPct = cDen === 0 ? 0 : (c.w + cRem) / cDen; // 對手剩餘全贏
+    return leaderMinPct > cMaxPct;                        // 嚴格大於，避免同勝率靠 tie-break 的不確定
+  });
+  return clinched ? leader.name : null;
+}
+
+function buildStandings() {
+  // 預設分頁：依當天日期落在哪個半季（季中空檔歸上半季、季末後歸全年）
+  const today = new Date(); today.setHours(0,0,0,0);
+  const todayStr = `${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}-${String(today.getDate()).padStart(2,'0')}`;
+  const secondGames = allGames.filter(g => gameHalf(g) === 'second');
+  const secondHalfStart = secondGames.length ? secondGames.reduce((m, g) => g.date < m ? g.date : m, secondGames[0].date) : null;
+  const seasonEnd = allGames.length ? allGames.reduce((m, g) => g.date > m ? g.date : m, allGames[0].date) : null;
+  if (currentHalf === null) {
+    if (secondHalfStart && todayStr >= secondHalfStart) {
+      currentHalf = (seasonEnd && todayStr > seasonEnd) ? 'full' : 'second';
+    } else {
+      currentHalf = 'first';
+    }
+  }
+
+  // 分頁按鈕 active 狀態
+  document.querySelectorAll('#standings-tabs .standings-tab').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.half === currentHalf);
+  });
+
+  // 依分頁篩選場次；六隊一律先補 0-0-0，讓半季尚未開打時表格仍完整呈現
+  const halfGames = allGames.filter(g => currentHalf === 'full' || gameHalf(g) === currentHalf);
+  const teams = {};
+  Object.keys(TEAM_LOGO).forEach(t => { teams[t] = { w: 0, l: 0, t: 0 }; });
+  halfGames.forEach(g => {
+    if (!g.completed) return;
+    if (!teams[g.visitor]) teams[g.visitor] = { w: 0, l: 0, t: 0 };
+    if (!teams[g.home]) teams[g.home] = { w: 0, l: 0, t: 0 };
     if (g.vScore > g.hScore) {
       teams[g.visitor].w++;
       teams[g.home].l++;
@@ -2283,12 +2357,28 @@ function buildStandings() {
     }))
     .sort((a, b) => parseFloat(b.pct) - parseFloat(a.pct));
 
-  const tbody = document.getElementById('standings-body');
-  if (!sorted.length) {
-    document.getElementById('standings-wrap').style.display = 'none';
-    return;
+  // 冠軍/領先 caption + rank 1 標章
+  const played = sorted.some(t => (t.w + t.l + t.t) > 0);
+  const clinched = currentHalf !== 'full' && !!clinchedHalfChampion(halfGames, sorted);
+  const topName = sorted.length ? (TEAM_SHORT[sorted[0].name] || sorted[0].name) : '';
+  const captionEl = document.getElementById('standings-caption');
+  if (captionEl) {
+    let caption = '';
+    if (currentHalf === 'full') {
+      caption = '全年勝率決定季後賽種子序與外卡（第 3 隊）。若同隊包辦上下半季冠軍，季後挑戰賽改由全年第 2、第 3 名爭奪。';
+    } else if (!played) {
+      caption = currentHalf === 'first' ? '上半季尚未開打。' : '下半季尚未開打。';
+    } else if (clinched) {
+      caption = (currentHalf === 'first' ? '上半季冠軍：' : '下半季冠軍：') +
+        '<span class="champ-team">' + topName + '</span>，已鎖定一張季後賽門票。';
+    } else {
+      caption = (currentHalf === 'first' ? '上半季' : '下半季') +
+        '進行中，暫由 <span class="champ-team">' + topName + '</span> 領先；該半季勝率第一可鎖定季後賽門票。';
+    }
+    captionEl.innerHTML = caption;
   }
-  document.getElementById('standings-wrap').style.display = '';
+
+  const tbody = document.getElementById('standings-body');
   const leader = sorted[0];
   const maxGb = sorted.length > 1 ? ((leader.w - sorted[sorted.length-1].w) + (sorted[sorted.length-1].l - leader.l)) / 2 : 0;
   tbody.innerHTML = sorted.map((t, i) => {
@@ -2298,14 +2388,17 @@ function buildStandings() {
     const gbDisplay = i === 0 ? '-' : gbNum % 1 === 0 ? gbNum.toString() : gbNum.toFixed(1);
     const barW = maxGb > 0 ? Math.round((gbNum / maxGb) * 48) : 0;
     const isLeader = i === 0;
+    const isChamp = i === 0 && clinched;
     const isMainTeam = t.name === userState.profile.mainTeam;
     const rowClasses = [isLeader ? 'standing-leader' : '', isMainTeam ? 'standing-main-team' : ''].filter(Boolean).join(' ');
+    const champLabel = currentHalf === 'first' ? '上半季冠軍' : '下半季冠軍';
     return '<tr class="' + rowClasses + '">' +
       '<td class="standing-rank">' + (i + 1) + '</td>' +
       '<td><div class="standing-team-cell">' +
         (logo ? '<img src="' + logo + '" alt="">' : '') +
         '<span class="standing-name" style="color:' + color + '">' + (TEAM_SHORT[t.name] || t.name) + '</span>' +
         (isMainTeam ? '<span class="standing-maincap" style="color:' + color + '" aria-label="主隊" title="你的主隊"><svg><use href="#cap-mainteam"/></svg></span>' : '') +
+        (isChamp ? '<span class="standing-champ">' + champLabel + '</span>' : '') +
       '</div></td>' +
       '<td class="standing-wlt">' + t.w + '</td>' +
       '<td class="standing-wlt">' + t.l + '</td>' +
@@ -2317,6 +2410,19 @@ function buildStandings() {
       '</td>' +
     '</tr>';
   }).join('');
+}
+
+function bindStandingsTabs() {
+  if (standingsTabsBound) return;
+  const tabs = document.getElementById('standings-tabs');
+  if (!tabs) return;
+  tabs.addEventListener('click', e => {
+    const btn = e.target.closest('.standings-tab');
+    if (!btn || btn.dataset.half === currentHalf) return;
+    currentHalf = btn.dataset.half;
+    buildStandings();
+  });
+  standingsTabsBound = true;
 }
 
 function getSelectedTeams(containerId) {
