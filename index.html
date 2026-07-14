@@ -494,6 +494,28 @@ button.card-weather.clickable:active { transform: scale(0.96); }
 .nav-links a.active { color: #C2573A; font-weight: 600; }
 .nav-my-icon { width: 14px; height: 14px; vertical-align: -2px; }
 .my-view { max-width: 1200px; margin: 40px auto; padding: 0 32px; }
+
+/* ── 新聞頁（純聚合器：標題 + 來源 + 時間，導回原站）── */
+.news-view { max-width: 820px; margin: 40px auto; padding: 0 32px; }
+.news-head { margin-bottom: 20px; }
+.news-title { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; font-size: 24px; color: #4A3728; margin: 0 0 4px; letter-spacing: 1px; }
+.news-sub { font-size: 13px; color: #9B8E7E; margin: 0; }
+.news-daygroup { margin-bottom: 22px; }
+.news-dayhead { font-size: 13px; font-weight: 700; color: #C2573A; padding: 6px 0; border-bottom: 1px solid #F0DFB8; margin-bottom: 6px; letter-spacing: 0.5px; }
+.news-item { display: grid; grid-template-columns: 52px 1fr auto; align-items: baseline; gap: 12px; padding: 11px 8px; border-radius: 10px; text-decoration: none; transition: background 0.15s; }
+.news-item:hover { background: #FDF6EE; }
+.news-time { font-family: 'Inter', sans-serif; font-size: 13px; color: #9B8E7E; font-variant-numeric: tabular-nums; }
+.news-item-title { font-size: 15px; line-height: 1.5; color: #4A3728; }
+.news-item:hover .news-item-title { color: #C2573A; }
+.news-source { font-size: 11px; color: #9B8E7E; background: #F5EFE4; border-radius: 10px; padding: 2px 9px; white-space: nowrap; }
+.news-loading, .news-empty { text-align: center; color: #9B8E7E; padding: 48px 0; font-size: 14px; }
+.news-empty-icon { font-size: 40px; margin-bottom: 12px; }
+.news-attr { font-size: 11px; color: #B8ADA0; margin-top: 24px; line-height: 1.6; border-top: 1px solid #EEE9E0; padding-top: 12px; }
+@media (max-width: 640px) {
+  .news-view { margin: 24px auto; padding: 0 16px; }
+  .news-item { grid-template-columns: 46px 1fr; gap: 8px; }
+  .news-source { grid-column: 2; justify-self: start; margin-top: 2px; }
+}
 .my-empty { text-align: center; padding: 80px 20px; color: #6B5F50; }
 .my-empty-icon { font-size: 56px; margin-bottom: 18px; line-height: 1; }
 .my-empty-title { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; font-size: 18px; font-weight: 500; letter-spacing: 1px; color: #4A3728; margin-bottom: 10px; }
@@ -823,6 +845,7 @@ button.card-weather.clickable:active { transform: scale(0.96); }
     <a href="#standings-wrap" data-view="main">戰績</a>
     <a href="#filters" data-view="main">篩選</a>
     <a href="#games" data-view="main">賽程</a>
+    <a href="#news" data-view="news" id="nav-news-link">新聞</a>
     <a href="#my" data-view="my" id="nav-my-link">我的 <svg class="nav-my-icon" aria-hidden="true"><use href="#bb-favorite"/></svg></a>
     <a id="nav-sync" href="javascript:void(0)" data-sync-modal-action="open">☁️ 同步</a>
   </div>
@@ -974,6 +997,15 @@ button.card-weather.clickable:active { transform: scale(0.96); }
 <!-- 「我的」個人中心（Phase 1-D 個人中心殼 + Phase 2-A 徽章 + Phase 2-B 戰績） -->
 <div class="my-view" id="my-view" style="display:none">
   <div id="my-view-body"></div>
+</div>
+
+<div class="news-view" id="news-view" style="display:none">
+  <div class="news-head">
+    <h2 class="news-title">中職相關新聞</h2>
+    <p class="news-sub">依發布時間排序，點標題前往原始報導</p>
+  </div>
+  <div id="news-view-body"></div>
+  <p class="news-attr" id="news-attr"></p>
 </div>
 
 <div class="footer">
@@ -3243,42 +3275,111 @@ const MAIN_VIEW_SECTION_IDS = ['standings-wrap', 'filters', 'stats', 'games'];
 
 function switchView(view) {
   const showMy = view === 'my';
+  const showNews = view === 'news';
+  const hideMain = showMy || showNews;
   MAIN_VIEW_SECTION_IDS.forEach(id => {
     const el = document.getElementById(id);
-    if (el) el.style.display = showMy ? 'none' : '';
+    if (el) el.style.display = hideMain ? 'none' : '';
   });
   const myEl = document.getElementById('my-view');
   if (myEl) myEl.style.display = showMy ? 'block' : 'none';
+  const newsEl = document.getElementById('news-view');
+  if (newsEl) newsEl.style.display = showNews ? 'block' : 'none';
   const myLink = document.getElementById('nav-my-link');
   if (myLink) myLink.classList.toggle('active', showMy);
+  const newsLink = document.getElementById('nav-news-link');
+  if (newsLink) newsLink.classList.toggle('active', showNews);
   if (showMy) renderMyView();
+  if (showNews) renderNewsView();
+}
+
+// ── 新聞頁：載入 data/news.json，依發布時間新到舊、依日期分組 ──
+let newsData = null;
+
+function renderNewsView() {
+  const body = document.getElementById('news-view-body');
+  if (!body) return;
+  if (newsData === null) {
+    body.innerHTML = '<div class="news-loading">載入新聞中…</div>';
+    fetch('data/news.json', { cache: 'no-cache' })
+      .then(r => r.ok ? r.json() : Promise.reject())
+      .then(d => { newsData = d || { items: [] }; renderNewsView(); })
+      .catch(() => { newsData = { items: [] }; renderNewsView(); });
+    return;
+  }
+  const attr = document.getElementById('news-attr');
+  const items = Array.isArray(newsData.items) ? newsData.items.slice() : [];
+  if (items.length === 0) {
+    body.innerHTML = '<div class="news-empty"><div class="news-empty-icon">📰</div>目前沒有相關新聞，稍後再回來看看</div>';
+    if (attr) attr.textContent = '';
+    return;
+  }
+  items.sort((a, b) => (b.pubDate || '').localeCompare(a.pubDate || ''));
+  const dayKeyFmt = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Taipei', year: 'numeric', month: '2-digit', day: '2-digit' });
+  const dayLabelFmt = new Intl.DateTimeFormat('zh-TW', { timeZone: 'Asia/Taipei', month: 'long', day: 'numeric', weekday: 'short' });
+  const timeFmt = new Intl.DateTimeFormat('zh-TW', { timeZone: 'Asia/Taipei', hour: '2-digit', minute: '2-digit', hour12: false });
+  let html = '';
+  let lastKey = null;
+  items.forEach(it => {
+    const d = new Date(it.pubDate);
+    const valid = !isNaN(d.getTime());
+    const key = valid ? dayKeyFmt.format(d) : 'unknown';
+    if (key !== lastKey) {
+      if (lastKey !== null) html += '</div>';
+      html += '<div class="news-daygroup"><div class="news-dayhead">' + (valid ? escapeHtml(dayLabelFmt.format(d)) : '較早') + '</div>';
+      lastKey = key;
+    }
+    // 只接受 http(s) 連結，擋掉 javascript: 等注入向量
+    const safeUrl = /^https?:\/\//i.test(it.url || '') ? it.url : '';
+    const time = valid ? timeFmt.format(d) : '';
+    html += '<a class="news-item" href="' + escapeHtml(safeUrl) + '" target="_blank" rel="noopener noreferrer">' +
+      '<span class="news-time">' + escapeHtml(time) + '</span>' +
+      '<span class="news-item-title">' + escapeHtml(it.title || '') + '</span>' +
+      '<span class="news-source">' + escapeHtml(it.source || '') + '</span>' +
+    '</a>';
+  });
+  if (lastKey !== null) html += '</div>';
+  body.innerHTML = html;
+  if (attr) {
+    let updatedTxt = '';
+    const u = newsData.updated ? new Date(newsData.updated) : null;
+    if (u && !isNaN(u.getTime())) updatedTxt = '更新於 ' + dayLabelFmt.format(u) + ' ' + timeFmt.format(u) + ' · ';
+    attr.textContent = updatedTxt + '新聞標題與連結由各原始媒體提供，著作權屬原媒體所有，點擊前往原站閱讀。';
+  }
+}
+
+function isSubViewOpen() {
+  const myEl = document.getElementById('my-view');
+  const newsEl = document.getElementById('news-view');
+  return (myEl && myEl.style.display !== 'none') || (newsEl && newsEl.style.display !== 'none');
 }
 
 document.querySelector('.nav-links').addEventListener('click', function(e) {
   const a = e.target.closest('a');
   if (!a) return;
   const view = a.dataset.view;
-  if (view === 'my') {
+  if (view === 'my' || view === 'news') {
     e.preventDefault();
-    history.replaceState(null, '', '#my');
-    switchView('my');
+    history.replaceState(null, '', '#' + view);
+    switchView(view);
   } else if (view === 'main') {
-    const myEl = document.getElementById('my-view');
-    if (myEl && myEl.style.display !== 'none') switchView('main');
+    if (isSubViewOpen()) switchView('main');
   }
 });
 
 window.addEventListener('hashchange', function() {
   if (location.hash === '#my') {
     switchView('my');
-  } else {
-    const myEl = document.getElementById('my-view');
-    if (myEl && myEl.style.display !== 'none') switchView('main');
+  } else if (location.hash === '#news') {
+    switchView('news');
+  } else if (isSubViewOpen()) {
+    switchView('main');
   }
 });
 
 function initMyViewFromHash() {
   if (location.hash === '#my') switchView('my');
+  else if (location.hash === '#news') switchView('news');
 }
 
 function calcMainTeamFieldStats() {

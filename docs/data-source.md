@@ -39,7 +39,13 @@
 | `GameResult` | `""`（空字串） | 未賽 |
 | `GameSno` | `"001"` ~ `"364"`（3 位零填） | 場次編號，用來對應 `const BRIEFINGS` 賽事記錄 |
 
+## 中職相關新聞來源
+
+- 來源：自由時報體育 RSS `https://news.ltn.com.tw/rss/sports.xml`（純連結聚合，只存標題/來源/時間/連結）
+- 抓取腳本：`scripts/fetch-news.ps1` → `data/news.json`
+- 版權原則與過濾邏輯見 [news.md](news.md)
+
 ## 相關自動更新
 
-- 抓取腳本：`scripts/fetch-scores.sh`、`scripts/update-scores.ps1`
-- 排程：現行方案為 Windows Task Scheduler 本機執行，詳見 [scoreupdate.md](scoreupdate.md)
+- 抓取腳本：`scripts/fetch-scores.sh`、`scripts/update-scores.ps1`、`scripts/fetch-news.ps1`
+- 排程：現行方案為 Windows Task Scheduler 本機執行，`update-scores.bat` 一併呼叫比分與新聞抓取，詳見 [scoreupdate.md](scoreupdate.md)

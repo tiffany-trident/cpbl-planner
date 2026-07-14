@@ -12,6 +12,7 @@ REM ===================================================
 set "LOGDIR=%REPO%\logs"
 set "LOG=%LOGDIR%\update-scores.log"
 set "PS1=%REPO%\scripts\update-scores.ps1"
+set "NEWS_PS1=%REPO%\scripts\fetch-news.ps1"
 
 if not exist "%LOGDIR%" mkdir "%LOGDIR%"
 
@@ -75,9 +76,15 @@ if errorlevel 1 (
   goto :restore_branch
 )
 
-"%GIT%" diff --quiet -- index.html cpbl-planner.html data/briefings.json
+REM === News fetch (secondary; a failure must NOT block the score commit) ===
+powershell -NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -File "%NEWS_PS1%" >> "%LOG%" 2>&1
 if errorlevel 1 (
-  "%GIT%" add index.html cpbl-planner.html data/briefings.json >> "%LOG%" 2>&1
+  echo [WARN] fetch-news.ps1 failed -- continuing without news update >> "%LOG%"
+)
+
+"%GIT%" diff --quiet -- index.html cpbl-planner.html data/briefings.json data/news.json
+if errorlevel 1 (
+  "%GIT%" add index.html cpbl-planner.html data/briefings.json data/news.json >> "%LOG%" 2>&1
   "%GIT%" commit -m "auto update scores !TS!" >> "%LOG%" 2>&1
   echo [OK] committed >> "%LOG%"
 ) else (
@@ -98,7 +105,7 @@ echo [OK] pushed (or already up to date) >> "%LOG%"
 :restore_branch
 if "!SWITCHED!"=="1" (
   REM Clear any unstaged ps1 residue (line-ending noise) so checkout back is clean
-  "%GIT%" checkout -- index.html cpbl-planner.html data/briefings.json >> "%LOG%" 2>&1
+  "%GIT%" checkout -- index.html cpbl-planner.html data/briefings.json data/news.json >> "%LOG%" 2>&1
   echo [info] switching back to !ORIG_BRANCH! >> "%LOG%"
   "%GIT%" checkout !ORIG_BRANCH! >> "%LOG%" 2>&1
   if errorlevel 1 (
