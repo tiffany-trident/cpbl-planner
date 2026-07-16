@@ -191,10 +191,10 @@ https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets/{name}/3D/{slug
 | 已完賽 | 大字比分 `26px` 粗體，勝方赤陶紅、敗方灰 |
 
 ### 篩選區
-- 分兩張 `.filter-card` 白底圓角卡片：
-  - 「隊伍篩選」
-  - 「條件篩選」
-- 各有標題
+- **單一 `.filter-card`**（2026-07-16 由原「隊伍篩選 / 條件篩選」兩張卡合併，標題「篩選」）
+- 想看的隊伍 = 單選 `<select>`（預設全部、主隊置頂）；對手 = `.chip.chip-logo` 圓形隊徽多選
+- `.chip-logo` 為 logo-only 圓形 chip（36px）：active 用 `box-shadow` 隊色外環 + `::after` ✓ 角標；基準規則寫成 `.chip.chip-logo` 提升 specificity，避免被手機版 `.chip` 覆蓋 padding
+- 其餘（球場/月份下拉、場次狀態/收藏打卡 toggle、日期 checkbox、重設）同列 flex-wrap 排列
 
 ### 統計列
 - 白底圓角卡片式 summary bar

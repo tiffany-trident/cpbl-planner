@@ -188,6 +188,20 @@ svg.section-icon { width: 28px; height: 28px; }
 .chip.active[data-team="台鋼雄鷹"] { background: #1A6B3A; }
 .chip img { border-radius: 50%; }
 
+/* 對手：logo-only 圓形多選 chip（隊徽辨識，active 加隊色環 + ✓） */
+.chip-group-logo { gap: 8px; }
+.chip.chip-logo { padding: 0; width: 36px; height: 36px; border-radius: 50%; justify-content: center; position: relative; }
+.chip-logo img { margin: 0 !important; width: 26px; height: 26px; }
+.chip-logo:hover { background: #FDF6EE; }
+.chip-logo.active { background: #FFF !important; color: inherit !important; border-color: transparent; }
+.chip-logo.active::after { content: '✓'; position: absolute; top: -4px; right: -4px; width: 15px; height: 15px; background: #C2573A; color: #fff; border-radius: 50%; font-size: 9px; line-height: 15px; text-align: center; }
+.chip-logo.active[data-team="中信兄弟"] { box-shadow: 0 0 0 2px #FACD01; }
+.chip-logo.active[data-team="統一7-ELEVEn獅"] { box-shadow: 0 0 0 2px #C46A18; }
+.chip-logo.active[data-team="樂天桃猿"] { box-shadow: 0 0 0 2px #7B1A1A; }
+.chip-logo.active[data-team="富邦悍將"] { box-shadow: 0 0 0 2px #3468C0; }
+.chip-logo.active[data-team="味全龍"] { box-shadow: 0 0 0 2px #D8252D; }
+.chip-logo.active[data-team="台鋼雄鷹"] { box-shadow: 0 0 0 2px #1A6B3A; }
+
 /* ── Buttons ── */
 .btn-reset { background: #F5F0E8; color: #7A6E5E; border: none; padding: 8px 16px; border-radius: 10px; font-size: 12.5px; font-weight: 500; cursor: pointer; transition: all 0.2s; font-family: 'Inter', 'Noto Sans TC', sans-serif; align-self: flex-end; }
 .btn-reset:hover { background: #EBE4D8; color: #4A3728; }
@@ -882,19 +896,16 @@ button.card-weather.clickable:active { transform: scale(0.96); }
 
 <div class="filters" id="filters">
   <div class="filter-card">
-    <div class="filter-card-title">隊伍篩選</div>
-    <div class="filter-group" style="margin-bottom:12px">
-      <label>想看的隊伍</label>
-      <div class="chip-group" id="f-team1"></div>
-    </div>
-    <div class="filter-group">
-      <label>對手</label>
-      <div class="chip-group" id="f-team2"></div>
-    </div>
-  </div>
-  <div class="filter-card">
-    <div class="filter-card-title">條件篩選</div>
+    <div class="filter-card-title">篩選</div>
     <div class="filter-card-row">
+      <div class="filter-group">
+        <label for="f-team1">想看的隊伍</label>
+        <select id="f-team1" style="min-width:150px"><option value="">全部（完整賽程）</option></select>
+      </div>
+      <div class="filter-group">
+        <label>對手（可多選）</label>
+        <div class="chip-group chip-group-logo" id="f-team2"></div>
+      </div>
       <div class="filter-row">
         <div class="filter-group">
           <label>球場</label>
@@ -2690,6 +2701,8 @@ function selectMainTeam(team) {
   updateMainTeamUI();
   buildStandings();
   buildHeroInfo();
+  // 主隊變更 → 重建「想看的隊伍」下拉，讓新主隊釘到最上（保留現有選取）
+  if (typeof rebuildTeam1Options === 'function') rebuildTeam1Options();
 }
 
 function skipMainTeamSetup() {
@@ -2768,8 +2781,9 @@ function updateMainTeamUI() {
 let ownershipFilter = 'all'; // 'all' | 'favorites' | 'checkins'
 
 function captureCurrentFilter() {
+  const t1 = document.getElementById('f-team1').value;
   return {
-    team1: getSelectedTeams('f-team1'),
+    team1: t1 ? [t1] : [],
     team2: getSelectedTeams('f-team2'),
     field: document.getElementById('f-field').value,
     month: document.getElementById('f-month').value,
@@ -2782,11 +2796,16 @@ function captureCurrentFilter() {
 
 function applyFilterToUI(f) {
   if (!f) return;
-  ['f-team1', 'f-team2'].forEach((id, i) => {
-    const selected = (i === 0 ? f.team1 : f.team2) || [];
-    document.querySelectorAll('#' + id + ' .chip').forEach(chip => {
-      chip.classList.toggle('active', selected.includes(chip.dataset.team));
-    });
+  // 想看的隊伍：單選下拉（舊 schema 若為多選陣列，取第一個遷移）
+  const t1raw = f.team1;
+  const t1 = Array.isArray(t1raw) ? (t1raw[0] || '') : (t1raw || '');
+  const team1Sel = document.getElementById('f-team1');
+  team1Sel.value = (t1 && [...team1Sel.options].some(o => o.value === t1)) ? t1 : '';
+  // 依 team1 重建對手 chips（排除想看的隊），再套用 team2 已選
+  renderTeam2Chips();
+  const sel2 = f.team2 || [];
+  document.querySelectorAll('#f-team2 .chip').forEach(chip => {
+    chip.classList.toggle('active', sel2.includes(chip.dataset.team));
   });
   const fld = document.getElementById('f-field');
   const mon = document.getElementById('f-month');
@@ -2816,23 +2835,64 @@ function persistCurrentFilter() {
   saveUserState(userState);
 }
 
+// 想看的隊伍下拉：預設「全部」，主隊釘最上（以分隔線隔開）。主隊變更時可重建。
+function rebuildTeam1Options() {
+  const team1Sel = document.getElementById('f-team1');
+  if (!team1Sel) return;
+  const prev = team1Sel.value;
+  const teams = [...new Set(allGames.flatMap(g => [g.visitor, g.home]))].sort();
+  const mainTeam = (userState.profile && userState.profile.mainTeam) || '';
+  const hasMain = mainTeam && teams.includes(mainTeam);
+  team1Sel.innerHTML = '<option value="">全部（完整賽程）</option>';
+  if (hasMain) {
+    const sep = document.createElement('option');
+    sep.disabled = true;
+    sep.textContent = '──────────';
+    team1Sel.appendChild(sep);
+  }
+  const orderedTeams = hasMain ? [mainTeam, ...teams.filter(t => t !== mainTeam)] : teams;
+  orderedTeams.forEach(t => {
+    const o = document.createElement('option');
+    o.value = t;
+    o.textContent = (t === mainTeam) ? '⚾ ' + (TEAM_SHORT[t] || t) + '（主隊）' : (TEAM_SHORT[t] || t);
+    team1Sel.appendChild(o);
+  });
+  if (prev && [...team1Sel.options].some(o => o.value === prev)) team1Sel.value = prev;
+}
+
+// 對手 chips：依目前「想看的隊伍」排除該隊（不跟自己比），並保留仍有效的已選
+function renderTeam2Chips() {
+  const container = document.getElementById('f-team2');
+  if (!container) return;
+  const prevSelected = getSelectedTeams('f-team2');
+  const team1 = document.getElementById('f-team1').value;
+  const teams = [...new Set(allGames.flatMap(g => [g.visitor, g.home]))].sort();
+  container.innerHTML = '';
+  teams.forEach(t => {
+    if (t === team1) return;
+    const name = TEAM_SHORT[t] || t;
+    const chip = document.createElement('span');
+    chip.className = 'chip chip-logo';
+    chip.dataset.team = t;
+    chip.title = name;
+    chip.setAttribute('aria-label', '對手：' + name);
+    const url = TEAM_LOGO[t];
+    chip.innerHTML = url ? '<img src="' + url + '" alt="">' : name;
+    if (prevSelected.includes(t)) chip.classList.add('active');
+    chip.addEventListener('click', () => { chip.classList.toggle('active'); render(); persistCurrentFilter(); });
+    container.appendChild(chip);
+  });
+}
+
 function initFilters() {
   const teams = [...new Set(allGames.flatMap(g => [g.visitor, g.home]))].sort();
   const fields = [...new Set(allGames.map(g => g.field))].sort();
   const months = [...new Set(allGames.map(g => g.month))].sort((a,b) => a - b);
 
-  // Team chip buttons
-  ['f-team1','f-team2'].forEach(id => {
-    const container = document.getElementById(id);
-    teams.forEach(t => {
-      const chip = document.createElement('span');
-      chip.className = 'chip';
-      chip.dataset.team = t;
-      chip.innerHTML = logoImg(t, 18) + (TEAM_SHORT[t] || t);
-      chip.addEventListener('click', () => { chip.classList.toggle('active'); render(); persistCurrentFilter(); });
-      container.appendChild(chip);
-    });
-  });
+  // 想看的隊伍：單選下拉（預設「全部」，主隊釘最上）；對手：logo-only 多選 chip
+  rebuildTeam1Options();
+  document.getElementById('f-team1').addEventListener('change', () => { renderTeam2Chips(); render(); persistCurrentFilter(); });
+  renderTeam2Chips();
 
   const addOpts = (sel, items, fn) => items.forEach(i => {
     const o = document.createElement('option');
@@ -2845,7 +2905,8 @@ function initFilters() {
 }
 
 function getFiltered() {
-  const sel1 = getSelectedTeams('f-team1');
+  const t1 = document.getElementById('f-team1').value;
+  const sel1 = t1 ? [t1] : [];
   const sel2 = getSelectedTeams('f-team2');
   const fld = document.getElementById('f-field').value;
   const mon = document.getElementById('f-month').value;
@@ -3224,7 +3285,9 @@ document.querySelectorAll('#f-status .toggle-btn').forEach(btn => {
 });
 
 document.getElementById('btn-reset').addEventListener('click', function() {
-  document.querySelectorAll('.chip.active').forEach(c => c.classList.remove('active'));
+  document.getElementById('f-team1').value = '';
+  document.getElementById('f-team2').innerHTML = '';
+  renderTeam2Chips();
   ['f-field','f-month'].forEach(id => document.getElementById(id).value = '');
   ['f-weekend','f-holiday'].forEach(id => document.getElementById(id).checked = false);
   document.querySelectorAll('#f-status .toggle-btn').forEach(b => b.classList.remove('active'));
