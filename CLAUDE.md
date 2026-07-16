@@ -22,6 +22,7 @@
 | 天氣預報 | [docs/weather.md](docs/weather.md) |
 | 賽事記錄 | [docs/briefings.md](docs/briefings.md) |
 | 主場主題日 | [docs/theme-days.md](docs/theme-days.md) |
+| 中職相關新聞（聚合器 / 版權原則 / 過濾） | [docs/news.md](docs/news.md) |
 | 外部連結資料（購票網站、高鐵站對應） | [docs/external-links.md](docs/external-links.md) |
 
 ### 客製 icon 命名表（正規定義在 `design/phase1-2-preview.html` sprite）
@@ -87,7 +88,8 @@
 |-----|------|
 | `index.html` / `cpbl-planner.html` | 主程式檔（兩者需保持同步） |
 | `data/` | 資料 JSON 與快取（`games_data.json`、`briefings.json`） |
-| `scripts/` | 自動更新抓取腳本（`fetch-scores.sh`、`update-scores.ps1`、`update-scores.bat`） |
+| `scripts/` | 自動更新抓取腳本（`fetch-scores.sh`、`update-scores.ps1`、`update-scores.bat`、`fetch-news.ps1` 新聞） |
+| `data/news.json` | 中職相關新聞聚合（標題/來源/時間/連結，見 docs/news.md） |
 | `docs/` | 功能規格、架構、設計文件 |
 | `design/` | Pencil 設計檔、HTML 視覺稿 |
 | `icon-preview/` | icon 素材庫 + 預覽頁 |
