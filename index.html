@@ -154,6 +154,10 @@ svg.section-icon { width: 28px; height: 28px; }
 .filter-card { background: #FFF; border-radius: 14px; padding: 20px 24px; box-shadow: 0 2px 8px rgba(212,196,171,0.10); }
 .filter-card-title { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; font-size: 15px; font-weight: 500; color: #4A3728; margin-bottom: 12px; letter-spacing: 1px; }
 .filter-card-row { display: flex; flex-wrap: wrap; gap: 10px 12px; align-items: flex-end; }
+/* 篩選分兩段：隊伍 / 條件，之間細分隔線 */
+.filter-seg { display: flex; flex-wrap: wrap; gap: 12px 18px; align-items: flex-end; }
+.filter-seg + .filter-seg { margin-top: 14px; padding-top: 14px; border-top: 1px solid #F0EAE0; }
+.filter-seg .btn-reset { margin-left: auto; }
 .filter-group { display: flex; flex-direction: column; gap: 5px; }
 .filter-group > label { font-size: 11px; color: #7A6E5E; font-weight: 600; letter-spacing: 0.3px; }
 .filter-group select { background: #FFF; border: 1px solid #E0D8CC; color: #4A3728; padding: 8px 14px; border-radius: 10px; font-size: 13px; min-width: 120px; cursor: pointer; font-family: 'Inter', 'Noto Sans TC', sans-serif; appearance: auto; }
@@ -188,19 +192,14 @@ svg.section-icon { width: 28px; height: 28px; }
 .chip.active[data-team="台鋼雄鷹"] { background: #1A6B3A; }
 .chip img { border-radius: 50%; }
 
-/* 對手：logo-only 圓形多選 chip（隊徽辨識，active 加隊色環 + ✓） */
-.chip-group-logo { gap: 8px; }
-.chip.chip-logo { padding: 0; width: 36px; height: 36px; border-radius: 50%; justify-content: center; position: relative; }
-.chip-logo img { margin: 0 !important; width: 26px; height: 26px; }
-.chip-logo:hover { background: #FDF6EE; }
-.chip-logo.active { background: #FFF !important; color: inherit !important; border-color: transparent; }
-.chip-logo.active::after { content: '✓'; position: absolute; top: -4px; right: -4px; width: 15px; height: 15px; background: #C2573A; color: #fff; border-radius: 50%; font-size: 9px; line-height: 15px; text-align: center; }
-.chip-logo.active[data-team="中信兄弟"] { box-shadow: 0 0 0 2px #FACD01; }
-.chip-logo.active[data-team="統一7-ELEVEn獅"] { box-shadow: 0 0 0 2px #C46A18; }
-.chip-logo.active[data-team="樂天桃猿"] { box-shadow: 0 0 0 2px #7B1A1A; }
-.chip-logo.active[data-team="富邦悍將"] { box-shadow: 0 0 0 2px #3468C0; }
-.chip-logo.active[data-team="味全龍"] { box-shadow: 0 0 0 2px #D8252D; }
-.chip-logo.active[data-team="台鋼雄鷹"] { box-shadow: 0 0 0 2px #1A6B3A; }
+/* 對手：logo + 隊名多選 chip；active 用隊色淡底 + 隊色框（清爽，不用實底白字） */
+.chip-opp.active { color: #4A3728; font-weight: 600; border-width: 1.5px; }
+.chip-opp.active[data-team="中信兄弟"] { background: color-mix(in srgb, #FACD01 18%, #FFFDF8); border-color: #E3B505; }
+.chip-opp.active[data-team="統一7-ELEVEn獅"] { background: color-mix(in srgb, #C46A18 14%, #FFFDF8); border-color: #C46A18; }
+.chip-opp.active[data-team="樂天桃猿"] { background: color-mix(in srgb, #7B1A1A 12%, #FFFDF8); border-color: #7B1A1A; }
+.chip-opp.active[data-team="富邦悍將"] { background: color-mix(in srgb, #3468C0 13%, #FFFDF8); border-color: #3468C0; }
+.chip-opp.active[data-team="味全龍"] { background: color-mix(in srgb, #D8252D 12%, #FFFDF8); border-color: #D8252D; }
+.chip-opp.active[data-team="台鋼雄鷹"] { background: color-mix(in srgb, #1A6B3A 13%, #FFFDF8); border-color: #1A6B3A; }
 
 /* ── Buttons ── */
 .btn-reset { background: #F5F0E8; color: #7A6E5E; border: none; padding: 8px 16px; border-radius: 10px; font-size: 12.5px; font-weight: 500; cursor: pointer; transition: all 0.2s; font-family: 'Inter', 'Noto Sans TC', sans-serif; align-self: flex-end; }
@@ -466,7 +465,7 @@ button.card-weather.clickable:active { transform: scale(0.96); }
   .standing-gb-bar { display: none; }
   .filters { padding: 16px; gap: 12px; }
   .filter-card { padding: 16px; }
-  .filter-card-row { flex-direction: column; gap: 12px; align-items: stretch; }
+  .filter-card-row, .filter-seg { flex-direction: column; gap: 12px; align-items: stretch; }
   .filter-group { width: 100%; }
   .filter-group select { width: 100%; min-width: unset; }
   .filter-row { display: flex; gap: 10px; }
@@ -897,15 +896,17 @@ button.card-weather.clickable:active { transform: scale(0.96); }
 <div class="filters" id="filters">
   <div class="filter-card">
     <div class="filter-card-title">篩選</div>
-    <div class="filter-card-row">
+    <div class="filter-seg">
       <div class="filter-group">
         <label for="f-team1">想看的隊伍</label>
         <select id="f-team1" style="min-width:150px"><option value="">全部（完整賽程）</option></select>
       </div>
       <div class="filter-group">
         <label>對手（可多選）</label>
-        <div class="chip-group chip-group-logo" id="f-team2"></div>
+        <div class="chip-group" id="f-team2"></div>
       </div>
+    </div>
+    <div class="filter-seg">
       <div class="filter-row">
         <div class="filter-group">
           <label>球場</label>
@@ -2872,12 +2873,10 @@ function renderTeam2Chips() {
     if (t === team1) return;
     const name = TEAM_SHORT[t] || t;
     const chip = document.createElement('span');
-    chip.className = 'chip chip-logo';
+    chip.className = 'chip chip-opp';
     chip.dataset.team = t;
-    chip.title = name;
     chip.setAttribute('aria-label', '對手：' + name);
-    const url = TEAM_LOGO[t];
-    chip.innerHTML = url ? '<img src="' + url + '" alt="">' : name;
+    chip.innerHTML = logoImg(t, 18) + name;
     if (prevSelected.includes(t)) chip.classList.add('active');
     chip.addEventListener('click', () => { chip.classList.toggle('active'); render(); persistCurrentFilter(); });
     container.appendChild(chip);
