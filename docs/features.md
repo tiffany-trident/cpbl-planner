@@ -77,6 +77,15 @@ CPBL 2026 進場倒數目前已實作的功能。
 - 位置：卡片上顯示主題日 badge
 - 詳見 [theme-days.md](theme-days.md)
 
+## 中職相關新聞
+
+- 位置：Nav tab「新聞」（賽程與我的之間），URL hash `#news`
+- 純**連結聚合器**：只顯示標題＋來源＋發布時間，點擊導回原始媒體，不轉載內文（版權安全）
+- 來源：自由時報體育 RSS（過濾中職相關）
+- 排序：依發布時間新到舊，依日期分組；時間以 Asia/Taipei 顯示
+- 資料流：本機 `scripts/fetch-news.ps1` 抓 RSS → `data/news.json`（隨比分排程一起 commit），前端 runtime `fetch` 載入
+- 詳見 [news.md](news.md)
+
 ## 個人化功能（Phase 1）
 
 localStorage 儲存 schema v1，讓網站記得使用者身份與偏好。未來 Phase 4 跨裝置同步會沿用此 schema。分支 `feat/phase1-personalization`，已 merge `4e7c11a`。
