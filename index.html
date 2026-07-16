@@ -35,10 +35,15 @@ body { font-family: 'Inter', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; b
 .nav-mainteam-setup { display: inline-flex; align-items: center; gap: 4px; padding: 6px 14px; border-radius: 20px; border: 1px dashed #E5D3B0; color: #C2573A; font-size: 13px; font-weight: 600; cursor: pointer; background: transparent; font-family: inherit; }
 .nav-mainteam-setup:hover { background: #FDF6EE; border-style: solid; }
 
-/* nav 跨裝置同步 link — 融入 nav-links，與戰績/篩選/賽程/我的同視覺語彙 */
-.nav-links a#nav-sync { display: inline-flex; align-items: center; gap: 4px; }
-.nav-links a#nav-sync.nav-sync-active { color: #1A6B3A; }
-.nav-links a#nav-sync.nav-sync-active:hover { color: #145E2D; }
+/* nav 頁籤（底線式，呼應各隊戰績分頁）+ 同步雲朵 icon 按鈕 */
+.nav-tab { border-bottom: 2px solid transparent; padding-bottom: 3px; }
+.nav-tab.active { color: #C2573A; font-weight: 600; border-bottom-color: #C2573A; }
+.nav-div { width: 1px; height: 20px; background: #EEE9E0; display: inline-block; }
+.nav-sync-btn { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 50%; border: 1px solid #E5D3B0; background: transparent; color: #7A6E5E; cursor: pointer; padding: 0; transition: all 0.2s; }
+.nav-sync-btn:hover { background: #FDF6EE; color: #C2573A; }
+.nav-sync-btn svg { width: 20px; height: 20px; }
+.nav-sync-btn.nav-sync-active { color: #1A6B3A; border-color: #B7D9B7; background: #EFF7EF; }
+.nav-sync-btn.nav-sync-active:hover { color: #145E2D; }
 
 /* sync modal */
 .sync-overlay { position: fixed; inset: 0; background: rgba(61, 49, 34, 0.6); z-index: 9999; display: flex; align-items: center; justify-content: center; padding: 20px; }
@@ -855,12 +860,13 @@ button.card-weather.clickable:active { transform: scale(0.96); }
   </div>
   <div class="nav-mainteam" id="nav-mainteam"></div>
   <div class="nav-links">
-    <a href="#standings-wrap" data-view="main">戰績</a>
-    <a href="#filters" data-view="main">篩選</a>
-    <a href="#games" data-view="main">賽程</a>
-    <a href="#news" data-view="news" id="nav-news-link">新聞</a>
-    <a href="#my" data-view="my" id="nav-my-link">我的 <svg class="nav-my-icon" aria-hidden="true"><use href="#bb-favorite"/></svg></a>
-    <a id="nav-sync" href="javascript:void(0)" data-sync-modal-action="open">☁️ 同步</a>
+    <a href="#games" data-view="main" id="nav-schedule-link" class="nav-tab active">賽程</a>
+    <a href="#news" data-view="news" id="nav-news-link" class="nav-tab">新聞</a>
+    <a href="#my" data-view="my" id="nav-my-link" class="nav-tab">我的 <svg class="nav-my-icon" aria-hidden="true"><use href="#bb-favorite"/></svg></a>
+    <span class="nav-div" aria-hidden="true"></span>
+    <button id="nav-sync" type="button" class="nav-sync-btn" data-sync-modal-action="open" title="跨裝置同步" aria-label="跨裝置同步">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.657 18c-2.572 0 -4.657 -2.007 -4.657 -4.483c0 -2.475 2.085 -4.482 4.657 -4.482c.393 -1.762 1.794 -3.2 3.675 -3.773c1.88 -.572 3.956 -.193 5.444 1c1.488 1.19 2.162 3.007 1.77 4.769h.99c1.913 0 3.464 1.56 3.464 3.486c0 1.927 -1.551 3.487 -3.465 3.487h-11.878"/></svg>
+    </button>
   </div>
 </div>
 
@@ -2712,13 +2718,12 @@ function updateNavSyncUI() {
   const el = document.getElementById('nav-sync');
   if (!el) return;
   const token = getSessionToken();
-  if (token) {
-    el.textContent = '☁️ 同步中';
-    el.classList.add('nav-sync-active');
-  } else {
-    el.textContent = '☁️ 同步';
-    el.classList.remove('nav-sync-active');
-  }
+  const synced = !!token;
+  // icon 按鈕：只切狀態 class 與提示文字，不動內部 SVG
+  el.classList.toggle('nav-sync-active', synced);
+  const label = synced ? '已同步' : '跨裝置同步';
+  el.title = label;
+  el.setAttribute('aria-label', label);
 }
 
 function hideMainTeamModal() {
@@ -3351,6 +3356,8 @@ function switchView(view) {
   if (myLink) myLink.classList.toggle('active', showMy);
   const newsLink = document.getElementById('nav-news-link');
   if (newsLink) newsLink.classList.toggle('active', showNews);
+  const schedLink = document.getElementById('nav-schedule-link');
+  if (schedLink) schedLink.classList.toggle('active', !showMy && !showNews);
   if (showMy) renderMyView();
   if (showNews) renderNewsView();
 }
