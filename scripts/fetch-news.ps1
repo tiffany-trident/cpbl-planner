@@ -21,12 +21,45 @@ function Write-Step($msg) { Write-Host "[news] $msg" }
 # it to personal, non-commercial feed-reader use. See docs/news.md.)
 $Feeds = @(
     @{ name = '自由時報'; url = 'https://news.ltn.com.tw/rss/sports.xml' }
+    # 中央社 / ETtoday 官方 feed 走 FeedBurner 投遞（Google 僅代管投遞，內容為媒體自有，
+    # feed 內無限制條款）。與 Google News RSS 聚合他人內容＋限制條款本質不同，符合本功能
+    # 版權原則。中央社標題為純文字、ETtoday 為 CDATA，皆由 SelectSingleNode().InnerText 處理。
+    @{ name = '中央社';  url = 'https://feeds.feedburner.com/rsscna/sport' }
+    @{ name = 'ETtoday'; url = 'https://feeds.feedburner.com/ettoday/sport' }
 )
 
 # A headline is kept only when it clearly concerns CPBL. Full team names are
 # unambiguous; bare short names (統一/富邦/樂天) are avoided because they collide
 # with other orgs and other-sport teams (e.g. 富邦勇士 is basketball).
 $CpblRegex = '中職|中華職棒|職棒|中信兄弟|樂天桃猿|富邦悍將|統一7|統一獅|味全龍|台鋼雄鷹'
+
+# Per-team tagging patterns (drives the front-end team filter). Matched against
+# the TITLE ONLY: the RSS description carries a full article excerpt that name-
+# drops other teams (standings, other games), which over-tags badly -- a filter
+# needs precision over recall (filtering 富邦 must not surface a 兄弟-vs-台鋼 game
+# that merely mentioned 富邦 in the body). Single-char nicknames 獅/猿/鷹 are safe
+# inside a CPBL headline; 龍/象/將 collide with pitcher nicknames / common words
+# (魔神龍, 武將…) so those require a 2+ char form. Applied only to headlines that
+# ALREADY passed $CpblRegex. Team keys MUST match getTeamColor() in index.html.
+# An item may match multiple teams (e.g. a matchup headline).
+$TeamPatterns = [ordered]@{
+    '中信兄弟'         = '中信兄弟|兄弟'
+    '統一7-ELEVEn獅'   = '統一獅|統一7|獅隊|獅'
+    '樂天桃猿'         = '樂天桃猿|樂天|桃猿|猿'
+    '富邦悍將'         = '富邦悍將|悍將|富邦'
+    '味全龍'           = '味全龍|味全|龍隊'
+    '台鋼雄鷹'         = '台鋼雄鷹|台鋼|雄鷹|鷹'
+}
+function Get-Teams([string]$text) {
+    $hits = @()
+    foreach ($k in $TeamPatterns.Keys) {
+        if ($text -match $TeamPatterns[$k]) { $hits += $k }
+    }
+    # PowerShell unrolls arrays on return (empty -> $null, single -> bare
+    # string); every CALL SITE re-wraps with @() so the stored value is always a
+    # flat array and `teams` serialises as [], ["x"] or ["x","y"] consistently.
+    return $hits
+}
 
 $KeepDays = 45     # drop items older than this
 $MaxItems = 100    # hard cap on stored items
@@ -71,7 +104,15 @@ if (Test-Path $newsPath) {
     try {
         $prev = (Get-Content -Path $newsPath -Raw -Encoding UTF8 | ConvertFrom-Json)
         foreach ($it in $prev.items) {
-            if ($it.url) { $byUrl[$it.url] = $it }
+            if (-not $it.url) { continue }
+            # Recompute teams from the title every run. Tagging is a deterministic
+            # function of the title, so this self-heals any inconsistent value in
+            # the existing archive (older archives predate the field; earlier runs
+            # wrote null/{}/bare-string) and lets refined $TeamPatterns propagate
+            # to old items. Items still in the current feed are re-tagged again by
+            # the fetch loop below (newest wins on the same URL).
+            $it | Add-Member -NotePropertyName teams -NotePropertyValue (@(Get-Teams $it.title)) -Force
+            $byUrl[$it.url] = $it
         }
         Write-Step "Loaded $($byUrl.Count) archived items."
     } catch {
@@ -109,12 +150,16 @@ foreach ($feed in $Feeds) {
         if (-not (($title + ' ' + $desc) -match $CpblRegex)) { continue }
         $iso = Parse-PubDate ($(if ($pNode) { $pNode.InnerText } else { '' }))
         if (-not $iso) { continue }
+        # Team tagging uses the TITLE ONLY (see $TeamPatterns note); this also
+        # keeps fresh and archived items tagged identically as they age out.
+        $teams = @(Get-Teams $title)
         # Newest wins on duplicate URL (title/time may get corrected upstream).
         $byUrl[$link] = [pscustomobject]@{
             title   = $title.Trim()
             url     = $link.Trim()
             source  = $feed.name
             pubDate = $iso
+            teams   = $teams
         }
         $fetched++
     }
