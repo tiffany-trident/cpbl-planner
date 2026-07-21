@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>新聞篩選 Mockup</title>
+<style>
+@font-face {
+  font-family: 'jf-openhuninn';
+  src: url('https://cdn.jsdelivr.net/gh/marsnow/open-huninn-font@1.1/font/jf-openhuninn.woff2') format('woff2'),
+       url('https://cdn.jsdelivr.net/gh/marsnow/open-huninn-font@1.1/font/jf-openhuninn.woff') format('woff');
+  font-display: swap;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #FDFCFA; font-family: 'Noto Sans TC', 'Inter', sans-serif; color: #4A3728; padding: 24px 0 60px; }
+
+/* ── 新聞頁容器（沿用 production .news-view）── */
+.news-view { max-width: 820px; margin: 20px auto; padding: 0 32px; }
+.news-head { margin-bottom: 18px; }
+.news-title { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; font-size: 24px; color: #4A3728; margin: 0 0 4px; letter-spacing: 1px; }
+.news-sub { font-size: 13px; color: #9B8E7E; margin: 0; }
+
+/* ── 篩選卡（沿用 production .filter-card）── */
+.filter-card { background: #FFF; border-radius: 14px; box-shadow: 0 2px 8px rgba(212,196,171,0.10); margin-bottom: 24px; overflow: hidden; }
+
+/* 收合列（always visible）*/
+.filter-toggle { display: flex; align-items: center; gap: 10px; padding: 14px 20px; cursor: pointer; user-select: none; }
+.filter-toggle-icon { width: 16px; height: 16px; stroke: #C2573A; flex-shrink: 0; }
+.filter-toggle-label { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; font-size: 14px; font-weight: 500; color: #4A3728; letter-spacing: 1px; }
+.filter-summary { font-size: 12px; color: #9B8E7E; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.filter-summary b { color: #C2573A; font-weight: 600; }
+.filter-toggle-count { font-size: 12px; color: #9B8E7E; white-space: nowrap; }
+.filter-chevron { width: 16px; height: 16px; stroke: #B8ADA0; transition: transform 0.2s; }
+.filter-card.open .filter-chevron { transform: rotate(180deg); }
+
+/* 展開內容 */
+.filter-body { padding: 0 20px 18px; border-top: 1px solid #F0E9DD; display: none; }
+.filter-card.open .filter-body { display: block; }
+.filter-row { display: flex; align-items: center; gap: 12px; margin: 14px 0 0; }
+.filter-label { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; font-size: 13px; font-weight: 500; color: #7A6E5E; letter-spacing: 1px; white-space: nowrap; min-width: 40px; }
+
+/* 關鍵字搜尋框 */
+.news-search { flex: 1; position: relative; }
+.news-search input { width: 100%; border: 1px solid #E0D8CC; border-radius: 20px; padding: 9px 16px 9px 38px; font-family: inherit; font-size: 14px; color: #4A3728; background: #FFF; transition: border-color 0.2s; }
+.news-search input:focus { outline: none; border-color: #C2573A; }
+.news-search svg { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); width: 15px; height: 15px; stroke: #B8ADA0; }
+
+/* 球隊 chips（沿用 .chip / .chip-opp 多選）*/
+.chip-group { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { display: inline-flex; align-items: center; padding: 7px 16px; border-radius: 22px; font-size: 13px; font-weight: 500; cursor: pointer; border: 1px solid #E0D8CC; background: #FFF; color: #7A6E5E; transition: all 0.2s; user-select: none; }
+.chip:hover { border-color: #C2573A; color: #C2573A; background: #FDF6EE; }
+.chip img { width: 18px; height: 18px; object-fit: contain; margin-right: 5px; border-radius: 50%; }
+.chip-opp.active { color: #4A3728; font-weight: 600; border-width: 1.5px; }
+.chip-opp.active[data-team="中信兄弟"] { background: color-mix(in srgb, #FACD01 18%, #FFFDF8); border-color: #E3B505; }
+.chip-opp.active[data-team="統一7-ELEVEn獅"] { background: color-mix(in srgb, #C46A18 14%, #FFFDF8); border-color: #C46A18; }
+.chip-opp.active[data-team="樂天桃猿"] { background: color-mix(in srgb, #7B1A1A 12%, #FFFDF8); border-color: #7B1A1A; }
+.chip-opp.active[data-team="富邦悍將"] { background: color-mix(in srgb, #3468C0 13%, #FFFDF8); border-color: #3468C0; }
+.chip-opp.active[data-team="味全龍"] { background: color-mix(in srgb, #D8252D 12%, #FFFDF8); border-color: #D8252D; }
+.chip-opp.active[data-team="台鋼雄鷹"] { background: color-mix(in srgb, #1A6B3A 13%, #FFFDF8); border-color: #1A6B3A; }
+
+/* 時間範圍 segmented（膠囊 + 白色 active，iOS 風）*/
+.seg { display: inline-flex; background: #F0E9DD; border-radius: 12px; padding: 3px; gap: 2px; }
+.seg-btn { border: none; background: transparent; padding: 6px 18px; border-radius: 10px; font-family: inherit; font-size: 13px; font-weight: 500; color: #7A6E5E; cursor: pointer; transition: all 0.2s; }
+.seg-btn.active { background: #FFF; color: #C2573A; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+
+.filter-actions { margin-left: auto; display: flex; align-items: center; gap: 12px; }
+.result-count { font-size: 12px; color: #9B8E7E; }
+.reset-btn { border: none; background: none; font-family: inherit; font-size: 12px; color: #B8ADA0; cursor: pointer; text-decoration: underline; }
+.reset-btn:hover { color: #C2573A; }
+
+/* ── 新聞列表（沿用 production 樣式）── */
+.news-daygroup { margin-bottom: 22px; }
+.news-dayhead { font-size: 13px; font-weight: 700; color: #C2573A; padding: 6px 0; border-bottom: 1px solid #F0DFB8; margin-bottom: 6px; letter-spacing: 0.5px; }
+.news-item { display: grid; grid-template-columns: 52px 1fr auto; align-items: baseline; gap: 12px; padding: 11px 8px; border-radius: 10px; text-decoration: none; transition: background 0.15s; }
+.news-item:hover { background: #FDF6EE; }
+.news-time { font-family: 'Inter', sans-serif; font-size: 13px; color: #9B8E7E; font-variant-numeric: tabular-nums; }
+.news-item-title { font-size: 15px; line-height: 1.5; color: #4A3728; }
+.news-item:hover .news-item-title { color: #C2573A; }
+.news-source { font-size: 11px; color: #9B8E7E; background: #F5EFE4; border-radius: 10px; padding: 2px 9px; white-space: nowrap; }
+.news-empty { text-align: center; color: #9B8E7E; padding: 48px 0; font-size: 14px; }
+.news-empty-icon { font-size: 40px; margin-bottom: 12px; }
+.news-attr { font-size: 11px; color: #B8ADA0; margin-top: 24px; line-height: 1.6; border-top: 1px solid #EEE9E0; padding-top: 12px; }
+
+.demo-note { max-width: 820px; margin: 0 auto 8px; padding: 0 32px; font-size: 12px; color: #B8ADA0; }
+
+@media (max-width: 640px) {
+  .news-view { margin: 16px auto; padding: 0 16px; }
+  .filter-row { flex-direction: column; align-items: stretch; }
+  .filter-label { min-width: 0; }
+  .filter-actions { margin-left: 0; justify-content: space-between; }
+  .news-item { grid-template-columns: 46px 1fr; gap: 8px; }
+  .news-source { grid-column: 2; justify-self: start; margin-top: 2px; }
+}
+</style>
+</head>
+<body>
+<div class="demo-note">※ Mockup 範例資料，非真實新聞。字體、色彩、隊徽、chip 皆取自 production。</div>
+<div class="news-view">
+  <div class="news-head">
+    <h2 class="news-title">中職相關新聞</h2>
+    <p class="news-sub">依發布時間排序，點標題前往原始報導</p>
+  </div>
+
+  <div class="filter-card" id="filterCard">
+    <div class="filter-toggle" id="filterToggle">
+      <svg class="filter-toggle-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg>
+      <span class="filter-toggle-label">篩選</span>
+      <span class="filter-summary" id="summary">全部新聞</span>
+      <span class="filter-toggle-count" id="count"></span>
+      <svg class="filter-chevron" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    </div>
+    <div class="filter-body">
+      <div class="filter-row">
+        <div class="news-search">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="text" id="kw" placeholder="搜尋新聞標題…">
+        </div>
+      </div>
+      <div class="filter-row">
+        <span class="filter-label">球隊</span>
+        <div class="chip-group" id="teamChips"></div>
+      </div>
+      <div class="filter-row">
+        <span class="filter-label">時間</span>
+        <div class="seg" id="timeSeg">
+          <button class="seg-btn active" data-range="all">全部</button>
+          <button class="seg-btn" data-range="week">本週</button>
+          <button class="seg-btn" data-range="today">今天</button>
+        </div>
+        <button class="reset-btn" id="reset" style="margin-left:auto">重設</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="newsBody"></div>
+  <p class="news-attr">更新於 7月20日 週一 19:00 · 新聞標題與連結由各原始媒體提供，著作權屬原媒體所有，點擊前往原站閱讀。</p>
+</div>
+
+<script>
+const NOW = new Date('2026-07-20T19:00:00+08:00'); // 固定 demo 時間，讓今天/本週分桶穩定
+const LOGO = {
+  '中信兄弟': 'https://cpbl.com.tw/files/atts/0L021497108709222204/logo_brothers.png',
+  '統一7-ELEVEn獅': 'https://cpbl.com.tw/files/atts/0L021496162893869773/logo_lions.png',
+  '樂天桃猿': 'https://cpbl.com.tw/files/atts/0L015574823122453305/2024_CPBL%E5%85%AD%E9%9A%8ALogo_R2_%E5%AE%98%E7%B6%B2.png',
+  '富邦悍將': 'https://cpbl.com.tw/files/atts/0L021495969510091777/logo_fubon.png',
+  '味全龍': 'https://cpbl.com.tw/files/atts/0L021497845061333235/logo_dragon.png',
+  '台鋼雄鷹': 'https://cpbl.com.tw/files/atts/0M259522048557486065/%E5%96%AE%E8%89%B2T-100x100.png',
+};
+const SHORT = { '中信兄弟':'中信兄弟','統一7-ELEVEn獅':'統一獅','樂天桃猿':'樂天桃猿','富邦悍將':'富邦悍將','味全龍':'味全龍','台鋼雄鷹':'台鋼雄鷹' };
+const TEAMS = Object.keys(LOGO);
+
+// Mockup 範例資料：teams 標記與標題內容一致
+const NEWS = [
+  { t:'中職》兄弟德保拉今先發 對決雄鷹後勁', s:'中央社', d:'2026-07-20T18:05:00+08:00', teams:['中信兄弟','台鋼雄鷹'] },
+  { t:'樂天桃猿主場拉炮之夜 週末門票開賣', s:'自由時報', d:'2026-07-20T16:40:00+08:00', teams:['樂天桃猿'] },
+  { t:'統一獅林安可揮再見安打 獅隊逆轉勝', s:'ETtoday', d:'2026-07-20T15:20:00+08:00', teams:['統一7-ELEVEn獅'] },
+  { t:'富邦悍將投手右肩不適 教練團評估先發輪值', s:'中央社', d:'2026-07-20T12:10:00+08:00', teams:['富邦悍將'] },
+  { t:'味全龍徐若熙飆最速球 完投九局奪勝', s:'自由時報', d:'2026-07-19T22:15:00+08:00', teams:['味全龍'] },
+  { t:'台鋼雄鷹魔鷹單場雙響砲 打線火力全開', s:'ETtoday', d:'2026-07-19T21:30:00+08:00', teams:['台鋼雄鷹'] },
+  { t:'中信兄弟江坤宇連五場猛打賞 穩居打點王', s:'中央社', d:'2026-07-19T20:00:00+08:00', teams:['中信兄弟'] },
+  { t:'亞運棒球》台灣隊培訓名單出爐 統一獅支援最多', s:'自由時報', d:'2026-07-19T11:45:00+08:00', teams:['統一7-ELEVEn獅'] },
+  { t:'樂天桃猿宣布續約總教練 目標下半季封王', s:'ETtoday', d:'2026-07-18T19:20:00+08:00', teams:['樂天桃猿'] },
+  { t:'富邦悍將主場明星週活動 開放球迷入場同樂', s:'中央社', d:'2026-07-18T17:00:00+08:00', teams:['富邦悍將'] },
+  { t:'中職全明星賽票選開跑 兄弟球員暫居領先', s:'自由時報', d:'2026-07-18T14:30:00+08:00', teams:['中信兄弟'] },
+  { t:'味全龍新洋投抵台 預計下週上一軍先發', s:'中央社', d:'2026-07-15T16:50:00+08:00', teams:['味全龍'] },
+  { t:'台鋼雄鷹主場迎桃猿 火車便當主題日開跑', s:'ETtoday', d:'2026-07-14T13:15:00+08:00', teams:['台鋼雄鷹','樂天桃猿'] },
+];
+
+let selTeams = new Set(TEAMS);  // 預設全選（六隊都亮）
+let timeRange = 'all';
+let keyword = '';
+
+const dayKeyFmt = new Intl.DateTimeFormat('en-CA', { timeZone:'Asia/Taipei', year:'numeric', month:'2-digit', day:'2-digit' });
+const dayLabelFmt = new Intl.DateTimeFormat('zh-TW', { timeZone:'Asia/Taipei', month:'long', day:'numeric', weekday:'short' });
+const timeFmt = new Intl.DateTimeFormat('zh-TW', { timeZone:'Asia/Taipei', hour:'2-digit', minute:'2-digit', hour12:false });
+
+// 球隊 chips
+const chipBox = document.getElementById('teamChips');
+TEAMS.forEach(t => {
+  const c = document.createElement('span');
+  c.className = 'chip chip-opp active';  // 預設全選
+  c.dataset.team = t;
+  c.innerHTML = '<img src="'+LOGO[t]+'" alt="">'+SHORT[t];
+  c.onclick = () => { c.classList.toggle('active'); selTeams.has(t) ? selTeams.delete(t) : selTeams.add(t); render(); };
+  chipBox.appendChild(c);
+});
+
+// 收合列點開/收起（點重設不觸發）
+document.getElementById('filterToggle').onclick = () => {
+  document.getElementById('filterCard').classList.toggle('open');
+};
+
+document.getElementById('timeSeg').onclick = e => {
+  const b = e.target.closest('.seg-btn'); if (!b) return;
+  document.querySelectorAll('.seg-btn').forEach(x => x.classList.remove('active'));
+  b.classList.add('active'); timeRange = b.dataset.range; render();
+};
+document.getElementById('kw').oninput = e => { keyword = e.target.value.trim(); render(); };
+document.getElementById('reset').onclick = () => {
+  selTeams = new Set(TEAMS); timeRange = 'all'; keyword = '';
+  document.querySelectorAll('.chip').forEach(c => c.classList.add('active'));
+  document.querySelectorAll('.seg-btn').forEach(x => x.classList.remove('active'));
+  document.querySelector('.seg-btn[data-range="all"]').classList.add('active');
+  document.getElementById('kw').value = '';
+  render();
+};
+
+function inRange(d) {
+  if (timeRange === 'all') return true;
+  const dt = new Date(d);
+  if (timeRange === 'today') return dayKeyFmt.format(dt) === dayKeyFmt.format(NOW);
+  if (timeRange === 'week') { const diff = (NOW - dt) / 86400000; return diff >= 0 && diff <= 7; }
+  return true;
+}
+
+function render() {
+  const allSel = selTeams.size === TEAMS.length;  // 全選＝全部（含無隊標記的綜合新聞）
+  let items = NEWS.filter(n =>
+    (allSel || (n.teams && n.teams.some(t => selTeams.has(t)))) &&
+    inRange(n.d) &&
+    (keyword === '' || n.t.includes(keyword))
+  ).sort((a,b) => b.d.localeCompare(a.d));
+
+  document.getElementById('count').textContent = items.length + ' 則';
+
+  // 收合列摘要：讓收合狀態也看得出套用了哪些條件
+  const parts = [];
+  if (selTeams.size === 0) parts.push('未選球隊');
+  else if (!allSel) parts.push([...TEAMS].filter(t => selTeams.has(t)).map(t => SHORT[t]).join('、'));
+  if (timeRange === 'today') parts.push('今天');
+  if (timeRange === 'week') parts.push('本週');
+  if (keyword) parts.push('「' + keyword + '」');
+  document.getElementById('summary').innerHTML = parts.length ? parts.map(p => '<b>' + p + '</b>').join(' · ') : '全部新聞';
+
+  const body = document.getElementById('newsBody');
+  if (!items.length) {
+    body.innerHTML = '<div class="news-empty"><div class="news-empty-icon">📰</div>沒有符合條件的新聞，換個篩選試試</div>';
+    return;
+  }
+  let html = '', lastKey = null;
+  items.forEach(n => {
+    const dt = new Date(n.d);
+    const key = dayKeyFmt.format(dt);
+    if (key !== lastKey) {
+      if (lastKey !== null) html += '</div>';
+      html += '<div class="news-daygroup"><div class="news-dayhead">'+dayLabelFmt.format(dt)+'</div>';
+      lastKey = key;
+    }
+    html += '<a class="news-item" href="#" onclick="return false">'+
+      '<span class="news-time">'+timeFmt.format(dt)+'</span>'+
+      '<span class="news-item-title">'+n.t+'</span>'+
+      '<span class="news-source">'+n.s+'</span></a>';
+  });
+  html += '</div>';
+  body.innerHTML = html;
+}
+render();
+</script>
+</body>
+</html>

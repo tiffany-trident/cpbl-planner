@@ -529,10 +529,38 @@ button.card-weather.clickable:active { transform: scale(0.96); }
 .news-loading, .news-empty { text-align: center; color: #9B8E7E; padding: 48px 0; font-size: 14px; }
 .news-empty-icon { font-size: 40px; margin-bottom: 12px; }
 .news-attr { font-size: 11px; color: #B8ADA0; margin-top: 24px; line-height: 1.6; border-top: 1px solid #EEE9E0; padding-top: 12px; }
+
+/* ── 新聞篩選卡（收合式；球隊 chip 沿用 .chip.chip-opp）── */
+.news-filter { background: #FFF; border-radius: 14px; box-shadow: 0 2px 8px rgba(212,196,171,0.10); margin-bottom: 24px; overflow: hidden; }
+.news-filter-toggle { display: flex; align-items: center; gap: 10px; padding: 14px 20px; cursor: pointer; user-select: none; }
+.news-filter-toggle-icon { width: 16px; height: 16px; stroke: #C2573A; fill: none; flex-shrink: 0; }
+.news-filter-toggle-label { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; font-size: 14px; font-weight: 500; color: #4A3728; letter-spacing: 1px; }
+.news-filter-summary { font-size: 12px; color: #9B8E7E; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.news-filter-summary b { color: #C2573A; font-weight: 600; }
+.news-filter-count { font-size: 12px; color: #9B8E7E; white-space: nowrap; }
+.news-filter-chevron { width: 16px; height: 16px; stroke: #B8ADA0; fill: none; transition: transform 0.2s; }
+.news-filter.open .news-filter-chevron { transform: rotate(180deg); }
+.news-filter-body { padding: 0 20px 18px; border-top: 1px solid #F0E9DD; display: none; }
+.news-filter.open .news-filter-body { display: block; }
+.news-filter-row { display: flex; align-items: center; gap: 12px; margin-top: 14px; }
+.news-filter-rlabel { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; font-size: 13px; font-weight: 500; color: #7A6E5E; letter-spacing: 1px; white-space: nowrap; min-width: 40px; }
+.news-search { flex: 1; position: relative; }
+.news-search input { width: 100%; border: 1px solid #E0D8CC; border-radius: 20px; padding: 9px 16px 9px 38px; font-family: inherit; font-size: 14px; color: #4A3728; background: #FFF; transition: border-color 0.2s; }
+.news-search input:focus { outline: none; border-color: #C2573A; }
+.news-search-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); width: 15px; height: 15px; stroke: #B8ADA0; fill: none; }
+.news-seg { display: inline-flex; background: #F0E9DD; border-radius: 12px; padding: 3px; gap: 2px; }
+.news-seg-btn { border: none; background: transparent; padding: 6px 18px; border-radius: 10px; font-family: inherit; font-size: 13px; font-weight: 500; color: #7A6E5E; cursor: pointer; transition: all 0.2s; }
+.news-seg-btn.active { background: #FFF; color: #C2573A; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+.news-reset { border: none; background: none; font-family: inherit; font-size: 12px; color: #B8ADA0; cursor: pointer; text-decoration: underline; margin-left: auto; }
+.news-reset:hover { color: #C2573A; }
+
 @media (max-width: 640px) {
   .news-view { margin: 24px auto; padding: 0 16px; }
   .news-item { grid-template-columns: 46px 1fr; gap: 8px; }
   .news-source { grid-column: 2; justify-self: start; margin-top: 2px; }
+  .news-filter-row { flex-direction: column; align-items: stretch; }
+  .news-filter-rlabel { min-width: 0; }
+  .news-reset { margin-left: 0; align-self: flex-end; }
 }
 .my-empty { text-align: center; padding: 80px 20px; color: #6B5F50; }
 .my-empty-icon { font-size: 56px; margin-bottom: 18px; line-height: 1; }
@@ -1021,6 +1049,36 @@ button.card-weather.clickable:active { transform: scale(0.96); }
   <div class="news-head">
     <h2 class="news-title">中職相關新聞</h2>
     <p class="news-sub">依發布時間排序，點標題前往原始報導</p>
+  </div>
+  <div class="news-filter" id="news-filter">
+    <div class="news-filter-toggle" id="news-filter-toggle">
+      <svg class="news-filter-toggle-icon" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg>
+      <span class="news-filter-toggle-label">篩選</span>
+      <span class="news-filter-summary" id="news-filter-summary">全部新聞</span>
+      <span class="news-filter-count" id="news-filter-count"></span>
+      <svg class="news-filter-chevron" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    </div>
+    <div class="news-filter-body">
+      <div class="news-filter-row">
+        <div class="news-search">
+          <svg class="news-search-icon" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="text" id="news-kw" placeholder="搜尋新聞標題…" aria-label="搜尋新聞標題">
+        </div>
+      </div>
+      <div class="news-filter-row">
+        <span class="news-filter-rlabel">球隊</span>
+        <div class="chip-group" id="news-teamchips"></div>
+      </div>
+      <div class="news-filter-row">
+        <span class="news-filter-rlabel">時間</span>
+        <div class="news-seg" id="news-timeseg">
+          <button class="news-seg-btn active" data-range="all">全部</button>
+          <button class="news-seg-btn" data-range="week">本週</button>
+          <button class="news-seg-btn" data-range="today">今天</button>
+        </div>
+        <button class="news-reset" id="news-reset">重設</button>
+      </div>
+    </div>
   </div>
   <div id="news-view-body"></div>
   <p class="news-attr" id="news-attr"></p>
@@ -3371,6 +3429,72 @@ function switchView(view) {
 // ── 新聞頁：載入 data/news.json，依發布時間新到舊、依日期分組 ──
 let newsData = null;
 
+// 台北時區日期格式（模組層共用，list 分組與時間範圍判斷一致）
+const newsDayKeyFmt = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Taipei', year: 'numeric', month: '2-digit', day: '2-digit' });
+const newsDayLabelFmt = new Intl.DateTimeFormat('zh-TW', { timeZone: 'Asia/Taipei', month: 'long', day: 'numeric', weekday: 'short' });
+const newsTimeFmt = new Intl.DateTimeFormat('zh-TW', { timeZone: 'Asia/Taipei', hour: '2-digit', minute: '2-digit', hour12: false });
+
+// 篩選狀態（球隊預設全選；全選＝全部，含無球隊標記的綜合新聞）
+let newsFilterInit = false;
+let newsSelTeams = null;   // Set<string>，lazily 初始化為全部球隊
+let newsTimeRange = 'all'; // all | week | today
+let newsKeyword = '';
+
+function newsTeamList() { return Object.keys(TEAM_LOGO); }
+
+// 容錯：teams 可能是陣列 / 單一字串 / null / {}（舊部署資料或 PS 序列化差異）
+function newsItemTeams(it) {
+  if (Array.isArray(it.teams)) return it.teams.filter(x => typeof x === 'string');
+  if (typeof it.teams === 'string' && it.teams) return [it.teams];
+  return [];
+}
+
+function initNewsFilter() {
+  if (newsFilterInit) return;
+  const teams = newsTeamList();
+  newsSelTeams = new Set(teams); // 預設全選
+  const box = document.getElementById('news-teamchips');
+  if (box) {
+    box.innerHTML = '';
+    teams.forEach(t => {
+      const chip = document.createElement('span');
+      chip.className = 'chip chip-opp active';
+      chip.dataset.team = t;
+      chip.setAttribute('aria-label', TEAM_SHORT[t] || t);
+      chip.innerHTML = logoImg(t, 18) + (TEAM_SHORT[t] || t);
+      chip.addEventListener('click', () => {
+        chip.classList.toggle('active');
+        if (newsSelTeams.has(t)) newsSelTeams.delete(t); else newsSelTeams.add(t);
+        renderNewsList();
+      });
+      box.appendChild(chip);
+    });
+  }
+  const toggle = document.getElementById('news-filter-toggle');
+  if (toggle) toggle.addEventListener('click', () => {
+    document.getElementById('news-filter').classList.toggle('open');
+  });
+  const seg = document.getElementById('news-timeseg');
+  if (seg) seg.addEventListener('click', e => {
+    const b = e.target.closest('.news-seg-btn'); if (!b) return;
+    seg.querySelectorAll('.news-seg-btn').forEach(x => x.classList.remove('active'));
+    b.classList.add('active'); newsTimeRange = b.dataset.range; renderNewsList();
+  });
+  const kw = document.getElementById('news-kw');
+  if (kw) kw.addEventListener('input', e => { newsKeyword = e.target.value.trim(); renderNewsList(); });
+  const reset = document.getElementById('news-reset');
+  if (reset) reset.addEventListener('click', () => {
+    newsSelTeams = new Set(teams); newsTimeRange = 'all'; newsKeyword = '';
+    document.querySelectorAll('#news-teamchips .chip').forEach(c => c.classList.add('active'));
+    document.querySelectorAll('#news-timeseg .news-seg-btn').forEach(x => x.classList.remove('active'));
+    const allBtn = document.querySelector('#news-timeseg .news-seg-btn[data-range="all"]');
+    if (allBtn) allBtn.classList.add('active');
+    const kwEl = document.getElementById('news-kw'); if (kwEl) kwEl.value = '';
+    renderNewsList();
+  });
+  newsFilterInit = true;
+}
+
 function renderNewsView() {
   const body = document.getElementById('news-view-body');
   if (!body) return;
@@ -3383,30 +3507,89 @@ function renderNewsView() {
     return;
   }
   const attr = document.getElementById('news-attr');
-  const items = Array.isArray(newsData.items) ? newsData.items.slice() : [];
+  const filterEl = document.getElementById('news-filter');
+  const items = Array.isArray(newsData.items) ? newsData.items : [];
+  // 完全沒有新聞：隱藏篩選卡，維持原本空狀態
   if (items.length === 0) {
+    if (filterEl) filterEl.style.display = 'none';
     body.innerHTML = '<div class="news-empty"><div class="news-empty-icon">📰</div>目前沒有相關新聞，稍後再回來看看</div>';
     if (attr) attr.textContent = '';
     return;
   }
+  if (filterEl) filterEl.style.display = '';
+  initNewsFilter();
+  if (attr) {
+    let updatedTxt = '';
+    const u = newsData.updated ? new Date(newsData.updated) : null;
+    if (u && !isNaN(u.getTime())) updatedTxt = '更新於 ' + newsDayLabelFmt.format(u) + ' ' + newsTimeFmt.format(u) + ' · ';
+    attr.textContent = updatedTxt + '新聞標題與連結由各原始媒體提供，著作權屬原媒體所有，點擊前往原站閱讀。';
+  }
+  renderNewsList();
+}
+
+function renderNewsList() {
+  const body = document.getElementById('news-view-body');
+  if (!body || !newsData) return;
+  const teams = newsTeamList();
+  const allSel = newsSelTeams && newsSelTeams.size === teams.length;
+  const now = new Date();
+  let items = (Array.isArray(newsData.items) ? newsData.items.slice() : []).filter(it => {
+    // 球隊：全選＝全部（含無標記綜合新聞）；否則需命中已選之一
+    if (!allSel) {
+      const its = newsItemTeams(it);
+      if (!its.some(t => newsSelTeams.has(t))) return false;
+    }
+    // 關鍵字：比對標題
+    if (newsKeyword && !(it.title || '').includes(newsKeyword)) return false;
+    // 時間範圍（依台北日曆日 / 近七天）
+    if (newsTimeRange !== 'all') {
+      const d = new Date(it.pubDate);
+      if (isNaN(d.getTime())) return false;
+      if (newsTimeRange === 'today') {
+        if (newsDayKeyFmt.format(d) !== newsDayKeyFmt.format(now)) return false;
+      } else if (newsTimeRange === 'week') {
+        const diff = (now - d) / 86400000;
+        if (!(diff >= -1 && diff <= 7)) return false;
+      }
+    }
+    return true;
+  });
   items.sort((a, b) => (b.pubDate || '').localeCompare(a.pubDate || ''));
-  const dayKeyFmt = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Taipei', year: 'numeric', month: '2-digit', day: '2-digit' });
-  const dayLabelFmt = new Intl.DateTimeFormat('zh-TW', { timeZone: 'Asia/Taipei', month: 'long', day: 'numeric', weekday: 'short' });
-  const timeFmt = new Intl.DateTimeFormat('zh-TW', { timeZone: 'Asia/Taipei', hour: '2-digit', minute: '2-digit', hour12: false });
+
+  // 收合列筆數 + 摘要（收合時仍看得出套用了哪些條件）
+  const countEl = document.getElementById('news-filter-count');
+  if (countEl) countEl.textContent = items.length + ' 則';
+  const sumEl = document.getElementById('news-filter-summary');
+  if (sumEl) {
+    const parts = [];
+    if (newsSelTeams) {
+      if (newsSelTeams.size === 0) parts.push('未選球隊');
+      else if (!allSel) parts.push(teams.filter(t => newsSelTeams.has(t)).map(t => TEAM_SHORT[t] || t).join('、'));
+    }
+    if (newsTimeRange === 'today') parts.push('今天');
+    if (newsTimeRange === 'week') parts.push('本週');
+    if (newsKeyword) parts.push('「' + newsKeyword + '」');
+    sumEl.innerHTML = parts.length ? parts.map(p => '<b>' + escapeHtml(p) + '</b>').join(' · ') : '全部新聞';
+  }
+
+  if (items.length === 0) {
+    body.innerHTML = '<div class="news-empty"><div class="news-empty-icon">📰</div>沒有符合條件的新聞，換個篩選試試</div>';
+    return;
+  }
   let html = '';
   let lastKey = null;
   items.forEach(it => {
     const d = new Date(it.pubDate);
     const valid = !isNaN(d.getTime());
-    const key = valid ? dayKeyFmt.format(d) : 'unknown';
+    const key = valid ? newsDayKeyFmt.format(d) : 'unknown';
     if (key !== lastKey) {
       if (lastKey !== null) html += '</div>';
-      html += '<div class="news-daygroup"><div class="news-dayhead">' + (valid ? escapeHtml(dayLabelFmt.format(d)) : '較早') + '</div>';
+      html += '<div class="news-daygroup"><div class="news-dayhead">' + (valid ? escapeHtml(newsDayLabelFmt.format(d)) : '較早') + '</div>';
       lastKey = key;
     }
     // 只接受 http(s) 連結，擋掉 javascript: 等注入向量
     const safeUrl = /^https?:\/\//i.test(it.url || '') ? it.url : '';
-    const time = valid ? timeFmt.format(d) : '';
+    const time = valid ? newsTimeFmt.format(d) : '';
     html += '<a class="news-item" href="' + escapeHtml(safeUrl) + '" target="_blank" rel="noopener noreferrer">' +
       '<span class="news-time">' + escapeHtml(time) + '</span>' +
       '<span class="news-item-title">' + escapeHtml(it.title || '') + '</span>' +
@@ -3415,12 +3598,6 @@ function renderNewsView() {
   });
   if (lastKey !== null) html += '</div>';
   body.innerHTML = html;
-  if (attr) {
-    let updatedTxt = '';
-    const u = newsData.updated ? new Date(newsData.updated) : null;
-    if (u && !isNaN(u.getTime())) updatedTxt = '更新於 ' + dayLabelFmt.format(u) + ' ' + timeFmt.format(u) + ' · ';
-    attr.textContent = updatedTxt + '新聞標題與連結由各原始媒體提供，著作權屬原媒體所有，點擊前往原站閱讀。';
-  }
 }
 
 function isSubViewOpen() {
