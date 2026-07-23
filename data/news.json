@@ -1,5 +1,5 @@
 {
-    "updated":  "2026-07-23T11:47:50+08:00",
+    "updated":  "2026-07-23T12:47:50+08:00",
     "count":  100,
     "items":  [
                   {
@@ -30,34 +30,6 @@
                                 ]
                   },
                   {
-                      "title":  "5年髒辮斷捨離 吉撈年輕20歲",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1763758",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-23T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "悍將吃定獅 鈴木3年蛻變王牌",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1763759",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-23T05:30:00+08:00",
-                      "teams":  [
-                                    "統一7-ELEVEn獅",
-                                    "富邦悍將"
-                                ]
-                  },
-                  {
-                      "title":  "新北孵蛋 光總仍獨鍾戶外球場",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1763760",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-23T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
                       "title":  "張士綸最搶鏡 兄弟打爆鷹",
                       "url":  "https://sports.ltn.com.tw/news/paper/1763756",
                       "source":  "自由時報",
@@ -74,6 +46,34 @@
                       "pubDate":  "2026-07-23T05:30:00+08:00",
                       "teams":  [
 
+                                ]
+                  },
+                  {
+                      "title":  "新北孵蛋 光總仍獨鍾戶外球場",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1763760",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-07-23T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "5年髒辮斷捨離 吉撈年輕20歲",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1763758",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-07-23T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "悍將吃定獅 鈴木3年蛻變王牌",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1763759",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-07-23T05:30:00+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅",
+                                    "富邦悍將"
                                 ]
                   },
                   {
@@ -422,6 +422,24 @@
                                 ]
                   },
                   {
+                      "title":  "黃韋盛入選亞運 與貴人再聚首",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1763608",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-07-22T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "新人起連11季10轟 朱育賢打老東家",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1763605",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-07-22T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "雙鷹「王」大爆走 逆轉兄弟",
                       "url":  "https://sports.ltn.com.tw/news/paper/1763607",
                       "source":  "自由時報",
@@ -434,24 +452,6 @@
                   {
                       "title":  "今年明星賽歸類 葉總︰像趣味競賽",
                       "url":  "https://sports.ltn.com.tw/news/paper/1763606",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-22T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "黃韋盛入選亞運 與貴人再聚首",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1763608",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-22T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "新人起連11季10轟 朱育賢打老東家",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1763605",
                       "source":  "自由時報",
                       "pubDate":  "2026-07-22T05:30:00+08:00",
                       "teams":  [
@@ -794,8 +794,8 @@
                                 ]
                   },
                   {
-                      "title":  "中職ABS電子好球帶 明年上路目標未變",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1763519",
+                      "title":  "威能帝、魔神龍 今首次先發較勁",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1763520",
                       "source":  "自由時報",
                       "pubDate":  "2026-07-21T05:30:00+08:00",
                       "teams":  [
@@ -803,8 +803,8 @@
                                 ]
                   },
                   {
-                      "title":  "威能帝、魔神龍 今首次先發較勁",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1763520",
+                      "title":  "中職ABS電子好球帶 明年上路目標未變",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1763519",
                       "source":  "自由時報",
                       "pubDate":  "2026-07-21T05:30:00+08:00",
                       "teams":  [
@@ -877,8 +877,8 @@
                                 ]
                   },
                   {
-                      "title":  "中職明星賽綜藝化？ 蔡其昌︰把餅做好做大",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1763373",
+                      "title":  "中職明星賽》陳鏞基最老開轟 郭天信止9連敗",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1763371",
                       "source":  "自由時報",
                       "pubDate":  "2026-07-20T05:30:00+08:00",
                       "teams":  [
@@ -895,8 +895,8 @@
                                 ]
                   },
                   {
-                      "title":  "中職明星賽》陳鏞基最老開轟 郭天信止9連敗",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1763371",
+                      "title":  "中職明星賽綜藝化？ 蔡其昌︰把餅做好做大",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1763373",
                       "source":  "自由時報",
                       "pubDate":  "2026-07-20T05:30:00+08:00",
                       "teams":  [
