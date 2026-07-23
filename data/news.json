@@ -1,7 +1,25 @@
 {
-    "updated":  "2026-07-23T12:47:50+08:00",
+    "updated":  "2026-07-23T13:47:49+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "3A台灣內戰林昱珉投5.1局奪勝　費柴德選保送",
+                      "url":  "https://www.cna.com.tw/news/aspt/202607230123.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-07-23T13:02:40+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "大谷翔平牛棚練投　道奇總教練：重返投手丘無時間表",
+                      "url":  "https://www.cna.com.tw/news/aspt/202607230109.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-07-23T12:26:10+08:00",
+                      "teams":  [
+
+                                ]
+                  },
                   {
                       "title":  "老虎隊李灝宇3分砲致勝　連7場敲安追平台將紀錄",
                       "url":  "https://www.cna.com.tw/news/aspt/202607230077.aspx",
@@ -27,6 +45,16 @@
                       "pubDate":  "2026-07-23T07:03:15+08:00",
                       "teams":  [
                                     "中信兄弟"
+                                ]
+                  },
+                  {
+                      "title":  "悍將吃定獅 鈴木3年蛻變王牌",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1763759",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-07-23T05:30:00+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅",
+                                    "富邦悍將"
                                 ]
                   },
                   {
@@ -64,16 +92,6 @@
                       "pubDate":  "2026-07-23T05:30:00+08:00",
                       "teams":  [
 
-                                ]
-                  },
-                  {
-                      "title":  "悍將吃定獅 鈴木3年蛻變王牌",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1763759",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-23T05:30:00+08:00",
-                      "teams":  [
-                                    "統一7-ELEVEn獅",
-                                    "富邦悍將"
                                 ]
                   },
                   {
@@ -422,8 +440,8 @@
                                 ]
                   },
                   {
-                      "title":  "黃韋盛入選亞運 與貴人再聚首",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1763608",
+                      "title":  "新人起連11季10轟 朱育賢打老東家",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1763605",
                       "source":  "自由時報",
                       "pubDate":  "2026-07-22T05:30:00+08:00",
                       "teams":  [
@@ -431,8 +449,17 @@
                                 ]
                   },
                   {
-                      "title":  "新人起連11季10轟 朱育賢打老東家",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1763605",
+                      "title":  "今年明星賽歸類 葉總︰像趣味競賽",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1763606",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-07-22T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "黃韋盛入選亞運 與貴人再聚首",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1763608",
                       "source":  "自由時報",
                       "pubDate":  "2026-07-22T05:30:00+08:00",
                       "teams":  [
@@ -447,15 +474,6 @@
                       "teams":  [
                                     "中信兄弟",
                                     "台鋼雄鷹"
-                                ]
-                  },
-                  {
-                      "title":  "今年明星賽歸類 葉總︰像趣味競賽",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1763606",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-22T05:30:00+08:00",
-                      "teams":  [
-
                                 ]
                   },
                   {
@@ -794,8 +812,8 @@
                                 ]
                   },
                   {
-                      "title":  "威能帝、魔神龍 今首次先發較勁",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1763520",
+                      "title":  "中職ABS電子好球帶 明年上路目標未變",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1763519",
                       "source":  "自由時報",
                       "pubDate":  "2026-07-21T05:30:00+08:00",
                       "teams":  [
@@ -803,8 +821,8 @@
                                 ]
                   },
                   {
-                      "title":  "中職ABS電子好球帶 明年上路目標未變",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1763519",
+                      "title":  "威能帝、魔神龍 今首次先發較勁",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1763520",
                       "source":  "自由時報",
                       "pubDate":  "2026-07-21T05:30:00+08:00",
                       "teams":  [
@@ -890,24 +908,6 @@
                       "url":  "https://sports.ltn.com.tw/news/paper/1763374",
                       "source":  "自由時報",
                       "pubDate":  "2026-07-20T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "中職明星賽綜藝化？ 蔡其昌︰把餅做好做大",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1763373",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-20T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "單向輸出的約定 邱邦辦到了",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1762999",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-17T05:30:00+08:00",
                       "teams":  [
 
                                 ]
