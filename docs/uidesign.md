@@ -138,8 +138,9 @@ https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets/{name}/3D/{slug
 ## Nav 導航列
 
 - `position: sticky; top: 0; z-index: 100`，滾動時固定頂部
-- 三個錨點連結：戰績 / 篩選 / 賽程，`smooth scroll` 跳轉
-- 兼當「返回頂部」功能，不需額外 back-to-top 按鈕
+- **頁籤式**三視圖：賽程（主視圖）/ 新聞 / 我的，互斥切換（`switchView()`）
+- **賽程**頁籤＝回主視圖**頂端**（平滑捲到最上，順序：戰績 → 篩選 → 賽程總覽），兼當「返回頂部」；不再跳到最底的賽程總覽，也讓子頁使用者回得到戰績/篩選（2026-07-23 修正）
+- 新聞 / 我的為子視圖，用 URL hash（`#news` / `#my`）；`nav-logo` 目前不可點
 
 ## Section 標題
 
