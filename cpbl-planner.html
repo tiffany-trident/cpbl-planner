@@ -3620,7 +3620,12 @@ document.querySelector('.nav-links').addEventListener('click', function(e) {
     history.replaceState(null, '', '#' + view);
     switchView(view);
   } else if (view === 'main') {
+    // 「賽程」= 回主視圖頂端（不再跳到最底的賽程總覽），並兼當回頂鈕，
+    // 讓已在站內的使用者能回到戰績 / 篩選（順序：戰績 → 篩選 → 賽程總覽）
+    e.preventDefault();
     if (isSubViewOpen()) switchView('main');
+    history.replaceState(null, '', location.pathname + location.search);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 });
 
