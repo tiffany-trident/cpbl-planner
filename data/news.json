@@ -1,7 +1,16 @@
 {
-    "updated":  "2026-07-23T22:47:49+08:00",
+    "updated":  "2026-07-23T23:47:50+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "中職》「今天真的是投捕的勝利！」  光總大讚陳仕朋、林岱安",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5515726",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-07-23T22:51:59+08:00",
+                      "teams":  [
+
+                                ]
+                  },
                   {
                       "title":  "中職》「這一勝對我來說非常重要」  陳仕朋動人的英雄感言",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5515715",
@@ -12,10 +21,47 @@
                                 ]
                   },
                   {
+                      "title":  "陳仕朋94球壓制獅隊　生涯首次麥達克斯完封勝",
+                      "url":  "https://www.cna.com.tw/news/aspt/202607230379.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-07-23T22:22:00+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅"
+                                ]
+                  },
+                  {
+                      "title":  "陳仕朋讓獅隊整晚掛蛋！94球「Maddux完封」　富邦6比0海扁統一",
+                      "url":  "https://sports.ettoday.net/news/3206700",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-07-23T21:35:00+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅",
+                                    "富邦悍將"
+                                ]
+                  },
+                  {
                       "title":  "中職》狂！ 陳仕朋勇奪生涯首次無四死球完封勝",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5515672",
                       "source":  "自由時報",
                       "pubDate":  "2026-07-23T21:28:27+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "林安可單場雙安延續連3場安打　西武仍慘敗火腿",
+                      "url":  "https://www.cna.com.tw/news/aspt/202607230363.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-07-23T21:13:20+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "王彥程7局失2分奪第8勝　寫旅韓台將新紀錄",
+                      "url":  "https://www.cna.com.tw/news/aspt/202607230352.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-07-23T20:42:54+08:00",
                       "teams":  [
 
                                 ]
@@ -194,15 +240,6 @@
                                 ]
                   },
                   {
-                      "title":  "5年髒辮斷捨離 吉撈年輕20歲",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1763758",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-23T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
                       "title":  "悍將吃定獅 鈴木3年蛻變王牌",
                       "url":  "https://sports.ltn.com.tw/news/paper/1763759",
                       "source":  "自由時報",
@@ -210,16 +247,6 @@
                       "teams":  [
                                     "統一7-ELEVEn獅",
                                     "富邦悍將"
-                                ]
-                  },
-                  {
-                      "title":  "張士綸最搶鏡 兄弟打爆鷹",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1763756",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-23T05:30:00+08:00",
-                      "teams":  [
-                                    "中信兄弟",
-                                    "台鋼雄鷹"
                                 ]
                   },
                   {
@@ -238,6 +265,25 @@
                       "pubDate":  "2026-07-23T05:30:00+08:00",
                       "teams":  [
 
+                                ]
+                  },
+                  {
+                      "title":  "5年髒辮斷捨離 吉撈年輕20歲",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1763758",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-07-23T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "張士綸最搶鏡 兄弟打爆鷹",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1763756",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-07-23T05:30:00+08:00",
+                      "teams":  [
+                                    "中信兄弟",
+                                    "台鋼雄鷹"
                                 ]
                   },
                   {
@@ -586,15 +632,6 @@
                                 ]
                   },
                   {
-                      "title":  "黃韋盛入選亞運 與貴人再聚首",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1763608",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-22T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
                       "title":  "今年明星賽歸類 葉總︰像趣味競賽",
                       "url":  "https://sports.ltn.com.tw/news/paper/1763606",
                       "source":  "自由時報",
@@ -604,8 +641,8 @@
                                 ]
                   },
                   {
-                      "title":  "新人起連11季10轟 朱育賢打老東家",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1763605",
+                      "title":  "黃韋盛入選亞運 與貴人再聚首",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1763608",
                       "source":  "自由時報",
                       "pubDate":  "2026-07-22T05:30:00+08:00",
                       "teams":  [
@@ -620,6 +657,15 @@
                       "teams":  [
                                     "中信兄弟",
                                     "台鋼雄鷹"
+                                ]
+                  },
+                  {
+                      "title":  "新人起連11季10轟 朱育賢打老東家",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1763605",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-07-22T05:30:00+08:00",
+                      "teams":  [
+
                                 ]
                   },
                   {
@@ -865,51 +911,6 @@
                       "pubDate":  "2026-07-21T17:56:35+08:00",
                       "teams":  [
                                     "樂天桃猿"
-                                ]
-                  },
-                  {
-                      "title":  "中職》還原明星賽滿壘解危始末 呂彥青開玩笑回：對面要檢討",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5512831",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-21T17:52:51+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "郭天信明星賽登板　葉君璋不談紀錄：這是趣味競賽",
-                      "url":  "https://www.cna.com.tw/news/aspt/202607210288.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-07-21T17:40:20+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "楊鈺翔睽違5年返一軍兒子成動力　感謝蕭一傑幫助",
-                      "url":  "https://www.cna.com.tw/news/aspt/202607210267.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-07-21T17:22:36+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "中職》葉君璋認為 今年明星賽應該不算是明星賽",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5512775",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-21T17:19:30+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "林英傑明星賽對決林智勝　直呼享受4萬人的感覺",
-                      "url":  "https://www.cna.com.tw/news/aspt/202607210256.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-07-21T17:03:11+08:00",
-                      "teams":  [
-
                                 ]
                   }
               ]
