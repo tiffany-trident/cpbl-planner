@@ -1,7 +1,25 @@
 {
-    "updated":  "2026-07-23T10:47:50+08:00",
+    "updated":  "2026-07-23T11:47:50+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "老虎隊李灝宇3分砲致勝　連7場敲安追平台將紀錄",
+                      "url":  "https://www.cna.com.tw/news/aspt/202607230077.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-07-23T11:28:02+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "中職》富邦悍將X阪神虎  前日職強投降臨新莊城堡開球",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5514772",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-07-23T11:14:32+08:00",
+                      "teams":  [
+                                    "富邦悍將"
+                                ]
+                  },
                   {
                       "title":  "中職》火力展示一夜！兄弟差點寫下球團與隊史新紀錄",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5514485",
@@ -31,8 +49,8 @@
                                 ]
                   },
                   {
-                      "title":  "李超神龍擺尾 迎來蔣少宏再見安",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1763757",
+                      "title":  "新北孵蛋 光總仍獨鍾戶外球場",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1763760",
                       "source":  "自由時報",
                       "pubDate":  "2026-07-23T05:30:00+08:00",
                       "teams":  [
@@ -50,8 +68,8 @@
                                 ]
                   },
                   {
-                      "title":  "新北孵蛋 光總仍獨鍾戶外球場",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1763760",
+                      "title":  "李超神龍擺尾 迎來蔣少宏再見安",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1763757",
                       "source":  "自由時報",
                       "pubDate":  "2026-07-23T05:30:00+08:00",
                       "teams":  [
@@ -404,8 +422,18 @@
                                 ]
                   },
                   {
-                      "title":  "新人起連11季10轟 朱育賢打老東家",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1763605",
+                      "title":  "雙鷹「王」大爆走 逆轉兄弟",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1763607",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-07-22T05:30:00+08:00",
+                      "teams":  [
+                                    "中信兄弟",
+                                    "台鋼雄鷹"
+                                ]
+                  },
+                  {
+                      "title":  "今年明星賽歸類 葉總︰像趣味競賽",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1763606",
                       "source":  "自由時報",
                       "pubDate":  "2026-07-22T05:30:00+08:00",
                       "teams":  [
@@ -422,18 +450,8 @@
                                 ]
                   },
                   {
-                      "title":  "雙鷹「王」大爆走 逆轉兄弟",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1763607",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-22T05:30:00+08:00",
-                      "teams":  [
-                                    "中信兄弟",
-                                    "台鋼雄鷹"
-                                ]
-                  },
-                  {
-                      "title":  "今年明星賽歸類 葉總︰像趣味競賽",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1763606",
+                      "title":  "新人起連11季10轟 朱育賢打老東家",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1763605",
                       "source":  "自由時報",
                       "pubDate":  "2026-07-22T05:30:00+08:00",
                       "teams":  [
@@ -776,8 +794,8 @@
                                 ]
                   },
                   {
-                      "title":  "威能帝、魔神龍 今首次先發較勁",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1763520",
+                      "title":  "中職ABS電子好球帶 明年上路目標未變",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1763519",
                       "source":  "自由時報",
                       "pubDate":  "2026-07-21T05:30:00+08:00",
                       "teams":  [
@@ -785,8 +803,8 @@
                                 ]
                   },
                   {
-                      "title":  "中職ABS電子好球帶 明年上路目標未變",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1763519",
+                      "title":  "威能帝、魔神龍 今首次先發較勁",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1763520",
                       "source":  "自由時報",
                       "pubDate":  "2026-07-21T05:30:00+08:00",
                       "teams":  [
@@ -859,6 +877,15 @@
                                 ]
                   },
                   {
+                      "title":  "中職明星賽綜藝化？ 蔡其昌︰把餅做好做大",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1763373",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-07-20T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "中職明星賽》王建民對決會長 怕丟人流手汗",
                       "url":  "https://sports.ltn.com.tw/news/paper/1763374",
                       "source":  "自由時報",
@@ -877,40 +904,12 @@
                                 ]
                   },
                   {
-                      "title":  "中職明星賽綜藝化？ 蔡其昌︰把餅做好做大",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1763373",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-20T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "猿險勝獅 曾家輝出現警訊",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1762998",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-17T05:30:00+08:00",
-                      "teams":  [
-                                    "統一7-ELEVEn獅",
-                                    "樂天桃猿"
-                                ]
-                  },
-                  {
                       "title":  "單向輸出的約定 邱邦辦到了",
                       "url":  "https://sports.ltn.com.tw/news/paper/1762999",
                       "source":  "自由時報",
                       "pubDate":  "2026-07-17T05:30:00+08:00",
                       "teams":  [
 
-                                ]
-                  },
-                  {
-                      "title":  "圖輯》樂天主場超神氣！大溪普濟堂關聖帝君披桃猿球衣",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5508061",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-16T23:05:30+08:00",
-                      "teams":  [
-                                    "樂天桃猿"
                                 ]
                   }
               ]
