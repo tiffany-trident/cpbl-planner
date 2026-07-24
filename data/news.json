@@ -1,5 +1,5 @@
 {
-    "updated":  "2026-07-24T13:00:05+08:00",
+    "updated":  "2026-07-24T14:00:06+08:00",
     "count":  100,
     "items":  [
                   {
@@ -21,33 +21,6 @@
                                 ]
                   },
                   {
-                      "title":  "樂天洋砲上架 挑戰今轟大巨蛋",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1763895",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-24T05:30:00+08:00",
-                      "teams":  [
-                                    "樂天桃猿"
-                                ]
-                  },
-                  {
-                      "title":  "陳仕朋宛如梅達斯 無四死球完封勝",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1763892",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-24T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "王彥程優質第8勝 登韓職台將之最",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1763896",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-24T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
                       "title":  "經典賽全台公敵 左投來台找機會",
                       "url":  "https://sports.ltn.com.tw/news/paper/1763894",
                       "source":  "自由時報",
@@ -63,6 +36,33 @@
                       "pubDate":  "2026-07-24T05:30:00+08:00",
                       "teams":  [
                                     "富邦悍將"
+                                ]
+                  },
+                  {
+                      "title":  "王彥程優質第8勝 登韓職台將之最",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1763896",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-07-24T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "樂天洋砲上架 挑戰今轟大巨蛋",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1763895",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-07-24T05:30:00+08:00",
+                      "teams":  [
+                                    "樂天桃猿"
+                                ]
+                  },
+                  {
+                      "title":  "陳仕朋宛如梅達斯 無四死球完封勝",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1763892",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-07-24T05:30:00+08:00",
+                      "teams":  [
+
                                 ]
                   },
                   {
@@ -303,34 +303,6 @@
                                 ]
                   },
                   {
-                      "title":  "李超神龍擺尾 迎來蔣少宏再見安",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1763757",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-23T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "5年髒辮斷捨離 吉撈年輕20歲",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1763758",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-23T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "悍將吃定獅 鈴木3年蛻變王牌",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1763759",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-23T05:30:00+08:00",
-                      "teams":  [
-                                    "統一7-ELEVEn獅",
-                                    "富邦悍將"
-                                ]
-                  },
-                  {
                       "title":  "新北孵蛋 光總仍獨鍾戶外球場",
                       "url":  "https://sports.ltn.com.tw/news/paper/1763760",
                       "source":  "自由時報",
@@ -347,6 +319,34 @@
                       "teams":  [
                                     "中信兄弟",
                                     "台鋼雄鷹"
+                                ]
+                  },
+                  {
+                      "title":  "悍將吃定獅 鈴木3年蛻變王牌",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1763759",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-07-23T05:30:00+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅",
+                                    "富邦悍將"
+                                ]
+                  },
+                  {
+                      "title":  "李超神龍擺尾 迎來蔣少宏再見安",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1763757",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-07-23T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "5年髒辮斷捨離 吉撈年輕20歲",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1763758",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-07-23T05:30:00+08:00",
+                      "teams":  [
+
                                 ]
                   },
                   {
@@ -695,6 +695,24 @@
                                 ]
                   },
                   {
+                      "title":  "新人起連11季10轟 朱育賢打老東家",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1763605",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-07-22T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "黃韋盛入選亞運 與貴人再聚首",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1763608",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-07-22T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "今年明星賽歸類 葉總︰像趣味競賽",
                       "url":  "https://sports.ltn.com.tw/news/paper/1763606",
                       "source":  "自由時報",
@@ -711,24 +729,6 @@
                       "teams":  [
                                     "中信兄弟",
                                     "台鋼雄鷹"
-                                ]
-                  },
-                  {
-                      "title":  "新人起連11季10轟 朱育賢打老東家",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1763605",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-22T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "黃韋盛入選亞運 與貴人再聚首",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1763608",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-22T05:30:00+08:00",
-                      "teams":  [
-
                                 ]
                   },
                   {
