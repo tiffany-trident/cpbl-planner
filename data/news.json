@@ -1,7 +1,16 @@
 {
-    "updated":  "2026-07-24T15:00:05+08:00",
+    "updated":  "2026-07-24T16:00:06+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "中職》樂天新洋砲威克今直升一軍 扛起第4棒",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5516397",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-07-24T15:24:53+08:00",
+                      "teams":  [
+                                    "樂天桃猿"
+                                ]
+                  },
                   {
                       "title":  "郭智輝談投入棒球初心　未成立中職球隊回應檢驗",
                       "url":  "https://www.cna.com.tw/news/aspt/202607240140.aspx",
@@ -30,12 +39,30 @@
                                 ]
                   },
                   {
+                      "title":  "王彥程優質第8勝 登韓職台將之最",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1763896",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-07-24T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "陳仕朋宛如梅達斯 無四死球完封勝",
                       "url":  "https://sports.ltn.com.tw/news/paper/1763892",
                       "source":  "自由時報",
                       "pubDate":  "2026-07-24T05:30:00+08:00",
                       "teams":  [
 
+                                ]
+                  },
+                  {
+                      "title":  "悍將先發陣容 都是光總「守」選",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1763893",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-07-24T05:30:00+08:00",
+                      "teams":  [
+                                    "富邦悍將"
                                 ]
                   },
                   {
@@ -54,24 +81,6 @@
                       "pubDate":  "2026-07-24T05:30:00+08:00",
                       "teams":  [
                                     "樂天桃猿"
-                                ]
-                  },
-                  {
-                      "title":  "悍將先發陣容 都是光總「守」選",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1763893",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-24T05:30:00+08:00",
-                      "teams":  [
-                                    "富邦悍將"
-                                ]
-                  },
-                  {
-                      "title":  "王彥程優質第8勝 登韓職台將之最",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1763896",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-24T05:30:00+08:00",
-                      "teams":  [
-
                                 ]
                   },
                   {
@@ -312,8 +321,27 @@
                                 ]
                   },
                   {
+                      "title":  "悍將吃定獅 鈴木3年蛻變王牌",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1763759",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-07-23T05:30:00+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅",
+                                    "富邦悍將"
+                                ]
+                  },
+                  {
                       "title":  "5年髒辮斷捨離 吉撈年輕20歲",
                       "url":  "https://sports.ltn.com.tw/news/paper/1763758",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-07-23T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "新北孵蛋 光總仍獨鍾戶外球場",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1763760",
                       "source":  "自由時報",
                       "pubDate":  "2026-07-23T05:30:00+08:00",
                       "teams":  [
@@ -337,25 +365,6 @@
                       "pubDate":  "2026-07-23T05:30:00+08:00",
                       "teams":  [
 
-                                ]
-                  },
-                  {
-                      "title":  "新北孵蛋 光總仍獨鍾戶外球場",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1763760",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-23T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "悍將吃定獅 鈴木3年蛻變王牌",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1763759",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-23T05:30:00+08:00",
-                      "teams":  [
-                                    "統一7-ELEVEn獅",
-                                    "富邦悍將"
                                 ]
                   },
                   {
@@ -704,6 +713,15 @@
                                 ]
                   },
                   {
+                      "title":  "今年明星賽歸類 葉總︰像趣味競賽",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1763606",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-07-22T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "雙鷹「王」大爆走 逆轉兄弟",
                       "url":  "https://sports.ltn.com.tw/news/paper/1763607",
                       "source":  "自由時報",
@@ -725,15 +743,6 @@
                   {
                       "title":  "黃韋盛入選亞運 與貴人再聚首",
                       "url":  "https://sports.ltn.com.tw/news/paper/1763608",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-22T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "今年明星賽歸類 葉總︰像趣味競賽",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1763606",
                       "source":  "自由時報",
                       "pubDate":  "2026-07-22T05:30:00+08:00",
                       "teams":  [
@@ -900,15 +909,6 @@
                       "url":  "https://www.cna.com.tw/news/aspt/202607210325.aspx",
                       "source":  "中央社",
                       "pubDate":  "2026-07-21T18:48:39+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "中職》朱承洋將接受手術 本季可能提前報銷",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5512892",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-21T18:29:07+08:00",
                       "teams":  [
 
                                 ]
