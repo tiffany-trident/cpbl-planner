@@ -1,7 +1,16 @@
 {
-    "updated":  "2026-07-24T12:00:07+08:00",
+    "updated":  "2026-07-24T13:00:05+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "棒球》多年前提出成立中職第六隊 郭智輝：其他董事並不完全同意",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5516185",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-07-24T12:49:15+08:00",
+                      "teams":  [
+
+                                ]
+                  },
                   {
                       "title":  "李灝宇連8場敲安破張育成紀錄　MLB生涯安打數超越林子偉",
                       "url":  "https://www.cna.com.tw/news/aspt/202607240052.aspx",
@@ -12,8 +21,26 @@
                                 ]
                   },
                   {
+                      "title":  "樂天洋砲上架 挑戰今轟大巨蛋",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1763895",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-07-24T05:30:00+08:00",
+                      "teams":  [
+                                    "樂天桃猿"
+                                ]
+                  },
+                  {
                       "title":  "陳仕朋宛如梅達斯 無四死球完封勝",
                       "url":  "https://sports.ltn.com.tw/news/paper/1763892",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-07-24T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "王彥程優質第8勝 登韓職台將之最",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1763896",
                       "source":  "自由時報",
                       "pubDate":  "2026-07-24T05:30:00+08:00",
                       "teams":  [
@@ -36,24 +63,6 @@
                       "pubDate":  "2026-07-24T05:30:00+08:00",
                       "teams":  [
                                     "富邦悍將"
-                                ]
-                  },
-                  {
-                      "title":  "王彥程優質第8勝 登韓職台將之最",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1763896",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-24T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "樂天洋砲上架 挑戰今轟大巨蛋",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1763895",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-24T05:30:00+08:00",
-                      "teams":  [
-                                    "樂天桃猿"
                                 ]
                   },
                   {
@@ -294,8 +303,8 @@
                                 ]
                   },
                   {
-                      "title":  "新北孵蛋 光總仍獨鍾戶外球場",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1763760",
+                      "title":  "李超神龍擺尾 迎來蔣少宏再見安",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1763757",
                       "source":  "自由時報",
                       "pubDate":  "2026-07-23T05:30:00+08:00",
                       "teams":  [
@@ -303,18 +312,8 @@
                                 ]
                   },
                   {
-                      "title":  "張士綸最搶鏡 兄弟打爆鷹",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1763756",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-23T05:30:00+08:00",
-                      "teams":  [
-                                    "中信兄弟",
-                                    "台鋼雄鷹"
-                                ]
-                  },
-                  {
-                      "title":  "李超神龍擺尾 迎來蔣少宏再見安",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1763757",
+                      "title":  "5年髒辮斷捨離 吉撈年輕20歲",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1763758",
                       "source":  "自由時報",
                       "pubDate":  "2026-07-23T05:30:00+08:00",
                       "teams":  [
@@ -332,12 +331,22 @@
                                 ]
                   },
                   {
-                      "title":  "5年髒辮斷捨離 吉撈年輕20歲",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1763758",
+                      "title":  "新北孵蛋 光總仍獨鍾戶外球場",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1763760",
                       "source":  "自由時報",
                       "pubDate":  "2026-07-23T05:30:00+08:00",
                       "teams":  [
 
+                                ]
+                  },
+                  {
+                      "title":  "張士綸最搶鏡 兄弟打爆鷹",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1763756",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-07-23T05:30:00+08:00",
+                      "teams":  [
+                                    "中信兄弟",
+                                    "台鋼雄鷹"
                                 ]
                   },
                   {
@@ -686,8 +695,8 @@
                                 ]
                   },
                   {
-                      "title":  "新人起連11季10轟 朱育賢打老東家",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1763605",
+                      "title":  "今年明星賽歸類 葉總︰像趣味競賽",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1763606",
                       "source":  "自由時報",
                       "pubDate":  "2026-07-22T05:30:00+08:00",
                       "teams":  [
@@ -705,8 +714,8 @@
                                 ]
                   },
                   {
-                      "title":  "黃韋盛入選亞運 與貴人再聚首",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1763608",
+                      "title":  "新人起連11季10轟 朱育賢打老東家",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1763605",
                       "source":  "自由時報",
                       "pubDate":  "2026-07-22T05:30:00+08:00",
                       "teams":  [
@@ -714,8 +723,8 @@
                                 ]
                   },
                   {
-                      "title":  "今年明星賽歸類 葉總︰像趣味競賽",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1763606",
+                      "title":  "黃韋盛入選亞運 與貴人再聚首",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1763608",
                       "source":  "自由時報",
                       "pubDate":  "2026-07-22T05:30:00+08:00",
                       "teams":  [
@@ -902,15 +911,6 @@
                       "pubDate":  "2026-07-21T18:27:25+08:00",
                       "teams":  [
 
-                                ]
-                  },
-                  {
-                      "title":  "中職》樂天最快週六在大巨蛋採用雙洋砲打線 曾總點出考驗",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5512877",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-21T18:25:55+08:00",
-                      "teams":  [
-                                    "樂天桃猿"
                                 ]
                   }
               ]
