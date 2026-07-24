@@ -1,7 +1,45 @@
 {
-    "updated":  "2026-07-24T17:00:06+08:00",
+    "updated":  "2026-07-24T18:00:06+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "中職》遭富邦悍將完封後⋯ 統一獅大幅球員異動！",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5516643",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-07-24T17:53:05+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅",
+                                    "富邦悍將"
+                                ]
+                  },
+                  {
+                      "title":  "中職》從陪產到註銷 樂天理解魔爾曼不得已的苦衷",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5516621",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-07-24T17:31:49+08:00",
+                      "teams":  [
+                                    "樂天桃猿"
+                                ]
+                  },
+                  {
+                      "title":  "龍8月龍星大樂主題日　邀NMIXX、鄭中基演出",
+                      "url":  "https://www.cna.com.tw/news/aspt/202607240259.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-07-24T17:20:56+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "威克大巨蛋練打開轟喊Amazing　扛桃猿4番對悍將王牌有準備",
+                      "url":  "https://sports.ettoday.net/news/3207158",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-07-24T16:53:00+08:00",
+                      "teams":  [
+                                    "樂天桃猿",
+                                    "富邦悍將"
+                                ]
+                  },
                   {
                       "title":  "中職》樂天新洋砲威克今直升一軍 扛起第4棒",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5516397",
@@ -39,21 +77,21 @@
                                 ]
                   },
                   {
-                      "title":  "經典賽全台公敵 左投來台找機會",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1763894",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-24T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
                       "title":  "樂天洋砲上架 挑戰今轟大巨蛋",
                       "url":  "https://sports.ltn.com.tw/news/paper/1763895",
                       "source":  "自由時報",
                       "pubDate":  "2026-07-24T05:30:00+08:00",
                       "teams":  [
                                     "樂天桃猿"
+                                ]
+                  },
+                  {
+                      "title":  "經典賽全台公敵 左投來台找機會",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1763894",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-07-24T05:30:00+08:00",
+                      "teams":  [
+
                                 ]
                   },
                   {
@@ -321,16 +359,6 @@
                                 ]
                   },
                   {
-                      "title":  "張士綸最搶鏡 兄弟打爆鷹",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1763756",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-23T05:30:00+08:00",
-                      "teams":  [
-                                    "中信兄弟",
-                                    "台鋼雄鷹"
-                                ]
-                  },
-                  {
                       "title":  "李超神龍擺尾 迎來蔣少宏再見安",
                       "url":  "https://sports.ltn.com.tw/news/paper/1763757",
                       "source":  "自由時報",
@@ -346,6 +374,16 @@
                       "pubDate":  "2026-07-23T05:30:00+08:00",
                       "teams":  [
 
+                                ]
+                  },
+                  {
+                      "title":  "張士綸最搶鏡 兄弟打爆鷹",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1763756",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-07-23T05:30:00+08:00",
+                      "teams":  [
+                                    "中信兄弟",
+                                    "台鋼雄鷹"
                                 ]
                   },
                   {
@@ -713,26 +751,8 @@
                                 ]
                   },
                   {
-                      "title":  "新人起連11季10轟 朱育賢打老東家",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1763605",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-22T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
                       "title":  "黃韋盛入選亞運 與貴人再聚首",
                       "url":  "https://sports.ltn.com.tw/news/paper/1763608",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-22T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "今年明星賽歸類 葉總︰像趣味競賽",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1763606",
                       "source":  "自由時報",
                       "pubDate":  "2026-07-22T05:30:00+08:00",
                       "teams":  [
@@ -747,6 +767,24 @@
                       "teams":  [
                                     "中信兄弟",
                                     "台鋼雄鷹"
+                                ]
+                  },
+                  {
+                      "title":  "今年明星賽歸類 葉總︰像趣味競賽",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1763606",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-07-22T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "新人起連11季10轟 朱育賢打老東家",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1763605",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-07-22T05:30:00+08:00",
+                      "teams":  [
+
                                 ]
                   },
                   {
@@ -873,42 +911,6 @@
                       "url":  "https://sports.ettoday.net/news/3205290",
                       "source":  "ETtoday",
                       "pubDate":  "2026-07-21T19:11:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "亞運棒球》成棒首次國手就與貴人再聚首 黃韋盛多一份開心",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5512912",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-21T18:53:24+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "中職》ABS電子好球帶正式降臨測試！兄弟捕手挑戰成功成史上第一人",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5512878",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-21T18:51:45+08:00",
-                      "teams":  [
-                                    "中信兄弟"
-                                ]
-                  },
-                  {
-                      "title":  "味全本周拚「5洋投套餐」　黃暐傑本季一軍首先發近了",
-                      "url":  "https://sports.ettoday.net/news/3205281",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-07-21T18:49:00+08:00",
-                      "teams":  [
-                                    "味全龍"
-                                ]
-                  },
-                  {
-                      "title":  "陽念祖輪替上一軍守備不錯　清楚角色定位盼有表現",
-                      "url":  "https://www.cna.com.tw/news/aspt/202607210325.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-07-21T18:48:39+08:00",
                       "teams":  [
 
                                 ]
