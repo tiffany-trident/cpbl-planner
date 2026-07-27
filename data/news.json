@@ -1,5 +1,5 @@
 {
-    "updated":  "2026-07-27T14:55:00+08:00",
+    "updated":  "2026-07-27T15:55:01+08:00",
     "count":  100,
     "items":  [
                   {
@@ -16,6 +16,16 @@
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5519149",
                       "source":  "自由時報",
                       "pubDate":  "2026-07-27T14:07:05+08:00",
+                      "teams":  [
+                                    "味全龍",
+                                    "台鋼雄鷹"
+                                ]
+                  },
+                  {
+                      "title":  "味全龍「鷹祭」8月登大巨蛋　和田毅受邀開球、Honeys跨海應援",
+                      "url":  "https://sports.ettoday.net/news/3208375",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-07-27T14:05:00+08:00",
                       "teams":  [
                                     "味全龍",
                                     "台鋼雄鷹"
@@ -897,15 +907,6 @@
                       "url":  "https://sports.ettoday.net/news/3207565",
                       "source":  "ETtoday",
                       "pubDate":  "2026-07-25T16:11:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "威克首秀開轟不滿足　談曾峻岳正面對決：這次他贏了！下次討回來",
-                      "url":  "https://sports.ettoday.net/news/3207539",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-07-25T15:00:00+08:00",
                       "teams":  [
 
                                 ]
