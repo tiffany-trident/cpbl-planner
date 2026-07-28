@@ -1,5 +1,5 @@
 {
-    "updated":  "2026-07-28T14:23:55+08:00",
+    "updated":  "2026-07-28T14:47:23+08:00",
     "count":  100,
     "items":  [
                   {
@@ -7,6 +7,15 @@
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5520242",
                       "source":  "自由時報",
                       "pubDate":  "2026-07-28T14:15:16+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "日職中日龍前投手轉戰演藝圈　板東英二病逝享壽86歲",
+                      "url":  "https://www.cna.com.tw/news/aspt/202607280110.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-07-28T13:28:27+08:00",
                       "teams":  [
 
                                 ]
@@ -103,6 +112,24 @@
                                 ]
                   },
                   {
+                      "title":  "陽岱鋼季後引退 感念高中恩師領路",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1764428",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-07-28T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "Proud of YU》李留鄭下 葉君璋︰大聯盟看重OPS",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1764401",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-07-28T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "Proud of YU》恰恰評「宇」︰具力量和擊球命中率",
                       "url":  "https://sports.ltn.com.tw/news/paper/1764402",
                       "source":  "自由時報",
@@ -123,24 +150,6 @@
                   {
                       "title":  "大都會台灣日 蔡其昌受邀開球",
                       "url":  "https://sports.ltn.com.tw/news/paper/1764405",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-28T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "陽岱鋼季後引退 感念高中恩師領路",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1764428",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-28T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "Proud of YU》李留鄭下 葉君璋︰大聯盟看重OPS",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1764401",
                       "source":  "自由時報",
                       "pubDate":  "2026-07-28T05:30:00+08:00",
                       "teams":  [
@@ -902,15 +911,6 @@
                       "teams":  [
                                     "味全龍",
                                     "台鋼雄鷹"
-                                ]
-                  },
-                  {
-                      "title":  "中職》陳晨威擊倒「天敵」！  樂天桃猿拿下重要的一勝",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5517686",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-25T19:50:39+08:00",
-                      "teams":  [
-                                    "樂天桃猿"
                                 ]
                   }
               ]
