@@ -336,8 +336,6 @@ button.card-weather.clickable:active { transform: scale(0.96); }
 .weather-hour-rain { color: #5B7BB4; font-size: 10px; }
 .weather-hour-rain.rain-high { color: #C25B5B; }
 
-/* ── Briefing pill & popover ── */
-.btn-briefing { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; background: #F5EEDE; border: 1px solid #E8DDBE; border-radius: 20px; padding: 5px 12px; color: #4A3728; cursor: pointer; font-family: inherit; transition: background 0.15s, transform 0.1s; white-space: nowrap; }
 .btn-checkin { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; background: #FDF6EE; border: 1px solid #E8D5B8; border-radius: 20px; padding: 5px 12px; color: #C2573A; cursor: pointer; font-family: inherit; transition: background 0.15s, transform 0.1s; white-space: nowrap; }
 .btn-checkin:hover { background: #F5E6D0; }
 .btn-checkin:active { transform: scale(0.96); }
@@ -411,21 +409,6 @@ button.card-weather.clickable:active { transform: scale(0.96); }
 .ms-cta:hover { background: #A0432A; }
 .ms-cta:active { transform: scale(0.96); }
 
-.btn-briefing:hover { background: #ECE3CC; }
-.btn-briefing:active { transform: scale(0.96); }
-.briefing-popover-backdrop { position: fixed; inset: 0; z-index: 99; display: none; background: transparent; }
-.briefing-popover-backdrop.active { display: block; }
-.briefing-popover { position: absolute; z-index: 100; background: #FFF; border: 1px solid #F0E6D8; border-radius: 14px; box-shadow: 0 10px 32px rgba(74,55,40,0.16), 0 2px 8px rgba(74,55,40,0.08); padding: 14px 16px; display: none; width: 360px; max-width: calc(100vw - 24px); }
-.briefing-popover.active { display: block; }
-.briefing-popover-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; font-size: 12px; color: #8B7356; }
-.briefing-popover-header strong { color: #4A3728; font-weight: 600; }
-.briefing-popover-close { background: none; border: 0; font-size: 20px; line-height: 1; color: #B8A692; cursor: pointer; padding: 0 0 0 8px; }
-.briefing-popover-close:hover { color: #4A3728; }
-.briefing-body { font-size: 13px; line-height: 1.75; color: #4A3728; }
-.briefing-body p { margin: 0 0 6px; }
-.briefing-body p:last-child { margin-bottom: 0; }
-.briefing-body div + div { margin-top: 6px; }
-
 /* ── RWD ── */
 @media (max-width: 768px) {
   .container { max-width: 100%; }
@@ -491,10 +474,6 @@ button.card-weather.clickable:active { transform: scale(0.96); }
   .weather-popover.active { transform: translateY(0); }
   .weather-hours { justify-content: center; overflow-x: auto; padding-bottom: 2px; }
   .weather-hour { min-width: 40px; padding: 6px 4px; }
-  /* Briefing popover as bottom sheet on mobile */
-  .briefing-popover-backdrop.active { background: rgba(74,55,40,0.32); }
-  .briefing-popover { position: fixed; left: 0; right: 0; bottom: 0; top: auto; width: auto; max-width: none; border-radius: 18px 18px 0 0; padding: 16px 16px 22px; transform: translateY(100%); transition: transform 0.25s ease-out; display: block; max-height: 70vh; overflow-y: auto; }
-  .briefing-popover.active { transform: translateY(0); }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
@@ -1720,93 +1699,6 @@ window.addEventListener('resize', () => {
     if (btn) positionWeatherPopover(btn);
     else closeWeatherPopover();
   }
-  if (briefingPopoverKey && window.innerWidth > 768) {
-    const btn = document.querySelector('.btn-briefing[data-briefing-key="' + briefingPopoverKey + '"]');
-    if (btn) positionBriefingPopover(btn);
-    else closeBriefingPopover();
-  }
-});
-
-// ── 賽事記錄 popover ──
-let briefingPopoverEl = null;
-let briefingBackdropEl = null;
-let briefingPopoverKey = null;
-
-function ensureBriefingPopover() {
-  if (briefingPopoverEl) return;
-  briefingBackdropEl = document.createElement('div');
-  briefingBackdropEl.className = 'briefing-popover-backdrop';
-  briefingBackdropEl.addEventListener('click', closeBriefingPopover);
-  briefingPopoverEl = document.createElement('div');
-  briefingPopoverEl.className = 'briefing-popover';
-  briefingPopoverEl.setAttribute('role', 'dialog');
-  briefingPopoverEl.addEventListener('click', (e) => e.stopPropagation());
-  document.body.appendChild(briefingBackdropEl);
-  document.body.appendChild(briefingPopoverEl);
-}
-
-function closeBriefingPopover() {
-  if (!briefingPopoverEl) return;
-  briefingPopoverEl.classList.remove('active');
-  briefingBackdropEl.classList.remove('active');
-  briefingPopoverKey = null;
-}
-
-function openBriefingPopover(triggerEl, game) {
-  ensureBriefingPopover();
-  const key = gameKey(game);
-  if (briefingPopoverKey === key && briefingPopoverEl.classList.contains('active')) {
-    closeBriefingPopover();
-    return;
-  }
-  const brief = BRIEFINGS[game.sno];
-  if (!brief) return;
-  const vs = TEAM_SHORT[game.visitor] || game.visitor;
-  const hs = TEAM_SHORT[game.home] || game.home;
-  const title = '<strong>' + vs + ' vs ' + hs + '</strong> · ' + game.date.substring(5) + ' · ' + game.field;
-  briefingPopoverEl.innerHTML =
-    '<div class="briefing-popover-header"><span>' + title + '</span>' +
-    '<button type="button" class="briefing-popover-close" aria-label="關閉">×</button></div>' +
-    '<div class="briefing-body">' + brief + '</div>';
-  briefingPopoverEl.querySelector('.briefing-popover-close').addEventListener('click', closeBriefingPopover);
-  briefingPopoverKey = key;
-  briefingBackdropEl.classList.add('active');
-  briefingPopoverEl.classList.add('active');
-  if (window.innerWidth > 768) positionBriefingPopover(triggerEl);
-  else { briefingPopoverEl.style.top = ''; briefingPopoverEl.style.left = ''; }
-}
-
-function positionBriefingPopover(triggerEl) {
-  const rect = triggerEl.getBoundingClientRect();
-  const popRect = briefingPopoverEl.getBoundingClientRect();
-  const gap = 8;
-  const margin = 12;
-  const scrollY = window.scrollY || window.pageYOffset;
-  const scrollX = window.scrollX || window.pageXOffset;
-  let top = rect.bottom + scrollY + gap;
-  const spaceBelow = window.innerHeight - rect.bottom;
-  if (spaceBelow < popRect.height + gap + margin && rect.top > popRect.height + gap + margin) {
-    top = rect.top + scrollY - popRect.height - gap;
-  }
-  let left = rect.left + scrollX + rect.width / 2 - popRect.width / 2;
-  const maxLeft = scrollX + window.innerWidth - popRect.width - margin;
-  const minLeft = scrollX + margin;
-  if (left > maxLeft) left = maxLeft;
-  if (left < minLeft) left = minLeft;
-  briefingPopoverEl.style.top = top + 'px';
-  briefingPopoverEl.style.left = left + 'px';
-}
-
-document.addEventListener('click', (e) => {
-  const btn = e.target.closest('.btn-briefing');
-  if (!btn) return;
-  const key = btn.getAttribute('data-briefing-key');
-  const game = allGames.find(g => gameKey(g) === key);
-  if (game) openBriefingPopover(btn, game);
-});
-
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeBriefingPopover();
 });
 
 async function loadWeather() {
