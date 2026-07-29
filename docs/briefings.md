@@ -2,6 +2,8 @@
 
 2026-04-20 上線。已完賽場次卡片 footer 多一個「📋 賽事記錄」pill，點擊展開 CPBL 官方的「賽事簡報」（連勝連敗紀錄、個人里程碑等）。
 
+> **2026-07 更新**：賽事記錄的卡片 pill 與 popover 已移除，改為整併進 **Box 單場戰績頁**（點已完賽卡片本體開啟，見 [box.md](box.md)）的「賽事記錄」區塊；抓取與快取（`briefings.json` / `BRIEFINGS` 注入）維持不變，box 頁直接讀 `BRIEFINGS[sno]` 並在前端剝除開頭「技術室人員」段落。
+
 ## 資料來源
 
 CPBL API `POST /box/getlive`，回傳物件的 `CurtGameDetailJson.Briefing` 欄位是一段 HTML（含 `<p>`、`<span>`、`<br />` 等）。

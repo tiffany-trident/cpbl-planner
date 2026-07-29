@@ -2,7 +2,10 @@
 # Called by update-scores.bat via Task Scheduler. See docs/scoreupdate.md plan D.
 
 param(
-    [string]$RepoRoot = (Split-Path -Parent $PSScriptRoot)
+    [string]$RepoRoot = (Split-Path -Parent $PSScriptRoot),
+    # Cap how many *new* box scores to fetch this run (0 = no cap). Handy for a
+    # quick verification run so we don't pull ~180 games at once.
+    [int]$BoxLimit = 0
 )
 
 $ErrorActionPreference = 'Stop'
@@ -127,7 +130,9 @@ function Pad3([object]$sno) {
     return ([int]$sno).ToString().PadLeft(3, '0')
 }
 
-function Get-Briefing($session, $year, $sno) {
+# One getlive fetch per game; returns the parsed response (all sub-JSONs) or $null.
+# Both the briefing and the box score are derived from this single response.
+function Get-GameLive($session, $year, $sno) {
     $snoPadded = Pad3 $sno
     $boxUrl = "$CpblBase/box?year=$year&kindCode=A&gameSno=$snoPadded"
     try {
@@ -150,8 +155,105 @@ function Get-Briefing($session, $year, $sno) {
     }
     $json = $res.Content | ConvertFrom-Json
     if (-not $json.Success -or -not $json.CurtGameDetailJson) { return $null }
+    return $json
+}
+
+# Mechanical extraction only — sums for the line score, flat projections of the
+# lineup / batting / pitching arrays. No Chinese string surgery (names & weather
+# pass straight through as JSON values). The lineup棒次/代打 reconstruction and
+# all display labels are done on the front end from these fields. See docs/box.md.
+function Build-Box($json) {
+    $box = [ordered]@{}
     $detail = $json.CurtGameDetailJson | ConvertFrom-Json
-    return $detail.Briefing
+
+    # ── line score (per team, per inning, + R/H/E totals) ──
+    $sb = $json.ScoreboardJson | ConvertFrom-Json
+    $line = [ordered]@{}
+    foreach ($t in @('1', '2')) {                       # 1 = 客隊(visiting), 2 = 主隊(home)
+        $rows = @($sb | Where-Object { [string]$_.VisitingHomeType -eq $t } | Sort-Object InningSeq)
+        if ($rows.Count -eq 0) { continue }
+        $key = if ($t -eq '1') { 'away' } else { 'home' }
+        $line[$key] = [ordered]@{
+            name = [string]$rows[0].TeamAbbr
+            inn  = @($rows | ForEach-Object { [int]$_.ScoreCnt })
+            R    = ($rows | Measure-Object -Property ScoreCnt -Sum).Sum
+            H    = ($rows | Measure-Object -Property HittingCnt -Sum).Sum
+            E    = ($rows | Measure-Object -Property ErrorCnt -Sum).Sum
+        }
+    }
+    $box.line = $line
+
+    # ── first-sno rows (batting order + position code + 代打/代跑 marker) ──
+    $fs = $json.FirstSnoJson | ConvertFrom-Json
+    $box.fs = @($fs | Where-Object { [int]$_.Lineup -ne 0 } | ForEach-Object {
+        [ordered]@{
+            t    = [string]$_.VisitingHomeType
+            ord  = [int]$_.Lineup
+            acnt = [string]$_.Acnt
+            name = [string]$_.CHName
+            no   = [string]$_.UniformNo
+            ds   = [string]$_.DefendStation      # numeric position code, mapped on front end
+            phr  = [string]$_.PinchHitterRunner  # '代打' / '代跑' / ''
+            ev   = [string]$_.MainEventNoS        # entry event; '0000000000' = starter
+        }
+    })
+
+    # ── batting stats keyed by player account (front end joins to fs) ──
+    $bat = $json.BattingJson | ConvertFrom-Json
+    $batMap = [ordered]@{}
+    foreach ($b in $bat) {
+        $batMap[[string]$b.HitterAcnt] = [ordered]@{
+            AB  = [int]$b.HitCnt
+            H   = [int]$b.HittingCnt
+            RBI = [int]$b.RunBattedINCnt
+            R   = [int]$b.ScoreCnt
+            HR  = [int]$b.HomeRunCnt
+            BB  = ([int]$b.BasesONBallsCnt + [int]$b.HitBYPitchCnt)
+            SO  = [int]$b.StrikeOutCnt
+        }
+    }
+    $box.bat = $batMap
+
+    # ── pitching (array order = appearance order) ──
+    $pit = $json.PitchingJson | ConvertFrom-Json
+    $pitOut = [ordered]@{}
+    foreach ($t in @('1', '2')) {
+        $rows = @($pit | Where-Object { [string]$_.VisitingHomeType -eq $t })
+        $key = if ($t -eq '1') { 'away' } else { 'home' }
+        $pitOut[$key] = @($rows | ForEach-Object {
+            [ordered]@{
+                no   = [string]$_.PitcherUniformNo
+                name = [string]$_.PitcherName
+                IP   = ("{0}.{1}" -f [int]$_.InningPitchedCnt, [int]$_.InningPitchedDiv3Cnt)
+                H    = [int]$_.HittingCnt
+                ER   = [int]$_.EarnedRunCnt
+                SO   = [int]$_.StrikeOutCnt
+                NP   = [int]$_.PitchCnt
+                res  = [string]$_.GameResult   # '勝' / '敗' / ''
+            }
+        })
+    }
+    $box.pit = $pitOut
+
+    # ── game info (durations/weather formatted on front end) ──
+    $box.info = [ordered]@{
+        field    = [string]$detail.FieldAbbe
+        audience = [int]$detail.AudienceCnt
+        dur      = [string]$detail.GameDuringTime   # 'HHMMSS', formatted on front end
+        weather  = [string]$detail.WeatherDesc
+        win      = [string]$detail.WinningPitcherName
+        lose     = [string]$detail.LosePitcherName
+        save     = [string]$detail.CloserPitcherName
+        mvp      = [string]$detail.MvpName
+        ump      = [ordered]@{
+            main = [string]$detail.HeadUmpire
+            b1   = [string]$detail.OneBaseReferee
+            b2   = [string]$detail.TwoBaseReferee
+            b3   = [string]$detail.TrheeBaseReferee
+        }
+    }
+
+    return $box
 }
 
 $lines = foreach ($g in $games) {
@@ -176,7 +278,7 @@ $lines = foreach ($g in $games) {
 }
 $rawData = "const RAW_DATA = [`n" + ($lines -join ",`n") + "`n];"
 
-# ── Briefings: fetch for finished games, cache in data/briefings.json ──
+# ── Briefings + box scores: one getlive per finished game feeds both caches ──
 Write-Step "Loading briefings cache..."
 $briefingsPath = Join-Path $RepoRoot 'data/briefings.json'
 $briefings = @{}
@@ -191,20 +293,55 @@ if (Test-Path $briefingsPath) {
 }
 Write-Step "Cache has $($briefings.Count) briefings."
 
+# Box scores are stored one JSON file per game under data/box/NNN.json, so the
+# front end fetches only the game the user opened (~5 KB) instead of the whole
+# season. "Cached" simply means the per-game file already exists.
+$boxDir = Join-Path $RepoRoot 'data/box'
+if (-not (Test-Path $boxDir)) { New-Item -ItemType Directory -Path $boxDir -Force | Out-Null }
+$existingBox = @(Get-ChildItem -Path $boxDir -Filter '*.json' -ErrorAction SilentlyContinue).Count
+Write-Step "Box cache has $existingBox game files."
+
+$utf8NoBom = New-Object System.Text.UTF8Encoding $false   # used for per-game box files below and the caches later
+
 $boxSession = New-Object Microsoft.PowerShell.Commands.WebRequestSession
-$newCount = 0
+$newBrief = 0
+$newBox = 0
 foreach ($g in $games) {
     if ([string]$g.GameResult -ne '0') { continue }
     $sno = Pad3 $g.GameSno
-    if ($briefings.Contains($sno) -and $briefings[$sno]) { continue }
-    $brief = Get-Briefing $boxSession $g.Year $g.GameSno
-    if ($brief) {
-        $briefings[$sno] = [string]$brief
-        $newCount++
-        Write-Step "  + briefing $sno ($($g.GameDate.Substring(0,10)))"
+    $boxPath = Join-Path $boxDir "$sno.json"
+    $needBrief = -not ($briefings.Contains($sno) -and $briefings[$sno])
+    $needBox = -not (Test-Path $boxPath)
+    if (-not $needBrief -and -not $needBox) { continue }
+    if ($needBox -and $BoxLimit -gt 0 -and $newBox -ge $BoxLimit) {
+        if (-not $needBrief) { continue }   # box capped; still fill any missing briefing
+        $needBox = $false
+    }
+
+    $live = Get-GameLive $boxSession $g.Year $g.GameSno
+    if (-not $live) { continue }
+
+    if ($needBrief) {
+        $detail = $live.CurtGameDetailJson | ConvertFrom-Json
+        if ($detail.Briefing) {
+            $briefings[$sno] = [string]$detail.Briefing
+            $newBrief++
+            Write-Step "  + briefing $sno ($($g.GameDate.Substring(0,10)))"
+        }
+    }
+    if ($needBox) {
+        try {
+            $box = Build-Box $live
+            $boxJsonOne = ConvertTo-Json $box -Depth 12 -Compress
+            [System.IO.File]::WriteAllText($boxPath, $boxJsonOne, $utf8NoBom)
+            $newBox++
+            Write-Step "  + box $sno ($($g.GameDate.Substring(0,10)))"
+        } catch {
+            Write-Step "  ! box $sno failed: $($_.Exception.Message)"
+        }
     }
 }
-Write-Step "Fetched $newCount new briefings (total $($briefings.Count))."
+Write-Step "Fetched $newBrief new briefings (total $($briefings.Count)), $newBox new box scores (total $($existingBox + $newBox) game files)."
 
 # 寫回快取（stable sort by sno，手動序列化避免 ConvertTo-Json 對 ordered dict 的古怪行為）
 $sortedKeys = @($briefings.Keys | Sort-Object)
@@ -219,7 +356,6 @@ if ($jsonLines.Count -eq 0) {
 }
 $dataDir = Split-Path $briefingsPath
 if (-not (Test-Path $dataDir)) { New-Item -ItemType Directory -Path $dataDir -Force | Out-Null }
-$utf8NoBom = New-Object System.Text.UTF8Encoding $false
 [System.IO.File]::WriteAllText($briefingsPath, $briefJson, $utf8NoBom)
 
 # 組裝要注入 HTML 的 BRIEFINGS 區塊（以 marker 界定，方便反覆置換）

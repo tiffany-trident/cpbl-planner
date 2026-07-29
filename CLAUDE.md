@@ -21,6 +21,7 @@
 | 自動更新 / 部署方案 | [docs/scoreupdate.md](docs/scoreupdate.md) / [docs/scoreupdate-history.md](docs/scoreupdate-history.md) |
 | 天氣預報 | [docs/weather.md](docs/weather.md) |
 | 賽事記錄 | [docs/briefings.md](docs/briefings.md) |
+| Box 單場戰績頁（點卡片開 #box=NNN） | [docs/box.md](docs/box.md) |
 | 主場主題日 | [docs/theme-days.md](docs/theme-days.md) |
 | 中職相關新聞（聚合器 / 版權原則 / 過濾） | [docs/news.md](docs/news.md) |
 | 外部連結資料（購票網站、高鐵站對應） | [docs/external-links.md](docs/external-links.md) |
