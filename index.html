@@ -763,6 +763,85 @@ button.card-weather.clickable:active { transform: scale(0.96); }
   .my-tab { padding: 10px 14px 8px; font-size: 13px; }
   .hero-greet { font-size: 13px; letter-spacing: 1px; }
 }
+
+/* ══ Box 檢視頁（單場戰績表，#box=NNN）══ */
+.box-view { max-width: 1200px; margin: 24px auto 0; padding: 0 32px; }
+.game-card.card-completed { cursor: pointer; }
+.game-card.card-completed:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(212,196,171,0.24); }
+.game-card.card-completed:focus-visible { outline: 2px solid #C2573A; outline-offset: 2px; }
+.box-back { display: flex; align-items: center; gap: 8px; padding: 4px 0 10px; }
+.box-back button { display: inline-flex; align-items: center; gap: 6px; color: #8B7A66; font: inherit; font-size: 14px; background: none; border: none; cursor: pointer; padding: 7px 14px 7px 10px; border-radius: 20px; transition: background .15s, color .15s; }
+.box-back button:hover { background: #FDF6EE; color: #C2573A; }
+.box-back svg { width: 18px; height: 18px; }
+.box-loading, .box-error { text-align: center; color: #9B8E7E; padding: 60px 20px; font-size: 14px; }
+.box-error { color: #C2573A; }
+.box-hero { background: #FFF; border: 1px solid #F0EBDF; border-radius: 20px; padding: 26px 30px 22px; box-shadow: 0 3px 12px rgba(212,196,171,0.12); }
+.box-hero-meta { text-align: center; font-size: 13px; color: #9B8E7E; letter-spacing: 1px; margin-bottom: 16px; }
+.box-hero-meta b { color: #C2573A; font-weight: 700; }
+.box-matchup { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 18px; }
+.bm-team { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.bm-team img { width: 74px; height: 74px; object-fit: contain; }
+.bm-team-name { font-size: 19px; font-weight: 700; }
+.bm-score { display: flex; align-items: center; gap: 18px; }
+.bm-num { font-size: 52px; font-weight: 900; line-height: 1; font-variant-numeric: tabular-nums; }
+.bm-num.win { color: #C2573A; }
+.bm-num.lose { color: #B7ADA0; }
+.bm-x { color: #D8CDBD; font-size: 20px; font-weight: 700; }
+.bm-side { font-size: 11px; color: #9B8E7E; letter-spacing: 2px; margin-bottom: 2px; }
+.box-hero-pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 20px; padding-top: 18px; border-top: 1px dashed #EFE7D8; }
+.box-hero-pills .hp { font-size: 12.5px; padding: 5px 13px; border-radius: 16px; background: #FDF6EE; color: #6E5D48; }
+.box-hero-pills .hp b { color: #4A3728; font-weight: 700; }
+.box-hero-pills .hp.mvp { background: #FBEEE9; color: #C2573A; }
+.box-hero-pills .hp.mvp b { color: #C2573A; }
+.box-sec { margin-top: 34px; }
+.box-sec-h { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; font-weight: 500; letter-spacing: 1px; font-size: 18px; color: #3D3122; margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+.box-sec-h::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, #EADFCC, transparent); }
+.box-tbl-wrap { overflow-x: auto; border: 1px solid #F0EBDF; border-radius: 14px; background: #FFF; box-shadow: 0 3px 12px rgba(212,196,171,0.1); }
+.box-view table { border-collapse: collapse; width: 100%; font-size: 13.5px; font-variant-numeric: tabular-nums; }
+.box-view thead th { background: #FDF6EE; color: #7A6A54; font-weight: 700; padding: 10px 6px; white-space: nowrap; font-size: 12px; letter-spacing: .5px; text-align: center; }
+.box-view tbody td { padding: 8px 6px; border-top: 1px solid #F4EEE2; text-align: center; white-space: nowrap; color: #4A3728; }
+.box-view tbody tr:hover { background: #FDFAF4; }
+.box-view .bx-name { text-align: left; font-weight: 500; min-width: 110px; }
+.box-view .bx-no { color: #B7ADA0; font-size: 11.5px; margin-right: 2px; }
+.box-view .bx-ord { width: 30px; color: #6E5D48; font-weight: 700; }
+.box-view .bx-pos { width: 58px; color: #8B7A66; font-size: 12px; text-align: left; }
+.box-view .bx-th-l { text-align: left; }
+.box-view tr.bx-sub td { border-top: 1px dotted #EFE7D8; }
+.box-view tr.bx-sub { background: #FDFBF7; }
+.box-view .bx-name.bx-subname { color: #9B8E7E; font-weight: 400; }
+.box-view .bx-arrow { color: #CDBFAC; margin-right: 1px; }
+.box-view .bx-mvp { display: inline-block; font-size: 10px; font-weight: 700; color: #C2573A; background: #FBEEE9; border-radius: 6px; padding: 1px 5px; margin-left: 6px; vertical-align: middle; }
+.box-view .bx-w { color: #C2573A; font-weight: 700; }
+.box-view .bx-l { color: #8B7A66; font-weight: 700; }
+.box-view .bx-hl { color: #C2573A; font-weight: 700; }
+.box-team-band { display: flex; align-items: center; gap: 9px; padding: 11px 16px; font-weight: 700; font-size: 14.5px; border-bottom: 1px solid #F0EBDF; }
+.box-team-band img { width: 26px; height: 26px; object-fit: contain; }
+.box-team-band .dot { width: 8px; height: 8px; border-radius: 50%; }
+.box-line td, .box-line th { min-width: 30px; }
+.box-line .lt-team { text-align: left; font-weight: 700; min-width: 96px; padding-left: 16px; }
+.box-line .rhe { background: #FBF6EC; font-weight: 700; }
+.box-line thead .rhe { background: #F3E9D6; }
+.box-two { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.box-legend { font-size: 11.5px; color: #A99B87; margin-top: 8px; padding-left: 4px; }
+.box-info { display: grid; grid-template-columns: repeat(2, 1fr); border: 1px solid #F0EBDF; border-radius: 14px; overflow: hidden; background: #FFF; box-shadow: 0 3px 12px rgba(212,196,171,0.1); }
+.box-info-cell { padding: 15px 18px; border-top: 1px solid #F4EEE2; border-left: 1px solid #F4EEE2; }
+.box-info-cell:nth-child(-n+2) { border-top: none; }
+.box-info-cell:nth-child(odd) { border-left: none; }
+.box-info-k { font-size: 11.5px; color: #A99B87; letter-spacing: 1px; margin-bottom: 4px; }
+.box-info-v { font-size: 14px; color: #4A3728; font-weight: 500; line-height: 1.5; }
+.box-briefing { background: #FFF; border: 1px solid #F0EBDF; border-radius: 14px; padding: 18px 22px; box-shadow: 0 3px 12px rgba(212,196,171,0.1); font-size: 13.5px; line-height: 1.85; color: #4A3728; }
+.box-briefing p { margin: 0 0 6px; }
+@media (max-width: 860px) { .box-two { grid-template-columns: 1fr; } }
+@media (max-width: 768px) {
+  .box-view { padding: 0 16px; }
+  .box-hero { padding: 20px 16px 18px; }
+  .bm-team img { width: 56px; height: 56px; }
+  .bm-num { font-size: 40px; }
+  .bm-score { gap: 12px; }
+  .box-info { grid-template-columns: 1fr; }
+  .box-info-cell:nth-child(2) { border-top: 1px solid #F4EEE2; }
+  .box-info-cell { border-left: none; }
+}
 </style>
 </head>
 <body>
@@ -1082,6 +1161,10 @@ button.card-weather.clickable:active { transform: scale(0.96); }
   </div>
   <div id="news-view-body"></div>
   <p class="news-attr" id="news-attr"></p>
+</div>
+
+<div class="box-view" id="box-view" style="display:none">
+  <div id="box-view-body"></div>
 </div>
 
 <div class="footer">
@@ -3202,14 +3285,18 @@ function render() {
 
     const ticketUrl = g.isFuture && !g.postponed ? (TEAM_TICKET[g.home] || '') : '';
     const hsrStation = g.isFuture && !g.postponed ? (STADIUM_HSR[g.field] || '') : '';
-    const hasBriefing = g.completed && g.sno && BRIEFINGS[g.sno];
     const detail = buildDetail(g);
     const themeDayBadge = buildThemeDayHTML(g);
 
     const hasCheckinBtn = g.completed;
     const hasRightButtons = ticketUrl || hsrStation || hasCheckinBtn;
+    // 已完賽卡片本體可點 → 開啟 box 戰績表（#box=NNN）
+    const boxClickable = g.completed && !g.postponed;
+    const boxAttrs = boxClickable
+      ? ' card-completed" data-box-sno="' + g.sno + '" role="button" tabindex="0" aria-label="查看 ' + vs + ' 對 ' + hs + ' 戰績表'
+      : '';
 
-    cards += '<div class="game-card' + todayClass + (favActive ? ' favorited' : '') + (checkedIn ? ' checked-in' : '') + '">' +
+    cards += '<div class="game-card' + todayClass + (favActive ? ' favorited' : '') + (checkedIn ? ' checked-in' : '') + boxAttrs + '">' +
       checkinStamp +
       '<div class="card-top' + topClass + '">' +
         '<span class="card-top-time"' + (g.postponed ? ' style="color:#8B6BAE"' : '') + '>' + g.time + '</span>' +
@@ -3235,7 +3322,6 @@ function render() {
       '<div class="card-footer">' +
         '<div class="card-footer-tags">' +
           buildTags(g) +
-          (hasBriefing ? '<button type="button" class="btn-briefing" data-briefing-key="' + gameKey(g) + '">📋 賽事記錄</button>' : '') +
         '</div>' +
         (hasRightButtons ? '<div class="card-footer-buttons">' +
           (ticketUrl ? '<a class="btn-ticket" href="' + ticketUrl + '" target="_blank" rel="noopener">🎫 購票</a>' : '') +
@@ -3289,6 +3375,22 @@ document.getElementById('card-list').addEventListener('click', function(e) {
     e.preventDefault();
     e.stopPropagation();
     openCheckinModal(checkinBtn.dataset.checkinSno);
+    return;
+  }
+  // 已完賽卡片本體 → 開 box 戰績表（點到卡片內連結/按鈕時不觸發）
+  const card = e.target.closest('.game-card[data-box-sno]');
+  if (card && !e.target.closest('a, button')) {
+    location.hash = '#box=' + card.dataset.boxSno;
+  }
+});
+
+// 鍵盤：已完賽卡片 focus 後按 Enter / Space 開 box
+document.getElementById('card-list').addEventListener('keydown', function(e) {
+  if (e.key !== 'Enter' && e.key !== ' ') return;
+  const card = e.target.closest('.game-card[data-box-sno]');
+  if (card && e.target === card) {
+    e.preventDefault();
+    location.hash = '#box=' + card.dataset.boxSno;
   }
 });
 
@@ -3431,6 +3533,9 @@ function switchView(view) {
   if (myEl) myEl.style.display = showMy ? 'block' : 'none';
   const newsEl = document.getElementById('news-view');
   if (newsEl) newsEl.style.display = showNews ? 'block' : 'none';
+  // 切到任一主/子視圖都會關閉 box 戰績表
+  const boxEl = document.getElementById('box-view');
+  if (boxEl) boxEl.style.display = 'none';
   const myLink = document.getElementById('nav-my-link');
   if (myLink) myLink.classList.toggle('active', showMy);
   const newsLink = document.getElementById('nav-news-link');
@@ -3439,6 +3544,216 @@ function switchView(view) {
   if (schedLink) schedLink.classList.toggle('active', !showMy && !showNews);
   if (showMy) renderMyView();
   if (showNews) renderNewsView();
+}
+
+// ══ Box 檢視頁（單場戰績表）══════════════════════════════════════════════
+const DEFEND_POS = { '0':'DH','1':'P','2':'C','3':'1B','4':'2B','5':'3B','6':'SS','7':'LF','8':'CF','9':'RF','10':'PH','11':'PR' };
+const boxCache = {};          // sno -> parsed box JSON（避免重複 fetch）
+let currentBoxSno = null;
+
+function openBoxView(sno) {
+  currentBoxSno = sno;
+  MAIN_VIEW_SECTION_IDS.forEach(id => { const el = document.getElementById(id); if (el) el.style.display = 'none'; });
+  ['my-view', 'news-view'].forEach(id => { const el = document.getElementById(id); if (el) el.style.display = 'none'; });
+  ['nav-my-link', 'nav-news-link', 'nav-schedule-link'].forEach(id => { const el = document.getElementById(id); if (el) el.classList.remove('active'); });
+  const bv = document.getElementById('box-view');
+  bv.style.display = 'block';
+  window.scrollTo({ top: 0 });
+  renderBoxView(sno);
+}
+
+// 從 box 頁返回主視圖（清掉 hash，避免返回鍵回到 box）
+function closeBoxView() {
+  if (location.hash.indexOf('#box=') === 0) {
+    history.replaceState(null, '', location.pathname + location.search);
+  }
+  switchView('main');
+  window.scrollTo({ top: 0 });
+}
+
+function renderBoxView(sno) {
+  const body = document.getElementById('box-view-body');
+  const backBar = '<div class="box-back"><button type="button" id="box-back-btn">'
+    + '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>返回賽程</button></div>';
+  const bind = () => { const b = document.getElementById('box-back-btn'); if (b) b.addEventListener('click', closeBoxView); };
+
+  if (boxCache[sno]) { body.innerHTML = backBar + buildBoxHtml(sno, boxCache[sno]); bind(); return; }
+  body.innerHTML = backBar + '<div class="box-loading">載入戰績表中…</div>';
+  bind();
+  fetch('data/box/' + sno + '.json', { cache: 'no-cache' })
+    .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+    .then(data => {
+      boxCache[sno] = data;
+      if (currentBoxSno !== sno) return;   // 使用者可能已離開
+      body.innerHTML = backBar + buildBoxHtml(sno, data);
+      bind();
+    })
+    .catch(() => {
+      if (currentBoxSno !== sno) return;
+      body.innerHTML = backBar + '<div class="box-error">戰績表載入失敗，請稍後再試。</div>';
+      bind();
+    });
+}
+
+// 依官網演算法把 fs（棒次列）+ bat（數據）重建成含代打/代跑的打線
+function reconstructLineup(box, teamKey) {
+  const t = teamKey === 'away' ? '1' : '2';
+  const rows = box.fs.filter(r => r.t === t);
+  const order = [];
+  const groups = {};
+  rows.forEach(r => { if (!groups[r.acnt]) { groups[r.acnt] = []; order.push(r.acnt); } groups[r.acnt].push(r); });
+  const players = order.map(acnt => {
+    const g = groups[acnt].slice().sort((a, b) => a.ev < b.ev ? -1 : a.ev > b.ev ? 1 : 0);
+    let pos = '';
+    g.forEach((it, i) => {
+      if (it.phr === '代打') pos += '(PH)';
+      else if (it.phr === '代跑') pos += '(PR)';
+      else if (it.ds) {
+        const nm = DEFEND_POS[String(it.ds)] || String(it.ds);
+        pos += (i === 0 && it.ev === '0000000000') ? nm : '(' + nm + ')';
+      }
+    });
+    const starter = g[0].ev === '0000000000';
+    const st = box.bat[acnt] || {};
+    return { ord: g[0].ord, starter, pos, no: g[0].no, name: g[0].name,
+      AB: st.AB || 0, H: st.H || 0, RBI: st.RBI || 0, R: st.R || 0, HR: st.HR || 0, BB: st.BB || 0, SO: st.SO || 0 };
+  });
+  players.sort((a, b) => a.ord - b.ord || (a.starter === b.starter ? 0 : a.starter ? -1 : 1));
+  return players;
+}
+
+function fmtDuration(hhmmss) {
+  if (!hhmmss || hhmmss.length < 4) return '';
+  const h = parseInt(hhmmss.substring(0, 2), 10);
+  const m = parseInt(hhmmss.substring(2, 4), 10);
+  if (isNaN(h) || isNaN(m)) return '';
+  return (h ? h + ' 小時 ' : '') + m + ' 分';
+}
+
+function buildBoxHtml(sno, box) {
+  const g = allGames.find(x => x.sno === sno);
+  const info = box.info || {};
+  const awayName = box.line.away ? box.line.away.name : (g ? g.visitor : '');
+  const homeName = box.line.home ? box.line.home.name : (g ? g.home : '');
+  const awayLogo = TEAM_LOGO[g ? g.visitor : awayName] || '';
+  const homeLogo = TEAM_LOGO[g ? g.home : homeName] || '';
+  const aR = box.line.away ? box.line.away.R : 0;
+  const hR = box.line.home ? box.line.home.R : 0;
+  const awayWin = aR > hR, homeWin = hR > aR;
+
+  // ── hero ──
+  const dateStr = g ? (g.date.replace(/-/g, ' / ') + '（' + g.dayName + '）') : '';
+  let pills = '';
+  if (info.win) pills += '<span class="hp">勝投 <b>' + escapeHtml(info.win) + '</b></span>';
+  if (info.lose) pills += '<span class="hp">敗投 <b>' + escapeHtml(info.lose) + '</b></span>';
+  if (info.save) pills += '<span class="hp">中繼/救援 <b>' + escapeHtml(info.save) + '</b></span>';
+  if (info.mvp) pills += '<span class="hp mvp">單場 MVP <b>' + escapeHtml(info.mvp) + '</b></span>';
+  const hero = '<div class="box-hero">'
+    + '<div class="box-hero-meta">' + escapeHtml(dateStr) + (info.field ? ' · <b>' + escapeHtml(info.field) + '</b>' : '') + ' · 已完賽</div>'
+    + '<div class="box-matchup">'
+      + '<div class="bm-team"><div class="bm-side">客隊</div>' + (awayLogo ? '<img src="' + awayLogo + '" alt="">' : '')
+        + '<div class="bm-team-name" style="color:' + getTeamColor(g ? g.visitor : awayName) + '">' + escapeHtml(awayName) + '</div></div>'
+      + '<div class="bm-score"><span class="bm-num ' + (awayWin ? 'win' : 'lose') + '">' + aR + '</span>'
+        + '<span class="bm-x">：</span><span class="bm-num ' + (homeWin ? 'win' : 'lose') + '">' + hR + '</span></div>'
+      + '<div class="bm-team"><div class="bm-side">主隊</div>' + (homeLogo ? '<img src="' + homeLogo + '" alt="">' : '')
+        + '<div class="bm-team-name" style="color:' + getTeamColor(g ? g.home : homeName) + '">' + escapeHtml(homeName) + '</div></div>'
+    + '</div>'
+    + (pills ? '<div class="box-hero-pills">' + pills + '</div>' : '')
+    + '</div>';
+
+  // ── 逐局比分 ──
+  const lineRow = (side, cls) => {
+    const L = box.line[side]; if (!L) return '';
+    const cells = L.inn.map(v => '<td>' + v + '</td>').join('');
+    return '<tr><td class="lt-team" style="color:' + getTeamColor(L.name) + '">' + escapeHtml(L.name) + '</td>'
+      + cells + '<td class="rhe">' + L.R + '</td><td class="rhe">' + L.H + '</td><td class="rhe">' + L.E + '</td></tr>';
+  };
+  const maxInn = Math.max(box.line.away ? box.line.away.inn.length : 0, box.line.home ? box.line.home.inn.length : 0);
+  let innHead = '';
+  for (let i = 1; i <= maxInn; i++) innHead += '<th>' + i + '</th>';
+  const lineSec = '<div class="box-sec"><div class="box-sec-h">逐局比分</div>'
+    + '<div class="box-tbl-wrap"><table class="box-line"><thead><tr><th class="bx-th-l lt-team">隊伍</th>'
+    + innHead + '<th class="rhe">R</th><th class="rhe">H</th><th class="rhe">E</th></tr></thead><tbody>'
+    + lineRow('away') + lineRow('home') + '</tbody></table></div></div>';
+
+  // ── 打擊 ──
+  const batTable = (side) => {
+    const name = box.line[side] ? box.line[side].name : '';
+    const teamName = side === 'away' ? (g ? g.visitor : name) : (g ? g.home : name);
+    const logo = TEAM_LOGO[teamName] || '';
+    const rows = reconstructLineup(box, side).map(p => {
+      const sub = !p.starter;
+      const hl = (v, th) => (v >= th ? ' class="bx-hl"' : '');
+      const mvp = (info.mvp && p.name === info.mvp) ? '<span class="bx-mvp">MVP</span>' : '';
+      const prefix = sub ? '<span class="bx-arrow">└</span> ' : '';
+      return '<tr' + (sub ? ' class="bx-sub"' : '') + '>'
+        + '<td class="bx-ord">' + (sub ? '' : p.ord) + '</td>'
+        + '<td class="bx-pos">' + p.pos + '</td>'
+        + '<td class="bx-name' + (sub ? ' bx-subname' : '') + '">' + prefix + '<span class="bx-no">' + escapeHtml(p.no) + '</span> ' + escapeHtml(p.name) + mvp + '</td>'
+        + '<td>' + p.AB + '</td><td' + hl(p.H, 3) + '>' + p.H + '</td><td' + hl(p.RBI, 2) + '>' + p.RBI + '</td>'
+        + '<td' + hl(p.R, 2) + '>' + p.R + '</td><td' + (p.HR ? ' class="bx-hl"' : '') + '>' + p.HR + '</td>'
+        + '<td>' + p.BB + '</td><td>' + p.SO + '</td></tr>';
+    }).join('');
+    return '<div class="box-tbl-wrap">'
+      + '<div class="box-team-band" style="color:' + getTeamColor(teamName) + '"><span class="dot" style="background:' + getTeamColor(teamName) + '"></span>'
+      + (logo ? '<img src="' + logo + '" alt="">' : '') + escapeHtml(name) + '</div>'
+      + '<table><thead><tr><th class="bx-ord">棒次</th><th class="bx-th-l bx-pos">守位</th><th class="bx-th-l">打者</th>'
+      + '<th>打數</th><th>安打</th><th>打點</th><th>得分</th><th>全壘打</th><th>四死</th><th>三振</th></tr></thead>'
+      + '<tbody>' + rows + '</tbody></table></div>';
+  };
+  const batSec = '<div class="box-sec"><div class="box-sec-h">打擊成績</div>'
+    + '<div class="box-two">' + batTable('away') + batTable('home') + '</div>'
+    + '<div class="box-legend">縮排列＝替補；守位括號代表換人後守備位置，(PH)＝代打、(PR)＝代跑</div></div>';
+
+  // ── 投手 ──
+  const pitTable = (side) => {
+    const name = box.line[side] ? box.line[side].name : '';
+    const teamName = side === 'away' ? (g ? g.visitor : name) : (g ? g.home : name);
+    const logo = TEAM_LOGO[teamName] || '';
+    const list = (box.pit && box.pit[side]) ? box.pit[side] : [];
+    const rows = list.map(p => {
+      const rc = p.res === '勝' ? 'bx-w' : (p.res === '敗' ? 'bx-l' : '');
+      return '<tr><td class="bx-name"><span class="bx-no">' + escapeHtml(p.no) + '</span> ' + escapeHtml(p.name) + '</td>'
+        + '<td>' + escapeHtml(p.IP) + '</td><td>' + p.H + '</td><td>' + p.ER + '</td><td>' + p.SO + '</td><td>' + p.NP + '</td>'
+        + '<td class="' + rc + '">' + escapeHtml(p.res || '') + '</td></tr>';
+    }).join('');
+    return '<div class="box-tbl-wrap">'
+      + '<div class="box-team-band" style="color:' + getTeamColor(teamName) + '"><span class="dot" style="background:' + getTeamColor(teamName) + '"></span>'
+      + (logo ? '<img src="' + logo + '" alt="">' : '') + escapeHtml(name) + '</div>'
+      + '<table><thead><tr><th class="bx-th-l">投手</th><th>局數</th><th>被安打</th><th>自責分</th><th>三振</th><th>用球數</th><th>勝敗</th></tr></thead>'
+      + '<tbody>' + rows + '</tbody></table></div>';
+  };
+  const pitSec = '<div class="box-sec"><div class="box-sec-h">投手成績</div>'
+    + '<div class="box-two">' + pitTable('away') + pitTable('home') + '</div></div>';
+
+  // ── 比賽資訊 ──
+  const ump = info.ump || {};
+  const umpStr = [ump.main ? '主審 ' + escapeHtml(ump.main) : '', ump.b1 ? '一壘 ' + escapeHtml(ump.b1) : '',
+    ump.b2 ? '二壘 ' + escapeHtml(ump.b2) : '', ump.b3 ? '三壘 ' + escapeHtml(ump.b3) : ''].filter(Boolean).join('　');
+  const infoCells = [];
+  if (info.field) infoCells.push(['球場', escapeHtml(info.field)]);
+  if (info.audience != null) infoCells.push(['觀眾人數', Number(info.audience).toLocaleString('en-US') + ' 人']);
+  const dur = fmtDuration(info.dur);
+  if (dur) infoCells.push(['比賽時間', dur]);
+  if (info.weather) infoCells.push(['天氣', escapeHtml(info.weather)]);
+  if (umpStr) infoCells.push(['裁判', umpStr]);
+  infoCells.push(['資料來源', 'CPBL 官方 · game ' + sno]);
+  const infoSec = '<div class="box-sec"><div class="box-sec-h">比賽資訊</div><div class="box-info">'
+    + infoCells.map(c => '<div class="box-info-cell"><div class="box-info-k">' + c[0] + '</div><div class="box-info-v">' + c[1] + '</div></div>').join('')
+    + '</div></div>';
+
+  // ── 賽事記錄（沿用 BRIEFINGS，剝除開頭「技術室人員」行）──
+  let briefSec = '';
+  const brief = BRIEFINGS[sno];
+  if (brief) {
+    // 剝掉開頭的「技術室人員」那段（CPBL 固定放在第一個 <p> 區塊，內含 <span>）
+    const cleaned = String(brief)
+      .replace(/^\s*<p>[\s\S]*?技術室人員[\s\S]*?<\/p>\s*/, '')
+      .replace(/^\s*技術室人員[：:][^\n<]*(?:<br\s*\/?>|\n)?/, '');
+    briefSec = '<div class="box-sec"><div class="box-sec-h">賽事記錄</div><div class="box-briefing">' + cleaned + '</div></div>';
+  }
+
+  return hero + lineSec + batSec + pitSec + infoSec + briefSec;
 }
 
 // ── 新聞頁：載入 data/news.json，依發布時間新到舊、依日期分組 ──
@@ -3618,7 +3933,9 @@ function renderNewsList() {
 function isSubViewOpen() {
   const myEl = document.getElementById('my-view');
   const newsEl = document.getElementById('news-view');
-  return (myEl && myEl.style.display !== 'none') || (newsEl && newsEl.style.display !== 'none');
+  const boxEl = document.getElementById('box-view');
+  return (myEl && myEl.style.display !== 'none') || (newsEl && newsEl.style.display !== 'none')
+    || (boxEl && boxEl.style.display !== 'none');
 }
 
 document.querySelector('.nav-links').addEventListener('click', function(e) {
@@ -3640,7 +3957,10 @@ document.querySelector('.nav-links').addEventListener('click', function(e) {
 });
 
 window.addEventListener('hashchange', function() {
-  if (location.hash === '#my') {
+  const boxMatch = location.hash.match(/^#box=(\d+)$/);
+  if (boxMatch) {
+    openBoxView(boxMatch[1]);
+  } else if (location.hash === '#my') {
     switchView('my');
   } else if (location.hash === '#news') {
     switchView('news');
@@ -3650,7 +3970,9 @@ window.addEventListener('hashchange', function() {
 });
 
 function initMyViewFromHash() {
-  if (location.hash === '#my') switchView('my');
+  const boxMatch = location.hash.match(/^#box=(\d+)$/);
+  if (boxMatch) openBoxView(boxMatch[1]);
+  else if (location.hash === '#my') switchView('my');
   else if (location.hash === '#news') switchView('news');
 }
 
