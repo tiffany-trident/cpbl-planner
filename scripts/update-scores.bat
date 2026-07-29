@@ -82,9 +82,12 @@ if errorlevel 1 (
   echo [WARN] fetch-news.ps1 failed -- continuing without news update >> "%LOG%"
 )
 
-"%GIT%" diff --quiet -- index.html cpbl-planner.html data/briefings.json data/news.json
+REM Stage everything the updater produces, INCLUDING the per-game box files under
+REM data/box/ (untracked new files -- git diff alone can't see them, so add first
+REM then test the staged set with diff --cached).
+"%GIT%" add index.html cpbl-planner.html data/briefings.json data/news.json data/box >> "%LOG%" 2>&1
+"%GIT%" diff --cached --quiet
 if errorlevel 1 (
-  "%GIT%" add index.html cpbl-planner.html data/briefings.json data/news.json >> "%LOG%" 2>&1
   "%GIT%" commit -m "auto update scores !TS!" >> "%LOG%" 2>&1
   echo [OK] committed >> "%LOG%"
 ) else (
