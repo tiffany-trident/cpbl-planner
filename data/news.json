@@ -1,7 +1,16 @@
 {
-    "updated":  "2026-07-30T15:33:21+08:00",
+    "updated":  "2026-07-30T16:00:06+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "中職》威克VS.魔鷹  曾總點出兩大洋砲最大不同之處",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5523098",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-07-30T15:51:32+08:00",
+                      "teams":  [
+                                    "台鋼雄鷹"
+                                ]
+                  },
                   {
                       "title":  "韓國女團Apink抵台　31日大巨蛋味全龍主場賽後開唱",
                       "url":  "https://www.cna.com.tw/news/aspt/202607300194.aspx",
@@ -102,6 +111,33 @@
                                 ]
                   },
                   {
+                      "title":  "魔王聯線 獅加班飲恨",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1764686",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-07-30T05:30:00+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅"
+                                ]
+                  },
+                  {
+                      "title":  "打擊率逾3成僅2人 葉總︰攻擊型態改變",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1764683",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-07-30T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "暴力猿再現 揍慘德保拉",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1764684",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-07-30T05:30:00+08:00",
+                      "teams":  [
+                                    "樂天桃猿"
+                                ]
+                  },
+                  {
                       "title":  "31歲生日禮 陳子豪轟悍將",
                       "url":  "https://sports.ltn.com.tw/news/paper/1764682",
                       "source":  "自由時報",
@@ -122,33 +158,6 @@
                   {
                       "title":  "韓職》王彥程第9勝 堆高台將最多勝",
                       "url":  "https://sports.ltn.com.tw/news/paper/1764692",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-30T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "暴力猿再現 揍慘德保拉",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1764684",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-30T05:30:00+08:00",
-                      "teams":  [
-                                    "樂天桃猿"
-                                ]
-                  },
-                  {
-                      "title":  "魔王聯線 獅加班飲恨",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1764686",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-30T05:30:00+08:00",
-                      "teams":  [
-                                    "統一7-ELEVEn獅"
-                                ]
-                  },
-                  {
-                      "title":  "打擊率逾3成僅2人 葉總︰攻擊型態改變",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1764683",
                       "source":  "自由時報",
                       "pubDate":  "2026-07-30T05:30:00+08:00",
                       "teams":  [
@@ -627,26 +636,17 @@
                                 ]
                   },
                   {
-                      "title":  "Proud of YU》恰恰評「宇」︰具力量和擊球命中率",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1764402",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-28T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "陽岱鋼季後引退 感念高中恩師領路",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1764428",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-28T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
                       "title":  "Proud of YU》李留鄭下 葉君璋︰大聯盟看重OPS",
                       "url":  "https://sports.ltn.com.tw/news/paper/1764401",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-07-28T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "Proud of YU》沒贏過投球的Lee 10年至交董子恩「宇」有榮焉",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1764403",
                       "source":  "自由時報",
                       "pubDate":  "2026-07-28T05:30:00+08:00",
                       "teams":  [
@@ -663,8 +663,17 @@
                                 ]
                   },
                   {
-                      "title":  "Proud of YU》沒贏過投球的Lee 10年至交董子恩「宇」有榮焉",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1764403",
+                      "title":  "Proud of YU》恰恰評「宇」︰具力量和擊球命中率",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1764402",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-07-28T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "陽岱鋼季後引退 感念高中恩師領路",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1764428",
                       "source":  "自由時報",
                       "pubDate":  "2026-07-28T05:30:00+08:00",
                       "teams":  [
@@ -898,16 +907,6 @@
                       "pubDate":  "2026-07-26T21:08:59+08:00",
                       "teams":  [
                                     "中信兄弟"
-                                ]
-                  },
-                  {
-                      "title":  "江坤宇關鍵一擊　兄弟中止洲際對獅跨季7連敗",
-                      "url":  "https://www.cna.com.tw/news/aspt/202607260177.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-07-26T21:07:43+08:00",
-                      "teams":  [
-                                    "中信兄弟",
-                                    "統一7-ELEVEn獅"
                                 ]
                   }
               ]
