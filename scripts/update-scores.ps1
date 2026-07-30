@@ -132,11 +132,15 @@ function Pad3([object]$sno) {
 
 # One getlive fetch per game; returns the parsed response (all sub-JSONs) or $null.
 # Both the briefing and the box score are derived from this single response.
+# Must go through Invoke-CpblWeb (not plain Invoke-WebRequest): on a fresh session
+# the very FIRST box request hits HiNet's 308 __chtcdn cookie challenge, and plain
+# Invoke-WebRequest silently drops it -- that dropped the first game (sno 001) on
+# every cold run. The wrapper resolves the challenge and retries. See docs/scoreupdate.md.
 function Get-GameLive($session, $year, $sno) {
     $snoPadded = Pad3 $sno
     $boxUrl = "$CpblBase/box?year=$year&kindCode=A&gameSno=$snoPadded"
     try {
-        $page = Invoke-WebRequest -Uri $boxUrl -UserAgent $UA -WebSession $session -UseBasicParsing
+        $page = Invoke-CpblWeb -Uri $boxUrl -Session $session
     } catch {
         return $null
     }
@@ -145,11 +149,11 @@ function Get-GameLive($session, $year, $sno) {
     $tok = $m.Groups[1].Value
     $body = "__RequestVerificationToken=$([uri]::EscapeDataString($tok))&GameSno=$snoPadded&KindCode=A&Year=$year&PrevOrNext=&PresentStatus="
     try {
-        $res = Invoke-WebRequest -Uri "$CpblBase/box/getlive" `
-            -Method Post -UserAgent $UA -WebSession $session `
+        $res = Invoke-CpblWeb -Uri "$CpblBase/box/getlive" `
+            -Method Post -Session $session `
             -Headers @{ 'X-Requested-With' = 'XMLHttpRequest'; 'Referer' = $boxUrl } `
             -ContentType 'application/x-www-form-urlencoded' `
-            -Body $body -UseBasicParsing
+            -Body $body
     } catch {
         return $null
     }
