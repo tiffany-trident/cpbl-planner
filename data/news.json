@@ -1,7 +1,16 @@
 {
-    "updated":  "2026-07-31T17:10:50+08:00",
+    "updated":  "2026-07-31T18:10:50+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "中職》明星賽以代打上場 林威助：只練30分鐘",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5524543",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-07-31T18:05:50+08:00",
+                      "teams":  [
+
+                                ]
+                  },
                   {
                       "title":  "中職》樂天桃猿首波新秀 簽約金出爐！",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5524329",
@@ -57,12 +66,31 @@
                                 ]
                   },
                   {
+                      "title":  "中職》陳克羿被打爆 樂天慘輸兄弟",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1764820",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-07-31T05:30:00+08:00",
+                      "teams":  [
+                                    "中信兄弟",
+                                    "樂天桃猿"
+                                ]
+                  },
+                  {
                       "title":  "中職》教練生涯里程碑 葉君璋500勝 且看今夜",
                       "url":  "https://sports.ltn.com.tw/news/paper/1764823",
                       "source":  "自由時報",
                       "pubDate":  "2026-07-31T05:30:00+08:00",
                       "teams":  [
 
+                                ]
+                  },
+                  {
+                      "title":  "中職》樂天土投蘇俊璋解密 先得分帶動大膽攻擊",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1764824",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-07-31T05:30:00+08:00",
+                      "teams":  [
+                                    "樂天桃猿"
                                 ]
                   },
                   {
@@ -81,25 +109,6 @@
                       "pubDate":  "2026-07-31T05:30:00+08:00",
                       "teams":  [
                                     "台鋼雄鷹"
-                                ]
-                  },
-                  {
-                      "title":  "中職》樂天土投蘇俊璋解密 先得分帶動大膽攻擊",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1764824",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-31T05:30:00+08:00",
-                      "teams":  [
-                                    "樂天桃猿"
-                                ]
-                  },
-                  {
-                      "title":  "中職》陳克羿被打爆 樂天慘輸兄弟",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1764820",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-31T05:30:00+08:00",
-                      "teams":  [
-                                    "中信兄弟",
-                                    "樂天桃猿"
                                 ]
                   },
                   {
@@ -384,12 +393,30 @@
                                 ]
                   },
                   {
-                      "title":  "魔王聯線 獅加班飲恨",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1764686",
+                      "title":  "打擊率逾3成僅2人 葉總︰攻擊型態改變",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1764683",
                       "source":  "自由時報",
                       "pubDate":  "2026-07-30T05:30:00+08:00",
                       "teams":  [
-                                    "統一7-ELEVEn獅"
+
+                                ]
+                  },
+                  {
+                      "title":  "31歲生日禮 陳子豪轟悍將",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1764682",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-07-30T05:30:00+08:00",
+                      "teams":  [
+                                    "富邦悍將"
+                                ]
+                  },
+                  {
+                      "title":  "韓職》王彥程第9勝 堆高台將最多勝",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1764692",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-07-30T05:30:00+08:00",
+                      "teams":  [
+
                                 ]
                   },
                   {
@@ -411,30 +438,12 @@
                                 ]
                   },
                   {
-                      "title":  "韓職》王彥程第9勝 堆高台將最多勝",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1764692",
+                      "title":  "魔王聯線 獅加班飲恨",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1764686",
                       "source":  "自由時報",
                       "pubDate":  "2026-07-30T05:30:00+08:00",
                       "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "打擊率逾3成僅2人 葉總︰攻擊型態改變",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1764683",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-30T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "31歲生日禮 陳子豪轟悍將",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1764682",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-30T05:30:00+08:00",
-                      "teams":  [
-                                    "富邦悍將"
+                                    "統一7-ELEVEn獅"
                                 ]
                   },
                   {
@@ -897,15 +906,6 @@
                       "teams":  [
                                     "富邦悍將",
                                     "味全龍"
-                                ]
-                  },
-                  {
-                      "title":  "蔡其昌訪大聯盟總部　MLB海外賽下輪台灣優先",
-                      "url":  "https://www.cna.com.tw/news/aspt/202607280010.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-07-28T06:20:42+08:00",
-                      "teams":  [
-
                                 ]
                   }
               ]
