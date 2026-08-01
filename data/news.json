@@ -1,7 +1,35 @@
 {
-    "updated":  "2026-08-01T19:00:05+08:00",
+    "updated":  "2026-08-01T20:00:07+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "中職》富邦悍將2連勝爬出泥淖！中信兄弟獨居下半季墊底",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5525561",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-01T19:50:07+08:00",
+                      "teams":  [
+                                    "中信兄弟",
+                                    "富邦悍將"
+                                ]
+                  },
+                  {
+                      "title":  "中職》樂天桃猿新洋砲真的物超所值  威克一棒定江山！",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5525553",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-01T19:35:19+08:00",
+                      "teams":  [
+                                    "樂天桃猿"
+                                ]
+                  },
+                  {
+                      "title":  "中職》回一軍後出賽機會增加 林吳晉瑋感謝教練信任",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5525548",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-01T19:31:41+08:00",
+                      "teams":  [
+
+                                ]
+                  },
                   {
                       "title":  "中職》郭天信生涯第2次連續2場開砲 本季累計9轟並列聯盟第4！",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5525528",
@@ -265,6 +293,15 @@
                                 ]
                   },
                   {
+                      "title":  "遭魔鷹轟滿貫砲 張奕照樣當怪盜",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1764918",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-01T05:30:00+08:00",
+                      "teams":  [
+                                    "台鋼雄鷹"
+                                ]
+                  },
+                  {
                       "title":  "500勝達陣第3人 葉總認同洪總「痛苦」金句",
                       "url":  "https://sports.ltn.com.tw/news/paper/1764917",
                       "source":  "自由時報",
@@ -274,12 +311,12 @@
                                 ]
                   },
                   {
-                      "title":  "遭魔鷹轟滿貫砲 張奕照樣當怪盜",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1764918",
+                      "title":  "劉基鴻飆3打點 護送葉總500勝",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1764916",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-01T05:30:00+08:00",
                       "teams":  [
-                                    "台鋼雄鷹"
+
                                 ]
                   },
                   {
@@ -295,15 +332,6 @@
                   {
                       "title":  "軟銀打球執教16年 的山哲也關心熊本震災",
                       "url":  "https://sports.ltn.com.tw/news/paper/1764919",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-01T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "劉基鴻飆3打點 護送葉總500勝",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1764916",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-01T05:30:00+08:00",
                       "teams":  [
@@ -879,33 +907,6 @@
                       "url":  "https://www.cna.com.tw/news/aspt/202607310064.aspx",
                       "source":  "中央社",
                       "pubDate":  "2026-07-31T11:18:34+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "中職》富邦悍將「旅行趣」主題日8/8-8/9登場 吳奇隆、周天成接力開球",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5523935",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-31T11:17:20+08:00",
-                      "teams":  [
-                                    "富邦悍將"
-                                ]
-                  },
-                  {
-                      "title":  "中職》拒絕領機票！菲力士飆6局優質先發 兄弟新洋投今登板",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5523846",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-31T10:48:06+08:00",
-                      "teams":  [
-                                    "中信兄弟"
-                                ]
-                  },
-                  {
-                      "title":  "喪屍煙彈疑雲擴大！廣島2球員住處遭搜　球團全面配合調查",
-                      "url":  "https://sports.ettoday.net/news/3210797",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-07-31T10:15:00+08:00",
                       "teams":  [
 
                                 ]
