@@ -1,7 +1,25 @@
 {
-    "updated":  "2026-08-01T11:00:05+08:00",
+    "updated":  "2026-08-01T12:00:05+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "魔鷹不爽主審好球帶怒了！  洪一中場邊台語怒吼全被收音",
+                      "url":  "https://sports.ettoday.net/news/3211413",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-08-01T10:50:00+08:00",
+                      "teams":  [
+                                    "台鋼雄鷹"
+                                ]
+                  },
+                  {
+                      "title":  "釜山飆122年最高溫！球員身體不適　韓職不停賽挨批「漠視安全」",
+                      "url":  "https://sports.ettoday.net/news/3211383",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-08-01T10:06:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
                   {
                       "title":  "莊陳仲敖遭美職運動家隊指定讓渡　動向未定",
                       "url":  "https://www.cna.com.tw/news/aspt/202608010028.aspx",
@@ -48,6 +66,15 @@
                                 ]
                   },
                   {
+                      "title":  "500勝達陣第3人 葉總認同洪總「痛苦」金句",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1764917",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-01T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "布雷克又問天 猿完封獅率先10勝",
                       "url":  "https://sports.ltn.com.tw/news/paper/1764920",
                       "source":  "自由時報",
@@ -58,17 +85,8 @@
                                 ]
                   },
                   {
-                      "title":  "500勝達陣第3人 葉總認同洪總「痛苦」金句",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1764917",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-01T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "軟銀打球執教16年 的山哲也關心熊本震災",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1764919",
+                      "title":  "劉基鴻飆3打點 護送葉總500勝",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1764916",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-01T05:30:00+08:00",
                       "teams":  [
@@ -85,8 +103,8 @@
                                 ]
                   },
                   {
-                      "title":  "劉基鴻飆3打點 護送葉總500勝",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1764916",
+                      "title":  "軟銀打球執教16年 的山哲也關心熊本震災",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1764919",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-01T05:30:00+08:00",
                       "teams":  [
@@ -694,12 +712,11 @@
                                 ]
                   },
                   {
-                      "title":  "中職》陳克羿被打爆 樂天慘輸兄弟",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1764820",
+                      "title":  "中職》樂天土投蘇俊璋解密 先得分帶動大膽攻擊",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1764824",
                       "source":  "自由時報",
                       "pubDate":  "2026-07-31T05:30:00+08:00",
                       "teams":  [
-                                    "中信兄弟",
                                     "樂天桃猿"
                                 ]
                   },
@@ -710,6 +727,16 @@
                       "pubDate":  "2026-07-31T05:30:00+08:00",
                       "teams":  [
 
+                                ]
+                  },
+                  {
+                      "title":  "中職》陳克羿被打爆 樂天慘輸兄弟",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1764820",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-07-31T05:30:00+08:00",
+                      "teams":  [
+                                    "中信兄弟",
+                                    "樂天桃猿"
                                 ]
                   },
                   {
@@ -728,15 +755,6 @@
                       "pubDate":  "2026-07-31T05:30:00+08:00",
                       "teams":  [
 
-                                ]
-                  },
-                  {
-                      "title":  "中職》樂天土投蘇俊璋解密 先得分帶動大膽攻擊",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1764824",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-31T05:30:00+08:00",
-                      "teams":  [
-                                    "樂天桃猿"
                                 ]
                   },
                   {
@@ -892,24 +910,6 @@
                       "pubDate":  "2026-07-30T18:15:00+08:00",
                       "teams":  [
 
-                                ]
-                  },
-                  {
-                      "title":  "村上宗隆敲關鍵追平砲　MLB新人年23轟超越大谷翔平",
-                      "url":  "https://www.cna.com.tw/news/aspt/202607300289.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-07-30T17:51:05+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "中職》下半季樂天土投ERA0.79勇冠全聯盟  曾總有1個擔憂",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5523126",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-30T16:02:42+08:00",
-                      "teams":  [
-                                    "樂天桃猿"
                                 ]
                   }
               ]
