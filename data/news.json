@@ -1,7 +1,16 @@
 {
-    "updated":  "2026-08-01T10:00:06+08:00",
+    "updated":  "2026-08-01T11:00:05+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "莊陳仲敖遭美職運動家隊指定讓渡　動向未定",
+                      "url":  "https://www.cna.com.tw/news/aspt/202608010028.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-08-01T09:49:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
                   {
                       "title":  "中職》不忍了！主審好球帶引發爭議 洪總場邊開罵收音曝光",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5524909",
@@ -39,8 +48,27 @@
                                 ]
                   },
                   {
+                      "title":  "布雷克又問天 猿完封獅率先10勝",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1764920",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-01T05:30:00+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅",
+                                    "樂天桃猿"
+                                ]
+                  },
+                  {
                       "title":  "500勝達陣第3人 葉總認同洪總「痛苦」金句",
                       "url":  "https://sports.ltn.com.tw/news/paper/1764917",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-01T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "軟銀打球執教16年 的山哲也關心熊本震災",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1764919",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-01T05:30:00+08:00",
                       "teams":  [
@@ -63,25 +91,6 @@
                       "pubDate":  "2026-08-01T05:30:00+08:00",
                       "teams":  [
 
-                                ]
-                  },
-                  {
-                      "title":  "軟銀打球執教16年 的山哲也關心熊本震災",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1764919",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-01T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "布雷克又問天 猿完封獅率先10勝",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1764920",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-01T05:30:00+08:00",
-                      "teams":  [
-                                    "統一7-ELEVEn獅",
-                                    "樂天桃猿"
                                 ]
                   },
                   {
@@ -685,12 +694,13 @@
                                 ]
                   },
                   {
-                      "title":  "中職》教練生涯里程碑 葉君璋500勝 且看今夜",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1764823",
+                      "title":  "中職》陳克羿被打爆 樂天慘輸兄弟",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1764820",
                       "source":  "自由時報",
                       "pubDate":  "2026-07-31T05:30:00+08:00",
                       "teams":  [
-
+                                    "中信兄弟",
+                                    "樂天桃猿"
                                 ]
                   },
                   {
@@ -703,15 +713,6 @@
                                 ]
                   },
                   {
-                      "title":  "中職》樂天土投蘇俊璋解密 先得分帶動大膽攻擊",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1764824",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-31T05:30:00+08:00",
-                      "teams":  [
-                                    "樂天桃猿"
-                                ]
-                  },
-                  {
                       "title":  "中職》威克、魔鷹同場較勁 曾總也期待",
                       "url":  "https://sports.ltn.com.tw/news/paper/1764821",
                       "source":  "自由時報",
@@ -721,12 +722,20 @@
                                 ]
                   },
                   {
-                      "title":  "中職》陳克羿被打爆 樂天慘輸兄弟",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1764820",
+                      "title":  "中職》教練生涯里程碑 葉君璋500勝 且看今夜",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1764823",
                       "source":  "自由時報",
                       "pubDate":  "2026-07-31T05:30:00+08:00",
                       "teams":  [
-                                    "中信兄弟",
+
+                                ]
+                  },
+                  {
+                      "title":  "中職》樂天土投蘇俊璋解密 先得分帶動大膽攻擊",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1764824",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-07-31T05:30:00+08:00",
+                      "teams":  [
                                     "樂天桃猿"
                                 ]
                   },
@@ -901,15 +910,6 @@
                       "pubDate":  "2026-07-30T16:02:42+08:00",
                       "teams":  [
                                     "樂天桃猿"
-                                ]
-                  },
-                  {
-                      "title":  "中職》威克VS.魔鷹  曾總點出兩大洋砲最大不同之處",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5523098",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-30T15:51:32+08:00",
-                      "teams":  [
-                                    "台鋼雄鷹"
                                 ]
                   }
               ]
