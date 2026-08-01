@@ -1,7 +1,16 @@
 {
-    "updated":  "2026-08-01T15:00:05+08:00",
+    "updated":  "2026-08-01T16:00:05+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "中職》WBC澳洲左投二軍亮相  王建民想起前兄弟大聯盟洋投",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5525323",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-01T15:38:54+08:00",
+                      "teams":  [
+                                    "中信兄弟"
+                                ]
+                  },
                   {
                       "title":  "魔鷹不爽主審好球帶怒了！  洪一中場邊台語怒吼全被收音",
                       "url":  "https://sports.ettoday.net/news/3211413",
@@ -66,6 +75,25 @@
                                 ]
                   },
                   {
+                      "title":  "布雷克又問天 猿完封獅率先10勝",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1764920",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-01T05:30:00+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅",
+                                    "樂天桃猿"
+                                ]
+                  },
+                  {
+                      "title":  "500勝達陣第3人 葉總認同洪總「痛苦」金句",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1764917",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-01T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "遭魔鷹轟滿貫砲 張奕照樣當怪盜",
                       "url":  "https://sports.ltn.com.tw/news/paper/1764918",
                       "source":  "自由時報",
@@ -90,25 +118,6 @@
                       "pubDate":  "2026-08-01T05:30:00+08:00",
                       "teams":  [
 
-                                ]
-                  },
-                  {
-                      "title":  "500勝達陣第3人 葉總認同洪總「痛苦」金句",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1764917",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-01T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "布雷克又問天 猿完封獅率先10勝",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1764920",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-01T05:30:00+08:00",
-                      "teams":  [
-                                    "統一7-ELEVEn獅",
-                                    "樂天桃猿"
                                 ]
                   },
                   {
@@ -712,12 +721,30 @@
                                 ]
                   },
                   {
+                      "title":  "中職》補強戰力 中信簽下左投洋將杰克",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1764822",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-07-31T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "中職》威克、魔鷹同場較勁 曾總也期待",
                       "url":  "https://sports.ltn.com.tw/news/paper/1764821",
                       "source":  "自由時報",
                       "pubDate":  "2026-07-31T05:30:00+08:00",
                       "teams":  [
                                     "台鋼雄鷹"
+                                ]
+                  },
+                  {
+                      "title":  "中職》樂天土投蘇俊璋解密 先得分帶動大膽攻擊",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1764824",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-07-31T05:30:00+08:00",
+                      "teams":  [
+                                    "樂天桃猿"
                                 ]
                   },
                   {
@@ -737,24 +764,6 @@
                       "teams":  [
                                     "中信兄弟",
                                     "樂天桃猿"
-                                ]
-                  },
-                  {
-                      "title":  "中職》樂天土投蘇俊璋解密 先得分帶動大膽攻擊",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1764824",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-31T05:30:00+08:00",
-                      "teams":  [
-                                    "樂天桃猿"
-                                ]
-                  },
-                  {
-                      "title":  "中職》補強戰力 中信簽下左投洋將杰克",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1764822",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-31T05:30:00+08:00",
-                      "teams":  [
-
                                 ]
                   },
                   {
@@ -899,15 +908,6 @@
                       "url":  "https://sports.ettoday.net/news/3210612",
                       "source":  "ETtoday",
                       "pubDate":  "2026-07-30T18:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "經典賽壓制中華隊！杰克披黃衫　平野評價：影片再好也要實戰見真章",
-                      "url":  "https://sports.ettoday.net/news/3210599",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-07-30T18:15:00+08:00",
                       "teams":  [
 
                                 ]
