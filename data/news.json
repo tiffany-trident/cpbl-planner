@@ -1,7 +1,43 @@
 {
-    "updated":  "2026-08-01T18:00:05+08:00",
+    "updated":  "2026-08-01T19:00:05+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "中職》郭天信生涯第2次連續2場開砲 本季累計9轟並列聯盟第4！",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5525528",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-01T18:54:51+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "中職》有望拚游擊金手套 葉君璋：張政禹今年真的不會差江坤宇",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5525508",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-01T18:37:52+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "吉力吉撈憂ABS倉促上路　喊話先在二軍測試一年：球員要站出來",
+                      "url":  "https://sports.ettoday.net/news/3211614",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-08-01T18:12:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "菅野智之優質先發奪第11勝　MLB洛磯隊5年來首位",
+                      "url":  "https://www.cna.com.tw/news/aspt/202608010171.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-08-01T18:07:16+08:00",
+                      "teams":  [
+
+                                ]
+                  },
                   {
                       "title":  "中職》兄弟本季對戰味全處於劣勢 平野惠一：其實不只是對他們",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5525456",
@@ -13,10 +49,46 @@
                                 ]
                   },
                   {
+                      "title":  "張祐嘉罕見動怒欲找主審爭論　葉總急喊回安撫：不是你問題",
+                      "url":  "https://sports.ettoday.net/news/3211603",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-08-01T17:37:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "中職》今年可望挑戰金手套 張政禹：有機會一定會拚",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5525425",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-01T17:26:48+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "「有些球真的漏判」艾速特談好球帶爭議　也幫裁判緩頰",
+                      "url":  "https://sports.ettoday.net/news/3211476",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-08-01T17:20:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "兄弟新洋投二軍開箱飆5K　王建民讚曲球大、神似李博登",
+                      "url":  "https://sports.ettoday.net/news/3211593",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-08-01T17:17:00+08:00",
+                      "teams":  [
+                                    "中信兄弟"
+                                ]
+                  },
+                  {
+                      "title":  "平野談前役代打抉擇困難　對戰劣勢需拚盡全力",
+                      "url":  "https://www.cna.com.tw/news/aspt/202608010140.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-08-01T17:03:07+08:00",
                       "teams":  [
 
                                 ]
@@ -193,15 +265,6 @@
                                 ]
                   },
                   {
-                      "title":  "劉基鴻飆3打點 護送葉總500勝",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1764916",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-01T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
                       "title":  "500勝達陣第3人 葉總認同洪總「痛苦」金句",
                       "url":  "https://sports.ltn.com.tw/news/paper/1764917",
                       "source":  "自由時報",
@@ -232,6 +295,15 @@
                   {
                       "title":  "軟銀打球執教16年 的山哲也關心熊本震災",
                       "url":  "https://sports.ltn.com.tw/news/paper/1764919",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-01T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "劉基鴻飆3打點 護送葉總500勝",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1764916",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-01T05:30:00+08:00",
                       "teams":  [
@@ -836,79 +908,6 @@
                       "pubDate":  "2026-07-31T10:15:00+08:00",
                       "teams":  [
 
-                                ]
-                  },
-                  {
-                      "title":  "中職》陳克羿被打爆 樂天慘輸兄弟",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1764820",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-31T05:30:00+08:00",
-                      "teams":  [
-                                    "中信兄弟",
-                                    "樂天桃猿"
-                                ]
-                  },
-                  {
-                      "title":  "中職》樂天土投蘇俊璋解密 先得分帶動大膽攻擊",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1764824",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-31T05:30:00+08:00",
-                      "teams":  [
-                                    "樂天桃猿"
-                                ]
-                  },
-                  {
-                      "title":  "中職》教練生涯里程碑 葉君璋500勝 且看今夜",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1764823",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-31T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "中職》補強戰力 中信簽下左投洋將杰克",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1764822",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-31T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "中職》威克、魔鷹同場較勁 曾總也期待",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1764821",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-31T05:30:00+08:00",
-                      "teams":  [
-                                    "台鋼雄鷹"
-                                ]
-                  },
-                  {
-                      "title":  "漏網鏡頭》高宇杰打下MVP 賽前打擊練習平野竟遞給他「這根」",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5523657",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-30T23:27:43+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "圖輯》神祕嘉賓開球 「阿銀」梁家榮淚灑球場",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5523648",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-30T23:12:51+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "中職》宋晟睿用超美技守備拯救兄弟  平野惠一的「影子MVP」",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5523646",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-30T22:58:51+08:00",
-                      "teams":  [
-                                    "中信兄弟"
                                 ]
                   }
               ]
