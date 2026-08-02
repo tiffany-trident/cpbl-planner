@@ -1,7 +1,16 @@
 {
-    "updated":  "2026-08-02T20:00:06+08:00",
+    "updated":  "2026-08-02T21:00:06+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "「時間不多了…謝謝你們」陳鏞基致勝一擊奪MVP　頒獎台落淚",
+                      "url":  "https://sports.ettoday.net/news/3212035",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-08-02T19:55:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
                   {
                       "title":  "中職》上週飆「梅達斯+無四死完封勝」  陳仕朋今慘遭KO！",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5526308",
@@ -9,6 +18,15 @@
                       "pubDate":  "2026-08-02T19:20:27+08:00",
                       "teams":  [
 
+                                ]
+                  },
+                  {
+                      "title":  "獅隊主題日藏大咖！WBC捷克國家隊投手現身與球迷同樂",
+                      "url":  "https://sports.ettoday.net/news/3212031",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-08-02T19:20:00+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅"
                                 ]
                   },
                   {
@@ -340,6 +358,15 @@
                                 ]
                   },
                   {
+                      "title":  "郭天信又轟 葉總起鬨叫板魔鷹",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765014",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-02T05:30:00+08:00",
+                      "teams":  [
+                                    "台鋼雄鷹"
+                                ]
+                  },
+                  {
                       "title":  "猿洋砲存在感強 威克勝打降獅",
                       "url":  "https://sports.ltn.com.tw/news/paper/1765018",
                       "source":  "自由時報",
@@ -356,15 +383,6 @@
                       "pubDate":  "2026-08-02T05:30:00+08:00",
                       "teams":  [
                                     "富邦悍將"
-                                ]
-                  },
-                  {
-                      "title":  "郭天信又轟 葉總起鬨叫板魔鷹",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765014",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-02T05:30:00+08:00",
-                      "teams":  [
-                                    "台鋼雄鷹"
                                 ]
                   },
                   {
@@ -826,6 +844,16 @@
                                 ]
                   },
                   {
+                      "title":  "布雷克又問天 猿完封獅率先10勝",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1764920",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-01T05:30:00+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅",
+                                    "樂天桃猿"
+                                ]
+                  },
+                  {
                       "title":  "劉基鴻飆3打點 護送葉總500勝",
                       "url":  "https://sports.ltn.com.tw/news/paper/1764916",
                       "source":  "自由時報",
@@ -862,16 +890,6 @@
                                 ]
                   },
                   {
-                      "title":  "布雷克又問天 猿完封獅率先10勝",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1764920",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-01T05:30:00+08:00",
-                      "teams":  [
-                                    "統一7-ELEVEn獅",
-                                    "樂天桃猿"
-                                ]
-                  },
-                  {
                       "title":  "3月才許願「進軍大巨蛋」！Apink不到5個月圓夢　恩地感性謝粉絲",
                       "url":  "https://sports.ettoday.net/news/3211308",
                       "source":  "ETtoday",
@@ -894,25 +912,6 @@
                       "url":  "https://sports.ettoday.net/news/3211295",
                       "source":  "ETtoday",
                       "pubDate":  "2026-07-31T23:16:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "悍將逆轉雄鷹終止4連敗　轉運手張奕奪勝投",
-                      "url":  "https://www.cna.com.tw/news/aspt/202607310366.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-07-31T23:03:39+08:00",
-                      "teams":  [
-                                    "富邦悍將",
-                                    "台鋼雄鷹"
-                                ]
-                  },
-                  {
-                      "title":  "張奕再扮「勝投怪盜」？後藤點出贏球關鍵：大家沒有失去專注",
-                      "url":  "https://sports.ettoday.net/news/3211286",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-07-31T22:59:00+08:00",
                       "teams":  [
 
                                 ]
