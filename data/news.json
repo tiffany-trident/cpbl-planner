@@ -1,7 +1,34 @@
 {
-    "updated":  "2026-08-02T17:00:05+08:00",
+    "updated":  "2026-08-02T18:00:05+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "中職》當年婉拒中職球隊邀約加盟  前阪神虎左投親自解密",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5526232",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-02T17:49:44+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "中職》捷克國家隊投手薩托利亞 驚喜現身統一獅嘉賓見面會",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5526183",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-02T17:06:14+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅"
+                                ]
+                  },
+                  {
+                      "title":  "江坤宇欣賞張政禹守備能力　風格不同目標自我超越",
+                      "url":  "https://www.cna.com.tw/news/aspt/202608020128.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-08-02T16:46:09+08:00",
+                      "teams":  [
+
+                                ]
+                  },
                   {
                       "title":  "棒球》周玲妏當選棒協理事長  富邦悍將：攜手為台灣棒球發展貢獻心力",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5526144",
@@ -9,6 +36,15 @@
                       "pubDate":  "2026-08-02T16:36:54+08:00",
                       "teams":  [
                                     "富邦悍將"
+                                ]
+                  },
+                  {
+                      "title":  "江坤宇多方嘗試近況升溫　樂見年輕球員一同成長",
+                      "url":  "https://www.cna.com.tw/news/aspt/202608020122.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-08-02T16:28:56+08:00",
+                      "teams":  [
+
                                 ]
                   },
                   {
@@ -139,15 +175,6 @@
                                 ]
                   },
                   {
-                      "title":  "郭天信又轟 葉總起鬨叫板魔鷹",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765014",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-02T05:30:00+08:00",
-                      "teams":  [
-                                    "台鋼雄鷹"
-                                ]
-                  },
-                  {
                       "title":  "猿洋砲存在感強 威克勝打降獅",
                       "url":  "https://sports.ltn.com.tw/news/paper/1765018",
                       "source":  "自由時報",
@@ -155,6 +182,15 @@
                       "teams":  [
                                     "統一7-ELEVEn獅",
                                     "樂天桃猿"
+                                ]
+                  },
+                  {
+                      "title":  "郭天信又轟 葉總起鬨叫板魔鷹",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765014",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-02T05:30:00+08:00",
+                      "teams":  [
+                                    "台鋼雄鷹"
                                 ]
                   },
                   {
@@ -616,8 +652,17 @@
                                 ]
                   },
                   {
-                      "title":  "軟銀打球執教16年 的山哲也關心熊本震災",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1764919",
+                      "title":  "劉基鴻飆3打點 護送葉總500勝",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1764916",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-01T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "500勝達陣第3人 葉總認同洪總「痛苦」金句",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1764917",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-01T05:30:00+08:00",
                       "teams":  [
@@ -635,8 +680,8 @@
                                 ]
                   },
                   {
-                      "title":  "500勝達陣第3人 葉總認同洪總「痛苦」金句",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1764917",
+                      "title":  "軟銀打球執教16年 的山哲也關心熊本震災",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1764919",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-01T05:30:00+08:00",
                       "teams":  [
@@ -650,15 +695,6 @@
                       "pubDate":  "2026-08-01T05:30:00+08:00",
                       "teams":  [
                                     "台鋼雄鷹"
-                                ]
-                  },
-                  {
-                      "title":  "劉基鴻飆3打點 護送葉總500勝",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1764916",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-01T05:30:00+08:00",
-                      "teams":  [
-
                                 ]
                   },
                   {
@@ -881,42 +917,6 @@
                       "pubDate":  "2026-07-31T20:21:01+08:00",
                       "teams":  [
                                     "中信兄弟"
-                                ]
-                  },
-                  {
-                      "title":  "中職》同為矮將出頭天  平野惠一完全讀懂張仁瑋",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5524690",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-31T20:13:25+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "中職》躍居聯盟打擊王  張仁瑋分享兩大關鍵「秘方」",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5524673",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-31T19:54:13+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "悍將主場賽事　聽損青年醫學生與聽奧國手許樂開球",
-                      "url":  "https://www.cna.com.tw/news/aspt/202607310315.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-07-31T19:49:40+08:00",
-                      "teams":  [
-                                    "富邦悍將"
-                                ]
-                  },
-                  {
-                      "title":  "中職》聽損青年徐代明與聽奧國手許樂 為富邦悍將開球",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5524651",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-31T19:32:32+08:00",
-                      "teams":  [
-                                    "富邦悍將"
                                 ]
                   }
               ]
