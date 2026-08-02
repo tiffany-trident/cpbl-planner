@@ -1,7 +1,35 @@
 {
-    "updated":  "2026-08-02T15:00:05+08:00",
+    "updated":  "2026-08-02T16:00:05+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "棒球》周玲妏當選棒協理事長 可望複製中職會長的蔡其昌模式",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5526101",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-02T15:48:09+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "中職》上次領先龍隊是半個多月前 兄弟對戰9連敗、今首局攻下大局！",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5526092",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-02T15:41:44+08:00",
+                      "teams":  [
+                                    "中信兄弟",
+                                    "味全龍"
+                                ]
+                  },
+                  {
+                      "title":  "李東洺暫離一軍輪值！後藤點出需調整之處　江國豪待命先發",
+                      "url":  "https://sports.ettoday.net/news/3211947",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-08-02T15:16:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
                   {
                       "title":  "中職》突破季初低潮 江坤宇正向看待隊內競爭：他們本就有實力",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5526058",
@@ -12,10 +40,37 @@
                                 ]
                   },
                   {
+                      "title":  "江坤宇低潮期下二軍重新整理　特別感謝彭政閔與二軍教練團",
+                      "url":  "https://sports.ettoday.net/news/3211932",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-08-02T14:50:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "中職》史上第一金手套連霸偉業受威脅？江坤宇認為競爭者們各擅勝場",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5526039",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-02T14:38:12+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "葉總稱張政禹不輸江坤宇　本人回應：有些動作我不一定做得到",
+                      "url":  "https://sports.ettoday.net/news/3211915",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-08-02T14:35:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "「虎道同盟」棒球教室登場　岩田稔、森野将彦指導小球員",
+                      "url":  "https://sports.ettoday.net/news/3211905",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-08-02T13:53:00+08:00",
                       "teams":  [
 
                                 ]
@@ -562,8 +617,17 @@
                                 ]
                   },
                   {
-                      "title":  "軟銀打球執教16年 的山哲也關心熊本震災",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1764919",
+                      "title":  "遭魔鷹轟滿貫砲 張奕照樣當怪盜",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1764918",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-01T05:30:00+08:00",
+                      "teams":  [
+                                    "台鋼雄鷹"
+                                ]
+                  },
+                  {
+                      "title":  "劉基鴻飆3打點 護送葉總500勝",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1764916",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-01T05:30:00+08:00",
                       "teams":  [
@@ -580,21 +644,12 @@
                                 ]
                   },
                   {
-                      "title":  "劉基鴻飆3打點 護送葉總500勝",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1764916",
+                      "title":  "軟銀打球執教16年 的山哲也關心熊本震災",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1764919",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-01T05:30:00+08:00",
                       "teams":  [
 
-                                ]
-                  },
-                  {
-                      "title":  "遭魔鷹轟滿貫砲 張奕照樣當怪盜",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1764918",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-01T05:30:00+08:00",
-                      "teams":  [
-                                    "台鋼雄鷹"
                                 ]
                   },
                   {
@@ -860,60 +915,6 @@
                       "url":  "https://sports.ettoday.net/news/3211215",
                       "source":  "ETtoday",
                       "pubDate":  "2026-07-31T19:17:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "魔鷹出寫真曝「曾擊敗200人」通過男模試鏡　笑喊退休想當演員",
-                      "url":  "https://sports.ettoday.net/news/3211206",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-07-31T19:10:00+08:00",
-                      "teams":  [
-                                    "台鋼雄鷹"
-                                ]
-                  },
-                  {
-                      "title":  "中職》陳柏凱簽約金能否突破600萬？ 林威助：要問乾媽，敬請期待！",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5524615",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-07-31T19:05:20+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "Apink降臨大巨蛋！BOMI開球坦言超緊張　中文喊「加油」甜翻全場",
-                      "url":  "https://sports.ettoday.net/news/3211200",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-07-31T19:00:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "張仁瑋雖嬌小能對抗高大對手　平野惠一有「共感」",
-                      "url":  "https://www.cna.com.tw/news/aspt/202607310301.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-07-31T18:56:10+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "張仁瑋想法變簡單　暫居打擊王掌握失投球能力更好",
-                      "url":  "https://www.cna.com.tw/news/aspt/202607310298.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-07-31T18:49:03+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "空降打擊王仍只想贏球！張仁瑋揭蛻變關鍵：讓自己簡單一點",
-                      "url":  "https://sports.ettoday.net/news/3211185",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-07-31T18:40:00+08:00",
                       "teams":  [
 
                                 ]
