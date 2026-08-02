@@ -1,5 +1,5 @@
 {
-    "updated":  "2026-08-02T12:00:05+08:00",
+    "updated":  "2026-08-02T13:00:06+08:00",
     "count":  100,
     "items":  [
                   {
@@ -7,24 +7,6 @@
                       "url":  "https://sports.ettoday.net/news/3211714",
                       "source":  "ETtoday",
                       "pubDate":  "2026-08-02T07:20:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "預言家打虎 悍將擺脫墊底",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765016",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-02T05:30:00+08:00",
-                      "teams":  [
-                                    "富邦悍將"
-                                ]
-                  },
-                  {
-                      "title":  "ABS拯救好球帶? 艾速特：中職系統難評論",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765017",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-02T05:30:00+08:00",
                       "teams":  [
 
                                 ]
@@ -46,6 +28,24 @@
                       "teams":  [
                                     "統一7-ELEVEn獅",
                                     "樂天桃猿"
+                                ]
+                  },
+                  {
+                      "title":  "預言家打虎 悍將擺脫墊底",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765016",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-02T05:30:00+08:00",
+                      "teams":  [
+                                    "富邦悍將"
+                                ]
+                  },
+                  {
+                      "title":  "ABS拯救好球帶? 艾速特：中職系統難評論",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765017",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-02T05:30:00+08:00",
+                      "teams":  [
+
                                 ]
                   },
                   {
@@ -507,33 +507,6 @@
                                 ]
                   },
                   {
-                      "title":  "軟銀打球執教16年 的山哲也關心熊本震災",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1764919",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-01T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "劉基鴻飆3打點 護送葉總500勝",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1764916",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-01T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "遭魔鷹轟滿貫砲 張奕照樣當怪盜",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1764918",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-01T05:30:00+08:00",
-                      "teams":  [
-                                    "台鋼雄鷹"
-                                ]
-                  },
-                  {
                       "title":  "500勝達陣第3人 葉總認同洪總「痛苦」金句",
                       "url":  "https://sports.ltn.com.tw/news/paper/1764917",
                       "source":  "自由時報",
@@ -550,6 +523,33 @@
                       "teams":  [
                                     "統一7-ELEVEn獅",
                                     "樂天桃猿"
+                                ]
+                  },
+                  {
+                      "title":  "遭魔鷹轟滿貫砲 張奕照樣當怪盜",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1764918",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-01T05:30:00+08:00",
+                      "teams":  [
+                                    "台鋼雄鷹"
+                                ]
+                  },
+                  {
+                      "title":  "軟銀打球執教16年 的山哲也關心熊本震災",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1764919",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-01T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "劉基鴻飆3打點 護送葉總500勝",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1764916",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-01T05:30:00+08:00",
+                      "teams":  [
+
                                 ]
                   },
                   {
