@@ -1,7 +1,97 @@
 {
-    "updated":  "2026-08-02T22:00:05+08:00",
+    "updated":  "2026-08-03T09:00:05+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "周玲妏接「棒」 盼複製蔡其昌模式",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765186",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-03T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "搶游擊金手套7連霸 江坤宇遇勁敵",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765164",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-03T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "羅戈7局鎖龍 兄弟止對戰9連敗",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765163",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-03T05:30:00+08:00",
+                      "teams":  [
+                                    "中信兄弟"
+                                ]
+                  },
+                  {
+                      "title":  "開低走高 王博玄挑戰打擊王",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765162",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-03T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "曾子祐轟2分砲 炸裂陳仕朋",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765161",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-03T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "談揮別老虎　史庫柏哽咽：非原本計畫",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5526449",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-03T01:12:03+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "談揮別老虎　史庫柏哽咽：非原本計畫",
+                      "url":  "https://www.cna.com.tw/news/aspt/202608030002.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-08-03T01:02:01+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "韓流二代傳奇女團KARA降臨大巨蛋！開球又開唱　7首神曲炸翻全場",
+                      "url":  "https://sports.ettoday.net/news/3212066",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-08-02T23:45:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "中職》富邦19歲新戰力連6戰無失分！ 進職棒後防禦率完美的0",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5526418",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-02T22:58:35+08:00",
+                      "teams":  [
+                                    "富邦悍將"
+                                ]
+                  },
+                  {
+                      "title":  "中職》暌違404天優質先發！兄弟22歲新星6局4K好投 防禦率下修",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5526390",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-02T22:23:27+08:00",
+                      "teams":  [
+                                    "中信兄弟"
+                                ]
+                  },
                   {
                       "title":  "中職》洪總給後勁的建議是  「他必須改變投球方式」",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5526380",
@@ -21,10 +111,38 @@
                                 ]
                   },
                   {
+                      "title":  "曾子祐致勝轟MVP！賽前自認手感差　笑喊：王博玄先上壘我才會打",
+                      "url":  "https://sports.ettoday.net/news/3212049",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-08-02T21:19:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "後勁終結7連敗！洪總仍提醒：投球方式要注意　王柏融無大礙",
+                      "url":  "https://sports.ettoday.net/news/3212048",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-08-02T21:07:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "中職》台鋼雄鷹打瘋了！  富邦悍將投手群崩盤落居墊底",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5526352",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-02T20:57:12+08:00",
+                      "teams":  [
+                                    "富邦悍將",
+                                    "台鋼雄鷹"
+                                ]
+                  },
+                  {
+                      "title":  "曾子祐超前轟、魔鷹第14轟助威　台鋼雄鷹10比3勝富邦悍將",
+                      "url":  "https://sports.ettoday.net/news/3212042",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-08-02T20:49:00+08:00",
                       "teams":  [
                                     "富邦悍將",
                                     "台鋼雄鷹"
@@ -404,24 +522,6 @@
                                 ]
                   },
                   {
-                      "title":  "ABS拯救好球帶? 艾速特：中職系統難評論",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765017",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-02T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "預言家打虎 悍將擺脫墊底",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765016",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-02T05:30:00+08:00",
-                      "teams":  [
-                                    "富邦悍將"
-                                ]
-                  },
-                  {
                       "title":  "猿洋砲存在感強 威克勝打降獅",
                       "url":  "https://sports.ltn.com.tw/news/paper/1765018",
                       "source":  "自由時報",
@@ -438,6 +538,24 @@
                       "pubDate":  "2026-08-02T05:30:00+08:00",
                       "teams":  [
                                     "台鋼雄鷹"
+                                ]
+                  },
+                  {
+                      "title":  "ABS拯救好球帶? 艾速特：中職系統難評論",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765017",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-02T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "預言家打虎 悍將擺脫墊底",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765016",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-02T05:30:00+08:00",
+                      "teams":  [
+                                    "富邦悍將"
                                 ]
                   },
                   {
@@ -797,124 +915,6 @@
                       "pubDate":  "2026-08-01T16:05:00+08:00",
                       "teams":  [
                                     "台鋼雄鷹"
-                                ]
-                  },
-                  {
-                      "title":  "「像主管拿蠟筆毀掉整天努力」　魔鷹神比喻爭議判決挫敗感",
-                      "url":  "https://sports.ettoday.net/news/3211478",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-08-01T15:50:00+08:00",
-                      "teams":  [
-                                    "台鋼雄鷹"
-                                ]
-                  },
-                  {
-                      "title":  "張政禹金手套目標放心中 感謝小孩讓他學會慢下來",
-                      "url":  "https://www.cna.com.tw/news/aspt/202608010121.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-08-01T15:41:26+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "中職》WBC澳洲左投二軍亮相  王建民想起前兄弟大聯盟洋投",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5525323",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-01T15:38:54+08:00",
-                      "teams":  [
-                                    "中信兄弟"
-                                ]
-                  },
-                  {
-                      "title":  "新洋投杰克續拉長局數觀察　王建民評有點像李博登",
-                      "url":  "https://www.cna.com.tw/news/aspt/202608010118.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-08-01T15:31:19+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "魔鷹不爽主審好球帶怒了！  洪一中場邊台語怒吼全被收音",
-                      "url":  "https://sports.ettoday.net/news/3211413",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-08-01T10:50:00+08:00",
-                      "teams":  [
-                                    "台鋼雄鷹"
-                                ]
-                  },
-                  {
-                      "title":  "釜山飆122年最高溫！球員身體不適　韓職不停賽挨批「漠視安全」",
-                      "url":  "https://sports.ettoday.net/news/3211383",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-08-01T10:06:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "莊陳仲敖遭美職運動家隊指定讓渡　動向未定",
-                      "url":  "https://www.cna.com.tw/news/aspt/202608010028.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-08-01T09:49:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "中職》不忍了！主審好球帶引發爭議 洪總場邊開罵收音曝光",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5524909",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-01T09:02:32+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "老將氣度！威克分走DH機會　林泓育：我上場輸球又有何幫助？",
-                      "url":  "https://sports.ettoday.net/news/3211313",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-08-01T09:00:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "專訪／只合練2次就辣翻大巨蛋！　Mika曝彭彭主動邀約：她需要安心感",
-                      "url":  "https://sports.ettoday.net/news/3211315",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-08-01T08:00:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "中職》生涯第2次獲選單場MVP 董子恩：謝謝隊友都有把我送回來",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5524832",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-01T06:58:24+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "布雷克又問天 猿完封獅率先10勝",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1764920",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-01T05:30:00+08:00",
-                      "teams":  [
-                                    "統一7-ELEVEn獅",
-                                    "樂天桃猿"
-                                ]
-                  },
-                  {
-                      "title":  "500勝達陣第3人 葉總認同洪總「痛苦」金句",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1764917",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-01T05:30:00+08:00",
-                      "teams":  [
-
                                 ]
                   }
               ]
