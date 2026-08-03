@@ -1,7 +1,16 @@
 {
-    "updated":  "2026-08-03T10:00:05+08:00",
+    "updated":  "2026-08-03T10:58:59+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "中職》《中信兄弟X鬼滅之刃》聯名登場！下半季主題週售票資訊公佈",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5526619",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-03T10:11:38+08:00",
+                      "teams":  [
+                                    "中信兄弟"
+                                ]
+                  },
                   {
                       "title":  "中職》富邦一次將5選手下二軍 包括申皓瑋、林岱安",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5526587",
@@ -9,6 +18,16 @@
                       "pubDate":  "2026-08-03T09:46:57+08:00",
                       "teams":  [
                                     "富邦悍將"
+                                ]
+                  },
+                  {
+                      "title":  "悍將遭台鋼打爆後大幅異動！林岱安、申皓瑋、葉子霆等5人下二軍",
+                      "url":  "https://sports.ettoday.net/news/3212119",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-08-03T08:36:00+08:00",
+                      "teams":  [
+                                    "富邦悍將",
+                                    "台鋼雄鷹"
                                 ]
                   },
                   {
@@ -30,12 +49,12 @@
                                 ]
                   },
                   {
-                      "title":  "開低走高 王博玄挑戰打擊王",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765162",
+                      "title":  "羅戈7局鎖龍 兄弟止對戰9連敗",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765163",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-03T05:30:00+08:00",
                       "teams":  [
-
+                                    "中信兄弟"
                                 ]
                   },
                   {
@@ -48,12 +67,12 @@
                                 ]
                   },
                   {
-                      "title":  "羅戈7局鎖龍 兄弟止對戰9連敗",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765163",
+                      "title":  "開低走高 王博玄挑戰打擊王",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765162",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-03T05:30:00+08:00",
                       "teams":  [
-                                    "中信兄弟"
+
                                 ]
                   },
                   {
@@ -531,6 +550,15 @@
                                 ]
                   },
                   {
+                      "title":  "預言家打虎 悍將擺脫墊底",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765016",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-02T05:30:00+08:00",
+                      "teams":  [
+                                    "富邦悍將"
+                                ]
+                  },
+                  {
                       "title":  "猿洋砲存在感強 威克勝打降獅",
                       "url":  "https://sports.ltn.com.tw/news/paper/1765018",
                       "source":  "自由時報",
@@ -538,15 +566,6 @@
                       "teams":  [
                                     "統一7-ELEVEn獅",
                                     "樂天桃猿"
-                                ]
-                  },
-                  {
-                      "title":  "預言家打虎 悍將擺脫墊底",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765016",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-02T05:30:00+08:00",
-                      "teams":  [
-                                    "富邦悍將"
                                 ]
                   },
                   {
@@ -897,24 +916,6 @@
                       "pubDate":  "2026-08-01T16:22:50+08:00",
                       "teams":  [
 
-                                ]
-                  },
-                  {
-                      "title":  "中職》洋將的天下！  蔣銲、魔鷹榮獲7月投打MVP",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5525356",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-01T16:09:46+08:00",
-                      "teams":  [
-                                    "台鋼雄鷹"
-                                ]
-                  },
-                  {
-                      "title":  "中職》談爭議判決情緒留在當下 魔鷹神比喻：畢卡索作畫到最後一刻…",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5525351",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-01T16:07:27+08:00",
-                      "teams":  [
-                                    "台鋼雄鷹"
                                 ]
                   }
               ]
