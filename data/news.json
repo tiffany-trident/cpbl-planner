@@ -1,7 +1,26 @@
 {
-    "updated":  "2026-08-03T16:04:12+08:00",
+    "updated":  "2026-08-03T17:00:06+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "棒球》棒協首度由女性掌舵 蘇泰安讚周玲妏「充滿活力、是最好選擇」",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5527183",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-03T16:52:29+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "中職》兄弟、富邦並列下半季墊底 德保拉明第3度叩關勝投紀錄",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5527165",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-03T16:38:57+08:00",
+                      "teams":  [
+                                    "中信兄弟",
+                                    "富邦悍將"
+                                ]
+                  },
                   {
                       "title":  "HUR+首登職棒舞台　UniGirls女孩日浪漫登場",
                       "url":  "https://sports.ettoday.net/news/3212390",
@@ -94,6 +113,15 @@
                                 ]
                   },
                   {
+                      "title":  "搶游擊金手套7連霸 江坤宇遇勁敵",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765164",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-03T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "曾子祐轟2分砲 炸裂陳仕朋",
                       "url":  "https://sports.ltn.com.tw/news/paper/1765161",
                       "source":  "自由時報",
@@ -103,8 +131,8 @@
                                 ]
                   },
                   {
-                      "title":  "周玲妏接「棒」 盼複製蔡其昌模式",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765186",
+                      "title":  "開低走高 王博玄挑戰打擊王",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765162",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-03T05:30:00+08:00",
                       "teams":  [
@@ -121,17 +149,8 @@
                                 ]
                   },
                   {
-                      "title":  "搶游擊金手套7連霸 江坤宇遇勁敵",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765164",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-03T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "開低走高 王博玄挑戰打擊王",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765162",
+                      "title":  "周玲妏接「棒」 盼複製蔡其昌模式",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765186",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-03T05:30:00+08:00",
                       "teams":  [
@@ -622,13 +641,12 @@
                                 ]
                   },
                   {
-                      "title":  "猿洋砲存在感強 威克勝打降獅",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765018",
+                      "title":  "ABS拯救好球帶? 艾速特：中職系統難評論",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765017",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-02T05:30:00+08:00",
                       "teams":  [
-                                    "統一7-ELEVEn獅",
-                                    "樂天桃猿"
+
                                 ]
                   },
                   {
@@ -641,12 +659,13 @@
                                 ]
                   },
                   {
-                      "title":  "ABS拯救好球帶? 艾速特：中職系統難評論",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765017",
+                      "title":  "猿洋砲存在感強 威克勝打降獅",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765018",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-02T05:30:00+08:00",
                       "teams":  [
-
+                                    "統一7-ELEVEn獅",
+                                    "樂天桃猿"
                                 ]
                   },
                   {
@@ -896,24 +915,6 @@
                       "url":  "https://sports.ettoday.net/news/3211603",
                       "source":  "ETtoday",
                       "pubDate":  "2026-08-01T17:37:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "中職》今年可望挑戰金手套 張政禹：有機會一定會拚",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5525425",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-01T17:26:48+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "「有些球真的漏判」艾速特談好球帶爭議　也幫裁判緩頰",
-                      "url":  "https://sports.ettoday.net/news/3211476",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-08-01T17:20:00+08:00",
                       "teams":  [
 
                                 ]
