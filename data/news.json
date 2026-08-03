@@ -1,7 +1,34 @@
 {
-    "updated":  "2026-08-03T11:00:07+08:00",
+    "updated":  "2026-08-03T12:00:10+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "中職》統一獅UniGirls女孩日 台灣實力派唱跳女團HUR+受邀",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5526700",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-03T11:23:48+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅"
+                                ]
+                  },
+                  {
+                      "title":  "MLB李灝宇1安1打點　老虎擊敗運動家3連勝",
+                      "url":  "https://www.cna.com.tw/news/aspt/202608030056.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-08-03T11:07:09+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "兄弟鬼滅之刃聯名主題日進大巨蛋　8/10全面開賣",
+                      "url":  "https://www.cna.com.tw/news/aspt/202608030055.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-08-03T11:05:07+08:00",
+                      "teams":  [
+                                    "中信兄弟"
+                                ]
+                  },
                   {
                       "title":  "中職》《中信兄弟X鬼滅之刃》聯名登場！下半季主題週售票資訊公佈",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5526619",
@@ -31,6 +58,15 @@
                                 ]
                   },
                   {
+                      "title":  "開低走高 王博玄挑戰打擊王",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765162",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-03T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "搶游擊金手套7連霸 江坤宇遇勁敵",
                       "url":  "https://sports.ltn.com.tw/news/paper/1765164",
                       "source":  "自由時報",
@@ -40,8 +76,8 @@
                                 ]
                   },
                   {
-                      "title":  "開低走高 王博玄挑戰打擊王",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765162",
+                      "title":  "周玲妏接「棒」 盼複製蔡其昌模式",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765186",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-03T05:30:00+08:00",
                       "teams":  [
@@ -60,15 +96,6 @@
                   {
                       "title":  "曾子祐轟2分砲 炸裂陳仕朋",
                       "url":  "https://sports.ltn.com.tw/news/paper/1765161",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-03T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "周玲妏接「棒」 盼複製蔡其昌模式",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765186",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-03T05:30:00+08:00",
                       "teams":  [
@@ -889,33 +916,6 @@
                       "pubDate":  "2026-08-01T16:41:00+08:00",
                       "teams":  [
                                     "中信兄弟"
-                                ]
-                  },
-                  {
-                      "title":  "中職》戴「勝投怪盜」手套挨轟還奪勝 張奕苦笑：只能說很玄",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5525378",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-01T16:40:50+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "兄弟8局代打錯失追分　平野反省：當時有3個人選在考量",
-                      "url":  "https://sports.ettoday.net/news/3211567",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-08-01T16:25:00+08:00",
-                      "teams":  [
-                                    "中信兄弟"
-                                ]
-                  },
-                  {
-                      "title":  "中職》昨遇到「打了1萬場沒看過」現象 艾速特仍幫裁判說話",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5525364",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-01T16:22:50+08:00",
-                      "teams":  [
-
                                 ]
                   }
               ]
