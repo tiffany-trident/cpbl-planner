@@ -1,7 +1,25 @@
 {
-    "updated":  "2026-08-03T13:00:05+08:00",
+    "updated":  "2026-08-03T14:00:06+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "HUR+首登職棒舞台　UniGirls女孩日浪漫登場",
+                      "url":  "https://sports.ettoday.net/news/3212390",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-08-03T13:21:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "中信兄弟X《鬼滅之刃》回歸！決戰無限城9月燃戰大巨蛋",
+                      "url":  "https://sports.ettoday.net/news/3212383",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-08-03T13:11:00+08:00",
+                      "teams":  [
+                                    "中信兄弟"
+                                ]
+                  },
                   {
                       "title":  "MLB》前橫濱洋投優質先發率白襪退光芒 「村神」連10場安打",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5526745",
@@ -85,6 +103,15 @@
                                 ]
                   },
                   {
+                      "title":  "開低走高 王博玄挑戰打擊王",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765162",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-03T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "羅戈7局鎖龍 兄弟止對戰9連敗",
                       "url":  "https://sports.ltn.com.tw/news/paper/1765163",
                       "source":  "自由時報",
@@ -96,15 +123,6 @@
                   {
                       "title":  "曾子祐轟2分砲 炸裂陳仕朋",
                       "url":  "https://sports.ltn.com.tw/news/paper/1765161",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-03T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "開低走高 王博玄挑戰打擊王",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765162",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-03T05:30:00+08:00",
                       "teams":  [
@@ -586,6 +604,16 @@
                                 ]
                   },
                   {
+                      "title":  "猿洋砲存在感強 威克勝打降獅",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765018",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-02T05:30:00+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅",
+                                    "樂天桃猿"
+                                ]
+                  },
+                  {
                       "title":  "郭天信又轟 葉總起鬨叫板魔鷹",
                       "url":  "https://sports.ltn.com.tw/news/paper/1765014",
                       "source":  "自由時報",
@@ -610,16 +638,6 @@
                       "pubDate":  "2026-08-02T05:30:00+08:00",
                       "teams":  [
                                     "富邦悍將"
-                                ]
-                  },
-                  {
-                      "title":  "猿洋砲存在感強 威克勝打降獅",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765018",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-02T05:30:00+08:00",
-                      "teams":  [
-                                    "統一7-ELEVEn獅",
-                                    "樂天桃猿"
                                 ]
                   },
                   {
@@ -898,24 +916,6 @@
                       "pubDate":  "2026-08-01T17:17:00+08:00",
                       "teams":  [
                                     "中信兄弟"
-                                ]
-                  },
-                  {
-                      "title":  "平野談前役代打抉擇困難　對戰劣勢需拚盡全力",
-                      "url":  "https://www.cna.com.tw/news/aspt/202608010140.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-08-01T17:03:07+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "中職》張志豪連續兩天隨隊 平野惠一：隨時可以回到一軍",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5525381",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-01T16:45:05+08:00",
-                      "teams":  [
-
                                 ]
                   }
               ]
