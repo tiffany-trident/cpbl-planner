@@ -1,7 +1,16 @@
 {
-    "updated":  "2026-08-03T12:00:10+08:00",
+    "updated":  "2026-08-03T12:22:47+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "MLB》前橫濱洋投優質先發率白襪退光芒 「村神」連10場安打",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5526745",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-03T12:09:22+08:00",
+                      "teams":  [
+
+                                ]
+                  },
                   {
                       "title":  "中職》統一獅UniGirls女孩日 台灣實力派唱跳女團HUR+受邀",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5526700",
@@ -58,26 +67,17 @@
                                 ]
                   },
                   {
+                      "title":  "曾子祐轟2分砲 炸裂陳仕朋",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765161",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-03T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "開低走高 王博玄挑戰打擊王",
                       "url":  "https://sports.ltn.com.tw/news/paper/1765162",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-03T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "搶游擊金手套7連霸 江坤宇遇勁敵",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765164",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-03T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "周玲妏接「棒」 盼複製蔡其昌模式",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765186",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-03T05:30:00+08:00",
                       "teams":  [
@@ -94,8 +94,17 @@
                                 ]
                   },
                   {
-                      "title":  "曾子祐轟2分砲 炸裂陳仕朋",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765161",
+                      "title":  "搶游擊金手套7連霸 江坤宇遇勁敵",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765164",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-03T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "周玲妏接「棒」 盼複製蔡其昌模式",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765186",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-03T05:30:00+08:00",
                       "teams":  [
@@ -577,24 +586,6 @@
                                 ]
                   },
                   {
-                      "title":  "郭天信又轟 葉總起鬨叫板魔鷹",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765014",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-02T05:30:00+08:00",
-                      "teams":  [
-                                    "台鋼雄鷹"
-                                ]
-                  },
-                  {
-                      "title":  "ABS拯救好球帶? 艾速特：中職系統難評論",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765017",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-02T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
                       "title":  "預言家打虎 悍將擺脫墊底",
                       "url":  "https://sports.ltn.com.tw/news/paper/1765016",
                       "source":  "自由時報",
@@ -611,6 +602,24 @@
                       "teams":  [
                                     "統一7-ELEVEn獅",
                                     "樂天桃猿"
+                                ]
+                  },
+                  {
+                      "title":  "郭天信又轟 葉總起鬨叫板魔鷹",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765014",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-02T05:30:00+08:00",
+                      "teams":  [
+                                    "台鋼雄鷹"
+                                ]
+                  },
+                  {
+                      "title":  "ABS拯救好球帶? 艾速特：中職系統難評論",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765017",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-02T05:30:00+08:00",
+                      "teams":  [
+
                                 ]
                   },
                   {
@@ -907,15 +916,6 @@
                       "pubDate":  "2026-08-01T16:45:05+08:00",
                       "teams":  [
 
-                                ]
-                  },
-                  {
-                      "title":  "兄弟本季對龍苦手！平野老實說：其實不只是對他們...",
-                      "url":  "https://sports.ettoday.net/news/3211571",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-08-01T16:41:00+08:00",
-                      "teams":  [
-                                    "中信兄弟"
                                 ]
                   }
               ]
