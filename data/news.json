@@ -1,7 +1,16 @@
 {
-    "updated":  "2026-08-04T12:50:00+08:00",
+    "updated":  "2026-08-04T13:50:00+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "韓華鷹洋砲仍逃不過「魔咒」？　佩拉薩下半季打擊率僅有1成",
+                      "url":  "https://sports.ettoday.net/news/3212908",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-08-04T11:25:00+08:00",
+                      "teams":  [
+                                    "台鋼雄鷹"
+                                ]
+                  },
                   {
                       "title":  "台灣重砲林安可挑戰連4戰敲安、兄弟王牌洋投先發 今日賽事預告與轉播",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5527482",
@@ -159,8 +168,26 @@
                                 ]
                   },
                   {
+                      "title":  "羅戈7局鎖龍 兄弟止對戰9連敗",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765163",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-03T05:30:00+08:00",
+                      "teams":  [
+                                    "中信兄弟"
+                                ]
+                  },
+                  {
                       "title":  "搶游擊金手套7連霸 江坤宇遇勁敵",
                       "url":  "https://sports.ltn.com.tw/news/paper/1765164",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-03T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "周玲妏接「棒」 盼複製蔡其昌模式",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765186",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-03T05:30:00+08:00",
                       "teams":  [
@@ -183,24 +210,6 @@
                       "pubDate":  "2026-08-03T05:30:00+08:00",
                       "teams":  [
 
-                                ]
-                  },
-                  {
-                      "title":  "周玲妏接「棒」 盼複製蔡其昌模式",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765186",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-03T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "羅戈7局鎖龍 兄弟止對戰9連敗",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765163",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-03T05:30:00+08:00",
-                      "teams":  [
-                                    "中信兄弟"
                                 ]
                   },
                   {
@@ -678,24 +687,6 @@
                                 ]
                   },
                   {
-                      "title":  "ABS拯救好球帶? 艾速特：中職系統難評論",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765017",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-02T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "預言家打虎 悍將擺脫墊底",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765016",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-02T05:30:00+08:00",
-                      "teams":  [
-                                    "富邦悍將"
-                                ]
-                  },
-                  {
                       "title":  "猿洋砲存在感強 威克勝打降獅",
                       "url":  "https://sports.ltn.com.tw/news/paper/1765018",
                       "source":  "自由時報",
@@ -712,6 +703,24 @@
                       "pubDate":  "2026-08-02T05:30:00+08:00",
                       "teams":  [
                                     "台鋼雄鷹"
+                                ]
+                  },
+                  {
+                      "title":  "ABS拯救好球帶? 艾速特：中職系統難評論",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765017",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-02T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "預言家打虎 悍將擺脫墊底",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765016",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-02T05:30:00+08:00",
+                      "teams":  [
+                                    "富邦悍將"
                                 ]
                   },
                   {
@@ -908,15 +917,6 @@
                       "pubDate":  "2026-08-01T19:10:00+08:00",
                       "teams":  [
                                     "台鋼雄鷹"
-                                ]
-                  },
-                  {
-                      "title":  "中職》郭天信生涯第2次連續2場開砲 本季累計9轟並列聯盟第4！",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5525528",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-01T18:54:51+08:00",
-                      "teams":  [
-
                                 ]
                   }
               ]
