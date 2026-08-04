@@ -508,6 +508,8 @@ button.card-weather.clickable:active { transform: scale(0.96); }
 .news-loading, .news-empty { text-align: center; color: #9B8E7E; padding: 48px 0; font-size: 14px; }
 .news-empty-icon { font-size: 40px; margin-bottom: 12px; }
 .news-attr { font-size: 11px; color: #B8ADA0; margin-top: 24px; line-height: 1.6; border-top: 1px solid #EEE9E0; padding-top: 12px; }
+.news-more-btn { display: block; margin: 18px auto 4px; padding: 9px 28px; border: 1px solid #E0D8CC; background: #FFF; color: #7A6E5E; border-radius: 20px; font-family: inherit; font-size: 13px; font-weight: 500; cursor: pointer; transition: all 0.2s; }
+.news-more-btn:hover { border-color: #C2573A; color: #C2573A; background: #FDF6EE; }
 
 /* ── 新聞篩選卡（收合式；球隊 chip 沿用 .chip.chip-opp）── */
 .news-filter { background: #FFF; border-radius: 14px; box-shadow: 0 2px 8px rgba(212,196,171,0.10); margin-bottom: 24px; overflow: hidden; }
@@ -3679,8 +3681,13 @@ let newsFilterInit = false;
 let newsSelTeams = null;   // Set<string>，lazily 初始化為全部球隊
 let newsTimeRange = 'all'; // all | week | today
 let newsKeyword = '';
+const NEWS_PAGE_SIZE = 50;          // 初始顯示則數，「顯示更多」每次再 +50
+let newsShownLimit = NEWS_PAGE_SIZE;
 
 function newsTeamList() { return Object.keys(TEAM_LOGO); }
+
+// 篩選條件變動時重繪並把顯示數重置回第一頁（避免停在上次展開的長度）
+function rerenderNewsFromFilter() { newsShownLimit = NEWS_PAGE_SIZE; renderNewsList(); }
 
 // 容錯：teams 可能是陣列 / 單一字串 / null / {}（舊部署資料或 PS 序列化差異）
 function newsItemTeams(it) {
@@ -3705,7 +3712,7 @@ function initNewsFilter() {
       chip.addEventListener('click', () => {
         chip.classList.toggle('active');
         if (newsSelTeams.has(t)) newsSelTeams.delete(t); else newsSelTeams.add(t);
-        renderNewsList();
+        rerenderNewsFromFilter();
       });
       box.appendChild(chip);
     });
@@ -3718,10 +3725,10 @@ function initNewsFilter() {
   if (seg) seg.addEventListener('click', e => {
     const b = e.target.closest('.news-seg-btn'); if (!b) return;
     seg.querySelectorAll('.news-seg-btn').forEach(x => x.classList.remove('active'));
-    b.classList.add('active'); newsTimeRange = b.dataset.range; renderNewsList();
+    b.classList.add('active'); newsTimeRange = b.dataset.range; rerenderNewsFromFilter();
   });
   const kw = document.getElementById('news-kw');
-  if (kw) kw.addEventListener('input', e => { newsKeyword = e.target.value.trim(); renderNewsList(); });
+  if (kw) kw.addEventListener('input', e => { newsKeyword = e.target.value.trim(); rerenderNewsFromFilter(); });
   const reset = document.getElementById('news-reset');
   if (reset) reset.addEventListener('click', () => {
     newsSelTeams = new Set(teams); newsTimeRange = 'all'; newsKeyword = '';
@@ -3730,7 +3737,12 @@ function initNewsFilter() {
     const allBtn = document.querySelector('#news-timeseg .news-seg-btn[data-range="all"]');
     if (allBtn) allBtn.classList.add('active');
     const kwEl = document.getElementById('news-kw'); if (kwEl) kwEl.value = '';
-    renderNewsList();
+    rerenderNewsFromFilter();
+  });
+  // 「顯示更多」：事件委派（news-view-body 每次 render 會被重建）
+  const bodyEl = document.getElementById('news-view-body');
+  if (bodyEl) bodyEl.addEventListener('click', e => {
+    if (e.target.closest('.news-more-btn')) { newsShownLimit += NEWS_PAGE_SIZE; renderNewsList(); }
   });
   newsFilterInit = true;
 }
@@ -3764,6 +3776,7 @@ function renderNewsView() {
     if (u && !isNaN(u.getTime())) updatedTxt = '更新於 ' + newsDayLabelFmt.format(u) + ' ' + newsTimeFmt.format(u) + ' · ';
     attr.textContent = updatedTxt + '新聞標題與連結由各原始媒體提供，著作權屬原媒體所有，點擊前往原站閱讀。';
   }
+  newsShownLimit = NEWS_PAGE_SIZE; // 每次進新聞頁從第一頁開始
   renderNewsList();
 }
 
@@ -3816,9 +3829,11 @@ function renderNewsList() {
     body.innerHTML = '<div class="news-empty"><div class="news-empty-icon">📰</div>沒有符合條件的新聞，換個篩選試試</div>';
     return;
   }
+  // 只渲染前 newsShownLimit 則（其餘由「顯示更多」載出）；筆數摘要仍用總數
+  const visible = items.slice(0, newsShownLimit);
   let html = '';
   let lastKey = null;
-  items.forEach(it => {
+  visible.forEach(it => {
     const d = new Date(it.pubDate);
     const valid = !isNaN(d.getTime());
     const key = valid ? newsDayKeyFmt.format(d) : 'unknown';
@@ -3837,6 +3852,9 @@ function renderNewsList() {
     '</a>';
   });
   if (lastKey !== null) html += '</div>';
+  if (items.length > visible.length) {
+    html += '<button type="button" class="news-more-btn">顯示更多（還有 ' + (items.length - visible.length) + ' 則）</button>';
+  }
   body.innerHTML = html;
 }
 
