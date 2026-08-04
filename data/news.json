@@ -1,7 +1,16 @@
 {
-    "updated":  "2026-08-04T14:02:04+08:00",
+    "updated":  "2026-08-04T14:49:59+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "中職》前橫濱DeNA投手京山將彌 以育成洋將身份加盟樂天桃猿",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5528077",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-04T14:16:58+08:00",
+                      "teams":  [
+                                    "樂天桃猿"
+                                ]
+                  },
                   {
                       "title":  "韓華鷹洋砲仍逃不過「魔咒」？　佩拉薩下半季打擊率僅有1成",
                       "url":  "https://sports.ettoday.net/news/3212908",
@@ -168,6 +177,24 @@
                                 ]
                   },
                   {
+                      "title":  "搶游擊金手套7連霸 江坤宇遇勁敵",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765164",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-03T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "羅戈7局鎖龍 兄弟止對戰9連敗",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765163",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-03T05:30:00+08:00",
+                      "teams":  [
+                                    "中信兄弟"
+                                ]
+                  },
+                  {
                       "title":  "開低走高 王博玄挑戰打擊王",
                       "url":  "https://sports.ltn.com.tw/news/paper/1765162",
                       "source":  "自由時報",
@@ -188,24 +215,6 @@
                   {
                       "title":  "周玲妏接「棒」 盼複製蔡其昌模式",
                       "url":  "https://sports.ltn.com.tw/news/paper/1765186",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-03T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "羅戈7局鎖龍 兄弟止對戰9連敗",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765163",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-03T05:30:00+08:00",
-                      "teams":  [
-                                    "中信兄弟"
-                                ]
-                  },
-                  {
-                      "title":  "搶游擊金手套7連霸 江坤宇遇勁敵",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765164",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-03T05:30:00+08:00",
                       "teams":  [
@@ -687,12 +696,12 @@
                                 ]
                   },
                   {
-                      "title":  "ABS拯救好球帶? 艾速特：中職系統難評論",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765017",
+                      "title":  "郭天信又轟 葉總起鬨叫板魔鷹",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765014",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-02T05:30:00+08:00",
                       "teams":  [
-
+                                    "台鋼雄鷹"
                                 ]
                   },
                   {
@@ -705,6 +714,15 @@
                                 ]
                   },
                   {
+                      "title":  "ABS拯救好球帶? 艾速特：中職系統難評論",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765017",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-02T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "猿洋砲存在感強 威克勝打降獅",
                       "url":  "https://sports.ltn.com.tw/news/paper/1765018",
                       "source":  "自由時報",
@@ -712,15 +730,6 @@
                       "teams":  [
                                     "統一7-ELEVEn獅",
                                     "樂天桃猿"
-                                ]
-                  },
-                  {
-                      "title":  "郭天信又轟 葉總起鬨叫板魔鷹",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765014",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-02T05:30:00+08:00",
-                      "teams":  [
-                                    "台鋼雄鷹"
                                 ]
                   },
                   {
@@ -908,15 +917,6 @@
                       "pubDate":  "2026-08-01T19:31:41+08:00",
                       "teams":  [
 
-                                ]
-                  },
-                  {
-                      "title":  "洋將雙雄稱霸7月！蔣銲防禦率1.37　魔鷹OPS破1奪單月MVP",
-                      "url":  "https://sports.ettoday.net/news/3211635",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-08-01T19:10:00+08:00",
-                      "teams":  [
-                                    "台鋼雄鷹"
                                 ]
                   }
               ]
