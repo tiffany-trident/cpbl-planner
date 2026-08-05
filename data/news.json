@@ -1,7 +1,25 @@
 {
-    "updated":  "2026-08-05T09:00:07+08:00",
+    "updated":  "2026-08-05T10:00:06+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "棒球》比中職還貴！中國CPB超誇張票價曝光 站票賣破1200元",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5528862",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-05T09:22:31+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "富邦5上5下 後藤點出林岱安課題",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765452",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-05T05:30:00+08:00",
+                      "teams":  [
+                                    "富邦悍將"
+                                ]
+                  },
                   {
                       "title":  "王彥程第10勝 並列韓職勝投王",
                       "url":  "https://sports.ltn.com.tw/news/paper/1765449",
@@ -27,15 +45,6 @@
                       "pubDate":  "2026-08-05T05:30:00+08:00",
                       "teams":  [
 
-                                ]
-                  },
-                  {
-                      "title":  "富邦5上5下 後藤點出林岱安課題",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765452",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-05T05:30:00+08:00",
-                      "teams":  [
-                                    "富邦悍將"
                                 ]
                   },
                   {
@@ -504,12 +513,30 @@
                                 ]
                   },
                   {
+                      "title":  "搶游擊金手套7連霸 江坤宇遇勁敵",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765164",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-03T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "羅戈7局鎖龍 兄弟止對戰9連敗",
                       "url":  "https://sports.ltn.com.tw/news/paper/1765163",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-03T05:30:00+08:00",
                       "teams":  [
                                     "中信兄弟"
+                                ]
+                  },
+                  {
+                      "title":  "曾子祐轟2分砲 炸裂陳仕朋",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765161",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-03T05:30:00+08:00",
+                      "teams":  [
+
                                 ]
                   },
                   {
@@ -524,24 +551,6 @@
                   {
                       "title":  "周玲妏接「棒」 盼複製蔡其昌模式",
                       "url":  "https://sports.ltn.com.tw/news/paper/1765186",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-03T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "曾子祐轟2分砲 炸裂陳仕朋",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765161",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-03T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "搶游擊金手套7連霸 江坤宇遇勁敵",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765164",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-03T05:30:00+08:00",
                       "teams":  [
@@ -900,15 +909,6 @@
                       "url":  "https://www.cna.com.tw/news/aspt/202608020122.aspx",
                       "source":  "中央社",
                       "pubDate":  "2026-08-02T16:28:56+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "棒球》周玲妏當選棒協理事長 可望複製中職會長的蔡其昌模式",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5526101",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-02T15:48:09+08:00",
                       "teams":  [
 
                                 ]
