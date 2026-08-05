@@ -1,7 +1,25 @@
 {
-    "updated":  "2026-08-05T15:00:06+08:00",
+    "updated":  "2026-08-05T16:00:07+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "中職》手肘緊繃、投起來不自在 味全下放2大火球男",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5529482",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-05T15:42:33+08:00",
+                      "teams":  [
+                                    "味全龍"
+                                ]
+                  },
+                  {
+                      "title":  "中職》味全龍重要外籍教練突然返美 葉總解釋原因",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5529458",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-05T15:38:52+08:00",
+                      "teams":  [
+                                    "味全龍"
+                                ]
+                  },
                   {
                       "title":  "中職》中信兄弟x鬼滅之刃《決戰無限城》情報公開！大巨蛋主場票價出爐",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5529314",
@@ -39,8 +57,8 @@
                                 ]
                   },
                   {
-                      "title":  "引退記者會落淚 陳鏞基感謝3個媽媽",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765450",
+                      "title":  "王彥程第10勝 並列韓職勝投王",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765449",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-05T05:30:00+08:00",
                       "teams":  [
@@ -57,8 +75,8 @@
                                 ]
                   },
                   {
-                      "title":  "王彥程第10勝 並列韓職勝投王",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765449",
+                      "title":  "引退記者會落淚 陳鏞基感謝3個媽媽",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765450",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-05T05:30:00+08:00",
                       "teams":  [
@@ -531,6 +549,15 @@
                                 ]
                   },
                   {
+                      "title":  "羅戈7局鎖龍 兄弟止對戰9連敗",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765163",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-03T05:30:00+08:00",
+                      "teams":  [
+                                    "中信兄弟"
+                                ]
+                  },
+                  {
                       "title":  "曾子祐轟2分砲 炸裂陳仕朋",
                       "url":  "https://sports.ltn.com.tw/news/paper/1765161",
                       "source":  "自由時報",
@@ -540,12 +567,12 @@
                                 ]
                   },
                   {
-                      "title":  "羅戈7局鎖龍 兄弟止對戰9連敗",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765163",
+                      "title":  "開低走高 王博玄挑戰打擊王",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765162",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-03T05:30:00+08:00",
                       "teams":  [
-                                    "中信兄弟"
+
                                 ]
                   },
                   {
@@ -560,15 +587,6 @@
                   {
                       "title":  "搶游擊金手套7連霸 江坤宇遇勁敵",
                       "url":  "https://sports.ltn.com.tw/news/paper/1765164",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-03T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "開低走高 王博玄挑戰打擊王",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765162",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-03T05:30:00+08:00",
                       "teams":  [
@@ -893,24 +911,6 @@
                       "pubDate":  "2026-08-02T17:06:14+08:00",
                       "teams":  [
                                     "統一7-ELEVEn獅"
-                                ]
-                  },
-                  {
-                      "title":  "魔力藍「新髮型」亮相！克服感冒繳好投　喜歡新莊主場「魔力」",
-                      "url":  "https://sports.ettoday.net/news/3211990",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-08-02T17:00:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "江坤宇欣賞張政禹守備能力　風格不同目標自我超越",
-                      "url":  "https://www.cna.com.tw/news/aspt/202608020128.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-08-02T16:46:09+08:00",
-                      "teams":  [
-
                                 ]
                   }
               ]
