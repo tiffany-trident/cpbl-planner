@@ -1,7 +1,61 @@
 {
-    "updated":  "2026-08-05T16:00:07+08:00",
+    "updated":  "2026-08-05T17:00:06+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "中職》正式決定洋將配置前 兄弟先註銷未曾上一軍的馬奎爾",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5529597",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-05T16:52:12+08:00",
+                      "teams":  [
+                                    "中信兄弟"
+                                ]
+                  },
+                  {
+                      "title":  "因應高溫威脅　韓國職棒取消2天賽事將擬對策",
+                      "url":  "https://www.cna.com.tw/news/aspt/202608050222.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-08-05T16:34:25+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "味全龍教練彼得森陪妻暫離　開啟台美往返模式",
+                      "url":  "https://www.cna.com.tw/news/aspt/202608050210.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-08-05T16:12:00+08:00",
+                      "teams":  [
+                                    "味全龍"
+                                ]
+                  },
+                  {
+                      "title":  "林逸達、趙璟榮下二軍葉總曝原因　李致霖升一軍布局季後賽",
+                      "url":  "https://sports.ettoday.net/news/3213977",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-08-05T16:11:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "費仔再遭DFA！葉君璋秒喊「跟領隊說一下」　又笑稱味全就等鮑爾",
+                      "url":  "https://sports.ettoday.net/news/3213962",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-08-05T16:01:00+08:00",
+                      "teams":  [
+                                    "味全龍"
+                                ]
+                  },
+                  {
+                      "title":  "中職》831洋將大限前再找洋將？ 葉總幽默：在等一個人",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5529508",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-05T15:59:40+08:00",
+                      "teams":  [
+
+                                ]
+                  },
                   {
                       "title":  "中職》手肘緊繃、投起來不自在 味全下放2大火球男",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5529482",
@@ -402,8 +456,8 @@
                                 ]
                   },
                   {
-                      "title":  "總教練紀錄週 餅總衝刺執教同隊400勝",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765299",
+                      "title":  "龍板凳夠深 代打火力竄第一",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765300",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-04T05:30:00+08:00",
                       "teams":  [
@@ -411,8 +465,8 @@
                                 ]
                   },
                   {
-                      "title":  "龍板凳夠深 代打火力竄第一",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765300",
+                      "title":  "總教練紀錄週 餅總衝刺執教同隊400勝",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765299",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-04T05:30:00+08:00",
                       "teams":  [
@@ -558,17 +612,8 @@
                                 ]
                   },
                   {
-                      "title":  "曾子祐轟2分砲 炸裂陳仕朋",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765161",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-03T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "開低走高 王博玄挑戰打擊王",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765162",
+                      "title":  "搶游擊金手套7連霸 江坤宇遇勁敵",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765164",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-03T05:30:00+08:00",
                       "teams":  [
@@ -585,8 +630,17 @@
                                 ]
                   },
                   {
-                      "title":  "搶游擊金手套7連霸 江坤宇遇勁敵",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765164",
+                      "title":  "開低走高 王博玄挑戰打擊王",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765162",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-03T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "曾子祐轟2分砲 炸裂陳仕朋",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765161",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-03T05:30:00+08:00",
                       "teams":  [
@@ -857,60 +911,6 @@
                       "teams":  [
                                     "中信兄弟",
                                     "味全龍"
-                                ]
-                  },
-                  {
-                      "title":  "蔡其昌賀周玲妏掌棒協！盼加強改革力道　感謝辜仲諒多年奉獻",
-                      "url":  "https://sports.ettoday.net/news/3212017",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-08-02T18:12:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "兄弟終於屠龍！羅戈7局無失分　7比0斬斷對戰9連敗",
-                      "url":  "https://sports.ettoday.net/news/3211982",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-08-02T18:05:00+08:00",
-                      "teams":  [
-                                    "中信兄弟"
-                                ]
-                  },
-                  {
-                      "title":  "中職》當年婉拒中職球隊邀約加盟  前阪神虎左投親自解密",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5526232",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-02T17:49:44+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "阪神傳奇左投岩田稔開球　難忘對林威助誤按喇叭嚇喊：糟糕了！",
-                      "url":  "https://sports.ettoday.net/news/3212006",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-08-02T17:34:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "味全板凳不再只是「換個人打」！葉君璋揭蛻變關鍵",
-                      "url":  "https://sports.ettoday.net/news/3211951",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-08-02T17:10:00+08:00",
-                      "teams":  [
-                                    "味全龍"
-                                ]
-                  },
-                  {
-                      "title":  "中職》捷克國家隊投手薩托利亞 驚喜現身統一獅嘉賓見面會",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5526183",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-02T17:06:14+08:00",
-                      "teams":  [
-                                    "統一7-ELEVEn獅"
                                 ]
                   }
               ]
