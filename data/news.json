@@ -1,7 +1,16 @@
 {
-    "updated":  "2026-08-06T13:00:05+08:00",
+    "updated":  "2026-08-06T14:00:05+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "中職》生涯16年首度缺席上半季 獅3冠老臣曾萌生退意",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5530592",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-06T13:42:54+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅"
+                                ]
+                  },
                   {
                       "title":  "棒球》超狂！前中信兄弟打教莎菈夯滿貫砲 寫史上第一人紀錄",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5530412",
@@ -39,6 +48,15 @@
                                 ]
                   },
                   {
+                      "title":  "宋晟睿棒次通吃 平野︰不是好事",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765600",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-06T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "雙龍砲炸裂 味全止對獅5連敗",
                       "url":  "https://sports.ltn.com.tw/news/paper/1765597",
                       "source":  "自由時報",
@@ -46,6 +64,15 @@
                       "teams":  [
                                     "統一7-ELEVEn獅",
                                     "味全龍"
+                                ]
+                  },
+                  {
+                      "title":  "范國宸敲第10轟 鄭浩均又遭毒手",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765599",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-06T05:30:00+08:00",
+                      "teams":  [
+
                                 ]
                   },
                   {
@@ -65,24 +92,6 @@
                       "teams":  [
                                     "樂天桃猿",
                                     "台鋼雄鷹"
-                                ]
-                  },
-                  {
-                      "title":  "范國宸敲第10轟 鄭浩均又遭毒手",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765599",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-06T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "宋晟睿棒次通吃 平野︰不是好事",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765600",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-06T05:30:00+08:00",
-                      "teams":  [
-
                                 ]
                   },
                   {
@@ -454,8 +463,17 @@
                                 ]
                   },
                   {
-                      "title":  "引退記者會落淚 陳鏞基感謝3個媽媽",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765450",
+                      "title":  "富邦5上5下 後藤點出林岱安課題",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765452",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-05T05:30:00+08:00",
+                      "teams":  [
+                                    "富邦悍將"
+                                ]
+                  },
+                  {
+                      "title":  "王彥程第10勝 並列韓職勝投王",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765449",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-05T05:30:00+08:00",
                       "teams":  [
@@ -463,8 +481,8 @@
                                 ]
                   },
                   {
-                      "title":  "王彥程第10勝 並列韓職勝投王",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765449",
+                      "title":  "引退記者會落淚 陳鏞基感謝3個媽媽",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765450",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-05T05:30:00+08:00",
                       "teams":  [
@@ -478,15 +496,6 @@
                       "pubDate":  "2026-08-05T05:30:00+08:00",
                       "teams":  [
                                     "中信兄弟"
-                                ]
-                  },
-                  {
-                      "title":  "富邦5上5下 後藤點出林岱安課題",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765452",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-05T05:30:00+08:00",
-                      "teams":  [
-                                    "富邦悍將"
                                 ]
                   },
                   {
@@ -808,8 +817,8 @@
                                 ]
                   },
                   {
-                      "title":  "龍板凳夠深 代打火力竄第一",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765300",
+                      "title":  "總教練紀錄週 餅總衝刺執教同隊400勝",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765299",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-04T05:30:00+08:00",
                       "teams":  [
@@ -817,8 +826,8 @@
                                 ]
                   },
                   {
-                      "title":  "總教練紀錄週 餅總衝刺執教同隊400勝",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765299",
+                      "title":  "龍板凳夠深 代打火力竄第一",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765300",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-04T05:30:00+08:00",
                       "teams":  [
@@ -906,15 +915,6 @@
                       "pubDate":  "2026-08-03T11:23:48+08:00",
                       "teams":  [
                                     "統一7-ELEVEn獅"
-                                ]
-                  },
-                  {
-                      "title":  "MLB李灝宇1安1打點　老虎擊敗運動家3連勝",
-                      "url":  "https://www.cna.com.tw/news/aspt/202608030056.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-08-03T11:07:09+08:00",
-                      "teams":  [
-
                                 ]
                   }
               ]
