@@ -1,7 +1,26 @@
 {
-    "updated":  "2026-08-06T14:00:05+08:00",
+    "updated":  "2026-08-06T15:00:06+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "中職》兩度對富邦大核爆 兄弟鄭浩均寫史上罕見慘紀錄",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5530678",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-06T14:31:51+08:00",
+                      "teams":  [
+                                    "中信兄弟",
+                                    "富邦悍將"
+                                ]
+                  },
+                  {
+                      "title":  "中職》獅菜鳥終結者鍾允華寫史上第1人紀錄 前新人王：他跟年輕選手不太一樣",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5530620",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-06T13:59:03+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅"
+                                ]
+                  },
                   {
                       "title":  "中職》生涯16年首度缺席上半季 獅3冠老臣曾萌生退意",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5530592",
@@ -12,12 +31,39 @@
                                 ]
                   },
                   {
+                      "title":  "林昱珉6局好投奪3A第6勝　鄭宗哲3度上壘",
+                      "url":  "https://www.cna.com.tw/news/aspt/202608060135.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-08-06T13:42:52+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "李灝宇代打遭三振　老虎敗給水手終止4連勝",
+                      "url":  "https://www.cna.com.tw/news/aspt/202608060108.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-08-06T12:45:52+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "棒球》超狂！前中信兄弟打教莎菈夯滿貫砲 寫史上第一人紀錄",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5530412",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-06T12:11:22+08:00",
                       "teams":  [
                                     "中信兄弟"
+                                ]
+                  },
+                  {
+                      "title":  "單場雙響首打席互轟　大谷與阿姆斯壯爭搶國聯MVP",
+                      "url":  "https://www.cna.com.tw/news/aspt/202608060050.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-08-06T11:13:48+08:00",
+                      "teams":  [
+
                                 ]
                   },
                   {
@@ -76,15 +122,6 @@
                                 ]
                   },
                   {
-                      "title":  "王鏡銘「退」回雜念 不奢望投到千局",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765598",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-06T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
                       "title":  "大王10局再見安 台鋼氣走猿",
                       "url":  "https://sports.ltn.com.tw/news/paper/1765601",
                       "source":  "自由時報",
@@ -92,6 +129,15 @@
                       "teams":  [
                                     "樂天桃猿",
                                     "台鋼雄鷹"
+                                ]
+                  },
+                  {
+                      "title":  "王鏡銘「退」回雜念 不奢望投到千局",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765598",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-06T05:30:00+08:00",
+                      "teams":  [
+
                                 ]
                   },
                   {
@@ -463,24 +509,6 @@
                                 ]
                   },
                   {
-                      "title":  "富邦5上5下 後藤點出林岱安課題",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765452",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-05T05:30:00+08:00",
-                      "teams":  [
-                                    "富邦悍將"
-                                ]
-                  },
-                  {
-                      "title":  "王彥程第10勝 並列韓職勝投王",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765449",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-05T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
                       "title":  "引退記者會落淚 陳鏞基感謝3個媽媽",
                       "url":  "https://sports.ltn.com.tw/news/paper/1765450",
                       "source":  "自由時報",
@@ -496,6 +524,24 @@
                       "pubDate":  "2026-08-05T05:30:00+08:00",
                       "teams":  [
                                     "中信兄弟"
+                                ]
+                  },
+                  {
+                      "title":  "富邦5上5下 後藤點出林岱安課題",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765452",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-05T05:30:00+08:00",
+                      "teams":  [
+                                    "富邦悍將"
+                                ]
+                  },
+                  {
+                      "title":  "王彥程第10勝 並列韓職勝投王",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765449",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-05T05:30:00+08:00",
+                      "teams":  [
+
                                 ]
                   },
                   {
@@ -870,51 +916,6 @@
                       "teams":  [
                                     "中信兄弟",
                                     "富邦悍將"
-                                ]
-                  },
-                  {
-                      "title":  "HUR+首登職棒舞台　UniGirls女孩日浪漫登場",
-                      "url":  "https://sports.ettoday.net/news/3212390",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-08-03T13:21:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "中信兄弟X《鬼滅之刃》回歸！決戰無限城9月燃戰大巨蛋",
-                      "url":  "https://sports.ettoday.net/news/3212383",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-08-03T13:11:00+08:00",
-                      "teams":  [
-                                    "中信兄弟"
-                                ]
-                  },
-                  {
-                      "title":  "MLB》前橫濱洋投優質先發率白襪退光芒 「村神」連10場安打",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5526745",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-03T12:09:22+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "鄧愷威3A中繼連抓5個出局數　投1.2局3K無失分",
-                      "url":  "https://www.cna.com.tw/news/aspt/202608030076.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-08-03T11:27:52+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "中職》統一獅UniGirls女孩日 台灣實力派唱跳女團HUR+受邀",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5526700",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-03T11:23:48+08:00",
-                      "teams":  [
-                                    "統一7-ELEVEn獅"
                                 ]
                   }
               ]
