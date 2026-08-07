@@ -1,7 +1,17 @@
 {
-    "updated":  "2026-08-07T10:00:05+08:00",
+    "updated":  "2026-08-07T10:53:57+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "中職》富邦高身價洋投3局2K無失分！ 兄弟棄將猛敲雙安3打點",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5531538",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-07T10:48:13+08:00",
+                      "teams":  [
+                                    "中信兄弟",
+                                    "富邦悍將"
+                                ]
+                  },
                   {
                       "title":  "林安可力拚第7轟、中職三地洋投大戰 今日賽事預告與轉播",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5531145",
@@ -12,8 +22,26 @@
                                 ]
                   },
                   {
+                      "title":  "張育成年薪近2000萬 林庭謙的三分之一",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765722",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-07T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "盯準獅帝芬的腳 一壘宛如得點圈",
                       "url":  "https://sports.ltn.com.tw/news/paper/1765717",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-07T05:30:00+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅"
+                                ]
+                  },
+                  {
+                      "title":  "陳傑憲轟醒獅 把天母當主場",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765716",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-07T05:30:00+08:00",
                       "teams":  [
@@ -32,24 +60,6 @@
                   {
                       "title":  "漂洋過海復健 曾品洋重拾火球",
                       "url":  "https://sports.ltn.com.tw/news/paper/1765718",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-07T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "陳傑憲轟醒獅 把天母當主場",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765716",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-07T05:30:00+08:00",
-                      "teams":  [
-                                    "統一7-ELEVEn獅"
-                                ]
-                  },
-                  {
-                      "title":  "張育成年薪近2000萬 林庭謙的三分之一",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765722",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-07T05:30:00+08:00",
                       "teams":  [
@@ -366,8 +376,26 @@
                                 ]
                   },
                   {
+                      "title":  "宋晟睿棒次通吃 平野︰不是好事",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765600",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-06T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "范國宸敲第10轟 鄭浩均又遭毒手",
                       "url":  "https://sports.ltn.com.tw/news/paper/1765599",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-06T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "王鏡銘「退」回雜念 不奢望投到千局",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765598",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-06T05:30:00+08:00",
                       "teams":  [
@@ -392,24 +420,6 @@
                       "teams":  [
                                     "統一7-ELEVEn獅",
                                     "味全龍"
-                                ]
-                  },
-                  {
-                      "title":  "王鏡銘「退」回雜念 不奢望投到千局",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765598",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-06T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "宋晟睿棒次通吃 平野︰不是好事",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765600",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-06T05:30:00+08:00",
-                      "teams":  [
-
                                 ]
                   },
                   {
@@ -781,6 +791,15 @@
                                 ]
                   },
                   {
+                      "title":  "德保拉77勝到手 兄弟最多勝洋投",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765451",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-05T05:30:00+08:00",
+                      "teams":  [
+                                    "中信兄弟"
+                                ]
+                  },
+                  {
                       "title":  "富邦5上5下 後藤點出林岱安課題",
                       "url":  "https://sports.ltn.com.tw/news/paper/1765452",
                       "source":  "自由時報",
@@ -805,15 +824,6 @@
                       "pubDate":  "2026-08-05T05:30:00+08:00",
                       "teams":  [
 
-                                ]
-                  },
-                  {
-                      "title":  "德保拉77勝到手 兄弟最多勝洋投",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765451",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-05T05:30:00+08:00",
-                      "teams":  [
-                                    "中信兄弟"
                                 ]
                   },
                   {
@@ -907,15 +917,6 @@
                       "pubDate":  "2026-08-04T21:08:38+08:00",
                       "teams":  [
                                     "中信兄弟"
-                                ]
-                  },
-                  {
-                      "title":  "林安可4打數熄火吞2K　益田直也生涯250救援寫日職史上第5人",
-                      "url":  "https://sports.ettoday.net/news/3213398",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-08-04T20:00:00+08:00",
-                      "teams":  [
-
                                 ]
                   }
               ]
