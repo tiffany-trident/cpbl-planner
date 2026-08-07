@@ -1,7 +1,43 @@
 {
-    "updated":  "2026-08-07T11:00:05+08:00",
+    "updated":  "2026-08-07T12:00:06+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "中職》統一獅女孩主題日 日本氣質女星首度來台開球",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5531716",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-07T11:51:48+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅"
+                                ]
+                  },
+                  {
+                      "title":  "中職》富邦挖到寶？19歲新戰力驚奇連7戰無失分 防禦率完美的0",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5531617",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-07T11:44:37+08:00",
+                      "teams":  [
+                                    "富邦悍將"
+                                ]
+                  },
+                  {
+                      "title":  "炎夏「來新北喝這杯」抽好禮 影城x職棒循環杯享受無痕娛樂",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5531681",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-07T11:37:22+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "李灝宇替補2打數未敲安　拚MLB台將單季最多安卡關",
+                      "url":  "https://www.cna.com.tw/news/aspt/202608070053.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-08-07T11:01:58+08:00",
+                      "teams":  [
+
+                                ]
+                  },
                   {
                       "title":  "中職》富邦高身價洋投3局2K無失分！ 兄弟棄將猛敲雙安3打點",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5531538",
@@ -17,15 +53,6 @@
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5531145",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-07T06:56:42+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "中職「海歸」需選秀 程柏仁︰未必適合職籃",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765720",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-07T05:30:00+08:00",
                       "teams":  [
 
                                 ]
@@ -49,8 +76,8 @@
                                 ]
                   },
                   {
-                      "title":  "張育成年薪近2000萬 林庭謙的三分之一",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765722",
+                      "title":  "中職「海歸」需選秀 程柏仁︰未必適合職籃",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765720",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-07T05:30:00+08:00",
                       "teams":  [
@@ -64,6 +91,15 @@
                       "pubDate":  "2026-08-07T05:30:00+08:00",
                       "teams":  [
                                     "統一7-ELEVEn獅"
+                                ]
+                  },
+                  {
+                      "title":  "張育成年薪近2000萬 林庭謙的三分之一",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765722",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-07T05:30:00+08:00",
+                      "teams":  [
+
                                 ]
                   },
                   {
@@ -376,13 +412,12 @@
                                 ]
                   },
                   {
-                      "title":  "大王10局再見安 台鋼氣走猿",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765601",
+                      "title":  "王鏡銘「退」回雜念 不奢望投到千局",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765598",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-06T05:30:00+08:00",
                       "teams":  [
-                                    "樂天桃猿",
-                                    "台鋼雄鷹"
+
                                 ]
                   },
                   {
@@ -393,15 +428,6 @@
                       "teams":  [
                                     "統一7-ELEVEn獅",
                                     "味全龍"
-                                ]
-                  },
-                  {
-                      "title":  "王鏡銘「退」回雜念 不奢望投到千局",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765598",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-06T05:30:00+08:00",
-                      "teams":  [
-
                                 ]
                   },
                   {
@@ -420,6 +446,16 @@
                       "pubDate":  "2026-08-06T05:30:00+08:00",
                       "teams":  [
 
+                                ]
+                  },
+                  {
+                      "title":  "大王10局再見安 台鋼氣走猿",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765601",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-06T05:30:00+08:00",
+                      "teams":  [
+                                    "樂天桃猿",
+                                    "台鋼雄鷹"
                                 ]
                   },
                   {
@@ -880,43 +916,6 @@
                       "pubDate":  "2026-08-04T22:02:21+08:00",
                       "teams":  [
 
-                                ]
-                  },
-                  {
-                      "title":  "中職》恭喜德保拉進入傳奇投手榜 平野認為他轉型有成",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5528683",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-04T21:58:05+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "德保拉中職生涯第77勝　超越風神成隊史洋投第1人",
-                      "url":  "https://www.cna.com.tw/news/aspt/202608040319.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-08-04T21:36:29+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "德保拉7局鎖死悍將！曾頌恩代打炸裂兩分砲　兄弟5比0完封富邦",
-                      "url":  "https://sports.ettoday.net/news/3213407",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-08-04T21:15:00+08:00",
-                      "teams":  [
-                                    "中信兄弟",
-                                    "富邦悍將"
-                                ]
-                  },
-                  {
-                      "title":  "中職》德保拉獨居勝投榜前10傑！中信兄弟暫脫離下半季墊底",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5528645",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-04T21:08:38+08:00",
-                      "teams":  [
-                                    "中信兄弟"
                                 ]
                   }
               ]
