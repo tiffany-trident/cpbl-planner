@@ -1,5 +1,5 @@
 {
-    "updated":  "2026-08-10T21:29:43+08:00",
+    "updated":  "2026-08-10T22:00:04+08:00",
     "count":  100,
     "items":  [
                   {
@@ -193,8 +193,8 @@
                                 ]
                   },
                   {
-                      "title":  "平野171勝入袋 登最多勝外籍教頭",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1766016",
+                      "title":  "來台5度遇雨延賽 瑪帝斯受封「雨男」",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1766019",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-10T05:30:00+08:00",
                       "teams":  [
@@ -211,8 +211,8 @@
                                 ]
                   },
                   {
-                      "title":  "來台5度遇雨延賽 瑪帝斯受封「雨男」",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1766019",
+                      "title":  "平野171勝入袋 登最多勝外籍教頭",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1766016",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-10T05:30:00+08:00",
                       "teams":  [
@@ -541,33 +541,6 @@
                                 ]
                   },
                   {
-                      "title":  "盯準獅帝芬的腳 一壘宛如得點圈",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765717",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-07T05:30:00+08:00",
-                      "teams":  [
-                                    "統一7-ELEVEn獅"
-                                ]
-                  },
-                  {
-                      "title":  "陳傑憲轟醒獅 把天母當主場",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765716",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-07T05:30:00+08:00",
-                      "teams":  [
-                                    "統一7-ELEVEn獅"
-                                ]
-                  },
-                  {
-                      "title":  "漂洋過海復健 曾品洋重拾火球",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765718",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-07T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
                       "title":  "張育成年薪近2000萬 林庭謙的三分之一",
                       "url":  "https://sports.ltn.com.tw/news/paper/1765722",
                       "source":  "自由時報",
@@ -583,6 +556,33 @@
                       "pubDate":  "2026-08-07T05:30:00+08:00",
                       "teams":  [
 
+                                ]
+                  },
+                  {
+                      "title":  "漂洋過海復健 曾品洋重拾火球",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765718",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-07T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "盯準獅帝芬的腳 一壘宛如得點圈",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765717",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-07T05:30:00+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅"
+                                ]
+                  },
+                  {
+                      "title":  "陳傑憲轟醒獅 把天母當主場",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765716",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-07T05:30:00+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅"
                                 ]
                   },
                   {
@@ -895,15 +895,6 @@
                                 ]
                   },
                   {
-                      "title":  "宋晟睿棒次通吃 平野︰不是好事",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765600",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-06T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
                       "title":  "大王10局再見安 台鋼氣走猿",
                       "url":  "https://sports.ltn.com.tw/news/paper/1765601",
                       "source":  "自由時報",
@@ -911,6 +902,15 @@
                       "teams":  [
                                     "樂天桃猿",
                                     "台鋼雄鷹"
+                                ]
+                  },
+                  {
+                      "title":  "宋晟睿棒次通吃 平野︰不是好事",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765600",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-06T05:30:00+08:00",
+                      "teams":  [
+
                                 ]
                   }
               ]
