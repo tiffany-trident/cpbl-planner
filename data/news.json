@@ -1,7 +1,34 @@
 {
-    "updated":  "2026-08-10T19:29:42+08:00",
+    "updated":  "2026-08-10T20:00:03+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "中職》陳俊秀對陳鏞基的最深記憶 「在電視機前看他轟南韓」",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5535140",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-10T19:40:15+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "中職雄鷹簽下永田颯太郎　12日加盟儀式公布合約",
+                      "url":  "https://www.cna.com.tw/news/aspt/202608100247.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-08-10T18:06:53+08:00",
+                      "teams":  [
+                                    "台鋼雄鷹"
+                                ]
+                  },
+                  {
+                      "title":  "陳鏞基首度回家鄉台東出賽　11日預售約5千張票",
+                      "url":  "https://www.cna.com.tw/news/aspt/202608100244.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-08-10T18:00:47+08:00",
+                      "teams":  [
+
+                                ]
+                  },
                   {
                       "title":  "中職》即戰力內野手永田颯太郎簽約！台鋼將於後天舉辦加盟儀式",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5534999",
@@ -166,15 +193,6 @@
                                 ]
                   },
                   {
-                      "title":  "平野171勝入袋 登最多勝外籍教頭",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1766016",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-10T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
                       "title":  "來台5度遇雨延賽 瑪帝斯受封「雨男」",
                       "url":  "https://sports.ltn.com.tw/news/paper/1766019",
                       "source":  "自由時報",
@@ -186,6 +204,15 @@
                   {
                       "title":  "以身作則敲2安 吳念庭盼助燃打線",
                       "url":  "https://sports.ltn.com.tw/news/paper/1766017",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-10T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "平野171勝入袋 登最多勝外籍教頭",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1766016",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-10T05:30:00+08:00",
                       "teams":  [
@@ -532,6 +559,15 @@
                                 ]
                   },
                   {
+                      "title":  "漂洋過海復健 曾品洋重拾火球",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765718",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-07T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "盯準獅帝芬的腳 一壘宛如得點圈",
                       "url":  "https://sports.ltn.com.tw/news/paper/1765717",
                       "source":  "自由時報",
@@ -547,15 +583,6 @@
                       "pubDate":  "2026-08-07T05:30:00+08:00",
                       "teams":  [
                                     "統一7-ELEVEn獅"
-                                ]
-                  },
-                  {
-                      "title":  "漂洋過海復健 曾品洋重拾火球",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765718",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-07T05:30:00+08:00",
-                      "teams":  [
-
                                 ]
                   },
                   {
@@ -878,40 +905,12 @@
                                 ]
                   },
                   {
-                      "title":  "范國宸敲第10轟 鄭浩均又遭毒手",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765599",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-06T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "王鏡銘「退」回雜念 不奢望投到千局",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765598",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-06T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
                       "title":  "宋晟睿棒次通吃 平野︰不是好事",
                       "url":  "https://sports.ltn.com.tw/news/paper/1765600",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-06T05:30:00+08:00",
                       "teams":  [
 
-                                ]
-                  },
-                  {
-                      "title":  "雙龍砲炸裂 味全止對獅5連敗",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765597",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-06T05:30:00+08:00",
-                      "teams":  [
-                                    "統一7-ELEVEn獅",
-                                    "味全龍"
                                 ]
                   }
               ]
