@@ -1,12 +1,39 @@
 {
-    "updated":  "2026-08-11T17:00:06+08:00",
+    "updated":  "2026-08-11T18:00:06+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "中職》銳力獅將告假一週探妻 獅隊同步評估新洋投",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5536255",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-11T17:47:11+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅"
+                                ]
+                  },
+                  {
+                      "title":  "中職》龍隊主力捕手蔣少宏突下二軍 葉總主動曝原因",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5536222",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-11T17:31:05+08:00",
+                      "teams":  [
+                                    "味全龍"
+                                ]
+                  },
                   {
                       "title":  "中職》時隔兩個月再於二軍出賽 江少慶最快球速150公里",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5536072",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-11T16:05:48+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "江少慶相隔90天二軍再登板　僅投0.1局失3分、1分責失",
+                      "url":  "https://sports.ettoday.net/news/3217360",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-08-11T16:05:00+08:00",
                       "teams":  [
 
                                 ]
@@ -328,8 +355,8 @@
                                 ]
                   },
                   {
-                      "title":  "平野171勝入袋 登最多勝外籍教頭",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1766016",
+                      "title":  "以身作則敲2安 吳念庭盼助燃打線",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1766017",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-10T05:30:00+08:00",
                       "teams":  [
@@ -337,8 +364,8 @@
                                 ]
                   },
                   {
-                      "title":  "以身作則敲2安 吳念庭盼助燃打線",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1766017",
+                      "title":  "平野171勝入袋 登最多勝外籍教頭",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1766016",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-10T05:30:00+08:00",
                       "teams":  [
@@ -676,6 +703,15 @@
                                 ]
                   },
                   {
+                      "title":  "陳傑憲轟醒獅 把天母當主場",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1765716",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-07T05:30:00+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅"
+                                ]
+                  },
+                  {
                       "title":  "中職「海歸」需選秀 程柏仁︰未必適合職籃",
                       "url":  "https://sports.ltn.com.tw/news/paper/1765720",
                       "source":  "自由時報",
@@ -691,15 +727,6 @@
                       "pubDate":  "2026-08-07T05:30:00+08:00",
                       "teams":  [
 
-                                ]
-                  },
-                  {
-                      "title":  "陳傑憲轟醒獅 把天母當主場",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765716",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-07T05:30:00+08:00",
-                      "teams":  [
-                                    "統一7-ELEVEn獅"
                                 ]
                   },
                   {
@@ -881,34 +908,6 @@
                       "pubDate":  "2026-08-06T17:55:00+08:00",
                       "teams":  [
 
-                                ]
-                  },
-                  {
-                      "title":  "林安可西武二軍15場6轟改打擊姿勢　陳傑憲感嘆：連這種天才都會做改變",
-                      "url":  "https://sports.ettoday.net/news/3214606",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-08-06T17:40:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "中職》味全龍牛棚大將有個隱憂  葉總點出核心問題",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5530964",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-06T17:25:21+08:00",
-                      "teams":  [
-                                    "味全龍"
-                                ]
-                  },
-                  {
-                      "title":  "中職》被富邦核爆寫史上罕見紀錄 兄弟鄭浩均等2人下二軍",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5530942",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-06T17:23:23+08:00",
-                      "teams":  [
-                                    "中信兄弟",
-                                    "富邦悍將"
                                 ]
                   }
               ]
