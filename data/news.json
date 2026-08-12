@@ -1,7 +1,16 @@
 {
-    "updated":  "2026-08-12T12:37:25+08:00",
+    "updated":  "2026-08-12T13:00:05+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "中職》兄弟大紀錄M4 史上最多勝左投德保拉「金控戰」蓄勢待發",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5537115",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-12T12:49:31+08:00",
+                      "teams":  [
+                                    "中信兄弟"
+                                ]
+                  },
                   {
                       "title":  "中職》味全龍攜手《HUNTER×HUNTER 獵人》「獵人試驗」第一彈8月底登場",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5537050",
@@ -21,8 +30,26 @@
                                 ]
                   },
                   {
+                      "title":  "歡迎鏞基回家 哥哥吐露真心話",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1766352",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-12T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "追隨鏞基背影 余德龍想再打5年",
                       "url":  "https://sports.ltn.com.tw/news/paper/1766353",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-12T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "等黃子鵬退場 龍6分大局反撲",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1766354",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-12T05:30:00+08:00",
                       "teams":  [
@@ -45,24 +72,6 @@
                       "pubDate":  "2026-08-12T05:30:00+08:00",
                       "teams":  [
                                     "台鋼雄鷹"
-                                ]
-                  },
-                  {
-                      "title":  "等黃子鵬退場 龍6分大局反撲",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1766354",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-12T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "歡迎鏞基回家 哥哥吐露真心話",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1766352",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-12T05:30:00+08:00",
-                      "teams":  [
-
                                 ]
                   },
                   {
@@ -347,21 +356,21 @@
                                 ]
                   },
                   {
-                      "title":  "桃猿雙洋砲 本週可望合體發「威」",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1766176",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-11T05:30:00+08:00",
-                      "teams":  [
-                                    "樂天桃猿"
-                                ]
-                  },
-                  {
                       "title":  "引退賽今解鎖台東 陳鏞基挑戰回家首轟",
                       "url":  "https://sports.ltn.com.tw/news/paper/1766175",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-11T05:30:00+08:00",
                       "teams":  [
 
+                                ]
+                  },
+                  {
+                      "title":  "桃猿雙洋砲 本週可望合體發「威」",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1766176",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-11T05:30:00+08:00",
+                      "teams":  [
+                                    "樂天桃猿"
                                 ]
                   },
                   {
@@ -564,8 +573,8 @@
                                 ]
                   },
                   {
-                      "title":  "以身作則敲2安 吳念庭盼助燃打線",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1766017",
+                      "title":  "來台5度遇雨延賽 瑪帝斯受封「雨男」",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1766019",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-10T05:30:00+08:00",
                       "teams":  [
@@ -573,8 +582,8 @@
                                 ]
                   },
                   {
-                      "title":  "來台5度遇雨延賽 瑪帝斯受封「雨男」",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1766019",
+                      "title":  "以身作則敲2安 吳念庭盼助燃打線",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1766017",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-10T05:30:00+08:00",
                       "teams":  [
@@ -898,15 +907,6 @@
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5531145",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-07T06:56:42+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "中職「海歸」需選秀 程柏仁︰未必適合職籃",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765720",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-07T05:30:00+08:00",
                       "teams":  [
 
                                 ]
