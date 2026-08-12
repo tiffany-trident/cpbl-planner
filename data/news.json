@@ -1,7 +1,16 @@
 {
-    "updated":  "2026-08-12T12:00:08+08:00",
+    "updated":  "2026-08-12T12:37:25+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "中職》味全龍攜手《HUNTER×HUNTER 獵人》「獵人試驗」第一彈8月底登場",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5537050",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-12T12:08:39+08:00",
+                      "teams":  [
+                                    "味全龍"
+                                ]
+                  },
                   {
                       "title":  "中職》最速只有136公里！兄弟棄將暌違27天登板 連2戰無失分",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5536855",
@@ -12,26 +21,17 @@
                                 ]
                   },
                   {
+                      "title":  "追隨鏞基背影 余德龍想再打5年",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1766353",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-12T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "陳鏞基1球安 引退賽首部曲Win",
                       "url":  "https://sports.ltn.com.tw/news/paper/1766351",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-12T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "等黃子鵬退場 龍6分大局反撲",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1766354",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-12T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "歡迎鏞基回家 哥哥吐露真心話",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1766352",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-12T05:30:00+08:00",
                       "teams":  [
@@ -48,8 +48,17 @@
                                 ]
                   },
                   {
-                      "title":  "追隨鏞基背影 余德龍想再打5年",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1766353",
+                      "title":  "等黃子鵬退場 龍6分大局反撲",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1766354",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-12T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "歡迎鏞基回家 哥哥吐露真心話",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1766352",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-12T05:30:00+08:00",
                       "teams":  [
@@ -555,8 +564,8 @@
                                 ]
                   },
                   {
-                      "title":  "來台5度遇雨延賽 瑪帝斯受封「雨男」",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1766019",
+                      "title":  "以身作則敲2安 吳念庭盼助燃打線",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1766017",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-10T05:30:00+08:00",
                       "teams":  [
@@ -564,8 +573,8 @@
                                 ]
                   },
                   {
-                      "title":  "以身作則敲2安 吳念庭盼助燃打線",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1766017",
+                      "title":  "來台5度遇雨延賽 瑪帝斯受封「雨男」",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1766019",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-10T05:30:00+08:00",
                       "teams":  [
@@ -900,15 +909,6 @@
                       "pubDate":  "2026-08-07T05:30:00+08:00",
                       "teams":  [
 
-                                ]
-                  },
-                  {
-                      "title":  "盯準獅帝芬的腳 一壘宛如得點圈",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1765717",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-07T05:30:00+08:00",
-                      "teams":  [
-                                    "統一7-ELEVEn獅"
                                 ]
                   }
               ]
