@@ -1,7 +1,43 @@
 {
-    "updated":  "2026-08-12T14:00:05+08:00",
+    "updated":  "2026-08-12T15:00:06+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "中職》7場應援4度遇雨延賽 FA韓援朴星垠被封「新版雨神」",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5537289",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-12T14:45:33+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "朴星垠「雨神體質」太玄！7場戶外4度延賽　搬宿舍後有台灣的家了",
+                      "url":  "https://sports.ettoday.net/news/3217877",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-08-12T13:34:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "MLB李灝宇接待新明國中球員　勾起9年前許願在底特律打球回憶",
+                      "url":  "https://www.cna.com.tw/news/aspt/202608120126.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-08-12T13:07:18+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "統一獅日籍女孩跨足排球！千紘加入桃氣女孩　前進桃園應援",
+                      "url":  "https://sports.ettoday.net/news/3217843",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-08-12T12:53:00+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅"
+                                ]
+                  },
                   {
                       "title":  "中職》兄弟大紀錄M4 史上最多勝左投德保拉「金控戰」蓄勢待發",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5537115",
@@ -21,12 +57,39 @@
                                 ]
                   },
                   {
+                      "title":  "《獵人》降臨天母！味全龍聯名主題日　金屬執照、試驗關卡登場",
+                      "url":  "https://sports.ettoday.net/news/3217808",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-08-12T12:08:00+08:00",
+                      "teams":  [
+                                    "味全龍"
+                                ]
+                  },
+                  {
                       "title":  "中職》最速只有136公里！兄弟棄將暌違27天登板 連2戰無失分",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5536855",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-12T10:53:29+08:00",
                       "teams":  [
                                     "中信兄弟"
+                                ]
+                  },
+                  {
+                      "title":  "歡迎鏞基回家 哥哥吐露真心話",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1766352",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-12T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "等黃子鵬退場 龍6分大局反撲",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1766354",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-12T05:30:00+08:00",
+                      "teams":  [
+
                                 ]
                   },
                   {
@@ -45,24 +108,6 @@
                       "pubDate":  "2026-08-12T05:30:00+08:00",
                       "teams":  [
                                     "台鋼雄鷹"
-                                ]
-                  },
-                  {
-                      "title":  "等黃子鵬退場 龍6分大局反撲",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1766354",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-12T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "歡迎鏞基回家 哥哥吐露真心話",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1766352",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-12T05:30:00+08:00",
-                      "teams":  [
-
                                 ]
                   },
                   {
@@ -356,21 +401,21 @@
                                 ]
                   },
                   {
-                      "title":  "桃猿雙洋砲 本週可望合體發「威」",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1766176",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-11T05:30:00+08:00",
-                      "teams":  [
-                                    "樂天桃猿"
-                                ]
-                  },
-                  {
                       "title":  "引退賽今解鎖台東 陳鏞基挑戰回家首轟",
                       "url":  "https://sports.ltn.com.tw/news/paper/1766175",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-11T05:30:00+08:00",
                       "teams":  [
 
+                                ]
+                  },
+                  {
+                      "title":  "桃猿雙洋砲 本週可望合體發「威」",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1766176",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-11T05:30:00+08:00",
+                      "teams":  [
+                                    "樂天桃猿"
                                 ]
                   },
                   {
@@ -564,8 +609,8 @@
                                 ]
                   },
                   {
-                      "title":  "以身作則敲2安 吳念庭盼助燃打線",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1766017",
+                      "title":  "來台5度遇雨延賽 瑪帝斯受封「雨男」",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1766019",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-10T05:30:00+08:00",
                       "teams":  [
@@ -573,8 +618,8 @@
                                 ]
                   },
                   {
-                      "title":  "來台5度遇雨延賽 瑪帝斯受封「雨男」",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1766019",
+                      "title":  "以身作則敲2安 吳念庭盼助燃打線",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1766017",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-10T05:30:00+08:00",
                       "teams":  [
@@ -863,52 +908,6 @@
                       "pubDate":  "2026-08-07T11:51:48+08:00",
                       "teams":  [
                                     "統一7-ELEVEn獅"
-                                ]
-                  },
-                  {
-                      "title":  "中職》富邦挖到寶？19歲新戰力驚奇連7戰無失分 防禦率完美的0",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5531617",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-07T11:44:37+08:00",
-                      "teams":  [
-                                    "富邦悍將"
-                                ]
-                  },
-                  {
-                      "title":  "炎夏「來新北喝這杯」抽好禮 影城x職棒循環杯享受無痕娛樂",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5531681",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-07T11:37:22+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "李灝宇替補2打數未敲安　拚MLB台將單季最多安卡關",
-                      "url":  "https://www.cna.com.tw/news/aspt/202608070053.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-08-07T11:01:58+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "中職》富邦高身價洋投3局2K無失分！ 兄弟棄將猛敲雙安3打點",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5531538",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-07T10:48:13+08:00",
-                      "teams":  [
-                                    "中信兄弟",
-                                    "富邦悍將"
-                                ]
-                  },
-                  {
-                      "title":  "林安可力拚第7轟、中職三地洋投大戰 今日賽事預告與轉播",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5531145",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-07T06:56:42+08:00",
-                      "teams":  [
-
                                 ]
                   }
               ]
