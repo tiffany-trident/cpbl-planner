@@ -1,7 +1,16 @@
 {
-    "updated":  "2026-08-13T15:00:07+08:00",
+    "updated":  "2026-08-13T16:00:07+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "獨／台鋼球迷暴動了！「神秘二胡女子」現身...神似田馥甄爆紅",
+                      "url":  "https://sports.ettoday.net/news/3218519",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-08-13T14:29:00+08:00",
+                      "teams":  [
+                                    "台鋼雄鷹"
+                                ]
+                  },
                   {
                       "title":  "育成挺育成！張育成蹲捕憨寶貝開球　17件珍藏品9月公益拍賣",
                       "url":  "https://sports.ettoday.net/news/3218576",
@@ -48,6 +57,15 @@
                                 ]
                   },
                   {
+                      "title":  "永田無簽約金披鷹袍 召喚資深球迷",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1766453",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-13T05:30:00+08:00",
+                      "teams":  [
+                                    "台鋼雄鷹"
+                                ]
+                  },
+                  {
                       "title":  "陳克羿鎖獅好投 4猿聯手神助殺",
                       "url":  "https://sports.ltn.com.tw/news/paper/1766454",
                       "source":  "自由時報",
@@ -55,6 +73,15 @@
                       "teams":  [
                                     "統一7-ELEVEn獅",
                                     "樂天桃猿"
+                                ]
+                  },
+                  {
+                      "title":  "不是重播 雄鷹又在9局上翻車",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1766452",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-13T05:30:00+08:00",
+                      "teams":  [
+                                    "台鋼雄鷹"
                                 ]
                   },
                   {
@@ -73,24 +100,6 @@
                       "pubDate":  "2026-08-13T05:30:00+08:00",
                       "teams":  [
                                     "富邦悍將"
-                                ]
-                  },
-                  {
-                      "title":  "不是重播 雄鷹又在9局上翻車",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1766452",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-13T05:30:00+08:00",
-                      "teams":  [
-                                    "台鋼雄鷹"
-                                ]
-                  },
-                  {
-                      "title":  "永田無簽約金披鷹袍 召喚資深球迷",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1766453",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-13T05:30:00+08:00",
-                      "teams":  [
-                                    "台鋼雄鷹"
                                 ]
                   },
                   {
@@ -577,17 +586,8 @@
                                 ]
                   },
                   {
-                      "title":  "誰來搶救二壘? 雄鷹押寶第9人選",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1766355",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-12T05:30:00+08:00",
-                      "teams":  [
-                                    "台鋼雄鷹"
-                                ]
-                  },
-                  {
-                      "title":  "歡迎鏞基回家 哥哥吐露真心話",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1766352",
+                      "title":  "追隨鏞基背影 余德龍想再打5年",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1766353",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-12T05:30:00+08:00",
                       "teams":  [
@@ -595,8 +595,8 @@
                                 ]
                   },
                   {
-                      "title":  "追隨鏞基背影 余德龍想再打5年",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1766353",
+                      "title":  "陳鏞基1球安 引退賽首部曲Win",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1766351",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-12T05:30:00+08:00",
                       "teams":  [
@@ -613,8 +613,17 @@
                                 ]
                   },
                   {
-                      "title":  "陳鏞基1球安 引退賽首部曲Win",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1766351",
+                      "title":  "誰來搶救二壘? 雄鷹押寶第9人選",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1766355",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-12T05:30:00+08:00",
+                      "teams":  [
+                                    "台鋼雄鷹"
+                                ]
+                  },
+                  {
+                      "title":  "歡迎鏞基回家 哥哥吐露真心話",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1766352",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-12T05:30:00+08:00",
                       "teams":  [
@@ -898,15 +907,6 @@
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5535245",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-11T07:06:55+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "引退賽今解鎖台東 陳鏞基挑戰回家首轟",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1766175",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-11T05:30:00+08:00",
                       "teams":  [
 
                                 ]
