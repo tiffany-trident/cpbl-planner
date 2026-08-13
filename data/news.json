@@ -1,7 +1,16 @@
 {
-    "updated":  "2026-08-13T16:35:41+08:00",
+    "updated":  "2026-08-13T17:00:11+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "中職》下半季「天王山之戰」！樂天雙洋砲明有1人得替補待命",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5538830",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-13T16:55:03+08:00",
+                      "teams":  [
+                                    "樂天桃猿"
+                                ]
+                  },
                   {
                       "title":  "獨／台鋼球迷暴動了！「神秘二胡女子」現身...神似田馥甄爆紅",
                       "url":  "https://sports.ettoday.net/news/3218519",
@@ -57,12 +66,30 @@
                                 ]
                   },
                   {
+                      "title":  "影片不失真 悍將空降火球男",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1766450",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-13T05:30:00+08:00",
+                      "teams":  [
+                                    "富邦悍將"
+                                ]
+                  },
+                  {
                       "title":  "永田無簽約金披鷹袍 召喚資深球迷",
                       "url":  "https://sports.ltn.com.tw/news/paper/1766453",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-13T05:30:00+08:00",
                       "teams":  [
                                     "台鋼雄鷹"
+                                ]
+                  },
+                  {
+                      "title":  "兄弟最佳守備陣形 「黃韋盛必須守一壘」",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1766451",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-13T05:30:00+08:00",
+                      "teams":  [
+                                    "中信兄弟"
                                 ]
                   },
                   {
@@ -82,24 +109,6 @@
                       "pubDate":  "2026-08-13T05:30:00+08:00",
                       "teams":  [
                                     "台鋼雄鷹"
-                                ]
-                  },
-                  {
-                      "title":  "兄弟最佳守備陣形 「黃韋盛必須守一壘」",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1766451",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-13T05:30:00+08:00",
-                      "teams":  [
-                                    "中信兄弟"
-                                ]
-                  },
-                  {
-                      "title":  "影片不失真 悍將空降火球男",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1766450",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-13T05:30:00+08:00",
-                      "teams":  [
-                                    "富邦悍將"
                                 ]
                   },
                   {
@@ -586,8 +595,8 @@
                                 ]
                   },
                   {
-                      "title":  "追隨鏞基背影 余德龍想再打5年",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1766353",
+                      "title":  "歡迎鏞基回家 哥哥吐露真心話",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1766352",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-12T05:30:00+08:00",
                       "teams":  [
@@ -604,15 +613,6 @@
                                 ]
                   },
                   {
-                      "title":  "等黃子鵬退場 龍6分大局反撲",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1766354",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-12T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
                       "title":  "誰來搶救二壘? 雄鷹押寶第9人選",
                       "url":  "https://sports.ltn.com.tw/news/paper/1766355",
                       "source":  "自由時報",
@@ -622,8 +622,17 @@
                                 ]
                   },
                   {
-                      "title":  "歡迎鏞基回家 哥哥吐露真心話",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1766352",
+                      "title":  "追隨鏞基背影 余德龍想再打5年",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1766353",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-12T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "等黃子鵬退場 龍6分大局反撲",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1766354",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-12T05:30:00+08:00",
                       "teams":  [
@@ -900,15 +909,6 @@
                       "pubDate":  "2026-08-11T08:30:08+08:00",
                       "teams":  [
                                     "中信兄弟"
-                                ]
-                  },
-                  {
-                      "title":  "TPBL》林庭謙天價合約掀薪資上限討論  兩聯盟並存下難解",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5535245",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-11T07:06:55+08:00",
-                      "teams":  [
-
                                 ]
                   }
               ]
