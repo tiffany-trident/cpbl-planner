@@ -1,12 +1,30 @@
 {
-    "updated":  "2026-08-17T14:04:07+08:00",
+    "updated":  "2026-08-17T15:04:08+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "棒球》中職雙冠王轉戰中國賽場！ 前富邦悍將重砲生涯首秀就開轟",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5542599",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-17T14:41:49+08:00",
+                      "teams":  [
+                                    "富邦悍將"
+                                ]
+                  },
                   {
                       "title":  "中職》何時能回一軍？兄弟第1指名余謙連4戰無失分 防禦率下修",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5542525",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-17T13:34:27+08:00",
+                      "teams":  [
+                                    "中信兄弟"
+                                ]
+                  },
+                  {
+                      "title":  "許基宏手術後報平安盼健康回歸　前兄弟教練莎菈留言打氣",
+                      "url":  "https://sports.ettoday.net/news/3220554",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-08-17T12:59:00+08:00",
                       "teams":  [
                                     "中信兄弟"
                                 ]
@@ -94,35 +112,17 @@
                                 ]
                   },
                   {
-                      "title":  "拚一壘金手套 朱育賢尬2屆得主",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1767009",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-17T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "6月起開外掛 藍寅倫老將回春",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1767012",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-17T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "林子偉致勝安 猿緊咬龍頭",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1767008",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-17T05:30:00+08:00",
-                      "teams":  [
-                                    "樂天桃猿"
-                                ]
-                  },
-                  {
                       "title":  "游竣宥跨越4局 解藥是這「丸」意",
                       "url":  "https://sports.ltn.com.tw/news/paper/1767010",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-17T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "拚一壘金手套 朱育賢尬2屆得主",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1767009",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-17T05:30:00+08:00",
                       "teams":  [
@@ -137,6 +137,24 @@
                       "teams":  [
                                     "統一7-ELEVEn獅",
                                     "富邦悍將"
+                                ]
+                  },
+                  {
+                      "title":  "林子偉致勝安 猿緊咬龍頭",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1767008",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-17T05:30:00+08:00",
+                      "teams":  [
+                                    "樂天桃猿"
+                                ]
+                  },
+                  {
+                      "title":  "6月起開外掛 藍寅倫老將回春",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1767012",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-17T05:30:00+08:00",
+                      "teams":  [
+
                                 ]
                   },
                   {
@@ -206,21 +224,21 @@
                                 ]
                   },
                   {
-                      "title":  "中職》大聯盟級洋砲9場打點掛蛋 樂天教頭有話要說",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5541951",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-16T19:10:00+08:00",
-                      "teams":  [
-                                    "樂天桃猿"
-                                ]
-                  },
-                  {
                       "title":  "週末3戰「就這兩支安打」卻全帶打點！林子偉奪MVP：只想幫助球隊",
                       "url":  "https://sports.ettoday.net/news/3220221",
                       "source":  "ETtoday",
                       "pubDate":  "2026-08-16T19:10:00+08:00",
                       "teams":  [
 
+                                ]
+                  },
+                  {
+                      "title":  "中職》大聯盟級洋砲9場打點掛蛋 樂天教頭有話要說",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5541951",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-16T19:10:00+08:00",
+                      "teams":  [
+                                    "樂天桃猿"
                                 ]
                   },
                   {
@@ -729,12 +747,12 @@
                                 ]
                   },
                   {
-                      "title":  "831大限逼近 後勁進入保位戰",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1766609",
+                      "title":  "張士綸帶頭炸裂 KO悍將王牌",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1766608",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-14T05:30:00+08:00",
                       "teams":  [
-
+                                    "富邦悍將"
                                 ]
                   },
                   {
@@ -747,12 +765,12 @@
                                 ]
                   },
                   {
-                      "title":  "張士綸帶頭炸裂 KO悍將王牌",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1766608",
+                      "title":  "831大限逼近 後勁進入保位戰",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1766609",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-14T05:30:00+08:00",
                       "teams":  [
-                                    "富邦悍將"
+
                                 ]
                   },
                   {
@@ -898,26 +916,6 @@
                       "pubDate":  "2026-08-13T17:15:00+08:00",
                       "teams":  [
 
-                                ]
-                  },
-                  {
-                      "title":  "中職》洋將大限前倒數機會？台鋼後勁明再戰兄弟 拚突破低潮兼止敗",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5538864",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-13T17:10:07+08:00",
-                      "teams":  [
-                                    "中信兄弟",
-                                    "台鋼雄鷹"
-                                ]
-                  },
-                  {
-                      "title":  "中職》前年遭味全龍戰力外 富邦悍將「巨投」升格勝利組",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5538862",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-13T17:09:07+08:00",
-                      "teams":  [
-                                    "富邦悍將",
-                                    "味全龍"
                                 ]
                   }
               ]
