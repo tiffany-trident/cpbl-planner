@@ -1,7 +1,16 @@
 {
-    "updated":  "2026-08-18T13:58:00+08:00",
+    "updated":  "2026-08-18T14:58:00+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "大巨蛋啤酒女孩接連出事！遭球迷摟腰、推擠　工作安全再受討論",
+                      "url":  "https://sports.ettoday.net/news/3221225",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-08-18T13:15:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
                   {
                       "title":  "中職》代言合作再一波！中信兄弟Brothers Space旗下Baseline品牌攜手代言人DK再推手繪聯名",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5543517",
@@ -274,8 +283,26 @@
                                 ]
                   },
                   {
+                      "title":  "林子偉致勝安 猿緊咬龍頭",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1767008",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-17T05:30:00+08:00",
+                      "teams":  [
+                                    "樂天桃猿"
+                                ]
+                  },
+                  {
                       "title":  "游竣宥跨越4局 解藥是這「丸」意",
                       "url":  "https://sports.ltn.com.tw/news/paper/1767010",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-17T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "拚一壘金手套 朱育賢尬2屆得主",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1767009",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-17T05:30:00+08:00",
                       "teams":  [
@@ -299,24 +326,6 @@
                       "pubDate":  "2026-08-17T05:30:00+08:00",
                       "teams":  [
 
-                                ]
-                  },
-                  {
-                      "title":  "拚一壘金手套 朱育賢尬2屆得主",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1767009",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-17T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "林子偉致勝安 猿緊咬龍頭",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1767008",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-17T05:30:00+08:00",
-                      "teams":  [
-                                    "樂天桃猿"
                                 ]
                   },
                   {
@@ -906,15 +915,6 @@
                       "pubDate":  "2026-08-14T05:30:00+08:00",
                       "teams":  [
                                     "台鋼雄鷹"
-                                ]
-                  },
-                  {
-                      "title":  "台棒2途徑攻奧 恰恰：主場優勢最大化",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1766607",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-14T05:30:00+08:00",
-                      "teams":  [
-
                                 ]
                   }
               ]
