@@ -1,7 +1,35 @@
 {
-    "updated":  "2026-08-19T15:57:54+08:00",
+    "updated":  "2026-08-19T16:57:53+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "中職》味全輪值添本土戰力！旅美資歷黃暐傑本週末有望先發",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5545371",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-19T16:53:09+08:00",
+                      "teams":  [
+                                    "味全龍"
+                                ]
+                  },
+                  {
+                      "title":  "中職》雨勢不斷！  桃園富邦對樂天之戰泡湯",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5545319",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-19T16:19:33+08:00",
+                      "teams":  [
+                                    "樂天桃猿",
+                                    "富邦悍將"
+                                ]
+                  },
+                  {
+                      "title":  "中職》陳子豪扛4番迎戰兄弟王牌！葉總有妙答回應安排",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5545305",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-19T16:07:53+08:00",
+                      "teams":  [
+                                    "中信兄弟"
+                                ]
+                  },
                   {
                       "title":  "棒球》中國CPB實力水準太爛？ 中國隊長老實說",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5545152",
@@ -139,8 +167,8 @@
                                 ]
                   },
                   {
-                      "title":  "林子豪轟滿貫砲 老虎一局爆",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1767260",
+                      "title":  "隔近2年再先發 邱駿威步步為營",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1767259",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-19T05:30:00+08:00",
                       "teams":  [
@@ -148,8 +176,8 @@
                                 ]
                   },
                   {
-                      "title":  "隔近2年再先發 邱駿威步步為營",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1767259",
+                      "title":  "林子豪轟滿貫砲 老虎一局爆",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1767260",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-19T05:30:00+08:00",
                       "teams":  [
@@ -622,17 +650,26 @@
                                 ]
                   },
                   {
-                      "title":  "林子偉致勝安 猿緊咬龍頭",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1767008",
+                      "title":  "拚一壘金手套 朱育賢尬2屆得主",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1767009",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-17T05:30:00+08:00",
                       "teams":  [
-                                    "樂天桃猿"
+
                                 ]
                   },
                   {
-                      "title":  "拚一壘金手套 朱育賢尬2屆得主",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1767009",
+                      "title":  "6月起開外掛 藍寅倫老將回春",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1767012",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-17T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "游竣宥跨越4局 解藥是這「丸」意",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1767010",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-17T05:30:00+08:00",
                       "teams":  [
@@ -650,21 +687,12 @@
                                 ]
                   },
                   {
-                      "title":  "游竣宥跨越4局 解藥是這「丸」意",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1767010",
+                      "title":  "林子偉致勝安 猿緊咬龍頭",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1767008",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-17T05:30:00+08:00",
                       "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "6月起開外掛 藍寅倫老將回春",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1767012",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-17T05:30:00+08:00",
-                      "teams":  [
-
+                                    "樂天桃猿"
                                 ]
                   },
                   {
@@ -891,33 +919,6 @@
                       "teams":  [
                                     "中信兄弟",
                                     "台鋼雄鷹"
-                                ]
-                  },
-                  {
-                      "title":  "中職》對左投陳柏清派左打岳政華成神調度 平野：上週代打敲全壘打",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5541803",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-16T16:32:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "桃猿雙洋砲連線盼攻勢串聯　曾家輝續留輪值",
-                      "url":  "https://www.cna.com.tw/news/aspt/202608160134.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-08-16T16:07:11+08:00",
-                      "teams":  [
-                                    "樂天桃猿"
-                                ]
-                  },
-                  {
-                      "title":  "味全龍球員賽前拿手機拍徐佳瑩、周湯豪表演！聯盟開罰1萬　球團回應了",
-                      "url":  "https://sports.ettoday.net/news/3220136",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-08-16T15:40:00+08:00",
-                      "teams":  [
-                                    "味全龍"
                                 ]
                   }
               ]
