@@ -229,6 +229,7 @@ svg.section-icon { width: 28px; height: 28px; }
 .badge-past { background: #F0EBE3; color: #B0A593; }
 .badge-postponed { background: #F5EEF8; color: #8B6BAE; }
 .badge-makeup { background: #EAF4EC; color: #3E7D54; }
+.badge-suspended { background: #F5EEF8; color: #8B6BAE; }
 .badge-today { background: #FFF3E0; color: #D48C2E; }
 
 /* ── Detail pills ── */
@@ -281,6 +282,7 @@ svg.section-icon { width: 28px; height: 28px; }
 .score-win { color: #C2573A; }
 .score-lose { color: #B8A692; }
 .score-postponed { font-size: 13px; color: #8B6BAE; font-weight: 600; }
+.score-suspended { color: #8B6BAE; }   /* 保留比賽中止時比分：與延賽同紫色系，不用勝敗配色 */
 .card-detail { text-align: center; padding: 8px 0 0; }
 .theme-day-wrap { text-align: center; margin-top: 10px; }
 .theme-day-badge { display: inline-block; max-width: 100%; padding: 4px 12px; background: #FDF6EE; border: 1px solid #E8D5B8; border-radius: 14px; font-size: 12px; font-weight: 600; color: #C2573A; text-decoration: none; line-height: 1.5; transition: all 0.2s; }
@@ -2403,6 +2405,12 @@ function loadData() {
   const todayStr = `${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}-${String(today.getDate()).padStart(2,'0')}`;
   // 補賽偵測：被延賽（gr=1）的場次編號，其同 sno 的另一筆（gr≠1）就是補賽
   const postponedSnos = new Set(RAW_DATA.filter(r => r[11] === '1').map(r => r[12]));
+  // 保留比賽（gr=2）：比賽已開打但中止，擇日從中止點續打。官方同 sno 會再給一筆 gr=0 續賽完賽紀錄
+  // （該筆 GameDateTimeS 仍是原本那天、GameDateTimeE 才是續賽日），故 gr=2 那筆是「半場紀錄」。
+  const suspendedSnos = new Map();   // sno -> 保留（中止）當天日期
+  RAW_DATA.filter(r => r[11] === '2').forEach(r => suspendedSnos.set(r[12], r[0]));
+  const finalDates = new Map();      // sno -> 完賽日期（含續賽）
+  RAW_DATA.filter(r => r[11] === '0').forEach(r => finalDates.set(r[12], r[0]));
   allGames = RAW_DATA.map(r => {
     const [date, time, visitor, home, field, vScore, hScore, wp, lp, sv, mvp, gr, sno] = r;
     const d = new Date(date + 'T00:00:00');
@@ -2410,6 +2418,9 @@ function loadData() {
     const completed = gr === '0' && (vScore > 0 || hScore > 0 || wp !== '');
     const postponed = gr === '1';
     const isMakeup = gr !== '1' && postponedSnos.has(sno);
+    const suspended = gr === '2';
+    // 續賽：承接同 sno 較早那筆保留比賽的完賽紀錄
+    const isResumed = gr === '0' && suspendedSnos.has(sno) && suspendedSnos.get(sno) < date;
     return {
       date, time, visitor, home, field,
       vScore, hScore, wp, lp, sv, mvp, gr, sno,
@@ -2423,6 +2434,10 @@ function loadData() {
       completed,
       postponed,
       isMakeup,
+      suspended,
+      isResumed,
+      resumeDate: suspended ? (finalDates.get(sno) || '') : '',
+      suspendedDate: isResumed ? suspendedSnos.get(sno) : '',
     };
   }).sort((a,b) => a.date < b.date ? -1 : a.date > b.date ? 1 : a.time < b.time ? -1 : 1);
   bindStandingsTabs();
@@ -3078,6 +3093,11 @@ function getFiltered() {
   });
 }
 
+// '2026-06-28' → '6/28'
+function mdShort(dateStr) {
+  return dateStr ? +dateStr.slice(5, 7) + '/' + +dateStr.slice(8, 10) : '';
+}
+
 function buildTags(g) {
   // 冗餘 badge（今日/週六/週日/已結束/未來）已移除，日期 header 與 card-top 色已足夠
   // 僅保留真正有額外資訊的 tag：假日名稱、延賽狀態
@@ -3085,6 +3105,10 @@ function buildTags(g) {
   if (g.holName) tags += '<span class="badge badge-hol">' + g.holName + '</span>';
   if (g.postponed) tags += '<span class="badge badge-postponed">延賽</span>';
   if (g.isMakeup) tags += '<span class="badge badge-makeup">補賽</span>';
+  if (g.suspended) tags += '<span class="badge badge-suspended" title="保留比賽：原定時間未打完，擇日從中止點續賽">保留'
+    + (g.resumeDate ? '・' + mdShort(g.resumeDate) + ' 續賽' : '') + '</span>';
+  if (g.isResumed) tags += '<span class="badge badge-suspended" title="承接 ' + mdShort(g.suspendedDate)
+    + ' 保留比賽，比分自中止點續算">續賽</span>';
   return tags;
 }
 
@@ -3145,11 +3169,12 @@ function render() {
   // 已完賽/未來/延賽 用全部資料計算，避免篩選模式下數字誤導
   const totalDone = allGames.filter(g => g.completed).length;
   const totalFut = allGames.filter(g => g.isFuture && !g.postponed).length;
-  // 「延賽」只算尚未補打完成的：同 sno 已有完賽紀錄（= 補賽打完）就不再列入；
-  // 以 sno 去重，同一場二度延賽只算一場。已排定新日期但還沒打的補賽仍算延賽（同時也會出現在「未來」）。
+  // 「延賽」= 原定時間沒打完、還沒打完的場次，延賽（gr=1）與保留比賽（gr=2）同屬一類：
+  // 同 sno 已有完賽紀錄（補賽/續賽打完）就不再列入；以 sno 去重，同場二度延賽只算一場。
+  // 已排定新日期但還沒打的補賽仍算延賽（同時也會出現在「未來」）。
   const doneSnos = new Set(allGames.filter(g => g.completed).map(g => g.sno));
   const totalPostponed = new Set(
-    allGames.filter(g => g.postponed && !doneSnos.has(g.sno)).map(g => g.sno)
+    allGames.filter(g => (g.postponed || g.suspended) && !doneSnos.has(g.sno)).map(g => g.sno)
   ).size;
 
   stats.innerHTML =
@@ -3206,11 +3231,11 @@ function render() {
     const hLogo = TEAM_LOGO[g.home] || '';
     const showScore = g.completed && !g.postponed;
 
-    const canFavorite = !g.postponed;
+    const canFavorite = !g.postponed && !g.suspended;
     const favActive = canFavorite && isFavorited(g.sno);
     const checkedIn = g.completed && isCheckedIn(g.sno);
     const topClass = g.isToday ? ' card-top-today'
-      : g.postponed ? ' card-top-postponed'
+      : g.postponed || g.suspended ? ' card-top-postponed'
       : favActive ? ' card-top-favorited'
       : '';
     const todayClass = g.isToday ? ' card-today' : '';
@@ -3230,7 +3255,16 @@ function render() {
         '</div>'
       : g.postponed
         ? '<div class="card-center"><span class="score-postponed">延賽</span></div>'
-        : '<div class="card-center"><span class="card-vs">VS</span></div>';
+        : g.suspended
+          ? '<div class="card-center">' +
+              '<div class="card-score-big">' +
+                '<span class="card-score-num score-suspended">' + g.vScore + '</span>' +
+                '<span class="card-score-sep">:</span>' +
+                '<span class="card-score-num score-suspended">' + g.hScore + '</span>' +
+              '</div>' +
+              '<span class="card-score-label">中止保留</span>' +
+            '</div>'
+          : '<div class="card-center"><span class="card-vs">VS</span></div>';
 
     const ticketUrl = g.isFuture && !g.postponed ? (TEAM_TICKET[g.home] || '') : '';
     const hsrStation = g.isFuture && !g.postponed ? (STADIUM_HSR[g.field] || '') : '';
@@ -3248,9 +3282,11 @@ function render() {
     cards += '<div class="game-card' + todayClass + (favActive ? ' favorited' : '') + (checkedIn ? ' checked-in' : '') + boxAttrs + '">' +
       checkinStamp +
       '<div class="card-top' + topClass + '">' +
-        '<span class="card-top-time"' + (g.postponed ? ' style="color:#8B6BAE"' : '') + '>' + g.time + '</span>' +
+        '<span class="card-top-time"' + (g.postponed || g.suspended ? ' style="color:#8B6BAE"' : '') + '>' + g.time + '</span>' +
         (g.postponed
           ? '<span class="badge badge-postponed">延賽</span>'
+          : g.suspended
+          ? '<div class="card-top-right"><span class="card-top-venue">◉ ' + g.field + '</span></div>'
           : '<div class="card-top-right">' + buildWeatherHTML(g) + '<span class="card-top-venue">◉ ' + g.field + '</span>' + favBtn + '</div>') +
       '</div>' +
       '<div class="card-body">' +
