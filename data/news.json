@@ -1,7 +1,34 @@
 {
-    "updated":  "2026-08-20T16:57:44+08:00",
+    "updated":  "2026-08-20T17:57:44+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "日職》被富邦註銷離台！日本強投返日首秀 2局3K無安打表現完美",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5546570",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-20T17:39:56+08:00",
+                      "teams":  [
+                                    "富邦悍將"
+                                ]
+                  },
+                  {
+                      "title":  "龍隊全聯盟最難被完封　彼得森：關鍵是誰踏本壘板最多次",
+                      "url":  "https://www.cna.com.tw/news/aspt/202608200228.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-08-20T17:25:30+08:00",
+                      "teams":  [
+                                    "味全龍"
+                                ]
+                  },
+                  {
+                      "title":  "雄鷹新洋投威鳳山具6年大聯盟資歷　永田颯太郎將登錄一軍",
+                      "url":  "https://www.cna.com.tw/news/aspt/202608200208.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-08-20T16:43:45+08:00",
+                      "teams":  [
+                                    "台鋼雄鷹"
+                                ]
+                  },
                   {
                       "title":  "中職》離奇失誤險葬送球隊勝利 台鋼內野手林家鋐遭下放",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5546584",
@@ -12,10 +39,28 @@
                                 ]
                   },
                   {
+                      "title":  "遭葉總重話點名後轉牛棚　郭郁政吐心聲：爸爸都希望小孩好",
+                      "url":  "https://sports.ettoday.net/news/3222751",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-08-20T16:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "中職》遭說重話後調離先發 郭郁政說出真心話",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5546565",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-20T16:25:36+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "曾仁和遭逆轉轟仍獲肯定　葉君璋點出關鍵：太想把比賽收起來",
+                      "url":  "https://sports.ettoday.net/news/3222653",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-08-20T16:25:00+08:00",
                       "teams":  [
 
                                 ]
@@ -30,10 +75,28 @@
                                 ]
                   },
                   {
+                      "title":  "前悍將投手阿部雄大返日首戰超殺！中繼2局無安打、3K完美封鎖",
+                      "url":  "https://sports.ettoday.net/news/3222728",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-08-20T15:49:00+08:00",
+                      "teams":  [
+                                    "富邦悍將"
+                                ]
+                  },
+                  {
                       "title":  "中職》台鋼雄鷹新洋投來了  中文譯名超接地氣！",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5546497",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-20T15:47:52+08:00",
+                      "teams":  [
+                                    "台鋼雄鷹"
+                                ]
+                  },
+                  {
+                      "title":  "台鋼新洋投「威鳳山」抵台開練！永田颯太郎明升一軍",
+                      "url":  "https://sports.ettoday.net/news/3222721",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-08-20T15:41:00+08:00",
                       "teams":  [
                                     "台鋼雄鷹"
                                 ]
@@ -175,8 +238,8 @@
                                 ]
                   },
                   {
-                      "title":  "和田毅來台 要徐若熙保持風格",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1767343",
+                      "title":  "台東最後一舞 陳鏞基殘念收場",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1767340",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-20T05:30:00+08:00",
                       "teams":  [
@@ -193,8 +256,8 @@
                                 ]
                   },
                   {
-                      "title":  "台東最後一舞 陳鏞基殘念收場",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1767340",
+                      "title":  "和田毅來台 要徐若熙保持風格",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1767343",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-20T05:30:00+08:00",
                       "teams":  [
@@ -611,21 +674,21 @@
                                 ]
                   },
                   {
-                      "title":  "威戈神「期末考」 悍將擺脫墊底",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1767258",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-19T05:30:00+08:00",
-                      "teams":  [
-                                    "富邦悍將"
-                                ]
-                  },
-                  {
                       "title":  "隔近2年再先發 邱駿威步步為營",
                       "url":  "https://sports.ltn.com.tw/news/paper/1767259",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-19T05:30:00+08:00",
                       "teams":  [
 
+                                ]
+                  },
+                  {
+                      "title":  "威戈神「期末考」 悍將擺脫墊底",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1767258",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-19T05:30:00+08:00",
+                      "teams":  [
+                                    "富邦悍將"
                                 ]
                   },
                   {
@@ -847,69 +910,6 @@
                       "pubDate":  "2026-08-18T10:55:46+08:00",
                       "teams":  [
 
-                                ]
-                  },
-                  {
-                      "title":  "棒球》防禦率0.90屠殺中國賽場還拿金手套！ 前富邦明星左投續留CPB",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5543359",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-18T09:40:03+08:00",
-                      "teams":  [
-                                    "富邦悍將"
-                                ]
-                  },
-                  {
-                      "title":  "中職》兄弟新戰力來了！ 「生命鬥士」王羽飛圓夢進職棒有感而發",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5543305",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-18T09:00:32+08:00",
-                      "teams":  [
-                                    "中信兄弟"
-                                ]
-                  },
-                  {
-                      "title":  "歷經普悠瑪事故重生圓夢！王羽飛加盟兄弟感性喊：我準備好了",
-                      "url":  "https://sports.ettoday.net/news/3220915",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-08-18T07:05:00+08:00",
-                      "teams":  [
-                                    "中信兄弟"
-                                ]
-                  },
-                  {
-                      "title":  "兄弟第4號洋投 週四明朗",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1767109",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-18T05:30:00+08:00",
-                      "teams":  [
-                                    "中信兄弟"
-                                ]
-                  },
-                  {
-                      "title":  "大巨蛋票房漲10趴 \n龍主場人次破50萬",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1767110",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-18T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "亞運》王彥程在內台灣隊9/9報到 將找中職二軍夜間實戰",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5543029",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-17T19:08:54+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "阿部雄大離開悍將後新動向曝光　加盟Oisix新潟與陽岱鋼當隊友",
-                      "url":  "https://sports.ettoday.net/news/3220807",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-08-17T18:33:00+08:00",
-                      "teams":  [
-                                    "富邦悍將"
                                 ]
                   }
               ]
