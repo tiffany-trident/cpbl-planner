@@ -1,7 +1,34 @@
 {
-    "updated":  "2026-08-20T15:57:44+08:00",
+    "updated":  "2026-08-20T16:57:44+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "中職》離奇失誤險葬送球隊勝利 台鋼內野手林家鋐遭下放",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5546584",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-20T16:33:33+08:00",
+                      "teams":  [
+                                    "台鋼雄鷹"
+                                ]
+                  },
+                  {
+                      "title":  "中職》遭說重話後調離先發 郭郁政說出真心話",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5546565",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-20T16:25:36+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "中職》怎麼了？  富邦本土王牌李東洺二軍慘遭KO",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5546535",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-20T16:05:11+08:00",
+                      "teams":  [
+                                    "富邦悍將"
+                                ]
+                  },
                   {
                       "title":  "中職》台鋼雄鷹新洋投來了  中文譯名超接地氣！",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5546497",
@@ -139,21 +166,21 @@
                                 ]
                   },
                   {
-                      "title":  "和田毅來台 要徐若熙保持風格",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1767343",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-20T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
                       "title":  "樂天土投撐場 成就雙洋砲",
                       "url":  "https://sports.ltn.com.tw/news/paper/1767342",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-20T05:30:00+08:00",
                       "teams":  [
                                     "樂天桃猿"
+                                ]
+                  },
+                  {
+                      "title":  "和田毅來台 要徐若熙保持風格",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1767343",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-20T05:30:00+08:00",
+                      "teams":  [
+
                                 ]
                   },
                   {
@@ -593,8 +620,8 @@
                                 ]
                   },
                   {
-                      "title":  "林子豪轟滿貫砲 老虎一局爆",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1767260",
+                      "title":  "隔近2年再先發 邱駿威步步為營",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1767259",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-19T05:30:00+08:00",
                       "teams":  [
@@ -602,8 +629,8 @@
                                 ]
                   },
                   {
-                      "title":  "隔近2年再先發 邱駿威步步為營",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1767259",
+                      "title":  "林子豪轟滿貫砲 老虎一局爆",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1767260",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-19T05:30:00+08:00",
                       "teams":  [
@@ -883,33 +910,6 @@
                       "pubDate":  "2026-08-17T18:33:00+08:00",
                       "teams":  [
                                     "富邦悍將"
-                                ]
-                  },
-                  {
-                      "title":  "陳鏞基連2週回家鄉台東出賽　18日雄鷹派黃子鵬先發",
-                      "url":  "https://www.cna.com.tw/news/aspt/202608170228.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-08-17T17:51:34+08:00",
-                      "teams":  [
-                                    "台鋼雄鷹"
-                                ]
-                  },
-                  {
-                      "title":  "富邦悍將同意提前終止合約　投手阿部雄大返日",
-                      "url":  "https://www.cna.com.tw/news/aspt/202608170224.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-08-17T17:45:26+08:00",
-                      "teams":  [
-                                    "富邦悍將"
-                                ]
-                  },
-                  {
-                      "title":  "中職》辭掉一流社會人企業強權挑戰中職 阿部雄大遭註銷後今返日",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5542907",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-17T17:31:36+08:00",
-                      "teams":  [
-
                                 ]
                   }
               ]
