@@ -189,6 +189,8 @@ https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets/{name}/3D/{slug
 |------|------|
 | 今日 | `card-top-today` 橘色頂部背景 |
 | 延賽 | `card-top-postponed` 紫色頂部背景 + 延賽 badge |
+| 保留比賽 | 同紫色頂部背景 + 中止時比分（`score-suspended` 紫，不用勝敗配色）+ 「中止保留」標籤 + 「保留・X/X 續賽」badge；不可收藏、不可打卡、不連 box |
+| 續賽（承接保留比賽的完賽紀錄） | 一般已完賽卡片 + 「續賽」badge |
 | 已完賽 | 大字比分 `26px` 粗體，勝方赤陶紅、敗方灰 |
 
 ### 篩選區
@@ -233,6 +235,7 @@ https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets/{name}/3D/{slug
 | 假日 | 赤陶 |
 | 今日 | 橘 |
 | 延賽 | 紫 |
+| 保留 / 續賽 | 紫（與延賽同色系，同屬「原定時間沒打完」）|
 | 未來 | 綠 |
 | 已結束 | 灰 |
 
