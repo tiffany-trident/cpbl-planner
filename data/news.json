@@ -1,7 +1,16 @@
 {
-    "updated":  "2026-08-21T12:00:06+08:00",
+    "updated":  "2026-08-21T13:00:06+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "MLB李灝宇展現鬥犬心態　美媒記者：他值得掌聲",
+                      "url":  "https://www.cna.com.tw/news/aspt/202608210064.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-08-21T11:26:31+08:00",
+                      "teams":  [
+
+                                ]
+                  },
                   {
                       "title":  "中職》簽約金破高懸24年聯盟紀錄 富邦狀元郎陳柏凱回應了",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5547325",
@@ -16,6 +25,24 @@
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5547318",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-21T11:15:37+08:00",
+                      "teams":  [
+                                    "富邦悍將"
+                                ]
+                  },
+                  {
+                      "title":  "富邦新秀全數談妥！完整合約一次看　陳柏凱650萬破中職紀錄",
+                      "url":  "https://sports.ettoday.net/news/3223183",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-08-21T11:13:00+08:00",
+                      "teams":  [
+                                    "富邦悍將"
+                                ]
+                  },
+                  {
+                      "title":  "陳柏凱650萬打破24年「阿甘障礙」！合約總值達850萬加盟富邦",
+                      "url":  "https://sports.ettoday.net/news/3222974",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-08-21T11:09:00+08:00",
                       "teams":  [
                                     "富邦悍將"
                                 ]
@@ -111,15 +138,6 @@
                                 ]
                   },
                   {
-                      "title":  "猿雙2000里程碑 英雄命普查出爐",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1767528",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-21T05:30:00+08:00",
-                      "teams":  [
-                                    "樂天桃猿"
-                                ]
-                  },
-                  {
                       "title":  "兄弟瘋8月 勝率首破5成",
                       "url":  "https://sports.ltn.com.tw/news/paper/1767525",
                       "source":  "自由時報",
@@ -129,8 +147,17 @@
                                 ]
                   },
                   {
-                      "title":  "郭郁政轉戰牛棚 知錯肯改求表現",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1767527",
+                      "title":  "猿雙2000里程碑 英雄命普查出爐",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1767528",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-21T05:30:00+08:00",
+                      "teams":  [
+                                    "樂天桃猿"
+                                ]
+                  },
+                  {
+                      "title":  "林辰勳配球強 衝刺競獎門檻",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1767526",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-21T05:30:00+08:00",
                       "teams":  [
@@ -138,8 +165,8 @@
                                 ]
                   },
                   {
-                      "title":  "林辰勳配球強 衝刺競獎門檻",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1767526",
+                      "title":  "郭郁政轉戰牛棚 知錯肯改求表現",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1767527",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-21T05:30:00+08:00",
                       "teams":  [
@@ -501,15 +528,6 @@
                                 ]
                   },
                   {
-                      "title":  "和田毅來台 要徐若熙保持風格",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1767343",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-20T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
                       "title":  "台東最後一舞 陳鏞基殘念收場",
                       "url":  "https://sports.ltn.com.tw/news/paper/1767340",
                       "source":  "自由時報",
@@ -525,6 +543,15 @@
                       "pubDate":  "2026-08-20T05:30:00+08:00",
                       "teams":  [
                                     "樂天桃猿"
+                                ]
+                  },
+                  {
+                      "title":  "和田毅來台 要徐若熙保持風格",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1767343",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-20T05:30:00+08:00",
+                      "teams":  [
+
                                 ]
                   },
                   {
@@ -879,33 +906,6 @@
                       "pubDate":  "2026-08-19T12:34:42+08:00",
                       "teams":  [
 
-                                ]
-                  },
-                  {
-                      "title":  "中職》打擊苦手一年！完封球賽暴增 逼近史上最多",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5544962",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-19T12:34:18+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "《鬼滅》聲優降臨大巨蛋　兄弟邀開球＋現場配音一次滿足",
-                      "url":  "https://sports.ettoday.net/news/3221824",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-08-19T11:38:00+08:00",
-                      "teams":  [
-                                    "中信兄弟"
-                                ]
-                  },
-                  {
-                      "title":  "中職》中信兄弟x鬼滅之刃《決戰無限城》主題日嘉賓公開！ 霞柱、伊之助日本聲優親臨「獻聲」",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5544853",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-19T11:36:12+08:00",
-                      "teams":  [
-                                    "中信兄弟"
                                 ]
                   }
               ]
