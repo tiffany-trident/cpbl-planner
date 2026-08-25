@@ -1,7 +1,16 @@
 {
-    "updated":  "2026-08-25T14:47:51+08:00",
+    "updated":  "2026-08-25T15:47:52+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "雨勢影響中職賽事　台南亞太25日龍獅戰延賽",
+                      "url":  "https://www.cna.com.tw/news/aspt/202608250178.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-08-25T15:00:28+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅"
+                                ]
+                  },
                   {
                       "title":  "中職》雨勢不斷！獅隊回台南亞太首戰延賽",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5551589",
@@ -9,6 +18,15 @@
                       "pubDate":  "2026-08-25T14:17:33+08:00",
                       "teams":  [
                                     "統一7-ELEVEn獅"
+                                ]
+                  },
+                  {
+                      "title":  "桃猿8名新秀完成簽約　期待早日上一軍貢獻戰力",
+                      "url":  "https://www.cna.com.tw/news/aspt/202608250136.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-08-25T13:44:58+08:00",
+                      "teams":  [
+                                    "樂天桃猿"
                                 ]
                   },
                   {
@@ -48,15 +66,6 @@
                                 ]
                   },
                   {
-                      "title":  "大雨一直亂 本季延賽恐破40場",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1768016",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-25T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
                       "title":  "831洋將決選 3隊本週期末考",
                       "url":  "https://sports.ltn.com.tw/news/paper/1768013",
                       "source":  "自由時報",
@@ -66,8 +75,8 @@
                                 ]
                   },
                   {
-                      "title":  "機會來了！4次「8月狂象」 直取下半季冠軍",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1768015",
+                      "title":  "大雨一直亂 本季延賽恐破40場",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1768016",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-25T05:30:00+08:00",
                       "teams":  [
@@ -81,6 +90,15 @@
                       "pubDate":  "2026-08-25T05:30:00+08:00",
                       "teams":  [
                                     "樂天桃猿"
+                                ]
+                  },
+                  {
+                      "title":  "機會來了！4次「8月狂象」 直取下半季冠軍",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1768015",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-25T05:30:00+08:00",
+                      "teams":  [
+
                                 ]
                   },
                   {
@@ -657,26 +675,8 @@
                                 ]
                   },
                   {
-                      "title":  "猿雙2000里程碑 英雄命普查出爐",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1767528",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-21T05:30:00+08:00",
-                      "teams":  [
-                                    "樂天桃猿"
-                                ]
-                  },
-                  {
                       "title":  "郭郁政轉戰牛棚 知錯肯改求表現",
                       "url":  "https://sports.ltn.com.tw/news/paper/1767527",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-21T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "林辰勳配球強 衝刺競獎門檻",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1767526",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-21T05:30:00+08:00",
                       "teams":  [
@@ -690,6 +690,24 @@
                       "pubDate":  "2026-08-21T05:30:00+08:00",
                       "teams":  [
                                     "中信兄弟"
+                                ]
+                  },
+                  {
+                      "title":  "猿雙2000里程碑 英雄命普查出爐",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1767528",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-21T05:30:00+08:00",
+                      "teams":  [
+                                    "樂天桃猿"
+                                ]
+                  },
+                  {
+                      "title":  "林辰勳配球強 衝刺競獎門檻",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1767526",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-21T05:30:00+08:00",
+                      "teams":  [
+
                                 ]
                   },
                   {
@@ -890,24 +908,6 @@
                       "pubDate":  "2026-08-20T16:25:00+08:00",
                       "teams":  [
 
-                                ]
-                  },
-                  {
-                      "title":  "中職》怎麼了？  富邦本土王牌李東洺二軍慘遭KO",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5546535",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-20T16:05:11+08:00",
-                      "teams":  [
-                                    "富邦悍將"
-                                ]
-                  },
-                  {
-                      "title":  "前悍將投手阿部雄大返日首戰超殺！中繼2局無安打、3K完美封鎖",
-                      "url":  "https://sports.ettoday.net/news/3222728",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-08-20T15:49:00+08:00",
-                      "teams":  [
-                                    "富邦悍將"
                                 ]
                   }
               ]
