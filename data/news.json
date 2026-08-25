@@ -1,7 +1,16 @@
 {
-    "updated":  "2026-08-25T13:47:52+08:00",
+    "updated":  "2026-08-25T14:47:51+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "中職》雨勢不斷！獅隊回台南亞太首戰延賽",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5551589",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-25T14:17:33+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅"
+                                ]
+                  },
                   {
                       "title":  "中職》樂天公佈次一波新秀簽約！8新秀全數加盟",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5551479",
@@ -39,6 +48,15 @@
                                 ]
                   },
                   {
+                      "title":  "大雨一直亂 本季延賽恐破40場",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1768016",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-25T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "831洋將決選 3隊本週期末考",
                       "url":  "https://sports.ltn.com.tw/news/paper/1768013",
                       "source":  "自由時報",
@@ -63,15 +81,6 @@
                       "pubDate":  "2026-08-25T05:30:00+08:00",
                       "teams":  [
                                     "樂天桃猿"
-                                ]
-                  },
-                  {
-                      "title":  "大雨一直亂 本季延賽恐破40場",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1768016",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-25T05:30:00+08:00",
-                      "teams":  [
-
                                 ]
                   },
                   {
@@ -648,6 +657,15 @@
                                 ]
                   },
                   {
+                      "title":  "猿雙2000里程碑 英雄命普查出爐",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1767528",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-21T05:30:00+08:00",
+                      "teams":  [
+                                    "樂天桃猿"
+                                ]
+                  },
+                  {
                       "title":  "郭郁政轉戰牛棚 知錯肯改求表現",
                       "url":  "https://sports.ltn.com.tw/news/paper/1767527",
                       "source":  "自由時報",
@@ -672,15 +690,6 @@
                       "pubDate":  "2026-08-21T05:30:00+08:00",
                       "teams":  [
                                     "中信兄弟"
-                                ]
-                  },
-                  {
-                      "title":  "猿雙2000里程碑 英雄命普查出爐",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1767528",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-21T05:30:00+08:00",
-                      "teams":  [
-                                    "樂天桃猿"
                                 ]
                   },
                   {
@@ -899,15 +908,6 @@
                       "pubDate":  "2026-08-20T15:49:00+08:00",
                       "teams":  [
                                     "富邦悍將"
-                                ]
-                  },
-                  {
-                      "title":  "中職》台鋼雄鷹新洋投來了  中文譯名超接地氣！",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5546497",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-20T15:47:52+08:00",
-                      "teams":  [
-                                    "台鋼雄鷹"
                                 ]
                   }
               ]
