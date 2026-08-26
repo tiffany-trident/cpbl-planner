@@ -1,7 +1,35 @@
 {
-    "updated":  "2026-08-26T21:22:19+08:00",
+    "updated":  "2026-08-26T22:22:19+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "中職》悍將牛棚4四死球、失3分差點翻盤 後藤思考可能原因",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5553548",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-26T22:12:29+08:00",
+                      "teams":  [
+                                    "富邦悍將"
+                                ]
+                  },
+                  {
+                      "title":  "中職》獅隊新希望燃燒生涯最多球 統一完封味全寫首見紀錄！",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5553514",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-26T21:48:15+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅",
+                                    "味全龍"
+                                ]
+                  },
+                  {
+                      "title":  "中職》范國宸關鍵安、「勝投怪盜」張奕又拿1勝！富邦擺脫下半季墊底",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5553517",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-26T21:45:40+08:00",
+                      "teams":  [
+                                    "富邦悍將"
+                                ]
+                  },
                   {
                       "title":  "中職》昨飆153公里火球、今敲勝利打點安打  宋晟睿就是狂！",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5553492",
@@ -363,12 +391,13 @@
                                 ]
                   },
                   {
-                      "title":  "道威聖尋覓陳俊秀 從南韓找來台灣",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1768147",
+                      "title":  "威克雙響砲 猿痛宰兄弟獨大",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1768144",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-26T05:30:00+08:00",
                       "teams":  [
-
+                                    "中信兄弟",
+                                    "樂天桃猿"
                                 ]
                   },
                   {
@@ -381,13 +410,12 @@
                                 ]
                   },
                   {
-                      "title":  "威克雙響砲 猿痛宰兄弟獨大",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1768144",
+                      "title":  "道威聖尋覓陳俊秀 從南韓找來台灣",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1768147",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-26T05:30:00+08:00",
                       "teams":  [
-                                    "中信兄弟",
-                                    "樂天桃猿"
+
                                 ]
                   },
                   {
@@ -745,6 +773,15 @@
                                 ]
                   },
                   {
+                      "title":  "機會來了！4次「8月狂象」 直取下半季冠軍",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1768015",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-25T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "831洋將大限 樂天定調雙洋砲",
                       "url":  "https://sports.ltn.com.tw/news/paper/1768014",
                       "source":  "自由時報",
@@ -756,15 +793,6 @@
                   {
                       "title":  "831洋將決選 3隊本週期末考",
                       "url":  "https://sports.ltn.com.tw/news/paper/1768013",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-25T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "機會來了！4次「8月狂象」 直取下半季冠軍",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1768015",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-25T05:30:00+08:00",
                       "teams":  [
@@ -877,33 +905,6 @@
                       "pubDate":  "2026-08-23T21:47:27+08:00",
                       "teams":  [
                                     "富邦悍將"
-                                ]
-                  },
-                  {
-                      "title":  "美技雙殺救龍隊　郭天信成史上第2位5打數無安打MVP",
-                      "url":  "https://www.cna.com.tw/news/aspt/202608230200.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-08-23T21:24:16+08:00",
-                      "teams":  [
-                                    "味全龍"
-                                ]
-                  },
-                  {
-                      "title":  "郭天信再見雙殺讓葉君璋「啊」聲變調　笑虧林凱威8勝太會偷",
-                      "url":  "https://sports.ettoday.net/news/3224403",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-08-23T21:05:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "游竣宥先發奪中職首勝感受魔力　彭政閔笑稱還有99勝要拿",
-                      "url":  "https://www.cna.com.tw/news/aspt/202608230197.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-08-23T21:04:10+08:00",
-                      "teams":  [
-
                                 ]
                   }
               ]
