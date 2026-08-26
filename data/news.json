@@ -1,7 +1,25 @@
 {
-    "updated":  "2026-08-26T11:22:19+08:00",
+    "updated":  "2026-08-26T12:22:19+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "中職》兄弟野手登板飆全隊年度第3快火球 宋晟睿只輸2人",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5552682",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-26T12:15:15+08:00",
+                      "teams":  [
+                                    "中信兄弟"
+                                ]
+                  },
+                  {
+                      "title":  "李灝宇敲1分打點安打　MLB老虎終止6連敗",
+                      "url":  "https://www.cna.com.tw/news/aspt/202608260047.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-08-26T10:16:29+08:00",
+                      "teams":  [
+
+                                ]
+                  },
                   {
                       "title":  "韓職史上第一次！9局2出局代打逆轉再見滿貫　李浩延賽後紅了眼眶",
                       "url":  "https://sports.ettoday.net/news/3225824",
@@ -30,21 +48,21 @@
                                 ]
                   },
                   {
-                      "title":  "季末補賽週 猿通告最多「投」痛",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1768145",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-26T05:30:00+08:00",
-                      "teams":  [
-                                    "樂天桃猿"
-                                ]
-                  },
-                  {
                       "title":  "威克雙響砲 猿痛宰兄弟獨大",
                       "url":  "https://sports.ltn.com.tw/news/paper/1768144",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-26T05:30:00+08:00",
                       "teams":  [
                                     "中信兄弟",
+                                    "樂天桃猿"
+                                ]
+                  },
+                  {
+                      "title":  "季末補賽週 猿通告最多「投」痛",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1768145",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-26T05:30:00+08:00",
+                      "teams":  [
                                     "樂天桃猿"
                                 ]
                   },
@@ -394,6 +412,15 @@
                                 ]
                   },
                   {
+                      "title":  "機會來了！4次「8月狂象」 直取下半季冠軍",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1768015",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-25T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "831洋將大限 樂天定調雙洋砲",
                       "url":  "https://sports.ltn.com.tw/news/paper/1768014",
                       "source":  "自由時報",
@@ -405,15 +432,6 @@
                   {
                       "title":  "大雨一直亂 本季延賽恐破40場",
                       "url":  "https://sports.ltn.com.tw/news/paper/1768016",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-25T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "機會來了！4次「8月狂象」 直取下半季冠軍",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1768015",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-25T05:30:00+08:00",
                       "teams":  [
@@ -892,24 +910,6 @@
                       "pubDate":  "2026-08-21T11:13:00+08:00",
                       "teams":  [
                                     "富邦悍將"
-                                ]
-                  },
-                  {
-                      "title":  "陳柏凱650萬打破24年「阿甘障礙」！合約總值達850萬加盟富邦",
-                      "url":  "https://sports.ettoday.net/news/3222974",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-08-21T11:09:00+08:00",
-                      "teams":  [
-                                    "富邦悍將"
-                                ]
-                  },
-                  {
-                      "title":  "金倒永找到自己的「轟炸區」！37轟逼近MVP年　但目標是3成打擊率",
-                      "url":  "https://sports.ettoday.net/news/3223166",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-08-21T11:06:00+08:00",
-                      "teams":  [
-
                                 ]
                   }
               ]
