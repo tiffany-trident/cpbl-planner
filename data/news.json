@@ -1,7 +1,16 @@
 {
-    "updated":  "2026-08-27T15:00:06+08:00",
+    "updated":  "2026-08-27T16:00:07+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "棒球》被富邦悍將註銷！日本強投轉戰日職初先發 主投4.1局狂飆6K",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5554238",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-27T15:00:13+08:00",
+                      "teams":  [
+                                    "富邦悍將"
+                                ]
+                  },
                   {
                       "title":  "中職》力拚重返富邦一軍！兄弟棄將又夯長打 近12戰打擊率0.412超鬼",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5554065",
@@ -130,12 +139,12 @@
                                 ]
                   },
                   {
-                      "title":  "悍將牛棚提油 范國宸一棒滅火",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1768212",
+                      "title":  "平野解讀宋晟睿 不專攻投手不可惜",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1768215",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-27T05:30:00+08:00",
                       "teams":  [
-                                    "富邦悍將"
+
                                 ]
                   },
                   {
@@ -148,15 +157,6 @@
                                 ]
                   },
                   {
-                      "title":  "伍立辰當關 兄弟本季破蛋",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1768214",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-27T05:30:00+08:00",
-                      "teams":  [
-                                    "中信兄弟"
-                                ]
-                  },
-                  {
                       "title":  "林詔恩扮屠龍手 MVP心有所屬",
                       "url":  "https://sports.ltn.com.tw/news/paper/1768216",
                       "source":  "自由時報",
@@ -166,12 +166,21 @@
                                 ]
                   },
                   {
-                      "title":  "平野解讀宋晟睿 不專攻投手不可惜",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1768215",
+                      "title":  "悍將牛棚提油 范國宸一棒滅火",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1768212",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-27T05:30:00+08:00",
                       "teams":  [
-
+                                    "富邦悍將"
+                                ]
+                  },
+                  {
+                      "title":  "伍立辰當關 兄弟本季破蛋",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1768214",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-27T05:30:00+08:00",
+                      "teams":  [
+                                    "中信兄弟"
                                 ]
                   },
                   {
@@ -755,8 +764,8 @@
                                 ]
                   },
                   {
-                      "title":  "道威聖尋覓陳俊秀 從南韓找來台灣",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1768147",
+                      "title":  "菲力士闖關831 不把後天當殊死戰",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1768146",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-26T05:30:00+08:00",
                       "teams":  [
@@ -773,6 +782,15 @@
                                 ]
                   },
                   {
+                      "title":  "道威聖尋覓陳俊秀 從南韓找來台灣",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1768147",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-26T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "威克雙響砲 猿痛宰兄弟獨大",
                       "url":  "https://sports.ltn.com.tw/news/paper/1768144",
                       "source":  "自由時報",
@@ -780,15 +798,6 @@
                       "teams":  [
                                     "中信兄弟",
                                     "樂天桃猿"
-                                ]
-                  },
-                  {
-                      "title":  "菲力士闖關831 不把後天當殊死戰",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1768146",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-26T05:30:00+08:00",
-                      "teams":  [
-
                                 ]
                   },
                   {
@@ -900,15 +909,6 @@
                       "pubDate":  "2026-08-25T20:56:25+08:00",
                       "teams":  [
                                     "中信兄弟"
-                                ]
-                  },
-                  {
-                      "title":  "中職》遭強襲球擊中後頸曾短暫失憶 林承飛最怕沒辦法再打球",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5552146",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-25T20:49:56+08:00",
-                      "teams":  [
-
                                 ]
                   }
               ]
