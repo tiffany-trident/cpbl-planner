@@ -1,12 +1,39 @@
 {
-    "updated":  "2026-08-27T12:00:05+08:00",
+    "updated":  "2026-08-27T13:00:06+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "棒球》劉柏君擔任WPBL裁判 前兄弟打教菈沙致勝安助球隊逆轉勝",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5553983",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-27T12:25:31+08:00",
+                      "teams":  [
+                                    "中信兄弟"
+                                ]
+                  },
+                  {
+                      "title":  "洋基台灣日太空人鄧愷威中繼  國旗Taiwan躍大螢幕",
+                      "url":  "https://www.cna.com.tw/news/aspt/202608270091.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-08-27T11:44:42+08:00",
+                      "teams":  [
+
+                                ]
+                  },
                   {
                       "title":  "MiLB》1人都沒解決！中職3度落選火球男被震撼教育 投0局核爆5分",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5553747",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-27T11:26:07+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "李灝宇2次強擊球未敲安　球評分析重返大聯盟改變",
+                      "url":  "https://www.cna.com.tw/news/aspt/202608270081.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-08-27T11:24:20+08:00",
                       "teams":  [
 
                                 ]
@@ -84,6 +111,24 @@
                                 ]
                   },
                   {
+                      "title":  "悍將牛棚提油 范國宸一棒滅火",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1768212",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-27T05:30:00+08:00",
+                      "teams":  [
+                                    "富邦悍將"
+                                ]
+                  },
+                  {
+                      "title":  "林詔恩扮屠龍手 MVP心有所屬",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1768216",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-27T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "平野解讀宋晟睿 不專攻投手不可惜",
                       "url":  "https://sports.ltn.com.tw/news/paper/1768215",
                       "source":  "自由時報",
@@ -99,24 +144,6 @@
                       "pubDate":  "2026-08-27T05:30:00+08:00",
                       "teams":  [
                                     "中信兄弟"
-                                ]
-                  },
-                  {
-                      "title":  "林詔恩扮屠龍手 MVP心有所屬",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1768216",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-27T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "悍將牛棚提油 范國宸一棒滅火",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1768212",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-27T05:30:00+08:00",
-                      "teams":  [
-                                    "富邦悍將"
                                 ]
                   },
                   {
@@ -700,27 +727,8 @@
                                 ]
                   },
                   {
-                      "title":  "威克雙響砲 猿痛宰兄弟獨大",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1768144",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-26T05:30:00+08:00",
-                      "teams":  [
-                                    "中信兄弟",
-                                    "樂天桃猿"
-                                ]
-                  },
-                  {
                       "title":  "道威聖尋覓陳俊秀 從南韓找來台灣",
                       "url":  "https://sports.ltn.com.tw/news/paper/1768147",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-26T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "菲力士闖關831 不把後天當殊死戰",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1768146",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-26T05:30:00+08:00",
                       "teams":  [
@@ -733,6 +741,25 @@
                       "source":  "自由時報",
                       "pubDate":  "2026-08-26T05:30:00+08:00",
                       "teams":  [
+                                    "樂天桃猿"
+                                ]
+                  },
+                  {
+                      "title":  "菲力士闖關831 不把後天當殊死戰",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1768146",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-26T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "威克雙響砲 猿痛宰兄弟獨大",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1768144",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-26T05:30:00+08:00",
+                      "teams":  [
+                                    "中信兄弟",
                                     "樂天桃猿"
                                 ]
                   },
@@ -881,33 +908,6 @@
                       "pubDate":  "2026-08-25T19:51:00+08:00",
                       "teams":  [
                                     "中信兄弟"
-                                ]
-                  },
-                  {
-                      "title":  "中職》菲力士週五「期末考」 若表現不理想換杰克上一軍",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5552071",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-25T19:34:31+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "桃猿因雨7天沒比賽　曾豪駒：需思考補賽人員配置",
-                      "url":  "https://www.cna.com.tw/news/aspt/202608250318.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-08-25T19:28:29+08:00",
-                      "teams":  [
-                                    "樂天桃猿"
-                                ]
-                  },
-                  {
-                      "title":  "當球僮獲陳俊秀球棒以為是韓國人　道威聖13年後中職相認",
-                      "url":  "https://www.cna.com.tw/news/aspt/202608250316.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-08-25T19:21:25+08:00",
-                      "teams":  [
-
                                 ]
                   }
               ]
