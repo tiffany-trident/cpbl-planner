@@ -1,5 +1,5 @@
 {
-    "updated":  "2026-08-28T13:56:59+08:00",
+    "updated":  "2026-08-28T14:56:58+08:00",
     "count":  100,
     "items":  [
                   {
@@ -39,21 +39,21 @@
                                 ]
                   },
                   {
-                      "title":  "悍將戰績翻紅 「一定是做對什麼」",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1768447",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-28T05:30:00+08:00",
-                      "teams":  [
-                                    "富邦悍將"
-                                ]
-                  },
-                  {
                       "title":  "9月還想當雄鷹 後勁投出重要一勝",
                       "url":  "https://sports.ltn.com.tw/news/paper/1768446",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-28T05:30:00+08:00",
                       "teams":  [
                                     "台鋼雄鷹"
+                                ]
+                  },
+                  {
+                      "title":  "悍將戰績翻紅 「一定是做對什麼」",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1768447",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-28T05:30:00+08:00",
+                      "teams":  [
+                                    "富邦悍將"
                                 ]
                   },
                   {
@@ -329,33 +329,6 @@
                                 ]
                   },
                   {
-                      "title":  "平野解讀宋晟睿 不專攻投手不可惜",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1768215",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-27T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "永田搶先開箱 首打席驚動計分板",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1768213",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-27T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "伍立辰當關 兄弟本季破蛋",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1768214",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-27T05:30:00+08:00",
-                      "teams":  [
-                                    "中信兄弟"
-                                ]
-                  },
-                  {
                       "title":  "林詔恩扮屠龍手 MVP心有所屬",
                       "url":  "https://sports.ltn.com.tw/news/paper/1768216",
                       "source":  "自由時報",
@@ -371,6 +344,33 @@
                       "pubDate":  "2026-08-27T05:30:00+08:00",
                       "teams":  [
                                     "富邦悍將"
+                                ]
+                  },
+                  {
+                      "title":  "伍立辰當關 兄弟本季破蛋",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1768214",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-27T05:30:00+08:00",
+                      "teams":  [
+                                    "中信兄弟"
+                                ]
+                  },
+                  {
+                      "title":  "平野解讀宋晟睿 不專攻投手不可惜",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1768215",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-27T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "永田搶先開箱 首打席驚動計分板",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1768213",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-27T05:30:00+08:00",
+                      "teams":  [
+
                                 ]
                   },
                   {
