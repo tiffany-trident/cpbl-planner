@@ -1,12 +1,57 @@
 {
-    "updated":  "2026-09-01T17:00:05+08:00",
+    "updated":  "2026-09-01T18:00:06+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "中職》831現身機場 鈴木駿輔：只是送機，沒有領機票",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5559642",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-01T17:42:16+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "中職》上半季勇奪10勝後陷低潮 富邦本土王牌李東洺透露課題",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5559640",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-01T17:33:32+08:00",
+                      "teams":  [
+                                    "富邦悍將"
+                                ]
+                  },
+                  {
+                      "title":  "蘇智傑右腹斜肌輕微拉傷下二軍　估需休2至4週",
+                      "url":  "https://www.cna.com.tw/news/aspt/202609010264.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-09-01T17:22:06+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "中職》新秀王翾祐等3人註銷、蘇智傑下二軍 餅總一併說明原因",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5559599",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-01T17:08:59+08:00",
+                      "teams":  [
+
+                                ]
+                  },
                   {
                       "title":  "MLB》曾放話砸大谷！對台灣吞敗的南韓救援王慘遭DFA 結束旅美生涯",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5559474",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-01T16:32:41+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "鈴木駿輔機場送機引誤會　感性直呼如此關注2年前難想像",
+                      "url":  "https://www.cna.com.tw/news/aspt/202609010217.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-09-01T16:24:24+08:00",
                       "teams":  [
 
                                 ]
@@ -123,21 +168,21 @@
                                 ]
                   },
                   {
-                      "title":  "中職831大限》富邦9上9下 永田條款助4人",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1768939",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-01T05:30:00+08:00",
-                      "teams":  [
-                                    "富邦悍將"
-                                ]
-                  },
-                  {
                       "title":  "中職831大限》兄弟拚「奪還」 菲力士註冊交卷",
                       "url":  "https://sports.ltn.com.tw/news/paper/1768938",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-01T05:30:00+08:00",
                       "teams":  [
                                     "中信兄弟"
+                                ]
+                  },
+                  {
+                      "title":  "中職831大限》富邦9上9下 永田條款助4人",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1768939",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-01T05:30:00+08:00",
+                      "teams":  [
+                                    "富邦悍將"
                                 ]
                   },
                   {
@@ -429,6 +474,42 @@
                                 ]
                   },
                   {
+                      "title":  "蔣銲6局0失分 穩居防禦率王",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1768822",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-31T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "華盛頓國民隊台灣日開球 林琪兒：緊張堪比太空任務",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1768722",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-31T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "江少慶2局失1分 郭俊麟接手鎖猿",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1768820",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-31T05:30:00+08:00",
+                      "teams":  [
+                                    "樂天桃猿"
+                                ]
+                  },
+                  {
+                      "title":  "不怪球僮碰撞 道威聖圈粉",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1768821",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-31T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "游竣宥「馴悍」 兄弟登龍頭",
                       "url":  "https://sports.ltn.com.tw/news/paper/1768818",
                       "source":  "自由時報",
@@ -447,44 +528,8 @@
                                 ]
                   },
                   {
-                      "title":  "不怪球僮碰撞 道威聖圈粉",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1768821",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-31T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "江少慶2局失1分 郭俊麟接手鎖猿",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1768820",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-31T05:30:00+08:00",
-                      "teams":  [
-                                    "樂天桃猿"
-                                ]
-                  },
-                  {
                       "title":  "蔣銲拚最低防禦率 蕭任汶盼土投打破",
                       "url":  "https://sports.ltn.com.tw/news/paper/1768823",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-31T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "蔣銲6局0失分 穩居防禦率王",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1768822",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-31T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "華盛頓國民隊台灣日開球 林琪兒：緊張堪比太空任務",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1768722",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-31T05:30:00+08:00",
                       "teams":  [
@@ -863,51 +908,6 @@
                       "pubDate":  "2026-08-30T14:27:17+08:00",
                       "teams":  [
 
-                                ]
-                  },
-                  {
-                      "title":  "雄鷹選秀6人全數簽約　首輪邱文佑簽約金550萬元",
-                      "url":  "https://www.cna.com.tw/news/aspt/202608300085.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-08-30T14:20:11+08:00",
-                      "teams":  [
-                                    "台鋼雄鷹"
-                                ]
-                  },
-                  {
-                      "title":  "台鋼6新秀全數簽約！平鎮大物邱文佑550萬領銜　二軍雙冠王櫻井周斗將離隊",
-                      "url":  "https://sports.ettoday.net/news/3228298",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-08-30T14:11:00+08:00",
-                      "teams":  [
-                                    "台鋼雄鷹"
-                                ]
-                  },
-                  {
-                      "title":  "MLB國民隊台灣日開球　太空人林琪兒：緊張程度堪比太空任務",
-                      "url":  "https://www.cna.com.tw/news/aspt/202608300026.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-08-30T10:23:03+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "中職》下週面對5連戰 樂天桃猿將使用4位本土投手先發",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5555807",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-28T18:51:02+08:00",
-                      "teams":  [
-                                    "樂天桃猿"
-                                ]
-                  },
-                  {
-                      "title":  "中職》兄弟1指許庭綸沒想到能上一軍 「打得不是很好⋯」",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5555783",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-28T18:35:07+08:00",
-                      "teams":  [
-                                    "中信兄弟"
                                 ]
                   }
               ]
