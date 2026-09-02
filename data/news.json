@@ -1,7 +1,16 @@
 {
-    "updated":  "2026-09-02T09:00:16+08:00",
+    "updated":  "2026-09-02T10:00:05+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "MiLB》控球崩盤！中職3度落選火球男2戰狂丟9四死球 防禦率63.00",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5560118",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-02T09:23:54+08:00",
+                      "teams":  [
+
+                                ]
+                  },
                   {
                       "title":  "棒球》當發球機打！前富邦悍將重砲轉戰中國第2轟出爐 高居5冠王",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5560090",
@@ -31,6 +40,15 @@
                                 ]
                   },
                   {
+                      "title":  "上月打擊率破4成 林澤彬看見缺陷",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1769088",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-02T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "林澤彬再見安屠獅 悍將今拚50勝",
                       "url":  "https://sports.ltn.com.tw/news/paper/1769087",
                       "source":  "自由時報",
@@ -52,15 +70,6 @@
                   {
                       "title":  "鍾允華搶新人王 餅總幫忙拉票",
                       "url":  "https://sports.ltn.com.tw/news/paper/1769089",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-02T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "上月打擊率破4成 林澤彬看見缺陷",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1769088",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-02T05:30:00+08:00",
                       "teams":  [
@@ -486,6 +495,15 @@
                                 ]
                   },
                   {
+                      "title":  "中職831大限》富邦9上9下 永田條款助4人",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1768939",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-01T05:30:00+08:00",
+                      "teams":  [
+                                    "富邦悍將"
+                                ]
+                  },
+                  {
                       "title":  "中職831大限》台鋼捨後勁 押1球未投威鳳山",
                       "url":  "https://sports.ltn.com.tw/news/paper/1768940",
                       "source":  "自由時報",
@@ -510,15 +528,6 @@
                       "pubDate":  "2026-09-01T05:30:00+08:00",
                       "teams":  [
 
-                                ]
-                  },
-                  {
-                      "title":  "中職831大限》富邦9上9下 永田條款助4人",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1768939",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-01T05:30:00+08:00",
-                      "teams":  [
-                                    "富邦悍將"
                                 ]
                   },
                   {
@@ -801,8 +810,17 @@
                                 ]
                   },
                   {
-                      "title":  "蔣銲拚最低防禦率 蕭任汶盼土投打破",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1768823",
+                      "title":  "蔣銲6局0失分 穩居防禦率王",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1768822",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-31T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "華盛頓國民隊台灣日開球 林琪兒：緊張堪比太空任務",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1768722",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-31T05:30:00+08:00",
                       "teams":  [
@@ -812,6 +830,24 @@
                   {
                       "title":  "不怪球僮碰撞 道威聖圈粉",
                       "url":  "https://sports.ltn.com.tw/news/paper/1768821",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-31T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "江少慶2局失1分 郭俊麟接手鎖猿",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1768820",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-31T05:30:00+08:00",
+                      "teams":  [
+                                    "樂天桃猿"
+                                ]
+                  },
+                  {
+                      "title":  "蔣銲拚最低防禦率 蕭任汶盼土投打破",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1768823",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-31T05:30:00+08:00",
                       "teams":  [
@@ -830,33 +866,6 @@
                   {
                       "title":  "美職球探盯場 曾峻岳旅外有譜？",
                       "url":  "https://sports.ltn.com.tw/news/paper/1768819",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-31T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "江少慶2局失1分 郭俊麟接手鎖猿",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1768820",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-31T05:30:00+08:00",
-                      "teams":  [
-                                    "樂天桃猿"
-                                ]
-                  },
-                  {
-                      "title":  "蔣銲6局0失分 穩居防禦率王",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1768822",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-31T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "華盛頓國民隊台灣日開球 林琪兒：緊張堪比太空任務",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1768722",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-31T05:30:00+08:00",
                       "teams":  [
@@ -898,16 +907,6 @@
                       "teams":  [
                                     "中信兄弟",
                                     "樂天桃猿",
-                                    "富邦悍將"
-                                ]
-                  },
-                  {
-                      "title":  "中職》兄弟力退富邦重返下半季龍頭 游竣宥飆球團史上首見壯舉",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5557479",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-30T21:42:20+08:00",
-                      "teams":  [
-                                    "中信兄弟",
                                     "富邦悍將"
                                 ]
                   }
