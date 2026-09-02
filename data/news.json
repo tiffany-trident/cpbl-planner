@@ -1,7 +1,16 @@
 {
-    "updated":  "2026-09-02T14:00:06+08:00",
+    "updated":  "2026-09-02T15:00:06+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "桃園盃／王奕翔炸3分砲盼「每個盃賽都轟」！準備好再闖職棒",
+                      "url":  "https://sports.ettoday.net/news/3230207",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-09-02T14:26:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
                   {
                       "title":  "李灝宇敲二壘打差1支平MLB台將紀錄  老虎慘敗雙城",
                       "url":  "https://www.cna.com.tw/news/aspt/202609020094.aspx",
@@ -76,6 +85,15 @@
                                 ]
                   },
                   {
+                      "title":  "下半季一勝難求 李東洺校正回歸",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1769090",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-02T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "上月打擊率破4成 林澤彬看見缺陷",
                       "url":  "https://sports.ltn.com.tw/news/paper/1769088",
                       "source":  "自由時報",
@@ -92,15 +110,6 @@
                       "teams":  [
                                     "統一7-ELEVEn獅",
                                     "富邦悍將"
-                                ]
-                  },
-                  {
-                      "title":  "下半季一勝難求 李東洺校正回歸",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1769090",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-02T05:30:00+08:00",
-                      "teams":  [
-
                                 ]
                   },
                   {
@@ -531,6 +540,15 @@
                                 ]
                   },
                   {
+                      "title":  "中職831大限》兄弟拚「奪還」 菲力士註冊交卷",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1768938",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-01T05:30:00+08:00",
+                      "teams":  [
+                                    "中信兄弟"
+                                ]
+                  },
+                  {
                       "title":  "中職831大限》富邦9上9下 永田條款助4人",
                       "url":  "https://sports.ltn.com.tw/news/paper/1768939",
                       "source":  "自由時報",
@@ -546,15 +564,6 @@
                       "pubDate":  "2026-09-01T05:30:00+08:00",
                       "teams":  [
                                     "台鋼雄鷹"
-                                ]
-                  },
-                  {
-                      "title":  "中職831大限》兄弟拚「奪還」 菲力士註冊交卷",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1768938",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-01T05:30:00+08:00",
-                      "teams":  [
-                                    "中信兄弟"
                                 ]
                   },
                   {
@@ -837,8 +846,8 @@
                                 ]
                   },
                   {
-                      "title":  "蔣銲拚最低防禦率 蕭任汶盼土投打破",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1768823",
+                      "title":  "華盛頓國民隊台灣日開球 林琪兒：緊張堪比太空任務",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1768722",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-31T05:30:00+08:00",
                       "teams":  [
@@ -846,21 +855,12 @@
                                 ]
                   },
                   {
-                      "title":  "蔣銲6局0失分 穩居防禦率王",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1768822",
+                      "title":  "游竣宥「馴悍」 兄弟登龍頭",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1768818",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-31T05:30:00+08:00",
                       "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "美職球探盯場 曾峻岳旅外有譜？",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1768819",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-31T05:30:00+08:00",
-                      "teams":  [
-
+                                    "中信兄弟"
                                 ]
                   },
                   {
@@ -882,8 +882,8 @@
                                 ]
                   },
                   {
-                      "title":  "華盛頓國民隊台灣日開球 林琪兒：緊張堪比太空任務",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1768722",
+                      "title":  "蔣銲6局0失分 穩居防禦率王",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1768822",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-31T05:30:00+08:00",
                       "teams":  [
@@ -891,21 +891,21 @@
                                 ]
                   },
                   {
-                      "title":  "游竣宥「馴悍」 兄弟登龍頭",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1768818",
+                      "title":  "美職球探盯場 曾峻岳旅外有譜？",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1768819",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-31T05:30:00+08:00",
                       "teams":  [
-                                    "中信兄弟"
+
                                 ]
                   },
                   {
-                      "title":  "中職》兄弟新核彈頭！張仁瑋開轟解鎖新成就 又獲額外大禮",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5557533",
+                      "title":  "蔣銲拚最低防禦率 蕭任汶盼土投打破",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1768823",
                       "source":  "自由時報",
-                      "pubDate":  "2026-08-30T23:27:24+08:00",
+                      "pubDate":  "2026-08-31T05:30:00+08:00",
                       "teams":  [
-                                    "中信兄弟"
+
                                 ]
                   }
               ]
