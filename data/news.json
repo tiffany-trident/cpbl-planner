@@ -1,7 +1,16 @@
 {
-    "updated":  "2026-09-02T13:00:08+08:00",
+    "updated":  "2026-09-02T14:00:06+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "李灝宇敲二壘打差1支平MLB台將紀錄  老虎慘敗雙城",
+                      "url":  "https://www.cna.com.tw/news/aspt/202609020094.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-09-02T11:58:53+08:00",
+                      "teams":  [
+
+                                ]
+                  },
                   {
                       "title":  "棒球》曾備受王建民期待！前兄弟第5指名轉戰中國 首秀核爆防禦率81.00",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5560208",
@@ -58,6 +67,15 @@
                                 ]
                   },
                   {
+                      "title":  "鍾允華搶新人王 餅總幫忙拉票",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1769089",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-02T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "上月打擊率破4成 林澤彬看見缺陷",
                       "url":  "https://sports.ltn.com.tw/news/paper/1769088",
                       "source":  "自由時報",
@@ -79,15 +97,6 @@
                   {
                       "title":  "下半季一勝難求 李東洺校正回歸",
                       "url":  "https://sports.ltn.com.tw/news/paper/1769090",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-02T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "鍾允華搶新人王 餅總幫忙拉票",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1769089",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-02T05:30:00+08:00",
                       "teams":  [
@@ -513,6 +522,15 @@
                                 ]
                   },
                   {
+                      "title":  "簽約金530萬 許書誠加盟中信",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1768942",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-01T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "中職831大限》富邦9上9下 永田條款助4人",
                       "url":  "https://sports.ltn.com.tw/news/paper/1768939",
                       "source":  "自由時報",
@@ -537,15 +555,6 @@
                       "pubDate":  "2026-09-01T05:30:00+08:00",
                       "teams":  [
                                     "中信兄弟"
-                                ]
-                  },
-                  {
-                      "title":  "簽約金530萬 許書誠加盟中信",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1768942",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-01T05:30:00+08:00",
-                      "teams":  [
-
                                 ]
                   },
                   {
@@ -828,8 +837,35 @@
                                 ]
                   },
                   {
+                      "title":  "蔣銲拚最低防禦率 蕭任汶盼土投打破",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1768823",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-31T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "蔣銲6局0失分 穩居防禦率王",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1768822",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-31T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "美職球探盯場 曾峻岳旅外有譜？",
                       "url":  "https://sports.ltn.com.tw/news/paper/1768819",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-08-31T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "不怪球僮碰撞 道威聖圈粉",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1768821",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-31T05:30:00+08:00",
                       "teams":  [
@@ -864,48 +900,12 @@
                                 ]
                   },
                   {
-                      "title":  "不怪球僮碰撞 道威聖圈粉",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1768821",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-31T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "蔣銲拚最低防禦率 蕭任汶盼土投打破",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1768823",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-31T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "蔣銲6局0失分 穩居防禦率王",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1768822",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-31T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
                       "title":  "中職》兄弟新核彈頭！張仁瑋開轟解鎖新成就 又獲額外大禮",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5557533",
                       "source":  "自由時報",
                       "pubDate":  "2026-08-30T23:27:24+08:00",
                       "teams":  [
                                     "中信兄弟"
-                                ]
-                  },
-                  {
-                      "title":  "中職》改變局勢的救命美技 游竣宥讚嘆宋晟睿：這也接得到？（影音）",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5557528",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-08-30T23:18:26+08:00",
-                      "teams":  [
-
                                 ]
                   }
               ]
