@@ -1,5 +1,5 @@
 {
-    "updated":  "2026-09-04T15:00:06+08:00",
+    "updated":  "2026-09-04T16:00:06+08:00",
     "count":  100,
     "items":  [
                   {
@@ -7,6 +7,15 @@
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5563074",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-04T14:23:58+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "吞4K後甩手露痛苦神情　大谷翔平休兵一天",
+                      "url":  "https://www.cna.com.tw/news/aspt/202609040137.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-09-04T13:54:46+08:00",
                       "teams":  [
 
                                 ]
@@ -21,10 +30,19 @@
                                 ]
                   },
                   {
-                      "title":  "美國女子職棒元年台灣不缺席　會長：盼赴台辦測試會",
+                      "title":  "美國女子職棒元年台灣不缺席　會長：盼赴台辦測試會【專訪】",
                       "url":  "https://www.cna.com.tw/news/aspt/202609040037.aspx",
                       "source":  "中央社",
                       "pubDate":  "2026-09-04T10:05:08+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "朱育賢再守4場 競逐大「內」高手",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1769295",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-04T05:30:00+08:00",
                       "teams":  [
 
                                 ]
@@ -55,15 +73,6 @@
                       "pubDate":  "2026-09-04T05:30:00+08:00",
                       "teams":  [
                                     "樂天桃猿"
-                                ]
-                  },
-                  {
-                      "title":  "朱育賢再守4場 競逐大「內」高手",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1769295",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-04T05:30:00+08:00",
-                      "teams":  [
-
                                 ]
                   },
                   {
@@ -283,6 +292,24 @@
                                 ]
                   },
                   {
+                      "title":  "李勛傑再見安 攻破延長賽王者",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1769204",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-03T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "葉總看懂黃暐傑 有比首勝更重要的事",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1769205",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-03T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "林詔恩強心臟 獲封土獅1號",
                       "url":  "https://sports.ltn.com.tw/news/paper/1769206",
                       "source":  "自由時報",
@@ -307,24 +334,6 @@
                       "pubDate":  "2026-09-03T05:30:00+08:00",
                       "teams":  [
                                     "統一7-ELEVEn獅"
-                                ]
-                  },
-                  {
-                      "title":  "葉總看懂黃暐傑 有比首勝更重要的事",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1769205",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-03T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "李勛傑再見安 攻破延長賽王者",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1769204",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-03T05:30:00+08:00",
-                      "teams":  [
-
                                 ]
                   },
                   {
@@ -855,8 +864,18 @@
                                 ]
                   },
                   {
-                      "title":  "下半季一勝難求 李東洺校正回歸",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1769090",
+                      "title":  "林澤彬再見安屠獅 悍將今拚50勝",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1769087",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-02T05:30:00+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅",
+                                    "富邦悍將"
+                                ]
+                  },
+                  {
+                      "title":  "鍾允華搶新人王 餅總幫忙拉票",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1769089",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-02T05:30:00+08:00",
                       "teams":  [
@@ -864,8 +883,8 @@
                                 ]
                   },
                   {
-                      "title":  "鍾允華搶新人王 餅總幫忙拉票",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1769089",
+                      "title":  "下半季一勝難求 李東洺校正回歸",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1769090",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-02T05:30:00+08:00",
                       "teams":  [
@@ -882,31 +901,12 @@
                                 ]
                   },
                   {
-                      "title":  "林澤彬再見安屠獅 悍將今拚50勝",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1769087",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-02T05:30:00+08:00",
-                      "teams":  [
-                                    "統一7-ELEVEn獅",
-                                    "富邦悍將"
-                                ]
-                  },
-                  {
                       "title":  "中職》富邦悍將2：1勝統一獅",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5559961",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-01T22:40:11+08:00",
                       "teams":  [
                                     "統一7-ELEVEn獅",
-                                    "富邦悍將"
-                                ]
-                  },
-                  {
-                      "title":  "中職》從再見失誤到再見安打當英雄！林澤彬助富邦延長賽贏球曝感言",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5559960",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-01T22:36:15+08:00",
-                      "teams":  [
                                     "富邦悍將"
                                 ]
                   }
