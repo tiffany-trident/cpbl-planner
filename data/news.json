@@ -1,7 +1,16 @@
 {
-    "updated":  "2026-09-07T14:45:07+08:00",
+    "updated":  "2026-09-07T15:12:10+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "中職》台鋼教練團4人異動 黃甘霖重返一軍",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5565795",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-07T14:54:04+08:00",
+                      "teams":  [
+                                    "台鋼雄鷹"
+                                ]
+                  },
                   {
                       "title":  "統一獅傳奇將謝幕！陳鏞基引退戰逼近滿場　「鏞不止步」最終視覺曝光",
                       "url":  "https://sports.ettoday.net/news/3232851",
@@ -138,12 +147,40 @@
                                 ]
                   },
                   {
+                      "title":  "U18亞青今開戰 我拚首度2連霸",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1769685",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-07T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "獅橫掃台鋼 全年戰績第2",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1769731",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-07T05:30:00+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅",
+                                    "台鋼雄鷹"
+                                ]
+                  },
+                  {
                       "title":  "恰恰領隊上任3個月 3位打教用心看得見",
                       "url":  "https://sports.ltn.com.tw/news/paper/1769733",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-07T05:30:00+08:00",
                       "teams":  [
 
+                                ]
+                  },
+                  {
+                      "title":  "小胖2分砲 加班氣走悍將",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1769730",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-07T05:30:00+08:00",
+                      "teams":  [
+                                    "富邦悍將"
                                 ]
                   },
                   {
@@ -171,34 +208,6 @@
                       "pubDate":  "2026-09-07T05:30:00+08:00",
                       "teams":  [
 
-                                ]
-                  },
-                  {
-                      "title":  "小胖2分砲 加班氣走悍將",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1769730",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-07T05:30:00+08:00",
-                      "teams":  [
-                                    "富邦悍將"
-                                ]
-                  },
-                  {
-                      "title":  "U18亞青今開戰 我拚首度2連霸",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1769685",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-07T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "獅橫掃台鋼 全年戰績第2",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1769731",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-07T05:30:00+08:00",
-                      "teams":  [
-                                    "統一7-ELEVEn獅",
-                                    "台鋼雄鷹"
                                 ]
                   },
                   {
@@ -476,6 +485,15 @@
                                 ]
                   },
                   {
+                      "title":  "林培緯猛打致勝 餅總再提接棒一壘",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1769548",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-06T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "改名後第一次當國手 朱迦恩責任更重大",
                       "url":  "https://sports.ltn.com.tw/news/paper/1769549",
                       "source":  "自由時報",
@@ -496,15 +514,6 @@
                   {
                       "title":  "前一戰歉意收場 勝騎士飆K討回來",
                       "url":  "https://sports.ltn.com.tw/news/paper/1769547",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-06T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "林培緯猛打致勝 餅總再提接棒一壘",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1769548",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-06T05:30:00+08:00",
                       "teams":  [
@@ -902,15 +911,6 @@
                       "pubDate":  "2026-09-04T18:15:31+08:00",
                       "teams":  [
 
-                                ]
-                  },
-                  {
-                      "title":  "中職》富邦悍將打線一到大巨蛋就「急凍」  為什麼？",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5563420",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-04T18:13:36+08:00",
-                      "teams":  [
-                                    "富邦悍將"
                                 ]
                   }
               ]
