@@ -1,7 +1,70 @@
 {
-    "updated":  "2026-09-07T10:46:00+08:00",
+    "updated":  "2026-09-07T11:45:07+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "陳鏞基引退賽兩戰預售近3萬張　獅隊公布視覺設計",
+                      "url":  "https://www.cna.com.tw/news/aspt/202609070059.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-09-07T11:20:38+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅"
+                                ]
+                  },
+                  {
+                      "title":  "中職》陳鏞基「鏞不止步」視覺首亮相 引退賽兩場預售近3萬張",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5565512",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-07T11:18:59+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "洋基端300萬美元沒動搖！U18韓國王牌河弦丞首戰台灣曝心境",
+                      "url":  "https://sports.ettoday.net/news/3232818",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-09-07T11:09:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "大谷翔平本季登板無望　可望明天對紅人回歸打線",
+                      "url":  "https://www.cna.com.tw/news/aspt/202609070045.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-09-07T11:03:09+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "桃園盃／中山小將有亮點　傅品睿側投、許書暘向桃猿教練叔叔取經",
+                      "url":  "https://sports.ettoday.net/news/3232793",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-09-07T10:50:00+08:00",
+                      "teams":  [
+                                    "樂天桃猿"
+                                ]
+                  },
+                  {
+                      "title":  "MLB李灝宇1保送跑回1分　鄧愷威近3戰失6分下放3A",
+                      "url":  "https://www.cna.com.tw/news/aspt/202609070035.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-09-07T10:34:47+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "平野監督曾提醒「多去理解中繼投手心情」　余謙有感而發",
+                      "url":  "https://sports.ettoday.net/news/3232697",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-09-07T10:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
                   {
                       "title":  "道奇1A首辦台灣日！國旗驚喜印上主場紅土　總經理喊：年年都要辦",
                       "url":  "https://sports.ettoday.net/news/3232718",
@@ -9,15 +72,6 @@
                       "pubDate":  "2026-09-07T09:21:00+08:00",
                       "teams":  [
 
-                                ]
-                  },
-                  {
-                      "title":  "昔兄弟第一指名轉戰長中繼　余謙談先發夢：不管什麼角色都要做好",
-                      "url":  "https://sports.ettoday.net/news/3232697",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-09-07T09:00:00+08:00",
-                      "teams":  [
-                                    "中信兄弟"
                                 ]
                   },
                   {
@@ -84,15 +138,6 @@
                                 ]
                   },
                   {
-                      "title":  "U18亞青今開戰 我拚首度2連霸",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1769685",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-07T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
                       "title":  "小胖2分砲 加班氣走悍將",
                       "url":  "https://sports.ltn.com.tw/news/paper/1769730",
                       "source":  "自由時報",
@@ -102,8 +147,26 @@
                                 ]
                   },
                   {
-                      "title":  "有季後賽Fu 雙龍連棒宰象",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1769729",
+                      "title":  "U18亞青今開戰 我拚首度2連霸",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1769685",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-07T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "打擊起死回生 陳重羽歸功鳥取之旅",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1769734",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-07T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "恰恰領隊上任3個月 3位打教用心看得見",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1769733",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-07T05:30:00+08:00",
                       "teams":  [
@@ -121,17 +184,8 @@
                                 ]
                   },
                   {
-                      "title":  "恰恰領隊上任3個月 3位打教用心看得見",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1769733",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-07T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "打擊起死回生 陳重羽歸功鳥取之旅",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1769734",
+                      "title":  "有季後賽Fu 雙龍連棒宰象",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1769729",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-07T05:30:00+08:00",
                       "teams":  [
@@ -413,6 +467,15 @@
                                 ]
                   },
                   {
+                      "title":  "陳克羿2度球吻張育成 火爆中奪勝",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1769545",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-06T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "前一戰歉意收場 勝騎士飆K討回來",
                       "url":  "https://sports.ltn.com.tw/news/paper/1769547",
                       "source":  "自由時報",
@@ -424,15 +487,6 @@
                   {
                       "title":  "林培緯猛打致勝 餅總再提接棒一壘",
                       "url":  "https://sports.ltn.com.tw/news/paper/1769548",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-06T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "陳克羿2度球吻張育成 火爆中奪勝",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1769545",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-06T05:30:00+08:00",
                       "teams":  [
@@ -857,60 +911,6 @@
                       "pubDate":  "2026-09-04T18:07:30+08:00",
                       "teams":  [
                                     "中信兄弟"
-                                ]
-                  },
-                  {
-                      "title":  "6隊進到大巨蛋打擊率下滑　曾豪駒指出守備率是關鍵",
-                      "url":  "https://www.cna.com.tw/news/aspt/202609040258.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-09-04T18:04:08+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "中職》一句話吸引韓媒關注 劉基鴻：努力幫台灣爭取好成績",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5563392",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-04T17:57:01+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "中職》富邦小將離奇受傷脫離戰線  張育成從來都沒看過",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5563391",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-04T17:54:25+08:00",
-                      "teams":  [
-                                    "富邦悍將"
-                                ]
-                  },
-                  {
-                      "title":  "悍將大巨蛋打擊率不到2成落差大　光總直言不知原因",
-                      "url":  "https://www.cna.com.tw/news/aspt/202609040247.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-09-04T17:46:44+08:00",
-                      "teams":  [
-                                    "富邦悍將"
-                                ]
-                  },
-                  {
-                      "title":  "中職》二軍僅投1局的威鳳山何時「開箱」？台鋼投教透露初步規劃",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5563368",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-04T17:32:34+08:00",
-                      "teams":  [
-                                    "台鋼雄鷹"
-                                ]
-                  },
-                  {
-                      "title":  "盧柏華揮棒脫臼待詳細檢查　後藤沒遇過自認身體強壯",
-                      "url":  "https://www.cna.com.tw/news/aspt/202609040243.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-09-04T17:29:36+08:00",
-                      "teams":  [
-
                                 ]
                   }
               ]
