@@ -1,7 +1,34 @@
 {
-    "updated":  "2026-09-09T15:00:06+08:00",
+    "updated":  "2026-09-09T16:00:06+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "中職》「投內角應該，生氣也應該」葉總簡評昨衝突事件",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5568314",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-09T15:34:11+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "中職》吉力吉撈爆氣遭罰款禁賽 味全球團回應了",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5568292",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-09T15:22:10+08:00",
+                      "teams":  [
+                                    "味全龍"
+                                ]
+                  },
+                  {
+                      "title":  "中職》衝突隔天出面受訪 吉力吉撈50秒回應：推的動作不妥",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5568257",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-09T15:05:17+08:00",
+                      "teams":  [
+
+                                ]
+                  },
                   {
                       "title":  "中信兄弟吹韓風　韓職啦啦隊、tripleS、跆拳道助陣",
                       "url":  "https://www.cna.com.tw/news/aspt/202609090130.aspx",
@@ -391,8 +418,8 @@
                                 ]
                   },
                   {
-                      "title":  "林智勝施展魔法 李凱威不重則不威",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1769858",
+                      "title":  "亞運》旅美韓兩大左腕領銜 成棒24人拍板",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1769859",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-08T05:30:00+08:00",
                       "teams":  [
@@ -400,8 +427,8 @@
                                 ]
                   },
                   {
-                      "title":  "亞運》旅美韓兩大左腕領銜 成棒24人拍板",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1769859",
+                      "title":  "林智勝施展魔法 李凱威不重則不威",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1769858",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-08T05:30:00+08:00",
                       "teams":  [
@@ -737,6 +764,16 @@
                                 ]
                   },
                   {
+                      "title":  "獅橫掃台鋼 全年戰績第2",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1769731",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-07T05:30:00+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅",
+                                    "台鋼雄鷹"
+                                ]
+                  },
+                  {
                       "title":  "有季後賽Fu 雙龍連棒宰象",
                       "url":  "https://sports.ltn.com.tw/news/paper/1769729",
                       "source":  "自由時報",
@@ -746,8 +783,8 @@
                                 ]
                   },
                   {
-                      "title":  "恰恰領隊上任3個月 3位打教用心看得見",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1769733",
+                      "title":  "打擊起死回生 陳重羽歸功鳥取之旅",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1769734",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-07T05:30:00+08:00",
                       "teams":  [
@@ -773,31 +810,21 @@
                                 ]
                   },
                   {
+                      "title":  "恰恰領隊上任3個月 3位打教用心看得見",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1769733",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-07T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "土投單季100局少見 許銘傑點出「下意識」",
                       "url":  "https://sports.ltn.com.tw/news/paper/1769732",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-07T05:30:00+08:00",
                       "teams":  [
 
-                                ]
-                  },
-                  {
-                      "title":  "打擊起死回生 陳重羽歸功鳥取之旅",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1769734",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-07T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "獅橫掃台鋼 全年戰績第2",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1769731",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-07T05:30:00+08:00",
-                      "teams":  [
-                                    "統一7-ELEVEn獅",
-                                    "台鋼雄鷹"
                                 ]
                   },
                   {
@@ -880,33 +907,6 @@
                       "pubDate":  "2026-09-06T20:41:00+08:00",
                       "teams":  [
 
-                                ]
-                  },
-                  {
-                      "title":  "中職》賽前都想爭MVP 陳聖平「險勝」陳傑憲坦言一句話",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5565186",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-06T20:39:08+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "葉君璋直呼「像季後賽」！味全9局攻破呂彥青　最滿意一件事",
-                      "url":  "https://sports.ettoday.net/news/3232605",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-09-06T20:38:00+08:00",
-                      "teams":  [
-                                    "味全龍"
-                                ]
-                  },
-                  {
-                      "title":  "中職》獅隊4連勝躍居全年第2！餅總看到選手一亮點",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5565183",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-06T20:34:52+08:00",
-                      "teams":  [
-                                    "統一7-ELEVEn獅"
                                 ]
                   }
               ]
