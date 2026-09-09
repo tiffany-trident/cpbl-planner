@@ -1,7 +1,16 @@
 {
-    "updated":  "2026-09-09T13:00:06+08:00",
+    "updated":  "2026-09-09T14:00:06+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "中信兄弟吹韓風　韓職啦啦隊、tripleS、跆拳道助陣",
+                      "url":  "https://www.cna.com.tw/news/aspt/202609090130.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-09-09T13:13:42+08:00",
+                      "teams":  [
+                                    "中信兄弟"
+                                ]
+                  },
                   {
                       "title":  "中職》中信兄弟攜手駐台北韓國代表部 國技院跆拳道、tripleS Nien、韓職啦啦隊登台北大巨蛋",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5568029",
@@ -21,6 +30,15 @@
                                 ]
                   },
                   {
+                      "title":  "MLB李灝宇3打數未敲安　9月打擊率1成25",
+                      "url":  "https://www.cna.com.tw/news/aspt/202609090094.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-09-09T11:47:22+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "棒球》慘！前兄弟第5指名轉戰中國初先發被打爆 防禦率高達18.00",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5567877",
                       "source":  "自由時報",
@@ -30,7 +48,7 @@
                                 ]
                   },
                   {
-                      "title":  "吉力吉撈推擠戴培峰　聯盟祭出罰款2萬元、禁賽1場",
+                      "title":  "中職衝突吉力吉撈推擠戴培峰　聯盟裁罰2萬元、禁賽1場[影]",
                       "url":  "https://www.cna.com.tw/news/aspt/202609090054.aspx",
                       "source":  "中央社",
                       "pubDate":  "2026-09-09T10:41:57+08:00",
@@ -373,21 +391,21 @@
                                 ]
                   },
                   {
-                      "title":  "亞運》旅美韓兩大左腕領銜 成棒24人拍板",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1769859",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-08T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
                       "title":  "龍追猿0勝差 葉總愁問鬼月過了沒",
                       "url":  "https://sports.ltn.com.tw/news/paper/1769857",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-08T05:30:00+08:00",
                       "teams":  [
                                     "樂天桃猿"
+                                ]
+                  },
+                  {
+                      "title":  "亞運》旅美韓兩大左腕領銜 成棒24人拍板",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1769859",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-08T05:30:00+08:00",
+                      "teams":  [
+
                                 ]
                   },
                   {
@@ -719,6 +737,24 @@
                                 ]
                   },
                   {
+                      "title":  "土投單季100局少見 許銘傑點出「下意識」",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1769732",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-07T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "打擊起死回生 陳重羽歸功鳥取之旅",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1769734",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-07T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "獅橫掃台鋼 全年戰績第2",
                       "url":  "https://sports.ltn.com.tw/news/paper/1769731",
                       "source":  "自由時報",
@@ -747,15 +783,6 @@
                                 ]
                   },
                   {
-                      "title":  "U18亞青今開戰 我拚首度2連霸",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1769685",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-07T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
                       "title":  "恰恰領隊上任3個月 3位打教用心看得見",
                       "url":  "https://sports.ltn.com.tw/news/paper/1769733",
                       "source":  "自由時報",
@@ -765,17 +792,8 @@
                                 ]
                   },
                   {
-                      "title":  "土投單季100局少見 許銘傑點出「下意識」",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1769732",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-07T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "打擊起死回生 陳重羽歸功鳥取之旅",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1769734",
+                      "title":  "U18亞青今開戰 我拚首度2連霸",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1769685",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-07T05:30:00+08:00",
                       "teams":  [
@@ -887,24 +905,6 @@
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5565183",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-06T20:34:52+08:00",
-                      "teams":  [
-                                    "統一7-ELEVEn獅"
-                                ]
-                  },
-                  {
-                      "title":  "陳聖平4安首獲MVP　統一16安猛攻橫掃台鋼奪3連勝",
-                      "url":  "https://sports.ettoday.net/news/3232604",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-09-06T20:34:00+08:00",
-                      "teams":  [
-                                    "台鋼雄鷹"
-                                ]
-                  },
-                  {
-                      "title":  "中職》「久違了！」餅總讚賞陳聖平表現、揭獅帝芬提前退場原因",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5565180",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-06T20:32:16+08:00",
                       "teams":  [
                                     "統一7-ELEVEn獅"
                                 ]
