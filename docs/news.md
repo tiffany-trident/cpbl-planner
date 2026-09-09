@@ -72,6 +72,7 @@ Windows Task Scheduler
 
 - `fetch-news.ps1` 跨次累積：讀舊 `data/news.json`，依 **URL 去重**（新蓋舊），保留 **45 天**（`$KeepDays`），上限 **100 則**（`$MaxItems`），依 `pubDate` 由新到舊排序
 - **編碼**：`fetch-news.ps1` 存成 **UTF-8 with BOM**（PS 5.1 才能正確讀含中文的關鍵字 regex）；輸出 `data/news.json` 為 UTF-8 no BOM
+- **非法控制字元**：自由時報 feed 偶爾在 CDATA 內夾帶裸 C0 控制字元（2026-09-09 為 0x08 backspace），XML 1.0 不允許，`[xml]` cast 會丟 **terminating error**。該 cast 原本在 try/catch 之外，故整支腳本會死在第一個 feed，中央社／ETtoday 完全沒抓、`data/news.json` 連寫都沒寫（2026-09-09 該次故障持續 8 個排程週期，新聞停在前一天 19:00）。修法：parse 前先 `[regex]::Replace($content, '[\x00-\x08\x0B\x0C\x0E-\x1F]', '')` 清掉非法字元，並把 `[xml]` cast 包進 try/catch，單一 feed 解析失敗只 `continue` 跳過該 feed。
 - **CDATA 取值**：LTN／ETtoday 的 title/description/link 是 CDATA，`$item.title` 會回傳 XmlElement，須用 `SelectSingleNode('title').InnerText`（中央社為純文字，同函式一併處理）
 - **`teams` 陣列序列化**：PowerShell 函式 `return` 會展開陣列（空→`$null`、單一→純字串），故 `Get-Teams` 的呼叫端一律用 `@(...)` 收，確保 `teams` 永遠序列化成 JSON 陣列（`[]`／`["x"]`／`["x","y"]`）。前端 `newsItemTeams()` 仍做容錯（吃 array／string／null／`{}`），以防舊部署資料
 
