@@ -135,7 +135,18 @@ foreach ($feed in $Feeds) {
     $content = [string]$res.Content
     $lt = $content.IndexOf('<')
     if ($lt -gt 0) { $content = $content.Substring($lt) }
-    [xml]$doc = $content
+    # LTN's feed intermittently carries a raw C0 control char inside a CDATA
+    # (seen: 0x08 on 2026-09-09), which XML 1.0 forbids. The [xml] cast then
+    # throws a TERMINATING error, which killed the whole script at the first
+    # feed -- the remaining feeds never ran and news.json went unwritten for
+    # hours. Strip the illegal chars, and keep a parse failure per-feed.
+    $content = [regex]::Replace($content, '[\x00-\x08\x0B\x0C\x0E-\x1F]', '')
+    try {
+        [xml]$doc = $content
+    } catch {
+        Write-Step "  FAILED parse $($feed.name): $($_.Exception.Message)"
+        continue
+    }
     foreach ($item in $doc.rss.channel.item) {
         # Use InnerText: CDATA-wrapped fields (title/description in LTN's feed)
         # return an XmlElement via dotted access, not the string.
