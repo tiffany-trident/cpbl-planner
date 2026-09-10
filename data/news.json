@@ -1,7 +1,16 @@
 {
-    "updated":  "2026-09-10T20:00:07+08:00",
+    "updated":  "2026-09-10T21:00:07+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "中職》賭上生涯的「海豚撲」潛藏高風險  張皓崴只有1個信念",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5569936",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-10T20:30:36+08:00",
+                      "teams":  [
+
+                                ]
+                  },
                   {
                       "title":  "中職》「大家都說兄弟打擊變好了」 平野惠一卻有不同觀點",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5569830",
@@ -311,6 +320,35 @@
                                 ]
                   },
                   {
+                      "title":  "頂替陳晨威 林政華扮九棒刺客",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1770122",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-10T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "曾頌恩轟獅 兄弟緊追猿",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1770118",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-10T05:30:00+08:00",
+                      "teams":  [
+                                    "中信兄弟",
+                                    "統一7-ELEVEn獅",
+                                    "樂天桃猿"
+                                ]
+                  },
+                  {
+                      "title":  "王牌本尊回歸 威能帝9局完封勝",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1770120",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-10T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "4度「觸」發引信 悍、龍冷處理",
                       "url":  "https://sports.ltn.com.tw/news/paper/1770119",
                       "source":  "自由時報",
@@ -335,35 +373,6 @@
                       "pubDate":  "2026-09-10T05:30:00+08:00",
                       "teams":  [
 
-                                ]
-                  },
-                  {
-                      "title":  "王牌本尊回歸 威能帝9局完封勝",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1770120",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-10T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "頂替陳晨威 林政華扮九棒刺客",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1770122",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-10T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "曾頌恩轟獅 兄弟緊追猿",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1770118",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-10T05:30:00+08:00",
-                      "teams":  [
-                                    "中信兄弟",
-                                    "統一7-ELEVEn獅",
-                                    "樂天桃猿"
                                 ]
                   },
                   {
@@ -899,15 +908,6 @@
                       "pubDate":  "2026-09-09T12:06:00+08:00",
                       "teams":  [
                                     "中信兄弟"
-                                ]
-                  },
-                  {
-                      "title":  "MLB李灝宇3打數未敲安　9月打擊率1成25",
-                      "url":  "https://www.cna.com.tw/news/aspt/202609090094.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-09-09T11:47:22+08:00",
-                      "teams":  [
-
                                 ]
                   }
               ]
