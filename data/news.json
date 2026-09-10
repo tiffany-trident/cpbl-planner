@@ -1,7 +1,16 @@
 {
-    "updated":  "2026-09-10T22:00:08+08:00",
+    "updated":  "2026-09-10T23:00:07+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "中職》超越王漢！布雷克躍居獅隊史洋將勝投王",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5569998",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-10T22:05:16+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅"
+                                ]
+                  },
                   {
                       "title":  "中職》猛！布雷克連22局0失分  兄弟本季第12度遭對手完封",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5569965",
@@ -356,6 +365,24 @@
                                 ]
                   },
                   {
+                      "title":  "亞運前大利多 王彥程奪第11勝",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1770125",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-10T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "吉力吉撈引爆「大場面」 禁賽1場．罰2萬",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1770121",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-10T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "曾頌恩轟獅 兄弟緊追猿",
                       "url":  "https://sports.ltn.com.tw/news/paper/1770118",
                       "source":  "自由時報",
@@ -387,24 +414,6 @@
                   {
                       "title":  "4度「觸」發引信 悍、龍冷處理",
                       "url":  "https://sports.ltn.com.tw/news/paper/1770119",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-10T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "亞運前大利多 王彥程奪第11勝",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1770125",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-10T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "吉力吉撈引爆「大場面」 禁賽1場．罰2萬",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1770121",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-10T05:30:00+08:00",
                       "teams":  [
@@ -897,15 +906,6 @@
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5568257",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-09T15:05:17+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "吉力吉撈快速受訪談衝突！認推人不妥：整體事件不是只有那顆球",
-                      "url":  "https://sports.ettoday.net/news/3234366",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-09-09T15:01:00+08:00",
                       "teams":  [
 
                                 ]
