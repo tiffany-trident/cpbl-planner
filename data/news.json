@@ -1,7 +1,16 @@
 {
-    "updated":  "2026-09-10T11:01:33+08:00",
+    "updated":  "2026-09-10T11:53:57+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "MLB大谷右臂不適未列先發　道奇考慮放進傷兵名單",
+                      "url":  "https://www.cna.com.tw/news/aspt/202609100058.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-09-10T11:06:55+08:00",
+                      "teams":  [
+
+                                ]
+                  },
                   {
                       "title":  "中職》最速只剩136公里沒差  平野惠一大讚鄭凱文3個優點",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5569095",
@@ -27,6 +36,33 @@
                       "pubDate":  "2026-09-10T10:25:16+08:00",
                       "teams":  [
                                     "統一7-ELEVEn獅"
+                                ]
+                  },
+                  {
+                      "title":  "李灝宇3保送跑回第33得分　寫MLB台將單季紀錄",
+                      "url":  "https://www.cna.com.tw/news/aspt/202609100039.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-09-10T09:50:13+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "日職唯一3000安打者！「安打製造機」張本勳辭世　享壽86歲",
+                      "url":  "https://sports.ettoday.net/news/3234753",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-09-10T09:45:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "吉力吉撈・鞏冠衝突真相靠數據說話　4次觸身「0次來自悍將」",
+                      "url":  "https://sports.ettoday.net/news/3234741",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-09-10T09:25:00+08:00",
+                      "teams":  [
+                                    "富邦悍將"
                                 ]
                   },
                   {
@@ -76,12 +112,14 @@
                                 ]
                   },
                   {
-                      "title":  "4度「觸」發引信 悍、龍冷處理",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1770119",
+                      "title":  "曾頌恩轟獅 兄弟緊追猿",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1770118",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-10T05:30:00+08:00",
                       "teams":  [
-
+                                    "中信兄弟",
+                                    "統一7-ELEVEn獅",
+                                    "樂天桃猿"
                                 ]
                   },
                   {
@@ -94,14 +132,12 @@
                                 ]
                   },
                   {
-                      "title":  "曾頌恩轟獅 兄弟緊追猿",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1770118",
+                      "title":  "4度「觸」發引信 悍、龍冷處理",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1770119",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-10T05:30:00+08:00",
                       "teams":  [
-                                    "中信兄弟",
-                                    "統一7-ELEVEn獅",
-                                    "樂天桃猿"
+
                                 ]
                   },
                   {
@@ -870,42 +906,6 @@
                       "url":  "https://sports.ettoday.net/news/3233863",
                       "source":  "ETtoday",
                       "pubDate":  "2026-09-08T18:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "中職》赴亞運選女兒生日「66」背號 陳晨威回母隊也想換嗎？",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5567311",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-08T18:17:35+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "中職》兄弟選到寶了？日本即戰力右投連3戰飆K無失分 防禦率完美的0",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5567259",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-08T18:15:25+08:00",
-                      "teams":  [
-                                    "中信兄弟"
-                                ]
-                  },
-                  {
-                      "title":  "陳文杰26轟竟是26名不同苦主！笑稱「打一次免疫」：想趕快突破",
-                      "url":  "https://sports.ettoday.net/news/3233859",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-09-08T18:13:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "U18亞青狀元陳柏凱首扛4棒　懊惱對韓擊球佳卻被接殺",
-                      "url":  "https://www.cna.com.tw/news/aspt/202609080269.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-09-08T18:08:51+08:00",
                       "teams":  [
 
                                 ]
