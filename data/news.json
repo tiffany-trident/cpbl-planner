@@ -1,7 +1,25 @@
 {
-    "updated":  "2026-09-11T15:02:08+08:00",
+    "updated":  "2026-09-11T16:00:06+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "中職》「我的數據在頭腦裡」 葉總斷言：搞不好統一全年度第1",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5570690",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-11T15:46:52+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "中職》推人「峰」波後 吉力吉撈今解禁扛4棒DH",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5570638",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-11T15:08:38+08:00",
+                      "teams":  [
+
+                                ]
+                  },
                   {
                       "title":  "陳鏞基引退賽613台無人機飛上天空　致敬國際賽生涯起點",
                       "url":  "https://www.cna.com.tw/news/aspt/202609110115.aspx",
@@ -39,12 +57,12 @@
                                 ]
                   },
                   {
-                      "title":  "牛棚1指5兄弟 左右天王山之戰",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1770266",
-                      "source":  "自由時報",
+                      "title":  "亞運棒球／中華隊戰力成形　旅外投手扛大局、中職打線主攻",
+                      "url":  "https://sports.ettoday.net/news/3235303",
+                      "source":  "ETtoday",
                       "pubDate":  "2026-09-11T05:30:00+08:00",
                       "teams":  [
-                                    "中信兄弟"
+
                                 ]
                   },
                   {
@@ -57,12 +75,12 @@
                                 ]
                   },
                   {
-                      "title":  "亞運棒球／中華隊戰力成形　旅外投手扛大局、中職打線主攻",
-                      "url":  "https://sports.ettoday.net/news/3235303",
-                      "source":  "ETtoday",
+                      "title":  "牛棚1指5兄弟 左右天王山之戰",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1770266",
+                      "source":  "自由時報",
                       "pubDate":  "2026-09-11T05:30:00+08:00",
                       "teams":  [
-
+                                    "中信兄弟"
                                 ]
                   },
                   {
@@ -447,37 +465,17 @@
                                 ]
                   },
                   {
-                      "title":  "曾頌恩轟獅 兄弟緊追猿",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1770118",
+                      "title":  "頂替陳晨威 林政華扮九棒刺客",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1770122",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-10T05:30:00+08:00",
                       "teams":  [
-                                    "中信兄弟",
-                                    "統一7-ELEVEn獅",
-                                    "樂天桃猿"
+
                                 ]
                   },
                   {
                       "title":  "王牌本尊回歸 威能帝9局完封勝",
                       "url":  "https://sports.ltn.com.tw/news/paper/1770120",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-10T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "吉力吉撈引爆「大場面」 禁賽1場．罰2萬",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1770121",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-10T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "亞運前大利多 王彥程奪第11勝",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1770125",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-10T05:30:00+08:00",
                       "teams":  [
@@ -494,8 +492,28 @@
                                 ]
                   },
                   {
-                      "title":  "頂替陳晨威 林政華扮九棒刺客",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1770122",
+                      "title":  "曾頌恩轟獅 兄弟緊追猿",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1770118",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-10T05:30:00+08:00",
+                      "teams":  [
+                                    "中信兄弟",
+                                    "統一7-ELEVEn獅",
+                                    "樂天桃猿"
+                                ]
+                  },
+                  {
+                      "title":  "吉力吉撈引爆「大場面」 禁賽1場．罰2萬",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1770121",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-10T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "亞運前大利多 王彥程奪第11勝",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1770125",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-10T05:30:00+08:00",
                       "teams":  [
@@ -867,8 +885,8 @@
                                 ]
                   },
                   {
-                      "title":  "看吉力吉撈推戴培峰一頭霧水　曾峻岳：是我丟球怎麼去找捕手",
-                      "url":  "https://sports.ettoday.net/news/3234509",
+                      "title":  "威鳳山何時一軍？蕭任汶笑喊「快了快了」　本周澄清湖開箱",
+                      "url":  "https://sports.ettoday.net/news/3234508",
                       "source":  "ETtoday",
                       "pubDate":  "2026-09-09T17:48:00+08:00",
                       "teams":  [
@@ -876,8 +894,8 @@
                                 ]
                   },
                   {
-                      "title":  "威鳳山何時一軍？蕭任汶笑喊「快了快了」　本周澄清湖開箱",
-                      "url":  "https://sports.ettoday.net/news/3234508",
+                      "title":  "看吉力吉撈推戴培峰一頭霧水　曾峻岳：是我丟球怎麼去找捕手",
+                      "url":  "https://sports.ettoday.net/news/3234509",
                       "source":  "ETtoday",
                       "pubDate":  "2026-09-09T17:48:00+08:00",
                       "teams":  [
@@ -891,24 +909,6 @@
                       "pubDate":  "2026-09-09T17:44:36+08:00",
                       "teams":  [
                                     "台鋼雄鷹"
-                                ]
-                  },
-                  {
-                      "title":  "中職》曾峻岳賽前提及自身近況差 後藤證實暫離終結者崗位",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5568551",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-09T17:41:29+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "中職》傻眼「怎麼突然衝突？」曾峻岳強調不希望丟到人、跟戴培峰一樣想法",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5568538",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-09T17:37:04+08:00",
-                      "teams":  [
-
                                 ]
                   }
               ]
