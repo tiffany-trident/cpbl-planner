@@ -1,7 +1,25 @@
 {
-    "updated":  "2026-09-12T20:00:08+08:00",
+    "updated":  "2026-09-12T21:00:06+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "中職》「這場雨會一路下到9點」天母龍獅戰成為下半季第21場補賽",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5571995",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-12T20:40:35+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅"
+                                ]
+                  },
+                  {
+                      "title":  "鄭浩均個人單場投球局數新高　8局優質先發助兄弟搶勝",
+                      "url":  "https://www.cna.com.tw/news/aspt/202609120195.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-09-12T20:17:29+08:00",
+                      "teams":  [
+                                    "中信兄弟"
+                                ]
+                  },
                   {
                       "title":  "中職》重現兄弟本土王牌身手！鄭浩均8局生涯單場新高好投完封樂天",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5571972",
@@ -10,6 +28,15 @@
                       "teams":  [
                                     "中信兄弟",
                                     "樂天桃猿"
+                                ]
+                  },
+                  {
+                      "title":  "雄鷹威鳳山初先發奪中職首勝　魔鷹本季16轟出爐",
+                      "url":  "https://www.cna.com.tw/news/aspt/202609120193.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-09-12T19:50:24+08:00",
+                      "teams":  [
+                                    "台鋼雄鷹"
                                 ]
                   },
                   {
@@ -267,21 +294,21 @@
                                 ]
                   },
                   {
-                      "title":  "坎南好投激勵打線 鷹止7連敗",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1770389",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-12T05:30:00+08:00",
-                      "teams":  [
-                                    "台鋼雄鷹"
-                                ]
-                  },
-                  {
                       "title":  "江少慶2年熬到MVP 披獅袍最棒一場",
                       "url":  "https://sports.ltn.com.tw/news/paper/1770388",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-12T05:30:00+08:00",
                       "teams":  [
                                     "統一7-ELEVEn獅"
+                                ]
+                  },
+                  {
+                      "title":  "坎南好投激勵打線 鷹止7連敗",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1770389",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-12T05:30:00+08:00",
+                      "teams":  [
+                                    "台鋼雄鷹"
                                 ]
                   },
                   {
@@ -640,18 +667,18 @@
                                 ]
                   },
                   {
-                      "title":  "成為本土的決心 布雷克57勝超車王漢",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1770265",
-                      "source":  "自由時報",
+                      "title":  "亞運棒球／中華隊戰力成形　旅外投手扛大局、中職打線主攻",
+                      "url":  "https://sports.ettoday.net/news/3235303",
+                      "source":  "ETtoday",
                       "pubDate":  "2026-09-11T05:30:00+08:00",
                       "teams":  [
 
                                 ]
                   },
                   {
-                      "title":  "亞運棒球／中華隊戰力成形　旅外投手扛大局、中職打線主攻",
-                      "url":  "https://sports.ettoday.net/news/3235303",
-                      "source":  "ETtoday",
+                      "title":  "成為本土的決心 布雷克57勝超車王漢",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1770265",
+                      "source":  "自由時報",
                       "pubDate":  "2026-09-11T05:30:00+08:00",
                       "teams":  [
 
@@ -879,33 +906,6 @@
                       "url":  "https://sports.ettoday.net/news/3235097",
                       "source":  "ETtoday",
                       "pubDate":  "2026-09-10T15:53:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "U18亞青》中職狀元郎抗韓一戰受衝擊 對日本隊力拚首見紀錄",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5569522",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-10T15:45:36+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "中職》被註銷無緣一軍！兄弟第3指名新星生涯初先發 3局飆2K無失分",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5569478",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-10T15:25:16+08:00",
-                      "teams":  [
-                                    "中信兄弟"
-                                ]
-                  },
-                  {
-                      "title":  "大巨蛋球賽老鼠亂入　遠雄：啟動全面巡檢清消",
-                      "url":  "https://www.cna.com.tw/news/aspt/202609100178.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-09-10T15:22:14+08:00",
                       "teams":  [
 
                                 ]
