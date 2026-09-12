@@ -1,7 +1,16 @@
 {
-    "updated":  "2026-09-12T15:00:06+08:00",
+    "updated":  "2026-09-12T16:00:05+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "桃園「TAOYUAN Cheer Star」13名培訓啦啦隊員、站上職棒舞台",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5571701",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-12T15:42:52+08:00",
+                      "teams":  [
+
+                                ]
+                  },
                   {
                       "title":  "三振後突回頭怒吼曾子祐！賴鴻誠深夜致歉：不是大家猜的方向",
                       "url":  "https://sports.ettoday.net/news/3236111",
@@ -59,6 +68,15 @@
                                 ]
                   },
                   {
+                      "title":  "威克滿貫砲 猿第2000轟要定了",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1770386",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-12T05:30:00+08:00",
+                      "teams":  [
+                                    "樂天桃猿"
+                                ]
+                  },
+                  {
                       "title":  "坎南好投激勵打線 鷹止7連敗",
                       "url":  "https://sports.ltn.com.tw/news/paper/1770389",
                       "source":  "自由時報",
@@ -83,15 +101,6 @@
                       "pubDate":  "2026-09-12T05:30:00+08:00",
                       "teams":  [
                                     "統一7-ELEVEn獅"
-                                ]
-                  },
-                  {
-                      "title":  "威克滿貫砲 猿第2000轟要定了",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1770386",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-12T05:30:00+08:00",
-                      "teams":  [
-                                    "樂天桃猿"
                                 ]
                   },
                   {
@@ -432,6 +441,24 @@
                                 ]
                   },
                   {
+                      "title":  "U18亞青》陳柏凱暖機完畢 鎖定157km火球日投",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1770269",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-11T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "成為本土的決心 布雷克57勝超車王漢",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1770265",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-11T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "亞運棒球／中華隊戰力成形　旅外投手扛大局、中職打線主攻",
                       "url":  "https://sports.ettoday.net/news/3235303",
                       "source":  "ETtoday",
@@ -447,24 +474,6 @@
                       "pubDate":  "2026-09-11T05:30:00+08:00",
                       "teams":  [
                                     "中信兄弟"
-                                ]
-                  },
-                  {
-                      "title":  "成為本土的決心 布雷克57勝超車王漢",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1770265",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-11T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "U18亞青》陳柏凱暖機完畢 鎖定157km火球日投",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1770269",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-11T05:30:00+08:00",
-                      "teams":  [
-
                                 ]
                   },
                   {
@@ -849,6 +858,33 @@
                                 ]
                   },
                   {
+                      "title":  "頂替陳晨威 林政華扮九棒刺客",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1770122",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-10T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "亞運前大利多 王彥程奪第11勝",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1770125",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-10T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "4度「觸」發引信 悍、龍冷處理",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1770119",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-10T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "曾頌恩轟獅 兄弟緊追猿",
                       "url":  "https://sports.ltn.com.tw/news/paper/1770118",
                       "source":  "自由時報",
@@ -869,46 +905,10 @@
                                 ]
                   },
                   {
-                      "title":  "亞運前大利多 王彥程奪第11勝",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1770125",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-10T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
                       "title":  "吉力吉撈引爆「大場面」 禁賽1場．罰2萬",
                       "url":  "https://sports.ltn.com.tw/news/paper/1770121",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-10T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "頂替陳晨威 林政華扮九棒刺客",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1770122",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-10T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "4度「觸」發引信 悍、龍冷處理",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1770119",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-10T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "范國宸挨砸「舉雙手」非叫隊友冷靜！後藤光尊曝真相",
-                      "url":  "https://sports.ettoday.net/news/3234631",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-09-09T22:58:00+08:00",
                       "teams":  [
 
                                 ]
