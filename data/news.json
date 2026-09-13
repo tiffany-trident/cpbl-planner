@@ -1,7 +1,62 @@
 {
-    "updated":  "2026-09-13T16:00:05+08:00",
+    "updated":  "2026-09-13T17:00:05+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "中職》被餅總曝光5局還想繼續投 江少慶吐真心話：當然希望可以再突破",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5572625",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-13T16:45:09+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "中職》岳政華昨開轟爭取表現空間 平野：今天對他是重要一天",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5572623",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-13T16:44:11+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "中職》昨遭兄弟王牌壓制、本季第15場遭完封 曾總坦言攻擊起伏大",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5572615",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-13T16:32:10+08:00",
+                      "teams":  [
+                                    "中信兄弟"
+                                ]
+                  },
+                  {
+                      "title":  "中職》獲兄弟神獸真傳 台鋼19歲菜鳥初登板關門技驚四座",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5572612",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-13T16:29:30+08:00",
+                      "teams":  [
+                                    "中信兄弟",
+                                    "台鋼雄鷹"
+                                ]
+                  },
+                  {
+                      "title":  "中職》「亞青我們在這裡，第一次的金鏞合體」陳鏞基例行賽天母終戰扛第4棒",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5572604",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-13T16:26:37+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "U18亞青》國外球探期盼他台日戰登板卻落空 蔡辰瀧直言「很難過」",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5572583",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-13T16:04:35+08:00",
+                      "teams":  [
+
+                                ]
+                  },
                   {
                       "title":  "龍隊季後賽名單投手為重　葉總評估曾仁和可能趕不上",
                       "url":  "https://www.cna.com.tw/news/aspt/202609130106.aspx",
@@ -120,21 +175,21 @@
                                 ]
                   },
                   {
-                      "title":  "鄭浩均8局好投 降速引關注",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1770503",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-13T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
                       "title":  "鷹開箱威鳳山 主場久違勝利",
                       "url":  "https://sports.ltn.com.tw/news/paper/1770507",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-13T05:30:00+08:00",
                       "teams":  [
                                     "台鋼雄鷹"
+                                ]
+                  },
+                  {
+                      "title":  "鄭浩均8局好投 降速引關注",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1770503",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-13T05:30:00+08:00",
+                      "teams":  [
+
                                 ]
                   },
                   {
@@ -557,21 +612,12 @@
                                 ]
                   },
                   {
-                      "title":  "威克滿貫砲 猿第2000轟要定了",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1770386",
+                      "title":  "王志煊機動性強 連25場無責失",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1770387",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-12T05:30:00+08:00",
                       "teams":  [
-                                    "樂天桃猿"
-                                ]
-                  },
-                  {
-                      "title":  "江少慶2年熬到MVP 披獅袍最棒一場",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1770388",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-12T05:30:00+08:00",
-                      "teams":  [
-                                    "統一7-ELEVEn獅"
+
                                 ]
                   },
                   {
@@ -584,12 +630,21 @@
                                 ]
                   },
                   {
-                      "title":  "王志煊機動性強 連25場無責失",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1770387",
+                      "title":  "江少慶2年熬到MVP 披獅袍最棒一場",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1770388",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-12T05:30:00+08:00",
                       "teams":  [
-
+                                    "統一7-ELEVEn獅"
+                                ]
+                  },
+                  {
+                      "title":  "威克滿貫砲 猿第2000轟要定了",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1770386",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-12T05:30:00+08:00",
+                      "teams":  [
+                                    "樂天桃猿"
                                 ]
                   },
                   {
@@ -855,60 +910,6 @@
                       "pubDate":  "2026-09-11T17:28:13+08:00",
                       "teams":  [
                                     "味全龍"
-                                ]
-                  },
-                  {
-                      "title":  "中職》「他會跟著球隊到最後一刻」餅總對陳鏞基的安排兼具理性和感性",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5570827",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-11T17:03:29+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "朱迦恩亞運真要蹲？餅總秒答「全力支持」　唯獨對日韓有但書",
-                      "url":  "https://sports.ettoday.net/news/3235651",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-09-11T16:55:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "禁賽解禁！吉力吉撈重返先發　今扛龍隊4棒DH迎戰統一",
-                      "url":  "https://sports.ettoday.net/news/3235649",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-09-11T16:35:00+08:00",
-                      "teams":  [
-                                    "味全龍"
-                                ]
-                  },
-                  {
-                      "title":  "中職》「我的數據在頭腦裡」 葉總斷言：搞不好統一全年度第1",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5570690",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-11T15:46:52+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "中職》推人「峰」波後 吉力吉撈今解禁扛4棒DH",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5570638",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-11T15:08:38+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "陳鏞基引退賽613台無人機飛上天空　致敬國際賽生涯起點",
-                      "url":  "https://www.cna.com.tw/news/aspt/202609110115.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-09-11T12:56:46+08:00",
-                      "teams":  [
-
                                 ]
                   }
               ]
