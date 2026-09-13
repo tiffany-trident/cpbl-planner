@@ -1,7 +1,16 @@
 {
-    "updated":  "2026-09-13T14:00:06+08:00",
+    "updated":  "2026-09-13T15:00:06+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "只對女翻譯重手擊掌掀議！台鋼紀慶然趴跪致歉：未來會更加謹慎",
+                      "url":  "https://sports.ettoday.net/news/3236615",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-09-13T13:55:00+08:00",
+                      "teams":  [
+                                    "台鋼雄鷹"
+                                ]
+                  },
                   {
                       "title":  "賽後擊掌！台鋼紀慶然只對女翻譯「超大力一打」　球迷開罵了",
                       "url":  "https://sports.ettoday.net/news/3236528",
@@ -48,6 +57,24 @@
                                 ]
                   },
                   {
+                      "title":  "鄭浩均8局好投 降速引關注",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1770503",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-13T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "鷹開箱威鳳山 主場久違勝利",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1770507",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-13T05:30:00+08:00",
+                      "teams":  [
+                                    "台鋼雄鷹"
+                                ]
+                  },
+                  {
                       "title":  "即刻應援張仁瑋 岳政華開轟2長打",
                       "url":  "https://sports.ltn.com.tw/news/paper/1770504",
                       "source":  "自由時報",
@@ -81,24 +108,6 @@
                       "pubDate":  "2026-09-13T05:30:00+08:00",
                       "teams":  [
                                     "統一7-ELEVEn獅"
-                                ]
-                  },
-                  {
-                      "title":  "鄭浩均8局好投 降速引關注",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1770503",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-13T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "鷹開箱威鳳山 主場久違勝利",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1770507",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-13T05:30:00+08:00",
-                      "teams":  [
-                                    "台鋼雄鷹"
                                 ]
                   },
                   {
@@ -485,6 +494,15 @@
                                 ]
                   },
                   {
+                      "title":  "王志煊機動性強 連25場無責失",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1770387",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-12T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "江少慶2年熬到MVP 披獅袍最棒一場",
                       "url":  "https://sports.ltn.com.tw/news/paper/1770388",
                       "source":  "自由時報",
@@ -509,15 +527,6 @@
                       "pubDate":  "2026-09-12T05:30:00+08:00",
                       "teams":  [
                                     "台鋼雄鷹"
-                                ]
-                  },
-                  {
-                      "title":  "王志煊機動性強 連25場無責失",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1770387",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-12T05:30:00+08:00",
-                      "teams":  [
-
                                 ]
                   },
                   {
@@ -858,8 +867,8 @@
                                 ]
                   },
                   {
-                      "title":  "成為本土的決心 布雷克57勝超車王漢",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1770265",
+                      "title":  "U18亞青》陳柏凱暖機完畢 鎖定157km火球日投",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1770269",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-11T05:30:00+08:00",
                       "teams":  [
@@ -876,18 +885,18 @@
                                 ]
                   },
                   {
-                      "title":  "亞運棒球／中華隊戰力成形　旅外投手扛大局、中職打線主攻",
-                      "url":  "https://sports.ettoday.net/news/3235303",
-                      "source":  "ETtoday",
+                      "title":  "成為本土的決心 布雷克57勝超車王漢",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1770265",
+                      "source":  "自由時報",
                       "pubDate":  "2026-09-11T05:30:00+08:00",
                       "teams":  [
 
                                 ]
                   },
                   {
-                      "title":  "U18亞青》陳柏凱暖機完畢 鎖定157km火球日投",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1770269",
-                      "source":  "自由時報",
+                      "title":  "亞運棒球／中華隊戰力成形　旅外投手扛大局、中職打線主攻",
+                      "url":  "https://sports.ettoday.net/news/3235303",
+                      "source":  "ETtoday",
                       "pubDate":  "2026-09-11T05:30:00+08:00",
                       "teams":  [
 
@@ -898,15 +907,6 @@
                       "url":  "https://www.cna.com.tw/news/aspt/202609100366.aspx",
                       "source":  "中央社",
                       "pubDate":  "2026-09-10T22:15:06+08:00",
-                      "teams":  [
-                                    "統一7-ELEVEn獅"
-                                ]
-                  },
-                  {
-                      "title":  "中職》超越王漢！布雷克躍居獅隊史洋將勝投王",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5569998",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-10T22:05:16+08:00",
                       "teams":  [
                                     "統一7-ELEVEn獅"
                                 ]
