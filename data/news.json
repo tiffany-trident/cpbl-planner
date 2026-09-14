@@ -1,7 +1,25 @@
 {
-    "updated":  "2026-09-14T09:00:05+08:00",
+    "updated":  "2026-09-14T10:00:06+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "台美棒球無距離　波士頓芬威球場現巨型TAIWAN排字",
+                      "url":  "https://www.cna.com.tw/news/aspt/202609140015.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-09-14T08:13:01+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "永田道歉野球 適時安打除「悍」",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1770646",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-14T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
                   {
                       "title":  "橫田傳授小叉 許承恩7指竄起",
                       "url":  "https://sports.ltn.com.tw/news/paper/1770647",
@@ -27,15 +45,6 @@
                       "pubDate":  "2026-09-14T05:30:00+08:00",
                       "teams":  [
                                     "統一7-ELEVEn獅"
-                                ]
-                  },
-                  {
-                      "title":  "永田道歉野球 適時安打除「悍」",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1770646",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-14T05:30:00+08:00",
-                      "teams":  [
-
                                 ]
                   },
                   {
@@ -628,12 +637,30 @@
                                 ]
                   },
                   {
-                      "title":  "鄭浩均8局好投 降速引關注",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1770503",
+                      "title":  "鷹開箱威鳳山 主場久違勝利",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1770507",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-13T05:30:00+08:00",
+                      "teams":  [
+                                    "台鋼雄鷹"
+                                ]
+                  },
+                  {
+                      "title":  "亞運台灣隊重點分析》兩大王牌領軍 牛棚藏台電亮點",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1770517",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-13T05:30:00+08:00",
                       "teams":  [
 
+                                ]
+                  },
+                  {
+                      "title":  "獅龍戰新編碼21 補賽週大塞車",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1770506",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-13T05:30:00+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅"
                                 ]
                   },
                   {
@@ -655,26 +682,8 @@
                                 ]
                   },
                   {
-                      "title":  "獅龍戰新編碼21 補賽週大塞車",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1770506",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-13T05:30:00+08:00",
-                      "teams":  [
-                                    "統一7-ELEVEn獅"
-                                ]
-                  },
-                  {
-                      "title":  "鷹開箱威鳳山 主場久違勝利",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1770507",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-13T05:30:00+08:00",
-                      "teams":  [
-                                    "台鋼雄鷹"
-                                ]
-                  },
-                  {
-                      "title":  "亞運台灣隊重點分析》兩大王牌領軍 牛棚藏台電亮點",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1770517",
+                      "title":  "鄭浩均8局好投 降速引關注",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1770503",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-13T05:30:00+08:00",
                       "teams":  [
@@ -907,15 +916,6 @@
                       "pubDate":  "2026-09-12T17:27:06+08:00",
                       "teams":  [
 
-                                ]
-                  },
-                  {
-                      "title":  "中職》樂天MVP潑水「主攻手」換人 艾菩樂笑了：還在找新人選",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5571800",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-12T17:15:51+08:00",
-                      "teams":  [
-                                    "樂天桃猿"
                                 ]
                   }
               ]
