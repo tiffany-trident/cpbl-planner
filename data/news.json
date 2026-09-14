@@ -1,5 +1,5 @@
 {
-    "updated":  "2026-09-14T15:00:05+08:00",
+    "updated":  "2026-09-14T16:00:05+08:00",
     "count":  100,
     "items":  [
                   {
@@ -9,6 +9,15 @@
                       "pubDate":  "2026-09-14T14:47:32+08:00",
                       "teams":  [
                                     "富邦悍將"
+                                ]
+                  },
+                  {
+                      "title":  "亞運棒球黃仲翔球團沒放行　兄弟新秀投手黃玠瀚遞補",
+                      "url":  "https://www.cna.com.tw/news/aspt/202609140125.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-09-14T14:27:02+08:00",
+                      "teams":  [
+                                    "中信兄弟"
                                 ]
                   },
                   {
@@ -139,6 +148,15 @@
                                 ]
                   },
                   {
+                      "title":  "橫田傳授小叉 許承恩7指竄起",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1770647",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-14T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "首局7分保駕 快樂保拉80勝",
                       "url":  "https://sports.ltn.com.tw/news/paper/1770648",
                       "source":  "自由時報",
@@ -159,15 +177,6 @@
                   {
                       "title":  "永田道歉野球 適時安打除「悍」",
                       "url":  "https://sports.ltn.com.tw/news/paper/1770646",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-14T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "橫田傳授小叉 許承恩7指竄起",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1770647",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-14T05:30:00+08:00",
                       "teams":  [
@@ -764,12 +773,21 @@
                                 ]
                   },
                   {
-                      "title":  "鷹開箱威鳳山 主場久違勝利",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1770507",
+                      "title":  "即刻應援張仁瑋 岳政華開轟2長打",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1770504",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-13T05:30:00+08:00",
                       "teams":  [
-                                    "台鋼雄鷹"
+
+                                ]
+                  },
+                  {
+                      "title":  "鄭浩均8局好投 降速引關注",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1770503",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-13T05:30:00+08:00",
+                      "teams":  [
+
                                 ]
                   },
                   {
@@ -779,6 +797,15 @@
                       "pubDate":  "2026-09-13T05:30:00+08:00",
                       "teams":  [
 
+                                ]
+                  },
+                  {
+                      "title":  "鷹開箱威鳳山 主場久違勝利",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1770507",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-13T05:30:00+08:00",
+                      "teams":  [
+                                    "台鋼雄鷹"
                                 ]
                   },
                   {
@@ -797,24 +824,6 @@
                       "pubDate":  "2026-09-13T05:30:00+08:00",
                       "teams":  [
                                     "統一7-ELEVEn獅"
-                                ]
-                  },
-                  {
-                      "title":  "即刻應援張仁瑋 岳政華開轟2長打",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1770504",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-13T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "鄭浩均8局好投 降速引關注",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1770503",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-13T05:30:00+08:00",
-                      "teams":  [
-
                                 ]
                   },
                   {
@@ -905,15 +914,6 @@
                       "pubDate":  "2026-09-12T20:17:29+08:00",
                       "teams":  [
                                     "中信兄弟"
-                                ]
-                  },
-                  {
-                      "title":  "鄭浩均重返一軍8局無失分　平野讚投球很放鬆：讓打者猜不到",
-                      "url":  "https://sports.ettoday.net/news/3236357",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-09-12T20:11:00+08:00",
-                      "teams":  [
-
                                 ]
                   }
               ]
