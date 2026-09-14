@@ -1,7 +1,25 @@
 {
-    "updated":  "2026-09-14T12:00:05+08:00",
+    "updated":  "2026-09-14T13:00:06+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "棒球》14：0大屠殺！前兄弟投手領軍主宰中國 勇奪12勝晉級季後賽",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5573261",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-14T12:28:51+08:00",
+                      "teams":  [
+                                    "中信兄弟"
+                                ]
+                  },
+                  {
+                      "title":  "中職》味全龍「搖滾撞野球復古日」經典戰袍重現 滾石撞樂隊熱血開唱",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5573263",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-14T12:05:41+08:00",
+                      "teams":  [
+                                    "味全龍"
+                                ]
+                  },
                   {
                       "title":  "棒球》曾讓王建民期待！前兄弟第5指名轉戰中國5局飆3K 防禦率10.13",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5573172",
@@ -21,6 +39,15 @@
                                 ]
                   },
                   {
+                      "title":  "挨轟後下一球都投觸身！味全雙投隔天下二軍　衝突後明龍邦戰受矚",
+                      "url":  "https://sports.ettoday.net/news/3237017",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-09-14T11:21:00+08:00",
+                      "teams":  [
+                                    "味全龍"
+                                ]
+                  },
+                  {
                       "title":  "中職》下半季補賽週賽程公布 樂天、台鋼賽程「硬」",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5573192",
                       "source":  "自由時報",
@@ -31,19 +58,19 @@
                                 ]
                   },
                   {
+                      "title":  "中職補賽賽程出爐！　下半季爭冠關鍵期桃猿6連戰最硬",
+                      "url":  "https://sports.ettoday.net/news/3237002",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-09-14T11:10:00+08:00",
+                      "teams":  [
+                                    "樂天桃猿"
+                                ]
+                  },
+                  {
                       "title":  "台美棒球無距離　波士頓芬威球場現巨型TAIWAN排字",
                       "url":  "https://www.cna.com.tw/news/aspt/202609140015.aspx",
                       "source":  "中央社",
                       "pubDate":  "2026-09-14T08:13:01+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "橫田傳授小叉 許承恩7指竄起",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1770647",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-14T05:30:00+08:00",
                       "teams":  [
 
                                 ]
@@ -60,6 +87,15 @@
                   {
                       "title":  "永田道歉野球 適時安打除「悍」",
                       "url":  "https://sports.ltn.com.tw/news/paper/1770646",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-14T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "橫田傳授小叉 許承恩7指竄起",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1770647",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-14T05:30:00+08:00",
                       "teams":  [
@@ -879,42 +915,6 @@
                       "url":  "https://sports.ettoday.net/news/3236347",
                       "source":  "ETtoday",
                       "pubDate":  "2026-09-12T19:22:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "中職》下一戰就在10天後 潘威倫談江少慶「很好啊」",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5571878",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-12T18:13:53+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "韓職》大聯盟累積60勝的克萊文傑 以238萬台幣短約加盟NC恐龍",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5571819",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-12T18:07:50+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "艾菩樂回穩關鍵曝！「潑水大隊」才開除蘇俊璋　自己也失手",
-                      "url":  "https://sports.ettoday.net/news/3236330",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-09-12T18:01:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "中職》新秀白井雄登先註冊後隨隊 曾總認為接近即戰力",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5571850",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-12T17:49:07+08:00",
                       "teams":  [
 
                                 ]
