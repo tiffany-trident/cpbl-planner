@@ -1,5 +1,5 @@
 {
-    "updated":  "2026-09-15T13:27:58+08:00",
+    "updated":  "2026-09-15T13:29:32+08:00",
     "count":  100,
     "items":  [
                   {
@@ -111,42 +111,6 @@
                                 ]
                   },
                   {
-                      "title":  "名古屋亞運》棒球再換將 黃玠瀚遞補黃仲翔",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1770749",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-15T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "自培之星》0元簽約金 黃宇昇擠窄門",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1770702",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-15T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "邱駿威5年磨1勝 助猿搶回龍頭",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1770700",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-15T05:30:00+08:00",
-                      "teams":  [
-                                    "樂天桃猿"
-                                ]
-                  },
-                  {
-                      "title":  "自培之星》3度選秀落榜 湯家豪熬出頭",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1770701",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-15T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
                       "title":  "沒眼淚的東山再起獎沒意義！ 平野︰過程像一部電影",
                       "url":  "https://sports.ltn.com.tw/news/paper/1770703",
                       "source":  "自由時報",
@@ -171,6 +135,42 @@
                       "pubDate":  "2026-09-15T05:30:00+08:00",
                       "teams":  [
                                     "富邦悍將"
+                                ]
+                  },
+                  {
+                      "title":  "自培之星》3度選秀落榜 湯家豪熬出頭",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1770701",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-15T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "名古屋亞運》棒球再換將 黃玠瀚遞補黃仲翔",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1770749",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-15T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "自培之星》0元簽約金 黃宇昇擠窄門",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1770702",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-15T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "邱駿威5年磨1勝 助猿搶回龍頭",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1770700",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-15T05:30:00+08:00",
+                      "teams":  [
+                                    "樂天桃猿"
                                 ]
                   },
                   {
@@ -520,24 +520,6 @@
                                 ]
                   },
                   {
-                      "title":  "首局7分保駕 快樂保拉80勝",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1770648",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-14T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "永田道歉野球 適時安打除「悍」",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1770646",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-14T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
                       "title":  "獅抓龍攻頂 餅總不看隔壁棚",
                       "url":  "https://sports.ltn.com.tw/news/paper/1770649",
                       "source":  "自由時報",
@@ -549,6 +531,24 @@
                   {
                       "title":  "橫田傳授小叉 許承恩7指竄起",
                       "url":  "https://sports.ltn.com.tw/news/paper/1770647",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-14T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "首局7分保駕 快樂保拉80勝",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1770648",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-14T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "永田道歉野球 適時安打除「悍」",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1770646",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-14T05:30:00+08:00",
                       "teams":  [
