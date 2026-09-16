@@ -1,7 +1,17 @@
 {
-    "updated":  "2026-09-16T18:00:04+08:00",
+    "updated":  "2026-09-16T18:14:22+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "中職》轉戰富邦沒被註冊！ 前兄弟第3指名大物打擊率跌破2成",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5576251",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-16T18:10:44+08:00",
+                      "teams":  [
+                                    "中信兄弟",
+                                    "富邦悍將"
+                                ]
+                  },
                   {
                       "title":  "亞運棒球》私訊莊昕諺關心顏面骨折 陳晨威一度講不出話來",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5576244",
@@ -34,6 +44,24 @@
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5576215",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-16T17:37:10+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "吉力吉撈主動道歉了！戴培峰還原通話內容　「講開就沒事」",
+                      "url":  "https://sports.ettoday.net/news/3238510",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-09-16T17:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "季後賽名單我要拚！　黃暐傑昨5局無失分自評「還能更好」",
+                      "url":  "https://sports.ettoday.net/news/3238668",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-09-16T16:55:00+08:00",
                       "teams":  [
 
                                 ]
@@ -237,6 +265,15 @@
                                 ]
                   },
                   {
+                      "title":  "張政禹猛打賞MVP 戲在撈哥身上",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1770898",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-16T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "曾家輝第7局有難 後「猿」部隊撐住",
                       "url":  "https://sports.ltn.com.tw/news/paper/1770899",
                       "source":  "自由時報",
@@ -248,15 +285,6 @@
                   {
                       "title":  "羅戈完投勝 印證王威晨洋將說",
                       "url":  "https://sports.ltn.com.tw/news/paper/1770896",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-16T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "張政禹猛打賞MVP 戲在撈哥身上",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1770898",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-16T05:30:00+08:00",
                       "teams":  [
@@ -800,8 +828,26 @@
                                 ]
                   },
                   {
-                      "title":  "名古屋亞運》棒球再換將 黃玠瀚遞補黃仲翔",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1770749",
+                      "title":  "邱駿威5年磨1勝 助猿搶回龍頭",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1770700",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-15T05:30:00+08:00",
+                      "teams":  [
+                                    "樂天桃猿"
+                                ]
+                  },
+                  {
+                      "title":  "近身球衝突後 悍將主場今迎撈哥",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1770705",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-15T05:30:00+08:00",
+                      "teams":  [
+                                    "富邦悍將"
+                                ]
+                  },
+                  {
+                      "title":  "自培之星》3度選秀落榜 湯家豪熬出頭",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1770701",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-15T05:30:00+08:00",
                       "teams":  [
@@ -809,8 +855,8 @@
                                 ]
                   },
                   {
-                      "title":  "沒眼淚的東山再起獎沒意義！ 平野︰過程像一部電影",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1770703",
+                      "title":  "名古屋亞運》棒球再換將 黃玠瀚遞補黃仲翔",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1770749",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-15T05:30:00+08:00",
                       "teams":  [
@@ -827,12 +873,12 @@
                                 ]
                   },
                   {
-                      "title":  "近身球衝突後 悍將主場今迎撈哥",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1770705",
+                      "title":  "沒眼淚的東山再起獎沒意義！ 平野︰過程像一部電影",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1770703",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-15T05:30:00+08:00",
                       "teams":  [
-                                    "富邦悍將"
+
                                 ]
                   },
                   {
@@ -842,24 +888,6 @@
                       "pubDate":  "2026-09-15T05:30:00+08:00",
                       "teams":  [
 
-                                ]
-                  },
-                  {
-                      "title":  "自培之星》3度選秀落榜 湯家豪熬出頭",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1770701",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-15T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "邱駿威5年磨1勝 助猿搶回龍頭",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1770700",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-15T05:30:00+08:00",
-                      "teams":  [
-                                    "樂天桃猿"
                                 ]
                   },
                   {
@@ -878,34 +906,6 @@
                       "pubDate":  "2026-09-14T22:30:02+08:00",
                       "teams":  [
 
-                                ]
-                  },
-                  {
-                      "title":  "中職》強襲球打斷莊昕諺數顆牙齒 樂天氛圍沉重、曾總透露最新狀況",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5573935",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-14T22:24:22+08:00",
-                      "teams":  [
-                                    "樂天桃猿"
-                                ]
-                  },
-                  {
-                      "title":  "莊昕諺強襲球擊臉後IG報平安：大家不用擔心我",
-                      "url":  "https://sports.ettoday.net/news/3237434",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-09-14T22:19:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "樂天2比1險勝台鋼奪回龍頭！邱駿威生涯首勝　梁家榮雙里程碑",
-                      "url":  "https://sports.ettoday.net/news/3237428",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-09-14T21:58:00+08:00",
-                      "teams":  [
-                                    "樂天桃猿",
-                                    "台鋼雄鷹"
                                 ]
                   }
               ]
