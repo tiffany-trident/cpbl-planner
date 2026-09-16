@@ -1,5 +1,5 @@
 {
-    "updated":  "2026-09-16T11:12:00+08:00",
+    "updated":  "2026-09-16T11:14:27+08:00",
     "count":  100,
     "items":  [
                   {
@@ -39,24 +39,6 @@
                                 ]
                   },
                   {
-                      "title":  "張政禹猛打賞MVP 戲在撈哥身上",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1770898",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-16T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "羅戈完投勝 印證王威晨洋將說",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1770896",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-16T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
                       "title":  "曾家輝第7局有難 後「猿」部隊撐住",
                       "url":  "https://sports.ltn.com.tw/news/paper/1770899",
                       "source":  "自由時報",
@@ -68,6 +50,24 @@
                   {
                       "title":  "莊昕諺顏面骨折 請學長傳話王博玄",
                       "url":  "https://sports.ltn.com.tw/news/paper/1770897",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-16T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "張政禹猛打賞MVP 戲在撈哥身上",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1770898",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-16T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "羅戈完投勝 印證王威晨洋將說",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1770896",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-16T05:30:00+08:00",
                       "teams":  [
@@ -611,42 +611,6 @@
                                 ]
                   },
                   {
-                      "title":  "名古屋亞運》棒球再換將 黃玠瀚遞補黃仲翔",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1770749",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-15T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "自培之星》3度選秀落榜 湯家豪熬出頭",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1770701",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-15T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "沒眼淚的東山再起獎沒意義！ 平野︰過程像一部電影",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1770703",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-15T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "自培之星》0元簽約金 黃宇昇擠窄門",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1770702",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-15T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
                       "title":  "失落的東山再起獎 陳鏞基︰延續生涯轉捩點",
                       "url":  "https://sports.ltn.com.tw/news/paper/1770704",
                       "source":  "自由時報",
@@ -671,6 +635,42 @@
                       "pubDate":  "2026-09-15T05:30:00+08:00",
                       "teams":  [
                                     "樂天桃猿"
+                                ]
+                  },
+                  {
+                      "title":  "自培之星》0元簽約金 黃宇昇擠窄門",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1770702",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-15T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "名古屋亞運》棒球再換將 黃玠瀚遞補黃仲翔",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1770749",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-15T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "自培之星》3度選秀落榜 湯家豪熬出頭",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1770701",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-15T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "沒眼淚的東山再起獎沒意義！ 平野︰過程像一部電影",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1770703",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-15T05:30:00+08:00",
+                      "teams":  [
+
                                 ]
                   },
                   {
