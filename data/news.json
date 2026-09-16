@@ -1,7 +1,16 @@
 {
-    "updated":  "2026-09-16T12:14:22+08:00",
+    "updated":  "2026-09-16T13:00:06+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "李灝宇9轟追平張育成　MLB台將單季紀錄差2項全制霸[影]",
+                      "url":  "https://www.cna.com.tw/news/aspt/202609160072.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-09-16T11:19:20+08:00",
+                      "teams":  [
+
+                                ]
+                  },
                   {
                       "title":  "道奇教頭：大谷翔平傷後首度練打　感覺良好",
                       "url":  "https://www.cna.com.tw/news/aspt/202609160026.aspx",
@@ -39,6 +48,15 @@
                                 ]
                   },
                   {
+                      "title":  "莊昕諺顏面骨折 請學長傳話王博玄",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1770897",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-16T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "張政禹猛打賞MVP 戲在撈哥身上",
                       "url":  "https://sports.ltn.com.tw/news/paper/1770898",
                       "source":  "自由時報",
@@ -63,15 +81,6 @@
                       "pubDate":  "2026-09-16T05:30:00+08:00",
                       "teams":  [
                                     "樂天桃猿"
-                                ]
-                  },
-                  {
-                      "title":  "莊昕諺顏面骨折 請學長傳話王博玄",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1770897",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-16T05:30:00+08:00",
-                      "teams":  [
-
                                 ]
                   },
                   {
@@ -185,7 +194,7 @@
                                 ]
                   },
                   {
-                      "title":  "投手最不想丟到的就是戴培峰  葉君璋盼擺脫衝突氛圍",
+                      "title":  "投手最不想丟到的就是戴培峰　葉君璋盼擺脫衝突氛圍",
                       "url":  "https://www.cna.com.tw/news/aspt/202609150351.aspx",
                       "source":  "中央社",
                       "pubDate":  "2026-09-15T22:17:08+08:00",
@@ -611,8 +620,35 @@
                                 ]
                   },
                   {
+                      "title":  "近身球衝突後 悍將主場今迎撈哥",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1770705",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-15T05:30:00+08:00",
+                      "teams":  [
+                                    "富邦悍將"
+                                ]
+                  },
+                  {
+                      "title":  "邱駿威5年磨1勝 助猿搶回龍頭",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1770700",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-15T05:30:00+08:00",
+                      "teams":  [
+                                    "樂天桃猿"
+                                ]
+                  },
+                  {
                       "title":  "名古屋亞運》棒球再換將 黃玠瀚遞補黃仲翔",
                       "url":  "https://sports.ltn.com.tw/news/paper/1770749",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-15T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "失落的東山再起獎 陳鏞基︰延續生涯轉捩點",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1770704",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-15T05:30:00+08:00",
                       "teams":  [
@@ -644,33 +680,6 @@
                       "pubDate":  "2026-09-15T05:30:00+08:00",
                       "teams":  [
 
-                                ]
-                  },
-                  {
-                      "title":  "失落的東山再起獎 陳鏞基︰延續生涯轉捩點",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1770704",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-15T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "近身球衝突後 悍將主場今迎撈哥",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1770705",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-15T05:30:00+08:00",
-                      "teams":  [
-                                    "富邦悍將"
-                                ]
-                  },
-                  {
-                      "title":  "邱駿威5年磨1勝 助猿搶回龍頭",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1770700",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-15T05:30:00+08:00",
-                      "teams":  [
-                                    "樂天桃猿"
                                 ]
                   },
                   {
@@ -897,15 +906,6 @@
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5573398",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-14T14:11:48+08:00",
-                      "teams":  [
-                                    "中信兄弟"
-                                ]
-                  },
-                  {
-                      "title":  "中華隊再換將！響尾蛇不放黃仲翔參加亞運　兄弟新秀黃玠瀚遞補",
-                      "url":  "https://sports.ettoday.net/news/3237124",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-09-14T13:44:00+08:00",
                       "teams":  [
                                     "中信兄弟"
                                 ]
