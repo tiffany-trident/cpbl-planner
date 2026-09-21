@@ -1,7 +1,17 @@
 {
-    "updated":  "2026-09-21T15:46:14+08:00",
+    "updated":  "2026-09-21T16:18:23+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "中職》二軍冠軍戰賽程出爐 台鋼二軍對富邦二軍尋求衛冕",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5581291",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-21T16:12:23+08:00",
+                      "teams":  [
+                                    "富邦悍將",
+                                    "台鋼雄鷹"
+                                ]
+                  },
                   {
                       "title":  "梁畯閎桃園盃先發2局飆6K　新練滑球3個月成武器",
                       "url":  "https://www.cna.com.tw/news/aspt/202609210106.aspx",
@@ -75,8 +85,8 @@
                                 ]
                   },
                   {
-                      "title":  "范國宸13轟 向偶像基哥致敬",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1771575",
+                      "title":  "高宇杰再見犧牲打 平野壓地狂親",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1771576",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-21T05:30:00+08:00",
                       "teams":  [
@@ -84,8 +94,8 @@
                                 ]
                   },
                   {
-                      "title":  "高宇杰再見犧牲打 平野壓地狂親",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1771576",
+                      "title":  "范國宸13轟 向偶像基哥致敬",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1771575",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-21T05:30:00+08:00",
                       "teams":  [
@@ -294,6 +304,16 @@
                                 ]
                   },
                   {
+                      "title":  "被雄鷹打爆 猿兩警報大響",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1771381",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-20T05:30:00+08:00",
+                      "teams":  [
+                                    "樂天桃猿",
+                                    "台鋼雄鷹"
+                                ]
+                  },
+                  {
                       "title":  "兄弟贏球出題 「如果不是岳政.......」",
                       "url":  "https://sports.ltn.com.tw/news/paper/1771380",
                       "source":  "自由時報",
@@ -309,16 +329,6 @@
                       "pubDate":  "2026-09-20T05:30:00+08:00",
                       "teams":  [
 
-                                ]
-                  },
-                  {
-                      "title":  "被雄鷹打爆 猿兩警報大響",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1771381",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-20T05:30:00+08:00",
-                      "teams":  [
-                                    "樂天桃猿",
-                                    "台鋼雄鷹"
                                 ]
                   },
                   {
@@ -697,8 +707,26 @@
                                 ]
                   },
                   {
+                      "title":  "中職》肯定對手德保拉 伍鐸：每個人都得證明自己",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1771180",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-18T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "中職》德保拉術後修養 投手爭出頭",
                       "url":  "https://sports.ltn.com.tw/news/paper/1771179",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-18T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "林岱安 連2場蹲捕 助投手完封勝",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1771177",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-18T05:30:00+08:00",
                       "teams":  [
@@ -722,24 +750,6 @@
                       "pubDate":  "2026-09-18T05:30:00+08:00",
                       "teams":  [
                                     "中信兄弟"
-                                ]
-                  },
-                  {
-                      "title":  "林岱安 連2場蹲捕 助投手完封勝",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1771177",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-18T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "中職》肯定對手德保拉 伍鐸：每個人都得證明自己",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1771180",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-18T05:30:00+08:00",
-                      "teams":  [
-
                                 ]
                   },
                   {
@@ -901,15 +911,6 @@
                       "url":  "https://www.cna.com.tw/news/aspt/202609170304.aspx",
                       "source":  "中央社",
                       "pubDate":  "2026-09-17T19:04:46+08:00",
-                      "teams":  [
-                                    "中信兄弟"
-                                ]
-                  },
-                  {
-                      "title":  "兄弟大齡新秀不嫌晚　大瀧幸治：重點是能力",
-                      "url":  "https://www.cna.com.tw/news/aspt/202609170293.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-09-17T18:39:22+08:00",
                       "teams":  [
                                     "中信兄弟"
                                 ]
