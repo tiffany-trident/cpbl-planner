@@ -1,7 +1,61 @@
 {
-    "updated":  "2026-09-22T03:17:33+08:00",
+    "updated":  "2026-09-22T10:49:54+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "亞運棒球台灣對泰國打序微調　黃玠瀚先發與捕手張翔搭配",
+                      "url":  "https://www.cna.com.tw/news/aspt/202609220048.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-09-22T10:33:06+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "亞運棒球》今午場迎戰泰國 台灣隊先發打序出爐",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5581888",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-22T09:55:58+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "大聯盟裁判狄亞士31年生涯將落幕　嘆科技改變棒球主審難當",
+                      "url":  "https://www.cna.com.tw/news/aspt/202609220039.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-09-22T09:55:46+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "高志綱快閃名古屋有任務！鎖定韓國情蒐　連朱迦恩、張翔都沒說",
+                      "url":  "https://sports.ettoday.net/news/3241652",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-09-22T07:00:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "林佾葳為何能壓韓？球評點出關鍵　郭彬進化也讓中華隊吃足苦頭",
+                      "url":  "https://sports.ettoday.net/news/3241578",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-09-22T06:18:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "兄弟最快週四 下半季封王點燈",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1771708",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-22T05:30:00+08:00",
+                      "teams":  [
+                                    "中信兄弟"
+                                ]
+                  },
                   {
                       "title":  "球場燈光「看不太清楚」讓韓國也吃虧　湯登凱對王宇傑仍有信心",
                       "url":  "https://sports.ettoday.net/news/3241593",
@@ -186,21 +240,21 @@
                                 ]
                   },
                   {
-                      "title":  "余德龍回春射鷹 百盜只差6次",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1771577",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-21T05:30:00+08:00",
-                      "teams":  [
-                                    "台鋼雄鷹"
-                                ]
-                  },
-                  {
                       "title":  "高宇杰再見犧牲打 平野壓地狂親",
                       "url":  "https://sports.ltn.com.tw/news/paper/1771576",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-21T05:30:00+08:00",
                       "teams":  [
 
+                                ]
+                  },
+                  {
+                      "title":  "余德龍回春射鷹 百盜只差6次",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1771577",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-21T05:30:00+08:00",
+                      "teams":  [
+                                    "台鋼雄鷹"
                                 ]
                   },
                   {
@@ -405,15 +459,6 @@
                                 ]
                   },
                   {
-                      "title":  "陳聖平該是時候爆發 這1勝致敬基哥",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1771378",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-20T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
                       "title":  "被雄鷹打爆 猿兩警報大響",
                       "url":  "https://sports.ltn.com.tw/news/paper/1771381",
                       "source":  "自由時報",
@@ -430,6 +475,15 @@
                       "pubDate":  "2026-09-20T05:30:00+08:00",
                       "teams":  [
                                     "中信兄弟"
+                                ]
+                  },
+                  {
+                      "title":  "陳聖平該是時候爆發 這1勝致敬基哥",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1771378",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-20T05:30:00+08:00",
+                      "teams":  [
+
                                 ]
                   },
                   {
@@ -808,15 +862,6 @@
                                 ]
                   },
                   {
-                      "title":  "中職》肯定對手德保拉 伍鐸：每個人都得證明自己",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1771180",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-18T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
                       "title":  "林岱安 連2場蹲捕 助投手完封勝",
                       "url":  "https://sports.ltn.com.tw/news/paper/1771177",
                       "source":  "自由時報",
@@ -835,15 +880,6 @@
                                 ]
                   },
                   {
-                      "title":  "中職》德保拉術後修養 投手爭出頭",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1771179",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-18T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
                       "title":  "中職》威鳳山封味全 台鋼終結低潮",
                       "url":  "https://sports.ltn.com.tw/news/paper/1771178",
                       "source":  "自由時報",
@@ -854,64 +890,28 @@
                                 ]
                   },
                   {
+                      "title":  "中職》德保拉術後修養 投手爭出頭",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1771179",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-18T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "中職》肯定對手德保拉 伍鐸：每個人都得證明自己",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1771180",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-18T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "6局失兩分拿MVP　伍立辰卻直言「做得不好」：首局進入狀況太慢",
                       "url":  "https://sports.ettoday.net/news/3239535",
                       "source":  "ETtoday",
                       "pubDate":  "2026-09-17T23:09:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "教頭點出不甘心的地方　伍立辰想克服開局亂流",
-                      "url":  "https://www.cna.com.tw/news/aspt/202609170361.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-09-17T23:01:56+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "中職》陳傑憲外野守備細節  平野惠一一眼看穿！",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5577729",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-17T22:53:03+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "兄弟把握陳傑憲失誤重返龍頭　平野惠一：那球不好守[影]",
-                      "url":  "https://www.cna.com.tw/news/aspt/202609170359.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-09-17T22:52:49+08:00",
-                      "teams":  [
-                                    "中信兄弟"
-                                ]
-                  },
-                  {
-                      "title":  "中職》為什麼出現離奇接球失誤？  陳傑憲賽後解密",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5577716",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-17T22:38:52+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "中職》轉戰富邦首度連2天先發 林岱安率隊寫首見壯舉",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5577701",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-17T22:18:02+08:00",
-                      "teams":  [
-                                    "富邦悍將"
-                                ]
-                  },
-                  {
-                      "title":  "MVP背後還有功課！平野點伍立辰2大課題　盼把節奏帶給打線",
-                      "url":  "https://sports.ettoday.net/news/3239516",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-09-17T22:17:00+08:00",
                       "teams":  [
 
                                 ]
