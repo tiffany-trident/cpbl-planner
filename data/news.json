@@ -1,7 +1,34 @@
 {
-    "updated":  "2026-09-23T11:11:27+08:00",
+    "updated":  "2026-09-23T12:00:07+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "第5年長登板投球　陳鏞基圓夢笑稱防禦率0",
+                      "url":  "https://www.cna.com.tw/news/aspt/202609230085.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-09-23T11:22:42+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "味全龍號召球迷熱血公益　參與捐血活動贈門票",
+                      "url":  "https://www.cna.com.tw/news/aspt/202609230069.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-09-23T10:41:07+08:00",
+                      "teams":  [
+                                    "味全龍"
+                                ]
+                  },
+                  {
+                      "title":  "MLB李灝宇敲1安選到2次保送　老虎不敵國民",
+                      "url":  "https://www.cna.com.tw/news/aspt/202609230059.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-09-23T10:14:43+08:00",
+                      "teams":  [
+
+                                ]
+                  },
                   {
                       "title":  "中職》延長賽打下致勝分 張仁瑋：最低限度要打到球",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5583000",
@@ -30,15 +57,6 @@
                                 ]
                   },
                   {
-                      "title":  "張仁瑋10局致勝分 兄弟驚險8連勝",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1771825",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-23T05:30:00+08:00",
-                      "teams":  [
-                                    "中信兄弟"
-                                ]
-                  },
-                  {
                       "title":  "單局2轟＋2支三壘安 猿炸鷹寫紀錄",
                       "url":  "https://sports.ltn.com.tw/news/paper/1771824",
                       "source":  "自由時報",
@@ -46,6 +64,15 @@
                       "teams":  [
                                     "樂天桃猿",
                                     "台鋼雄鷹"
+                                ]
+                  },
+                  {
+                      "title":  "張仁瑋10局致勝分 兄弟驚險8連勝",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1771825",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-23T05:30:00+08:00",
+                      "teams":  [
+                                    "中信兄弟"
                                 ]
                   },
                   {
@@ -506,6 +533,15 @@
                                 ]
                   },
                   {
+                      "title":  "高宇杰再見犧牲打 平野壓地狂親",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1771576",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-21T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "余德龍回春射鷹 百盜只差6次",
                       "url":  "https://sports.ltn.com.tw/news/paper/1771577",
                       "source":  "自由時報",
@@ -517,15 +553,6 @@
                   {
                       "title":  "范國宸13轟 向偶像基哥致敬",
                       "url":  "https://sports.ltn.com.tw/news/paper/1771575",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-21T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "高宇杰再見犧牲打 平野壓地狂親",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1771576",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-21T05:30:00+08:00",
                       "teams":  [
@@ -890,33 +917,6 @@
                       "pubDate":  "2026-09-19T19:29:41+08:00",
                       "teams":  [
                                     "統一7-ELEVEn獅",
-                                    "富邦悍將"
-                                ]
-                  },
-                  {
-                      "title":  "陳聖平攻守都搶戲！第6轟助獅止敗　邀陳鏞基共舞嗨翻引退系列賽",
-                      "url":  "https://sports.ettoday.net/news/3240496",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-09-19T19:08:00+08:00",
-                      "teams":  [
-                                    "統一7-ELEVEn獅"
-                                ]
-                  },
-                  {
-                      "title":  "中職》從阿嬤見證的生涯第2轟到如今200轟M4 朱育賢的自然法則",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5579575",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-19T18:37:32+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "中職》林岱安連3戰蹲捕悍將全勝 後藤光尊：他很認真做筆記",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5579577",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-19T18:36:31+08:00",
-                      "teams":  [
                                     "富邦悍將"
                                 ]
                   }
