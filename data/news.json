@@ -1,7 +1,26 @@
 {
-    "updated":  "2026-09-23T17:00:05+08:00",
+    "updated":  "2026-09-23T18:00:06+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "中職》統一獅戰力吃緊 明派21歲奇兵大戰味全龍",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5583998",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-23T17:52:01+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅",
+                                    "味全龍"
+                                ]
+                  },
+                  {
+                      "title":  "中職》「滾球事件」後投1休5 勝騎士明率兄弟拚球團紀錄",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5583934",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-23T17:13:07+08:00",
+                      "teams":  [
+                                    "中信兄弟"
+                                ]
+                  },
                   {
                       "title":  "亞運棒球》對香港完全沒有練兵意圖 台灣隊最強陣容出擊！",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5583785",
@@ -94,6 +113,15 @@
                                 ]
                   },
                   {
+                      "title":  "江少慶撐1.1局 被龍打爆",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1771823",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-23T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "單局2轟＋2支三壘安 猿炸鷹寫紀錄",
                       "url":  "https://sports.ltn.com.tw/news/paper/1771824",
                       "source":  "自由時報",
@@ -101,15 +129,6 @@
                       "teams":  [
                                     "樂天桃猿",
                                     "台鋼雄鷹"
-                                ]
-                  },
-                  {
-                      "title":  "張仁瑋10局致勝分 兄弟驚險8連勝",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1771825",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-23T05:30:00+08:00",
-                      "teams":  [
-                                    "中信兄弟"
                                 ]
                   },
                   {
@@ -122,12 +141,12 @@
                                 ]
                   },
                   {
-                      "title":  "江少慶撐1.1局 被龍打爆",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1771823",
+                      "title":  "張仁瑋10局致勝分 兄弟驚險8連勝",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1771825",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-23T05:30:00+08:00",
                       "teams":  [
-
+                                    "中信兄弟"
                                 ]
                   },
                   {
@@ -570,21 +589,21 @@
                                 ]
                   },
                   {
-                      "title":  "余德龍回春射鷹 百盜只差6次",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1771577",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-21T05:30:00+08:00",
-                      "teams":  [
-                                    "台鋼雄鷹"
-                                ]
-                  },
-                  {
                       "title":  "高宇杰再見犧牲打 平野壓地狂親",
                       "url":  "https://sports.ltn.com.tw/news/paper/1771576",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-21T05:30:00+08:00",
                       "teams":  [
 
+                                ]
+                  },
+                  {
+                      "title":  "余德龍回春射鷹 百盜只差6次",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1771577",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-21T05:30:00+08:00",
+                      "teams":  [
+                                    "台鋼雄鷹"
                                 ]
                   },
                   {
@@ -798,6 +817,15 @@
                                 ]
                   },
                   {
+                      "title":  "兄弟贏球出題 「如果不是岳政.......」",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1771380",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-20T05:30:00+08:00",
+                      "teams":  [
+                                    "中信兄弟"
+                                ]
+                  },
+                  {
                       "title":  "被雄鷹打爆 猿兩警報大響",
                       "url":  "https://sports.ltn.com.tw/news/paper/1771381",
                       "source":  "自由時報",
@@ -805,15 +833,6 @@
                       "teams":  [
                                     "樂天桃猿",
                                     "台鋼雄鷹"
-                                ]
-                  },
-                  {
-                      "title":  "兄弟贏球出題 「如果不是岳政.......」",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1771380",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-20T05:30:00+08:00",
-                      "teams":  [
-                                    "中信兄弟"
                                 ]
                   },
                   {
@@ -896,24 +915,6 @@
                       "url":  "https://sports.ettoday.net/news/3240511",
                       "source":  "ETtoday",
                       "pubDate":  "2026-09-19T20:31:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "中職》陳聖平攻守俱佳獲MVP 林岳平：最後給球隊來個大驚喜吧！",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5579668",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-19T20:25:26+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "中職》引退賽上場打擊 陳鏞基：比打國際賽還要難",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5579669",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-19T20:23:55+08:00",
                       "teams":  [
 
                                 ]
