@@ -1,7 +1,25 @@
 {
-    "updated":  "2026-09-24T09:00:06+08:00",
+    "updated":  "2026-09-24T10:00:06+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "中職》兄弟爭冠關鍵期戰力異動！ 19歲第1指名大物遭下放",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5584429",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-24T09:28:41+08:00",
+                      "teams":  [
+                                    "中信兄弟"
+                                ]
+                  },
+                  {
+                      "title":  "MLB李灝宇連3場出賽敲安　老虎不敵國民隊",
+                      "url":  "https://www.cna.com.tw/news/aspt/202609240036.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-09-24T08:46:28+08:00",
+                      "teams":  [
+
+                                ]
+                  },
                   {
                       "title":  "棒球》降臨中國賽場！前兄弟強投季後賽超殺 飆6.2局2K好投奪勝",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5584406",
@@ -140,24 +158,6 @@
                                 ]
                   },
                   {
-                      "title":  "亞運》8年前同天被釋出 游宗儒、陳敏賜續前「猿 」",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1771827",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-23T05:30:00+08:00",
-                      "teams":  [
-                                    "樂天桃猿"
-                                ]
-                  },
-                  {
-                      "title":  "江少慶撐1.1局 被龍打爆",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1771823",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-23T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
                       "title":  "張仁瑋10局致勝分 兄弟驚險8連勝",
                       "url":  "https://sports.ltn.com.tw/news/paper/1771825",
                       "source":  "自由時報",
@@ -174,6 +174,24 @@
                       "teams":  [
                                     "樂天桃猿",
                                     "台鋼雄鷹"
+                                ]
+                  },
+                  {
+                      "title":  "江少慶撐1.1局 被龍打爆",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1771823",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-23T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "亞運》8年前同天被釋出 游宗儒、陳敏賜續前「猿 」",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1771827",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-23T05:30:00+08:00",
+                      "teams":  [
+                                    "樂天桃猿"
                                 ]
                   },
                   {
@@ -625,21 +643,21 @@
                                 ]
                   },
                   {
-                      "title":  "高宇杰再見犧牲打 平野壓地狂親",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1771576",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-21T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
                       "title":  "余德龍回春射鷹 百盜只差6次",
                       "url":  "https://sports.ltn.com.tw/news/paper/1771577",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-21T05:30:00+08:00",
                       "teams":  [
                                     "台鋼雄鷹"
+                                ]
+                  },
+                  {
+                      "title":  "高宇杰再見犧牲打 平野壓地狂親",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1771576",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-21T05:30:00+08:00",
+                      "teams":  [
+
                                 ]
                   },
                   {
@@ -898,25 +916,6 @@
                       "pubDate":  "2026-09-19T21:20:44+08:00",
                       "teams":  [
                                     "中信兄弟"
-                                ]
-                  },
-                  {
-                      "title":  "中職》敲出兄弟本季首支再見安打 岳東華：終於換我了！",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5579688",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-19T20:54:34+08:00",
-                      "teams":  [
-                                    "中信兄弟"
-                                ]
-                  },
-                  {
-                      "title":  "「兄弟」連線擊退味全龍　岳東華想打高飛球變再見安",
-                      "url":  "https://www.cna.com.tw/news/aspt/202609190235.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-09-19T20:52:29+08:00",
-                      "teams":  [
-                                    "中信兄弟",
-                                    "味全龍"
                                 ]
                   }
               ]
