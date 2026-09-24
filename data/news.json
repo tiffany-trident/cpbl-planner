@@ -1,7 +1,16 @@
 {
-    "updated":  "2026-09-24T14:00:06+08:00",
+    "updated":  "2026-09-24T15:00:06+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "中職》遭平野惠一說重話！兄弟0勝左投1.1局無失分 防禦率下修",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5584888",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-24T14:35:27+08:00",
+                      "teams":  [
+                                    "中信兄弟"
+                                ]
+                  },
                   {
                       "title":  "中職》兄弟爭冠關鍵期戰力異動！ 19歲第1指名大物遭下放",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5584429",
@@ -176,6 +185,15 @@
                                 ]
                   },
                   {
+                      "title":  "江少慶撐1.1局 被龍打爆",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1771823",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-23T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "張仁瑋10局致勝分 兄弟驚險8連勝",
                       "url":  "https://sports.ltn.com.tw/news/paper/1771825",
                       "source":  "自由時報",
@@ -192,15 +210,6 @@
                       "teams":  [
                                     "樂天桃猿",
                                     "台鋼雄鷹"
-                                ]
-                  },
-                  {
-                      "title":  "江少慶撐1.1局 被龍打爆",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1771823",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-23T05:30:00+08:00",
-                      "teams":  [
-
                                 ]
                   },
                   {
@@ -643,15 +652,6 @@
                                 ]
                   },
                   {
-                      "title":  "高宇杰再見犧牲打 平野壓地狂親",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1771576",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-21T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
                       "title":  "范國宸13轟 向偶像基哥致敬",
                       "url":  "https://sports.ltn.com.tw/news/paper/1771575",
                       "source":  "自由時報",
@@ -667,6 +667,15 @@
                       "pubDate":  "2026-09-21T05:30:00+08:00",
                       "teams":  [
                                     "台鋼雄鷹"
+                                ]
+                  },
+                  {
+                      "title":  "高宇杰再見犧牲打 平野壓地狂親",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1771576",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-21T05:30:00+08:00",
+                      "teams":  [
+
                                 ]
                   },
                   {
@@ -881,15 +890,6 @@
                                 ]
                   },
                   {
-                      "title":  "陳聖平該是時候爆發 這1勝致敬基哥",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1771378",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-20T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
                       "title":  "兄弟贏球出題 「如果不是岳政.......」",
                       "url":  "https://sports.ltn.com.tw/news/paper/1771380",
                       "source":  "自由時報",
@@ -899,20 +899,19 @@
                                 ]
                   },
                   {
+                      "title":  "陳聖平該是時候爆發 這1勝致敬基哥",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1771378",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-20T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "樂天3連敗遭統一逼近中！台鋼17安攻陷桃園　高聖恩、永田雙猛打",
                       "url":  "https://sports.ettoday.net/news/3240502",
                       "source":  "ETtoday",
                       "pubDate":  "2026-09-19T21:34:00+08:00",
-                      "teams":  [
-                                    "樂天桃猿",
-                                    "台鋼雄鷹"
-                                ]
-                  },
-                  {
-                      "title":  "中職》慘遭台鋼痛擊吞3連敗  樂天爭奪季後賽門票拉警報",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5579708",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-19T21:29:20+08:00",
                       "teams":  [
                                     "樂天桃猿",
                                     "台鋼雄鷹"
