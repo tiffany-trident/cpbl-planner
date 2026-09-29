@@ -1,7 +1,16 @@
 {
-    "updated":  "2026-09-29T15:11:24+08:00",
+    "updated":  "2026-09-29T15:39:39+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "MLB季後賽洋基紅襪冤家路窄　道奇力拚3連霸",
+                      "url":  "https://www.cna.com.tw/news/aspt/202609290146.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-09-29T14:18:38+08:00",
+                      "teams":  [
+
+                                ]
+                  },
                   {
                       "title":  "日本高中驚見「林威助」投入日職選秀　阪神迷暴動：一定要選吧",
                       "url":  "https://sports.ettoday.net/news/3245723",
@@ -49,21 +58,21 @@
                                 ]
                   },
                   {
-                      "title":  "郭天信助殺本壘 擋下悍將追平",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1772585",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-29T05:30:00+08:00",
-                      "teams":  [
-                                    "富邦悍將"
-                                ]
-                  },
-                  {
                       "title":  "曾頌恩9打點 兄弟奪回下半季龍頭",
                       "url":  "https://sports.ltn.com.tw/news/paper/1772584",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-29T05:30:00+08:00",
                       "teams":  [
                                     "中信兄弟"
+                                ]
+                  },
+                  {
+                      "title":  "郭天信助殺本壘 擋下悍將追平",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1772585",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-29T05:30:00+08:00",
+                      "teams":  [
+                                    "富邦悍將"
                                 ]
                   },
                   {
@@ -913,15 +922,6 @@
                       "pubDate":  "2026-09-24T09:28:41+08:00",
                       "teams":  [
                                     "中信兄弟"
-                                ]
-                  },
-                  {
-                      "title":  "大谷翔平移出傷兵名單　主場戰教士重返打線",
-                      "url":  "https://www.cna.com.tw/news/aspt/202609240040.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-09-24T09:07:37+08:00",
-                      "teams":  [
-
                                 ]
                   }
               ]
