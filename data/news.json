@@ -1,7 +1,17 @@
 {
-    "updated":  "2026-09-29T16:39:40+08:00",
+    "updated":  "2026-09-29T18:13:40+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "拚季後賽資格獅隊30日派林詔恩先發　悍將洋投魔力藍迎戰",
+                      "url":  "https://www.cna.com.tw/news/aspt/202609290209.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-09-29T16:22:53+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅",
+                                    "富邦悍將"
+                                ]
+                  },
                   {
                       "title":  "MLB季後賽洋基紅襪冤家路窄　道奇力拚3連霸",
                       "url":  "https://www.cna.com.tw/news/aspt/202609290146.aspx",
@@ -58,21 +68,21 @@
                                 ]
                   },
                   {
-                      "title":  "曾頌恩9打點 兄弟奪回下半季龍頭",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1772584",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-29T05:30:00+08:00",
-                      "teams":  [
-                                    "中信兄弟"
-                                ]
-                  },
-                  {
                       "title":  "郭天信助殺本壘 擋下悍將追平",
                       "url":  "https://sports.ltn.com.tw/news/paper/1772585",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-29T05:30:00+08:00",
                       "teams":  [
                                     "富邦悍將"
+                                ]
+                  },
+                  {
+                      "title":  "曾頌恩9打點 兄弟奪回下半季龍頭",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1772584",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-29T05:30:00+08:00",
+                      "teams":  [
+                                    "中信兄弟"
                                 ]
                   },
                   {
@@ -913,15 +923,6 @@
                       "pubDate":  "2026-09-24T14:09:37+08:00",
                       "teams":  [
 
-                                ]
-                  },
-                  {
-                      "title":  "中職》兄弟爭冠關鍵期戰力異動！ 19歲第1指名大物遭下放",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5584429",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-24T09:28:41+08:00",
-                      "teams":  [
-                                    "中信兄弟"
                                 ]
                   }
               ]
