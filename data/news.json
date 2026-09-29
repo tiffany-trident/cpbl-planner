@@ -1,7 +1,25 @@
 {
-    "updated":  "2026-09-29T18:14:05+08:00",
+    "updated":  "2026-09-29T18:39:39+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "亞運棒球》台灣業餘強投震撼南韓！KBO總教練驚嘆不已：才20歲卻...",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5589740",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-29T18:30:06+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "富藍戈效力上海虎鯨CPB奪冠！曬獎盃照喊「生涯又一冠」",
+                      "url":  "https://sports.ettoday.net/news/3245993",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-09-29T18:01:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
                   {
                       "title":  "拚季後賽資格獅隊30日派林詔恩先發　悍將洋投魔力藍迎戰",
                       "url":  "https://www.cna.com.tw/news/aspt/202609290209.aspx",
@@ -67,15 +85,6 @@
                                 ]
                   },
                   {
-                      "title":  "郭天信助殺本壘 擋下悍將追平",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1772585",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-29T05:30:00+08:00",
-                      "teams":  [
-                                    "富邦悍將"
-                                ]
-                  },
-                  {
                       "title":  "猿遭獅反咬 首位又讓出",
                       "url":  "https://sports.ltn.com.tw/news/paper/1772586",
                       "source":  "自由時報",
@@ -83,6 +92,15 @@
                       "teams":  [
                                     "統一7-ELEVEn獅",
                                     "樂天桃猿"
+                                ]
+                  },
+                  {
+                      "title":  "郭天信助殺本壘 擋下悍將追平",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1772585",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-29T05:30:00+08:00",
+                      "teams":  [
+                                    "富邦悍將"
                                 ]
                   },
                   {
@@ -905,24 +923,6 @@
                       "pubDate":  "2026-09-24T14:35:27+08:00",
                       "teams":  [
                                     "中信兄弟"
-                                ]
-                  },
-                  {
-                      "title":  "MLB響尾蛇客場5比3克洛磯　4連勝續拚國聯外卡",
-                      "url":  "https://www.cna.com.tw/news/aspt/202609240152.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-09-24T14:11:42+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "蔣智賢「感覺對了」神調度　桃園盃石正侑延長賽代打建功",
-                      "url":  "https://www.cna.com.tw/news/aspt/202609240150.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-09-24T14:09:37+08:00",
-                      "teams":  [
-
                                 ]
                   }
               ]
