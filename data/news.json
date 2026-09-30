@@ -1,7 +1,25 @@
 {
-    "updated":  "2026-09-30T14:06:32+08:00",
+    "updated":  "2026-09-30T16:09:10+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "塔提斯首球開轟金恩先發好投　教士外卡首戰完封小熊",
+                      "url":  "https://www.cna.com.tw/news/aspt/202609300162.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-09-30T14:48:13+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "史利特勒10K壓制紅襪　洋基9比0拿下外卡系列賽首勝",
+                      "url":  "https://www.cna.com.tw/news/aspt/202609300134.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-09-30T13:55:13+08:00",
+                      "teams":  [
+
+                                ]
+                  },
                   {
                       "title":  "教宗打氣助陣 大聯盟外卡白襪首戰告捷",
                       "url":  "https://www.cna.com.tw/news/aspt/202609300035.aspx",
@@ -22,21 +40,21 @@
                                 ]
                   },
                   {
-                      "title":  "猿象下半季爭冠 最快10.3解答",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1772719",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-30T05:30:00+08:00",
-                      "teams":  [
-                                    "樂天桃猿"
-                                ]
-                  },
-                  {
                       "title":  "李東洺拚勝投王 梅賽鍶當追兵",
                       "url":  "https://sports.ltn.com.tw/news/paper/1772720",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-30T05:30:00+08:00",
                       "teams":  [
 
+                                ]
+                  },
+                  {
+                      "title":  "猿象下半季爭冠 最快10.3解答",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1772719",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-30T05:30:00+08:00",
+                      "teams":  [
+                                    "樂天桃猿"
                                 ]
                   },
                   {
@@ -131,6 +149,15 @@
                                 ]
                   },
                   {
+                      "title":  "曾頌恩9打點 兄弟奪回下半季龍頭",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1772584",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-29T05:30:00+08:00",
+                      "teams":  [
+                                    "中信兄弟"
+                                ]
+                  },
+                  {
                       "title":  "猿遭獅反咬 首位又讓出",
                       "url":  "https://sports.ltn.com.tw/news/paper/1772586",
                       "source":  "自由時報",
@@ -138,15 +165,6 @@
                       "teams":  [
                                     "統一7-ELEVEn獅",
                                     "樂天桃猿"
-                                ]
-                  },
-                  {
-                      "title":  "曾頌恩9打點 兄弟奪回下半季龍頭",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1772584",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-29T05:30:00+08:00",
-                      "teams":  [
-                                    "中信兄弟"
                                 ]
                   },
                   {
@@ -903,26 +921,6 @@
                       "pubDate":  "2026-09-26T12:09:18+08:00",
                       "teams":  [
 
-                                ]
-                  },
-                  {
-                      "title":  "兄弟28歲大齡菜鳥大瀧幸治初登板！7球完美3上3下　紀念球送太太",
-                      "url":  "https://sports.ettoday.net/news/3244354",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-09-26T12:04:00+08:00",
-                      "teams":  [
-                                    "中信兄弟"
-                                ]
-                  },
-                  {
-                      "title":  "兄弟連敗桃猿下半季王座不穩　獅隊贏球站上年度第2",
-                      "url":  "https://www.cna.com.tw/news/aspt/202609250230.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-09-25T20:57:54+08:00",
-                      "teams":  [
-                                    "中信兄弟",
-                                    "統一7-ELEVEn獅",
-                                    "樂天桃猿"
                                 ]
                   }
               ]
