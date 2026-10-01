@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>季後賽席次 · 排版提案</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Noto+Sans+TC:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+@font-face {
+  font-family: 'jf-openhuninn';
+  src: url('https://cdn.jsdelivr.net/gh/marsnow/open-huninn-font@1.1/font/jf-openhuninn.woff2') format('woff2'),
+       url('https://cdn.jsdelivr.net/gh/marsnow/open-huninn-font@1.1/font/jf-openhuninn.woff') format('woff');
+  font-display: swap;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; background: #F4EFE6; color: #4A3728; padding: 24px 0 60px; }
+.page-head { max-width: 1200px; margin: 0 auto 20px; padding: 0 16px; }
+.page-head h1 { font-family: 'jf-openhuninn', sans-serif; font-weight: 500; font-size: 24px; color: #3D3122; letter-spacing: 1px; }
+.page-head p { font-size: 13px; color: #7A6E5E; margin-top: 6px; line-height: 1.7; }
+.scenario { display: inline-flex; background: #FFF; border-radius: 12px; padding: 3px; margin-top: 10px; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+.scenario button { border: 0; background: transparent; padding: 6px 14px; border-radius: 10px; font: inherit; font-size: 13px; color: #9B8E7E; cursor: pointer; }
+.scenario button.active { background: #FDF0E8; color: #C2573A; font-weight: 600; }
+.variant-label { max-width: 1200px; margin: 28px auto 8px; padding: 0 16px; font-family: 'jf-openhuninn', sans-serif; font-size: 18px; color: #3D3122; }
+.variant-label small { font-family: 'Noto Sans TC', sans-serif; font-size: 12px; color: #7A6E5E; margin-left: 8px; }
+/* 桌面框 = production .container 1200px；手機框排在下方 */
+.row { max-width: 1232px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; align-items: flex-start; padding: 0 16px; }
+.frame-desk { width: 100%; max-width: 1200px; }
+.frame-mobile { width: 375px; flex-shrink: 0; border: 8px solid #3D3122; border-radius: 28px; overflow: hidden; background: #FFF; }
+.frame-cap { font-size: 11px; color: #9B8E7E; margin-bottom: 4px; }
+@media (max-width: 1100px) { .row { flex-direction: column; } .frame-mobile { width: 100%; max-width: 375px; } }
+
+/* ── 沿用 production 戰績卡結構 ── */
+.standings-wrap { padding: 32px 40px 24px; background: #FFF; }
+.frame-mobile .standings-wrap { padding: 20px 16px; }
+.section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+.section-icon { width: 22px; height: 22px; }
+.section-header-title { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; font-size: 20px; font-weight: 500; letter-spacing: 1.5px; color: #3D3122; white-space: nowrap; }
+.frame-mobile .section-header-title { font-size: 16px; }
+.section-header-line { flex: 1; height: 1px; background: linear-gradient(90deg, #E0D8CC, transparent); }
+.section-header-sub { font-size: 12px; color: #B8A692; white-space: nowrap; }
+.standings-tabs { display: flex; gap: 2px; border-bottom: 1px solid #F0ECE6; margin-top: 4px; }
+.standings-tab { padding: 8px 16px 7px; font-size: 13px; color: #9B8E7E; border-bottom: 2px solid transparent; }
+.standings-tab.active { color: #C2573A; font-weight: 600; border-bottom-color: #C2573A; }
+.table-ghost { height: 34px; margin-top: 10px; border-radius: 8px; background: repeating-linear-gradient(180deg, #FAF7F2 0 16px, #FFF 16px 17px); opacity: .8; }
+.sim-note { display: inline-block; font-size: 10px; color: #8A5CC2; background: #F3EDFB; border-radius: 8px; padding: 1px 8px; margin-left: 6px; }
+
+/* ═════════ 方案 A：季後賽門票 ═════════ */
+.va-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 18px; }
+.va-grid.four { grid-template-columns: repeat(4, 1fr); }
+.frame-mobile .va-grid { grid-template-columns: 1fr; gap: 10px; }
+.va-ticket { position: relative; display: flex; min-height: 104px; background: #FFFBF4; border-radius: 14px; box-shadow: 0 3px 0 #EADFCB, 0 6px 16px rgba(212,196,171,.22); overflow: hidden; }
+.va-stub { width: 40px; flex-shrink: 0; background: var(--tc, #D9CDB8); color: #FFF; display: flex; align-items: center; justify-content: center; writing-mode: vertical-rl; font-family: 'jf-openhuninn', sans-serif; font-size: 13px; letter-spacing: 3px; }
+.va-ticket.tbd .va-stub { background: repeating-linear-gradient(45deg, #D9CDB8 0 6px, #CFC1A8 6px 12px); }
+.va-perf { width: 0; border-left: 2px dashed #E6D9C2; position: relative; }
+.va-perf::before, .va-perf::after { content: ''; position: absolute; left: -9px; width: 16px; height: 16px; border-radius: 50%; background: #FFF; }
+.va-perf::before { top: -8px; } .va-perf::after { bottom: -8px; }
+.va-body { flex: 1; min-width: 0; padding: 12px 14px 12px 16px; display: flex; flex-direction: column; justify-content: center; gap: 6px; }
+.va-kicker { font-size: 10px; letter-spacing: 2px; color: #B8A692; font-weight: 600; }
+.va-team { display: flex; align-items: center; gap: 10px; font-family: 'jf-openhuninn', sans-serif; font-size: 20px; letter-spacing: 1px; }
+.va-team img { width: 40px; height: 40px; object-fit: contain; }
+.va-note { font-size: 11px; color: #7A6E5E; line-height: 1.5; }
+.va-stamp { position: absolute; right: 12px; top: 50%; width: 58px; height: 58px; margin-top: -29px; border: 2.5px solid #C2573A; border-radius: 50%; color: #C2573A; display: flex; align-items: center; justify-content: center; font-family: 'jf-openhuninn', sans-serif; font-size: 15px; letter-spacing: 1px; transform: rotate(-12deg); opacity: .82; box-shadow: inset 0 0 0 3px #FFFBF4, inset 0 0 0 4.5px #C2573A; }
+.va-stamp.soft { border-style: dashed; border-color: #B8A692; color: #9B8E7E; box-shadow: none; opacity: .9; font-size: 13px; }
+.va-race { display: flex; gap: 12px; }
+.va-race-item { display: flex; flex-direction: column; align-items: center; gap: 2px; font-size: 10px; color: #7A6E5E; }
+.va-race-item img { width: 34px; height: 34px; object-fit: contain; }
+.va-race-item.lead img { filter: drop-shadow(0 0 0 #fff) drop-shadow(0 2px 4px rgba(194,87,58,.35)); }
+.va-race-item b { font-size: 11px; color: #4A3728; }
+
+/* ═════════ 方案 B：冠軍賽道 ═════════ */
+.vb { display: grid; grid-template-columns: 1fr 1.6fr 1fr; gap: 14px; margin-bottom: 18px; }
+.vb.four { grid-template-columns: 1fr 1fr 1fr 1fr; }
+.frame-mobile .vb { grid-template-columns: 1fr; gap: 10px; }
+.vb-card { background: #FDFAF5; border-radius: 16px; padding: 14px 16px; border: 1.5px solid #F0E6D6; display: flex; flex-direction: column; gap: 8px; }
+.vb-card.done { background: color-mix(in srgb, var(--tc) 9%, #FFFAF0); border-color: color-mix(in srgb, var(--tc) 35%, #F0E6D6); }
+.vb-head { display: flex; align-items: center; justify-content: space-between; }
+.vb-label { font-family: 'jf-openhuninn', sans-serif; font-size: 14px; color: #3D3122; letter-spacing: 1px; }
+.vb-pill { font-size: 10px; font-weight: 600; padding: 2px 9px; border-radius: 10px; background: #F2EBDA; color: #9B8E7E; }
+.vb-card.done .vb-pill { background: #C2573A; color: #FFF; }
+.vb-team { display: flex; align-items: center; gap: 12px; }
+.vb-team img { width: 52px; height: 52px; object-fit: contain; }
+.vb-team-name { font-family: 'jf-openhuninn', sans-serif; font-size: 22px; letter-spacing: 1px; }
+.vb-sub { font-size: 11px; color: #7A6E5E; }
+.vb-lanes { display: flex; flex-direction: column; gap: 9px; margin-top: 2px; }
+.vb-lane { display: grid; grid-template-columns: 26px 118px 1fr 70px; align-items: center; gap: 8px; font-size: 12px; }
+.frame-mobile .vb-lane { grid-template-columns: 22px 64px 1fr 62px; gap: 6px; }
+.frame-mobile .vb-lane-name { white-space: normal; overflow: visible; line-height: 1.25; }
+.frame-mobile .vb-tag { display: block; width: fit-content; margin: 2px 0 0; }
+.vb-tag { display: inline-block; margin-left: 5px; padding: 0 6px; border-radius: 8px; background: #FDF0E8; color: #C2573A; font-size: 9.5px; font-weight: 600; vertical-align: 1px; }
+.vb-rem b { color: #4A3728; font-weight: 700; }
+.vb-out { font-size: 10.5px; color: #9B8E7E; line-height: 1.5; }
+.vb.two-race { grid-template-columns: 0.9fr 1.5fr 1.5fr; }
+.frame-mobile .vb.two-race { grid-template-columns: 1fr; }
+.vb-lane img { width: 24px; height: 24px; object-fit: contain; }
+.vb-lane-name { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.vb-track { position: relative; height: 12px; border-radius: 6px; background: #EFE7DA; }
+.vb-range { position: absolute; top: 0; bottom: 0; border-radius: 6px; opacity: .3; }
+.vb-ball { position: absolute; top: 50%; width: 14px; height: 14px; margin: -7px 0 0 -7px; border-radius: 50%; background: #FFF; border: 2px solid var(--tc); box-shadow: 0 1px 2px rgba(0,0,0,.15); }
+.vb-ball::after { content: ''; position: absolute; inset: 2px 3px; border-left: 1.5px solid #C2573A; border-right: 1.5px solid #C2573A; border-radius: 50%; opacity: .7; }
+.vb-line { position: absolute; top: -4px; bottom: -4px; width: 0; border-left: 1.5px dashed #C2573A; }
+.vb-rem { font-size: 11px; color: #9B8E7E; text-align: right; white-space: nowrap; }
+.vb-legend { font-size: 10px; color: #B8A692; display: flex; gap: 12px; flex-wrap: wrap; }
+.vb-legend i { display: inline-block; width: 14px; height: 6px; border-radius: 3px; background: #C2573A; opacity: .3; vertical-align: middle; margin-right: 4px; }
+
+/* ═════════ 方案 C：手翻記分板 ═════════ */
+.vc { background: #EAF2E3; border-radius: 18px; padding: 14px 16px 16px; margin-bottom: 18px; border: 2px solid #D5E3C8; box-shadow: inset 0 -3px 0 #D5E3C8; }
+.vc-title { display: flex; align-items: center; gap: 8px; font-family: 'jf-openhuninn', sans-serif; font-size: 14px; color: #3F6B3A; letter-spacing: 2px; margin-bottom: 10px; }
+.vc-title::before, .vc-title::after { content: ''; flex: 1; height: 2px; background: repeating-linear-gradient(90deg, #BFD3AE 0 6px, transparent 6px 10px); }
+.vc-slots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.vc-slots.four { grid-template-columns: repeat(4, 1fr); }
+.frame-mobile .vc-slots { grid-template-columns: 1fr; gap: 8px; }
+.vc-slot { display: flex; flex-direction: column; gap: 6px; }
+.vc-cap { display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: #5C7F52; font-weight: 600; letter-spacing: 1px; }
+.vc-lamp { width: 10px; height: 10px; border-radius: 50%; background: #CBD8BF; box-shadow: inset 0 1px 2px rgba(0,0,0,.15); }
+.vc-lamp.on { background: #F5B83D; box-shadow: 0 0 0 3px rgba(245,184,61,.25), 0 0 8px rgba(245,184,61,.8); }
+.vc-plate { position: relative; background: #FFF; border-radius: 10px; height: 64px; display: flex; align-items: center; gap: 10px; padding: 0 12px; box-shadow: 0 3px 0 #C9D9BB; overflow: hidden; }
+.vc-plate::after { content: ''; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: rgba(0,0,0,.06); }
+.vc-plate img { width: 40px; height: 40px; object-fit: contain; position: relative; z-index: 1; }
+.vc-plate .nm { font-family: 'jf-openhuninn', sans-serif; font-size: 19px; letter-spacing: 1px; position: relative; z-index: 1; }
+.vc-plate.flip { justify-content: center; gap: 6px; }
+.vc-plate.flip img { width: 30px; height: 30px; opacity: .9; }
+.vc-plate.flip .q { font-family: 'jf-openhuninn', sans-serif; font-size: 20px; color: #C9BFAE; position: relative; z-index: 1; }
+.vc-foot { font-size: 11px; color: #5C7F52; line-height: 1.5; min-height: 16px; }
+</style>
+</head>
+<body>
+
+<div class="page-head">
+  <h1>季後賽席次 · 排版提案</h1>
+  <p>三個方向，皆放在戰績卡標題下、分頁上方（與 production 同結構、同 1200px 容器）。左側桌面、右側手機 375px。<br>
+  資料：「今天」= 2026-10-01 實際 RAW_DATA 計算結果；「季末」= 模擬樂天贏下剩餘所有比賽（僅示意，非真實結果）。</p>
+  <div class="scenario" id="scenario">
+    <button data-s="now" class="active">今天（10/01 實際）</button>
+    <button data-s="end">季末（模擬）</button>
+  </div>
+</div>
+
+<div class="variant-label">A｜季後賽門票 <small>呼應站名「進場」：每個席次是一張票，確定的蓋紅色印章；爭奪中顯示仍有機會的隊徽</small></div>
+<div class="row"><div class="frame-desk"><div class="frame-cap">桌面</div><div data-v="A" data-f="desk"></div></div><div><div class="frame-cap">手機</div><div class="frame-mobile" data-v="A" data-f="mob"></div></div></div>
+
+<div class="variant-label">B｜冠軍賽道 <small>把「誰還追得上」畫出來：每隊一條跑道，淡色段 = 剩餘全勝/全敗的勝率範圍，棒球 = 目前勝率，虛線 = 領先者保底</small></div>
+<div class="row"><div class="frame-desk"><div class="frame-cap">桌面</div><div data-v="B" data-f="desk"></div></div><div><div class="frame-cap">手機</div><div class="frame-mobile" data-v="B" data-f="mob"></div></div></div>
+
+<div class="variant-label">C｜手翻記分板 <small>球場外野手動記分板的意象：淺草地綠底 + 白色翻牌，確定的席次點亮燈號，未定的翻牌顯示候選隊徽</small></div>
+<div class="row"><div class="frame-desk"><div class="frame-cap">桌面</div><div data-v="C" data-f="desk"></div></div><div><div class="frame-cap">手機</div><div class="frame-mobile" data-v="C" data-f="mob"></div></div></div>
+
+<script>
+const LOGO = {
+  '中信兄弟': 'https://cpbl.com.tw/files/atts/0L021497108709222204/logo_brothers.png',
+  '統一獅': 'https://cpbl.com.tw/files/atts/0L021496162893869773/logo_lions.png',
+  '樂天桃猿': 'https://cpbl.com.tw/files/atts/0L015574823122453305/2024_CPBL%E5%85%AD%E9%9A%8ALogo_R2_%E5%AE%98%E7%B6%B2.png',
+  '富邦悍將': 'https://cpbl.com.tw/files/atts/0L021495969510091777/logo_fubon.png',
+  '味全龍': 'https://cpbl.com.tw/files/atts/0L021497845061333235/logo_dragon.png',
+  '台鋼雄鷹': 'https://cpbl.com.tw/files/atts/0M259522048557486065/%E5%96%AE%E8%89%B2T-100x100.png',
+};
+// 與 index.html getTeamColor() 同步
+const COLOR = { '中信兄弟':'#FACD01', '統一獅':'#C0611A', '樂天桃猿':'#7B1A1A', '富邦悍將':'#2B5FC3', '味全龍':'#D8252D', '台鋼雄鷹':'#16794A' };
+
+// 每個情境的席次資料（today = 實際 RAW_DATA 計算；end = 模擬）
+const DATA = {
+  now: {
+    seats: [
+      { label: '上半季冠軍', done: true, team: '味全龍', note: '上半季 39-21 · .650' },
+      { label: '下半季冠軍', done: false, team: '中信兄弟', note: '暫居第一 .586',
+        race: [ // w, l, rem
+          { team: '中信兄弟', w: 34, l: 24, rem: 2 },
+          { team: '樂天桃猿', w: 31, l: 24, rem: 5 },
+          { team: '統一獅',   w: 31, l: 26, rem: 3 },
+        ] },
+      { label: '外卡', done: false, team: '統一獅', note: '全年勝率，扣除半季冠軍',
+        floorLabel: '暫居外卡者保底',
+        race: [ // 全年：w, l, rem（sno 去重）；h2 = 也在爭下半季冠軍，奪冠即改走半季冠軍、外卡順延
+          // 名單由窮舉剩餘 12 場全部 4096 種勝負組合得出（2026-10-01）
+          { team: '統一獅',   w: 60, l: 55, rem: 4, h2: true },
+          { team: '富邦悍將', w: 58, l: 58, rem: 4 },
+        ],
+        out: '中信兄弟、台鋼雄鷹',
+        edge: '樂天桃猿：只有在下半季與中信同勝率、且由中信取得冠軍時才有機會' },
+    ]
+  },
+  end: {
+    seats: [
+      { label: '上半季冠軍', done: true, team: '味全龍', note: '上半季 39-21 · .650' },
+      { label: '下半季冠軍', done: true, team: '樂天桃猿', note: '下半季 36-24 · .600' },
+      { label: '外卡', done: true, team: '統一獅', note: '全年 .529' },
+    ]
+  }
+};
+let scen = 'now';
+const pct = (w, l) => (w + l) ? w / (w + l) : 0;
+const f3 = x => x.toFixed(3).replace(/^0/, '');
+const img = (t, cls) => '<img src="' + LOGO[t] + '" alt=""' + (cls ? ' class="' + cls + '"' : '') + '>';
+
+function shell(inner, sim) {
+  return '<div class="standings-wrap"><div class="section-header">' +
+    '<img class="section-icon" src="https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets/Trophy/3D/trophy_3d.png" alt="">' +
+    '<span class="section-header-title">各隊戰績</span><span class="section-header-line"></span>' +
+    '<span class="section-header-sub">2026 例行賽' + (sim ? '<span class="sim-note">模擬</span>' : '') + '</span></div>' +
+    inner +
+    '<div class="standings-tabs"><span class="standings-tab">上半季</span><span class="standings-tab active">下半季</span><span class="standings-tab">全年</span></div>' +
+    '<div class="table-ghost"></div></div>';
+}
+
+// ── A ──
+function renderA(d) {
+  const html = d.seats.map(s => {
+    let body;
+    if (s.race) {
+      body = '<div class="va-kicker">爭奪中</div><div class="va-race">' +
+        s.race.map((r, i) => '<div class="va-race-item' + (i === 0 ? ' lead' : '') + '">' + img(r.team) +
+          '<b>' + f3(pct(r.w, r.l)) + '</b>剩 ' + r.rem + '</div>').join('') + '</div>';
+    } else {
+      body = '<div class="va-kicker">' + (s.done ? 'ADMIT ONE' : '暫定') + '</div>' +
+        '<div class="va-team" style="color:' + COLOR[s.team] + '">' + img(s.team) + s.team + '</div>' +
+        '<div class="va-note">' + s.note + '</div>';
+    }
+    const stamp = s.race ? '' : '<div class="va-stamp' + (s.done ? '' : ' soft') + '">' + (s.done ? '確定' : '暫定') + '</div>';
+    return '<div class="va-ticket' + (s.done ? '' : ' tbd') + '" style="--tc:' + (s.done ? COLOR[s.team] : '') + '">' +
+      '<div class="va-stub">' + s.label + '</div><div class="va-perf"></div><div class="va-body">' + body + '</div>' + stamp + '</div>';
+  }).join('');
+  return '<div class="va-grid">' + html + '</div>';
+}
+
+// ── B ──
+function renderB(d) {
+  const html = d.seats.map(s => {
+    const tc = COLOR[s.team];
+    if (s.race) {
+      const rows = s.race.map(r => ({ ...r, cur: pct(r.w, r.l), min: r.w / (r.w + r.l + r.rem), max: (r.w + r.rem) / (r.w + r.l + r.rem) }));
+      const lo = Math.min(...rows.map(r => r.min)) - 0.02, hi = Math.max(...rows.map(r => r.max)) + 0.02;
+      const x = v => ((v - lo) / (hi - lo) * 100).toFixed(1) + '%';
+      const floor = rows[0].min; // 領先者剩餘全輸的保底
+      const lanes = rows.map(r =>
+        '<div class="vb-lane" style="--tc:' + COLOR[r.team] + '">' + img(r.team) +
+        '<span class="vb-lane-name" style="color:' + COLOR[r.team] + '">' + r.team +
+          (r.h2 ? '<span class="vb-tag" title="也在爭下半季冠軍；若奪冠改以半季冠軍晉級，外卡順延">爭下半季</span>' : '') + '</span>' +
+        '<div class="vb-track"><div class="vb-range" style="left:' + x(r.min) + ';width:calc(' + x(r.max) + ' - ' + x(r.min) + ');background:' + COLOR[r.team] + '"></div>' +
+        '<div class="vb-line" style="left:' + x(floor) + '"></div>' +
+        '<div class="vb-ball" style="left:' + x(r.cur) + '"></div></div>' +
+        '<span class="vb-rem"><b>' + f3(r.cur) + '</b> 剩 ' + r.rem + '</span></div>').join('');
+      return '<div class="vb-card"><div class="vb-head"><span class="vb-label">' + s.label + '</span><span class="vb-pill">爭奪中</span></div>' +
+        (s.out ? '<div class="vb-sub">' + s.note + '</div>' : '') +
+        '<div class="vb-lanes">' + lanes + '</div>' +
+        (s.out ? '<div class="vb-out">若統一奪下半季冠軍，外卡直接由富邦取得<br>' +
+          (s.edge ? '僅平手情境：' + s.edge + '<br>' : '') + '已無機會：' + s.out + '</div>' : '') +
+        '<div class="vb-legend"><span><i></i>剩餘全勝～全敗的勝率範圍</span><span>白球 = 目前勝率</span><span>虛線 = ' + (s.floorLabel || '領先者保底') + '</span></div></div>';
+    }
+    return '<div class="vb-card' + (s.done ? ' done' : '') + '" style="--tc:' + tc + '"><div class="vb-head"><span class="vb-label">' + s.label + '</span>' +
+      '<span class="vb-pill">' + (s.done ? '已確定' : '暫定') + '</span></div>' +
+      '<div class="vb-team">' + img(s.team) + '<div><div class="vb-team-name" style="color:' + tc + '">' + s.team + '</div>' +
+      '<div class="vb-sub">' + s.note + '</div></div></div></div>';
+  }).join('');
+  const races = d.seats.filter(s => s.race).length;
+  return '<div class="vb' + (races > 1 ? ' two-race' : '') + '">' + html + '</div>';
+}
+
+// ── C ──
+function renderC(d) {
+  const html = d.seats.map(s => {
+    let plate, foot;
+    if (s.race) {
+      plate = '<div class="vc-plate flip">' + s.race.map(r => img(r.team)).join('<span class="q">/</span>') + '</div>';
+      foot = s.race.map(r => r.team.slice(0, 2) + ' ' + f3(pct(r.w, r.l)) + '（剩' + r.rem + '）').join('　');
+    } else {
+      plate = '<div class="vc-plate">' + img(s.team) + '<span class="nm" style="color:' + COLOR[s.team] + '">' + s.team + '</span></div>';
+      foot = (s.done ? '' : '暫定・') + s.note;
+    }
+    return '<div class="vc-slot"><div class="vc-cap">' + s.label + '<span class="vc-lamp' + (s.done ? ' on' : '') + '"></span></div>' + plate +
+      '<div class="vc-foot">' + foot + '</div></div>';
+  }).join('');
+  return '<div class="vc"><div class="vc-title">季後賽席次</div><div class="vc-slots">' + html + '</div></div>';
+}
+
+const R = { A: renderA, B: renderB, C: renderC };
+function draw() {
+  document.querySelectorAll('[data-v]').forEach(el => { el.innerHTML = shell(R[el.dataset.v](DATA[scen]), scen === 'end'); });
+}
+document.getElementById('scenario').addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  scen = b.dataset.s;
+  document.querySelectorAll('#scenario button').forEach(x => x.classList.toggle('active', x === b));
+  draw();
+});
+draw();
+</script>
+</body>
+</html>
