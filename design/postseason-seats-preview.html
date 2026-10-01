@@ -82,7 +82,15 @@ body { font-family: 'Inter', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; b
 .vb-team-name { font-family: 'jf-openhuninn', sans-serif; font-size: 22px; letter-spacing: 1px; }
 .vb-sub { font-size: 11px; color: #7A6E5E; }
 .vb-lanes { display: flex; flex-direction: column; gap: 9px; margin-top: 2px; }
-.vb-lane { display: grid; grid-template-columns: 26px 64px 1fr 44px; align-items: center; gap: 8px; font-size: 12px; }
+.vb-lane { display: grid; grid-template-columns: 26px 118px 1fr 70px; align-items: center; gap: 8px; font-size: 12px; }
+.frame-mobile .vb-lane { grid-template-columns: 22px 64px 1fr 62px; gap: 6px; }
+.frame-mobile .vb-lane-name { white-space: normal; overflow: visible; line-height: 1.25; }
+.frame-mobile .vb-tag { display: block; width: fit-content; margin: 2px 0 0; }
+.vb-tag { display: inline-block; margin-left: 5px; padding: 0 6px; border-radius: 8px; background: #FDF0E8; color: #C2573A; font-size: 9.5px; font-weight: 600; vertical-align: 1px; }
+.vb-rem b { color: #4A3728; font-weight: 700; }
+.vb-out { font-size: 10.5px; color: #9B8E7E; line-height: 1.5; }
+.vb.two-race { grid-template-columns: 0.9fr 1.5fr 1.5fr; }
+.frame-mobile .vb.two-race { grid-template-columns: 1fr; }
 .vb-lane img { width: 24px; height: 24px; object-fit: contain; }
 .vb-lane-name { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .vb-track { position: relative; height: 12px; border-radius: 6px; background: #EFE7DA; }
@@ -159,7 +167,15 @@ const DATA = {
           { team: '樂天桃猿', w: 31, l: 24, rem: 5 },
           { team: '統一獅',   w: 31, l: 26, rem: 3 },
         ] },
-      { label: '外卡', done: false, team: '統一獅', note: '全年 .522 · 扣除半季冠軍後最佳，下半季底定前會變動' },
+      { label: '外卡', done: false, team: '統一獅', note: '全年勝率，扣除半季冠軍',
+        floorLabel: '暫居外卡者保底',
+        race: [ // 全年：w, l, rem（sno 去重）；h2 = 也在爭下半季冠軍，奪冠即改走半季冠軍、外卡順延
+          { team: '統一獅',   w: 60, l: 55, rem: 4, h2: true },
+          { team: '富邦悍將', w: 58, l: 58, rem: 4 },
+          { team: '樂天桃猿', w: 55, l: 58, rem: 5, h2: true },
+          { team: '中信兄弟', w: 54, l: 61, rem: 3, h2: true },
+        ],
+        out: '台鋼雄鷹' },
     ]
   },
   end: {
@@ -216,21 +232,25 @@ function renderB(d) {
       const floor = rows[0].min; // 領先者剩餘全輸的保底
       const lanes = rows.map(r =>
         '<div class="vb-lane" style="--tc:' + COLOR[r.team] + '">' + img(r.team) +
-        '<span class="vb-lane-name" style="color:' + COLOR[r.team] + '">' + r.team + '</span>' +
+        '<span class="vb-lane-name" style="color:' + COLOR[r.team] + '">' + r.team +
+          (r.h2 ? '<span class="vb-tag" title="也在爭下半季冠軍；若奪冠改以半季冠軍晉級，外卡順延">爭下半季</span>' : '') + '</span>' +
         '<div class="vb-track"><div class="vb-range" style="left:' + x(r.min) + ';width:calc(' + x(r.max) + ' - ' + x(r.min) + ');background:' + COLOR[r.team] + '"></div>' +
         '<div class="vb-line" style="left:' + x(floor) + '"></div>' +
         '<div class="vb-ball" style="left:' + x(r.cur) + '"></div></div>' +
-        '<span class="vb-rem">剩 ' + r.rem + '</span></div>').join('');
+        '<span class="vb-rem"><b>' + f3(r.cur) + '</b> 剩 ' + r.rem + '</span></div>').join('');
       return '<div class="vb-card"><div class="vb-head"><span class="vb-label">' + s.label + '</span><span class="vb-pill">爭奪中</span></div>' +
+        (s.out ? '<div class="vb-sub">' + s.note + '</div>' : '') +
         '<div class="vb-lanes">' + lanes + '</div>' +
-        '<div class="vb-legend"><span><i></i>剩餘全勝～全敗的勝率範圍</span><span>白球 = 目前勝率</span><span>虛線 = 領先者保底</span></div></div>';
+        (s.out ? '<div class="vb-out">已無機會：' + s.out + '・標「爭下半季」的隊伍若奪下半季冠軍，外卡順延給下一名</div>' : '') +
+        '<div class="vb-legend"><span><i></i>剩餘全勝～全敗的勝率範圍</span><span>白球 = 目前勝率</span><span>虛線 = ' + (s.floorLabel || '領先者保底') + '</span></div></div>';
     }
     return '<div class="vb-card' + (s.done ? ' done' : '') + '" style="--tc:' + tc + '"><div class="vb-head"><span class="vb-label">' + s.label + '</span>' +
       '<span class="vb-pill">' + (s.done ? '已確定' : '暫定') + '</span></div>' +
       '<div class="vb-team">' + img(s.team) + '<div><div class="vb-team-name" style="color:' + tc + '">' + s.team + '</div>' +
       '<div class="vb-sub">' + s.note + '</div></div></div></div>';
   }).join('');
-  return '<div class="vb">' + html + '</div>';
+  const races = d.seats.filter(s => s.race).length;
+  return '<div class="vb' + (races > 1 ? ' two-race' : '') + '">' + html + '</div>';
 }
 
 // ── C ──
