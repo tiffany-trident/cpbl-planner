@@ -1,7 +1,26 @@
 {
-    "updated":  "2026-10-01T09:02:04+08:00",
+    "updated":  "2026-10-01T10:01:30+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "中職》有望助富邦奪冠！兄弟棄將總冠軍賽超火燙 猛敲雙安3度上壘",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5591515",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-01T09:16:41+08:00",
+                      "teams":  [
+                                    "中信兄弟",
+                                    "富邦悍將"
+                                ]
+                  },
+                  {
+                      "title":  "專訪／金佳垠首個桃猿應援球季收官　完美主義下的成長與蛻變",
+                      "url":  "https://sports.ettoday.net/news/3246866",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-10-01T08:15:00+08:00",
+                      "teams":  [
+                                    "樂天桃猿"
+                                ]
+                  },
                   {
                       "title":  "中職》轉戰富邦沒被註冊！前兄弟大物總冠軍戰代打 敲出關鍵安+打點",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5591259",
@@ -22,15 +41,6 @@
                                 ]
                   },
                   {
-                      "title":  "味全龍年度第一 奪台灣大賽門票",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1772819",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-10-01T05:30:00+08:00",
-                      "teams":  [
-                                    "味全龍"
-                                ]
-                  },
-                  {
                       "title":  "兄弟齊心射鷹 領先猿1.5場勝差",
                       "url":  "https://sports.ltn.com.tw/news/paper/1772821",
                       "source":  "自由時報",
@@ -39,6 +49,15 @@
                                     "中信兄弟",
                                     "樂天桃猿",
                                     "台鋼雄鷹"
+                                ]
+                  },
+                  {
+                      "title":  "味全龍年度第一 奪台灣大賽門票",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1772819",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-01T05:30:00+08:00",
+                      "teams":  [
+                                    "味全龍"
                                 ]
                   },
                   {
@@ -909,25 +928,6 @@
                       "pubDate":  "2026-09-27T18:34:04+08:00",
                       "teams":  [
 
-                                ]
-                  },
-                  {
-                      "title":  "坎南完封只差1出局！9局挑戰改判失分　台鋼驚險守住4比2退統一",
-                      "url":  "https://sports.ettoday.net/news/3244921",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-09-27T18:18:00+08:00",
-                      "teams":  [
-                                    "台鋼雄鷹"
-                                ]
-                  },
-                  {
-                      "title":  "中職》戲劇化改判！坎南錯失完封勝 仍率台鋼擊敗獅隊",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5587822",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-27T18:06:52+08:00",
-                      "teams":  [
-                                    "統一7-ELEVEn獅",
-                                    "台鋼雄鷹"
                                 ]
                   }
               ]
