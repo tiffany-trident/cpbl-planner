@@ -1,7 +1,16 @@
 {
-    "updated":  "2026-10-01T13:01:27+08:00",
+    "updated":  "2026-10-01T14:01:30+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "日職》震撼彈！上季奪央聯打擊王 日本隊經典賽國手遭戰力外",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5591891",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-01T13:30:04+08:00",
+                      "teams":  [
+
+                                ]
+                  },
                   {
                       "title":  "中職》當年蕭任汶完全燃燒締造史詩級紀錄  隔年卻付出慘痛代價",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5591875",
@@ -77,6 +86,16 @@
                                 ]
                   },
                   {
+                      "title":  "陳聖平轟悍將 獅盤據年度第2",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1772820",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-01T05:30:00+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅",
+                                    "富邦悍將"
+                                ]
+                  },
+                  {
                       "title":  "味全龍年度第一 奪台灣大賽門票",
                       "url":  "https://sports.ltn.com.tw/news/paper/1772819",
                       "source":  "自由時報",
@@ -94,16 +113,6 @@
                                     "中信兄弟",
                                     "樂天桃猿",
                                     "台鋼雄鷹"
-                                ]
-                  },
-                  {
-                      "title":  "陳聖平轟悍將 獅盤據年度第2",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1772820",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-10-01T05:30:00+08:00",
-                      "teams":  [
-                                    "統一7-ELEVEn獅",
-                                    "富邦悍將"
                                 ]
                   },
                   {
@@ -566,15 +575,6 @@
                                 ]
                   },
                   {
-                      "title":  "郭天信助殺本壘 擋下悍將追平",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1772585",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-29T05:30:00+08:00",
-                      "teams":  [
-                                    "富邦悍將"
-                                ]
-                  },
-                  {
                       "title":  "猿遭獅反咬 首位又讓出",
                       "url":  "https://sports.ltn.com.tw/news/paper/1772586",
                       "source":  "自由時報",
@@ -582,6 +582,15 @@
                       "teams":  [
                                     "統一7-ELEVEn獅",
                                     "樂天桃猿"
+                                ]
+                  },
+                  {
+                      "title":  "郭天信助殺本壘 擋下悍將追平",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1772585",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-29T05:30:00+08:00",
+                      "teams":  [
+                                    "富邦悍將"
                                 ]
                   },
                   {
@@ -919,15 +928,6 @@
                       "teams":  [
                                     "樂天桃猿",
                                     "味全龍"
-                                ]
-                  },
-                  {
-                      "title":  "中職》力投126球拚完封未果 坎南無奈只能接受、揭與陳傑憲互動內容",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5587860",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-27T18:58:56+08:00",
-                      "teams":  [
-
                                 ]
                   }
               ]
