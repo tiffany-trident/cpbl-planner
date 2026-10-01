@@ -1,7 +1,55 @@
 {
-    "updated":  "2026-10-01T17:01:29+08:00",
+    "updated":  "2026-10-01T18:01:30+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "中職》慘痛2連敗將優勢讓給兄弟 樂天桃猿做出球員異動！",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5592316",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-01T17:29:42+08:00",
+                      "teams":  [
+                                    "中信兄弟",
+                                    "樂天桃猿"
+                                ]
+                  },
+                  {
+                      "title":  "中職》攸關兄弟封王時程！猿鷹宣布明晚先發投手",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5592292",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-01T17:13:46+08:00",
+                      "teams":  [
+                                    "中信兄弟",
+                                    "樂天桃猿",
+                                    "台鋼雄鷹"
+                                ]
+                  },
+                  {
+                      "title":  "味全龍備戰台灣大賽準備3對手　曾仁和趕不及復出",
+                      "url":  "https://www.cna.com.tw/news/aspt/202610010238.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-10-01T16:14:30+08:00",
+                      "teams":  [
+                                    "味全龍"
+                                ]
+                  },
+                  {
+                      "title":  "蔣銲保留比賽自願續投　拚中職最低防禦率添變數",
+                      "url":  "https://www.cna.com.tw/news/aspt/202610010234.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-10-01T16:09:22+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "曾與陳傑憲換球棒　小園海斗突遭戰力外震驚台日棒壇！",
+                      "url":  "https://sports.ettoday.net/news/3247253",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-10-01T16:08:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
                   {
                       "title":  "中職》味全龍以賽代訓全力備戰TS  3場練習賽對手全部亮牌",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5592170",
@@ -12,10 +60,28 @@
                                 ]
                   },
                   {
+                      "title":  "曾因德州撲克遭味全龍解約　曾傳昇今收司法判決：感謝法律給予清白",
+                      "url":  "https://sports.ettoday.net/news/3247269",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-10-01T16:00:00+08:00",
+                      "teams":  [
+                                    "味全龍"
+                                ]
+                  },
+                  {
                       "title":  "中職》是否帶吉力吉撈進台灣大賽名單？  葉總語帶玄機",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5592155",
                       "source":  "自由時報",
                       "pubDate":  "2026-10-01T15:49:50+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "日職廣島鯉魚毒品風暴　小園海斗等4人未獲續約",
+                      "url":  "https://www.cna.com.tw/news/aspt/202610010215.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-10-01T15:41:41+08:00",
                       "teams":  [
 
                                 ]
@@ -151,15 +217,6 @@
                                 ]
                   },
                   {
-                      "title":  "味全龍年度第一 奪台灣大賽門票",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1772819",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-10-01T05:30:00+08:00",
-                      "teams":  [
-                                    "味全龍"
-                                ]
-                  },
-                  {
                       "title":  "陳聖平轟悍將 獅盤據年度第2",
                       "url":  "https://sports.ltn.com.tw/news/paper/1772820",
                       "source":  "自由時報",
@@ -167,6 +224,15 @@
                       "teams":  [
                                     "統一7-ELEVEn獅",
                                     "富邦悍將"
+                                ]
+                  },
+                  {
+                      "title":  "味全龍年度第一 奪台灣大賽門票",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1772819",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-01T05:30:00+08:00",
+                      "teams":  [
+                                    "味全龍"
                                 ]
                   },
                   {
@@ -511,21 +577,21 @@
                                 ]
                   },
                   {
-                      "title":  "李東洺拚勝投王 梅賽鍶當追兵",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1772720",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-30T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
                       "title":  "猿象下半季爭冠 最快10.3解答",
                       "url":  "https://sports.ltn.com.tw/news/paper/1772719",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-30T05:30:00+08:00",
                       "teams":  [
                                     "樂天桃猿"
+                                ]
+                  },
+                  {
+                      "title":  "李東洺拚勝投王 梅賽鍶當追兵",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1772720",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-30T05:30:00+08:00",
+                      "teams":  [
+
                                 ]
                   },
                   {
@@ -620,21 +686,21 @@
                                 ]
                   },
                   {
-                      "title":  "郭天信助殺本壘 擋下悍將追平",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1772585",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-29T05:30:00+08:00",
-                      "teams":  [
-                                    "富邦悍將"
-                                ]
-                  },
-                  {
                       "title":  "曾頌恩9打點 兄弟奪回下半季龍頭",
                       "url":  "https://sports.ltn.com.tw/news/paper/1772584",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-29T05:30:00+08:00",
                       "teams":  [
                                     "中信兄弟"
+                                ]
+                  },
+                  {
+                      "title":  "郭天信助殺本壘 擋下悍將追平",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1772585",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-29T05:30:00+08:00",
+                      "teams":  [
+                                    "富邦悍將"
                                 ]
                   },
                   {
@@ -859,70 +925,6 @@
                       "pubDate":  "2026-09-28T16:19:19+08:00",
                       "teams":  [
 
-                                ]
-                  },
-                  {
-                      "title":  "統一獅許哲晏撲球左肩脫臼！今「手抬不起來」　餅總：比較麻煩",
-                      "url":  "https://sports.ettoday.net/news/3245295",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-09-28T16:10:00+08:00",
-                      "teams":  [
-                                    "統一7-ELEVEn獅"
-                                ]
-                  },
-                  {
-                      "title":  "葉君璋肯定劉基鴻亞運扛住壓力　30日歸隊是否出賽再評估",
-                      "url":  "https://www.cna.com.tw/news/aspt/202609280137.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-09-28T15:45:01+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "中職》富邦悍將得分都與他有關 申皓瑋：其實我是比較幸運的角色",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5587983",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-27T21:58:50+08:00",
-                      "teams":  [
-                                    "富邦悍將"
-                                ]
-                  },
-                  {
-                      "title":  "中職》林澤彬連續2次短打都失敗 後藤光尊：可以理解他想討回來的心情",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5587974",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-27T21:42:15+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "林澤彬連2次短打失敗　後藤光尊：只有第1次是戰術",
-                      "url":  "https://www.cna.com.tw/news/aspt/202609270192.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-09-27T21:25:16+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "悍將險勝兄弟保季後賽生機　MVP申皓瑋獲手機獎勵",
-                      "url":  "https://www.cna.com.tw/news/aspt/202609270191.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-09-27T21:14:14+08:00",
-                      "teams":  [
-                                    "中信兄弟",
-                                    "富邦悍將"
-                                ]
-                  },
-                  {
-                      "title":  "打擊王林澤彬連2次短打失敗！後藤曝幕後　申皓瑋救悍將說幸運",
-                      "url":  "https://sports.ettoday.net/news/3244951",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-09-27T21:03:00+08:00",
-                      "teams":  [
-                                    "富邦悍將"
                                 ]
                   }
               ]
