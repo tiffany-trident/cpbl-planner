@@ -1,7 +1,25 @@
 {
-    "updated":  "2026-10-01T15:01:30+08:00",
+    "updated":  "2026-10-01T16:01:28+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "中職》是否帶吉力吉撈進台灣大賽名單？  葉總語帶玄機",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5592155",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-01T15:49:50+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "中職》蔣銲主動請纓上陣  今晚投球計畫正式出爐！",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5592141",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-01T15:39:54+08:00",
+                      "teams":  [
+
+                                ]
+                  },
                   {
                       "title":  "中職》兄弟4指新星國際賽好投 台灣隊鐵捕張翔：滿有實力的",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5592071",
@@ -113,6 +131,16 @@
                                 ]
                   },
                   {
+                      "title":  "陳聖平轟悍將 獅盤據年度第2",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1772820",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-01T05:30:00+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅",
+                                    "富邦悍將"
+                                ]
+                  },
+                  {
                       "title":  "兄弟齊心射鷹 領先猿1.5場勝差",
                       "url":  "https://sports.ltn.com.tw/news/paper/1772821",
                       "source":  "自由時報",
@@ -121,16 +149,6 @@
                                     "中信兄弟",
                                     "樂天桃猿",
                                     "台鋼雄鷹"
-                                ]
-                  },
-                  {
-                      "title":  "陳聖平轟悍將 獅盤據年度第2",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1772820",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-10-01T05:30:00+08:00",
-                      "teams":  [
-                                    "統一7-ELEVEn獅",
-                                    "富邦悍將"
                                 ]
                   },
                   {
@@ -593,6 +611,15 @@
                                 ]
                   },
                   {
+                      "title":  "郭天信助殺本壘 擋下悍將追平",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1772585",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-29T05:30:00+08:00",
+                      "teams":  [
+                                    "富邦悍將"
+                                ]
+                  },
+                  {
                       "title":  "猿遭獅反咬 首位又讓出",
                       "url":  "https://sports.ltn.com.tw/news/paper/1772586",
                       "source":  "自由時報",
@@ -609,15 +636,6 @@
                       "pubDate":  "2026-09-29T05:30:00+08:00",
                       "teams":  [
                                     "中信兄弟"
-                                ]
-                  },
-                  {
-                      "title":  "郭天信助殺本壘 擋下悍將追平",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1772585",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-29T05:30:00+08:00",
-                      "teams":  [
-                                    "富邦悍將"
                                 ]
                   },
                   {
@@ -906,26 +924,6 @@
                       "teams":  [
                                     "中信兄弟",
                                     "富邦悍將"
-                                ]
-                  },
-                  {
-                      "title":  "兄弟讓出龍頭！申皓瑋8局三壘打助悍將2比1勝　桃猿魔術數字M6",
-                      "url":  "https://sports.ettoday.net/news/3244938",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-09-27T20:07:00+08:00",
-                      "teams":  [
-                                    "中信兄弟",
-                                    "樂天桃猿",
-                                    "富邦悍將"
-                                ]
-                  },
-                  {
-                      "title":  "舒治浩滿壘拆彈中繼好投獲MVP　桃猿近期6連勝",
-                      "url":  "https://www.cna.com.tw/news/aspt/202609270182.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-09-27T19:58:53+08:00",
-                      "teams":  [
-                                    "樂天桃猿"
                                 ]
                   }
               ]
