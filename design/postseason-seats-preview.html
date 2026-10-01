@@ -170,12 +170,12 @@ const DATA = {
       { label: '外卡', done: false, team: '統一獅', note: '全年勝率，扣除半季冠軍',
         floorLabel: '暫居外卡者保底',
         race: [ // 全年：w, l, rem（sno 去重）；h2 = 也在爭下半季冠軍，奪冠即改走半季冠軍、外卡順延
+          // 名單由窮舉剩餘 12 場全部 4096 種勝負組合得出（2026-10-01）
           { team: '統一獅',   w: 60, l: 55, rem: 4, h2: true },
           { team: '富邦悍將', w: 58, l: 58, rem: 4 },
-          { team: '樂天桃猿', w: 55, l: 58, rem: 5, h2: true },
-          { team: '中信兄弟', w: 54, l: 61, rem: 3, h2: true },
         ],
-        out: '台鋼雄鷹' },
+        out: '中信兄弟、台鋼雄鷹',
+        edge: '樂天桃猿：只有在下半季與中信同勝率、且由中信取得冠軍時才有機會' },
     ]
   },
   end: {
@@ -241,7 +241,8 @@ function renderB(d) {
       return '<div class="vb-card"><div class="vb-head"><span class="vb-label">' + s.label + '</span><span class="vb-pill">爭奪中</span></div>' +
         (s.out ? '<div class="vb-sub">' + s.note + '</div>' : '') +
         '<div class="vb-lanes">' + lanes + '</div>' +
-        (s.out ? '<div class="vb-out">已無機會：' + s.out + '・標「爭下半季」的隊伍若奪下半季冠軍，外卡順延給下一名</div>' : '') +
+        (s.out ? '<div class="vb-out">若統一奪下半季冠軍，外卡直接由富邦取得<br>' +
+          (s.edge ? '僅平手情境：' + s.edge + '<br>' : '') + '已無機會：' + s.out + '</div>' : '') +
         '<div class="vb-legend"><span><i></i>剩餘全勝～全敗的勝率範圍</span><span>白球 = 目前勝率</span><span>虛線 = ' + (s.floorLabel || '領先者保底') + '</span></div></div>';
     }
     return '<div class="vb-card' + (s.done ? ' done' : '') + '" style="--tc:' + tc + '"><div class="vb-head"><span class="vb-label">' + s.label + '</span>' +
