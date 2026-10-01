@@ -1,7 +1,34 @@
 {
-    "updated":  "2026-10-01T14:01:30+08:00",
+    "updated":  "2026-10-01T15:01:30+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "中職》兄弟4指新星國際賽好投 台灣隊鐵捕張翔：滿有實力的",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5592071",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-01T14:54:14+08:00",
+                      "teams":  [
+                                    "中信兄弟"
+                                ]
+                  },
+                  {
+                      "title":  "中職》送台幣、換球棒！小園海斗跟台灣球星互動深 遭戰力外震撼日棒壇",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5592029",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-01T14:22:18+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "洋基火力全開9比2再勝紅襪　外卡系列賽橫掃晉級[影]",
+                      "url":  "https://www.cna.com.tw/news/aspt/202610010156.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-10-01T13:38:35+08:00",
+                      "teams":  [
+
+                                ]
+                  },
                   {
                       "title":  "日職》震撼彈！上季奪央聯打擊王 日本隊經典賽國手遭戰力外",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5591891",
@@ -30,7 +57,7 @@
                                 ]
                   },
                   {
-                      "title":  "麥德羅斯關鍵3分砲　白襪淘汰太空人闖美聯分區系列賽",
+                      "title":  "麥德羅斯關鍵3分砲　白襪淘汰太空人闖美聯分區系列賽[影]",
                       "url":  "https://www.cna.com.tw/news/aspt/202610010085.aspx",
                       "source":  "中央社",
                       "pubDate":  "2026-10-01T11:26:02+08:00",
@@ -77,12 +104,23 @@
                                 ]
                   },
                   {
-                      "title":  "費城人3響砲外卡戰續命　波姆10局致勝轟逆轉勇士",
+                      "title":  "費城人3響砲外卡戰續命　波姆10局致勝轟逆轉勇士[影]",
                       "url":  "https://www.cna.com.tw/news/aspt/202610010015.aspx",
                       "source":  "中央社",
                       "pubDate":  "2026-10-01T06:37:28+08:00",
                       "teams":  [
 
+                                ]
+                  },
+                  {
+                      "title":  "兄弟齊心射鷹 領先猿1.5場勝差",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1772821",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-01T05:30:00+08:00",
+                      "teams":  [
+                                    "中信兄弟",
+                                    "樂天桃猿",
+                                    "台鋼雄鷹"
                                 ]
                   },
                   {
@@ -102,17 +140,6 @@
                       "pubDate":  "2026-10-01T05:30:00+08:00",
                       "teams":  [
                                     "味全龍"
-                                ]
-                  },
-                  {
-                      "title":  "兄弟齊心射鷹 領先猿1.5場勝差",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1772821",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-10-01T05:30:00+08:00",
-                      "teams":  [
-                                    "中信兄弟",
-                                    "樂天桃猿",
-                                    "台鋼雄鷹"
                                 ]
                   },
                   {
@@ -566,15 +593,6 @@
                                 ]
                   },
                   {
-                      "title":  "曾頌恩9打點 兄弟奪回下半季龍頭",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1772584",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-29T05:30:00+08:00",
-                      "teams":  [
-                                    "中信兄弟"
-                                ]
-                  },
-                  {
                       "title":  "猿遭獅反咬 首位又讓出",
                       "url":  "https://sports.ltn.com.tw/news/paper/1772586",
                       "source":  "自由時報",
@@ -582,6 +600,15 @@
                       "teams":  [
                                     "統一7-ELEVEn獅",
                                     "樂天桃猿"
+                                ]
+                  },
+                  {
+                      "title":  "曾頌恩9打點 兄弟奪回下半季龍頭",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1772584",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-29T05:30:00+08:00",
+                      "teams":  [
+                                    "中信兄弟"
                                 ]
                   },
                   {
@@ -899,35 +926,6 @@
                       "pubDate":  "2026-09-27T19:58:53+08:00",
                       "teams":  [
                                     "樂天桃猿"
-                                ]
-                  },
-                  {
-                      "title":  "無觸殺動作偏離三呎線不成立　坎南笑稱完封勝被陳傑憲毀了",
-                      "url":  "https://www.cna.com.tw/news/aspt/202609270178.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-09-27T19:44:44+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "中職》成晉、宋嘉翔連線！樂天6連勝、下半季超車兄弟",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5587890",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-27T19:36:40+08:00",
-                      "teams":  [
-                                    "中信兄弟",
-                                    "樂天桃猿"
-                                ]
-                  },
-                  {
-                      "title":  "桃猿越打越旺！再退味全豪取6連勝　封王魔術數字M7",
-                      "url":  "https://sports.ettoday.net/news/3244933",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-09-27T19:30:00+08:00",
-                      "teams":  [
-                                    "樂天桃猿",
-                                    "味全龍"
                                 ]
                   }
               ]
