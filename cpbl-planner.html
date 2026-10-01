@@ -153,6 +153,19 @@ svg.section-icon { width: 28px; height: 28px; }
 .standings-caption .champ-team { color: #C2573A; font-weight: 600; }
 /* 半季冠軍標章（僅該半季已打完時出現） */
 .standing-champ { display: inline-flex; align-items: center; gap: 3px; margin-left: 6px; padding: 1px 8px; background: #FDF0E8; border-radius: 10px; font-size: 10px; color: #C2573A; font-weight: 600; letter-spacing: 0.5px; white-space: nowrap; }
+/* 季後賽席次（下半季開打後顯示，與分頁無關） */
+.ps-seats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 16px; }
+.ps-seats.ps-seats-4 { grid-template-columns: repeat(4, 1fr); }
+.ps-seat { background: #FDFAF5; border: 1px solid #F0ECE6; border-radius: 12px; padding: 10px 14px; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.ps-seat.done { background: linear-gradient(135deg, #FFF5E8 0%, #FFFCF7 100%); border-color: #F2D5C2; }
+.ps-seat-head { display: flex; align-items: center; justify-content: space-between; gap: 6px; }
+.ps-seat-label { font-size: 11px; color: #9B8E7E; letter-spacing: 0.5px; white-space: nowrap; }
+.ps-pill { padding: 1px 8px; border-radius: 10px; font-size: 10px; font-weight: 600; white-space: nowrap; background: #F2EBDA; color: #9B8E7E; }
+.ps-seat.done .ps-pill { background: #FDF0E8; color: #C2573A; }
+.ps-seat-team { display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600; min-height: 26px; }
+.ps-seat-team img { width: 26px; height: 26px; object-fit: contain; border-radius: 50%; }
+.ps-seat-team.tbd { color: #B8A692; font-weight: 500; font-size: 13px; }
+.ps-seat-note { font-size: 11px; color: #7A6E5E; line-height: 1.5; }
 
 /* ── Filters ── */
 .filters { background: #FDFCFA; padding: 28px 40px 32px; display: flex; flex-direction: column; gap: 16px; }
@@ -443,6 +456,8 @@ button.card-weather.clickable:active { transform: scale(0.96); }
   .section-header-title { font-size: 16px; }
   .standings-tab { padding: 8px 12px 7px; font-size: 12px; }
   .standings-caption { font-size: 11px; }
+  .ps-seats, .ps-seats.ps-seats-4 { grid-template-columns: 1fr; gap: 8px; }
+  .ps-seat { padding: 8px 12px; }
   .standings-table th { font-size: 10px; padding: 8px 6px; }
   .standings-table td { padding: 10px 6px; font-size: 13px; }
   .standing-rank { font-size: 13px; width: 28px; }
@@ -997,6 +1012,7 @@ button.card-weather.clickable:active { transform: scale(0.96); }
     <span class="section-header-line"></span>
     <span class="section-header-sub">2026 例行賽</span>
   </div>
+  <div class="ps-seats" id="ps-seats" style="display:none" aria-label="季後賽席次"></div>
   <div class="standings-tabs" id="standings-tabs" role="tablist">
     <button type="button" class="standings-tab" data-half="first" role="tab">上半季</button>
     <button type="button" class="standings-tab" data-half="second" role="tab">下半季</button>
@@ -2545,10 +2561,24 @@ function loadData() {
   updateMainTeamUI();
   initFilters();
   if (userState.lastFilter) applyFilterToUI(userState.lastFilter);
+  applySeasonOverDefault();
   render();
   loadWeather();
   loadThemeDays();
   if (userState.profile.mainTeam === null) showMainTeamModal();
+}
+
+// 例行賽全部打完（沒有未來場次）
+function isSeasonOver() {
+  return allGames.length > 0 && !allGames.some(g => g.isFuture && !g.postponed);
+}
+// 季末保底：沒有未來場次時，「未來場次」必為空 → 改預設「已結束」（不寫入篩選記憶，下季有新賽程自動回復）
+function applySeasonOverDefault() {
+  if (!isSeasonOver() || statusFilter !== 'future') return;
+  statusFilter = 'past';
+  document.querySelectorAll('#f-status .toggle-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.val === 'past');
+  });
 }
 
 // ── Hero 資訊列動態計算 ──
@@ -2562,7 +2592,7 @@ function buildHeroInfo() {
   let status;
   if (!hasCompleted && hasFuture) status = '賽季即將開幕';
   else if (hasFuture) status = '賽季熱烈進行中';
-  else status = '賽季已結束';
+  else status = '例行賽已結束';
 
   const todayEl = document.getElementById('hero-today-count');
   const remainEl = document.getElementById('hero-remain-count');
@@ -2580,16 +2610,57 @@ function gameHalf(g) {
 // 某半季是否已有隊伍「數學封王」（勝率第一無法再被追過），回傳該隊名或 null。
 // 判定：第一名在「自己剩餘全輸、對手剩餘全贏」的最壞情況下，勝率仍嚴格高於所有對手 → 封王。
 // 剩餘場次以 sno 去重計（延賽/補賽同 sno 只算一場）；此為保守估計（假設各隊剩餘全勝，實際互打不可能同時成立），不會誤發冠軍。
-function clinchedHalfChampion(halfGames, sorted) {
-  if (sorted.length < 2) return null;
+// 各隊剩餘場次（以 sno 去重：延賽/補賽同 sno 只算一場），回傳 team -> 剩餘數 的函式
+function remainingCounter(games) {
   const totalSno = {}, doneSno = {};   // team -> Set<sno>
-  halfGames.forEach(g => {
+  games.forEach(g => {
     [g.visitor, g.home].forEach(t => {
       (totalSno[t] || (totalSno[t] = new Set())).add(g.sno);
       if (g.completed) (doneSno[t] || (doneSno[t] = new Set())).add(g.sno);
     });
   });
-  const rem = t => (totalSno[t] ? totalSno[t].size : 0) - (doneSno[t] ? doneSno[t].size : 0);
+  return t => (totalSno[t] ? totalSno[t].size : 0) - (doneSno[t] ? doneSno[t].size : 0);
+}
+// 已完賽場次 → 依勝率排序的戰績列（六隊一律先補 0-0-0）
+function computeRecords(games) {
+  const teams = {};
+  Object.keys(TEAM_LOGO).forEach(t => { teams[t] = { w: 0, l: 0, t: 0 }; });
+  games.forEach(g => {
+    if (!g.completed) return;
+    if (!teams[g.visitor]) teams[g.visitor] = { w: 0, l: 0, t: 0 };
+    if (!teams[g.home]) teams[g.home] = { w: 0, l: 0, t: 0 };
+    if (g.vScore > g.hScore) {
+      teams[g.visitor].w++;
+      teams[g.home].l++;
+    } else if (g.hScore > g.vScore) {
+      teams[g.home].w++;
+      teams[g.visitor].l++;
+    } else {
+      teams[g.visitor].t++;
+      teams[g.home].t++;
+    }
+  });
+  return Object.entries(teams)
+    .map(([name, r]) => ({
+      name,
+      ...r,
+      pct: (r.w + r.l) > 0 ? (r.w / (r.w + r.l)).toFixed(3) : '.000'
+    }))
+    .sort((a, b) => parseFloat(b.pct) - parseFloat(a.pct));
+}
+// 半季冠軍爭奪：仍有數學機會的隊伍（自己剩餘全贏的最佳勝率，不低於某隊剩餘全輸的最差勝率）。
+// 與封王判定同樣保守：只排除「確定追不上」的隊伍。
+function halfContenders(halfGames, sorted) {
+  const rem = remainingCounter(halfGames);
+  const range = sorted.map(c => {
+    const r = rem(c.name), den = c.w + c.l + r;
+    return { name: c.name, rem: r, min: den ? c.w / den : 0, max: den ? (c.w + r) / den : 0 };
+  });
+  return range.filter(x => range.every(y => y.name === x.name || x.max >= y.min));
+}
+function clinchedHalfChampion(halfGames, sorted) {
+  if (sorted.length < 2) return null;
+  const rem = remainingCounter(halfGames);
   const leader = sorted[0];
   const lDen = leader.w + leader.l + rem(leader.name);
   if (lDen === 0) return null;
@@ -2624,32 +2695,10 @@ function buildStandings() {
   });
 
   // 依分頁篩選場次；六隊一律先補 0-0-0，讓半季尚未開打時表格仍完整呈現
-  const halfGames = allGames.filter(g => currentHalf === 'full' || gameHalf(g) === currentHalf);
-  const teams = {};
-  Object.keys(TEAM_LOGO).forEach(t => { teams[t] = { w: 0, l: 0, t: 0 }; });
-  halfGames.forEach(g => {
-    if (!g.completed) return;
-    if (!teams[g.visitor]) teams[g.visitor] = { w: 0, l: 0, t: 0 };
-    if (!teams[g.home]) teams[g.home] = { w: 0, l: 0, t: 0 };
-    if (g.vScore > g.hScore) {
-      teams[g.visitor].w++;
-      teams[g.home].l++;
-    } else if (g.hScore > g.vScore) {
-      teams[g.home].w++;
-      teams[g.visitor].l++;
-    } else {
-      teams[g.visitor].t++;
-      teams[g.home].t++;
-    }
-  });
+  renderPostseasonSeats(secondHalfStart && todayStr >= secondHalfStart);
 
-  const sorted = Object.entries(teams)
-    .map(([name, r]) => ({
-      name,
-      ...r,
-      pct: (r.w + r.l) > 0 ? (r.w / (r.w + r.l)).toFixed(3) : '.000'
-    }))
-    .sort((a, b) => parseFloat(b.pct) - parseFloat(a.pct));
+  const halfGames = allGames.filter(g => currentHalf === 'full' || gameHalf(g) === currentHalf);
+  const sorted = computeRecords(halfGames);
 
   // 冠軍/領先 caption + rank 1 標章
   const played = sorted.some(t => (t.w + t.l + t.t) > 0);
@@ -2704,6 +2753,70 @@ function buildStandings() {
       '</td>' +
     '</tr>';
   }).join('');
+}
+
+// ── 季後賽席次：上半季冠軍 / 下半季冠軍 / 外卡（全年勝率最佳的非半季冠軍）──
+// 同隊包辦兩個半季冠軍時，外卡變兩席（全年第 2、3 名）。下半季開打後才顯示。
+function renderPostseasonSeats(show) {
+  const el = document.getElementById('ps-seats');
+  if (!el) return;
+  if (!show) { el.style.display = 'none'; return; }
+  const teamHtml = name => {
+    const logo = TEAM_LOGO[name] || '';
+    return '<div class="ps-seat-team" style="color:' + getTeamColor(name) + '">' +
+      (logo ? '<img src="' + logo + '" alt="">' : '') + (TEAM_SHORT[name] || name) + '</div>';
+  };
+  const tbdHtml = text => '<div class="ps-seat-team tbd">' + text + '</div>';
+  const shortList = arr => arr.map(x => TEAM_SHORT[x.name] || x.name).join('、');
+  const seat = (label, done, pill, body, note) =>
+    '<div class="ps-seat' + (done ? ' done' : '') + '">' +
+      '<div class="ps-seat-head"><span class="ps-seat-label">' + label + '</span><span class="ps-pill">' + pill + '</span></div>' +
+      body + (note ? '<div class="ps-seat-note">' + note + '</div>' : '') +
+    '</div>';
+
+  // 半季冠軍：已封王 / 該半季打完但勝率同列（交官方判定）/ 爭奪中
+  const halfSeat = (half, label) => {
+    const games = allGames.filter(g => gameHalf(g) === half);
+    const sorted = computeRecords(games);
+    const champ = clinchedHalfChampion(games, sorted);
+    if (champ) return { champ, html: seat(label, true, '已確定', teamHtml(champ), '') };
+    const contenders = halfContenders(games, sorted);
+    const left = contenders.reduce((s, c) => s + c.rem, 0);
+    if (!left) return { champ: null, html: seat(label, false, '待官方判定', tbdHtml('勝率同列'), shortList(contenders) + ' 勝率相同，依官方規則判定') };
+    const lead = sorted[0];
+    return { champ: null, html: seat(label, false, '爭奪中', teamHtml(lead.name),
+      '暫居第一 ' + lead.pct + '・仍有機會：' + contenders.map(c => (TEAM_SHORT[c.name] || c.name) + '（剩 ' + c.rem + '）').join('、')) };
+  };
+  const h1 = halfSeat('first', '上半季冠軍');
+  const h2 = halfSeat('second', '下半季冠軍');
+
+  // 外卡：全年勝率排序，排除兩個半季冠軍（下半季未定時以暫居第一者推算）
+  const full = computeRecords(allGames);
+  const doneSnos = new Set(allGames.filter(g => g.completed).map(g => g.sno));
+  const seasonDone = allGames.every(g => doneSnos.has(g.sno));   // 每個 sno 都有完賽紀錄
+  const h2Pick = h2.champ || computeRecords(allGames.filter(g => gameHalf(g) === 'second'))[0].name;
+  const champs = [...new Set([h1.champ, h2Pick].filter(Boolean))];
+  const wcCount = 3 - champs.length;
+  const pool = full.filter(t => !champs.includes(t.name));
+  const fixed = seasonDone && h1.champ && h2.champ;
+  let wcHtml = '';
+  for (let i = 0; i < wcCount; i++) {
+    const t = pool[i];
+    const label = wcCount > 1 ? '外卡 ' + (i + 1) : '外卡';
+    if (!t) { wcHtml += seat(label, false, '計算中', tbdHtml('—'), ''); continue; }
+    const tieNext = pool[i + 1] && pool[i + 1].pct === t.pct;
+    if (fixed && !tieNext) {
+      wcHtml += seat(label, true, '已確定', teamHtml(t.name), '全年勝率 ' + t.pct);
+    } else if (fixed && tieNext) {
+      wcHtml += seat(label, false, '待官方判定', tbdHtml('勝率同列'), '全年勝率 ' + t.pct + ' 同列，依官方規則判定');
+    } else {
+      wcHtml += seat(label, false, '暫定', teamHtml(t.name),
+        '全年勝率 ' + t.pct + '（扣除半季冠軍後最佳）' + (h2.champ ? '' : '・下半季冠軍底定前會變動'));
+    }
+  }
+  el.innerHTML = h1.html + h2.html + wcHtml;
+  el.classList.toggle('ps-seats-4', wcCount > 1);
+  el.style.display = '';
 }
 
 function bindStandingsTabs() {
@@ -3257,6 +3370,8 @@ function render() {
   if (typeof closeWeatherPopover === 'function') closeWeatherPopover();
   updateOwnershipCounts();
   const list = getFiltered();
+  // 季末回顧「已結束」：最近的比賽排最上面（季中維持原本日期正序）
+  if (statusFilter === 'past' && isSeasonOver()) list.reverse();
   const tbody = document.getElementById('tbody');
   const emptyTable = document.getElementById('empty-table');
   const emptyCard = document.getElementById('empty-card');
@@ -3296,7 +3411,9 @@ function render() {
       ? '還沒有打卡的場次 — 已完賽場次卡片下方點「打卡」開始記錄'
       : ownershipFilter === 'favorites'
         ? '還沒有收藏的場次 — 點未來場次卡片右上角的收藏按鈕開始收藏'
-        : '沒有符合條件的場次';
+        : (statusFilter === 'future' && isSeasonOver())
+          ? '2026 例行賽已全部結束 — 切到「已結束」回顧整季比賽'
+          : '沒有符合條件的場次';
     emptyTable.style.display = '';
     emptyCard.style.display = '';
     return;
@@ -3594,6 +3711,7 @@ document.getElementById('btn-reset').addEventListener('click', function() {
   document.querySelectorAll('#f-status .toggle-btn').forEach(b => b.classList.remove('active'));
   document.querySelector('#f-status .toggle-btn[data-val="future"]').classList.add('active');
   statusFilter = 'future';
+  applySeasonOverDefault();
   document.querySelectorAll('#f-ownership .toggle-btn').forEach(b => b.classList.remove('active'));
   document.querySelector('#f-ownership .toggle-btn[data-val="all"]').classList.add('active');
   ownershipFilter = 'all';
