@@ -153,20 +153,43 @@ svg.section-icon { width: 28px; height: 28px; }
 .standings-caption .champ-team { color: #C2573A; font-weight: 600; }
 /* 半季冠軍標章（僅該半季已打完時出現） */
 .standing-champ { display: inline-flex; align-items: center; gap: 3px; margin-left: 6px; padding: 1px 8px; background: #FDF0E8; border-radius: 10px; font-size: 10px; color: #C2573A; font-weight: 600; letter-spacing: 0.5px; white-space: nowrap; }
-/* 季後賽席次（下半季開打後顯示，與分頁無關） */
-.ps-seats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 16px; }
-.ps-seats.ps-seats-4 { grid-template-columns: repeat(4, 1fr); }
-.ps-seat { background: #FDFAF5; border: 1px solid #F0ECE6; border-radius: 12px; padding: 10px 14px; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
-.ps-seat.done { background: linear-gradient(135deg, #FFF5E8 0%, #FFFCF7 100%); border-color: #F2D5C2; }
-.ps-seat-head { display: flex; align-items: center; justify-content: space-between; gap: 6px; }
-.ps-seat-label { font-size: 11px; color: #9B8E7E; letter-spacing: 0.5px; white-space: nowrap; }
-.ps-pill { padding: 1px 8px; border-radius: 10px; font-size: 10px; font-weight: 600; white-space: nowrap; background: #F2EBDA; color: #9B8E7E; }
-.ps-seat.done .ps-pill { background: #FDF0E8; color: #C2573A; }
-.ps-seat-team { display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600; min-height: 26px; }
-.ps-seat-team img { width: 26px; height: 26px; object-fit: contain; border-radius: 50%; }
-.ps-seat-team.tbd { color: #B8A692; font-weight: 500; font-size: 13px; }
-.ps-seat-note { font-size: 11px; color: #7A6E5E; line-height: 1.5; }
-
+/* 季後賽席次（方案 B 冠軍賽道；下半季開打後顯示，與分頁無關）。欄寬由 JS 依卡片型態寫入 --ps-cols */
+.ps-seats { display: grid; grid-template-columns: var(--ps-cols, repeat(3, 1fr)); gap: 14px; margin-bottom: 18px; }
+.ps-card { background: #FDFAF5; border-radius: 16px; padding: 14px 16px; border: 1.5px solid #F0E6D6; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.ps-card.done { background: color-mix(in srgb, var(--tc) 9%, #FFFAF0); border-color: color-mix(in srgb, var(--tc) 35%, #F0E6D6); }
+.ps-head { display: flex; align-items: center; justify-content: space-between; gap: 6px; }
+.ps-label { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; font-size: 14px; color: #3D3122; letter-spacing: 1px; white-space: nowrap; }
+.ps-pill { font-size: 10px; font-weight: 600; padding: 2px 9px; border-radius: 10px; background: #F2EBDA; color: #9B8E7E; white-space: nowrap; }
+.ps-card.done .ps-pill { background: #C2573A; color: #FFF; }
+.ps-team { display: flex; align-items: center; gap: 12px; }
+.ps-team img { width: 52px; height: 52px; object-fit: contain; }
+.ps-team-name { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; font-size: 22px; letter-spacing: 1px; }
+.ps-team-multi { display: flex; flex-direction: column; gap: 6px; }
+.ps-team-multi .ps-team img { width: 36px; height: 36px; }
+.ps-team-multi .ps-team-name { font-size: 18px; }
+.ps-sub { font-size: 11px; color: #7A6E5E; }
+.ps-lanes { display: flex; flex-direction: column; gap: 9px; margin-top: 2px; }
+.ps-lane { display: grid; grid-template-columns: 26px 118px 1fr 70px; align-items: center; gap: 8px; font-size: 12px; }
+.ps-lane img { width: 24px; height: 24px; object-fit: contain; }
+.ps-lane-name { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ps-tag { display: inline-block; margin-left: 5px; padding: 0 6px; border-radius: 8px; background: #FDF0E8; color: #C2573A; font-size: 9.5px; font-weight: 600; vertical-align: 1px; }
+.ps-track { position: relative; height: 12px; border-radius: 6px; background: #EFE7DA; }
+.ps-range { position: absolute; top: 0; bottom: 0; border-radius: 6px; opacity: .3; }
+.ps-ball { position: absolute; top: 50%; width: 14px; height: 14px; margin: -7px 0 0 -7px; border-radius: 50%; background: #FFF; border: 2px solid var(--tc); box-shadow: 0 1px 2px rgba(0,0,0,.15); }
+.ps-ball::after { content: ''; position: absolute; inset: 2px 3px; border-left: 1.5px solid #C2573A; border-right: 1.5px solid #C2573A; border-radius: 50%; opacity: .7; }
+.ps-line { position: absolute; top: -4px; bottom: -4px; width: 0; border-left: 1.5px dashed #C2573A; }
+.ps-rem { font-size: 11px; color: #9B8E7E; text-align: right; white-space: nowrap; }
+.ps-rem b { color: #4A3728; font-weight: 700; }
+.ps-out { font-size: 10.5px; color: #9B8E7E; line-height: 1.6; }
+.ps-legend { font-size: 10px; color: #B8A692; display: flex; gap: 12px; flex-wrap: wrap; }
+@media (min-width: 769px) and (max-width: 1024px) {
+  .ps-lane { grid-template-columns: 22px 64px 1fr 62px; gap: 6px; }
+  .ps-lane-name { white-space: normal; overflow: visible; line-height: 1.25; }
+  .ps-tag { display: block; width: fit-content; margin: 2px 0 0; }
+  .ps-team img { width: 40px; height: 40px; }
+  .ps-team-name { font-size: 18px; }
+}
+.ps-legend i { display: inline-block; width: 14px; height: 6px; border-radius: 3px; background: #C2573A; opacity: .3; vertical-align: middle; margin-right: 4px; }
 /* ── Filters ── */
 .filters { background: #FDFCFA; padding: 28px 40px 32px; display: flex; flex-direction: column; gap: 16px; }
 .filter-card { background: #FFF; border-radius: 14px; padding: 20px 24px; box-shadow: 0 2px 8px rgba(212,196,171,0.10); }
@@ -456,8 +479,10 @@ button.card-weather.clickable:active { transform: scale(0.96); }
   .section-header-title { font-size: 16px; }
   .standings-tab { padding: 8px 12px 7px; font-size: 12px; }
   .standings-caption { font-size: 11px; }
-  .ps-seats, .ps-seats.ps-seats-4 { grid-template-columns: 1fr; gap: 8px; }
-  .ps-seat { padding: 8px 12px; }
+  .ps-seats { grid-template-columns: 1fr; gap: 10px; }
+  .ps-lane { grid-template-columns: 22px 64px 1fr 62px; gap: 6px; }
+  .ps-lane-name { white-space: normal; overflow: visible; line-height: 1.25; }
+  .ps-tag { display: block; width: fit-content; margin: 2px 0 0; }
   .standings-table th { font-size: 10px; padding: 8px 6px; }
   .standings-table td { padding: 10px 6px; font-size: 13px; }
   .standing-rank { font-size: 13px; width: 28px; }
@@ -2756,69 +2781,189 @@ function buildStandings() {
 }
 
 // ── 季後賽席次：上半季冠軍 / 下半季冠軍 / 外卡（全年勝率最佳的非半季冠軍）──
-// 同隊包辦兩個半季冠軍時，外卡變兩席（全年第 2、3 名）。下半季開打後才顯示。
+// 同隊包辦兩個半季冠軍時外卡變兩席（全年第 2、3 名）。下半季開打後才顯示。
+// 剩餘場次（sno 去重）≤ PS_ENUM_MAX 時窮舉每場勝負（2^n 種），得出各席次「確定 / 仍有機會 / 僅平手情境 / 已無機會」；
+// 平手不替官方判定，只標「僅平手情境」。剩餘更多時（季中）退回各隊獨立的保守範圍估計。
+// 限制：窮舉不含「和局」結果（和局不計勝率分母，影響極小）。
+const PS_ENUM_MAX = 16;
+
+function postseasonOutlook() {
+  const teams = Object.keys(TEAM_LOGO), N = teams.length, idx = {};
+  teams.forEach((t, i) => { idx[t] = i; });
+  const S = { first: 0, second: 1 }, FULL = 2;
+  const W = [0, 1, 2].map(() => new Array(N).fill(0)), L = [0, 1, 2].map(() => new Array(N).fill(0));
+  const done = new Set();
+  allGames.forEach(g => {
+    if (!g.completed) return;
+    done.add(g.sno);
+    if (g.vScore === g.hScore || idx[g.visitor] === undefined || idx[g.home] === undefined) return;
+    const win = idx[g.vScore > g.hScore ? g.visitor : g.home], lose = idx[g.vScore > g.hScore ? g.home : g.visitor];
+    [S[gameHalf(g)], FULL].forEach(k => { W[k][win]++; L[k][lose]++; });
+  });
+  const remBySno = new Map();
+  allGames.forEach(g => { if (!done.has(g.sno) && !remBySno.has(g.sno) && idx[g.visitor] !== undefined && idx[g.home] !== undefined) remBySno.set(g.sno, g); });
+  const rem = [...remBySno.values()].map(g => ({ v: idx[g.visitor], h: idx[g.home], k: S[gameHalf(g)] }));
+  const remCnt = [0, 1, 2].map(() => new Array(N).fill(0));
+  rem.forEach(r => { [r.k, FULL].forEach(k => { remCnt[k][r.v]++; remCnt[k][r.h]++; }); });
+  const out = { teams, W, L, remCnt, remLeft: rem.length, exact: rem.length <= PS_ENUM_MAX };
+  if (!out.exact) return out;
+
+  const pctOf = (w, l, i) => (w[i] + l[i]) ? w[i] / (w[i] + l[i]) : 0;
+  const EPS = 1e-12;
+  const tops = (w, l) => {
+    let m = -1; const p = [];
+    for (let i = 0; i < N; i++) { p[i] = pctOf(w, l, i); if (p[i] > m) m = p[i]; }
+    return p.reduce((a, x, i) => (Math.abs(x - m) < EPS ? (a.push(i), a) : a), []);
+  };
+  const mk = () => ({ strict: new Set(), tie: new Set(), keys: new Set() });
+  const half = [mk(), mk()], wc = mk();
+  const cond = {};   // 下半季冠軍 c2 → Set(外卡結果 key)，只收外卡邊界無平手的情境
+  const w = [0, 1, 2].map(k => W[k].slice()), l = [0, 1, 2].map(k => L[k].slice());
+  for (let mask = 0; mask < (1 << rem.length); mask++) {
+    for (let k = 0; k < 3; k++) for (let i = 0; i < N; i++) { w[k][i] = W[k][i]; l[k][i] = L[k][i]; }
+    for (let j = 0; j < rem.length; j++) {
+      const r = rem[j], win = (mask >> j) & 1 ? r.v : r.h, lose = win === r.v ? r.h : r.v;
+      w[r.k][win]++; l[r.k][lose]++; w[FULL][win]++; l[FULL][lose]++;
+    }
+    const t1 = tops(w[0], l[0]), t2 = tops(w[1], l[1]);
+    [t1, t2].forEach((tp, k) => {
+      if (tp.length === 1) half[k].strict.add(tp[0]); else tp.forEach(i => half[k].tie.add(i));
+      half[k].keys.add(tp.join(','));
+    });
+    t1.forEach(c1 => t2.forEach(c2 => {
+      const pool = [];
+      for (let i = 0; i < N; i++) if (i !== c1 && i !== c2) pool.push([i, pctOf(w[FULL], l[FULL], i)]);
+      pool.sort((a, b) => b[1] - a[1]);
+      const seats = c1 === c2 ? 2 : 1, cut = pool[seats - 1][1];
+      const inn = pool.filter(x => x[1] >= cut - EPS).map(x => x[0]);
+      const clean = inn.length === seats;
+      const strict = clean && t1.length === 1 && t2.length === 1;
+      inn.forEach(i => (strict ? wc.strict : wc.tie).add(i));
+      const key = inn.join(',') + (clean ? '' : '*');
+      wc.keys.add(key);
+      // 「假設 c2 拿下半季冠軍」時的外卡結果：c2 靠平手判定奪冠也算（統一這種只能靠平手的隊伍才有條件句）
+      if (clean && t1.length === 1) (cond[c2] || (cond[c2] = new Set())).add(key);
+    }));
+  }
+  Object.assign(out, { half, wc, cond });
+  return out;
+}
+
 function renderPostseasonSeats(show) {
   const el = document.getElementById('ps-seats');
   if (!el) return;
   if (!show) { el.style.display = 'none'; return; }
-  const teamHtml = name => {
-    const logo = TEAM_LOGO[name] || '';
-    return '<div class="ps-seat-team" style="color:' + getTeamColor(name) + '">' +
-      (logo ? '<img src="' + logo + '" alt="">' : '') + (TEAM_SHORT[name] || name) + '</div>';
-  };
-  const tbdHtml = text => '<div class="ps-seat-team tbd">' + text + '</div>';
-  const shortList = arr => arr.map(x => TEAM_SHORT[x.name] || x.name).join('、');
-  const seat = (label, done, pill, body, note) =>
-    '<div class="ps-seat' + (done ? ' done' : '') + '">' +
-      '<div class="ps-seat-head"><span class="ps-seat-label">' + label + '</span><span class="ps-pill">' + pill + '</span></div>' +
-      body + (note ? '<div class="ps-seat-note">' + note + '</div>' : '') +
-    '</div>';
+  const o = postseasonOutlook();
+  const T = o.teams, N = T.length, FULL = 2;
+  const nm = i => TEAM_SHORT[T[i]] || T[i];
+  const f3 = x => x.toFixed(3).replace(/^0/, '');
+  const pct = (k, i) => (o.W[k][i] + o.L[k][i]) ? o.W[k][i] / (o.W[k][i] + o.L[k][i]) : 0;
+  const range = (k, i) => { const w = o.W[k][i], l = o.L[k][i], r = o.remCnt[k][i], d = w + l + r;
+    return { min: d ? w / d : 0, max: d ? (w + r) / d : 0 }; };
+  const byPct = k => (a, b) => pct(k, b) - pct(k, a);
+  const all = [...Array(N).keys()];
 
-  // 半季冠軍：已封王 / 該半季打完但勝率同列（交官方判定）/ 爭奪中
-  const halfSeat = (half, label) => {
-    const games = allGames.filter(g => gameHalf(g) === half);
+  // 各席次的結果：fixed（確定隊伍 index 陣列）/ lanes（仍有機會，跑道）/ tieOnly / tieDone（打完但同勝率）
+  const halfInfo = k => {
+    if (o.exact) {
+      const h = o.half[k];
+      const fixed = h.keys.size === 1 && h.tie.size === 0 ? [...h.strict] : null;
+      const tieOnly = [...h.tie].filter(i => !h.strict.has(i));
+      const tieDone = !fixed && o.remLeft === 0;
+      return { fixed, lanes: [...(h.strict.size ? h.strict : h.tie)].sort(byPct(k)), tieOnly: h.strict.size ? tieOnly : [], tieDone, maybe: new Set([...h.strict, ...h.tie]) };
+    }
+    const halfName = k === 0 ? 'first' : 'second';
+    const games = allGames.filter(g => gameHalf(g) === halfName);
     const sorted = computeRecords(games);
     const champ = clinchedHalfChampion(games, sorted);
-    if (champ) return { champ, html: seat(label, true, '已確定', teamHtml(champ), '') };
-    const contenders = halfContenders(games, sorted);
-    const left = contenders.reduce((s, c) => s + c.rem, 0);
-    if (!left) return { champ: null, html: seat(label, false, '待官方判定', tbdHtml('勝率同列'), shortList(contenders) + ' 勝率相同，依官方規則判定') };
-    const lead = sorted[0];
-    return { champ: null, html: seat(label, false, '爭奪中', teamHtml(lead.name),
-      '暫居第一 ' + lead.pct + '・仍有機會：' + contenders.map(c => (TEAM_SHORT[c.name] || c.name) + '（剩 ' + c.rem + '）').join('、')) };
+    if (champ) return { fixed: [T.indexOf(champ)], lanes: [], tieOnly: [], tieDone: false, maybe: new Set([T.indexOf(champ)]) };
+    const lanes = halfContenders(games, sorted).map(c => T.indexOf(c.name)).sort(byPct(k));
+    return { fixed: null, lanes, tieOnly: [], tieDone: false, maybe: new Set(lanes) };
   };
-  const h1 = halfSeat('first', '上半季冠軍');
-  const h2 = halfSeat('second', '下半季冠軍');
+  const h1 = halfInfo(0), h2 = halfInfo(1);
+  const dbl = h1.fixed && h2.fixed && h1.fixed[0] === h2.fixed[0];
+  const champsFixed = new Set([...(h1.fixed || []), ...(h2.fixed || [])]);
 
-  // 外卡：全年勝率排序，排除兩個半季冠軍（下半季未定時以暫居第一者推算）
-  const full = computeRecords(allGames);
-  const doneSnos = new Set(allGames.filter(g => g.completed).map(g => g.sno));
-  const seasonDone = allGames.every(g => doneSnos.has(g.sno));   // 每個 sno 都有完賽紀錄
-  const h2Pick = h2.champ || computeRecords(allGames.filter(g => gameHalf(g) === 'second'))[0].name;
-  const champs = [...new Set([h1.champ, h2Pick].filter(Boolean))];
-  const wcCount = 3 - champs.length;
-  const pool = full.filter(t => !champs.includes(t.name));
-  const fixed = seasonDone && h1.champ && h2.champ;
-  let wcHtml = '';
-  for (let i = 0; i < wcCount; i++) {
-    const t = pool[i];
-    const label = wcCount > 1 ? '外卡 ' + (i + 1) : '外卡';
-    if (!t) { wcHtml += seat(label, false, '計算中', tbdHtml('—'), ''); continue; }
-    const tieNext = pool[i + 1] && pool[i + 1].pct === t.pct;
-    if (fixed && !tieNext) {
-      wcHtml += seat(label, true, '已確定', teamHtml(t.name), '全年勝率 ' + t.pct);
-    } else if (fixed && tieNext) {
-      wcHtml += seat(label, false, '待官方判定', tbdHtml('勝率同列'), '全年勝率 ' + t.pct + ' 同列，依官方規則判定');
-    } else {
-      wcHtml += seat(label, false, '暫定', teamHtml(t.name),
-        '全年勝率 ' + t.pct + '（扣除半季冠軍後最佳）' + (h2.champ ? '' : '・下半季冠軍底定前會變動'));
-    }
+  let wcI;
+  if (o.exact) {
+    const keys = [...o.wc.keys];
+    const fixed = keys.length === 1 && !keys[0].endsWith('*') ? keys[0].split(',').map(Number) : null;
+    const maybe = new Set([...o.wc.strict, ...o.wc.tie]);
+    wcI = { fixed, lanes: [...(o.wc.strict.size ? o.wc.strict : o.wc.tie)].sort(byPct(FULL)),
+      tieOnly: o.wc.strict.size ? [...o.wc.tie].filter(i => !o.wc.strict.has(i)) : [],
+      tieDone: !fixed && o.remLeft === 0,
+      out: all.filter(i => !maybe.has(i) && !champsFixed.has(i)) };
+  } else {
+    // 保守估計：被兩隊以上「保底勝率 > 自己最佳勝率」壓住才算出局（其中一隊可能是半季冠軍）
+    const pool = all.filter(i => !champsFixed.has(i));
+    const lanes = pool.filter(i => pool.filter(j => j !== i && range(FULL, j).min > range(FULL, i).max).length < 2).sort(byPct(FULL));
+    wcI = { fixed: null, lanes, tieOnly: [], tieDone: false, out: [] };
   }
-  el.innerHTML = h1.html + h2.html + wcHtml;
-  el.classList.toggle('ps-seats-4', wcCount > 1);
+
+  // ── HTML ──
+  const pill = t => '<span class="ps-pill">' + t + '</span>';
+  const head = (label, p) => '<div class="ps-head"><span class="ps-label">' + label + '</span>' + p + '</div>';
+  const teamBlock = (i, sub) => '<div class="ps-team"><img src="' + (TEAM_LOGO[T[i]] || '') + '" alt=""><div>' +
+    '<div class="ps-team-name" style="color:' + getTeamColor(T[i]) + '">' + nm(i) + '</div>' +
+    (sub ? '<div class="ps-sub">' + sub + '</div>' : '') + '</div></div>';
+  const doneCard = (label, ids, subFn) =>
+    '<div class="ps-card done" style="--tc:' + getTeamColor(T[ids[0]]) + '">' + head(label, pill('已確定')) +
+    (ids.length > 1 ? '<div class="ps-team-multi">' + ids.map(i => teamBlock(i, subFn(i))).join('') + '</div>' : teamBlock(ids[0], subFn(ids[0]))) + '</div>';
+  const tieCard = (label, ids) => '<div class="ps-card">' + head(label, pill('待官方判定')) +
+    '<div class="ps-sub">' + ids.map(nm).join('、') + ' 勝率同列，依官方規則判定</div></div>';
+  const raceCard = (label, k, lanes, opts) => {
+    if (!lanes.length) return '<div class="ps-card">' + head(label, pill('計算中')) + '</div>';
+    // 季中（保守估計）時機會隊伍多，只畫前 4 條，其餘列一行
+    const PS_MAX_LANES = 4;
+    const extra = lanes.slice(PS_MAX_LANES);
+    lanes = lanes.slice(0, PS_MAX_LANES);
+    const rows = lanes.map(i => Object.assign({ i, cur: pct(k, i), rem: o.remCnt[k][i] }, range(k, i)));
+    let lo = Math.min(...rows.map(r => r.min)) - 0.02, hi = Math.max(...rows.map(r => r.max)) + 0.02;
+    if (hi - lo < 0.05) { lo -= 0.025; hi += 0.025; }
+    const x = v => ((v - lo) / (hi - lo) * 100).toFixed(1) + '%';
+    const floor = rows[0].min;
+    const laneHtml = rows.map(r => {
+      const c = getTeamColor(T[r.i]);
+      return '<div class="ps-lane" style="--tc:' + c + '"><img src="' + (TEAM_LOGO[T[r.i]] || '') + '" alt="">' +
+        '<span class="ps-lane-name" style="color:' + c + '">' + nm(r.i) + (opts.tag && opts.tag(r.i) ? '<span class="ps-tag">' + opts.tag(r.i) + '</span>' : '') + '</span>' +
+        '<div class="ps-track"><div class="ps-range" style="left:' + x(r.min) + ';width:calc(' + x(r.max) + ' - ' + x(r.min) + ');background:' + c + '"></div>' +
+        '<div class="ps-line" style="left:' + x(floor) + '"></div><div class="ps-ball" style="left:' + x(r.cur) + '"></div></div>' +
+        '<span class="ps-rem"><b>' + f3(r.cur) + '</b> 剩 ' + r.rem + '</span></div>';
+    }).join('');
+    const notes = [extra.length ? '另有 ' + extra.map(nm).join('、') + ' 仍有機會' : '', ...(opts.notes || [])].filter(Boolean);
+    return '<div class="ps-card">' + head(label, pill('爭奪中')) +
+      (opts.sub ? '<div class="ps-sub">' + opts.sub + '</div>' : '') +
+      '<div class="ps-lanes">' + laneHtml + '</div>' +
+      (notes.length ? '<div class="ps-out">' + notes.join('<br>') + '</div>' : '') +
+      '<div class="ps-legend"><span><i></i>剩餘全勝～全敗的勝率範圍</span><span>白球 = 目前勝率</span><span>虛線 = ' + opts.floorLabel + '</span></div></div>';
+  };
+  const tieNote = ids => ids.length ? '僅平手情境：' + ids.map(nm).join('、') + '（同勝率時依官方規則判定）' : '';
+  const cards = [];   // [html, 欄寬]
+  [[h1, 0, '上半季冠軍', '上半季'], [h2, 1, '下半季冠軍', '下半季']].forEach(([h, k, label, short]) => {
+    if (h.fixed) cards.push([doneCard(label, h.fixed, i => short + ' ' + o.W[k][i] + '-' + o.L[k][i] + ' · ' + f3(pct(k, i))), '0.9fr']);
+    else if (h.tieDone) cards.push([tieCard(label, h.lanes), '1fr']);
+    else cards.push([raceCard(label, k, h.lanes, { floorLabel: '領先者保底', notes: [tieNote(h.tieOnly)] }), '1.5fr']);
+  });
+  const wcLabel = dbl ? '外卡 ×2' : '外卡';
+  if (wcI.fixed) cards.push([doneCard(wcLabel, wcI.fixed, i => '全年勝率 ' + f3(pct(FULL, i))), '0.9fr']);
+  else if (wcI.tieDone) cards.push([tieCard(wcLabel, wcI.lanes), '1fr']);
+  else {
+    const h2Open = !h2.fixed;
+    const condNotes = o.exact && h2Open ? wcI.lanes.filter(i => o.cond[i] && o.cond[i].size === 1).map(i => {
+      const key = [...o.cond[i]][0];
+      return '若' + nm(i) + '奪下半季冠軍，外卡為' + key.split(',').map(Number).map(nm).join('、');
+    }) : [];
+    cards.push([raceCard(wcLabel, FULL, wcI.lanes, {
+      sub: '全年勝率，扣除半季冠軍',
+      floorLabel: '暫居外卡者保底',
+      tag: i => (h2Open && h2.maybe.has(i)) ? '爭下半季' : '',
+      notes: [...condNotes, tieNote(wcI.tieOnly), wcI.out.length ? '已無機會：' + wcI.out.map(nm).join('、') : '']
+    }), '1.5fr']);
+  }
+  el.innerHTML = cards.map(c => c[0]).join('');
+  el.style.setProperty('--ps-cols', cards.map(c => c[1]).join(' '));
   el.style.display = '';
 }
-
 function bindStandingsTabs() {
   if (standingsTabsBound) return;
   const tabs = document.getElementById('standings-tabs');
