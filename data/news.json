@@ -1,7 +1,18 @@
 {
-    "updated":  "2026-10-02T16:56:02+08:00",
+    "updated":  "2026-10-02T17:56:01+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "中職》拚逆轉兄弟！猿鷹明晚先發投手出爐 樂天迎來最大考驗",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5593420",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-02T16:57:42+08:00",
+                      "teams":  [
+                                    "中信兄弟",
+                                    "樂天桃猿",
+                                    "台鋼雄鷹"
+                                ]
+                  },
                   {
                       "title":  "中職》最快明封王戰！兄弟富邦宣布先發投手 新莊可望滿場",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5593401",
@@ -77,21 +88,21 @@
                                 ]
                   },
                   {
-                      "title":  "龍在大巨蛋搶冠 5主場票房估破2億",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1772988",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-10-02T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
                       "title":  "邱智呈致勝一擊 獅最快今晉級",
                       "url":  "https://sports.ltn.com.tw/news/paper/1772990",
                       "source":  "自由時報",
                       "pubDate":  "2026-10-02T05:30:00+08:00",
                       "teams":  [
                                     "統一7-ELEVEn獅"
+                                ]
+                  },
+                  {
+                      "title":  "龍在大巨蛋搶冠 5主場票房估破2億",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1772988",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-02T05:30:00+08:00",
+                      "teams":  [
+
                                 ]
                   },
                   {
@@ -500,6 +511,15 @@
                                 ]
                   },
                   {
+                      "title":  "味全龍年度第一 奪台灣大賽門票",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1772819",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-01T05:30:00+08:00",
+                      "teams":  [
+                                    "味全龍"
+                                ]
+                  },
+                  {
                       "title":  "兄弟齊心射鷹 領先猿1.5場勝差",
                       "url":  "https://sports.ltn.com.tw/news/paper/1772821",
                       "source":  "自由時報",
@@ -508,15 +528,6 @@
                                     "中信兄弟",
                                     "樂天桃猿",
                                     "台鋼雄鷹"
-                                ]
-                  },
-                  {
-                      "title":  "味全龍年度第一 奪台灣大賽門票",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1772819",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-10-01T05:30:00+08:00",
-                      "teams":  [
-                                    "味全龍"
                                 ]
                   },
                   {
@@ -912,16 +923,6 @@
                       "pubDate":  "2026-09-29T18:01:00+08:00",
                       "teams":  [
 
-                                ]
-                  },
-                  {
-                      "title":  "拚季後賽資格獅隊30日派林詔恩先發　悍將洋投魔力藍迎戰",
-                      "url":  "https://www.cna.com.tw/news/aspt/202609290209.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-09-29T16:22:53+08:00",
-                      "teams":  [
-                                    "統一7-ELEVEn獅",
-                                    "富邦悍將"
                                 ]
                   }
               ]
