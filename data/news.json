@@ -1,7 +1,209 @@
 {
-    "updated":  "2026-10-01T18:53:09+08:00",
+    "updated":  "2026-10-02T10:57:00+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "味全龍鎖定年度第一再放大招　5場台灣大賽主場全進大巨蛋",
+                      "url":  "https://sports.ettoday.net/news/3247579",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-10-02T09:25:00+08:00",
+                      "teams":  [
+                                    "味全龍"
+                                ]
+                  },
+                  {
+                      "title":  "長文專訪／大阪飛回天母完成最後一舞　口水告別小龍女6年青春「畫下逗點」",
+                      "url":  "https://sports.ettoday.net/news/3247509",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-10-02T07:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "龍在大巨蛋搶冠 5主場票房估破2億",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1772988",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-02T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "艾菩樂扛7局救猿 緊咬兄弟1場",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1772989",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-02T05:30:00+08:00",
+                      "teams":  [
+                                    "中信兄弟",
+                                    "樂天桃猿"
+                                ]
+                  },
+                  {
+                      "title":  "邱智呈致勝一擊 獅最快今晉級",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1772990",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-02T05:30:00+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅"
+                                ]
+                  },
+                  {
+                      "title":  "統一M1！邱智呈9局送回致勝分　喊話剩下3場「全數拿下」",
+                      "url":  "https://sports.ettoday.net/news/3247473",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-10-01T23:15:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "中職》無緣刷新蕭任汶25年大紀錄  蔣銲一點都不在意",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5592608",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-01T22:35:39+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "不在意無法改寫中職紀錄　蔣銲：因為我喜歡棒球",
+                      "url":  "https://www.cna.com.tw/news/aspt/202610010381.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-10-01T22:34:44+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "中職》蔣銲強調第4局未受好壞球判決動怒  但林岳平有不同看法",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5592602",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-01T22:25:22+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "中職》拿下季後賽門票只差最後一步  餅總向全隊溫情喊話",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5592594",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-01T22:12:02+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "獅隊打碎蔣銲防禦率紀錄　更靠近季後賽一步[影]",
+                      "url":  "https://www.cna.com.tw/news/aspt/202610010377.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-10-01T22:08:35+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅"
+                                ]
+                  },
+                  {
+                      "title":  "統一季後賽M1！餅總喊「再忍耐一下」　布雷克3日扛亞太關鍵戰",
+                      "url":  "https://sports.ettoday.net/news/3247472",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-10-01T22:04:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "桃猿不放棄！2比1險勝台鋼　下半季爭冠戰再燃戰火",
+                      "url":  "https://sports.ettoday.net/news/3247461",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-10-01T21:33:00+08:00",
+                      "teams":  [
+                                    "樂天桃猿",
+                                    "台鋼雄鷹"
+                                ]
+                  },
+                  {
+                      "title":  "中職》樂天驚險奪重要勝利 兄弟最新封王劇本出爐！",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5592565",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-01T21:23:46+08:00",
+                      "teams":  [
+                                    "中信兄弟",
+                                    "樂天桃猿"
+                                ]
+                  },
+                  {
+                      "title":  "中職》爭冠期打線綁手綁腳 樂天雙殺打連發平隊史紀錄",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5592560",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-01T21:14:41+08:00",
+                      "teams":  [
+                                    "樂天桃猿"
+                                ]
+                  },
+                  {
+                      "title":  "中職》統一獅拿下巨大的勝利  富邦悍將打進季後賽機會銳減",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5592553",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-01T21:14:26+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅",
+                                    "富邦悍將"
+                                ]
+                  },
+                  {
+                      "title":  "蔣銲「126球」拼到最後恐仍無緣神紀錄！　統一勝味全季後賽只差1步",
+                      "url":  "https://sports.ettoday.net/news/3247441",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-10-01T21:06:00+08:00",
+                      "teams":  [
+                                    "味全龍"
+                                ]
+                  },
+                  {
+                      "title":  "中職》蔣銲退場保住防禦率王  布雷克投10局0失分才能超越",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5592544",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-01T20:57:23+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "徐若熙重返一軍中繼1局無失分　飆速157公里",
+                      "url":  "https://www.cna.com.tw/news/aspt/202610010344.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-10-01T20:12:19+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "蔣銲拚破25年神紀錄遭重擊！　滿壘「關鍵好球帶判決」氣到怒吼",
+                      "url":  "https://sports.ettoday.net/news/3247430",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-10-01T19:50:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "從找人失敗到王鏡銘挺身而出　餅總揭統一傷兵潮下的戰力哲學",
+                      "url":  "https://sports.ettoday.net/news/3247394",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-10-01T18:40:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "郭天信低潮期龍隊9勝16敗　葉君璋不擔心：他能幫球隊",
+                      "url":  "https://www.cna.com.tw/news/aspt/202610010298.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-10-01T18:18:41+08:00",
+                      "teams":  [
+                                    "味全龍"
+                                ]
+                  },
                   {
                       "title":  "中職》戰將出走、傷兵滿營  餅總點出猛獅依舊強盛的關鍵",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5592384",
@@ -12,6 +214,24 @@
                                 ]
                   },
                   {
+                      "title":  "味全龍備戰台灣大賽排3場實戰　曾仁和右肩夾擠今年恐提前收工",
+                      "url":  "https://sports.ettoday.net/news/3247378",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-10-01T18:15:00+08:00",
+                      "teams":  [
+                                    "味全龍"
+                                ]
+                  },
+                  {
+                      "title":  "蔣銲今挑戰蕭任汶25年紀錄不避戰！　葉君璋曝洋投「自己選」",
+                      "url":  "https://sports.ettoday.net/news/3247354",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-10-01T17:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "中職》慘痛2連敗將優勢讓給兄弟 樂天桃猿做出球員異動！",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5592316",
                       "source":  "自由時報",
@@ -19,6 +239,15 @@
                       "teams":  [
                                     "中信兄弟",
                                     "樂天桃猿"
+                                ]
+                  },
+                  {
+                      "title":  "味全直闖台灣大賽卻少隊長？　葉總談吉力吉撈：「沒調好就沒辦法」",
+                      "url":  "https://sports.ettoday.net/news/3247300",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-10-01T17:15:00+08:00",
+                      "teams":  [
+                                    "味全龍"
                                 ]
                   },
                   {
@@ -215,6 +444,15 @@
                                 ]
                   },
                   {
+                      "title":  "味全龍年度第一 奪台灣大賽門票",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1772819",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-01T05:30:00+08:00",
+                      "teams":  [
+                                    "味全龍"
+                                ]
+                  },
+                  {
                       "title":  "兄弟齊心射鷹 領先猿1.5場勝差",
                       "url":  "https://sports.ltn.com.tw/news/paper/1772821",
                       "source":  "自由時報",
@@ -223,15 +461,6 @@
                                     "中信兄弟",
                                     "樂天桃猿",
                                     "台鋼雄鷹"
-                                ]
-                  },
-                  {
-                      "title":  "味全龍年度第一 奪台灣大賽門票",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1772819",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-10-01T05:30:00+08:00",
-                      "teams":  [
-                                    "味全龍"
                                 ]
                   },
                   {
@@ -586,21 +815,21 @@
                                 ]
                   },
                   {
-                      "title":  "猿象下半季爭冠 最快10.3解答",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1772719",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-30T05:30:00+08:00",
-                      "teams":  [
-                                    "樂天桃猿"
-                                ]
-                  },
-                  {
                       "title":  "李東洺拚勝投王 梅賽鍶當追兵",
                       "url":  "https://sports.ltn.com.tw/news/paper/1772720",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-30T05:30:00+08:00",
                       "teams":  [
 
+                                ]
+                  },
+                  {
+                      "title":  "猿象下半季爭冠 最快10.3解答",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1772719",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-30T05:30:00+08:00",
+                      "teams":  [
+                                    "樂天桃猿"
                                 ]
                   },
                   {
@@ -692,239 +921,6 @@
                       "pubDate":  "2026-09-29T08:16:05+08:00",
                       "teams":  [
                                     "中信兄弟"
-                                ]
-                  },
-                  {
-                      "title":  "猿遭獅反咬 首位又讓出",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1772586",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-29T05:30:00+08:00",
-                      "teams":  [
-                                    "統一7-ELEVEn獅",
-                                    "樂天桃猿"
-                                ]
-                  },
-                  {
-                      "title":  "曾頌恩9打點 兄弟奪回下半季龍頭",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1772584",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-29T05:30:00+08:00",
-                      "teams":  [
-                                    "中信兄弟"
-                                ]
-                  },
-                  {
-                      "title":  "郭天信助殺本壘 擋下悍將追平",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1772585",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-29T05:30:00+08:00",
-                      "teams":  [
-                                    "富邦悍將"
-                                ]
-                  },
-                  {
-                      "title":  "中職》統一獅逆轉勝樂天桃猿 林岳平：很難得看到陳冠宇關鍵時刻也會miss",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5588859",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-28T22:09:20+08:00",
-                      "teams":  [
-                                    "統一7-ELEVEn獅",
-                                    "樂天桃猿"
-                                ]
-                  },
-                  {
-                      "title":  "中職》統一獅神奇逆轉秀 7：4擊敗樂天桃猿",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5588854",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-28T22:02:09+08:00",
-                      "teams":  [
-                                    "統一7-ELEVEn獅",
-                                    "樂天桃猿"
-                                ]
-                  },
-                  {
-                      "title":  "「哪怕高飛犧牲打也好」　陳聖平10局敲超前安：只想為球隊貢獻",
-                      "url":  "https://sports.ettoday.net/news/3245408",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-09-28T21:59:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "曾頌恩雙響砲單場9打點寫紀錄　兄弟重返下半季龍頭",
-                      "url":  "https://www.cna.com.tw/news/aspt/202609280232.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-09-28T21:58:34+08:00",
-                      "teams":  [
-                                    "中信兄弟"
-                                ]
-                  },
-                  {
-                      "title":  "龍隊全年度勝率第一最快30日確定　總教練：越來越有季後賽感覺",
-                      "url":  "https://www.cna.com.tw/news/aspt/202609280230.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-09-28T21:49:30+08:00",
-                      "teams":  [
-                                    "味全龍"
-                                ]
-                  },
-                  {
-                      "title":  "中職》唯一出局是遭對手美技沒收長打 王順和仍開轟助隊止敗",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5588843",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-28T21:48:21+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "統一逆轉藏「無安打英雄」！林祖傑滿壘兩打席全保送　餅總直接點名",
-                      "url":  "https://sports.ettoday.net/news/3245407",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-09-28T21:42:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "滿壘關鍵球陳冠宇沒傳本壘！　餅總驚訝：台灣最優秀後援左投也會miss",
-                      "url":  "https://sports.ettoday.net/news/3245400",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-09-28T21:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "王順和開轟單場雙安分享金句　有野心遇挫折不輕易被打敗",
-                      "url":  "https://www.cna.com.tw/news/aspt/202609280226.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-09-28T21:24:16+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "王順和兩分砲領軍！味全4比2退富邦　全年勝率第一M1",
-                      "url":  "https://sports.ettoday.net/news/3245399",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-09-28T21:24:00+08:00",
-                      "teams":  [
-                                    "富邦悍將",
-                                    "味全龍"
-                                ]
-                  },
-                  {
-                      "title":  "曾頌恩雙響9打點破本土紀錄！兄弟19比10轟退台鋼　迅速重返第一",
-                      "url":  "https://sports.ettoday.net/news/3245398",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-09-28T21:16:00+08:00",
-                      "teams":  [
-                                    "中信兄弟",
-                                    "台鋼雄鷹"
-                                ]
-                  },
-                  {
-                      "title":  "中職》味全險勝富邦終止4連敗 葉總：有季後賽感覺",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5588829",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-28T21:10:21+08:00",
-                      "teams":  [
-                                    "富邦悍將",
-                                    "味全龍"
-                                ]
-                  },
-                  {
-                      "title":  "統一演神奇逆轉秀！9局追平、10局一口氣灌4分　斬斷桃猿6連勝",
-                      "url":  "https://sports.ettoday.net/news/3245365",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-09-28T21:06:00+08:00",
-                      "teams":  [
-                                    "樂天桃猿"
-                                ]
-                  },
-                  {
-                      "title":  "中職》和台鋼打到19：10！曾頌恩9打點破本土紀錄 兄弟羅戈奪下最幸福的第11勝",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5588821",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-28T21:01:17+08:00",
-                      "teams":  [
-                                    "中信兄弟",
-                                    "台鋼雄鷹"
-                                ]
-                  },
-                  {
-                      "title":  "中職》味全擊敗富邦終止4連敗 鎖定全年龍頭王座",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5588808",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-28T20:45:42+08:00",
-                      "teams":  [
-                                    "富邦悍將",
-                                    "味全龍"
-                                ]
-                  },
-                  {
-                      "title":  "中職》生涯首次單季20中繼 蘇俊璋：出賽機會增加愈投愈有信心",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5588784",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-28T20:07:22+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "林佾葳抗韓「驚奇旅程」投出身價！吸引日韓職目光",
-                      "url":  "https://sports.ettoday.net/news/3245372",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-09-28T19:15:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "「結果不能控制」桃猿舒治浩愈投愈有膽　滿壘拆彈只想把氣勢守住",
-                      "url":  "https://sports.ettoday.net/news/3245323",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-09-28T19:10:00+08:00",
-                      "teams":  [
-                                    "樂天桃猿"
-                                ]
-                  },
-                  {
-                      "title":  "舒治浩滿壘拆彈奪生涯首座MVP　曾豪駒讚牛棚頂住兩大傷兵缺口",
-                      "url":  "https://sports.ettoday.net/news/3245313",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-09-28T16:50:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "張祐銘果斷出棒連2戰開轟　扛指定打擊更能清楚思考策略",
-                      "url":  "https://www.cna.com.tw/news/aspt/202609280162.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-09-28T16:46:53+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "桃猿6連勝登下半季龍頭！曾豪駒不亂輪值　邱駿威轉回牛棚待命",
-                      "url":  "https://sports.ettoday.net/news/3245308",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-09-28T16:35:00+08:00",
-                      "teams":  [
-                                    "樂天桃猿"
-                                ]
-                  },
-                  {
-                      "title":  "陳晨威30日回歸樂天打線！今先現身球場　猿隊6連勝登頂陣容再完整",
-                      "url":  "https://sports.ettoday.net/news/3245304",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-09-28T16:25:00+08:00",
-                      "teams":  [
-                                    "樂天桃猿"
                                 ]
                   }
               ]
