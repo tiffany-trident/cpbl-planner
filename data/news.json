@@ -1,5 +1,5 @@
 {
-    "updated":  "2026-10-02T14:56:01+08:00",
+    "updated":  "2026-10-02T15:56:02+08:00",
     "count":  100,
     "items":  [
                   {
@@ -30,7 +30,7 @@
                                 ]
                   },
                   {
-                      "title":  "哈里斯3分砲建功　勇士淘汰費城人將戰衛冕軍道奇",
+                      "title":  "哈里斯3分砲建功　勇士淘汰費城人將戰衛冕軍道奇[影]",
                       "url":  "https://www.cna.com.tw/news/aspt/202610020113.aspx",
                       "source":  "中央社",
                       "pubDate":  "2026-10-02T12:52:13+08:00",
@@ -57,12 +57,13 @@
                                 ]
                   },
                   {
-                      "title":  "龍在大巨蛋搶冠 5主場票房估破2億",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1772988",
+                      "title":  "艾菩樂扛7局救猿 緊咬兄弟1場",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1772989",
                       "source":  "自由時報",
                       "pubDate":  "2026-10-02T05:30:00+08:00",
                       "teams":  [
-
+                                    "中信兄弟",
+                                    "樂天桃猿"
                                 ]
                   },
                   {
@@ -75,13 +76,12 @@
                                 ]
                   },
                   {
-                      "title":  "艾菩樂扛7局救猿 緊咬兄弟1場",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1772989",
+                      "title":  "龍在大巨蛋搶冠 5主場票房估破2億",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1772988",
                       "source":  "自由時報",
                       "pubDate":  "2026-10-02T05:30:00+08:00",
                       "teams":  [
-                                    "中信兄弟",
-                                    "樂天桃猿"
+
                                 ]
                   },
                   {
@@ -480,14 +480,13 @@
                                 ]
                   },
                   {
-                      "title":  "兄弟齊心射鷹 領先猿1.5場勝差",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1772821",
+                      "title":  "陳聖平轟悍將 獅盤據年度第2",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1772820",
                       "source":  "自由時報",
                       "pubDate":  "2026-10-01T05:30:00+08:00",
                       "teams":  [
-                                    "中信兄弟",
-                                    "樂天桃猿",
-                                    "台鋼雄鷹"
+                                    "統一7-ELEVEn獅",
+                                    "富邦悍將"
                                 ]
                   },
                   {
@@ -500,13 +499,14 @@
                                 ]
                   },
                   {
-                      "title":  "陳聖平轟悍將 獅盤據年度第2",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1772820",
+                      "title":  "兄弟齊心射鷹 領先猿1.5場勝差",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1772821",
                       "source":  "自由時報",
                       "pubDate":  "2026-10-01T05:30:00+08:00",
                       "teams":  [
-                                    "統一7-ELEVEn獅",
-                                    "富邦悍將"
+                                    "中信兄弟",
+                                    "樂天桃猿",
+                                    "台鋼雄鷹"
                                 ]
                   },
                   {
@@ -851,21 +851,21 @@
                                 ]
                   },
                   {
-                      "title":  "猿象下半季爭冠 最快10.3解答",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1772719",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-30T05:30:00+08:00",
-                      "teams":  [
-                                    "樂天桃猿"
-                                ]
-                  },
-                  {
                       "title":  "李東洺拚勝投王 梅賽鍶當追兵",
                       "url":  "https://sports.ltn.com.tw/news/paper/1772720",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-30T05:30:00+08:00",
                       "teams":  [
 
+                                ]
+                  },
+                  {
+                      "title":  "猿象下半季爭冠 最快10.3解答",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1772719",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-30T05:30:00+08:00",
+                      "teams":  [
+                                    "樂天桃猿"
                                 ]
                   },
                   {
