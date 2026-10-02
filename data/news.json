@@ -1,5 +1,5 @@
 {
-    "updated":  "2026-10-02T11:56:04+08:00",
+    "updated":  "2026-10-02T12:56:03+08:00",
     "count":  100,
     "items":  [
                   {
@@ -21,12 +21,12 @@
                                 ]
                   },
                   {
-                      "title":  "邱智呈致勝一擊 獅最快今晉級",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1772990",
+                      "title":  "龍在大巨蛋搶冠 5主場票房估破2億",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1772988",
                       "source":  "自由時報",
                       "pubDate":  "2026-10-02T05:30:00+08:00",
                       "teams":  [
-                                    "統一7-ELEVEn獅"
+
                                 ]
                   },
                   {
@@ -40,12 +40,12 @@
                                 ]
                   },
                   {
-                      "title":  "龍在大巨蛋搶冠 5主場票房估破2億",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1772988",
+                      "title":  "邱智呈致勝一擊 獅最快今晉級",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1772990",
                       "source":  "自由時報",
                       "pubDate":  "2026-10-02T05:30:00+08:00",
                       "teams":  [
-
+                                    "統一7-ELEVEn獅"
                                 ]
                   },
                   {
@@ -444,13 +444,12 @@
                                 ]
                   },
                   {
-                      "title":  "陳聖平轟悍將 獅盤據年度第2",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1772820",
+                      "title":  "味全龍年度第一 奪台灣大賽門票",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1772819",
                       "source":  "自由時報",
                       "pubDate":  "2026-10-01T05:30:00+08:00",
                       "teams":  [
-                                    "統一7-ELEVEn獅",
-                                    "富邦悍將"
+                                    "味全龍"
                                 ]
                   },
                   {
@@ -465,12 +464,13 @@
                                 ]
                   },
                   {
-                      "title":  "味全龍年度第一 奪台灣大賽門票",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1772819",
+                      "title":  "陳聖平轟悍將 獅盤據年度第2",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1772820",
                       "source":  "自由時報",
                       "pubDate":  "2026-10-01T05:30:00+08:00",
                       "teams":  [
-                                    "味全龍"
+                                    "統一7-ELEVEn獅",
+                                    "富邦悍將"
                                 ]
                   },
                   {
@@ -815,21 +815,21 @@
                                 ]
                   },
                   {
-                      "title":  "猿象下半季爭冠 最快10.3解答",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1772719",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-30T05:30:00+08:00",
-                      "teams":  [
-                                    "樂天桃猿"
-                                ]
-                  },
-                  {
                       "title":  "李東洺拚勝投王 梅賽鍶當追兵",
                       "url":  "https://sports.ltn.com.tw/news/paper/1772720",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-30T05:30:00+08:00",
                       "teams":  [
 
+                                ]
+                  },
+                  {
+                      "title":  "猿象下半季爭冠 最快10.3解答",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1772719",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-09-30T05:30:00+08:00",
+                      "teams":  [
+                                    "樂天桃猿"
                                 ]
                   },
                   {
