@@ -1,7 +1,16 @@
 {
-    "updated":  "2026-10-02T12:56:03+08:00",
+    "updated":  "2026-10-02T13:56:03+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "中職》曾和大谷翔平當隊友！兄弟洋投受訪談旅台經歷 揭更勝美職之處",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5593066",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-02T13:31:55+08:00",
+                      "teams":  [
+                                    "中信兄弟"
+                                ]
+                  },
                   {
                       "title":  "味全龍鎖定年度第一再放大招　5場台灣大賽主場全進大巨蛋",
                       "url":  "https://sports.ettoday.net/news/3247579",
@@ -30,6 +39,15 @@
                                 ]
                   },
                   {
+                      "title":  "邱智呈致勝一擊 獅最快今晉級",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1772990",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-02T05:30:00+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅"
+                                ]
+                  },
+                  {
                       "title":  "艾菩樂扛7局救猿 緊咬兄弟1場",
                       "url":  "https://sports.ltn.com.tw/news/paper/1772989",
                       "source":  "自由時報",
@@ -37,15 +55,6 @@
                       "teams":  [
                                     "中信兄弟",
                                     "樂天桃猿"
-                                ]
-                  },
-                  {
-                      "title":  "邱智呈致勝一擊 獅最快今晉級",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1772990",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-10-02T05:30:00+08:00",
-                      "teams":  [
-                                    "統一7-ELEVEn獅"
                                 ]
                   },
                   {
@@ -444,6 +453,16 @@
                                 ]
                   },
                   {
+                      "title":  "陳聖平轟悍將 獅盤據年度第2",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1772820",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-01T05:30:00+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅",
+                                    "富邦悍將"
+                                ]
+                  },
+                  {
                       "title":  "味全龍年度第一 奪台灣大賽門票",
                       "url":  "https://sports.ltn.com.tw/news/paper/1772819",
                       "source":  "自由時報",
@@ -461,16 +480,6 @@
                                     "中信兄弟",
                                     "樂天桃猿",
                                     "台鋼雄鷹"
-                                ]
-                  },
-                  {
-                      "title":  "陳聖平轟悍將 獅盤據年度第2",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1772820",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-10-01T05:30:00+08:00",
-                      "teams":  [
-                                    "統一7-ELEVEn獅",
-                                    "富邦悍將"
                                 ]
                   },
                   {
@@ -910,15 +919,6 @@
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5589066",
                       "source":  "自由時報",
                       "pubDate":  "2026-09-29T09:40:44+08:00",
-                      "teams":  [
-                                    "中信兄弟"
-                                ]
-                  },
-                  {
-                      "title":  "棒球》台灣大賽奪優秀球員！前兄弟強投殺翻中國 5局無失分6K率隊奪冠",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5588993",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-29T08:16:05+08:00",
                       "teams":  [
                                     "中信兄弟"
                                 ]
