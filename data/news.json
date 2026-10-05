@@ -1,7 +1,80 @@
 {
-    "updated":  "2026-10-05T13:00:13+08:00",
+    "updated":  "2026-10-05T16:18:21+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "中職》統一獅公布季後挑戰賽主場票價",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5596173",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-05T15:45:07+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅"
+                                ]
+                  },
+                  {
+                      "title":  "獅象季後賽戰火點燃！兄弟「奪還」正式開戰　搶票時間一次看",
+                      "url":  "https://sports.ettoday.net/news/3249426",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-10-05T15:16:00+08:00",
+                      "teams":  [
+                                    "中信兄弟",
+                                    "統一7-ELEVEn獅"
+                                ]
+                  },
+                  {
+                      "title":  "季後挑戰賽》佛心價！ 中信兄弟主場票價資訊公布",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5596123",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-05T15:09:25+08:00",
+                      "teams":  [
+                                    "中信兄弟"
+                                ]
+                  },
+                  {
+                      "title":  "台灣大賽》味全龍主場全數在大巨蛋 票價與售票資訊出爐！",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5596046",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-05T14:15:30+08:00",
+                      "teams":  [
+                                    "味全龍"
+                                ]
+                  },
+                  {
+                      "title":  "味全龍台灣大賽票價出爐！最高2800元、最便宜700元　入場贈品曝",
+                      "url":  "https://sports.ettoday.net/news/3249373",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-10-05T14:14:00+08:00",
+                      "teams":  [
+                                    "味全龍"
+                                ]
+                  },
+                  {
+                      "title":  "中職》玩水祭被蓄意潑酒讓樂天女孩、球迷遭殃！ 球團發聲將追究法律責任",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5596007",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-05T13:51:45+08:00",
+                      "teams":  [
+                                    "樂天桃猿"
+                                ]
+                  },
+                  {
+                      "title":  "沒水準球迷蓄意潑啤酒害樂天女孩不適　「全面禁入」還要負法律責任",
+                      "url":  "https://sports.ettoday.net/news/3249343",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-10-05T13:30:00+08:00",
+                      "teams":  [
+                                    "樂天桃猿"
+                                ]
+                  },
+                  {
+                      "title":  "中職季後挑戰賽10/9開打　台灣大賽龍隊5主場都在大巨蛋",
+                      "url":  "https://www.cna.com.tw/news/aspt/202610050066.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-10-05T11:31:30+08:00",
+                      "teams":  [
+                                    "味全龍"
+                                ]
+                  },
                   {
                       "title":  "中職季後賽10月全面開戰！完整賽程出爐　大巨蛋最多7戰火熱登場",
                       "url":  "https://sports.ettoday.net/news/3249233",
@@ -440,6 +513,15 @@
                                 ]
                   },
                   {
+                      "title":  "邱智呈致勝一擊 獅最快今晉級",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1772990",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-02T05:30:00+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅"
+                                ]
+                  },
+                  {
                       "title":  "艾菩樂扛7局救猿 緊咬兄弟1場",
                       "url":  "https://sports.ltn.com.tw/news/paper/1772989",
                       "source":  "自由時報",
@@ -447,15 +529,6 @@
                       "teams":  [
                                     "中信兄弟",
                                     "樂天桃猿"
-                                ]
-                  },
-                  {
-                      "title":  "邱智呈致勝一擊 獅最快今晉級",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1772990",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-10-02T05:30:00+08:00",
-                      "teams":  [
-                                    "統一7-ELEVEn獅"
                                 ]
                   },
                   {
@@ -842,81 +915,6 @@
                       "teams":  [
                                     "中信兄弟",
                                     "富邦悍將"
-                                ]
-                  },
-                  {
-                      "title":  "費城人3響砲外卡戰續命　波姆10局致勝轟逆轉勇士[影]",
-                      "url":  "https://www.cna.com.tw/news/aspt/202610010015.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-10-01T06:37:28+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "陳聖平轟悍將 獅盤據年度第2",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1772820",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-10-01T05:30:00+08:00",
-                      "teams":  [
-                                    "統一7-ELEVEn獅",
-                                    "富邦悍將"
-                                ]
-                  },
-                  {
-                      "title":  "兄弟齊心射鷹 領先猿1.5場勝差",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1772821",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-10-01T05:30:00+08:00",
-                      "teams":  [
-                                    "中信兄弟",
-                                    "樂天桃猿",
-                                    "台鋼雄鷹"
-                                ]
-                  },
-                  {
-                      "title":  "味全龍年度第一 奪台灣大賽門票",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1772819",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-10-01T05:30:00+08:00",
-                      "teams":  [
-                                    "味全龍"
-                                ]
-                  },
-                  {
-                      "title":  "2026桃園亞洲職棒交流賽11月登場 台日韓3隊齊聚開打",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5591381",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-30T23:23:42+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "陳聖平2長打關鍵戰獵殺悍將　林岳平：還不夠",
-                      "url":  "https://www.cna.com.tw/news/aspt/202609300366.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-09-30T22:47:36+08:00",
-                      "teams":  [
-                                    "富邦悍將"
-                                ]
-                  },
-                  {
-                      "title":  "中職》陳傑憲救命美技背後 藏有外界看不見的勝利模式",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5591360",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-30T22:41:53+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "中職》從日本轟回台灣  葉總看見劉基鴻的完全蛻變",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5591358",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-09-30T22:38:41+08:00",
-                      "teams":  [
-
                                 ]
                   }
               ]
