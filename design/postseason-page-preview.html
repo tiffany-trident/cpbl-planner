@@ -163,6 +163,12 @@ body { font-family: 'Inter', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; b
 .card-footer-tags { display: flex; flex-wrap: wrap; gap: 4px; }
 .badge-maybe { background: transparent; color: #9B8E7E; border: 1px dashed #CFC1A8; }
 .badge-clinch { background: #FFF3D6; color: #A07A1E; }
+.card-score-big { display: flex; align-items: center; gap: 8px; }
+.card-score-num { font-size: 26px; font-weight: 800; font-family: 'Inter', sans-serif; }
+.card-score-sep { font-size: 18px; color: #D4C4AB; }
+.card-score-label { font-size: 10px; color: #B8A692; }
+.score-win { color: #C2573A; } .score-lose { color: #B8A692; }
+.btn-checkin { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; background: #FDF6EE; border: 1px solid #E8D5B8; border-radius: 20px; padding: 5px 12px; color: #C2573A; font-family: inherit; white-space: nowrap; }
 .po-next-wrap { margin-top: 18px; }
 .po-next-title { display: flex; align-items: center; gap: 8px; font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; font-size: 14px; color: #C2573A; letter-spacing: 1px; margin-bottom: 12px; }
 .po-next-title small { font-family: 'Noto Sans TC', sans-serif; font-size: 11px; color: #B8A692; letter-spacing: 0; }
@@ -209,10 +215,6 @@ body { font-family: 'Inter', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; b
     <button data-s="cs">挑戰賽進行中<small>10/10 晚・模擬比分</small></button>
     <button data-s="ts">台灣大賽進行中<small>模擬賽程與比分</small></button>
     <button data-s="end">球季結束<small>模擬</small></button>
-  </div>
-  <div class="scenario" id="next-mode">
-    <button data-m="one" class="active">專區卡片：只放下一場</button>
-    <button data-m="series">專區卡片：系列接下來全部</button>
   </div>
   <div class="scen-note" id="scen-note"></div>
   <div class="frames">
@@ -268,7 +270,6 @@ const NOTES = {
   end: '<span class="sim">模擬</span>：中信 4:2 拿下台灣大賽。用來示意球季結束後的樣子。',
 };
 let scen = 'pre';
-let nextMode = 'one';   // 'one' = 只放下一場；'series' = 目前系列接下來全部
 
 function build(games, scores) {
   return games.map(x => { const s = scores && scores[x.g]; return { ...x, vs: s ? s[0] : null, hs: s ? s[1] : null }; });
@@ -334,31 +335,35 @@ function zone() {
       '<div class="po-note">' + (tsT.champ ? '中信 ' + a + ':' + b + ' 封王' : (a > b ? '中信 ' + a + ':' + b + ' 領先，<b>再贏 ' + (4 - a) + ' 場</b>封王' : a === b ? '系列 ' + a + ':' + b + ' 平手' : '味全 ' + b + ':' + a + ' 領先')) + '</div></div>';
   }
 
-  // 下一場 / 總冠軍
-  let foot;
-  if (scen === 'end') {
-    foot = '<div class="po-champ">' + img('中信兄弟') + '<div><div class="k">2026 中華職棒總冠軍</div><div class="t" style="color:#B58A00">中信兄弟</div></div></div>';
-  } else {
-    // 目前進行中的系列：挑戰賽未結束 → 挑戰賽；否則台灣大賽
-    const cur = !csT.champ ? { st: '挑戰賽', games: cs, minGames: 2 } : { st: '台灣大賽', games: build(TS_SIM, S.ts), minGames: 4 };
-    const upcoming = cur.games.filter(x => winner(x) === null);
-    const list = nextMode === 'one' ? upcoming.slice(0, 1) : upcoming;
-    // 聽牌：下一場贏了就晉級/封王
-    const clinchTeam = cur.st === '挑戰賽' ? (csPlayed && csLead === 2 ? '中信' : '') : '';
-    foot = '<div class="po-next-wrap"><div class="po-next-title">' + (nextMode === 'one' ? '下一場' : cur.st + '接下來的比賽') +
-      '<small>卡片與下方賽程總覽相同（天氣為示意）</small></div>' + cardsByDate(list.map((x, i) => ({ ...x, st: cur.st,
-        maybe: x.g > cur.minGames && !(i === 0),
-        clinch: i === 0 && clinchTeam ? clinchTeam + '聽牌' : '' })), nextMode === 'series') + '</div>';
-  }
-  return '<div class="po-wrap chg"><span class="chg-flag">新增・第 3 步</span><div class="section-header"><img class="section-icon" src="https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets/Sports%20medal/3D/sports_medal_3d.png" alt="">' +
+  // 全部季後賽場次：跟一般賽程一樣逐日分組；系列已分出勝負後沒打的場次不列
+  const series = [{ st: '挑戰賽', games: cs, minGames: 2, done: !!csT.champ }];
+  if (S.ts) { const ts = build(TS_SIM, S.ts); series.push({ st: '台灣大賽', games: ts, minGames: 4, done: !!tally(ts, ['味全龍', '中信兄弟'], 0, 4).champ }); }
+  const clinchTeam = !csT.champ && csPlayed && csLead === 2 ? '中信' : '';
+  const all = [];
+  series.forEach(sr => {
+    const nextG = sr.games.find(x => winner(x) === null);
+    sr.games.forEach(x => {
+      const played = winner(x) !== null;
+      if (!played && sr.done) return;
+      const isNext = nextG && x.g === nextG.g;
+      all.push({ ...x, st: sr.st, maybe: !played && !isNext && x.g > sr.minGames, clinch: isNext && sr.st === '挑戰賽' && clinchTeam ? clinchTeam + '聽牌' : '' });
+    });
+  });
+  all.sort((a, b) => (a.date + a.time).localeCompare(b.date + b.time));
+  const champ = scen === 'end' ? '<div class="po-champ">' + img('中信兄弟') + '<div><div class="k">2026 中華職棒總冠軍</div><div class="t" style="color:#B58A00">中信兄弟</div></div></div>' : '';
+  const foot = champ + '<div class="po-next-wrap"><div class="po-next-title">季後賽賽程<small>與一般賽程相同的卡片與日期分組（天氣為示意）</small></div>' + cardsByDate(all) + '</div>';  return '<div class="po-wrap chg"><span class="chg-flag">新增・第 3 步</span><div class="section-header"><img class="section-icon" src="https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets/Sports%20medal/3D/sports_medal_3d.png" alt="">' +
     '<span class="section-header-title">2026 季後賽</span><span class="section-header-line"></span></div>' +
     '<div class="po-bracket">' + csHtml + '<div class="po-link"></div>' + tsHtml + '</div>' + foot + '</div>';
 }
 
 // 示意天氣（10/9 起都在 3–7 天內 → 顯示「全日」概況，與 production buildWeatherHTML 同格式）
 const WX = { '2026-10-09': ['☀️', 24, 31, 10], '2026-10-10': ['⛅', 25, 31, 20], '2026-10-11': ['⛅', 24, 30, 30], '2026-10-12': ['🌦️', 23, 29, 50] };
+function center(x) {
+  if (!winner(x)) return '<div class="card-center"><span class="card-vs">VS</span></div>';
+  return '<div class="card-center"><div class="card-score-big"><span class="card-score-num ' + (x.vs > x.hs ? 'score-win' : 'score-lose') + '">' + x.vs + '</span><span class="card-score-sep">:</span><span class="card-score-num ' + (x.hs > x.vs ? 'score-win' : 'score-lose') + '">' + x.hs + '</span></div><span class="card-score-label">已結束</span></div>';
+}
 function gameCard(x, inlineDate) {
-  const w = WX[x.date];
+  const w = winner(x) ? null : WX[x.date];
   const wx = w ? '<span class="card-weather">全日 ' + w[0] + ' <span class="card-weather-temp">' + w[1] + '-' + w[2] + '°</span> · <span class="card-weather-rain">' + w[3] + '%💧</span></span>' : '';
   const tags = '<span class="badge badge-po">' + x.st + ' G' + x.g + '</span>' +
     (x.clinch ? '<span class="badge badge-clinch">' + x.clinch + '</span>' : '') +
@@ -367,10 +372,11 @@ function gameCard(x, inlineDate) {
     '<div class="card-top-right">' + wx + '<span class="card-top-venue">◉ ' + x.f + '</span>' +
     '<button type="button" class="card-fav-btn" aria-label="收藏此場次"><svg><use href="#bb-favorite"/></svg></button></div></div>' +
     '<div class="card-body"><div class="card-matchup"><div class="card-team">' + img(x.v) + '<span class="card-team-name" style="color:' + COLOR[x.v] + '">' + x.v + '</span></div>' +
-    '<div class="card-center"><span class="card-vs">VS</span></div>' +
+    center(x) +
     '<div class="card-team">' + img(x.h) + '<span class="card-team-name" style="color:' + COLOR[x.h] + '">' + x.h + '</span></div></div></div>' +
     '<div class="card-footer"><div class="card-footer-tags">' + tags + '</div><div class="card-footer-buttons">' +
-    '<a class="btn-ticket" href="#" onclick="return false">🎫 購票</a><a class="btn-hsr" href="#" onclick="return false">🚄 ' + HSR[x.f] + '</a></div></div></div>';
+    (winner(x) ? '<button type="button" class="btn-checkin">打卡</button>'
+      : '<a class="btn-ticket" href="#" onclick="return false">🎫 購票</a><a class="btn-hsr" href="#" onclick="return false">🚄 ' + HSR[x.f] + '</a>') + '</div></div></div>';
 }
 const HOL = { '2026-10-10': '國慶日' };
 function cardsByDate(list, inlineDate) {
@@ -441,12 +447,6 @@ document.getElementById('scenario').addEventListener('click', e => {
   const b = e.target.closest('button'); if (!b) return;
   scen = b.dataset.s;
   document.querySelectorAll('#scenario button').forEach(x => x.classList.toggle('active', x === b));
-  draw();
-});
-document.getElementById('next-mode').addEventListener('click', e => {
-  const b = e.target.closest('button'); if (!b) return;
-  nextMode = b.dataset.m;
-  document.querySelectorAll('#next-mode button').forEach(x => x.classList.toggle('active', x === b));
   draw();
 });
 draw();
