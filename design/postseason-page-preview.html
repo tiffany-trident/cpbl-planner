@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>季後賽整頁示意</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Noto+Sans+TC:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+@font-face {
+  font-family: 'jf-openhuninn';
+  src: url('https://cdn.jsdelivr.net/gh/marsnow/open-huninn-font@1.1/font/jf-openhuninn.woff2') format('woff2'),
+       url('https://cdn.jsdelivr.net/gh/marsnow/open-huninn-font@1.1/font/jf-openhuninn.woff') format('woff');
+  font-display: swap;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; background: #F4EFE6; color: #4A3728; padding: 24px 0 60px; }
+.doc { max-width: 1232px; margin: 0 auto; padding: 0 16px; }
+.doc h1 { font-family: 'jf-openhuninn', sans-serif; font-weight: 500; font-size: 24px; color: #3D3122; letter-spacing: 1px; }
+.doc p { font-size: 13px; color: #6B5F50; line-height: 1.75; margin-top: 6px; }
+.scenario { display: flex; flex-wrap: wrap; gap: 6px; margin: 14px 0 6px; }
+.scenario button { border: 1px solid #E8DCC8; background: #FFF; padding: 7px 14px; border-radius: 12px; font: inherit; font-size: 13px; color: #7A6E5E; cursor: pointer; }
+.scenario button.active { background: #FDF0E8; border-color: #E8B9A5; color: #C2573A; font-weight: 600; }
+.scenario button small { display: block; font-size: 10.5px; font-weight: 400; color: #9B8E7E; }
+.scen-note { font-size: 12px; color: #6B5F50; background: #FFF; border-radius: 10px; padding: 8px 12px; margin-bottom: 14px; line-height: 1.7; }
+.scen-note .real { color: #3E7D54; font-weight: 600; }
+.scen-note .sim { color: #8A5CC2; font-weight: 600; }
+.frames { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
+.frame-cap { font-size: 11px; color: #9B8E7E; margin-bottom: 4px; }
+.frame-desk { width: 100%; max-width: 1200px; background: #FDFCFA; border-radius: 6px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,.06); }
+.frame-mobile { width: 375px; max-width: 100%; border: 8px solid #3D3122; border-radius: 28px; overflow: hidden; background: #FDFCFA; }
+.chg { position: relative; }
+.chg-flag { position: absolute; top: 8px; left: 8px; z-index: 5; font-size: 10px; font-weight: 600; color: #FFF; background: #C2573A; border-radius: 8px; padding: 1px 8px; letter-spacing: .5px; box-shadow: 0 1px 3px rgba(0,0,0,.15); }
+.chg-flag.edit { background: #C79A2E; }
+
+/* ═════ production 節錄：nav / hero / section / 戰績 / 篩選 ═════ */
+.nav { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 16px 40px; background: #FFF; border-bottom: 1px solid #EEECEA; gap: 16px; }
+.nav-title { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; font-size: 18px; font-weight: 500; letter-spacing: 2px; color: #4A3728; }
+.nav-links { display: flex; gap: 24px; justify-content: center; }
+.nav-links span { font-size: 14px; color: #9B8E7E; padding-bottom: 3px; border-bottom: 2px solid transparent; }
+.nav-links span.active { color: #C2573A; font-weight: 600; border-bottom-color: #C2573A; }
+.hero { display: flex; align-items: center; justify-content: center; padding: 52px 40px 48px; background: #FFF; position: relative; }
+.hero-content { text-align: center; }
+.hero-eyebrow { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; font-size: 14px; font-weight: 500; letter-spacing: 2px; color: #B8A692; margin-bottom: 10px; }
+.hero h1 { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; font-size: 56px; font-weight: 500; color: #3D3122; letter-spacing: 4px; margin-bottom: 6px; line-height: 1.1; }
+.hero-info { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; display: inline-flex; align-items: center; gap: 14px; background: #FFF9F0; border: 1px solid #F0DFB8; border-radius: 22px; padding: 10px 22px; margin-top: 20px; flex-wrap: wrap; justify-content: center; }
+.hero-info-item { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; color: #4A3728; }
+.hero-info-sep { color: #E5D3B0; font-size: 10px; }
+.hero-info-num { color: #C2573A; font-weight: 700; font-size: 18px; margin: 0 2px; }
+.hero-info-status { color: #C2573A; font-weight: 600; }
+.hero-deco { color: #D9CCBC; font-size: 14px; margin-top: 16px; letter-spacing: 4px; }
+.snoopy-float { position: absolute; top: 50%; transform: translateY(-50%); opacity: 0.88; line-height: 0; }
+.snoopy-float .glove-svg { width: 108px; height: 108px; display: block; }
+.snoopy-float .baseball-img { width: 72px; height: 72px; display: block; }
+.snoopy-float.left { left: 80px; } .snoopy-float.right { right: 80px; }
+.section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+.section-icon { width: 22px; height: 22px; }
+.section-header-title { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; font-size: 20px; font-weight: 500; letter-spacing: 1.5px; color: #3D3122; white-space: nowrap; }
+.section-header-line { flex: 1; height: 1px; background: linear-gradient(90deg, #E0D8CC, transparent); }
+.section-header-sub { font-size: 12px; color: #B8A692; white-space: nowrap; }
+.standings-wrap { padding: 32px 40px 28px; background: #FFF; }
+.standings-tabs { display: flex; gap: 2px; border-bottom: 1px solid #F0ECE6; margin-bottom: 12px; }
+.standings-tab { padding: 8px 16px 7px; font-size: 13px; color: #9B8E7E; border-bottom: 2px solid transparent; }
+.standings-tab.active { color: #C2573A; font-weight: 600; border-bottom-color: #C2573A; }
+.standings-caption { font-size: 12px; color: #7A6E5E; margin-bottom: 12px; }
+.st-table { width: 100%; border-collapse: collapse; }
+.st-table th { font-size: 11px; color: #9B8E7E; font-weight: 600; padding: 8px 12px; border-bottom: 1px solid #F0ECE6; text-align: center; }
+.st-table th:nth-child(2) { text-align: left; }
+.st-table td { padding: 10px 12px; font-size: 14px; text-align: center; border-bottom: 1px solid #F0ECE6; }
+.st-team { display: flex; align-items: center; gap: 10px; text-align: left; font-weight: 600; }
+.st-team img { width: 26px; height: 26px; object-fit: contain; }
+.st-mark { font-size: 10px; font-weight: 600; padding: 1px 7px; border-radius: 8px; background: #FDF0E8; color: #C2573A; margin-left: 4px; white-space: nowrap; }
+.filters { background: #FDFCFA; padding: 28px 40px 28px; }
+.filter-card { background: #FFF; border-radius: 14px; padding: 20px 24px; box-shadow: 0 2px 8px rgba(212,196,171,0.10); }
+.filter-card-title { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; font-size: 15px; font-weight: 500; color: #4A3728; margin-bottom: 12px; letter-spacing: 1px; }
+.filter-row { display: flex; flex-wrap: wrap; gap: 12px 18px; align-items: flex-end; }
+.filter-group { display: flex; flex-direction: column; gap: 5px; }
+.filter-group > label { font-size: 11px; color: #7A6E5E; font-weight: 600; }
+.fake-select { background: #FFF; border: 1px solid #E0D8CC; color: #4A3728; padding: 8px 14px; border-radius: 10px; font-size: 13px; min-width: 120px; }
+.toggle-group { display: inline-flex; background: #F5F0E8; border-radius: 10px; padding: 2px; gap: 2px; }
+.toggle-btn { padding: 6px 12px; font-size: 12.5px; border: none; background: transparent; color: #9B8E7E; border-radius: 8px; font-family: inherit; }
+.toggle-btn.active { background: #FFF; color: #4A3728; font-weight: 600; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+.badge { display: inline-block; padding: 3px 10px; border-radius: 8px; font-size: 11px; font-weight: 600; vertical-align: middle; }
+.btn-ticket { display: inline-flex; align-items: center; gap: 4px; padding: 6px 16px; border-radius: 20px; font-size: 12px; font-weight: 600; color: #C2573A; background: #FDF6EE; border: 1px solid #E8D5B8; text-decoration: none; white-space: nowrap; }
+.btn-hsr { display: inline-flex; align-items: center; gap: 4px; padding: 6px 16px; border-radius: 20px; font-size: 12px; font-weight: 600; color: #2B8A8A; background: #EEF7F7; border: 1px solid #B0D8D8; text-decoration: none; white-space: nowrap; }
+.card-footer-buttons { display: flex; gap: 6px; }
+
+/* ═════ 季後賽專區（與 postseason-view-preview.html 同一套） ═════ */
+.po-wrap { padding: 32px 40px 32px; background: #FFFCF7; border-bottom: 1px solid #F3EADB; }
+.po-bracket { display: grid; grid-template-columns: 1fr 64px 1fr; align-items: center; }
+.po-series { position: relative; background: #FDFAF5; border: 1.5px solid #F0E6D6; border-radius: 16px; padding: 14px 16px; display: flex; flex-direction: column; gap: 10px; overflow: hidden; }
+.po-series.live { border-color: #EBC3AE; background: linear-gradient(135deg, #FFF6EE 0%, #FFFCF8 100%); box-shadow: 0 3px 0 #F3DCCD; }
+.po-series.soon { border-color: #EBD9B8; background: #FFFBF2; }
+.po-series.wait { border-style: dashed; }
+.po-s-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.po-s-title { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; font-size: 16px; color: #3D3122; letter-spacing: 1px; }
+.po-s-fmt { font-size: 11px; color: #9B8E7E; }
+.po-pill { font-size: 10px; font-weight: 600; padding: 2px 9px; border-radius: 10px; background: #F2EBDA; color: #9B8E7E; white-space: nowrap; }
+.po-series.live .po-pill { background: #C2573A; color: #FFF; }
+.po-series.soon .po-pill { background: #FFF3D6; color: #A07A1E; }
+.po-series.done .po-pill { background: #E8F0E2; color: #4A7C3E; }
+.po-row { display: grid; grid-template-columns: 36px 1fr auto; align-items: center; gap: 10px; }
+.po-row img { width: 36px; height: 36px; object-fit: contain; }
+.po-row .nm { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; font-size: 18px; letter-spacing: 1px; }
+.po-row .meta { font-size: 10.5px; color: #9B8E7E; display: block; font-family: 'Noto Sans TC', sans-serif; letter-spacing: 0; }
+.po-row .wins { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 28px; color: #D4C4AB; min-width: 28px; text-align: right; }
+.po-row.ahead .wins { color: #C2573A; }
+.po-row.out { opacity: .45; }
+.po-row.tbd .nm { color: #B8A692; font-size: 15px; }
+.po-adv { display: inline-block; font-size: 9.5px; font-weight: 600; color: #A07A1E; background: #FFF3D6; border-radius: 8px; padding: 0 6px; margin-left: 4px; vertical-align: 2px; font-family: 'Noto Sans TC', sans-serif; letter-spacing: 0; }
+.po-dots { display: flex; gap: 6px; flex-wrap: wrap; }
+.po-dot { display: flex; flex-direction: column; align-items: center; gap: 2px; font-size: 9.5px; color: #9B8E7E; width: 34px; white-space: nowrap; }
+.po-dot i { width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-style: normal; font-size: 10px; font-weight: 700; background: #F2EBDA; color: #B8A692; }
+.po-dot.adv i { background: #FFF3D6; color: #A07A1E; }
+.po-dot.won i { color: #FFF; }
+.po-dot.next i { background: #FFF; border: 2px solid #C2573A; color: #C2573A; }
+.po-dot.maybe i { background: transparent; border: 1.5px dashed #CFC1A8; }
+.po-note { font-size: 11px; color: #7A6E5E; line-height: 1.5; }
+.po-note b { color: #C2573A; }
+.po-link { position: relative; height: 100%; }
+.po-link::before { content: ''; position: absolute; left: 0; right: 0; top: 50%; border-top: 2px dashed #E3D3BC; }
+.po-link::after { content: ''; position: absolute; right: 2px; top: 50%; width: 9px; height: 9px; margin-top: -5px; border-top: 2px solid #D9C5A8; border-right: 2px solid #D9C5A8; transform: rotate(45deg); }
+.po-next { margin-top: 16px; display: flex; align-items: center; gap: 14px; flex-wrap: wrap; background: #FFF9F0; border: 1px solid #F0DFB8; border-radius: 16px; padding: 12px 16px; }
+.po-next-k { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; font-size: 13px; color: #C2573A; letter-spacing: 1px; white-space: nowrap; }
+.po-next-main { flex: 1; min-width: 200px; display: flex; align-items: center; gap: 10px; font-size: 13px; }
+.po-next-main img { width: 28px; height: 28px; object-fit: contain; }
+.po-next-main .vs { font-size: 11px; color: #B8A692; font-weight: 800; }
+.po-next-meta { font-size: 12px; color: #7A6E5E; }
+.badge-po { background: #FFF0E3; color: #C2573A; border: 1px solid #F2D2BE; }
+.po-stamp { position: absolute; right: 14px; bottom: 10px; width: 76px; height: 76px; border: 2.5px solid #C2573A; border-radius: 50%; color: #C2573A; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: 'jf-openhuninn', sans-serif; font-size: 15px; line-height: 1.1; letter-spacing: 1px; transform: rotate(-12deg); opacity: .85; box-shadow: inset 0 0 0 3px #FFFCF8, inset 0 0 0 4.5px #C2573A; pointer-events: none; }
+.po-stamp small { font-size: 9px; letter-spacing: 0; }
+.po-champ { display: flex; align-items: center; gap: 14px; margin-top: 16px; background: linear-gradient(135deg, #FFF3D6 0%, #FFFBEF 100%); border: 1.5px solid #EED9A4; border-radius: 16px; padding: 14px 18px; }
+.po-champ img { width: 56px; height: 56px; object-fit: contain; }
+.po-champ .k { font-size: 11px; color: #A07A1E; letter-spacing: 1px; font-weight: 600; }
+.po-champ .t { font-family: 'jf-openhuninn', sans-serif; font-size: 24px; letter-spacing: 2px; }
+
+/* mobile */
+.frame-mobile .nav { padding: 12px 16px; grid-template-columns: 1fr; gap: 8px; }
+.frame-mobile .nav-links { gap: 18px; }
+.frame-mobile .hero { padding: 28px 16px 24px; flex-wrap: wrap; gap: 12px; }
+.frame-mobile .hero-content { width: 100%; }
+.frame-mobile .hero h1 { font-size: 40px; }
+.frame-mobile .hero-info { gap: 8px 10px; padding: 8px 14px; }
+.frame-mobile .hero-info-item { font-size: 12.5px; }
+.frame-mobile .hero-deco { display: none; }
+.frame-mobile .snoopy-float { position: static; transform: none; order: 2; }
+.frame-mobile .snoopy-float .glove-svg { width: 40px; height: 40px; }
+.frame-mobile .snoopy-float .baseball-img { width: 32px; height: 32px; }
+.frame-mobile .po-wrap, .frame-mobile .standings-wrap, .frame-mobile .filters { padding: 20px 16px; }
+.frame-mobile .section-header-title { font-size: 16px; }
+.frame-mobile .po-bracket { grid-template-columns: 1fr; }
+.frame-mobile .po-link { height: 26px; }
+.frame-mobile .po-link::before { left: 50%; right: auto; top: 0; bottom: 0; border-top: 0; border-left: 2px dashed #E3D3BC; }
+.frame-mobile .po-link::after { right: auto; left: 50%; top: auto; bottom: 2px; margin: 0 0 0 -5px; transform: rotate(135deg); }
+.frame-mobile .st-table th, .frame-mobile .st-table td { padding: 8px 5px; font-size: 12px; }
+.frame-mobile .st-team img { width: 20px; height: 20px; }
+.frame-mobile .st-team { gap: 6px; }
+.frame-mobile .filter-card { padding: 16px; }
+.frame-mobile .chg-flag { top: 4px; left: 4px; }
+/* 手機卡片窄，印章會疊到 G6/G7 圓點 → 縮小並降透明度（同打卡印章疊在卡片上的做法） */
+.frame-mobile .po-stamp { width: 60px; height: 60px; font-size: 12px; opacity: .55; }
+</style>
+</head>
+<body>
+<div class="doc">
+  <h1>季後賽整頁示意（第 3、4 步）</h1>
+  <p>第 3 步：Hero 下方新增「季後賽專區」。第 4 步：Hero 文案改季後賽、戰績卡上的季後賽席次卡收掉。左上角紅標＝新增區塊、黃標＝改動區塊；其餘（nav、篩選、賽程總覽）不變，只示意位置。</p>
+  <div class="scenario" id="scenario">
+    <button data-s="pre" class="active">開打前<small>10/6–10/8・真實賽程</small></button>
+    <button data-s="cs">挑戰賽進行中<small>10/10 晚・模擬比分</small></button>
+    <button data-s="ts">台灣大賽進行中<small>模擬賽程與比分</small></button>
+    <button data-s="end">球季結束<small>模擬</small></button>
+  </div>
+  <div class="scen-note" id="scen-note"></div>
+  <div class="frames">
+    <div style="width:100%"><div class="frame-cap">桌面 1200px（與 production .container 同寬）</div><div class="frame-desk" id="desk"></div></div>
+    <div><div class="frame-cap">手機 375px</div><div class="frame-mobile" id="mob"></div></div>
+  </div>
+</div>
+
+<script>
+const LOGO = {
+  '中信兄弟': 'https://cpbl.com.tw/files/atts/0L021497108709222204/logo_brothers.png',
+  '統一獅': 'https://cpbl.com.tw/files/atts/0L021496162893869773/logo_lions.png',
+  '樂天桃猿': 'https://cpbl.com.tw/files/atts/0L015574823122453305/2024_CPBL%E5%85%AD%E9%9A%8ALogo_R2_%E5%AE%98%E7%B6%B2.png',
+  '富邦悍將': 'https://cpbl.com.tw/files/atts/0L021495969510091777/logo_fubon.png',
+  '味全龍': 'https://cpbl.com.tw/files/atts/0L021497845061333235/logo_dragon.png',
+  '台鋼雄鷹': 'https://cpbl.com.tw/files/atts/0M259522048557486065/%E5%96%AE%E8%89%B2T-100x100.png',
+};
+const COLOR = { '中信兄弟':'#FACD01', '統一獅':'#C0611A', '樂天桃猿':'#7B1A1A', '富邦悍將':'#2B5FC3', '味全龍':'#D8252D', '台鋼雄鷹':'#16794A' };
+const DOT = t => t === '中信兄弟' ? '#D9A900' : COLOR[t];   // 中信黃當圓點底對比不足
+const DOW = ['日','一','二','三','四','五','六'];
+const HSR = { '洲際': '台中站', '亞太主': '台南站', '天母': '台北站' };
+const md = d => (+d.slice(5,7)) + '/' + (+d.slice(8));
+const dow = d => DOW[new Date(d + 'T00:00:00').getDay()];
+const img = t => '<img src="' + LOGO[t] + '" alt="">';
+
+// 挑戰賽：API 2026-10-05 實際賽程（隊伍/日期/時間/球場為真）；比分僅模擬情境用
+const CS_REAL = [
+  { g: 1, date: '2026-10-09', time: '17:05', v: '統一獅', h: '中信兄弟', f: '洲際' },
+  { g: 2, date: '2026-10-10', time: '17:05', v: '中信兄弟', h: '統一獅', f: '亞太主' },
+  { g: 3, date: '2026-10-11', time: '17:05', v: '統一獅', h: '中信兄弟', f: '洲際' },
+  { g: 4, date: '2026-10-12', time: '18:35', v: '統一獅', h: '中信兄弟', f: '洲際' },
+];
+// 台灣大賽：官方尚未公布 → 全部模擬
+const TS_SIM = [
+  { g: 1, date: '2026-10-17', time: '17:05', v: '中信兄弟', h: '味全龍', f: '天母' },
+  { g: 2, date: '2026-10-18', time: '17:05', v: '中信兄弟', h: '味全龍', f: '天母' },
+  { g: 3, date: '2026-10-20', time: '18:35', v: '味全龍', h: '中信兄弟', f: '洲際' },
+  { g: 4, date: '2026-10-21', time: '18:35', v: '味全龍', h: '中信兄弟', f: '洲際' },
+  { g: 5, date: '2026-10-22', time: '18:35', v: '味全龍', h: '中信兄弟', f: '洲際' },
+  { g: 6, date: '2026-10-24', time: '17:05', v: '中信兄弟', h: '味全龍', f: '天母' },
+];
+// 各情境的模擬比分 [vs, hs]
+const SCORES = {
+  pre: { cs: {}, ts: null },
+  cs:  { cs: { 1: [2, 4], 2: [3, 5] }, ts: null },
+  ts:  { cs: { 1: [2, 4], 2: [3, 5], 3: [1, 6] }, ts: { 1: [1, 3], 2: [5, 4], 3: [2, 6] } },
+  end: { cs: { 1: [2, 4], 2: [3, 5], 3: [1, 6] }, ts: { 1: [1, 3], 2: [5, 4], 3: [2, 6], 4: [3, 7], 5: [4, 2], 6: [5, 2] } },   // 中信 G2/G3/G4/G6 → 4:2
+};
+const NOTES = {
+  pre: '<span class="real">真實</span>：挑戰賽 4 場的隊伍、日期、時間、球場皆取自 CPBL API（2026-10-05）；中信為下半季冠軍、統一為外卡；味全為上半季冠軍且全年勝率最高，直接晉級台灣大賽。<span class="sim">未定</span>：台灣大賽賽程官方尚未公布（媒體報導暫定 10/17）。',
+  cs: '<span class="real">真實</span>：賽程。<span class="sim">模擬</span>：G1 中信勝、G2 統一勝的比分。',
+  ts: '<span class="sim">模擬</span>：挑戰賽中信 3:1 晉級；台灣大賽的日期、球場、比分全部是假設（官方未公布）。',
+  end: '<span class="sim">模擬</span>：中信 4:2 拿下台灣大賽。用來示意球季結束後的樣子。',
+};
+let scen = 'pre';
+
+function build(games, scores) {
+  return games.map(x => { const s = scores && scores[x.g]; return { ...x, vs: s ? s[0] : null, hs: s ? s[1] : null }; });
+}
+const winner = x => x.vs === null ? null : (x.vs > x.hs ? x.v : x.h);
+function tally(games, teams, adv, need) {
+  const w = { [teams[0]]: adv, [teams[1]]: 0 };
+  games.forEach(x => { const t = winner(x); if (t) w[t]++; });
+  return { w, champ: teams.find(t => w[t] >= need) || null };
+}
+function row(t, wins, o) {
+  const cls = ['po-row', o.ahead ? 'ahead' : '', o.out ? 'out' : '', o.tbd ? 'tbd' : ''].filter(Boolean).join(' ');
+  return '<div class="' + cls + '">' + (o.tbd ? '<span></span>' : img(t)) +
+    '<div><span class="nm" style="color:' + (o.tbd ? '' : COLOR[t]) + '">' + (o.tbd ? '挑戰賽勝隊' : t) + (o.adv ? '<span class="po-adv">先取 1 勝</span>' : '') + '</span>' +
+    '<span class="meta">' + o.meta + '</span></div><span class="wins">' + (o.tbd ? '–' : wins) + '</span></div>';
+}
+// need = 最少要打場數（之後的場次為「若需要」）；champDone = 系列已結束（剩餘場次「未進行」）
+function dots(games, total, adv, minGames, champDone) {
+  let h = adv ? '<div class="po-dot adv"><i>+1</i>優勢</div>' : '';
+  const nextG = champDone ? null : (games.find(x => winner(x) === null) || null);
+  for (let i = 1; i <= total; i++) {
+    const x = games.find(y => y.g === i), t = x && winner(x);
+    if (t) h += '<div class="po-dot won"><i style="background:' + DOT(t) + '">' + x.vs + ':' + x.hs + '</i>G' + i + '</div>';
+    else if (champDone) h += '<div class="po-dot maybe"><i>G' + i + '</i>未進行</div>';
+    else if (nextG && nextG.g === i) h += '<div class="po-dot next"><i>G' + i + '</i>' + md(x.date) + '</div>';
+    else if (i > minGames) h += '<div class="po-dot maybe"><i>G' + i + '</i>若需要</div>';
+    else h += '<div class="po-dot"><i>G' + i + '</i>' + (x ? md(x.date) : '') + '</div>';
+  }
+  return '<div class="po-dots">' + h + '</div>';
+}
+
+function zone() {
+  const S = SCORES[scen];
+  const cs = build(CS_REAL, S.cs), csT = tally(cs, ['中信兄弟', '統一獅'], 1, 3);
+  const csPlayed = cs.some(x => winner(x));
+  const csState = csT.champ ? 'done' : csPlayed ? 'live' : 'soon';
+  const csLead = csT.w['中信兄弟'], csTrail = csT.w['統一獅'];
+  const csNote = csT.champ ? '中信 ' + csLead + ':' + csTrail + ' 晉級台灣大賽'
+    : csPlayed ? '中信<b>再贏 ' + (3 - csLead) + ' 場</b>晉級；統一需再贏 ' + (3 - csTrail) + ' 場'
+    : '中信帶 1 勝優勢開打，<b>再贏 2 場</b>晉級；統一需贏 3 場';
+  const csHtml = '<div class="po-series ' + csState + '">' +
+    '<div class="po-s-head"><div><div class="po-s-title">季後挑戰賽</div><div class="po-s-fmt">四戰三勝・10/9–10/12</div></div><span class="po-pill">' +
+      (csT.champ ? '中信晉級' : csPlayed ? '進行中' : '10/9 開打') + '</span></div>' +
+    row('中信兄弟', csLead, { ahead: csLead > csTrail, adv: true, meta: '下半季冠軍・主場 3 場' }) +
+    row('統一獅', csTrail, { ahead: csTrail > csLead, out: csT.champ && csT.champ !== '統一獅', meta: '外卡' }) +
+    dots(cs, 4, true, 2, !!csT.champ) + '<div class="po-note">' + csNote + '</div></div>';
+
+  let tsHtml;
+  if (!S.ts) {
+    tsHtml = '<div class="po-series wait"><div class="po-s-head"><div><div class="po-s-title">台灣大賽</div><div class="po-s-fmt">七戰四勝・賽程待公布</div></div><span class="po-pill">等待對手</span></div>' +
+      row('味全龍', 0, { meta: '上半季冠軍・全年勝率第 1，直接晉級' }) +
+      row('', 0, { tbd: true, meta: '中信 / 統一' }) +
+      dots([], 7, false, 4, false) + '<div class="po-note">官方公布賽程後顯示日期與球場</div></div>';
+  } else {
+    const ts = build(TS_SIM, S.ts), tsT = tally(ts, ['味全龍', '中信兄弟'], 0, 4);
+    const a = tsT.w['中信兄弟'], b = tsT.w['味全龍'];
+    tsHtml = '<div class="po-series ' + (tsT.champ ? 'done' : 'live') + '">' +
+      (tsT.champ ? '<div class="po-stamp">總冠軍<small>2026</small></div>' : '') +
+      '<div class="po-s-head"><div><div class="po-s-title">台灣大賽</div><div class="po-s-fmt">七戰四勝・10/17 起</div></div><span class="po-pill">' + (tsT.champ ? '已結束' : '進行中') + '</span></div>' +
+      row('味全龍', b, { ahead: b > a, out: tsT.champ && tsT.champ !== '味全龍', meta: '上半季冠軍・直接晉級' }) +
+      row('中信兄弟', a, { ahead: a > b, meta: '挑戰賽 3:1 晉級' }) +
+      dots(ts, 7, false, 4, !!tsT.champ) +
+      '<div class="po-note">' + (tsT.champ ? '中信 ' + a + ':' + b + ' 封王' : (a > b ? '中信 ' + a + ':' + b + ' 領先，<b>再贏 ' + (4 - a) + ' 場</b>封王' : a === b ? '系列 ' + a + ':' + b + ' 平手' : '味全 ' + b + ':' + a + ' 領先')) + '</div></div>';
+  }
+
+  // 下一場 / 總冠軍
+  let foot;
+  if (scen === 'end') {
+    foot = '<div class="po-champ">' + img('中信兄弟') + '<div><div class="k">2026 中華職棒總冠軍</div><div class="t" style="color:#B58A00">中信兄弟</div></div></div>';
+  } else {
+    const pool = [...cs.map(x => ({ ...x, st: '挑戰賽' })), ...(S.ts ? build(TS_SIM, S.ts).map(x => ({ ...x, st: '台灣大賽' })) : [])];
+    const nx = pool.find(x => winner(x) === null && !(x.st === '挑戰賽' && csT.champ));
+    const clinch = nx.st === '挑戰賽' && csPlayed && csLead === 2 ? '・中信贏球即晉級' : '';
+    foot = '<div class="po-next"><span class="po-next-k">下一場</span><div class="po-next-main"><span class="badge badge-po">' + nx.st + ' G' + nx.g + '</span>' +
+      img(nx.v) + '<b style="color:' + COLOR[nx.v] + '">' + nx.v + '</b><span class="vs">VS</span>' + img(nx.h) + '<b style="color:' + COLOR[nx.h] + '">' + nx.h + '</b></div>' +
+      '<span class="po-next-meta">' + md(nx.date) + '（' + dow(nx.date) + '）' + nx.time + '・' + nx.f + clinch + '</span>' +
+      '<span class="card-footer-buttons"><a class="btn-ticket" href="#" onclick="return false">🎫 購票</a><a class="btn-hsr" href="#" onclick="return false">🚄 ' + HSR[nx.f] + '</a></span></div>';
+  }
+  return '<div class="po-wrap chg"><span class="chg-flag">新增・第 3 步</span><div class="section-header"><img class="section-icon" src="https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets/Sports%20medal/3D/sports_medal_3d.png" alt="">' +
+    '<span class="section-header-title">2026 季後賽</span><span class="section-header-line"></span></div>' +
+    '<div class="po-bracket">' + csHtml + '<div class="po-link"></div>' + tsHtml + '</div>' + foot + '</div>';
+}
+
+function hero() {
+  const S = SCORES[scen];
+  const status = { pre: '季後挑戰賽 10/9 開打', cs: '季後挑戰賽進行中', ts: '台灣大賽進行中', end: '2026 球季已結束' }[scen];
+  const next = { pre: '10/9（五）', cs: '10/11（日）', ts: '10/21（三）', end: null }[scen];
+  const today = { pre: 0, cs: 1, ts: 1, end: 0 }[scen];
+  return '<div class="hero chg"><span class="chg-flag edit">改動・第 4 步</span>' +
+    '<div class="snoopy-float left"><svg class="glove-svg" viewBox="0 0 100 100" fill="none" aria-hidden="true"><path d="M25 58 Q15 45 22 32 Q30 20 45 22 Q50 10 62 15 Q72 18 72 30 Q82 32 82 44 Q85 58 72 66 L72 82 Q50 88 28 82 Z" fill="#C2573A" stroke="#8A3E26" stroke-width="2.2" stroke-linejoin="round"/><path d="M38 38 Q40 48 38 62 M52 32 Q54 48 52 66 M66 38 Q66 50 64 62" stroke="#8A3E26" stroke-width="1.8" fill="none" stroke-linecap="round"/><circle cx="55" cy="50" r="10" fill="#FFF" stroke="#8A3E26" stroke-width="1.8"/><path d="M49 47 Q55 45 61 48 M49 53 Q55 55 61 52" stroke="#C2573A" stroke-width="1.2" fill="none"/></svg></div>' +
+    '<div class="hero-content"><div class="hero-eyebrow">' + (scen === 'end' ? '中華職棒 · 2026' : '中華職棒季後賽 · 2026') + '</div><h1>進場倒數</h1><div class="hero-info">' +
+      (scen === 'end' ? '<span class="hero-info-item">🏆 總冠軍 <span class="hero-info-status">中信兄弟</span></span><span class="hero-info-sep">●</span>'
+        : '<span class="hero-info-item">⚾ 今日 <span class="hero-info-num">' + today + '</span> 場</span><span class="hero-info-sep">●</span>' +
+          '<span class="hero-info-item">📅 下一場 <span class="hero-info-num">' + next + '</span></span><span class="hero-info-sep">●</span>') +
+      '<span class="hero-info-item">🔥 <span class="hero-info-status">' + status + '</span></span></div><div class="hero-deco">● —— ◆ —— ●</div></div>' +
+    '<div class="snoopy-float right"><img class="baseball-img" src="https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets/Baseball/3D/baseball_3d.png" alt=""></div></div>';
+}
+
+function standings() {
+  // 示意用：全年戰績表結構與現在相同（數字僅示意排名，實作時照 RAW_DATA 計算）
+  const rows = [['味全龍', '上半季冠軍'], ['統一獅', '外卡'], ['富邦悍將', ''], ['樂天桃猿', ''], ['中信兄弟', '下半季冠軍'], ['台鋼雄鷹', '']];
+  return '<div class="standings-wrap chg"><span class="chg-flag edit">改動・第 4 步</span><div class="section-header"><img class="section-icon" src="https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets/Trophy/3D/trophy_3d.png" alt="">' +
+    '<span class="section-header-title">各隊戰績</span><span class="section-header-line"></span><span class="section-header-sub">2026 例行賽・已結束</span></div>' +
+    '<div class="standings-tabs"><span class="standings-tab">上半季</span><span class="standings-tab">下半季</span><span class="standings-tab active">全年</span></div>' +
+    '<div class="standings-caption">季後賽席次卡已收掉（由上方對戰樹取代）；季後賽隊伍改在表格隊名後標示。</div>' +
+    '<table class="st-table"><tr><th>#</th><th>球隊</th><th>勝</th><th>敗</th><th>勝率</th></tr>' +
+    rows.map((r, i) => '<tr><td style="color:#B8A692;font-weight:700">' + (i + 1) + '</td><td><div class="st-team">' + img(r[0]) + '<span style="color:' + COLOR[r[0]] + '">' + r[0] + '</span>' + (r[1] ? '<span class="st-mark">' + r[1] + '</span>' : '') + '</div></td><td style="color:#C9BFAE">—</td><td style="color:#C9BFAE">—</td><td style="color:#C9BFAE">—</td></tr>').join('') +
+    '</table></div>';
+}
+
+function filters() {
+  return '<div class="filters"><div class="filter-card"><div class="filter-card-title">篩選</div><div class="filter-row">' +
+    '<div class="filter-group"><label>想看的隊伍</label><div class="fake-select">全部（完整賽程）</div></div>' +
+    '<div class="filter-group"><label>賽別</label><div class="toggle-group"><button class="toggle-btn">全部</button><button class="toggle-btn">例行賽</button><button class="toggle-btn active">季後賽</button></div></div>' +
+    '<div class="filter-group"><label>場次狀態</label><div class="toggle-group"><button class="toggle-btn ' + (scen === 'end' ? '' : 'active') + '">未來場次</button><button class="toggle-btn">全部</button><button class="toggle-btn ' + (scen === 'end' ? 'active' : '') + '">已結束</button></div></div>' +
+    '</div><div style="font-size:11px;color:#B8A692;margin-top:10px">（篩選卡與下方賽程總覽同第 2 步，此處只示意位置）</div></div></div>';
+}
+
+function page() {
+  return '<div class="nav"><span class="nav-title">⚾ 進場倒數</span><div class="nav-links"><span class="active">賽程</span><span>新聞</span><span>我的</span></div><span></span></div>' +
+    hero() + zone() + standings() + filters();
+}
+function draw() {
+  document.getElementById('scen-note').innerHTML = NOTES[scen];
+  document.getElementById('desk').innerHTML = page();
+  document.getElementById('mob').innerHTML = page();
+}
+document.getElementById('scenario').addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  scen = b.dataset.s;
+  document.querySelectorAll('#scenario button').forEach(x => x.classList.toggle('active', x === b));
+  draw();
+});
+draw();
+</script>
+</body>
+</html>
