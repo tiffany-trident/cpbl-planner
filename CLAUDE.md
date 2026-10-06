@@ -23,6 +23,7 @@
 | 賽事記錄 | [docs/briefings.md](docs/briefings.md) |
 | Box 單場戰績頁（點卡片開 #box=NNN） | [docs/box.md](docs/box.md) |
 | 主場主題日 | [docs/theme-days.md](docs/theme-days.md) |
+| 季後賽（席次卡、賽別篩選、對戰樹專區、E001/C001 key） | [docs/features.md](docs/features.md)「季後賽」段 + [docs/data-source.md](docs/data-source.md)「季後賽」段；視覺稿 `design/postseason-page-preview.html` |
 | 中職相關新聞（聚合器 / 版權原則 / 過濾） | [docs/news.md](docs/news.md) |
 | 外部連結資料（購票網站、高鐵站對應） | [docs/external-links.md](docs/external-links.md) |
 
