@@ -1,7 +1,25 @@
 {
-    "updated":  "2026-10-06T18:06:00+08:00",
+    "updated":  "2026-10-06T19:06:00+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "中職》李東洺無緣個人獎最後1場仍按表先發 許銘傑：實在是沒投手了",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5597602",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-06T18:38:49+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "中職》打擊王最終獎落誰手？林澤彬：上帝要給誰，沒有辦法阻擋",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5597589",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-06T18:20:03+08:00",
+                      "teams":  [
+
+                                ]
+                  },
                   {
                       "title":  "中職》被平野說重話！兄弟0勝左投例行賽最終戰好投：不喜歡我的人...",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5597479",
@@ -48,6 +66,15 @@
                                 ]
                   },
                   {
+                      "title":  "餅總先禮後兵 平野笑稱︰玩心理戰",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1773501",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-06T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "季後挑戰賽》兄弟先拿1勝 獅拚下剋上",
                       "url":  "https://sports.ltn.com.tw/news/paper/1773499",
                       "source":  "自由時報",
@@ -58,8 +85,8 @@
                                 ]
                   },
                   {
-                      "title":  "餅總先禮後兵 平野笑稱︰玩心理戰",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1773501",
+                      "title":  "台灣大賽包場大巨蛋？ 考驗球迷口袋深度",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1773498",
                       "source":  "自由時報",
                       "pubDate":  "2026-10-06T05:30:00+08:00",
                       "teams":  [
@@ -69,15 +96,6 @@
                   {
                       "title":  "就差一點點 野原︰想跟曾總一起努力",
                       "url":  "https://sports.ltn.com.tw/news/paper/1773500",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-10-06T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "台灣大賽包場大巨蛋？ 考驗球迷口袋深度",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1773498",
                       "source":  "自由時報",
                       "pubDate":  "2026-10-06T05:30:00+08:00",
                       "teams":  [
@@ -331,21 +349,21 @@
                                 ]
                   },
                   {
-                      "title":  "日本球員赴台發展值得嗎？前台鋼洋投櫻井周斗分享中職兩年真實經歷",
-                      "url":  "https://sports.ettoday.net/news/3248839",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-10-05T08:50:00+08:00",
-                      "teams":  [
-                                    "台鋼雄鷹"
-                                ]
-                  },
-                  {
                       "title":  "前中職名投徐余偉再有新動向！加盟上海威名豹擔任投手教練",
                       "url":  "https://sports.ettoday.net/news/3248890",
                       "source":  "ETtoday",
                       "pubDate":  "2026-10-05T08:50:00+08:00",
                       "teams":  [
 
+                                ]
+                  },
+                  {
+                      "title":  "日本球員赴台發展值得嗎？前台鋼洋投櫻井周斗分享中職兩年真實經歷",
+                      "url":  "https://sports.ettoday.net/news/3248839",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-10-05T08:50:00+08:00",
+                      "teams":  [
+                                    "台鋼雄鷹"
                                 ]
                   },
                   {
@@ -376,12 +394,12 @@
                                 ]
                   },
                   {
-                      "title":  "連9個半季無季冠 桃猿今榜眼爭奪戰",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1773357",
+                      "title":  "兄弟下半季封王 再搶台灣大賽門票",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1773355",
                       "source":  "自由時報",
                       "pubDate":  "2026-10-05T05:30:00+08:00",
                       "teams":  [
-                                    "樂天桃猿"
+                                    "中信兄弟"
                                 ]
                   },
                   {
@@ -394,12 +412,12 @@
                                 ]
                   },
                   {
-                      "title":  "兄弟下半季封王 再搶台灣大賽門票",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1773355",
+                      "title":  "連9個半季無季冠 桃猿今榜眼爭奪戰",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1773357",
                       "source":  "自由時報",
                       "pubDate":  "2026-10-05T05:30:00+08:00",
                       "teams":  [
-                                    "中信兄弟"
+                                    "樂天桃猿"
                                 ]
                   },
                   {
@@ -895,24 +913,6 @@
                       "pubDate":  "2026-10-01T19:50:00+08:00",
                       "teams":  [
 
-                                ]
-                  },
-                  {
-                      "title":  "從找人失敗到王鏡銘挺身而出　餅總揭統一傷兵潮下的戰力哲學",
-                      "url":  "https://sports.ettoday.net/news/3247394",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-10-01T18:40:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "郭天信低潮期龍隊9勝16敗　葉君璋不擔心：他能幫球隊",
-                      "url":  "https://www.cna.com.tw/news/aspt/202610010298.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-10-01T18:18:41+08:00",
-                      "teams":  [
-                                    "味全龍"
                                 ]
                   }
               ]
