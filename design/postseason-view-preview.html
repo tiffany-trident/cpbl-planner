@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>季後賽呈現 · 設計提案</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Noto+Sans+TC:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+@font-face {
+  font-family: 'jf-openhuninn';
+  src: url('https://cdn.jsdelivr.net/gh/marsnow/open-huninn-font@1.1/font/jf-openhuninn.woff2') format('woff2'),
+       url('https://cdn.jsdelivr.net/gh/marsnow/open-huninn-font@1.1/font/jf-openhuninn.woff') format('woff');
+  font-display: swap;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; background: #F4EFE6; color: #4A3728; padding: 24px 0 60px; }
+
+/* ── 說明頁框 ── */
+.doc { max-width: 1232px; margin: 0 auto; padding: 0 16px; }
+.doc h1 { font-family: 'jf-openhuninn', sans-serif; font-weight: 500; font-size: 24px; color: #3D3122; letter-spacing: 1px; }
+.doc h2 { font-family: 'jf-openhuninn', sans-serif; font-weight: 500; font-size: 18px; color: #3D3122; margin: 32px 0 6px; }
+.doc p, .doc li { font-size: 13px; color: #6B5F50; line-height: 1.75; }
+.doc ul { padding-left: 20px; }
+.sim-banner { display: inline-block; margin-top: 8px; font-size: 12px; color: #8A5CC2; background: #F3EDFB; border-radius: 8px; padding: 3px 10px; }
+.scenario { display: inline-flex; background: #FFF; border-radius: 12px; padding: 3px; margin-top: 12px; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+.scenario button { border: 0; background: transparent; padding: 6px 14px; border-radius: 10px; font: inherit; font-size: 13px; color: #9B8E7E; cursor: pointer; }
+.scenario button.active { background: #FDF0E8; color: #C2573A; font-weight: 600; }
+.opt-table { width: 100%; border-collapse: collapse; background: #FFF; border-radius: 12px; overflow: hidden; margin-top: 8px; font-size: 12.5px; }
+.opt-table th, .opt-table td { padding: 9px 12px; text-align: left; border-bottom: 1px solid #F0ECE6; vertical-align: top; line-height: 1.6; }
+.opt-table th { background: #FAF6EF; color: #7A6E5E; font-weight: 600; font-size: 11.5px; }
+.opt-table tr.rec td { background: #FFF8F2; }
+.opt-table .tag-rec { display: inline-block; font-size: 10px; color: #FFF; background: #C2573A; border-radius: 8px; padding: 0 7px; margin-left: 4px; }
+.frame-cap { font-size: 11px; color: #9B8E7E; margin: 14px 0 4px; }
+.frame-desk { max-width: 1200px; background: #FDFCFA; border-radius: 6px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,.05); }
+.frame-mobile { width: 375px; max-width: 100%; border: 8px solid #3D3122; border-radius: 28px; overflow: hidden; background: #FDFCFA; }
+
+/* 動線圖 */
+.flow { display: flex; gap: 10px; flex-wrap: wrap; align-items: stretch; margin-top: 8px; }
+.flow-col { background: #FFF; border-radius: 12px; padding: 12px; width: 260px; display: flex; flex-direction: column; gap: 6px; }
+.flow-col h3 { font-size: 12px; color: #7A6E5E; font-weight: 600; margin-bottom: 2px; }
+.flow-blk { font-size: 12px; padding: 7px 10px; border-radius: 8px; background: #F5F0E8; color: #7A6E5E; }
+.flow-blk.new { background: #FDF0E8; color: #C2573A; font-weight: 600; border: 1.5px dashed #E8B9A5; }
+.flow-blk.chg { background: #FFF8E6; color: #A07A1E; }
+.flow-blk small { display: block; font-weight: 400; font-size: 10.5px; color: inherit; opacity: .85; }
+
+/* ═════ 沿用 production 樣式（節錄自 index.html） ═════ */
+.section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+.section-icon { width: 22px; height: 22px; }
+.section-header-title { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; font-size: 20px; font-weight: 500; letter-spacing: 1.5px; color: #3D3122; white-space: nowrap; }
+.section-header-line { flex: 1; height: 1px; background: linear-gradient(90deg, #E0D8CC, transparent); }
+.section-header-sub { font-size: 12px; color: #B8A692; white-space: nowrap; }
+.badge { display: inline-block; padding: 3px 10px; border-radius: 8px; font-size: 11px; font-weight: 600; margin-left: 4px; vertical-align: middle; }
+.badge-sat { background: #EEF2FA; color: #5B7BB4; }
+.badge-sun { background: #FAF0F0; color: #C25B5B; }
+.badge-hol { background: #FDF6EE; color: #C2573A; }
+.date-group { margin-bottom: 24px; }
+.date-header { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+.date-header-text { font-size: 15px; font-weight: 700; color: #4A3728; white-space: nowrap; }
+.date-header-line { flex: 1; height: 1px; background: #EEECEA; }
+.day-sat { color: #5B7BB4; } .day-sun { color: #C25B5B; } .day-hol { color: #C2573A; }
+.card-section { padding: 28px 40px 32px; background: #FDFCFA; }
+.card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.game-card { background: #FFF; border-radius: 16px; box-shadow: 0 3px 12px rgba(212,196,171,0.12); border: 1px solid #F0EBDF; overflow: hidden; display: flex; flex-direction: column; position: relative; }
+.card-top { display: flex; justify-content: space-between; align-items: center; padding: 14px 18px 12px; background: #FFFAF2; }
+.card-top-time { font-size: 14px; font-weight: 600; color: #4A3728; }
+.card-top-venue { font-size: 12px; color: #9B8E7E; }
+.card-body { padding: 16px 18px; flex: 1; }
+.card-matchup { display: flex; align-items: center; justify-content: center; }
+.card-team { display: flex; flex-direction: column; align-items: center; gap: 6px; flex: 1; }
+.card-team img { width: 44px; height: 44px; object-fit: contain; }
+.card-team-name { font-size: 13px; font-weight: 600; }
+.card-center { display: flex; flex-direction: column; align-items: center; gap: 2px; min-width: 72px; }
+.card-vs { font-size: 11px; color: #B8A692; font-weight: 800; background: #F5F0E8; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+.card-score-big { display: flex; align-items: center; gap: 8px; }
+.card-score-num { font-size: 26px; font-weight: 800; font-family: 'Inter', sans-serif; }
+.card-score-sep { font-size: 18px; color: #D4C4AB; }
+.card-score-label { font-size: 10px; color: #B8A692; }
+.score-win { color: #C2573A; } .score-lose { color: #B8A692; }
+.card-footer { display: flex; justify-content: space-between; align-items: center; padding: 10px 18px; border-top: 1px solid #F0EBDF; gap: 6px; }
+.card-footer-tags { display: flex; flex-wrap: wrap; gap: 4px; }
+.card-footer-buttons { display: flex; gap: 6px; }
+.btn-ticket { display: inline-flex; align-items: center; gap: 4px; padding: 6px 16px; border-radius: 20px; font-size: 12px; font-weight: 600; color: #C2573A; background: #FDF6EE; border: 1px solid #E8D5B8; text-decoration: none; white-space: nowrap; }
+.btn-hsr { display: inline-flex; align-items: center; gap: 4px; padding: 6px 16px; border-radius: 20px; font-size: 12px; font-weight: 600; color: #2B8A8A; background: #EEF7F7; border: 1px solid #B0D8D8; text-decoration: none; white-space: nowrap; }
+.filters { background: #FDFCFA; padding: 28px 40px 24px; }
+.filter-card { background: #FFF; border-radius: 14px; padding: 20px 24px; box-shadow: 0 2px 8px rgba(212,196,171,0.10); }
+.filter-card-title { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; font-size: 15px; font-weight: 500; color: #4A3728; margin-bottom: 12px; letter-spacing: 1px; }
+.filter-seg { display: flex; flex-wrap: wrap; gap: 12px 18px; align-items: flex-end; }
+.filter-seg + .filter-seg { margin-top: 14px; padding-top: 14px; border-top: 1px solid #F0EAE0; }
+.filter-group { display: flex; flex-direction: column; gap: 5px; }
+.filter-group > label { font-size: 11px; color: #7A6E5E; font-weight: 600; letter-spacing: 0.3px; }
+.fake-select { background: #FFF; border: 1px solid #E0D8CC; color: #4A3728; padding: 8px 14px; border-radius: 10px; font-size: 13px; min-width: 120px; }
+.toggle-group { display: inline-flex; background: #F5F0E8; border-radius: 10px; padding: 2px; gap: 2px; }
+.toggle-btn { display: inline-flex; align-items: center; gap: 4px; padding: 6px 12px; font-size: 12.5px; border: none; background: transparent; color: #9B8E7E; border-radius: 8px; font-family: inherit; }
+.toggle-btn.active { background: #FFF; color: #4A3728; font-weight: 600; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+.new-ring { position: relative; outline: 2px dashed #E8B9A5; outline-offset: 5px; border-radius: 12px; }
+.new-flag { position: absolute; top: -16px; right: -10px; font-size: 10px; background: #C2573A; color: #FFF; border-radius: 8px; padding: 0 7px; font-weight: 600; }
+
+/* ═════ 新元件：季後賽專區 ═════ */
+.po-wrap { padding: 32px 40px 32px; background: #FFF; }
+.po-bracket { display: grid; grid-template-columns: 1fr 64px 1fr; align-items: center; }
+.po-series { background: #FDFAF5; border: 1.5px solid #F0E6D6; border-radius: 16px; padding: 14px 16px; display: flex; flex-direction: column; gap: 10px; }
+.po-series.live { border-color: #EBC3AE; background: linear-gradient(135deg, #FFF6EE 0%, #FFFCF8 100%); box-shadow: 0 3px 0 #F3DCCD; }
+.po-series.done { opacity: .92; }
+.po-series.wait { border-style: dashed; }
+.po-s-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.po-s-title { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; font-size: 16px; color: #3D3122; letter-spacing: 1px; }
+.po-s-fmt { font-size: 11px; color: #9B8E7E; }
+.po-pill { font-size: 10px; font-weight: 600; padding: 2px 9px; border-radius: 10px; background: #F2EBDA; color: #9B8E7E; white-space: nowrap; }
+.po-series.live .po-pill { background: #C2573A; color: #FFF; }
+.po-series.done .po-pill { background: #E8F0E2; color: #4A7C3E; }
+.po-row { display: grid; grid-template-columns: 36px 1fr auto; align-items: center; gap: 10px; }
+.po-row img { width: 36px; height: 36px; object-fit: contain; }
+.po-row .nm { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; font-size: 18px; letter-spacing: 1px; }
+.po-row .meta { font-size: 10.5px; color: #9B8E7E; display: block; font-family: 'Noto Sans TC', sans-serif; letter-spacing: 0; }
+.po-row .wins { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 28px; color: #D4C4AB; min-width: 28px; text-align: right; }
+.po-row.ahead .wins { color: #C2573A; }
+.po-row.out { opacity: .45; }
+.po-row.tbd .nm { color: #B8A692; font-size: 15px; }
+.po-row.tbd img { opacity: .35; filter: grayscale(1); }
+.po-adv { display: inline-block; font-size: 9.5px; font-weight: 600; color: #A07A1E; background: #FFF3D6; border-radius: 8px; padding: 0 6px; margin-left: 4px; vertical-align: 2px; font-family: 'Noto Sans TC', sans-serif; letter-spacing: 0; }
+.po-dots { display: flex; gap: 6px; flex-wrap: wrap; }
+.po-dot { display: flex; flex-direction: column; align-items: center; gap: 2px; font-size: 9.5px; color: #9B8E7E; width: 34px; }
+.po-dot i { width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-style: normal; font-size: 10px; font-weight: 700; background: #F2EBDA; color: #B8A692; }
+.po-dot.adv i { background: #FFF3D6; color: #A07A1E; }
+.po-dot.won i { color: #FFF; }
+.po-dot.next i { background: #FFF; border: 2px solid #C2573A; color: #C2573A; }
+.po-dot.maybe i { background: transparent; border: 1.5px dashed #CFC1A8; }
+.po-note { font-size: 11px; color: #7A6E5E; line-height: 1.5; }
+.po-note b { color: #C2573A; }
+.po-link { position: relative; height: 100%; }
+.po-link::before { content: ''; position: absolute; left: 0; right: 0; top: 50%; border-top: 2px dashed #E3D3BC; }
+.po-link::after { content: ''; position: absolute; right: 2px; top: 50%; width: 9px; height: 9px; margin-top: -5px; border-top: 2px solid #D9C5A8; border-right: 2px solid #D9C5A8; transform: rotate(45deg); }
+.po-next { margin-top: 16px; display: flex; align-items: center; gap: 14px; flex-wrap: wrap; background: #FFF9F0; border: 1px solid #F0DFB8; border-radius: 16px; padding: 12px 16px; }
+.po-next-k { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; font-size: 13px; color: #C2573A; letter-spacing: 1px; white-space: nowrap; }
+.po-next-main { flex: 1; min-width: 200px; display: flex; align-items: center; gap: 10px; font-size: 13px; }
+.po-next-main img { width: 28px; height: 28px; object-fit: contain; }
+.po-next-main .vs { font-size: 11px; color: #B8A692; font-weight: 800; }
+.po-next-meta { font-size: 12px; color: #7A6E5E; }
+.badge-po { background: #FFF0E3; color: #C2573A; border: 1px solid #F2D2BE; }
+.badge-maybe { background: transparent; color: #9B8E7E; border: 1px dashed #CFC1A8; }
+.badge-clinch { background: #FFF3D6; color: #A07A1E; }
+
+/* mobile */
+.frame-mobile .po-wrap, .frame-mobile .card-section, .frame-mobile .filters { padding: 20px 16px; }
+.frame-mobile .section-header-title { font-size: 16px; }
+.frame-mobile .po-bracket { grid-template-columns: 1fr; gap: 0; }
+.frame-mobile .po-link { height: 26px; }
+.frame-mobile .po-link::before { left: 50%; right: auto; top: 0; bottom: 0; border-top: 0; border-left: 2px dashed #E3D3BC; }
+.frame-mobile .po-link::after { right: auto; left: 50%; top: auto; bottom: 2px; margin: 0 0 0 -5px; transform: rotate(135deg); }
+.frame-mobile .card-grid { grid-template-columns: 1fr; }
+.frame-mobile .filter-card { padding: 16px; }
+@media (max-width: 1100px) { .frame-desk .card-grid { grid-template-columns: repeat(2, 1fr); } }
+</style>
+</head>
+<body>
+
+<div class="doc">
+  <h1>季後賽呈現 · 設計提案</h1>
+  <p>季後賽期間（約 10 月）怎麼在現有網站呈現季後賽：入口放哪、篩選怎麼做、賽程卡長怎樣。</p>
+  <span class="sim-banner">以下隊伍、比分、日期、球場皆為模擬示意，不是真實賽果</span>
+  <p style="margin-top:6px">模擬依據：上半季冠軍味全（全年勝率最高 → 直接晉級台灣大賽）、下半季冠軍假設中信、外卡假設統一。賽制依現行規則：全年勝率次高的半季冠軍與外卡打<b>四戰三勝</b>季後挑戰賽，半季冠軍<b>先取 1 勝</b>並有 3 場主場（1-1-2）；台灣大賽<b>七戰四勝</b>。挑戰賽 10/9、台灣大賽 10/17 是媒體報導的暫定日期。</p>
+  <div class="scenario" id="scenario">
+    <button data-s="cs" class="active">情境一：挑戰賽進行中（10/10 晚）</button>
+    <button data-s="ts">情境二：台灣大賽進行中（10/20 晚）</button>
+  </div>
+
+  <h2>1. 入口放哪？</h2>
+  <table class="opt-table">
+    <tr><th style="width:24%">方案</th><th>做法</th><th style="width:30%">取捨</th></tr>
+    <tr class="rec"><td><b>A 主視圖頂端專區＋賽別篩選</b><span class="tag-rec">推薦</span></td><td>季後賽期間在 Hero 下方插入「季後賽」專區（對戰樹＋下一場）；篩選卡新增「賽別」切換（全部／例行賽／季後賽），賽程總覽照常列卡片</td><td>一進站就看得到；賽程列表、購票、高鐵、天氣、收藏、打卡全部沿用。例行賽戰績仍在專區下方</td></tr>
+    <tr><td>B Nav 新增「季後賽」頁籤</td><td>跟「新聞」「我的」一樣是獨立子頁（#playoffs）</td><td>結構最乾淨，但一年只用一個月；使用者要多點一下才看到最熱門的內容</td></tr>
+    <tr><td>C 戰績卡加「季後賽」分頁</td><td>在上半季／下半季／全年旁邊多一個分頁放對戰樹</td><td>改動最小，但預設分頁不是它時容易被忽略；戰績表跟對戰樹資訊型態差很多</td></tr>
+    <tr><td>D 只加「賽別」篩選</td><td>不做專區，季後賽只是賽程列表裡帶標籤的卡片</td><td>最省工；但看不到系列戰比數、誰聽牌，季後賽最重要的資訊沒呈現</td></tr>
+  </table>
+
+  <h2>2. 方案 A 的頁面動線</h2>
+  <div class="flow">
+    <div class="flow-col"><h3>現在（例行賽）</h3>
+      <div class="flow-blk">Hero</div><div class="flow-blk">各隊戰績＋季後賽席次</div><div class="flow-blk">篩選</div><div class="flow-blk">賽程總覽</div></div>
+    <div class="flow-col"><h3>季後賽期間（10/9 起）</h3>
+      <div class="flow-blk chg">Hero<small>狀態改「季後挑戰賽進行中」、剩餘場次改算季後賽</small></div>
+      <div class="flow-blk new">季後賽專區（新）<small>對戰樹＋系列戰比數＋下一場</small></div>
+      <div class="flow-blk chg">各隊戰績<small>季後賽席次卡收掉（已被對戰樹取代），只留例行賽戰績表</small></div>
+      <div class="flow-blk chg">篩選<small>新增「賽別」，預設「季後賽」</small></div>
+      <div class="flow-blk">賽程總覽<small>季後賽卡片帶「挑戰賽 G3」標籤</small></div></div>
+    <div class="flow-col"><h3>台灣大賽結束後</h3>
+      <div class="flow-blk chg">Hero<small>「2026 球季已結束」</small></div>
+      <div class="flow-blk chg">季後賽專區<small>保留，顯示總冠軍（蓋章）</small></div>
+      <div class="flow-blk">各隊戰績</div><div class="flow-blk">篩選</div><div class="flow-blk">賽程總覽</div></div>
+  </div>
+
+  <h2>3. 季後賽專區（新元件）</h2>
+  <div class="frame-cap">桌面 1200px（與 production .container 同寬）</div>
+  <div class="frame-desk" id="po-desk"></div>
+  <div class="frame-cap">手機 375px</div>
+  <div class="frame-mobile" id="po-mob"></div>
+
+  <h2>4. 篩選卡：新增「賽別」</h2>
+  <p>放在「場次狀態」左邊。季後賽期間預設「季後賽」，跟例行賽結束後預設「已結束」一樣不寫入篩選記憶。選「季後賽」時月份下拉只剩 10 月，「對手」照常可用。</p>
+  <div class="frame-desk" id="flt-desk"></div>
+
+  <h2>5. 賽程總覽的季後賽卡片</h2>
+  <p>卡片結構不變，footer 標籤多「挑戰賽 G3」；可能晉級的那場加「聽牌」；必要時才打的場次加虛線「若需要」標籤（前提：官方 API 會先列出這些場次，目前未知）。</p>
+  <div class="frame-desk" id="cards-desk"></div>
+  <div class="frame-cap">手機 375px</div>
+  <div class="frame-mobile" id="cards-mob"></div>
+
+  <h2>6. 待確認</h2>
+  <ul>
+    <li>官方 API 公布賽程時，會不會先列出「必要時才打」的場次與「隊伍未定」的台灣大賽場次（影響「若需要」標籤與對戰樹的待定欄）</li>
+    <li>挑戰賽「先取 1 勝」API 不會給，要由程式依賽制自己加（台灣大賽沒有）</li>
+    <li>台灣大賽的主場分配（哪幾場在哪隊主場）以官方公布賽程為準，示意圖裡的球場只是假設</li>
+    <li>季後賽卡片的收藏、打卡、Box 戰績頁都用 E001／C001 key（已同意的 prefix 方案）</li>
+  </ul>
+</div>
+
+<script>
+const LOGO = {
+  '中信兄弟': 'https://cpbl.com.tw/files/atts/0L021497108709222204/logo_brothers.png',
+  '統一獅': 'https://cpbl.com.tw/files/atts/0L021496162893869773/logo_lions.png',
+  '樂天桃猿': 'https://cpbl.com.tw/files/atts/0L015574823122453305/2024_CPBL%E5%85%AD%E9%9A%8ALogo_R2_%E5%AE%98%E7%B6%B2.png',
+  '富邦悍將': 'https://cpbl.com.tw/files/atts/0L021495969510091777/logo_fubon.png',
+  '味全龍': 'https://cpbl.com.tw/files/atts/0L021497845061333235/logo_dragon.png',
+  '台鋼雄鷹': 'https://cpbl.com.tw/files/atts/0M259522048557486065/%E5%96%AE%E8%89%B2T-100x100.png',
+};
+// 與 index.html getTeamColor() 同步
+const COLOR = { '中信兄弟':'#FACD01', '統一獅':'#C0611A', '樂天桃猿':'#7B1A1A', '富邦悍將':'#2B5FC3', '味全龍':'#D8252D', '台鋼雄鷹':'#16794A' };
+const DOW = ['日','一','二','三','四','五','六'];
+const HOME_FIELD = { '中信兄弟': '洲際', '統一獅': '亞太主', '味全龍': '天母' };
+const HSR = { '洲際': '台中站', '亞太主': '台南站', '天母': '台北站' };
+const HOL = { '2026-10-10': '國慶日' };
+
+// 模擬賽程：每場 { g, date, time, v, h, vs, hs }，vs/hs 為比分（未賽為 null）；maybe = 必要時才打
+const CS = (state) => {
+  const games = [
+    { g: 1, date: '2026-10-09', time: '18:35', v: '統一獅', h: '中信兄弟', vs: 2, hs: 4 },
+    { g: 2, date: '2026-10-10', time: '17:05', v: '中信兄弟', h: '統一獅', vs: 3, hs: 5 },
+    { g: 3, date: '2026-10-11', time: '17:05', v: '統一獅', h: '中信兄弟', vs: null, hs: null },
+    { g: 4, date: '2026-10-12', time: '18:35', v: '統一獅', h: '中信兄弟', vs: null, hs: null, maybe: true },
+  ];
+  if (state === 'ts') { games[2].vs = 1; games[2].hs = 6; games[3].hidden = true; }
+  return games;
+};
+const TS = (state) => state === 'cs' ? [] : [
+  { g: 1, date: '2026-10-17', time: '17:05', v: '中信兄弟', h: '味全龍', vs: 1, hs: 3 },
+  { g: 2, date: '2026-10-18', time: '17:05', v: '中信兄弟', h: '味全龍', vs: 5, hs: 4 },
+  { g: 3, date: '2026-10-20', time: '18:35', v: '味全龍', h: '中信兄弟', vs: 2, hs: 6 },
+  { g: 4, date: '2026-10-21', time: '18:35', v: '味全龍', h: '中信兄弟', vs: null, hs: null },
+  { g: 5, date: '2026-10-22', time: '18:35', v: '味全龍', h: '中信兄弟', vs: null, hs: null, maybe: true },
+];
+let scen = 'cs';
+const winner = x => x.vs === null ? null : (x.vs > x.hs ? x.v : x.h);
+
+// 系列戰：teams[0] = 高種子；adv = 先取勝場
+function seriesInfo(games, teams, adv, need) {
+  const w = { [teams[0]]: adv, [teams[1]]: 0 };
+  games.forEach(x => { const t = winner(x); if (t) w[t]++; });
+  const champ = teams.find(t => w[t] >= need) || null;
+  return { w, champ };
+}
+
+const img = t => '<img src="' + LOGO[t] + '" alt="">';
+function teamRow(t, wins, opts) {
+  const cls = ['po-row', opts.ahead ? 'ahead' : '', opts.out ? 'out' : '', opts.tbd ? 'tbd' : ''].filter(Boolean).join(' ');
+  return '<div class="' + cls + '">' + (opts.tbd ? '<img src="' + LOGO['統一獅'] + '" alt="" style="visibility:hidden">' : img(t)) +
+    '<div><span class="nm" style="color:' + (opts.tbd ? '' : COLOR[t]) + '">' + (opts.tbd ? '挑戰賽勝隊' : t) + (opts.adv ? '<span class="po-adv">先取 1 勝</span>' : '') + '</span>' +
+    '<span class="meta">' + opts.meta + '</span></div>' +
+    '<span class="wins">' + (opts.tbd ? '–' : wins) + '</span></div>';
+}
+function dots(games, total, adv, need, colorOf) {
+  let h = '';
+  if (adv) h += '<div class="po-dot adv"><i>+1</i>優勢</div>';
+  for (let i = 1; i <= total; i++) {
+    const x = games.find(y => y.g === i);
+    const t = x && winner(x);
+    const isNext = x && !t && !x.hidden && games.filter(y => winner(y) === null && !y.hidden)[0] === x;
+    // 「若需要」：明確標記的場次，或尚無資料且超過「最少要打場數」(need) 者
+    const maybe = (x && (x.maybe || x.hidden)) || (!x && i > need);
+    if (t) h += '<div class="po-dot won"><i style="background:' + colorOf(t) + '">' + x.vs + ':' + x.hs + '</i>G' + i + '</div>';
+    else if (isNext && !(x.maybe)) h += '<div class="po-dot next"><i>G' + i + '</i>' + (+x.date.slice(5,7)) + '/' + (+x.date.slice(8)) + '</div>';
+    else if (x && x.hidden) h += '<div class="po-dot maybe"><i>G' + i + '</i>未進行</div>';
+    else h += '<div class="po-dot' + (maybe ? ' maybe' : '') + '"><i>G' + i + '</i>' + (maybe ? '若需要' : '') + '</div>';
+  }
+  return '<div class="po-dots">' + h + '</div>';
+}
+// 中信黃色當圓點底對比不足 → 圓點用較深的隊色
+const dotColor = t => t === '中信兄弟' ? '#D9A900' : COLOR[t];
+
+function renderPO() {
+  const cs = CS(scen), ts = TS(scen);
+  const csi = seriesInfo(cs, ['中信兄弟', '統一獅'], 1, 3);
+  const csDone = !!csi.champ;
+  const csHtml = '<div class="po-series ' + (csDone ? 'done' : 'live') + '">' +
+    '<div class="po-s-head"><div><div class="po-s-title">季後挑戰賽</div><div class="po-s-fmt">四戰三勝・10/9 起</div></div><span class="po-pill">' + (csDone ? '中信晉級' : '進行中') + '</span></div>' +
+    teamRow('中信兄弟', csi.w['中信兄弟'], { ahead: csi.w['中信兄弟'] > csi.w['統一獅'], adv: true, meta: '下半季冠軍・全年第 5' }) +
+    teamRow('統一獅', csi.w['統一獅'], { ahead: csi.w['統一獅'] > csi.w['中信兄弟'], out: csDone && csi.champ !== '統一獅', meta: '外卡・全年第 2' }) +
+    dots(cs, 4, true, 2, dotColor) +
+    (csDone ? '<div class="po-note">中信 3:1 晉級台灣大賽</div>' : '<div class="po-note">中信<b>再贏 1 場</b>晉級；統一需連勝 2 場</div>') +
+    '</div>';
+  const tsi = seriesInfo(ts, ['味全龍', '中信兄弟'], 0, 4);
+  const tsLive = scen === 'ts';
+  const tsHtml = '<div class="po-series ' + (tsLive ? 'live' : 'wait') + '">' +
+    '<div class="po-s-head"><div><div class="po-s-title">台灣大賽</div><div class="po-s-fmt">七戰四勝・10/17 起</div></div><span class="po-pill">' + (tsLive ? '進行中' : '等待對手') + '</span></div>' +
+    teamRow('味全龍', tsi.w['味全龍'], { ahead: tsLive && tsi.w['味全龍'] > tsi.w['中信兄弟'], meta: '上半季冠軍・全年第 1，直接晉級' }) +
+    (tsLive ? teamRow('中信兄弟', tsi.w['中信兄弟'], { ahead: tsi.w['中信兄弟'] > tsi.w['味全龍'], meta: '挑戰賽 3:1 晉級' })
+            : teamRow('', 0, { tbd: true, meta: '中信 / 統一' })) +
+    dots(ts, 7, false, 4, dotColor) +
+    (tsLive ? '<div class="po-note">中信 2:1 領先，<b>再贏 2 場</b>封王</div>' : '<div class="po-note">挑戰賽結束後確定對手</div>') +
+    '</div>';
+  // 下一場
+  const all = [...cs.map(x => ({ ...x, stage: '挑戰賽' })), ...ts.map(x => ({ ...x, stage: '台灣大賽' }))];
+  const nx = all.find(x => winner(x) === null && !x.hidden);
+  const d = new Date(nx.date + 'T00:00:00');
+  const field = HOME_FIELD[nx.h];
+  const clinch = nx.stage === '挑戰賽' ? '中信贏球即晉級' : '';
+  const nextHtml = '<div class="po-next"><span class="po-next-k">下一場</span>' +
+    '<div class="po-next-main"><span class="badge badge-po" style="margin:0">' + nx.stage + ' G' + nx.g + '</span>' + img(nx.v) + '<b style="color:' + COLOR[nx.v] + '">' + nx.v + '</b><span class="vs">VS</span>' + img(nx.h) + '<b style="color:' + COLOR[nx.h] + '">' + nx.h + '</b></div>' +
+    '<span class="po-next-meta">' + (+nx.date.slice(5,7)) + '/' + (+nx.date.slice(8)) + '（' + DOW[d.getDay()] + '）' + nx.time + '・' + field + (clinch ? '・' + clinch : '') + '</span>' +
+    '<span class="card-footer-buttons"><a class="btn-ticket" href="#" onclick="return false">🎫 購票</a><a class="btn-hsr" href="#" onclick="return false">🚄 ' + HSR[field] + '</a></span></div>';
+  const head = '<div class="section-header"><img class="section-icon" src="https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets/Sports%20medal/3D/sports_medal_3d.png" alt="">' +
+    '<span class="section-header-title">2026 季後賽</span><span class="section-header-line"></span><span class="section-header-sub">模擬</span></div>';
+  return '<div class="po-wrap">' + head + '<div class="po-bracket">' + csHtml + '<div class="po-link"></div>' + tsHtml + '</div>' + nextHtml + '</div>';
+}
+
+function renderFilter() {
+  return '<div class="filters"><div class="filter-card"><div class="filter-card-title">篩選</div>' +
+    '<div class="filter-seg"><div class="filter-group"><label>想看的隊伍</label><div class="fake-select">全部（完整賽程）</div></div>' +
+    '<div class="filter-group"><label>對手（可多選）</label><div class="fake-select" style="min-width:220px;color:#B8A692">（隊徽 chip）</div></div></div>' +
+    '<div class="filter-seg"><div class="filter-group"><label>球場</label><div class="fake-select">全部球場</div></div>' +
+    '<div class="filter-group"><label>月份</label><div class="fake-select">全部月份</div></div>' +
+    '<div class="filter-group new-ring"><span class="new-flag">新增</span><label>賽別</label><div class="toggle-group"><button class="toggle-btn">全部</button><button class="toggle-btn">例行賽</button><button class="toggle-btn active">季後賽</button></div></div>' +
+    '<div class="filter-group"><label>場次狀態</label><div class="toggle-group"><button class="toggle-btn active">未來場次</button><button class="toggle-btn">全部</button><button class="toggle-btn">已結束</button></div></div>' +
+    '<div class="filter-group"><label>收藏／打卡</label><div class="toggle-group"><button class="toggle-btn active">全部</button><button class="toggle-btn">只看收藏</button><button class="toggle-btn">只看已打卡</button></div></div>' +
+    '</div></div></div>';
+}
+
+function gameCard(x, stage, tags) {
+  const done = winner(x) !== null;
+  const field = HOME_FIELD[x.h];
+  const center = done
+    ? '<div class="card-center"><div class="card-score-big"><span class="card-score-num ' + (x.vs > x.hs ? 'score-win' : 'score-lose') + '">' + x.vs + '</span><span class="card-score-sep">:</span><span class="card-score-num ' + (x.hs > x.vs ? 'score-win' : 'score-lose') + '">' + x.hs + '</span></div><span class="card-score-label">已結束</span></div>'
+    : '<div class="card-center"><span class="card-vs">VS</span></div>';
+  return '<div class="game-card"><div class="card-top"><span class="card-top-time">' + x.time + '</span><span class="card-top-venue">◉ ' + field + '</span></div>' +
+    '<div class="card-body"><div class="card-matchup"><div class="card-team">' + img(x.v) + '<span class="card-team-name" style="color:' + COLOR[x.v] + '">' + x.v + '</span></div>' + center +
+    '<div class="card-team">' + img(x.h) + '<span class="card-team-name" style="color:' + COLOR[x.h] + '">' + x.h + '</span></div></div></div>' +
+    '<div class="card-footer"><div class="card-footer-tags"><span class="badge badge-po" style="margin:0">' + stage + ' G' + x.g + '</span>' + tags + '</div>' +
+    (done ? '' : '<div class="card-footer-buttons"><a class="btn-ticket" href="#" onclick="return false">🎫 購票</a><a class="btn-hsr" href="#" onclick="return false">🚄 ' + HSR[field] + '</a></div>') + '</div></div>';
+}
+function renderCards() {
+  const cs = CS(scen), ts = TS(scen);
+  const list = scen === 'cs'
+    ? [[cs[1], '挑戰賽', ''], [cs[2], '挑戰賽', '<span class="badge badge-clinch" style="margin:0">中信聽牌</span>'], [cs[3], '挑戰賽', '<span class="badge badge-maybe" style="margin:0">若需要</span>']]
+    : [[ts[2], '台灣大賽', ''], [ts[3], '台灣大賽', ''], [ts[4], '台灣大賽', '<span class="badge badge-maybe" style="margin:0">若需要</span>']];
+  let html = '', prev = '';
+  list.forEach(([x, stage, tags]) => {
+    if (x.date !== prev) {
+      if (prev) html += '</div></div>';
+      const d = new Date(x.date + 'T00:00:00'), dow = d.getDay();
+      const dc = dow === 0 ? 'day-sun' : dow === 6 ? 'day-sat' : HOL[x.date] ? 'day-hol' : '';
+      html += '<div class="date-group"><div class="date-header"><span class="date-header-text ' + dc + '">' + (+x.date.slice(5,7)) + '月' + (+x.date.slice(8)) + '日（' + DOW[dow] + '）</span>' +
+        (HOL[x.date] ? '<span class="badge badge-hol">' + HOL[x.date] + '</span>' : '') +
+        (dow === 6 ? '<span class="badge badge-sat">六</span>' : dow === 0 ? '<span class="badge badge-sun">日</span>' : '') +
+        '<span class="date-header-line"></span></div><div class="card-grid">';
+      prev = x.date;
+    }
+    html += gameCard(x, stage, tags);
+  });
+  html += '</div></div>';
+  const head = '<div class="section-header"><span class="section-header-title">賽程總覽</span><span class="section-header-line"></span><span class="section-header-sub">賽別：季後賽</span></div>';
+  return '<div class="card-section">' + head + html + '</div>';
+}
+
+function draw() {
+  document.getElementById('po-desk').innerHTML = renderPO();
+  document.getElementById('po-mob').innerHTML = renderPO();
+  document.getElementById('flt-desk').innerHTML = renderFilter();
+  document.getElementById('cards-desk').innerHTML = renderCards();
+  document.getElementById('cards-mob').innerHTML = renderCards();
+}
+document.getElementById('scenario').addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  scen = b.dataset.s;
+  document.querySelectorAll('#scenario button').forEach(x => x.classList.toggle('active', x === b));
+  draw();
+});
+draw();
+</script>
+</body>
+</html>

@@ -267,6 +267,10 @@ svg.section-icon { width: 28px; height: 28px; }
 .badge-makeup { background: #EAF4EC; color: #3E7D54; }
 .badge-suspended { background: #F5EEF8; color: #8B6BAE; }
 .badge-today { background: #FFF3E0; color: #D48C2E; }
+/* 季後賽：賽別+場次（挑戰賽 G1）/ 必要時才打 / 聽牌 */
+.badge-po { background: #FFF0E3; color: #C2573A; border: 1px solid #F2D2BE; }
+.badge-maybe { background: transparent; color: #9B8E7E; border: 1px dashed #CFC1A8; }
+.badge-clinch { background: #FFF3D6; color: #A07A1E; }
 
 /* ── Detail pills ── */
 .game-detail { font-size: 12px; color: #7A6E5E; margin-top: 6px; display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
@@ -1075,6 +1079,16 @@ button.card-weather.clickable:active { transform: scale(0.96); }
         <div class="filter-group">
           <label>月份</label>
           <select id="f-month"><option value="">全部月份</option></select>
+        </div>
+      </div>
+      <div class="filter-group" id="f-kind-group" style="display:none">
+        <label>賽別</label>
+        <div class="cb-row">
+          <div class="toggle-group" id="f-kind">
+            <button class="toggle-btn active" data-val="all">全部</button>
+            <button class="toggle-btn" data-val="regular">例行賽</button>
+            <button class="toggle-btn" data-val="post">季後賽</button>
+          </div>
         </div>
       </div>
       <div class="filter-group">
@@ -2573,9 +2587,14 @@ function loadData() {
     const suspended = gr === '2';
     // 續賽：承接同 sno 較早那筆保留比賽的完賽紀錄
     const isResumed = gr === '0' && suspendedSnos.has(sno) && suspendedSnos.get(sno) < date;
+    // 賽別：例行賽 sno 為純數字 '001'..；季後賽帶前綴 'E001'（挑戰賽）/ 'C001'（台灣大賽），見 docs/data-source.md
+    const kind = /^[A-Z]/.test(sno) ? sno[0] : 'A';
     return {
       date, time, visitor, home, field,
       vScore, hScore, wp, lp, sv, mvp, gr, sno,
+      kind,
+      isPost: kind !== 'A',
+      gameNo: kind !== 'A' ? parseInt(sno.slice(1), 10) : parseInt(sno, 10),
       d, dow,
       dayName: DAYS[dow],
       isWE: dow === 0 || dow === 6,
@@ -2605,27 +2624,74 @@ function loadData() {
   if (userState.profile.mainTeam === null) showMainTeamModal();
 }
 
+// 只取例行賽（季後賽 E/C 不計入戰績、半季、席次、例行賽季末判斷）
+function regularGames() {
+  return allGames.filter(g => !g.isPost);
+}
 // 例行賽全部打完（沒有未來場次）
 function isSeasonOver() {
-  return allGames.length > 0 && !allGames.some(g => g.isFuture && !g.postponed);
+  const reg = regularGames();
+  return reg.length > 0 && !reg.some(g => g.isFuture && !g.postponed);
 }
-// 季末保底：沒有未來場次時，「未來場次」必為空 → 改預設「已結束」（不寫入篩選記憶，下季有新賽程自動回復）
+// 季末保底（不寫入篩選記憶，下季有新賽程自動回復）：
+// - 例行賽打完、還有未來季後賽 → 賽別「全部」改預設「季後賽」，維持「未來場次」
+// - 連季後賽都沒有未來場次 → 「未來場次」必為空，改預設「已結束」
 function applySeasonOverDefault() {
-  if (!isSeasonOver() || statusFilter !== 'future') return;
+  if (!isSeasonOver()) return;
+  if (allGames.some(g => g.isPost && g.isFuture && !g.postponed)) {
+    if (kindFilter === 'all') setKindFilter('post');
+    return;
+  }
+  if (statusFilter !== 'future') return;
   statusFilter = 'past';
   document.querySelectorAll('#f-status .toggle-btn').forEach(b => {
     b.classList.toggle('active', b.dataset.val === 'past');
   });
 }
 
+// ── 季後賽系列戰狀態（E 挑戰賽 / C 台灣大賽）──
+// 先取 1 勝：挑戰賽中屬於半季冠軍的那隊（同隊包辦兩冠時改打五戰三勝、無優勢）。
+// 尚未打的場次依場次序：最早可能分出勝負前的場次一定會打，其後標「若需要」。
+function halfChampions() {
+  const reg = regularGames();
+  const champ = half => { const gs = reg.filter(g => gameHalf(g) === half); return clinchedHalfChampion(gs, computeRecords(gs)); };
+  return [...new Set([champ('first'), champ('second')].filter(Boolean))];
+}
+function seriesInfo(kind) {
+  const rows = allGames.filter(g => g.kind === kind && !g.postponed);
+  if (!rows.length) return null;
+  const teams = [...new Set(rows.flatMap(g => [g.visitor, g.home]))];
+  const need = kind === 'C' ? 4 : 3;
+  const champs = kind === 'E' ? halfChampions() : [];
+  const advTeam = champs.length === 2 ? (teams.find(t => champs.includes(t)) || null) : null;
+  const wins = {};
+  teams.forEach(t => { wins[t] = t === advTeam ? 1 : 0; });
+  const doneSnos = new Set();
+  rows.forEach(g => {
+    if (!g.completed || doneSnos.has(g.sno)) return;
+    doneSnos.add(g.sno);
+    if (g.vScore !== g.hScore) wins[g.vScore > g.hScore ? g.visitor : g.home]++;
+  });
+  const champ = teams.find(t => wins[t] >= need) || null;
+  const pending = [...new Map(rows.filter(g => !doneSnos.has(g.sno)).sort((a, b) => a.gameNo - b.gameNo).map(g => [g.sno, g])).values()];
+  const sure = champ ? 0 : need - Math.max(...teams.map(t => wins[t]));
+  return {
+    teams, wins, need, advTeam, champ,
+    maybe: new Set(pending.slice(sure).map(g => g.sno)),
+    nextSno: champ || !pending.length ? null : pending[0].sno,
+    clinchers: champ ? [] : teams.filter(t => wins[t] === need - 1),
+  };
+}
+
 // ── Hero 資訊列動態計算 ──
 function buildHeroInfo() {
   const today = new Date(); today.setHours(0,0,0,0);
   const todayStr = `${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}-${String(today.getDate()).padStart(2,'0')}`;
-  const todayCount = allGames.filter(g => g.date === todayStr && !g.postponed).length;
-  const remainCount = allGames.filter(g => g.isFuture && !g.postponed).length;
-  const hasCompleted = allGames.some(g => g.completed);
-  const hasFuture = allGames.some(g => g.isFuture);
+  const reg = regularGames();   // 季後賽的 Hero 文案留待季後賽專區上線時處理
+  const todayCount = reg.filter(g => g.date === todayStr && !g.postponed).length;
+  const remainCount = reg.filter(g => g.isFuture && !g.postponed).length;
+  const hasCompleted = reg.some(g => g.completed);
+  const hasFuture = reg.some(g => g.isFuture);
   let status;
   if (!hasCompleted && hasFuture) status = '賽季即將開幕';
   else if (hasFuture) status = '賽季熱烈進行中';
@@ -2642,6 +2708,7 @@ function buildHeroInfo() {
 // ── 戰績計算 ──
 // 半季歸屬：一律用 sno 判斷（補賽沿用原 sno，故自動算回原半季，比用日期切穩）
 function gameHalf(g) {
+  if (g.isPost) return 'post';   // 季後賽不屬於任一半季
   return parseInt(g.sno, 10) <= FIRST_HALF_MAX_SNO ? 'first' : 'second';
 }
 // 某半季是否已有隊伍「數學封王」（勝率第一無法再被追過），回傳該隊名或 null。
@@ -2715,9 +2782,10 @@ function buildStandings() {
   // 預設分頁：依當天日期落在哪個半季（季中空檔歸上半季、季末後歸全年）
   const today = new Date(); today.setHours(0,0,0,0);
   const todayStr = `${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}-${String(today.getDate()).padStart(2,'0')}`;
-  const secondGames = allGames.filter(g => gameHalf(g) === 'second');
+  const reg = regularGames();
+  const secondGames = reg.filter(g => gameHalf(g) === 'second');
   const secondHalfStart = secondGames.length ? secondGames.reduce((m, g) => g.date < m ? g.date : m, secondGames[0].date) : null;
-  const seasonEnd = allGames.length ? allGames.reduce((m, g) => g.date > m ? g.date : m, allGames[0].date) : null;
+  const seasonEnd = reg.length ? reg.reduce((m, g) => g.date > m ? g.date : m, reg[0].date) : null;
   if (currentHalf === null) {
     if (secondHalfStart && todayStr >= secondHalfStart) {
       currentHalf = (seasonEnd && todayStr > seasonEnd) ? 'full' : 'second';
@@ -2734,7 +2802,7 @@ function buildStandings() {
   // 依分頁篩選場次；六隊一律先補 0-0-0，讓半季尚未開打時表格仍完整呈現
   renderPostseasonSeats(secondHalfStart && todayStr >= secondHalfStart);
 
-  const halfGames = allGames.filter(g => currentHalf === 'full' || gameHalf(g) === currentHalf);
+  const halfGames = reg.filter(g => currentHalf === 'full' || gameHalf(g) === currentHalf);
   const sorted = computeRecords(halfGames);
 
   // 冠軍/領先 caption + rank 1 標章
@@ -2805,7 +2873,8 @@ function postseasonOutlook() {
   const S = { first: 0, second: 1 }, FULL = 2;
   const W = [0, 1, 2].map(() => new Array(N).fill(0)), L = [0, 1, 2].map(() => new Array(N).fill(0));
   const done = new Set();
-  allGames.forEach(g => {
+  const reg = regularGames();   // 季後賽不計（gameHalf 會回 'post'，S 對不到）
+  reg.forEach(g => {
     if (!g.completed) return;
     done.add(g.sno);
     if (g.vScore === g.hScore || idx[g.visitor] === undefined || idx[g.home] === undefined) return;
@@ -2813,7 +2882,7 @@ function postseasonOutlook() {
     [S[gameHalf(g)], FULL].forEach(k => { W[k][win]++; L[k][lose]++; });
   });
   const remBySno = new Map();
-  allGames.forEach(g => { if (!done.has(g.sno) && !remBySno.has(g.sno) && idx[g.visitor] !== undefined && idx[g.home] !== undefined) remBySno.set(g.sno, g); });
+  reg.forEach(g => { if (!done.has(g.sno) && !remBySno.has(g.sno) && idx[g.visitor] !== undefined && idx[g.home] !== undefined) remBySno.set(g.sno, g); });
   const rem = [...remBySno.values()].map(g => ({ v: idx[g.visitor], h: idx[g.home], k: S[gameHalf(g)] }));
   const remCnt = [0, 1, 2].map(() => new Array(N).fill(0));
   rem.forEach(r => { [r.k, FULL].forEach(k => { remCnt[k][r.v]++; remCnt[k][r.h]++; }); });
@@ -3268,8 +3337,9 @@ function updateHeroMainTeamStats() {
   const today = new Date(); today.setHours(0,0,0,0);
   const todayStr = `${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}-${String(today.getDate()).padStart(2,'0')}`;
   const isMainGame = g => g.visitor === team || g.home === team;
-  const todayCount = allGames.filter(g => g.date === todayStr && !g.postponed && isMainGame(g)).length;
-  const remainCount = allGames.filter(g => g.isFuture && !g.postponed && isMainGame(g)).length;
+  const reg = regularGames();   // 季後賽的主隊資訊留待 Hero 改版（第 4 步）
+  const todayCount = reg.filter(g => g.date === todayStr && !g.postponed && isMainGame(g)).length;
+  const remainCount = reg.filter(g => g.isFuture && !g.postponed && isMainGame(g)).length;
   document.getElementById('hero-mainteam-logo').src = TEAM_LOGO[team] || '';
   document.getElementById('hero-mainteam-today').textContent = todayCount;
   document.getElementById('hero-mainteam-remain').textContent = remainCount;
@@ -3307,6 +3377,7 @@ function updateMainTeamUI() {
 
 // ── 篩選記憶（Phase 1）──
 let ownershipFilter = 'all'; // 'all' | 'favorites' | 'checkins'
+let kindFilter = 'all'; // 賽別：'all' | 'regular' | 'post'（有季後賽資料時才顯示這組切換）
 
 function captureCurrentFilter() {
   const t1 = document.getElementById('f-team1').value;
@@ -3318,8 +3389,14 @@ function captureCurrentFilter() {
     weekend: document.getElementById('f-weekend').checked,
     holiday: document.getElementById('f-holiday').checked,
     ownership: ownershipFilter,
-    status: statusFilter
+    status: statusFilter,
+    kind: kindFilter
   };
+}
+
+function setKindFilter(val) {
+  kindFilter = val;
+  document.querySelectorAll('#f-kind .toggle-btn').forEach(b => b.classList.toggle('active', b.dataset.val === val));
 }
 
 function applyFilterToUI(f) {
@@ -3356,6 +3433,7 @@ function applyFilterToUI(f) {
     b.classList.toggle('active', b.dataset.val === nextStatus);
   });
   statusFilter = nextStatus;
+  setKindFilter(['all', 'regular', 'post'].includes(f.kind) ? f.kind : 'all');
 }
 
 function persistCurrentFilter() {
@@ -3414,6 +3492,8 @@ function initFilters() {
   const teams = [...new Set(allGames.flatMap(g => [g.visitor, g.home]))].sort();
   const fields = [...new Set(allGames.map(g => g.field))].sort();
   const months = [...new Set(allGames.map(g => g.month))].sort((a,b) => a - b);
+  // 賽別切換：有季後賽資料才出現（例行賽期間不佔版面）
+  document.getElementById('f-kind-group').style.display = allGames.some(g => g.isPost) ? '' : 'none';
 
   // 想看的隊伍：單選下拉（預設「全部」，主隊釘最上）；對手：logo-only 多選 chip
   rebuildTeam1Options();
@@ -3438,7 +3518,13 @@ function getFiltered() {
   const mon = document.getElementById('f-month').value;
   const we = document.getElementById('f-weekend').checked;
   const hol = document.getElementById('f-holiday').checked;
+  const decided = { E: seriesInfo('E'), C: seriesInfo('C') };
   return allGames.filter(g => {
+    // 賽別
+    if (kindFilter === 'regular' && g.isPost) return false;
+    if (kindFilter === 'post' && !g.isPost) return false;
+    // 系列已分出勝負後沒打的「若需要」場次不列
+    if (g.isPost && !g.completed && !g.postponed && decided[g.kind] && decided[g.kind].champ) return false;
     // Team 1 filter: at least one selected team must be in the game (either side)
     if (sel1.length && !sel1.includes(g.visitor) && !sel1.includes(g.home)) return false;
     // Team 2 (opponent) filter: at least one selected opponent must be in the game
@@ -3471,6 +3557,14 @@ function buildTags(g) {
   // 冗餘 badge（今日/週六/週日/已結束/未來）已移除，日期 header 與 card-top 色已足夠
   // 僅保留真正有額外資訊的 tag：假日名稱、延賽狀態
   let tags = '';
+  if (g.isPost) {
+    tags += '<span class="badge badge-po">' + (g.kind === 'C' ? '台灣大賽' : '挑戰賽') + ' G' + g.gameNo + '</span>';
+    const s = !g.completed && !g.postponed ? seriesInfo(g.kind) : null;
+    if (s && s.nextSno === g.sno && s.clinchers.length) {
+      tags += '<span class="badge badge-clinch">' + (s.clinchers.length > 1 ? '決勝戰' : s.clinchers[0].slice(0, 2) + '聽牌') + '</span>';
+    }
+    if (s && s.maybe.has(g.sno)) tags += '<span class="badge badge-maybe" title="系列戰若尚未分出勝負才會進行">若需要</span>';
+  }
   if (g.holName) tags += '<span class="badge badge-hol">' + g.holName + '</span>';
   if (g.postponed) tags += '<span class="badge badge-postponed">延賽</span>';
   if (g.isMakeup) tags += '<span class="badge badge-makeup">補賽</span>';
@@ -3538,14 +3632,16 @@ function render() {
   const weCnt = list.filter(g => g.isWE).length;
   const holCnt = list.filter(g => g.holName && !g.isWE).length;
   // 已完賽/未來/延賽 用全部資料計算，避免篩選模式下數字誤導
-  const totalDone = allGames.filter(g => g.completed).length;
-  const totalFut = allGames.filter(g => g.isFuture && !g.postponed).length;
+  // 統計範圍跟著「賽別」走（全部／例行賽／季後賽），其餘篩選不影響
+  const reg = kindFilter === 'regular' ? regularGames() : kindFilter === 'post' ? allGames.filter(g => g.isPost) : allGames;
+  const totalDone = reg.filter(g => g.completed).length;
+  const totalFut = reg.filter(g => g.isFuture && !g.postponed).length;
   // 「延賽」= 原定時間沒打完、還沒打完的場次，延賽（gr=1）與保留比賽（gr=2）同屬一類：
   // 同 sno 已有完賽紀錄（補賽/續賽打完）就不再列入；以 sno 去重，同場二度延賽只算一場。
   // 已排定新日期但還沒打的補賽仍算延賽（同時也會出現在「未來」）。
-  const doneSnos = new Set(allGames.filter(g => g.completed).map(g => g.sno));
+  const doneSnos = new Set(reg.filter(g => g.completed).map(g => g.sno));
   const totalPostponed = new Set(
-    allGames.filter(g => (g.postponed || g.suspended) && !doneSnos.has(g.sno)).map(g => g.sno)
+    reg.filter(g => (g.postponed || g.suspended) && !doneSnos.has(g.sno)).map(g => g.sno)
   ).size;
 
   stats.innerHTML =
@@ -3568,8 +3664,14 @@ function render() {
       ? '還沒有打卡的場次 — 已完賽場次卡片下方點「打卡」開始記錄'
       : ownershipFilter === 'favorites'
         ? '還沒有收藏的場次 — 點未來場次卡片右上角的收藏按鈕開始收藏'
-        : (statusFilter === 'future' && isSeasonOver())
+        : (statusFilter === 'future' && kindFilter === 'post' && !allGames.some(g => g.isPost))
+          ? '季後賽賽程尚未公布'
+        : (statusFilter === 'future' && isSeasonOver() && kindFilter === 'regular' && allGames.some(g => g.isPost && g.isFuture && !g.postponed))
+          ? '2026 例行賽已全部結束 — 切到「季後賽」看接下來的比賽'
+        : (statusFilter === 'future' && isSeasonOver() && !allGames.some(g => g.isPost))
           ? '2026 例行賽已全部結束 — 切到「已結束」回顧整季比賽'
+        : (statusFilter === 'future' && isSeasonOver())
+          ? '2026 球季比賽已全部結束 — 切到「已結束」回顧整季比賽'
           : '沒有符合條件的場次';
     emptyTable.style.display = '';
     emptyCard.style.display = '';
@@ -3709,6 +3811,13 @@ function getTeamColor(team) {
     render();
     persistCurrentFilter();
   }));
+document.querySelectorAll('#f-kind .toggle-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    setKindFilter(this.dataset.val);
+    render();
+    persistCurrentFilter();
+  });
+});
 document.querySelectorAll('#f-ownership .toggle-btn').forEach(btn => {
   btn.addEventListener('click', function() {
     document.querySelectorAll('#f-ownership .toggle-btn').forEach(b => b.classList.remove('active'));
@@ -3868,6 +3977,7 @@ document.getElementById('btn-reset').addEventListener('click', function() {
   document.querySelectorAll('#f-status .toggle-btn').forEach(b => b.classList.remove('active'));
   document.querySelector('#f-status .toggle-btn[data-val="future"]').classList.add('active');
   statusFilter = 'future';
+  setKindFilter('all');
   applySeasonOverDefault();
   document.querySelectorAll('#f-ownership .toggle-btn').forEach(b => b.classList.remove('active'));
   document.querySelector('#f-ownership .toggle-btn[data-val="all"]').classList.add('active');
@@ -4332,7 +4442,7 @@ document.querySelector('.nav-links').addEventListener('click', function(e) {
 });
 
 window.addEventListener('hashchange', function() {
-  const boxMatch = location.hash.match(/^#box=(\d+)$/);
+  const boxMatch = location.hash.match(/^#box=([EC]?\d+)$/);
   if (boxMatch) {
     openBoxView(boxMatch[1]);
   } else if (location.hash === '#my') {
@@ -4345,7 +4455,7 @@ window.addEventListener('hashchange', function() {
 });
 
 function initMyViewFromHash() {
-  const boxMatch = location.hash.match(/^#box=(\d+)$/);
+  const boxMatch = location.hash.match(/^#box=([EC]?\d+)$/);
   if (boxMatch) openBoxView(boxMatch[1]);
   else if (location.hash === '#my') switchView('my');
   else if (location.hash === '#news') switchView('news');

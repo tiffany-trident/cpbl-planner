@@ -38,7 +38,16 @@
 | `GameResult` | `"1"` | 延賽取消（整場作廢，擇日重打） |
 | `GameResult` | `"2"` | **保留比賽**（已開打但中止，擇日從中止點續打） |
 | `GameResult` | `""`（空字串） | 未賽 |
-| `GameSno` | `"001"` ~ `"364"`（3 位零填） | 場次編號，用來對應 `const BRIEFINGS` 賽事記錄 |
+| `GameSno` | `"001"` ~ `"364"`（3 位零填） | 例行賽場次編號，用來對應 `const BRIEFINGS` 賽事記錄 |
+| `GameSno` | `"E001"`、`"C001"`… | **季後賽**：`E` = 一軍季後挑戰賽、`C` = 一軍總冠軍賽（台灣大賽）。API 的 GameSno 每個賽別都從 1 起算，加前綴避免與例行賽撞號；收藏、打卡、`BRIEFINGS`、`data/box/E001.json` 都用這個 key |
+
+### 季後賽（2026-10-06 起）
+
+- 抓取：`update-scores.ps1` 在例行賽（`KindCode=A`）之後再打兩次 `getgamedatas`，參數 `calendar=YYYY/01/01&location=&kindCode=E|C&teamNo=`（小寫，與官網 /schedule 頁相同）。回空陣列 = 尚未公布
+- 官方會預先列出「必要時才打」的場次與已確定的對戰隊伍（2026 挑戰賽 4 場一次全列）
+- Box / 賽事記錄：`/box?kindCode=E&gameSno=001`，存成 `data/box/E001.json`
+- 前端 `loadData()` 由 sno 前綴推出 `kind` / `isPost` / `gameNo`；`regularGames()` 只取例行賽，戰績、半季、季後賽席次、例行賽季末判斷都只用它
+- 賽制：全年勝率最高的半季冠軍直接進台灣大賽；另一半季冠軍（先取 1 勝、主場 3 場，1-1-2）對外卡打四戰三勝挑戰賽；台灣大賽七戰四勝。同隊包辦兩冠時改由全年第 2、3 名打五戰三勝（[維基百科](https://zh.wikipedia.org/zh-tw/%E4%B8%AD%E8%8F%AF%E8%81%B7%E6%A3%92%E5%AD%A3%E5%BE%8C%E6%8C%91%E6%88%B0%E8%B3%BD)，已對照 2025 API 實際賽程）
 
 ### 延賽 / 補賽 / 保留比賽 / 續賽
 
