@@ -121,6 +121,35 @@ if (-not $games -or $games.Count -eq 0) {
 }
 Write-Step "API response OK ($($games.Count) games)."
 
+# -- Postseason: E = playoff challenge series, C = Taiwan Series (championship) --
+# GameSno restarts at 1 per KindCode, so postseason keys get a kind prefix (E001 / C001)
+# to avoid colliding with regular-season 001..360 in RAW_DATA, BRIEFINGS, data/box and
+# the user's favorites/checkins. An empty list just means "not published yet".
+# Note the year/kind params are lower-case (calendar/kindCode) -- that's what the
+# /schedule page itself sends; see docs/data-source.md.
+$seasonYear = [string]$games[0].Year
+$postGames = @()
+foreach ($kind in @('E', 'C')) {
+    $postRes = Invoke-CpblWeb `
+        -Uri "$CpblBase/schedule/getgamedatas" `
+        -Method Post `
+        -Headers @{
+            'RequestVerificationToken' = $token
+            'X-Requested-With'         = 'XMLHttpRequest'
+        } `
+        -ContentType 'application/x-www-form-urlencoded' `
+        -Body "calendar=$seasonYear%2F01%2F01&location=&kindCode=$kind&teamNo=" `
+        -Session $session
+    $postData = $postRes.Content | ConvertFrom-Json
+    if (-not $postData.Success) { throw "CPBL API returned Success=false for kindCode=$kind" }
+    $kindGames = @()
+    if ($postData.GameDatas) { $kindGames = @(($postData.GameDatas | ConvertFrom-Json)) | ForEach-Object { $_ } }
+    $kindGames = @($kindGames | Where-Object { $_ -and [string]$_.KindCode -eq $kind })
+    Write-Step "Postseason kindCode=$kind : $($kindGames.Count) games."
+    $postGames += $kindGames
+}
+$allGames = @($games) + @($postGames)
+
 Write-Step "Building RAW_DATA..."
 function Default([object]$val, [object]$fallback) {
     if ($null -eq $val) { return $fallback }
@@ -129,6 +158,13 @@ function Default([object]$val, [object]$fallback) {
 function Pad3([object]$sno) {
     return ([int]$sno).ToString().PadLeft(3, '0')
 }
+# Key used everywhere (RAW_DATA sno column, BRIEFINGS, data/box/<key>.json):
+# regular season '001'..'360' (unchanged), postseason 'E001' / 'C001'.
+function Get-SnoKey($g) {
+    $k = [string]$g.KindCode
+    if ($k -eq '' -or $k -eq 'A') { return (Pad3 $g.GameSno) }
+    return $k + (Pad3 $g.GameSno)
+}
 
 # One getlive fetch per game; returns the parsed response (all sub-JSONs) or $null.
 # Both the briefing and the box score are derived from this single response.
@@ -136,9 +172,9 @@ function Pad3([object]$sno) {
 # the very FIRST box request hits HiNet's 308 __chtcdn cookie challenge, and plain
 # Invoke-WebRequest silently drops it -- that dropped the first game (sno 001) on
 # every cold run. The wrapper resolves the challenge and retries. See docs/scoreupdate.md.
-function Get-GameLive($session, $year, $sno) {
+function Get-GameLive($session, $year, $sno, $kind = 'A') {
     $snoPadded = Pad3 $sno
-    $boxUrl = "$CpblBase/box?year=$year&kindCode=A&gameSno=$snoPadded"
+    $boxUrl = "$CpblBase/box?year=$year&kindCode=$kind&gameSno=$snoPadded"
     try {
         $page = Invoke-CpblWeb -Uri $boxUrl -Session $session
     } catch {
@@ -147,7 +183,7 @@ function Get-GameLive($session, $year, $sno) {
     $m = [regex]::Match($page.Content, 'name="__RequestVerificationToken"[^>]*value="([^"]+)"')
     if (-not $m.Success) { return $null }
     $tok = $m.Groups[1].Value
-    $body = "__RequestVerificationToken=$([uri]::EscapeDataString($tok))&GameSno=$snoPadded&KindCode=A&Year=$year&PrevOrNext=&PresentStatus="
+    $body = "__RequestVerificationToken=$([uri]::EscapeDataString($tok))&GameSno=$snoPadded&KindCode=$kind&Year=$year&PrevOrNext=&PresentStatus="
     try {
         $res = Invoke-CpblWeb -Uri "$CpblBase/box/getlive" `
             -Method Post -Session $session `
@@ -260,7 +296,7 @@ function Build-Box($json) {
     return $box
 }
 
-$lines = foreach ($g in $games) {
+$lines = foreach ($g in $allGames) {
     $gr = $g.GameResult
     if ($null -eq $gr) { $grStr = '' } else { $grStr = [string]$gr }
     $row = @(
@@ -276,7 +312,7 @@ $lines = foreach ($g in $games) {
         (Default $g.CloserName ''),
         (Default $g.MvpName ''),
         $grStr,
-        (Pad3 $g.GameSno)
+        (Get-SnoKey $g)
     )
     ConvertTo-Json -InputObject $row -Compress
 }
@@ -310,9 +346,9 @@ $utf8NoBom = New-Object System.Text.UTF8Encoding $false   # used for per-game bo
 $boxSession = New-Object Microsoft.PowerShell.Commands.WebRequestSession
 $newBrief = 0
 $newBox = 0
-foreach ($g in $games) {
+foreach ($g in $allGames) {
     if ([string]$g.GameResult -ne '0') { continue }
-    $sno = Pad3 $g.GameSno
+    $sno = Get-SnoKey $g
     $boxPath = Join-Path $boxDir "$sno.json"
     $needBrief = -not ($briefings.Contains($sno) -and $briefings[$sno])
     $needBox = -not (Test-Path $boxPath)
@@ -322,7 +358,8 @@ foreach ($g in $games) {
         $needBox = $false
     }
 
-    $live = Get-GameLive $boxSession $g.Year $g.GameSno
+    $kindCode = if ([string]$g.KindCode) { [string]$g.KindCode } else { 'A' }
+    $live = Get-GameLive $boxSession $g.Year $g.GameSno $kindCode
     if (-not $live) { continue }
 
     if ($needBrief) {
