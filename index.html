@@ -2839,10 +2839,11 @@ function renderPostseasonZone() {
   };
   const stateOf = (kind, info) => info.champ ? 'done' : allGames.some(g => g.kind === kind && g.completed) ? 'live' : 'soon';
 
-  // 挑戰賽
+  // 挑戰賽（有優勢的半季冠軍排上面；雙冠時依全年名次）
+  const eOrder = E ? (E.advTeam ? [E.advTeam, E.teams.find(t => t !== E.advTeam)] : E.teams.slice().sort((x, y) => seeds.rank(x) - seeds.rank(y))) : [];
   let eHtml = '';
   if (E) {
-    const order = E.advTeam ? [E.advTeam, E.teams.find(t => t !== E.advTeam)] : E.teams.slice().sort((x, y) => seeds.rank(x) - seeds.rank(y));
+    const order = eOrder;
     order.kind = 'E';
     const st = stateOf('E', E);
     const homeCnt = t => new Set(allGames.filter(g => g.kind === 'E' && !g.postponed && g.home === t).map(g => g.sno)).size;
@@ -2873,7 +2874,7 @@ function renderPostseasonZone() {
     cHtml = '<div class="po-series wait"><div class="po-s-head"><div><div class="po-s-title">台灣大賽</div><div class="po-s-fmt">七戰四勝・賽程待公布</div></div>' +
       '<span class="po-pill">' + (opp ? '賽程待公布' : '等待對手') + '</span></div>' +
       (seeds.bye ? teamRow(seeds.bye, 0, { meta: byeMeta(seeds.bye) }) : '') +
-      (opp ? teamRow(opp, 0, { meta: eResult(opp) }) : teamRow('', 0, { tbd: true, meta: E ? E.teams.map(poShort).join(' / ') : '' })) +
+      (opp ? teamRow(opp, 0, { meta: eResult(opp) }) : teamRow('', 0, { tbd: true, meta: eOrder.map(poShort).join(' / ') })) +
       dots('C', null, 7, false, 4) + '<div class="po-note">官方公布賽程後顯示日期與球場</div></div>';
   }
 
