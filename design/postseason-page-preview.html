@@ -209,7 +209,7 @@ body { font-family: 'Inter', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; b
 </defs></svg>
 <div class="doc">
   <h1>季後賽整頁示意（第 3、4 步）</h1>
-  <p>第 3 步：Hero 下方新增「季後賽專區」。第 4 步：Hero 文案改季後賽、戰績卡上的季後賽席次卡收掉。左上角紅標＝新增區塊、黃標＝改動區塊；其餘（nav、篩選、賽程總覽）不變，只示意位置。</p>
+  <p>第 3 步：Hero 下方新增「季後賽專區」（只放對戰樹，場次卡片在下方賽程總覽）。第 4 步：Hero 文案改季後賽、戰績卡上的季後賽席次卡收掉。左上角紅標＝新增區塊、黃標＝改動區塊；其餘（nav、篩選、賽程總覽）不變，只示意位置。</p>
   <div class="scenario" id="scenario">
     <button data-s="pre" class="active">開打前<small>10/6–10/8・真實賽程</small></button>
     <button data-s="cs">挑戰賽進行中<small>10/10 晚・模擬比分</small></button>
@@ -335,23 +335,8 @@ function zone() {
       '<div class="po-note">' + (tsT.champ ? '中信 ' + a + ':' + b + ' 封王' : (a > b ? '中信 ' + a + ':' + b + ' 領先，<b>再贏 ' + (4 - a) + ' 場</b>封王' : a === b ? '系列 ' + a + ':' + b + ' 平手' : '味全 ' + b + ':' + a + ' 領先')) + '</div></div>';
   }
 
-  // 全部季後賽場次：跟一般賽程一樣逐日分組；系列已分出勝負後沒打的場次不列
-  const series = [{ st: '挑戰賽', games: cs, minGames: 2, done: !!csT.champ }];
-  if (S.ts) { const ts = build(TS_SIM, S.ts); series.push({ st: '台灣大賽', games: ts, minGames: 4, done: !!tally(ts, ['味全龍', '中信兄弟'], 0, 4).champ }); }
-  const clinchTeam = !csT.champ && csPlayed && csLead === 2 ? '中信' : '';
-  const all = [];
-  series.forEach(sr => {
-    const nextG = sr.games.find(x => winner(x) === null);
-    sr.games.forEach(x => {
-      const played = winner(x) !== null;
-      if (!played && sr.done) return;
-      const isNext = nextG && x.g === nextG.g;
-      all.push({ ...x, st: sr.st, maybe: !played && !isNext && x.g > sr.minGames, clinch: isNext && sr.st === '挑戰賽' && clinchTeam ? clinchTeam + '聽牌' : '' });
-    });
-  });
-  all.sort((a, b) => (a.date + a.time).localeCompare(b.date + b.time));
-  const champ = scen === 'end' ? '<div class="po-champ">' + img('中信兄弟') + '<div><div class="k">2026 中華職棒總冠軍</div><div class="t" style="color:#B58A00">中信兄弟</div></div></div>' : '';
-  const foot = champ + '<div class="po-next-wrap"><div class="po-next-title">季後賽賽程<small>與一般賽程相同的卡片與日期分組（天氣為示意）</small></div>' + cardsByDate(all) + '</div>';  return '<div class="po-wrap chg"><span class="chg-flag">新增・第 3 步</span><div class="section-header"><img class="section-icon" src="https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets/Sports%20medal/3D/sports_medal_3d.png" alt="">' +
+  // 定案（2026-10-06）：專區只放對戰樹；場次卡片在下方賽程總覽（賽別預設季後賽），不在專區重複
+  const foot = scen === 'end' ? '<div class="po-champ">' + img('中信兄弟') + '<div><div class="k">2026 中華職棒總冠軍</div><div class="t" style="color:#B58A00">中信兄弟</div></div></div>' : '';  return '<div class="po-wrap chg"><span class="chg-flag">新增・第 3 步</span><div class="section-header"><img class="section-icon" src="https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets/Sports%20medal/3D/sports_medal_3d.png" alt="">' +
     '<span class="section-header-title">2026 季後賽</span><span class="section-header-line"></span></div>' +
     '<div class="po-bracket">' + csHtml + '<div class="po-link"></div>' + tsHtml + '</div>' + foot + '</div>';
 }
