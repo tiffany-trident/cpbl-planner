@@ -190,6 +190,57 @@ svg.section-icon { width: 28px; height: 28px; }
   .ps-team-name { font-size: 18px; }
 }
 .ps-legend i { display: inline-block; width: 14px; height: 6px; border-radius: 3px; background: #C2573A; opacity: .3; vertical-align: middle; margin-right: 4px; }
+/* ══ 季後賽專區（Hero 下方，只放對戰樹；視覺稿 design/postseason-page-preview.html）══ */
+.po-wrap { padding: 32px 40px 32px; background: #FFFCF7; border-bottom: 1px solid #F3EADB; }
+.po-bracket { display: grid; grid-template-columns: 1fr 64px 1fr; align-items: center; }
+.po-series { position: relative; background: #FDFAF5; border: 1.5px solid #F0E6D6; border-radius: 16px; padding: 14px 16px; display: flex; flex-direction: column; gap: 10px; overflow: hidden; min-width: 0; }
+.po-series.live { border-color: #EBC3AE; background: linear-gradient(135deg, #FFF6EE 0%, #FFFCF8 100%); box-shadow: 0 3px 0 #F3DCCD; }
+.po-series.soon { border-color: #EBD9B8; background: #FFFBF2; }
+.po-series.wait { border-style: dashed; }
+.po-s-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.po-s-title { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; font-size: 16px; color: #3D3122; letter-spacing: 1px; }
+.po-s-fmt { font-size: 11px; color: #9B8E7E; }
+.po-pill { font-size: 10px; font-weight: 600; padding: 2px 9px; border-radius: 10px; background: #F2EBDA; color: #9B8E7E; white-space: nowrap; }
+.po-series.live .po-pill { background: #C2573A; color: #FFF; }
+.po-series.soon .po-pill { background: #FFF3D6; color: #A07A1E; }
+.po-series.done .po-pill { background: #E8F0E2; color: #4A7C3E; }
+.po-row { display: grid; grid-template-columns: 36px 1fr auto; align-items: center; gap: 10px; }
+.po-row img { width: 36px; height: 36px; object-fit: contain; }
+.po-row .nm { font-family: 'jf-openhuninn', 'Noto Sans TC', sans-serif; font-size: 18px; letter-spacing: 1px; }
+.po-row .meta { font-size: 10.5px; color: #9B8E7E; display: block; font-family: 'Noto Sans TC', sans-serif; letter-spacing: 0; }
+.po-row .wins { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 28px; color: #D4C4AB; min-width: 28px; text-align: right; }
+.po-row.ahead .wins { color: #C2573A; }
+.po-row.out { opacity: .45; }
+.po-row.tbd .nm { color: #B8A692; font-size: 15px; }
+.po-adv { display: inline-block; font-size: 9.5px; font-weight: 600; color: #A07A1E; background: #FFF3D6; border-radius: 8px; padding: 0 6px; margin-left: 4px; vertical-align: 2px; font-family: 'Noto Sans TC', sans-serif; letter-spacing: 0; }
+.po-dots { display: flex; gap: 6px; flex-wrap: wrap; }
+.po-dot { display: flex; flex-direction: column; align-items: center; gap: 2px; font-size: 9.5px; color: #9B8E7E; width: 34px; white-space: nowrap; }
+.po-dot i { width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-style: normal; font-size: 10px; font-weight: 700; background: #F2EBDA; color: #B8A692; }
+.po-dot.adv i { background: #FFF3D6; color: #A07A1E; }
+.po-dot.won i { color: #FFF; }
+.po-dot.next i { background: #FFF; border: 2px solid #C2573A; color: #C2573A; }
+.po-dot.maybe i { background: transparent; border: 1.5px dashed #CFC1A8; }
+.po-note { font-size: 11px; color: #7A6E5E; line-height: 1.5; }
+.po-note b { color: #C2573A; }
+.po-link { position: relative; height: 100%; }
+.po-link::before { content: ''; position: absolute; left: 0; right: 0; top: 50%; border-top: 2px dashed #E3D3BC; }
+.po-link::after { content: ''; position: absolute; right: 2px; top: 50%; width: 9px; height: 9px; margin-top: -5px; border-top: 2px solid #D9C5A8; border-right: 2px solid #D9C5A8; transform: rotate(45deg); }
+.po-stamp { position: absolute; right: 14px; bottom: 10px; width: 76px; height: 76px; border: 2.5px solid #C2573A; border-radius: 50%; color: #C2573A; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: 'jf-openhuninn', sans-serif; font-size: 15px; line-height: 1.1; letter-spacing: 1px; transform: rotate(-12deg); opacity: .85; box-shadow: inset 0 0 0 3px #FFFCF8, inset 0 0 0 4.5px #C2573A; pointer-events: none; }
+.po-stamp small { font-size: 9px; letter-spacing: 0; }
+.po-champ { display: flex; align-items: center; gap: 14px; margin-top: 16px; background: linear-gradient(135deg, #FFF3D6 0%, #FFFBEF 100%); border: 1.5px solid #EED9A4; border-radius: 16px; padding: 14px 18px; }
+.po-champ img { width: 56px; height: 56px; object-fit: contain; }
+.po-champ .k { font-size: 11px; color: #A07A1E; letter-spacing: 1px; font-weight: 600; }
+.po-champ .t { font-family: 'jf-openhuninn', sans-serif; font-size: 24px; letter-spacing: 2px; }
+@media (max-width: 768px) {
+  .po-wrap { padding: 20px 16px; }
+  .po-bracket { grid-template-columns: 1fr; }
+  .po-link { height: 26px; }
+  .po-link::before { left: 50%; right: auto; top: 0; bottom: 0; border-top: 0; border-left: 2px dashed #E3D3BC; }
+  .po-link::after { right: auto; left: 50%; top: auto; bottom: 2px; margin: 0 0 0 -5px; transform: rotate(135deg); }
+  /* 手機卡片窄，印章會疊到後面幾顆圓點 → 縮小並降透明度（同打卡印章疊在卡片上的做法） */
+  .po-stamp { width: 60px; height: 60px; font-size: 12px; opacity: .55; }
+}
+
 /* ── Filters ── */
 .filters { background: #FDFCFA; padding: 28px 40px 32px; display: flex; flex-direction: column; gap: 16px; }
 .filter-card { background: #FFF; border-radius: 14px; padding: 20px 24px; box-shadow: 0 2px 8px rgba(212,196,171,0.10); }
@@ -1016,13 +1067,13 @@ button.card-weather.clickable:active { transform: scale(0.96); }
   </div>
   <div class="hero-content">
     <div class="hero-greet" id="hero-greet" style="display:none"></div>
-    <div class="hero-eyebrow">中華職棒一軍例行賽 · 2026</div>
+    <div class="hero-eyebrow" id="hero-eyebrow">中華職棒一軍例行賽 · 2026</div>
     <h1>進場倒數</h1>
     <div class="hero-info">
-      <span class="hero-info-item">⚾ 今日 <span class="hero-info-num" id="hero-today-count">—</span> 場</span>
-      <span class="hero-info-sep">●</span>
-      <span class="hero-info-item">📅 剩餘 <span class="hero-info-num" id="hero-remain-count">—</span> 場</span>
-      <span class="hero-info-sep">●</span>
+      <span class="hero-info-item" id="hero-today-item">⚾ 今日 <span class="hero-info-num" id="hero-today-count">—</span> 場</span>
+      <span class="hero-info-sep" id="hero-today-sep">●</span>
+      <span class="hero-info-item" id="hero-remain-item">📅 剩餘 <span class="hero-info-num" id="hero-remain-count">—</span> 場</span>
+      <span class="hero-info-sep" id="hero-remain-sep">●</span>
       <span class="hero-info-item">🔥 <span class="hero-info-status" id="hero-status">—</span></span>
       <span class="hero-info-sep hero-mainteam-only" id="hero-mainteam-sep" style="display:none">●</span>
       <span class="hero-info-item hero-mainteam-only" id="hero-mainteam-stat" style="display:none"><img class="hero-mainteam-logo" id="hero-mainteam-logo" src="" alt=""> 今日 <span class="hero-info-num hero-mainteam-num" id="hero-mainteam-today">—</span> 場 · 剩餘 <span class="hero-info-num hero-mainteam-num" id="hero-mainteam-remain">—</span> 場</span>
@@ -1034,12 +1085,21 @@ button.card-weather.clickable:active { transform: scale(0.96); }
   </div>
 </div>
 
+<div class="po-wrap" id="po-zone" style="display:none">
+  <div class="section-header">
+    <img class="section-icon" src="https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets/Sports%20medal/3D/sports_medal_3d.png" alt="">
+    <span class="section-header-title">2026 季後賽</span>
+    <span class="section-header-line"></span>
+  </div>
+  <div id="po-zone-body"></div>
+</div>
+
 <div class="standings-wrap" id="standings-wrap">
   <div class="section-header">
     <img class="section-icon" src="https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets/Trophy/3D/trophy_3d.png" alt="">
     <span class="section-header-title">各隊戰績</span>
     <span class="section-header-line"></span>
-    <span class="section-header-sub">2026 例行賽</span>
+    <span class="section-header-sub" id="standings-sub">2026 例行賽</span>
   </div>
   <div class="ps-seats" id="ps-seats" style="display:none" aria-label="季後賽席次"></div>
   <div class="standings-tabs" id="standings-tabs" role="tablist">
@@ -2618,6 +2678,7 @@ function loadData() {
   bindStandingsTabs();
   buildStandings();
   buildHeroInfo();
+  renderPostseasonZone();
   updateMainTeamUI();
   initFilters();
   if (userState.lastFilter) applyFilterToUI(userState.lastFilter);
@@ -2656,10 +2717,12 @@ function applySeasonOverDefault() {
 // ── 季後賽系列戰狀態（E 挑戰賽 / C 台灣大賽）──
 // 先取 1 勝：挑戰賽中屬於半季冠軍的那隊（同隊包辦兩冠時改打五戰三勝、無優勢）。
 // 尚未打的場次依場次序：最早可能分出勝負前的場次一定會打，其後標「若需要」。
+function halfChampionOf(half) {
+  const gs = regularGames().filter(g => gameHalf(g) === half);
+  return clinchedHalfChampion(gs, computeRecords(gs));
+}
 function halfChampions() {
-  const reg = regularGames();
-  const champ = half => { const gs = reg.filter(g => gameHalf(g) === half); return clinchedHalfChampion(gs, computeRecords(gs)); };
-  return [...new Set([champ('first'), champ('second')].filter(Boolean))];
+  return [...new Set([halfChampionOf('first'), halfChampionOf('second')].filter(Boolean))];
 }
 function seriesInfo(kind) {
   const rows = allGames.filter(g => g.kind === kind && !g.postponed);
@@ -2687,6 +2750,142 @@ function seriesInfo(kind) {
   };
 }
 
+// ── 季後賽專區：對戰樹（挑戰賽 → 台灣大賽）。只放系列狀態，場次卡片在下方賽程總覽 ──
+// 季後賽期間 = 例行賽打完且已有季後賽資料（Hero 文案、收掉席次卡、戰績表標記都以此為準）
+function isPostseasonPeriod() {
+  return isSeasonOver() && allGames.some(g => g.isPost);
+}
+const poShort = t => (TEAM_SHORT[t] || t).slice(0, 2);
+const poMd = d => (+d.slice(5, 7)) + '/' + (+d.slice(8, 10));
+const poDow = d => DAYS[new Date(d + 'T00:00:00').getDay()];
+// 中信亮黃當圓點底、白字對比不足 → 圓點改用深一點的黃
+const poDotColor = t => t === '中信兄弟' ? '#D9A900' : getTeamColor(t);
+
+// 季後賽種子：各半季冠軍、直接晉級台灣大賽的隊（全年勝率較高的半季冠軍；同隊包辦兩冠即該隊）
+function postseasonSeeds() {
+  const h1 = halfChampionOf('first'), h2 = halfChampionOf('second');
+  const full = computeRecords(regularGames());
+  const rank = t => full.findIndex(x => x.name === t) + 1;
+  const champs = [...new Set([h1, h2].filter(Boolean))];
+  const bye = champs.length ? champs.slice().sort((a, b) => rank(a) - rank(b))[0] : null;
+  const halfLabel = t => t === h1 && t === h2 ? '上下半季冠軍' : t === h1 ? '上半季冠軍' : t === h2 ? '下半季冠軍' : '';
+  return { h1, h2, champs, bye, rank, halfLabel };
+}
+
+// 每個場次編號取一筆代表列（有完賽紀錄優先，否則取最新的非延賽列）
+function seriesRowsByNo(kind) {
+  const m = new Map();
+  allGames.filter(g => g.kind === kind && !g.postponed).forEach(g => {
+    const cur = m.get(g.gameNo);
+    if (!cur || (g.completed && !cur.completed) || (!cur.completed && g.date > cur.date)) m.set(g.gameNo, g);
+  });
+  return m;
+}
+
+function renderPostseasonZone() {
+  const zone = document.getElementById('po-zone');
+  const body = document.getElementById('po-zone-body');
+  if (!zone || !body) return;
+  const E = seriesInfo('E'), C = seriesInfo('C');
+  if (!E && !C) { zone.style.display = 'none'; return; }
+  const seeds = postseasonSeeds();
+
+  const teamRow = (t, wins, o) => '<div class="po-row' + (o.ahead ? ' ahead' : '') + (o.out ? ' out' : '') + (o.tbd ? ' tbd' : '') + '">' +
+    (o.tbd ? '<span></span>' : '<img src="' + (TEAM_LOGO[t] || '') + '" alt="">') +
+    '<div><span class="nm"' + (o.tbd ? '' : ' style="color:' + getTeamColor(t) + '"') + '>' + (o.tbd ? '挑戰賽勝隊' : (TEAM_SHORT[t] || t)) +
+      (o.adv ? '<span class="po-adv">先取 1 勝</span>' : '') + '</span>' +
+    '<span class="meta">' + (o.meta || '') + '</span></div>' +
+    '<span class="wins">' + (o.tbd ? '–' : wins) + '</span></div>';
+
+  // total = 系列最多場數；minGames = 沒有賽程資料時，超過這場才算「若需要」
+  const dots = (kind, info, total, adv, minGames) => {
+    const rows = seriesRowsByNo(kind);
+    let h = adv ? '<div class="po-dot adv"><i>+1</i>優勢</div>' : '';
+    for (let n = 1; n <= total; n++) {
+      const g = rows.get(n);
+      if (g && g.completed) {
+        const w = g.vScore > g.hScore ? g.visitor : g.home;
+        h += '<div class="po-dot won"><i style="background:' + poDotColor(w) + '">' + g.vScore + ':' + g.hScore + '</i>G' + n + '</div>';
+      } else if (info && info.champ) {
+        h += '<div class="po-dot maybe"><i>G' + n + '</i>未進行</div>';
+      } else if (g && info && info.nextSno === g.sno) {
+        h += '<div class="po-dot next"><i>G' + n + '</i>' + poMd(g.date) + '</div>';
+      } else if (g ? (info && info.maybe.has(g.sno)) : n > minGames) {
+        h += '<div class="po-dot maybe"><i>G' + n + '</i>若需要</div>';
+      } else {
+        h += '<div class="po-dot"><i>G' + n + '</i>' + (g ? poMd(g.date) : '') + '</div>';
+      }
+    }
+    return '<div class="po-dots">' + h + '</div>';
+  };
+
+  const noteFor = (info, order, goal) => {
+    const [a, b] = order, wa = info.wins[a], wb = info.wins[b], need = info.need;
+    if (info.champ) {
+      const other = info.champ === a ? b : a;
+      return poShort(info.champ) + ' ' + info.wins[info.champ] + ':' + info.wins[other] + ' ' + (goal === '晉級' ? '晉級台灣大賽' : '封王');
+    }
+    const played = allGames.some(g => g.kind === order.kind && g.completed);
+    if (!played && info.advTeam) return poShort(a) + '帶 1 勝優勢開打，<b>再贏 ' + (need - wa) + ' 場</b>' + goal + '；' + poShort(b) + '需贏 ' + need + ' 場';
+    if (!played) return '先拿 ' + need + ' 勝者' + goal;
+    if (wa === wb) return '系列 ' + wa + ':' + wb + ' 平手，<b>再贏 ' + (need - wa) + ' 場</b>' + goal;
+    const [lead, trail] = wa > wb ? [a, b] : [b, a];
+    return poShort(lead) + '<b>再贏 ' + (need - info.wins[lead]) + ' 場</b>' + goal + '；' + poShort(trail) + '需再贏 ' + (need - info.wins[trail]) + ' 場';
+  };
+
+  const dateRange = kind => {
+    const ds = allGames.filter(g => g.kind === kind && !g.postponed).map(g => g.date).sort();
+    return ds.length ? poMd(ds[0]) + (ds.length > 1 ? '–' + poMd(ds[ds.length - 1]) : '') : '';
+  };
+  const stateOf = (kind, info) => info.champ ? 'done' : allGames.some(g => g.kind === kind && g.completed) ? 'live' : 'soon';
+
+  // 挑戰賽（有優勢的半季冠軍排上面；雙冠時依全年名次）
+  const eOrder = E ? (E.advTeam ? [E.advTeam, E.teams.find(t => t !== E.advTeam)] : E.teams.slice().sort((x, y) => seeds.rank(x) - seeds.rank(y))) : [];
+  let eHtml = '';
+  if (E) {
+    const order = eOrder;
+    order.kind = 'E';
+    const st = stateOf('E', E);
+    const homeCnt = t => new Set(allGames.filter(g => g.kind === 'E' && !g.postponed && g.home === t).map(g => g.sno)).size;
+    const metaOf = t => (seeds.halfLabel(t) || '外卡') + (t === E.advTeam ? '・主場 ' + homeCnt(t) + ' 場' : '');
+    eHtml = '<div class="po-series ' + st + '">' +
+      '<div class="po-s-head"><div><div class="po-s-title">季後挑戰賽</div><div class="po-s-fmt">' + (E.advTeam ? '四戰三勝' : '五戰三勝') + '・' + dateRange('E') + '</div></div>' +
+      '<span class="po-pill">' + (st === 'done' ? poShort(E.champ) + '晉級' : st === 'live' ? '進行中' : dateRange('E').split('–')[0] + ' 開打') + '</span></div>' +
+      order.map(t => teamRow(t, E.wins[t], { ahead: E.wins[t] > E.wins[order.find(x => x !== t)], adv: t === E.advTeam, out: E.champ && E.champ !== t, meta: metaOf(t) })).join('') +
+      dots('E', E, E.advTeam ? 4 : 5, !!E.advTeam, E.advTeam ? 2 : 3) +
+      '<div class="po-note">' + noteFor(E, order, '晉級') + '</div></div>';
+  }
+
+  // 台灣大賽（官方公布前：直接晉級的隊 + 挑戰賽勝隊）
+  let cHtml;
+  const byeMeta = t => (seeds.halfLabel(t) ? seeds.halfLabel(t) + '・' : '') + '全年勝率第 ' + seeds.rank(t) + '，直接晉級';
+  const eResult = t => E && E.champ === t ? '挑戰賽 ' + E.wins[t] + ':' + E.wins[E.teams.find(x => x !== t)] + ' 晉級' : '';
+  if (C) {
+    const order = C.teams.slice().sort((x, y) => (x === seeds.bye ? -1 : y === seeds.bye ? 1 : seeds.rank(x) - seeds.rank(y)));
+    order.kind = 'C';
+    const st = stateOf('C', C);
+    cHtml = '<div class="po-series ' + st + '">' + (C.champ ? '<div class="po-stamp">總冠軍<small>2026</small></div>' : '') +
+      '<div class="po-s-head"><div><div class="po-s-title">台灣大賽</div><div class="po-s-fmt">七戰四勝・' + dateRange('C') + '</div></div>' +
+      '<span class="po-pill">' + (st === 'done' ? '已結束' : st === 'live' ? '進行中' : dateRange('C').split('–')[0] + ' 開打') + '</span></div>' +
+      order.map(t => teamRow(t, C.wins[t], { ahead: C.wins[t] > C.wins[order.find(x => x !== t)], out: C.champ && C.champ !== t, meta: t === seeds.bye ? byeMeta(t) : eResult(t) })).join('') +
+      dots('C', C, 7, false, 4) + '<div class="po-note">' + noteFor(C, order, '封王') + '</div></div>';
+  } else {
+    const opp = E && E.champ;
+    cHtml = '<div class="po-series wait"><div class="po-s-head"><div><div class="po-s-title">台灣大賽</div><div class="po-s-fmt">七戰四勝・賽程待公布</div></div>' +
+      '<span class="po-pill">' + (opp ? '賽程待公布' : '等待對手') + '</span></div>' +
+      (seeds.bye ? teamRow(seeds.bye, 0, { meta: byeMeta(seeds.bye) }) : '') +
+      (opp ? teamRow(opp, 0, { meta: eResult(opp) }) : teamRow('', 0, { tbd: true, meta: eOrder.map(poShort).join(' / ') })) +
+      dots('C', null, 7, false, 4) + '<div class="po-note">官方公布賽程後顯示日期與球場</div></div>';
+  }
+
+  const champBanner = C && C.champ
+    ? '<div class="po-champ"><img src="' + (TEAM_LOGO[C.champ] || '') + '" alt=""><div><div class="k">2026 中華職棒總冠軍</div>' +
+      '<div class="t" style="color:' + (C.champ === '中信兄弟' ? '#B58A00' : getTeamColor(C.champ)) + '">' + (TEAM_SHORT[C.champ] || C.champ) + '</div></div></div>'
+    : '';
+  body.innerHTML = '<div class="po-bracket">' + (eHtml || '<div></div>') + '<div class="po-link"></div>' + cHtml + '</div>' + champBanner;
+  zone.style.display = '';
+}
+
 // ── Hero 資訊列動態計算 ──
 function buildHeroInfo() {
   const today = new Date(); today.setHours(0,0,0,0);
@@ -2707,6 +2906,43 @@ function buildHeroInfo() {
   if (todayEl) todayEl.textContent = todayCount;
   if (remainEl) remainEl.textContent = remainCount;
   if (statusEl) statusEl.textContent = status;
+  if (isPostseasonPeriod()) buildHeroPostseason(todayStr);
+}
+
+// 季後賽期間的 Hero：小標改季後賽、「剩餘 N 場」改「下一場」（有「若需要」場次，剩幾場算不準）、狀態跟著系列走；
+// 台灣大賽分出勝負後顯示總冠軍
+function nextPostGame(team) {
+  const decided = { E: seriesInfo('E'), C: seriesInfo('C') };
+  return allGames.filter(g => g.isPost && g.isFuture && !g.postponed && !g.completed
+      && !(decided[g.kind] && decided[g.kind].champ) && (!team || g.visitor === team || g.home === team))
+    .sort((a, b) => (a.date + a.time).localeCompare(b.date + b.time))[0] || null;
+}
+function buildHeroPostseason(todayStr) {
+  const E = seriesInfo('E'), C = seriesInfo('C');
+  const set = (id, html, show) => { const el = document.getElementById(id); if (!el) return; if (html !== null) el.innerHTML = html; el.style.display = show === false ? 'none' : ''; };
+  const eyebrow = document.getElementById('hero-eyebrow');
+  if (C && C.champ) {
+    if (eyebrow) eyebrow.textContent = '中華職棒 · 2026';
+    set('hero-today-item', '🏆 總冠軍 <span class="hero-info-status">' + (TEAM_SHORT[C.champ] || C.champ) + '</span>');
+    set('hero-remain-item', null, false);
+    set('hero-remain-sep', null, false);
+    set('hero-status', '2026 球季已結束');
+    return;
+  }
+  if (eyebrow) eyebrow.textContent = '中華職棒季後賽 · 2026';
+  const todayCount = allGames.filter(g => g.isPost && g.date === todayStr && !g.postponed).length;
+  set('hero-today-item', '⚾ 今日 <span class="hero-info-num" id="hero-today-count">' + todayCount + '</span> 場');
+  const nx = nextPostGame();
+  set('hero-remain-item', nx ? '📅 下一場 <span class="hero-info-num">' + poMd(nx.date) + '（' + poDow(nx.date) + '）</span>' : null, !!nx);
+  set('hero-remain-sep', null, !!nx);
+  // 目前階段：挑戰賽還沒分出勝負 → 挑戰賽；否則台灣大賽
+  const [kind, label] = E && !E.champ ? ['E', '季後挑戰賽'] : ['C', '台灣大賽'];
+  const info = kind === 'E' ? E : C;
+  const rows = allGames.filter(g => g.kind === kind && !g.postponed);
+  const status = !info ? label + '賽程待公布'
+    : rows.some(g => g.completed) ? label + '進行中'
+    : label + ' ' + poMd(rows.map(g => g.date).sort()[0]) + ' 開打';
+  set('hero-status', status);
 }
 
 // ── 戰績計算 ──
@@ -2804,7 +3040,19 @@ function buildStandings() {
   });
 
   // 依分頁篩選場次；六隊一律先補 0-0-0，讓半季尚未開打時表格仍完整呈現
-  renderPostseasonSeats(secondHalfStart && todayStr >= secondHalfStart);
+  // 有季後賽賽程（上方季後賽專區出現）就收掉席次卡——對戰樹已列出三隊，避免重複（使用者 2026-10-06 決定）；
+  // 改在全年戰績表隊名後標示季後賽身分。副標「已結束」仍以例行賽真的打完為準
+  const hasPost = allGames.some(g => g.isPost);
+  renderPostseasonSeats(secondHalfStart && todayStr >= secondHalfStart && !hasPost);
+  const subEl = document.getElementById('standings-sub');
+  if (subEl) subEl.textContent = isPostseasonPeriod() ? '2026 例行賽・已結束' : '2026 例行賽';
+  const poMarks = {};
+  if (hasPost && currentHalf === 'full') {
+    const seeds = postseasonSeeds();
+    const E = seriesInfo('E');
+    const teams = new Set([...seeds.champs, ...(E ? E.teams : [])]);
+    teams.forEach(t => { poMarks[t] = seeds.halfLabel(t) || '外卡'; });
+  }
 
   const halfGames = reg.filter(g => currentHalf === 'full' || gameHalf(g) === currentHalf);
   const sorted = computeRecords(halfGames);
@@ -2851,6 +3099,7 @@ function buildStandings() {
         '<span class="standing-name" style="color:' + color + '">' + (TEAM_SHORT[t.name] || t.name) + '</span>' +
         (isMainTeam ? '<span class="standing-maincap" style="color:' + color + '" aria-label="主隊" title="你的主隊"><svg><use href="#cap-mainteam"/></svg></span>' : '') +
         (isChamp ? '<span class="standing-champ">' + champLabel + '</span>' : '') +
+        (poMarks[t.name] ? '<span class="standing-champ">' + poMarks[t.name] + '</span>' : '') +
       '</div></td>' +
       '<td class="standing-wlt">' + t.w + '</td>' +
       '<td class="standing-wlt">' + t.l + '</td>' +
@@ -3338,10 +3587,21 @@ function updateHeroMainTeamStats() {
     stat.style.display = 'none';
     return;
   }
+  // 原始「今日 N 場 · 剩餘 N 場」樣板先存起來，季後賽期間改寫後還能還原
+  if (!stat.dataset.tpl) stat.dataset.tpl = stat.innerHTML;
+  if (isPostseasonPeriod()) {
+    // 季後賽期間：主隊有下一場季後賽才顯示「下一場 M/D」，沒晉級／已打完就隱藏
+    const nx = nextPostGame(team);
+    sep.style.display = nx ? '' : 'none';
+    stat.style.display = nx ? '' : 'none';
+    if (nx) stat.innerHTML = '<img class="hero-mainteam-logo" src="' + (TEAM_LOGO[team] || '') + '" alt=""> 下一場 <span class="hero-info-num hero-mainteam-num">' + poMd(nx.date) + '（' + poDow(nx.date) + '）</span>';
+    return;
+  }
+  if (stat.innerHTML !== stat.dataset.tpl) stat.innerHTML = stat.dataset.tpl;
   const today = new Date(); today.setHours(0,0,0,0);
   const todayStr = `${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}-${String(today.getDate()).padStart(2,'0')}`;
   const isMainGame = g => g.visitor === team || g.home === team;
-  const reg = regularGames();   // 季後賽的主隊資訊留待 Hero 改版（第 4 步）
+  const reg = regularGames();
   const todayCount = reg.filter(g => g.date === todayStr && !g.postponed && isMainGame(g)).length;
   const remainCount = reg.filter(g => g.isFuture && !g.postponed && isMainGame(g)).length;
   document.getElementById('hero-mainteam-logo').src = TEAM_LOGO[team] || '';
