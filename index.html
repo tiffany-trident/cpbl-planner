@@ -3040,13 +3040,14 @@ function buildStandings() {
   });
 
   // 依分頁篩選場次；六隊一律先補 0-0-0，讓半季尚未開打時表格仍完整呈現
-  // 季後賽期間席次卡收掉（由上方季後賽專區的對戰樹取代），改在全年戰績表隊名後標示季後賽身分
-  const inPost = isPostseasonPeriod();
-  renderPostseasonSeats(secondHalfStart && todayStr >= secondHalfStart && !inPost);
+  // 有季後賽賽程（上方季後賽專區出現）就收掉席次卡——對戰樹已列出三隊，避免重複（使用者 2026-10-06 決定）；
+  // 改在全年戰績表隊名後標示季後賽身分。副標「已結束」仍以例行賽真的打完為準
+  const hasPost = allGames.some(g => g.isPost);
+  renderPostseasonSeats(secondHalfStart && todayStr >= secondHalfStart && !hasPost);
   const subEl = document.getElementById('standings-sub');
-  if (subEl) subEl.textContent = inPost ? '2026 例行賽・已結束' : '2026 例行賽';
+  if (subEl) subEl.textContent = isPostseasonPeriod() ? '2026 例行賽・已結束' : '2026 例行賽';
   const poMarks = {};
-  if (inPost && currentHalf === 'full') {
+  if (hasPost && currentHalf === 'full') {
     const seeds = postseasonSeeds();
     const E = seriesInfo('E');
     const teams = new Set([...seeds.champs, ...(E ? E.teams : [])]);
