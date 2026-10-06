@@ -1,5 +1,5 @@
 {
-    "updated":  "2026-10-06T12:06:00+08:00",
+    "updated":  "2026-10-06T13:06:01+08:00",
     "count":  100,
     "items":  [
                   {
@@ -7,6 +7,24 @@
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5596977",
                       "source":  "自由時報",
                       "pubDate":  "2026-10-06T11:51:01+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "白襪4比3力克守護者　重返美聯冠軍戰僅差1勝",
+                      "url":  "https://www.cna.com.tw/news/aspt/202610060060.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-10-06T11:25:16+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "餅總先禮後兵 平野笑稱︰玩心理戰",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1773501",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-06T05:30:00+08:00",
                       "teams":  [
 
                                 ]
@@ -37,15 +55,6 @@
                       "teams":  [
                                     "中信兄弟",
                                     "統一7-ELEVEn獅"
-                                ]
-                  },
-                  {
-                      "title":  "餅總先禮後兵 平野笑稱︰玩心理戰",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1773501",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-10-06T05:30:00+08:00",
-                      "teams":  [
-
                                 ]
                   },
                   {
@@ -295,21 +304,21 @@
                                 ]
                   },
                   {
-                      "title":  "前中職名投徐余偉再有新動向！加盟上海威名豹擔任投手教練",
-                      "url":  "https://sports.ettoday.net/news/3248890",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-10-05T08:50:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
                       "title":  "日本球員赴台發展值得嗎？前台鋼洋投櫻井周斗分享中職兩年真實經歷",
                       "url":  "https://sports.ettoday.net/news/3248839",
                       "source":  "ETtoday",
                       "pubDate":  "2026-10-05T08:50:00+08:00",
                       "teams":  [
                                     "台鋼雄鷹"
+                                ]
+                  },
+                  {
+                      "title":  "前中職名投徐余偉再有新動向！加盟上海威名豹擔任投手教練",
+                      "url":  "https://sports.ettoday.net/news/3248890",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-10-05T08:50:00+08:00",
+                      "teams":  [
+
                                 ]
                   },
                   {
@@ -331,6 +340,24 @@
                                 ]
                   },
                   {
+                      "title":  "兄弟下半季封王 再搶台灣大賽門票",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1773355",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-05T05:30:00+08:00",
+                      "teams":  [
+                                    "中信兄弟"
+                                ]
+                  },
+                  {
+                      "title":  "獅5戰全勝收官 林佳緯本季首獲MVP",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1773358",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-05T05:30:00+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅"
+                                ]
+                  },
+                  {
                       "title":  "奪還仍未竟全功 黃韋盛︰喜悅留今天就好",
                       "url":  "https://sports.ltn.com.tw/news/paper/1773356",
                       "source":  "自由時報",
@@ -346,24 +373,6 @@
                       "pubDate":  "2026-10-05T05:30:00+08:00",
                       "teams":  [
                                     "樂天桃猿"
-                                ]
-                  },
-                  {
-                      "title":  "獅5戰全勝收官 林佳緯本季首獲MVP",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1773358",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-10-05T05:30:00+08:00",
-                      "teams":  [
-                                    "統一7-ELEVEn獅"
-                                ]
-                  },
-                  {
-                      "title":  "兄弟下半季封王 再搶台灣大賽門票",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1773355",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-10-05T05:30:00+08:00",
-                      "teams":  [
-                                    "中信兄弟"
                                 ]
                   },
                   {
@@ -706,21 +715,21 @@
                                 ]
                   },
                   {
-                      "title":  "邱智呈致勝一擊 獅最快今晉級",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1772990",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-10-02T05:30:00+08:00",
-                      "teams":  [
-                                    "統一7-ELEVEn獅"
-                                ]
-                  },
-                  {
                       "title":  "龍在大巨蛋搶冠 5主場票房估破2億",
                       "url":  "https://sports.ltn.com.tw/news/paper/1772988",
                       "source":  "自由時報",
                       "pubDate":  "2026-10-02T05:30:00+08:00",
                       "teams":  [
 
+                                ]
+                  },
+                  {
+                      "title":  "邱智呈致勝一擊 獅最快今晉級",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1772990",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-02T05:30:00+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅"
                                 ]
                   },
                   {
@@ -904,16 +913,6 @@
                       "pubDate":  "2026-10-01T17:30:00+08:00",
                       "teams":  [
 
-                                ]
-                  },
-                  {
-                      "title":  "中職》慘痛2連敗將優勢讓給兄弟 樂天桃猿做出球員異動！",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5592316",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-10-01T17:29:42+08:00",
-                      "teams":  [
-                                    "中信兄弟",
-                                    "樂天桃猿"
                                 ]
                   }
               ]
