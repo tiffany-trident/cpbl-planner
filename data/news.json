@@ -1,7 +1,35 @@
 {
-    "updated":  "2026-10-07T14:42:52+08:00",
+    "updated":  "2026-10-07T15:42:52+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "中職》唯一對兄弟勝少敗多 統一獅季後賽逆風開局",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5598579",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-07T15:16:36+08:00",
+                      "teams":  [
+                                    "中信兄弟",
+                                    "統一7-ELEVEn獅"
+                                ]
+                  },
+                  {
+                      "title":  "棒球》亞冠賽和U23賽程重疊 棒協與中職協調、U23培訓名單納中職10人",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5598572",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-07T15:13:34+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "中職》年度個人獎確定！蔣銲投手雙冠王、陳傑憲逆勢奪打擊王",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5598525",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-07T14:54:55+08:00",
+                      "teams":  [
+
+                                ]
+                  },
                   {
                       "title":  "中職》半個月前「隨性傳球」炎上後 勝騎士和獅隊G1可望再對決？",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5598489",
@@ -18,6 +46,15 @@
                       "pubDate":  "2026-10-07T14:01:38+08:00",
                       "teams":  [
                                     "中信兄弟"
+                                ]
+                  },
+                  {
+                      "title":  "統一獅季後挑戰賽票房熱！國慶日G2預售約1.5萬張　內野僅剩千席",
+                      "url":  "https://sports.ettoday.net/news/3250666",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-10-07T13:52:00+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅"
                                 ]
                   },
                   {
@@ -210,21 +247,21 @@
                                 ]
                   },
                   {
-                      "title":  "打擊王小輸陳傑憲 林澤彬︰明年再拚",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1773615",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-10-07T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
                       "title":  "全壘打王3連霸 魔鷹「頭號」洋砲",
                       "url":  "https://sports.ltn.com.tw/news/paper/1773616",
                       "source":  "自由時報",
                       "pubDate":  "2026-10-07T05:30:00+08:00",
                       "teams":  [
                                     "台鋼雄鷹"
+                                ]
+                  },
+                  {
+                      "title":  "打擊王小輸陳傑憲 林澤彬︰明年再拚",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1773615",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-07T05:30:00+08:00",
+                      "teams":  [
+
                                 ]
                   },
                   {
@@ -410,8 +447,8 @@
                                 ]
                   },
                   {
-                      "title":  "台灣大賽包場大巨蛋？ 考驗球迷口袋深度",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1773498",
+                      "title":  "就差一點點 野原︰想跟曾總一起努力",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1773500",
                       "source":  "自由時報",
                       "pubDate":  "2026-10-06T05:30:00+08:00",
                       "teams":  [
@@ -419,8 +456,8 @@
                                 ]
                   },
                   {
-                      "title":  "就差一點點 野原︰想跟曾總一起努力",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1773500",
+                      "title":  "台灣大賽包場大巨蛋？ 考驗球迷口袋深度",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1773498",
                       "source":  "自由時報",
                       "pubDate":  "2026-10-06T05:30:00+08:00",
                       "teams":  [
@@ -729,15 +766,6 @@
                                 ]
                   },
                   {
-                      "title":  "獅5戰全勝收官 林佳緯本季首獲MVP",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1773358",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-10-05T05:30:00+08:00",
-                      "teams":  [
-                                    "統一7-ELEVEn獅"
-                                ]
-                  },
-                  {
                       "title":  "連9個半季無季冠 桃猿今榜眼爭奪戰",
                       "url":  "https://sports.ltn.com.tw/news/paper/1773357",
                       "source":  "自由時報",
@@ -753,6 +781,15 @@
                       "pubDate":  "2026-10-05T05:30:00+08:00",
                       "teams":  [
                                     "中信兄弟"
+                                ]
+                  },
+                  {
+                      "title":  "獅5戰全勝收官 林佳緯本季首獲MVP",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1773358",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-05T05:30:00+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅"
                                 ]
                   },
                   {
@@ -871,43 +908,6 @@
                       "pubDate":  "2026-10-04T21:01:16+08:00",
                       "teams":  [
 
-                                ]
-                  },
-                  {
-                      "title":  "兄弟下半季封王靠球迷力挺　平野惠一喊話奪回台灣第一",
-                      "url":  "https://www.cna.com.tw/news/aspt/202610040192.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-10-04T20:58:14+08:00",
-                      "teams":  [
-                                    "中信兄弟"
-                                ]
-                  },
-                  {
-                      "title":  "富邦悍將主場總票房破68萬人　寫隊史新高",
-                      "url":  "https://www.cna.com.tw/news/aspt/202610040187.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-10-04T20:12:03+08:00",
-                      "teams":  [
-                                    "富邦悍將"
-                                ]
-                  },
-                  {
-                      "title":  "兄弟下半季封王拋黃色彩帶　奪隊史第21座季冠軍[影]",
-                      "url":  "https://www.cna.com.tw/news/aspt/202610040185.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-10-04T20:00:59+08:00",
-                      "teams":  [
-                                    "中信兄弟"
-                                ]
-                  },
-                  {
-                      "title":  "快訊／黃色彩帶淹沒洲際！兄弟痛扁台鋼自力封王　隊史第21座季冠軍到手",
-                      "url":  "https://sports.ettoday.net/news/3248978",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-10-04T19:46:00+08:00",
-                      "teams":  [
-                                    "中信兄弟",
-                                    "台鋼雄鷹"
                                 ]
                   }
               ]
