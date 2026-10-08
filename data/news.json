@@ -1,5 +1,5 @@
 {
-    "updated":  "2026-10-08T12:05:00+08:00",
+    "updated":  "2026-10-08T13:00:06+08:00",
     "count":  100,
     "items":  [
                   {
@@ -9,6 +9,52 @@
                       "pubDate":  "2026-10-08T11:50:15+08:00",
                       "teams":  [
                                     "中信兄弟"
+                                ]
+                  },
+                  {
+                      "title":  "兄弟戰力外到悍將新開始！林書逸職棒10年吐心聲：這不是終點",
+                      "url":  "https://sports.ettoday.net/news/3251217",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-10-08T11:23:00+08:00",
+                      "teams":  [
+                                    "中信兄弟",
+                                    "富邦悍將"
+                                ]
+                  },
+                  {
+                      "title":  "投野「鬥陣」凝聚團隊　陳傑憲讚新秀挺獅晉級季後賽",
+                      "url":  "https://www.cna.com.tw/news/aspt/202610080074.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-10-08T11:15:28+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅"
+                                ]
+                  },
+                  {
+                      "title":  "搶瘋了！統一獅亞太2.35萬席完售　獅象前兩戰票房破歷史紀錄",
+                      "url":  "https://sports.ettoday.net/news/3251178",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-10-08T11:05:00+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅"
+                                ]
+                  },
+                  {
+                      "title":  "上次場邊看奪冠　張士綸再拚季後賽要享受張力",
+                      "url":  "https://www.cna.com.tw/news/aspt/202610080061.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-10-08T10:41:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "MLB道奇擊垮勇士挺進國聯冠軍戰　Andy Pages關鍵對決敲致勝安",
+                      "url":  "https://www.cna.com.tw/news/aspt/202610080057.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-10-08T10:15:51+08:00",
+                      "teams":  [
+
                                 ]
                   },
                   {
@@ -58,21 +104,21 @@
                                 ]
                   },
                   {
-                      "title":  "球評觀點》潘忠韋、陳師正預測 統一獅3勝2敗出線",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1773750",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-10-08T05:30:00+08:00",
-                      "teams":  [
-                                    "統一7-ELEVEn獅"
-                                ]
-                  },
-                  {
                       "title":  "中職季後挑戰賽》焦點1：滾球遭炎上 勝騎士G1先發滅火？",
                       "url":  "https://sports.ltn.com.tw/news/paper/1773747",
                       "source":  "自由時報",
                       "pubDate":  "2026-10-08T05:30:00+08:00",
                       "teams":  [
 
+                                ]
+                  },
+                  {
+                      "title":  "球評觀點》潘忠韋、陳師正預測 統一獅3勝2敗出線",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1773750",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-08T05:30:00+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅"
                                 ]
                   },
                   {
@@ -383,6 +429,15 @@
                                 ]
                   },
                   {
+                      "title":  "鍾亦恩被打爆 樂天換來榜眼籤",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1773614",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-07T05:30:00+08:00",
+                      "teams":  [
+                                    "樂天桃猿"
+                                ]
+                  },
+                  {
                       "title":  "全壘打王3連霸 魔鷹「頭號」洋砲",
                       "url":  "https://sports.ltn.com.tw/news/paper/1773616",
                       "source":  "自由時報",
@@ -398,15 +453,6 @@
                       "pubDate":  "2026-10-07T05:30:00+08:00",
                       "teams":  [
 
-                                ]
-                  },
-                  {
-                      "title":  "鍾亦恩被打爆 樂天換來榜眼籤",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1773614",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-10-07T05:30:00+08:00",
-                      "teams":  [
-                                    "樂天桃猿"
                                 ]
                   },
                   {
@@ -592,8 +638,8 @@
                                 ]
                   },
                   {
-                      "title":  "餅總先禮後兵 平野笑稱︰玩心理戰",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1773501",
+                      "title":  "台灣大賽包場大巨蛋？ 考驗球迷口袋深度",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1773498",
                       "source":  "自由時報",
                       "pubDate":  "2026-10-06T05:30:00+08:00",
                       "teams":  [
@@ -611,8 +657,8 @@
                                 ]
                   },
                   {
-                      "title":  "台灣大賽包場大巨蛋？ 考驗球迷口袋深度",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1773498",
+                      "title":  "餅總先禮後兵 平野笑稱︰玩心理戰",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1773501",
                       "source":  "自由時報",
                       "pubDate":  "2026-10-06T05:30:00+08:00",
                       "teams":  [
@@ -863,51 +909,6 @@
                       "pubDate":  "2026-10-05T11:08:45+08:00",
                       "teams":  [
                                     "統一7-ELEVEn獅"
-                                ]
-                  },
-                  {
-                      "title":  "喬里奧再見安打助釀酒人再勝教士　分區系列賽聽牌",
-                      "url":  "https://www.cna.com.tw/news/aspt/202610050039.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-10-05T10:31:33+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "日本球員赴台發展值得嗎？前台鋼洋投櫻井周斗分享中職兩年真實經歷",
-                      "url":  "https://sports.ettoday.net/news/3248839",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-10-05T08:50:00+08:00",
-                      "teams":  [
-                                    "台鋼雄鷹"
-                                ]
-                  },
-                  {
-                      "title":  "前中職名投徐余偉再有新動向！加盟上海威名豹擔任投手教練",
-                      "url":  "https://sports.ettoday.net/news/3248890",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-10-05T08:50:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "白目球迷毀桃猿玩水趴！樂天女孩遭潑啤酒　回休息室還洗不掉",
-                      "url":  "https://sports.ettoday.net/news/3249054",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-10-05T07:30:00+08:00",
-                      "teams":  [
-                                    "樂天桃猿"
-                                ]
-                  },
-                  {
-                      "title":  "中職》兄弟戰力外市場撿到寶！ 王建民點名讚賞",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5595563",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-10-05T07:04:48+08:00",
-                      "teams":  [
-                                    "中信兄弟"
                                 ]
                   }
               ]
