@@ -1,7 +1,26 @@
 {
-    "updated":  "2026-10-08T09:00:06+08:00",
+    "updated":  "2026-10-08T10:00:07+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "中職》被兄弟戰力外轉戰富邦！ 林書逸吐心聲：不記得貢獻了什麼...",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5599300",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-08T09:52:28+08:00",
+                      "teams":  [
+                                    "中信兄弟",
+                                    "富邦悍將"
+                                ]
+                  },
+                  {
+                      "title":  "中職季後挑戰賽》焦點1：滾球遭炎上 勝騎士G1先發滅火？",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1773747",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-08T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
                   {
                       "title":  "中職季後挑戰賽》焦點2：獅象台日教頭 鬥智對決",
                       "url":  "https://sports.ltn.com.tw/news/paper/1773748",
@@ -27,15 +46,6 @@
                       "pubDate":  "2026-10-08T05:30:00+08:00",
                       "teams":  [
                                     "中信兄弟"
-                                ]
-                  },
-                  {
-                      "title":  "中職季後挑戰賽》焦點1：滾球遭炎上 勝騎士G1先發滅火？",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1773747",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-10-08T05:30:00+08:00",
-                      "teams":  [
-
                                 ]
                   },
                   {
@@ -346,15 +356,6 @@
                                 ]
                   },
                   {
-                      "title":  "全壘打王3連霸 魔鷹「頭號」洋砲",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1773616",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-10-07T05:30:00+08:00",
-                      "teams":  [
-                                    "台鋼雄鷹"
-                                ]
-                  },
-                  {
                       "title":  "打擊王小輸陳傑憲 林澤彬︰明年再拚",
                       "url":  "https://sports.ltn.com.tw/news/paper/1773615",
                       "source":  "自由時報",
@@ -370,6 +371,15 @@
                       "pubDate":  "2026-10-07T05:30:00+08:00",
                       "teams":  [
                                     "樂天桃猿"
+                                ]
+                  },
+                  {
+                      "title":  "全壘打王3連霸 魔鷹「頭號」洋砲",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1773616",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-07T05:30:00+08:00",
+                      "teams":  [
+                                    "台鋼雄鷹"
                                 ]
                   },
                   {
@@ -555,6 +565,16 @@
                                 ]
                   },
                   {
+                      "title":  "季後挑戰賽》兄弟先拿1勝 獅拚下剋上",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1773499",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-06T05:30:00+08:00",
+                      "teams":  [
+                                    "中信兄弟",
+                                    "統一7-ELEVEn獅"
+                                ]
+                  },
+                  {
                       "title":  "餅總先禮後兵 平野笑稱︰玩心理戰",
                       "url":  "https://sports.ltn.com.tw/news/paper/1773501",
                       "source":  "自由時報",
@@ -579,16 +599,6 @@
                       "pubDate":  "2026-10-06T05:30:00+08:00",
                       "teams":  [
 
-                                ]
-                  },
-                  {
-                      "title":  "季後挑戰賽》兄弟先拿1勝 獅拚下剋上",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1773499",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-10-06T05:30:00+08:00",
-                      "teams":  [
-                                    "中信兄弟",
-                                    "統一7-ELEVEn獅"
                                 ]
                   },
                   {
@@ -874,6 +884,15 @@
                                 ]
                   },
                   {
+                      "title":  "連9個半季無季冠 桃猿今榜眼爭奪戰",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1773357",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-05T05:30:00+08:00",
+                      "teams":  [
+                                    "樂天桃猿"
+                                ]
+                  },
+                  {
                       "title":  "獅5戰全勝收官 林佳緯本季首獲MVP",
                       "url":  "https://sports.ltn.com.tw/news/paper/1773358",
                       "source":  "自由時報",
@@ -889,24 +908,6 @@
                       "pubDate":  "2026-10-05T05:30:00+08:00",
                       "teams":  [
 
-                                ]
-                  },
-                  {
-                      "title":  "兄弟下半季封王 再搶台灣大賽門票",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1773355",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-10-05T05:30:00+08:00",
-                      "teams":  [
-                                    "中信兄弟"
-                                ]
-                  },
-                  {
-                      "title":  "連9個半季無季冠 桃猿今榜眼爭奪戰",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1773357",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-10-05T05:30:00+08:00",
-                      "teams":  [
-                                    "樂天桃猿"
                                 ]
                   }
               ]
