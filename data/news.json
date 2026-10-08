@@ -1,7 +1,16 @@
 {
-    "updated":  "2026-10-08T13:00:06+08:00",
+    "updated":  "2026-10-08T14:00:07+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "MLB梅薩關鍵2分砲　光芒橫掃洋基挺進美聯冠軍戰",
+                      "url":  "https://www.cna.com.tw/news/aspt/202610080127.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-10-08T12:44:21+08:00",
+                      "teams":  [
+
+                                ]
+                  },
                   {
                       "title":  "季後挑戰賽》G1穩了？  兄弟手握2大無敵數據",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5599524",
@@ -86,8 +95,8 @@
                                 ]
                   },
                   {
-                      "title":  "中職季後挑戰賽》焦點2：獅象台日教頭 鬥智對決",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1773748",
+                      "title":  "球評觀點》潘忠韋、陳師正預測 統一獅3勝2敗出線",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1773750",
                       "source":  "自由時報",
                       "pubDate":  "2026-10-08T05:30:00+08:00",
                       "teams":  [
@@ -104,21 +113,21 @@
                                 ]
                   },
                   {
+                      "title":  "中職季後挑戰賽》焦點2：獅象台日教頭 鬥智對決",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1773748",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-08T05:30:00+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅"
+                                ]
+                  },
+                  {
                       "title":  "中職季後挑戰賽》焦點1：滾球遭炎上 勝騎士G1先發滅火？",
                       "url":  "https://sports.ltn.com.tw/news/paper/1773747",
                       "source":  "自由時報",
                       "pubDate":  "2026-10-08T05:30:00+08:00",
                       "teams":  [
 
-                                ]
-                  },
-                  {
-                      "title":  "球評觀點》潘忠韋、陳師正預測 統一獅3勝2敗出線",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1773750",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-10-08T05:30:00+08:00",
-                      "teams":  [
-                                    "統一7-ELEVEn獅"
                                 ]
                   },
                   {
@@ -438,21 +447,21 @@
                                 ]
                   },
                   {
-                      "title":  "全壘打王3連霸 魔鷹「頭號」洋砲",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1773616",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-10-07T05:30:00+08:00",
-                      "teams":  [
-                                    "台鋼雄鷹"
-                                ]
-                  },
-                  {
                       "title":  "打擊王小輸陳傑憲 林澤彬︰明年再拚",
                       "url":  "https://sports.ltn.com.tw/news/paper/1773615",
                       "source":  "自由時報",
                       "pubDate":  "2026-10-07T05:30:00+08:00",
                       "teams":  [
 
+                                ]
+                  },
+                  {
+                      "title":  "全壘打王3連霸 魔鷹「頭號」洋砲",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1773616",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-07T05:30:00+08:00",
+                      "teams":  [
+                                    "台鋼雄鷹"
                                 ]
                   },
                   {
@@ -638,8 +647,8 @@
                                 ]
                   },
                   {
-                      "title":  "台灣大賽包場大巨蛋？ 考驗球迷口袋深度",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1773498",
+                      "title":  "就差一點點 野原︰想跟曾總一起努力",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1773500",
                       "source":  "自由時報",
                       "pubDate":  "2026-10-06T05:30:00+08:00",
                       "teams":  [
@@ -657,8 +666,8 @@
                                 ]
                   },
                   {
-                      "title":  "餅總先禮後兵 平野笑稱︰玩心理戰",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1773501",
+                      "title":  "台灣大賽包場大巨蛋？ 考驗球迷口袋深度",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1773498",
                       "source":  "自由時報",
                       "pubDate":  "2026-10-06T05:30:00+08:00",
                       "teams":  [
@@ -666,8 +675,8 @@
                                 ]
                   },
                   {
-                      "title":  "就差一點點 野原︰想跟曾總一起努力",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1773500",
+                      "title":  "餅總先禮後兵 平野笑稱︰玩心理戰",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1773501",
                       "source":  "自由時報",
                       "pubDate":  "2026-10-06T05:30:00+08:00",
                       "teams":  [
@@ -900,15 +909,6 @@
                       "pubDate":  "2026-10-05T11:11:00+08:00",
                       "teams":  [
 
-                                ]
-                  },
-                  {
-                      "title":  "中職》季後賽賽程出爐！ 10/9象獅洲際開戰",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5595801",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-10-05T11:08:45+08:00",
-                      "teams":  [
-                                    "統一7-ELEVEn獅"
                                 ]
                   }
               ]
