@@ -1,7 +1,25 @@
 {
-    "updated":  "2026-10-20T12:07:27+08:00",
+    "updated":  "2026-10-20T13:00:06+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "光芒力退守護者奪美聯王座　世界大賽與釀酒人同爭隊史首冠[影]",
+                      "url":  "https://www.cna.com.tw/news/aspt/202610200101.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-10-20T12:06:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "富邦悍將2027年首名洋將確定　與魔力藍完成續約",
+                      "url":  "https://www.cna.com.tw/news/aspt/202610200076.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-10-20T11:32:07+08:00",
+                      "teams":  [
+                                    "富邦悍將"
+                                ]
+                  },
                   {
                       "title":  "中職》無緣季後賽提前布局明年！ 富邦宣布與魔力藍續約",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5612037",
@@ -94,6 +112,15 @@
                                 ]
                   },
                   {
+                      "title":  "台灣大賽》台灣大賽票房高低 要看兄弟「腳力」",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1775290",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-20T05:30:00+08:00",
+                      "teams":  [
+                                    "中信兄弟"
+                                ]
+                  },
+                  {
                       "title":  "台灣大賽》若0勝3敗難翻生 羅戈今銜命止損",
                       "url":  "https://sports.ltn.com.tw/news/paper/1775288",
                       "source":  "自由時報",
@@ -103,8 +130,8 @@
                                 ]
                   },
                   {
-                      "title":  "中信「閱讀MVP」活動 林任鴻擔任大使",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1775271",
+                      "title":  "台灣大賽》「瑋士牌」須上路 中信才有翻盤本錢",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1775289",
                       "source":  "自由時報",
                       "pubDate":  "2026-10-20T05:30:00+08:00",
                       "teams":  [
@@ -121,17 +148,8 @@
                                 ]
                   },
                   {
-                      "title":  "台灣大賽》台灣大賽票房高低 要看兄弟「腳力」",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1775290",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-10-20T05:30:00+08:00",
-                      "teams":  [
-                                    "中信兄弟"
-                                ]
-                  },
-                  {
-                      "title":  "台灣大賽》「瑋士牌」須上路 中信才有翻盤本錢",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1775289",
+                      "title":  "中信「閱讀MVP」活動 林任鴻擔任大使",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1775271",
                       "source":  "自由時報",
                       "pubDate":  "2026-10-20T05:30:00+08:00",
                       "teams":  [
@@ -410,15 +428,6 @@
                                 ]
                   },
                   {
-                      "title":  "台灣大賽G2》鋼龍扛G3？ 想複製3年前劇本",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1775152",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-10-19T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
                       "title":  "台灣大賽G2》前獅投對決 梅賽鍶友情放一邊",
                       "url":  "https://sports.ltn.com.tw/news/paper/1775149",
                       "source":  "自由時報",
@@ -428,21 +437,30 @@
                                 ]
                   },
                   {
-                      "title":  "台灣大賽G2》曾聖安逆轉砲 味全隊史最嫩開轟",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1775148",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-10-19T05:30:00+08:00",
-                      "teams":  [
-                                    "味全龍"
-                                ]
-                  },
-                  {
                       "title":  "台灣大賽G2》「菲」來橫禍 兄弟又添傷兵",
                       "url":  "https://sports.ltn.com.tw/news/paper/1775150",
                       "source":  "自由時報",
                       "pubDate":  "2026-10-19T05:30:00+08:00",
                       "teams":  [
                                     "中信兄弟"
+                                ]
+                  },
+                  {
+                      "title":  "台灣大賽G2》鋼龍扛G3？ 想複製3年前劇本",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1775152",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-19T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "台灣大賽G2》曾聖安逆轉砲 味全隊史最嫩開轟",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1775148",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-19T05:30:00+08:00",
+                      "teams":  [
+                                    "味全龍"
                                 ]
                   },
                   {
@@ -887,25 +905,6 @@
                       "pubDate":  "2026-10-08T15:11:16+08:00",
                       "teams":  [
                                     "統一7-ELEVEn獅"
-                                ]
-                  },
-                  {
-                      "title":  "兄弟先拿1勝還有3主場！獅象32人名單揭曉　統一挾6連勝拚下剋上",
-                      "url":  "https://sports.ettoday.net/news/3251382",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-10-08T15:10:00+08:00",
-                      "teams":  [
-                                    "中信兄弟",
-                                    "統一7-ELEVEn獅"
-                                ]
-                  },
-                  {
-                      "title":  "中職》兄弟公布挑戰賽名單！ 一軍0打數奇兵驚喜入選",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5599850",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-10-08T15:05:36+08:00",
-                      "teams":  [
-                                    "中信兄弟"
                                 ]
                   }
               ]
