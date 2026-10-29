@@ -1,5 +1,5 @@
 {
-    "updated":  "2026-10-29T12:48:44+08:00",
+    "updated":  "2026-10-29T13:00:06+08:00",
     "count":  100,
     "items":  [
                   {
@@ -66,24 +66,6 @@
                                 ]
                   },
                   {
-                      "title":  "亞冠賽11/1集訓 亞運、TS好手雲集",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1776338",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-10-29T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "軟銀王子復仇 徐若熙嚐日本一滋味",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1776339",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-10-29T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
                       "title":  "國聯球隊給信心 曾峻岳再提旅外FA",
                       "url":  "https://sports.ltn.com.tw/news/paper/1776336",
                       "source":  "自由時報",
@@ -95,6 +77,24 @@
                   {
                       "title":  "陳聖平「游」實力 獲年度最佳美技",
                       "url":  "https://sports.ltn.com.tw/news/paper/1776337",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-29T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "亞冠賽11/1集訓 亞運、TS好手雲集",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1776338",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-29T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "軟銀王子復仇 徐若熙嚐日本一滋味",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1776339",
                       "source":  "自由時報",
                       "pubDate":  "2026-10-29T05:30:00+08:00",
                       "teams":  [
@@ -336,12 +336,12 @@
                                 ]
                   },
                   {
-                      "title":  "救援王摘「新」 鍾允華完美接力",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1776229",
+                      "title":  "味全致歉發言失當 聯盟會長同聲譴責",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1776230",
                       "source":  "自由時報",
                       "pubDate":  "2026-10-28T05:30:00+08:00",
                       "teams":  [
-
+                                    "味全龍"
                                 ]
                   },
                   {
@@ -354,12 +354,12 @@
                                 ]
                   },
                   {
-                      "title":  "味全致歉發言失當 聯盟會長同聲譴責",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1776230",
+                      "title":  "救援王摘「新」 鍾允華完美接力",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1776229",
                       "source":  "自由時報",
                       "pubDate":  "2026-10-28T05:30:00+08:00",
                       "teams":  [
-                                    "味全龍"
+
                                 ]
                   },
                   {
