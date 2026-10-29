@@ -1,7 +1,17 @@
 {
-    "updated":  "2026-10-29T16:00:06+08:00",
+    "updated":  "2026-10-29T17:00:07+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "棒球》亞冠賽熱身賽新莊開打  11/7、8台灣隊VS.味全、兄弟",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5622890",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-29T16:24:15+08:00",
+                      "teams":  [
+                                    "中信兄弟",
+                                    "味全龍"
+                                ]
+                  },
                   {
                       "title":  "日職》樂天教練團大變動！前統一獅教練玉木朋孝、名將小笠原道大入列",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5622672",
@@ -112,17 +122,8 @@
                                 ]
                   },
                   {
-                      "title":  "亞冠賽11/1集訓 亞運、TS好手雲集",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1776338",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-10-29T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "陳聖平「游」實力 獲年度最佳美技",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1776337",
+                      "title":  "軟銀王子復仇 徐若熙嚐日本一滋味",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1776339",
                       "source":  "自由時報",
                       "pubDate":  "2026-10-29T05:30:00+08:00",
                       "teams":  [
@@ -139,8 +140,17 @@
                                 ]
                   },
                   {
-                      "title":  "軟銀王子復仇 徐若熙嚐日本一滋味",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1776339",
+                      "title":  "亞冠賽11/1集訓 亞運、TS好手雲集",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1776338",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-29T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "陳聖平「游」實力 獲年度最佳美技",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1776337",
                       "source":  "自由時報",
                       "pubDate":  "2026-10-29T05:30:00+08:00",
                       "teams":  [
@@ -391,21 +401,21 @@
                                 ]
                   },
                   {
-                      "title":  "味全致歉發言失當 聯盟會長同聲譴責",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1776230",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-10-28T05:30:00+08:00",
-                      "teams":  [
-                                    "味全龍"
-                                ]
-                  },
-                  {
                       "title":  "救援王摘「新」 鍾允華完美接力",
                       "url":  "https://sports.ltn.com.tw/news/paper/1776229",
                       "source":  "自由時報",
                       "pubDate":  "2026-10-28T05:30:00+08:00",
                       "teams":  [
 
+                                ]
+                  },
+                  {
+                      "title":  "味全致歉發言失當 聯盟會長同聲譴責",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1776230",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-28T05:30:00+08:00",
+                      "teams":  [
+                                    "味全龍"
                                 ]
                   },
                   {
@@ -893,15 +903,6 @@
                       "pubDate":  "2026-10-20T15:40:00+08:00",
                       "teams":  [
                                     "味全龍"
-                                ]
-                  },
-                  {
-                      "title":  "鄭宗哲從4度DFA到重返大聯盟　回憶今年球季落淚",
-                      "url":  "https://www.cna.com.tw/news/aspt/202610200193.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-10-20T15:38:20+08:00",
-                      "teams":  [
-
                                 ]
                   }
               ]
