@@ -1,7 +1,25 @@
 {
-    "updated":  "2026-10-29T12:00:09+08:00",
+    "updated":  "2026-10-29T12:48:44+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "中職》曾豪駒率隊  馬傑森領4猿將赴日本樂天金鷲秋訓",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5622448",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-29T12:04:54+08:00",
+                      "teams":  [
+                                    "樂天桃猿"
+                                ]
+                  },
+                  {
+                      "title":  "釀酒人4比1擊敗光芒　奪隊史首座世界大賽冠軍[影]",
+                      "url":  "https://www.cna.com.tw/news/aspt/202610290081.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-10-29T11:18:38+08:00",
+                      "teams":  [
+
+                                ]
+                  },
                   {
                       "title":  "重返日職3年又想挑戰？筒香嘉智考慮海外FA　DeNA資深鐵捕也動念",
                       "url":  "https://sports.ettoday.net/news/3262638",
@@ -48,15 +66,6 @@
                                 ]
                   },
                   {
-                      "title":  "軟銀王子復仇 徐若熙嚐日本一滋味",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1776339",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-10-29T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
                       "title":  "亞冠賽11/1集訓 亞運、TS好手雲集",
                       "url":  "https://sports.ltn.com.tw/news/paper/1776338",
                       "source":  "自由時報",
@@ -66,8 +75,8 @@
                                 ]
                   },
                   {
-                      "title":  "陳聖平「游」實力 獲年度最佳美技",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1776337",
+                      "title":  "軟銀王子復仇 徐若熙嚐日本一滋味",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1776339",
                       "source":  "自由時報",
                       "pubDate":  "2026-10-29T05:30:00+08:00",
                       "teams":  [
@@ -77,6 +86,15 @@
                   {
                       "title":  "國聯球隊給信心 曾峻岳再提旅外FA",
                       "url":  "https://sports.ltn.com.tw/news/paper/1776336",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-29T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "陳聖平「游」實力 獲年度最佳美技",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1776337",
                       "source":  "自由時報",
                       "pubDate":  "2026-10-29T05:30:00+08:00",
                       "teams":  [
@@ -318,8 +336,8 @@
                                 ]
                   },
                   {
-                      "title":  "龍耀時刻 台新新光金邀球迷同樂",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1776232",
+                      "title":  "救援王摘「新」 鍾允華完美接力",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1776229",
                       "source":  "自由時報",
                       "pubDate":  "2026-10-28T05:30:00+08:00",
                       "teams":  [
@@ -327,8 +345,8 @@
                                 ]
                   },
                   {
-                      "title":  "救援王摘「新」 鍾允華完美接力",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1776229",
+                      "title":  "龍耀時刻 台新新光金邀球迷同樂",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1776232",
                       "source":  "自由時報",
                       "pubDate":  "2026-10-28T05:30:00+08:00",
                       "teams":  [
@@ -881,24 +899,6 @@
                       "url":  "https://www.cna.com.tw/news/aspt/202610200076.aspx",
                       "source":  "中央社",
                       "pubDate":  "2026-10-20T11:32:07+08:00",
-                      "teams":  [
-                                    "富邦悍將"
-                                ]
-                  },
-                  {
-                      "title":  "中職》無緣季後賽提前布局明年！ 富邦宣布與魔力藍續約",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5612037",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-10-20T11:05:41+08:00",
-                      "teams":  [
-                                    "富邦悍將"
-                                ]
-                  },
-                  {
-                      "title":  "快訊／悍將2027年首位洋將！魔力藍完成續約　連3季披藍色戰袍",
-                      "url":  "https://sports.ettoday.net/news/3257710",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-10-20T11:03:00+08:00",
                       "teams":  [
                                     "富邦悍將"
                                 ]
