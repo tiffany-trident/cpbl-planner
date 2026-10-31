@@ -1,7 +1,43 @@
 {
-    "updated":  "2026-10-31T15:00:06+08:00",
+    "updated":  "2026-10-31T16:00:06+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "中職》生涯首次拿到最佳九人 林澤彬：更想要拿冠軍",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5624964",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-31T15:53:52+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "中職》張育成術後復健順利 明年目標重回游擊",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5624922",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-31T15:11:03+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "中職》與歐力士隊再次合作！中信兄弟推派5投手赴日秋訓",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5624915",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-31T15:00:44+08:00",
+                      "teams":  [
+                                    "中信兄弟"
+                                ]
+                  },
+                  {
+                      "title":  "後藤光尊續掌悍將兵符　陳昭如：他曾一天只睡3小時",
+                      "url":  "https://www.cna.com.tw/news/aspt/202610310114.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-10-31T14:53:03+08:00",
+                      "teams":  [
+                                    "富邦悍將"
+                                ]
+                  },
                   {
                       "title":  "中職》富邦悍將球員總數97人 林威助：60人名單很難抉擇",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5624898",
@@ -30,6 +66,15 @@
                                 ]
                   },
                   {
+                      "title":  "張育成治療骨刺獲「全新手臂」　新賽季拚重返游擊",
+                      "url":  "https://www.cna.com.tw/news/aspt/202610310103.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-10-31T14:09:39+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "中職》回想在大聯盟孤單奮戰 張育成羨慕李灝宇、鄭宗哲能同隊",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5624836",
                       "source":  "自由時報",
@@ -43,6 +88,15 @@
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5624817",
                       "source":  "自由時報",
                       "pubDate":  "2026-10-31T13:31:14+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "曾峻岳相約林凱威旅外　陳昭如盼成制度旅美首例",
+                      "url":  "https://www.cna.com.tw/news/aspt/202610310089.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-10-31T13:23:08+08:00",
                       "teams":  [
 
                                 ]
@@ -138,8 +192,8 @@
                                 ]
                   },
                   {
-                      "title":  "亞職交流賽 劉致榮首度在台登板",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1776586",
+                      "title":  "龍11/22封王遊行 5洋投跨海同樂",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1776585",
                       "source":  "自由時報",
                       "pubDate":  "2026-10-31T05:30:00+08:00",
                       "teams":  [
@@ -147,8 +201,8 @@
                                 ]
                   },
                   {
-                      "title":  "龍11/22封王遊行 5洋投跨海同樂",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1776585",
+                      "title":  "亞職交流賽 劉致榮首度在台登板",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1776586",
                       "source":  "自由時報",
                       "pubDate":  "2026-10-31T05:30:00+08:00",
                       "teams":  [
@@ -427,27 +481,8 @@
                                 ]
                   },
                   {
-                      "title":  "獅打造最強戶外球場 雄鷹後勢看漲",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1776534",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-10-30T05:30:00+08:00",
-                      "teams":  [
-                                    "統一7-ELEVEn獅",
-                                    "台鋼雄鷹"
-                                ]
-                  },
-                  {
                       "title":  "日職熟他 林凱威行使旅外FA",
                       "url":  "https://sports.ltn.com.tw/news/paper/1776535",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-10-30T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "台灣大賽疊加 龍年營收第一",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1776533",
                       "source":  "自由時報",
                       "pubDate":  "2026-10-30T05:30:00+08:00",
                       "teams":  [
@@ -462,6 +497,25 @@
                       "teams":  [
                                     "中信兄弟",
                                     "富邦悍將"
+                                ]
+                  },
+                  {
+                      "title":  "台灣大賽疊加 龍年營收第一",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1776533",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-30T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "獅打造最強戶外球場 雄鷹後勢看漲",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1776534",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-30T05:30:00+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅",
+                                    "台鋼雄鷹"
                                 ]
                   },
                   {
@@ -758,8 +812,8 @@
                                 ]
                   },
                   {
-                      "title":  "國聯球隊給信心 曾峻岳再提旅外FA",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1776336",
+                      "title":  "亞冠賽11/1集訓 亞運、TS好手雲集",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1776338",
                       "source":  "自由時報",
                       "pubDate":  "2026-10-29T05:30:00+08:00",
                       "teams":  [
@@ -776,8 +830,8 @@
                                 ]
                   },
                   {
-                      "title":  "亞冠賽11/1集訓 亞運、TS好手雲集",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1776338",
+                      "title":  "國聯球隊給信心 曾峻岳再提旅外FA",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1776336",
                       "source":  "自由時報",
                       "pubDate":  "2026-10-29T05:30:00+08:00",
                       "teams":  [
@@ -852,60 +906,6 @@
                       "url":  "https://sports.ettoday.net/news/3262424",
                       "source":  "ETtoday",
                       "pubDate":  "2026-10-28T17:41:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "曾峻岳二度行使旅外球員權利　悍將球團給予祝福",
-                      "url":  "https://www.cna.com.tw/news/aspt/202610280234.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-10-28T17:05:23+08:00",
-                      "teams":  [
-                                    "富邦悍將"
-                                ]
-                  },
-                  {
-                      "title":  "曾峻岳生涯第二度申請旅外！富邦悍將表態全力支持：給予最大祝福",
-                      "url":  "https://sports.ettoday.net/news/3262375",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-10-28T16:40:00+08:00",
-                      "teams":  [
-                                    "富邦悍將"
-                                ]
-                  },
-                  {
-                      "title":  "快訊／曾峻岳行使海外自由球員權利！美、日職機會再浮現？",
-                      "url":  "https://sports.ettoday.net/news/3262356",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-10-28T16:22:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "中信盃黑豹旗／學姐一句邀請牽起鄭佳美棒球緣　最愛味全龍劉基鴻",
-                      "url":  "https://sports.ettoday.net/news/3262277",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-10-28T14:49:00+08:00",
-                      "teams":  [
-                                    "味全龍"
-                                ]
-                  },
-                  {
-                      "title":  "光芒延長賽逆轉勝釀酒人　世界大賽保生機[影]",
-                      "url":  "https://www.cna.com.tw/news/aspt/202610280142.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-10-28T13:56:06+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "陳聖平空中抓飛鳥奪中職年度美技！郭天信再見雙殺落選掀球迷熱議",
-                      "url":  "https://sports.ettoday.net/news/3262194",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-10-28T13:20:00+08:00",
                       "teams":  [
 
                                 ]
