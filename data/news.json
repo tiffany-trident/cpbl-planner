@@ -1,7 +1,25 @@
 {
-    "updated":  "2026-10-31T12:00:05+08:00",
+    "updated":  "2026-10-31T13:00:06+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "南市勞工局結合統一獅 帶棒球隊學生探索運動產業職涯",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5624772",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-31T12:47:23+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅"
+                                ]
+                  },
+                  {
+                      "title":  "中職》統一獅派員參戰日本冬盟 2大潛力新秀預定出征",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5624745",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-31T12:34:15+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅"
+                                ]
+                  },
                   {
                       "title":  "洋基先發輪值滿員！平良海馬成牛棚補強選項　美媒揭關鍵原因",
                       "url":  "https://sports.ettoday.net/news/3263845",
@@ -66,8 +84,8 @@
                                 ]
                   },
                   {
-                      "title":  "龍11/22封王遊行 5洋投跨海同樂",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1776585",
+                      "title":  "亞職交流賽 劉致榮首度在台登板",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1776586",
                       "source":  "自由時報",
                       "pubDate":  "2026-10-31T05:30:00+08:00",
                       "teams":  [
@@ -75,8 +93,8 @@
                                 ]
                   },
                   {
-                      "title":  "亞職交流賽 劉致榮首度在台登板",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1776586",
+                      "title":  "龍11/22封王遊行 5洋投跨海同樂",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1776585",
                       "source":  "自由時報",
                       "pubDate":  "2026-10-31T05:30:00+08:00",
                       "teams":  [
@@ -355,8 +373,8 @@
                                 ]
                   },
                   {
-                      "title":  "中職人潮錢潮溢出來 3億元隊+3",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1776531",
+                      "title":  "日職熟他 林凱威行使旅外FA",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1776535",
                       "source":  "自由時報",
                       "pubDate":  "2026-10-30T05:30:00+08:00",
                       "teams":  [
@@ -371,6 +389,15 @@
                       "teams":  [
                                     "統一7-ELEVEn獅",
                                     "台鋼雄鷹"
+                                ]
+                  },
+                  {
+                      "title":  "中職人潮錢潮溢出來 3億元隊+3",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1776531",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-30T05:30:00+08:00",
+                      "teams":  [
+
                                 ]
                   },
                   {
@@ -390,15 +417,6 @@
                       "teams":  [
                                     "中信兄弟",
                                     "富邦悍將"
-                                ]
-                  },
-                  {
-                      "title":  "日職熟他 林凱威行使旅外FA",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1776535",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-10-30T05:30:00+08:00",
-                      "teams":  [
-
                                 ]
                   },
                   {
@@ -677,6 +695,15 @@
                                 ]
                   },
                   {
+                      "title":  "軟銀王子復仇 徐若熙嚐日本一滋味",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1776339",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-29T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "陳聖平「游」實力 獲年度最佳美技",
                       "url":  "https://sports.ltn.com.tw/news/paper/1776337",
                       "source":  "自由時報",
@@ -697,15 +724,6 @@
                   {
                       "title":  "亞冠賽11/1集訓 亞運、TS好手雲集",
                       "url":  "https://sports.ltn.com.tw/news/paper/1776338",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-10-29T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "軟銀王子復仇 徐若熙嚐日本一滋味",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1776339",
                       "source":  "自由時報",
                       "pubDate":  "2026-10-29T05:30:00+08:00",
                       "teams":  [
@@ -890,24 +908,6 @@
                       "pubDate":  "2026-10-28T11:30:00+08:00",
                       "teams":  [
                                     "味全龍"
-                                ]
-                  },
-                  {
-                      "title":  "費仔返台公開活動曝光！攜手味全龍辦棒球營　3500元近距離互動",
-                      "url":  "https://sports.ettoday.net/news/3262103",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-10-28T11:19:00+08:00",
-                      "teams":  [
-                                    "味全龍"
-                                ]
-                  },
-                  {
-                      "title":  "李超奪冠感言引用蔡英文金句釣出本尊！球迷驚呼「總統級賀電」",
-                      "url":  "https://sports.ettoday.net/news/3262072",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-10-28T10:52:00+08:00",
-                      "teams":  [
-
                                 ]
                   }
               ]
