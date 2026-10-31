@@ -1,7 +1,16 @@
 {
-    "updated":  "2026-10-31T17:00:07+08:00",
+    "updated":  "2026-10-31T18:00:05+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "中職》台鋼2重要外籍教練離隊 球團回應了",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5625079",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-31T17:33:29+08:00",
+                      "teams":  [
+                                    "台鋼雄鷹"
+                                ]
+                  },
                   {
                       "title":  "中職》富邦悍將本季觀眾總人數創新高 陳昭如感謝球迷支持",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5624994",
@@ -544,12 +553,32 @@
                                 ]
                   },
                   {
+                      "title":  "獅打造最強戶外球場 雄鷹後勢看漲",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1776534",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-30T05:30:00+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅",
+                                    "台鋼雄鷹"
+                                ]
+                  },
+                  {
                       "title":  "日職熟他 林凱威行使旅外FA",
                       "url":  "https://sports.ltn.com.tw/news/paper/1776535",
                       "source":  "自由時報",
                       "pubDate":  "2026-10-30T05:30:00+08:00",
                       "teams":  [
 
+                                ]
+                  },
+                  {
+                      "title":  "票房王換人 悍將、兄弟黃金交叉",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1776532",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-30T05:30:00+08:00",
+                      "teams":  [
+                                    "中信兄弟",
+                                    "富邦悍將"
                                 ]
                   },
                   {
@@ -568,26 +597,6 @@
                       "pubDate":  "2026-10-30T05:30:00+08:00",
                       "teams":  [
 
-                                ]
-                  },
-                  {
-                      "title":  "票房王換人 悍將、兄弟黃金交叉",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1776532",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-10-30T05:30:00+08:00",
-                      "teams":  [
-                                    "中信兄弟",
-                                    "富邦悍將"
-                                ]
-                  },
-                  {
-                      "title":  "獅打造最強戶外球場 雄鷹後勢看漲",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1776534",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-10-30T05:30:00+08:00",
-                      "teams":  [
-                                    "統一7-ELEVEn獅",
-                                    "台鋼雄鷹"
                                 ]
                   },
                   {
@@ -866,6 +875,15 @@
                                 ]
                   },
                   {
+                      "title":  "國聯球隊給信心 曾峻岳再提旅外FA",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1776336",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-29T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "陳聖平「游」實力 獲年度最佳美技",
                       "url":  "https://sports.ltn.com.tw/news/paper/1776337",
                       "source":  "自由時報",
@@ -890,24 +908,6 @@
                       "pubDate":  "2026-10-29T05:30:00+08:00",
                       "teams":  [
 
-                                ]
-                  },
-                  {
-                      "title":  "國聯球隊給信心 曾峻岳再提旅外FA",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1776336",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-10-29T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "日職軟銀鷹4連勝橫掃DeNA　連續2年、第13度稱霸日本大賽",
-                      "url":  "https://www.cna.com.tw/news/aspt/202610280320.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-10-28T20:54:31+08:00",
-                      "teams":  [
-                                    "台鋼雄鷹"
                                 ]
                   }
               ]
