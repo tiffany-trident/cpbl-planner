@@ -1,7 +1,16 @@
 {
-    "updated":  "2026-11-01T20:00:06+08:00",
+    "updated":  "2026-11-01T21:00:06+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "圖輯》河智媛台籃首跳 「河大叔」降臨新莊城堡",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5626004",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-11-01T19:56:53+08:00",
+                      "teams":  [
+
+                                ]
+                  },
                   {
                       "title":  "領軍亞冠賽代表隊　高志綱盼球員無所顧忌展現想贏球態度",
                       "url":  "https://www.cna.com.tw/news/aspt/202611010109.aspx",
@@ -228,15 +237,6 @@
                                 ]
                   },
                   {
-                      "title":  "經典賽揪林凱威 曾峻岳2度行使旅外FA",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1776701",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-11-01T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
                       "title":  "中職終結者拚旅外 球評︰牛棚投手被看重",
                       "url":  "https://sports.ltn.com.tw/news/paper/1776702",
                       "source":  "自由時報",
@@ -248,6 +248,15 @@
                   {
                       "title":  "張育成變「髮」 目標重回游擊區",
                       "url":  "https://sports.ltn.com.tw/news/paper/1776705",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-11-01T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "經典賽揪林凱威 曾峻岳2度行使旅外FA",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1776701",
                       "source":  "自由時報",
                       "pubDate":  "2026-11-01T05:30:00+08:00",
                       "teams":  [
@@ -832,6 +841,25 @@
                                 ]
                   },
                   {
+                      "title":  "台灣大賽疊加 龍年營收第一",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1776533",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-30T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "票房王換人 悍將、兄弟黃金交叉",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1776532",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-30T05:30:00+08:00",
+                      "teams":  [
+                                    "中信兄弟",
+                                    "富邦悍將"
+                                ]
+                  },
+                  {
                       "title":  "日職熟他 林凱威行使旅外FA",
                       "url":  "https://sports.ltn.com.tw/news/paper/1776535",
                       "source":  "自由時報",
@@ -860,25 +888,6 @@
                                 ]
                   },
                   {
-                      "title":  "票房王換人 悍將、兄弟黃金交叉",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1776532",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-10-30T05:30:00+08:00",
-                      "teams":  [
-                                    "中信兄弟",
-                                    "富邦悍將"
-                                ]
-                  },
-                  {
-                      "title":  "台灣大賽疊加 龍年營收第一",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1776533",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-10-30T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
                       "title":  "台灣大賽》打擊率0.067大低潮！兄弟奪冠夢碎 台灣隊國手有話要說",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5623171",
                       "source":  "自由時報",
@@ -894,15 +903,6 @@
                       "pubDate":  "2026-10-29T19:04:46+08:00",
                       "teams":  [
                                     "中信兄弟"
-                                ]
-                  },
-                  {
-                      "title":  "黑豹旗／曾懷職棒夢卻因骨刺轉乙組！洪承恩扛重任盼彌補去年遺憾",
-                      "url":  "https://sports.ettoday.net/news/3263015",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-10-29T17:40:00+08:00",
-                      "teams":  [
-
                                 ]
                   }
               ]
