@@ -1,7 +1,25 @@
 {
-    "updated":  "2026-11-01T15:00:06+08:00",
+    "updated":  "2026-11-01T16:00:07+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "MLB》透露已約費爾柴德見面 蔡其昌表達感謝但不提「不禮貌」一問",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5625775",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-11-01T15:30:32+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "昔中職頂薪球星竟遭網友公開追債 同名百萬本票裁定書曝光",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5625698",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-11-01T15:15:37+08:00",
+                      "teams":  [
+
+                                ]
+                  },
                   {
                       "title":  "亞冠賽》台灣隊今開訓 聯盟、棒協致贈加菜金",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5625681",
@@ -408,8 +426,8 @@
                                 ]
                   },
                   {
-                      "title":  "龍11/22封王遊行 5洋投跨海同樂",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1776585",
+                      "title":  "亞職交流賽 劉致榮首度在台登板",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1776586",
                       "source":  "自由時報",
                       "pubDate":  "2026-10-31T05:30:00+08:00",
                       "teams":  [
@@ -417,8 +435,8 @@
                                 ]
                   },
                   {
-                      "title":  "亞職交流賽 劉致榮首度在台登板",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1776586",
+                      "title":  "龍11/22封王遊行 5洋投跨海同樂",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1776585",
                       "source":  "自由時報",
                       "pubDate":  "2026-10-31T05:30:00+08:00",
                       "teams":  [
@@ -697,6 +715,16 @@
                                 ]
                   },
                   {
+                      "title":  "票房王換人 悍將、兄弟黃金交叉",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1776532",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-10-30T05:30:00+08:00",
+                      "teams":  [
+                                    "中信兄弟",
+                                    "富邦悍將"
+                                ]
+                  },
+                  {
                       "title":  "台灣大賽疊加 龍年營收第一",
                       "url":  "https://sports.ltn.com.tw/news/paper/1776533",
                       "source":  "自由時報",
@@ -731,16 +759,6 @@
                       "teams":  [
                                     "統一7-ELEVEn獅",
                                     "台鋼雄鷹"
-                                ]
-                  },
-                  {
-                      "title":  "票房王換人 悍將、兄弟黃金交叉",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1776532",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-10-30T05:30:00+08:00",
-                      "teams":  [
-                                    "中信兄弟",
-                                    "富邦悍將"
                                 ]
                   },
                   {
@@ -890,24 +908,6 @@
                       "pubDate":  "2026-10-29T14:04:00+08:00",
                       "teams":  [
                                     "味全龍"
-                                ]
-                  },
-                  {
-                      "title":  "中職》日職球團關注！  味全龍守護神林凱威行使旅外FA",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5622644",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-10-29T14:03:31+08:00",
-                      "teams":  [
-                                    "味全龍"
-                                ]
-                  },
-                  {
-                      "title":  "釀酒人首冠推手　康崔拉斯攻守俱佳獲世界大賽MVP",
-                      "url":  "https://www.cna.com.tw/news/aspt/202610290151.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-10-29T13:53:11+08:00",
-                      "teams":  [
-
                                 ]
                   }
               ]
