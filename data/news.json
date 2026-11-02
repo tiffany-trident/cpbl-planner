@@ -1,7 +1,16 @@
 {
-    "updated":  "2026-11-02T14:00:07+08:00",
+    "updated":  "2026-11-02T15:00:07+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "鄧愷威切換站位投出好球　招牌橫掃球是無師自通",
+                      "url":  "https://www.cna.com.tw/news/aspt/202611020115.aspx",
+                      "source":  "中央社",
+                      "pubDate":  "2026-11-02T13:43:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
                   {
                       "title":  "日職》史上最大張合約誕生！火腿狠砸4年64億天價 續簽超強洋砲",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5626491",
@@ -84,8 +93,8 @@
                                 ]
                   },
                   {
-                      "title":  "中職今晚頒獎 揭曉年度3大獎",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1776920",
+                      "title":  "亞冠賽》綱總催生天網隊長 一拍即合",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1776916",
                       "source":  "自由時報",
                       "pubDate":  "2026-11-02T05:30:00+08:00",
                       "teams":  [
@@ -102,15 +111,6 @@
                                 ]
                   },
                   {
-                      "title":  "雙里程碑達成 林岳平續掌獅",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1776919",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-11-02T05:30:00+08:00",
-                      "teams":  [
-                                    "統一7-ELEVEn獅"
-                                ]
-                  },
-                  {
                       "title":  "李欣穎驚奇年 航向東京巨蛋",
                       "url":  "https://sports.ltn.com.tw/news/paper/1776918",
                       "source":  "自由時報",
@@ -120,12 +120,21 @@
                                 ]
                   },
                   {
-                      "title":  "亞冠賽》綱總催生天網隊長 一拍即合",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1776916",
+                      "title":  "中職今晚頒獎 揭曉年度3大獎",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1776920",
                       "source":  "自由時報",
                       "pubDate":  "2026-11-02T05:30:00+08:00",
                       "teams":  [
 
+                                ]
+                  },
+                  {
+                      "title":  "雙里程碑達成 林岳平續掌獅",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1776919",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-11-02T05:30:00+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅"
                                 ]
                   },
                   {
@@ -399,15 +408,6 @@
                                 ]
                   },
                   {
-                      "title":  "張育成變「髮」 目標重回游擊區",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1776705",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-11-01T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
                       "title":  "中職終結者拚旅外 球評︰牛棚投手被看重",
                       "url":  "https://sports.ltn.com.tw/news/paper/1776702",
                       "source":  "自由時報",
@@ -419,6 +419,15 @@
                   {
                       "title":  "經典賽揪林凱威 曾峻岳2度行使旅外FA",
                       "url":  "https://sports.ltn.com.tw/news/paper/1776701",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-11-01T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "張育成變「髮」 目標重回游擊區",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1776705",
                       "source":  "自由時報",
                       "pubDate":  "2026-11-01T05:30:00+08:00",
                       "teams":  [
@@ -892,15 +901,6 @@
                       "pubDate":  "2026-10-30T12:39:04+08:00",
                       "teams":  [
 
-                                ]
-                  },
-                  {
-                      "title":  "味全龍11/22封王遊行天母出發　2天感謝祭活動滿滿",
-                      "url":  "https://www.cna.com.tw/news/aspt/202610300089.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-10-30T12:02:23+08:00",
-                      "teams":  [
-                                    "味全龍"
                                 ]
                   }
               ]
