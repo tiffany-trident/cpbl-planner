@@ -1,7 +1,25 @@
 {
-    "updated":  "2026-11-03T11:00:47+08:00",
+    "updated":  "2026-11-03T12:00:07+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "大聯盟官方提前爆雷？佐藤輝明被寫成MVP二連霸　日球迷笑翻",
+                      "url":  "https://sports.ettoday.net/news/3265408",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-11-03T11:05:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "又一位棒球星二代！坎諾16歲兒子獲馬林魚青睞　砸百萬美元搶人",
+                      "url":  "https://sports.ettoday.net/news/3265371",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-11-03T10:40:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
                   {
                       "title":  "中職》赴日秋訓意外體驗「玉木塾」 馬傑森：有感受到氣場",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5627438",
@@ -16,6 +34,24 @@
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5627407",
                       "source":  "自由時報",
                       "pubDate":  "2026-11-03T09:54:48+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "宋家豪旅日11年告別樂天！成自由契約球員　下一步動向受矚",
+                      "url":  "https://sports.ettoday.net/news/3265331",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-11-03T09:47:00+08:00",
+                      "teams":  [
+                                    "樂天桃猿"
+                                ]
+                  },
+                  {
+                      "title":  "馬傑森深夜感性告白林襄「還有愛我的妳」　球迷敲碗求婚",
+                      "url":  "https://sports.ettoday.net/news/3265257",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-11-03T08:19:00+08:00",
                       "teams":  [
 
                                 ]
@@ -66,26 +102,17 @@
                                 ]
                   },
                   {
+                      "title":  "行使FA資格？ 雙獅不鬆口",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1777054",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-11-03T05:30:00+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅"
+                                ]
+                  },
+                  {
                       "title":  "自由日日Shoot》林益全遇投資詐騙 中職億元男遭催債",
                       "url":  "https://sports.ltn.com.tw/news/paper/1777048",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-11-03T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "蔣銲年度MVP 鍾允華奪新人王",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1777001",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-11-03T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "擊敗李東洺 曾家輝獲最佳進步獎",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1777053",
                       "source":  "自由時報",
                       "pubDate":  "2026-11-03T05:30:00+08:00",
                       "teams":  [
@@ -102,12 +129,21 @@
                                 ]
                   },
                   {
-                      "title":  "行使FA資格？ 雙獅不鬆口",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1777054",
+                      "title":  "擊敗李東洺 曾家輝獲最佳進步獎",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1777053",
                       "source":  "自由時報",
                       "pubDate":  "2026-11-03T05:30:00+08:00",
                       "teams":  [
-                                    "統一7-ELEVEn獅"
+
+                                ]
+                  },
+                  {
+                      "title":  "蔣銲年度MVP 鍾允華奪新人王",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1777001",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-11-03T05:30:00+08:00",
+                      "teams":  [
+
                                 ]
                   },
                   {
@@ -804,8 +840,8 @@
                                 ]
                   },
                   {
-                      "title":  "旅日雙投拚亞冠 頭號獵物在軟銀",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1776917",
+                      "title":  "中職今晚頒獎 揭曉年度3大獎",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1776920",
                       "source":  "自由時報",
                       "pubDate":  "2026-11-02T05:30:00+08:00",
                       "teams":  [
@@ -813,8 +849,8 @@
                                 ]
                   },
                   {
-                      "title":  "中職今晚頒獎 揭曉年度3大獎",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1776920",
+                      "title":  "旅日雙投拚亞冠 頭號獵物在軟銀",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1776917",
                       "source":  "自由時報",
                       "pubDate":  "2026-11-02T05:30:00+08:00",
                       "teams":  [
@@ -862,42 +898,6 @@
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5626004",
                       "source":  "自由時報",
                       "pubDate":  "2026-11-01T19:56:53+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "領軍亞冠賽代表隊　高志綱盼球員無所顧忌展現想贏球態度",
-                      "url":  "https://www.cna.com.tw/news/aspt/202611010109.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-11-01T16:57:59+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "中職》今年讓王建民動怒甩電話門 盧孟揚：很悔恨的賽季",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5625848",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-11-01T16:49:12+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "被點名全隊最吵！陽柏翔亞冠賽上演「金鷲內戰」　豪語東蛋開轟",
-                      "url":  "https://sports.ettoday.net/news/3264451",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-11-01T16:34:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "徐翔聖腳傷完全恢復！養樂多盼續留　明年拚一軍初登板：希望待久",
-                      "url":  "https://sports.ettoday.net/news/3264448",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-11-01T16:29:00+08:00",
                       "teams":  [
 
                                 ]
