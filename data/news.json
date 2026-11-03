@@ -1,7 +1,25 @@
 {
-    "updated":  "2026-11-03T14:00:07+08:00",
+    "updated":  "2026-11-03T15:00:07+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "統一獅積極留人！陳重羽複數年約有譜　潘傑楷持續談約",
+                      "url":  "https://sports.ettoday.net/news/3265559",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-11-03T13:56:00+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅"
+                                ]
+                  },
+                  {
+                      "title":  "震撼交易後首度亮相！甲斐拓也披樂天37號　喊話「想快點打球」",
+                      "url":  "https://sports.ettoday.net/news/3265527",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-11-03T13:41:00+08:00",
+                      "teams":  [
+                                    "樂天桃猿"
+                                ]
+                  },
                   {
                       "title":  "宋家豪確定離開樂天！經紀人證實暫不考慮中職　留日拚本土資格",
                       "url":  "https://sports.ettoday.net/news/3265487",
@@ -102,35 +120,17 @@
                                 ]
                   },
                   {
-                      "title":  "鍾允華奪新人王 阿嬤親手頒獎",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1777052",
+                      "title":  "獨攬4獎 蔣銲大贏家",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1777051",
                       "source":  "自由時報",
                       "pubDate":  "2026-11-03T05:30:00+08:00",
                       "teams":  [
 
-                                ]
-                  },
-                  {
-                      "title":  "行使FA資格？ 雙獅不鬆口",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1777054",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-11-03T05:30:00+08:00",
-                      "teams":  [
-                                    "統一7-ELEVEn獅"
                                 ]
                   },
                   {
                       "title":  "自由日日Shoot》林益全遇投資詐騙 中職億元男遭催債",
                       "url":  "https://sports.ltn.com.tw/news/paper/1777048",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-11-03T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "擊敗李東洺 曾家輝獲最佳進步獎",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1777053",
                       "source":  "自由時報",
                       "pubDate":  "2026-11-03T05:30:00+08:00",
                       "teams":  [
@@ -147,8 +147,26 @@
                                 ]
                   },
                   {
-                      "title":  "獨攬4獎 蔣銲大贏家",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1777051",
+                      "title":  "行使FA資格？ 雙獅不鬆口",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1777054",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-11-03T05:30:00+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅"
+                                ]
+                  },
+                  {
+                      "title":  "鍾允華奪新人王 阿嬤親手頒獎",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1777052",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-11-03T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "擊敗李東洺 曾家輝獲最佳進步獎",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1777053",
                       "source":  "自由時報",
                       "pubDate":  "2026-11-03T05:30:00+08:00",
                       "teams":  [
@@ -822,6 +840,15 @@
                                 ]
                   },
                   {
+                      "title":  "李欣穎驚奇年 航向東京巨蛋",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1776918",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-11-02T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "雙里程碑達成 林岳平續掌獅",
                       "url":  "https://sports.ltn.com.tw/news/paper/1776919",
                       "source":  "自由時報",
@@ -858,15 +885,6 @@
                                 ]
                   },
                   {
-                      "title":  "李欣穎驚奇年 航向東京巨蛋",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1776918",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-11-02T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
                       "title":  "林益全揭債務內幕！日本投資逾2千萬疑遭詐：絕不逃避還款責任",
                       "url":  "https://sports.ettoday.net/news/3264562",
                       "source":  "ETtoday",
@@ -880,24 +898,6 @@
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5626064",
                       "source":  "自由時報",
                       "pubDate":  "2026-11-01T21:26:52+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "日本火腿伊藤大海轉戰大聯盟　新庄剛志：支持他的決定",
-                      "url":  "https://www.cna.com.tw/news/aspt/202611010153.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-11-01T20:25:35+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "新竹棒球場2027年迎回中職？市府曝最新進度　9月已函邀聯盟場勘",
-                      "url":  "https://sports.ettoday.net/news/3264358",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-11-01T20:20:00+08:00",
                       "teams":  [
 
                                 ]
