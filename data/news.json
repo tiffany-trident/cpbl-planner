@@ -1,7 +1,34 @@
 {
-    "updated":  "2026-11-05T13:00:08+08:00",
+    "updated":  "2026-11-05T14:00:08+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "中職》震撼彈！兄弟隊長王威晨行使國內FA 本季第一人",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5630370",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-11-05T13:53:15+08:00",
+                      "teams":  [
+                                    "中信兄弟"
+                                ]
+                  },
+                  {
+                      "title":  "前富邦外野手宰制中國賽場！王詩聰狂掃21安、10盜勇奪雙冠王",
+                      "url":  "https://sports.ettoday.net/news/3266865",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-11-05T12:44:00+08:00",
+                      "teams":  [
+                                    "富邦悍將"
+                                ]
+                  },
+                  {
+                      "title":  "台日韓職棒三強桃園交鋒！DAZN雙11祭56折優惠　首年890元熱血追賽事",
+                      "url":  "https://sports.ettoday.net/news/3266868",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-11-05T12:20:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
                   {
                       "title":  "日職》曾與鄧愷威共寫尷尬紀錄 昨被馬林魚釋出投手被阪神鎖定",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5630124",
@@ -426,6 +453,15 @@
                                 ]
                   },
                   {
+                      "title":  "宋家豪專訪》安可想旅外、彥程苦6年 大學長一直放心上",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1777072",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-11-04T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "宋家豪若想回中職 不受禁選1年限制",
                       "url":  "https://sports.ltn.com.tw/news/paper/1777073",
                       "source":  "自由時報",
@@ -437,15 +473,6 @@
                   {
                       "title":  "宋家豪專訪》座右銘1+1大於2 聽太太的話就對了",
                       "url":  "https://sports.ltn.com.tw/news/paper/1777071",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-11-04T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "宋家豪專訪》安可想旅外、彥程苦6年 大學長一直放心上",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1777072",
                       "source":  "自由時報",
                       "pubDate":  "2026-11-04T05:30:00+08:00",
                       "teams":  [
@@ -624,6 +651,15 @@
                                 ]
                   },
                   {
+                      "title":  "自由日日Shoot》林益全遇投資詐騙 中職億元男遭催債",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1777048",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-11-03T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "鍾允華奪新人王 阿嬤親手頒獎",
                       "url":  "https://sports.ltn.com.tw/news/paper/1777052",
                       "source":  "自由時報",
@@ -642,15 +678,6 @@
                                 ]
                   },
                   {
-                      "title":  "行使FA資格？ 雙獅不鬆口",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1777054",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-11-03T05:30:00+08:00",
-                      "teams":  [
-                                    "統一7-ELEVEn獅"
-                                ]
-                  },
-                  {
                       "title":  "擊敗李東洺 曾家輝獲最佳進步獎",
                       "url":  "https://sports.ltn.com.tw/news/paper/1777053",
                       "source":  "自由時報",
@@ -660,17 +687,17 @@
                                 ]
                   },
                   {
-                      "title":  "蔣銲年度MVP 鍾允華奪新人王",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1777001",
+                      "title":  "行使FA資格？ 雙獅不鬆口",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1777054",
                       "source":  "自由時報",
                       "pubDate":  "2026-11-03T05:30:00+08:00",
                       "teams":  [
-
+                                    "統一7-ELEVEn獅"
                                 ]
                   },
                   {
-                      "title":  "自由日日Shoot》林益全遇投資詐騙 中職億元男遭催債",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1777048",
+                      "title":  "蔣銲年度MVP 鍾允華奪新人王",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1777001",
                       "source":  "自由時報",
                       "pubDate":  "2026-11-03T05:30:00+08:00",
                       "teams":  [
@@ -871,33 +898,6 @@
                       "url":  "https://sports.ettoday.net/news/3265147",
                       "source":  "ETtoday",
                       "pubDate":  "2026-11-02T20:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "從二軍苦熬到年度最佳進步獎！曾家輝曝最大難關　下一步想拚防禦率王",
-                      "url":  "https://sports.ettoday.net/news/3265124",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-11-02T20:26:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "陳文杰曾害怕無法再打球　奪東山再起笑盼未來考驗別這麼難",
-                      "url":  "https://www.cna.com.tw/news/aspt/202611020276.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-11-02T20:19:54+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "曾家輝奪中職最佳進步獎　從一軍4局變120.2局",
-                      "url":  "https://www.cna.com.tw/news/aspt/202611020272.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-11-02T20:05:43+08:00",
                       "teams":  [
 
                                 ]
