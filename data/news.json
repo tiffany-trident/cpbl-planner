@@ -1,12 +1,39 @@
 {
-    "updated":  "2026-11-05T10:51:11+08:00",
+    "updated":  "2026-11-05T11:00:06+08:00",
     "count":  100,
     "items":  [
+                  {
+                      "title":  "棒球》超虐！屠殺中國賽場 前富邦悍將重砲勇奪雙冠王",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5630077",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-11-05T10:50:48+08:00",
+                      "teams":  [
+                                    "富邦悍將"
+                                ]
+                  },
+                  {
+                      "title":  "韓職》才講有意來亞洲發展！被巨人釋出的高材生轉戰韓國",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5630025",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-11-05T10:46:47+08:00",
+                      "teams":  [
+
+                                ]
+                  },
                   {
                       "title":  "日職》日本大賽一球未投看軟銀奪冠！ 台灣王牌徐若熙透露原因",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5629931",
                       "source":  "自由時報",
                       "pubDate":  "2026-11-05T09:12:29+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "14歲國中生被巨人選中一夕爆紅！生活變了　靦腆求媒體手下留情",
+                      "url":  "https://sports.ettoday.net/news/3266677",
+                      "source":  "ETtoday",
+                      "pubDate":  "2026-11-05T09:12:00+08:00",
                       "teams":  [
 
                                 ]
@@ -390,8 +417,8 @@
                                 ]
                   },
                   {
-                      "title":  "宋家豪專訪》座右銘1+1大於2 聽太太的話就對了",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1777071",
+                      "title":  "玉木塾氣場多強 馬傑森親自認證",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1777074",
                       "source":  "自由時報",
                       "pubDate":  "2026-11-04T05:30:00+08:00",
                       "teams":  [
@@ -408,8 +435,8 @@
                                 ]
                   },
                   {
-                      "title":  "玉木塾氣場多強 馬傑森親自認證",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1777074",
+                      "title":  "宋家豪專訪》座右銘1+1大於2 聽太太的話就對了",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1777071",
                       "source":  "自由時報",
                       "pubDate":  "2026-11-04T05:30:00+08:00",
                       "teams":  [
@@ -588,6 +615,24 @@
                                 ]
                   },
                   {
+                      "title":  "行使FA資格？ 雙獅不鬆口",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1777054",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-11-03T05:30:00+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅"
+                                ]
+                  },
+                  {
+                      "title":  "鍾允華奪新人王 阿嬤親手頒獎",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1777052",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-11-03T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "獨攬4獎 蔣銲大贏家",
                       "url":  "https://sports.ltn.com.tw/news/paper/1777051",
                       "source":  "自由時報",
@@ -606,15 +651,6 @@
                                 ]
                   },
                   {
-                      "title":  "蔣銲年度MVP 鍾允華奪新人王",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1777001",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-11-03T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
                       "title":  "擊敗李東洺 曾家輝獲最佳進步獎",
                       "url":  "https://sports.ltn.com.tw/news/paper/1777053",
                       "source":  "自由時報",
@@ -624,17 +660,8 @@
                                 ]
                   },
                   {
-                      "title":  "行使FA資格？ 雙獅不鬆口",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1777054",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-11-03T05:30:00+08:00",
-                      "teams":  [
-                                    "統一7-ELEVEn獅"
-                                ]
-                  },
-                  {
-                      "title":  "鍾允華奪新人王 阿嬤親手頒獎",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1777052",
+                      "title":  "蔣銲年度MVP 鍾允華奪新人王",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1777001",
                       "source":  "自由時報",
                       "pubDate":  "2026-11-03T05:30:00+08:00",
                       "teams":  [
@@ -871,33 +898,6 @@
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5627053",
                       "source":  "自由時報",
                       "pubDate":  "2026-11-02T19:58:51+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "中職》競爭超激烈！ 曾家輝拿下年度最佳進步獎",
-                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5626953",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-11-02T19:48:43+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "快訊／曾家輝熬出頭了！勇奪最佳進步獎　前3年一軍僅投16局",
-                      "url":  "https://sports.ettoday.net/news/3264575",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-11-02T19:48:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "開季失誤聽到球迷聲音　江坤宇專注當下締造金手套連霸",
-                      "url":  "https://www.cna.com.tw/news/aspt/202611020260.aspx",
-                      "source":  "中央社",
-                      "pubDate":  "2026-11-02T19:17:16+08:00",
                       "teams":  [
 
                                 ]
