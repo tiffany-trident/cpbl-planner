@@ -1,9 +1,18 @@
 {
-    "updated":  "2026-11-05T14:00:08+08:00",
+    "updated":  "2026-11-05T15:00:07+08:00",
     "count":  100,
     "items":  [
                   {
-                      "title":  "中職》震撼彈！兄弟隊長王威晨行使國內FA 本季第一人",
+                      "title":  "中職》兄弟隊長王威晨行使FA 寫下史上最高的另類紀錄",
+                      "url":  "https://sports.ltn.com.tw/news/breakingnews/5630404",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-11-05T14:16:13+08:00",
+                      "teams":  [
+                                    "中信兄弟"
+                                ]
+                  },
+                  {
+                      "title":  "中職》震撼彈！兄弟隊長王威晨行使FA 本季第一人",
                       "url":  "https://sports.ltn.com.tw/news/breakingnews/5630370",
                       "source":  "自由時報",
                       "pubDate":  "2026-11-05T13:53:15+08:00",
@@ -111,21 +120,21 @@
                                 ]
                   },
                   {
-                      "title":  "旅日第1年打不好 林安可複製貼上",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1777257",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-11-05T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
                       "title":  "林智勝有要事在身 撞期味全封王遊行",
                       "url":  "https://sports.ltn.com.tw/news/paper/1777262",
                       "source":  "自由時報",
                       "pubDate":  "2026-11-05T05:30:00+08:00",
                       "teams":  [
                                     "味全龍"
+                                ]
+                  },
+                  {
+                      "title":  "旅日第1年打不好 林安可複製貼上",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1777257",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-11-05T05:30:00+08:00",
+                      "teams":  [
+
                                 ]
                   },
                   {
@@ -444,8 +453,8 @@
                                 ]
                   },
                   {
-                      "title":  "玉木塾氣場多強 馬傑森親自認證",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1777074",
+                      "title":  "宋家豪專訪》座右銘1+1大於2 聽太太的話就對了",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1777071",
                       "source":  "自由時報",
                       "pubDate":  "2026-11-04T05:30:00+08:00",
                       "teams":  [
@@ -462,8 +471,8 @@
                                 ]
                   },
                   {
-                      "title":  "宋家豪若想回中職 不受禁選1年限制",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1777073",
+                      "title":  "玉木塾氣場多強 馬傑森親自認證",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1777074",
                       "source":  "自由時報",
                       "pubDate":  "2026-11-04T05:30:00+08:00",
                       "teams":  [
@@ -471,8 +480,8 @@
                                 ]
                   },
                   {
-                      "title":  "宋家豪專訪》座右銘1+1大於2 聽太太的話就對了",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1777071",
+                      "title":  "宋家豪若想回中職 不受禁選1年限制",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1777073",
                       "source":  "自由時報",
                       "pubDate":  "2026-11-04T05:30:00+08:00",
                       "teams":  [
@@ -651,6 +660,33 @@
                                 ]
                   },
                   {
+                      "title":  "行使FA資格？ 雙獅不鬆口",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1777054",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-11-03T05:30:00+08:00",
+                      "teams":  [
+                                    "統一7-ELEVEn獅"
+                                ]
+                  },
+                  {
+                      "title":  "蔣銲年度MVP 鍾允華奪新人王",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1777001",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-11-03T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
+                      "title":  "擊敗李東洺 曾家輝獲最佳進步獎",
+                      "url":  "https://sports.ltn.com.tw/news/paper/1777053",
+                      "source":  "自由時報",
+                      "pubDate":  "2026-11-03T05:30:00+08:00",
+                      "teams":  [
+
+                                ]
+                  },
+                  {
                       "title":  "自由日日Shoot》林益全遇投資詐騙 中職億元男遭催債",
                       "url":  "https://sports.ltn.com.tw/news/paper/1777048",
                       "source":  "自由時報",
@@ -671,33 +707,6 @@
                   {
                       "title":  "獨攬4獎 蔣銲大贏家",
                       "url":  "https://sports.ltn.com.tw/news/paper/1777051",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-11-03T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "擊敗李東洺 曾家輝獲最佳進步獎",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1777053",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-11-03T05:30:00+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "行使FA資格？ 雙獅不鬆口",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1777054",
-                      "source":  "自由時報",
-                      "pubDate":  "2026-11-03T05:30:00+08:00",
-                      "teams":  [
-                                    "統一7-ELEVEn獅"
-                                ]
-                  },
-                  {
-                      "title":  "蔣銲年度MVP 鍾允華奪新人王",
-                      "url":  "https://sports.ltn.com.tw/news/paper/1777001",
                       "source":  "自由時報",
                       "pubDate":  "2026-11-03T05:30:00+08:00",
                       "teams":  [
@@ -889,15 +898,6 @@
                       "url":  "https://www.cna.com.tw/news/aspt/202611020282.aspx",
                       "source":  "中央社",
                       "pubDate":  "2026-11-02T20:34:07+08:00",
-                      "teams":  [
-
-                                ]
-                  },
-                  {
-                      "title":  "「還能回球場嗎？」陳文杰傷後東山再起　救護車上很擔心",
-                      "url":  "https://sports.ettoday.net/news/3265147",
-                      "source":  "ETtoday",
-                      "pubDate":  "2026-11-02T20:30:00+08:00",
                       "teams":  [
 
                                 ]
