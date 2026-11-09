@@ -134,6 +134,8 @@ CPBL 2026 進場倒數目前已實作的功能。
 
 localStorage 儲存 schema v1，讓網站記得使用者身份與偏好。未來 Phase 4 跨裝置同步會沿用此 schema。分支 `feat/phase1-personalization`，已 merge `4e7c11a`。
 
+**場次 key 帶球季年份（schema v3，2026-11）**：`favorites` / `checkins` 的 key 是 `'2026-001'`、`'2026-C005'`（`userGameKey(sno)`），不是單純 sno——CPBL 每季 sno 從 001 重編，只存 sno 會讓 2027 第 1 場顯示成已打卡並蓋掉舊紀錄。球季取 `RAW_DATA` 第一場的年份（`currentSeason()`）。`migrateUserState` 把沒年份的舊 key 一律補成 `2026-`，可重跑（syncPull 拉到舊資料也安全）。畫面與統計一律透過 `seasonCheckins()` / `seasonFavorites()` 只看本季，往年紀錄留在 state 不顯示（之後做跨季回顧再讀）。
+
 ### 主隊設定
 - 首次進站彈出 modal（6 隊 3×2 網格）選主隊；可按「先跳過」
 - Nav 列：未設 → 虛線「⚾ 設定主隊」按鈕；已設 → logo + 名稱 + 「切換」連結（奶茶底實心 pill）
