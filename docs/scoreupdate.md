@@ -6,6 +6,18 @@
 
 ## 🔖 進度記錄
 
+### 2026-11-09 — 休賽期一天只跑一次（offseason gate）
+
+- **問題**：2026 球季 10/26 結束後，排程照樣每小時跑（logon / unlock / 09:00–22:00 每小時），比分不會再變，每次只有 `data/news.json` 在變，一天十幾筆 commit。
+- **修正**（不動 Task Scheduler 設定，不需 admin）：新增 [scripts/offseason-gate.ps1](../scripts/offseason-gate.ps1)，`update-scores.bat` 在碰 git 之前先問它：
+  - RAW_DATA 有今天或之後的場次（球季中）→ 照跑。
+  - 全部場次都已過去（休賽期）→ 當天第一次照跑（比分 + 新聞），之後當天的觸發都 `exit 3` 跳過。
+  - 依據是 `logs/last-run-date.txt`，**push 成功後才寫**，所以失敗的那次下個觸發會重試。
+  - gate 自己出錯一律放行，不能擋到正常更新。
+- **為什麼休賽期比分也照跑一次**：讓抓取流程（CDN cookie 挑戰、token）整個冬天每天都有在測，API 改版能在開季前發現。
+- **開季恢復**：RAW_DATA 一出現未來場次就自動回到每小時。但 `update-scores.ps1` 的 API 呼叫寫死 `CalendarDate=2026/06/01`，**2027 賽程不會自己抓進來**，換季時要手動改年份（見 memory 休賽期清單）。
+- **測試**：`powershell -File scripts\offseason-gate.ps1 -Today 2026-11-09` 可指定日期；測過休賽期無 stamp 會跑、同日已 stamp 會跳過、隔日 stamp 會跑、球季中會跑。
+
 ### 2026-06-29 — 「電腦打開就更新」：加 logon/unlock 觸發 + 抓取前等網路
 
 - **需求**：使用者可接受筆電睡眠期間不更新，但**打開電腦後必須正常補更新**。週末筆電 sleep（6/27 00:04 → 6/29 09:55）後，醒來到 14:27 都沒跑，戰績表停在 6/26。

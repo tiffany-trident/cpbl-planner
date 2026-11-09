@@ -36,6 +36,11 @@ if not exist "%PS1%" (
   exit /b 1
 )
 
+REM === Offseason gate: once the season is over, run only once a day ===
+REM Exit 3 = already ran today in the offseason -> skip quietly. Anything else runs.
+powershell -NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -File "%REPO%\scripts\offseason-gate.ps1" >> "%LOG%" 2>&1
+if errorlevel 3 exit /b 0
+
 REM === Branch guard: auto-update must commit to main ===
 set "ORIG_BRANCH="
 for /f "usebackq delims=" %%b in (`"%GIT%" rev-parse --abbrev-ref HEAD`) do set "ORIG_BRANCH=%%b"
@@ -104,6 +109,8 @@ if errorlevel 1 (
   goto :restore_branch
 )
 echo [OK] pushed (or already up to date) >> "%LOG%"
+REM Stamp for the offseason gate (only after a successful push, so a failed run retries)
+> "%LOGDIR%\last-run-date.txt" echo !TS:~0,10!
 
 :restore_branch
 if "!SWITCHED!"=="1" (
