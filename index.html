@@ -1459,6 +1459,12 @@ let userState = loadUserState();
 function currentSeason() {
   return RAW_DATA.length ? RAW_DATA[0][0].slice(0, 4) : String(new Date().getFullYear());
 }
+// 同一 sno 可能有多筆：延賽（gr=1）、保留（gr=2）、補賽／續賽完賽（gr=0），見 docs/data-source.md。
+// 打卡、收藏、戰績頁用 sno 找場次時一律取代表那筆：完賽 > 最新一筆未延賽 > 任一筆
+function gameBySno(sno) {
+  const rows = allGames.filter(g => g.sno === sno);
+  return rows.find(g => g.completed) || rows.filter(g => !g.postponed).pop() || rows.pop() || null;
+}
 function userGameKey(sno) { return currentSeason() + '-' + sno; }
 // 本季的打卡 { sno: checkin } — 畫面與統計只看本季，往年紀錄留在 userState 不動
 function seasonCheckins() {
@@ -3370,7 +3376,7 @@ function isCheckedIn(sno) {
 }
 
 function openCheckinModal(sno) {
-  const g = allGames.find(x => x.sno === sno);
+  const g = gameBySno(sno);
   if (!g) return;
   currentCheckinSno = sno;
   const existing = userState.checkins[userGameKey(sno)];
@@ -3469,7 +3475,7 @@ function deleteCheckinForm() {
   if (!currentCheckinSno) return;
   if (!confirm('確定刪除這場比賽的打卡紀錄嗎？')) return;
   const sno = currentCheckinSno;
-  const deletedGame = allGames.find(g => g.sno === sno);
+  const deletedGame = gameBySno(sno);
   const deletedVenue = deletedGame ? deletedGame.field : null;
   delete userState.checkins[userGameKey(sno)];
   // Phase 2-D：刪除後同步倒退 shownMilestones，讓不再達標的可重新觸發
@@ -4413,7 +4419,7 @@ function fmtDuration(hhmmss) {
 }
 
 function buildBoxHtml(sno, box) {
-  const g = allGames.find(x => x.sno === sno);
+  const g = gameBySno(sno);
   const info = box.info || {};
   const awayName = box.line.away ? box.line.away.name : (g ? g.visitor : '');
   const homeName = box.line.home ? box.line.home.name : (g ? g.home : '');
@@ -4779,7 +4785,7 @@ function calcMainTeamFieldStats() {
   if (!mainTeam) return { total: 0, wins: 0, losses: 0, ties: 0 };
   let wins = 0, losses = 0, ties = 0;
   Object.keys(seasonCheckins()).forEach(sno => {
-    const g = allGames.find(x => x.sno === sno);
+    const g = gameBySno(sno);
     if (!g || g.postponed || !g.completed) return;
     const isHome = g.home === mainTeam;
     const isVisitor = g.visitor === mainTeam;
@@ -4859,7 +4865,7 @@ function renderCheckinsList() {
   const checkins = seasonCheckins();
   const snos = Object.keys(checkins);
   if (snos.length === 0) return renderCheckinsEmpty();
-  const rows = snos.map(sno => ({ sno, ck: checkins[sno], g: allGames.find(x => x.sno === sno) }))
+  const rows = snos.map(sno => ({ sno, ck: checkins[sno], g: gameBySno(sno) }))
     .filter(r => r.g)
     .sort((a, b) => a.g.date < b.g.date ? 1 : a.g.date > b.g.date ? -1 : 0);
   if (rows.length === 0) return renderCheckinsEmpty();
@@ -4954,7 +4960,7 @@ function renderFavoritesEmpty() {
 function renderFavoritesList() {
   const snos = seasonFavorites();
   if (snos.length === 0) return renderFavoritesEmpty();
-  const games = snos.map(sno => allGames.find(g => g.sno === sno)).filter(Boolean);
+  const games = snos.map(sno => gameBySno(sno)).filter(Boolean);
   if (games.length === 0) return renderFavoritesEmpty();
 
   const future = games.filter(g => g.isFuture && !g.postponed).sort((a, b) => a.date < b.date ? -1 : a.date > b.date ? 1 : a.time < b.time ? -1 : 1);
@@ -5039,7 +5045,7 @@ function calcVenueStats(venue) {
   let lastDate = null;
   let wins = 0, losses = 0;
   Object.keys(seasonCheckins()).forEach(sno => {
-    const g = allGames.find(x => x.sno === sno);
+    const g = gameBySno(sno);
     if (!g || g.field !== venue) return;
     count++;
     if (!lastDate || g.date > lastDate) lastDate = g.date;
@@ -5054,7 +5060,7 @@ function calcVenueStats(venue) {
 function findTopCheckinVenue() {
   const counts = {};
   Object.keys(seasonCheckins()).forEach(sno => {
-    const g = allGames.find(x => x.sno === sno);
+    const g = gameBySno(sno);
     if (!g) return;
     counts[g.field] = (counts[g.field] || 0) + 1;
   });
@@ -5071,7 +5077,7 @@ const CHECKIN_THRESHOLDS = [5, 10]; // 將來只往上加（25/50/...），加�
 function countCheckinsForVenue(checkins, venue) {
   let n = 0;
   Object.keys(checkins).forEach(sno => {
-    const g = allGames.find(x => x.sno === sno);
+    const g = gameBySno(sno);
     if (g && g.field === venue) n++;
   });
   return n;
@@ -5095,7 +5101,7 @@ function detectMilestonesAfterCheckin(addedSno, prevCheckins) {
   });
 
   // ② 球場巡禮（單座首次解鎖）：本次寫入的 sno 所在球場是否從 0 → 1+
-  const g = allGames.find(x => x.sno === addedSno);
+  const g = gameBySno(addedSno);
   if (g && VENUES_2026.includes(g.field)) {
     const prevVenueCount = countCheckinsForVenue(prevCheckins, g.field);
     const newVenueCount = countCheckinsForVenue(newCheckins, g.field);
@@ -5290,7 +5296,7 @@ function calcMainTeamFieldStreak() {
   if (!mainTeam) return { count: 0 };
   const records = [];
   Object.keys(seasonCheckins()).forEach(sno => {
-    const g = allGames.find(x => x.sno === sno);
+    const g = gameBySno(sno);
     if (!g || g.postponed || !g.completed) return;
     const isHome = g.home === mainTeam;
     const isVisitor = g.visitor === mainTeam;
@@ -5342,7 +5348,7 @@ function calcMainTeamFieldRecent(limit) {
   if (!mainTeam) return [];
   const records = [];
   Object.keys(seasonCheckins()).forEach(sno => {
-    const g = allGames.find(x => x.sno === sno);
+    const g = gameBySno(sno);
     if (!g || g.postponed || !g.completed) return;
     const result = gameResultForTeam(g, mainTeam);
     if (!result) return;
